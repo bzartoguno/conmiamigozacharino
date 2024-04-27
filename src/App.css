@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,65 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.background-image {
+  /* Set the background image and ensure it covers the entire container */
+  background: url('./laluchaivory.png') no-repeat center center fixed;
+  background-size: cover;
+
+  /* Make the image fade */
+  opacity: 0.5; /* Adjust opacity to make it more or less faded */
+
+  /* Ensure the background spans the full size of the viewport */
+  height: 100vh;
+  width: 100vw;
+
+  /* Additional styling to ensure the content container works properly */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure it stays in the background */
+}
+
+h1 {
+  color: white; /* Choose a color that contrasts well with the background */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
+}
+
+.text-box {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  padding: 20px; /* Add some padding around the text */
+  display: inline-block; /* Fit the background to the text size */
+  color: white;
+  display: block;
+}
+
+.text-box2 {
+  margin: 30px;
+  background-color:
+   rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  padding: 20px; /* Add some padding around the text */
+  display: inline-block; /* Fit the background to the text size */
+  color: white;
+  font-size: 24px; /* Larger font size */
+  font-weight: bold; /* Bold font weight */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+}
+
+table {
+  margin: 30px;
+  background-color:
+   rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  padding: 20px; /* Add some padding around the text */
+  display: inline-block; /* Fit the background to the text size */
+  color: white;
+  font-size: 24px; /* Larger font size */
+  font-weight: bold; /* Bold font weight */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
 }
