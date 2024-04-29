@@ -97,3 +97,10 @@ table {
   font-weight: bold; /* Bold font weight */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
 }
+
+.description {
+  font-style: italic;
+  font-size: 50%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: blue;
+}
