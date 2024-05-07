@@ -3,3 +3,11 @@ export interface Item {
   price: number;
   description?: string;
 }
+
+export interface Tribe {
+  name: string;
+  percentAngry: number;
+  priceVariability: number;
+  items: Item[];
+  insults: string[];
+}

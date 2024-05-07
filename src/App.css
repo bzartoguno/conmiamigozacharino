@@ -71,7 +71,7 @@ h1 {
   font-style: normal;
 }
 
-button {
+.button-ugly {
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -80,5 +80,28 @@ button {
   width: 600px;
   height: 200px;
   border-radius: 20px;
-  font: 'Comic Sans'
+  font: 'Comic Sans';
+  user-select: none;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 9px #999;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

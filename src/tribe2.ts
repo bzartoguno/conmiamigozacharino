@@ -1,6 +1,17 @@
-import { Item } from "./types";
+import { Tribe } from "./types";
 
-export const list2: Item[] = [
+export const tribe2: Tribe = {
+  name: "Grubcar Clan",
+  percentAngry: 90,
+  priceVariability: 10,
+  insults: [
+    "Grubcar Clan is angry at you and don't want to trade with you!",
+    "You ugly",
+    "And your momma",
+    "Ook tooka",
+  ],
+
+  items: [
   {
     name: "Waste of good napkin",
     price: 300,
@@ -61,4 +72,5 @@ export const list2: Item[] = [
     price: 200,
     description: "(Fresh costco rotisserie chicken, probably stolen from a person named Holly becuase her receit is still in the bag)",
   },
-];
+]
+}
