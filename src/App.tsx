@@ -7,7 +7,6 @@ import { list4 } from "./list4";
 import { list5 } from "./list5";
 import { list6 } from "./list6";
 import { ShowItem } from "./ShowItem";
-import { ShowItem2} from "./ShowItem2"
 import { getNextItem } from "./getNextItem";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
   const [index4, setIndex4] = useState<number>(getNextItem(list4));
   const [index5, setIndex5] = useState<number>(getNextItem(list5));
   const [index6, setIndex6] = useState<number>(getNextItem(list6));
-
 
   const handleItemClick = () => {
     setindex1(getNextItem(list1, index1));
@@ -32,28 +30,18 @@ function App() {
     <div className="App background-image">
       <h1>Goblin Marketplace</h1>
 
-      {/* {SillyLists()} */}
-
-      {/* <h1>{list1[index1].name}</h1>
-      <h1>{list2[index2].name}</h1> */}
-
-      <table>
+      <div style={{ display: "flex", flexDirection: "column" }}>
         <ShowItem item={list1[index1]} tribe="Beastbinders Tribe" />
-        <ShowItem item={list2[index2]} tribe="Grubcar Clan"/>
-        <ShowItem item={list3[index3]} tribe="Tinkertrack Gang"/>
-        <ShowItem item={list4[index4]} tribe="Blastwagon Caboose"/>
-        <ShowItem item={list5[index5]} tribe="Railblade Raiders"/>
-        <ShowItem item={list6[index6]} tribe="Loco Lux Motors"/>
-      </table>
+        <ShowItem item={list2[index2]} tribe="Grubcar Clan" />
+        <ShowItem item={list3[index3]} tribe="Tinkertrack Gang" />
+        <ShowItem item={list4[index4]} tribe="Blastwagon Caboose" />
+        <ShowItem item={list5[index5]} tribe="Railblade Raiders" />
+        <ShowItem item={list6[index6]} tribe="Loco Lux Motors" />
+      </div>
 
-      <ShowItem2 item={list1[index1]} tribe="Beastbinders Tribe" />
-        <ShowItem2 item={list2[index2]} tribe="Grubcar Clan"/>
-        <ShowItem2 item={list3[index3]} tribe="Tinkertrack Gang"/>
-        <ShowItem2 item={list4[index4]} tribe="Blastwagon Caboose"/>
-        <ShowItem2 item={list5[index5]} tribe="Railblade Raiders"/>
-        <ShowItem2 item={list6[index6]} tribe="Loco Lux Motors"/>
-
-      <button onClick={handleItemClick}>It that the best you can do, for me, Goober?</button>
+      <button onClick={handleItemClick}>
+        It that the best you can do, for me, Goober?
+      </button>
     </div>
   );
 }

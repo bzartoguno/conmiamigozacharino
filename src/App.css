@@ -2,41 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  /* background-color: #282c34; */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .background-image {
   /* Set the background image and ensure it covers the entire container */
   background: url('./laluchaivory.png') no-repeat center center fixed;
@@ -61,47 +26,59 @@ h1 {
   text-shadow: 2px 2px 8px rgb(0, 0, 0); /* Horizontal, vertical offset and blur radius */
 }
 
-.text-box {
-  background-color: rgb(0, 0, 0); /* Semi-transparent black */
-  padding: 20px; /* Add some padding around the text */
-  display: inline-block; /* Fit the background to the text size */
-  color: white;
-  display: block;
-}
-
-.text-box2 {
-  margin: 30px;
-  background-color:
-   rgb(0, 0, 0); /* Semi-transparent black */
-  padding: 20px; /* Add some padding around the text */
-  display: inline-block; /* Fit the background to the text size */
-  color: white;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 24px; /* Larger font size */
-  font-weight: bold; /* Bold font weight */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
-}
-
 .lists {
   display: flex;
   flex-direction: row;
 }
 
-table {
+
+.text-box {
   margin: 30px;
-  background-color:
-   rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background-color: palegoldenrod;
   padding: 20px; /* Add some padding around the text */
   display: inline-block; /* Fit the background to the text size */
-  color: white;
+  color: #222;
+  font-family: 'Times New Roman', Times, serif;
+
   font-size: 24px; /* Larger font size */
-  font-weight: bold; /* Bold font weight */
+  font-weight: bolder; /* Bold font weight */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
+  width: fit-content;
+  max-width: 600px;
+
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  border: 3px dashed gray;
 }
 
 .description {
+  /* border-top: 3px dashed maroon; */
+  /* padding-top: 10px; */
+  margin-top: 10px;
+  font-weight: normal;
   font-style: italic;
   font-size: 75%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: wheat;
+  color: #444;
+  text-shadow: none;
+}
+
+.poetsen-one-regular {
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 200%;
+  width: 600px;
+  height: 200px;
+  border-radius: 20px;
+  font: 'Comic Sans'
 }

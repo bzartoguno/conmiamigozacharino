@@ -8,18 +8,21 @@ type ShowItemProps = {
 
 export const ShowItem: FC<ShowItemProps> = ({ item, tribe }) => {
   if (!item) {
-    return <tr><td>{tribe} is angry at you and don't want to trade with you!</td></tr>
+    return (
+      <div className="text-box">
+        {tribe} is angry at you and don't want to trade with you!
+      </div>
+    );
   }
-
   const { description, name, price } = item;
   return (
     <>
-      <tr>
-        <td>{tribe} wants to trade </td>
-        <td>{name}</td>
-        <td>for {price} Gold</td>
-        <td>{description}</td>
-      </tr>
+      <div className="text-box">
+        <div>
+          {tribe} wants to trade {name} for {price} Gold
+        </div>
+        <div className="description">{description}</div>
+      </div>
     </>
   );
 };
