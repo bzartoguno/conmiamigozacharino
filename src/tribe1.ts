@@ -5,17 +5,17 @@ export const tribe1: Tribe = {
   percentAngry: 10,
   priceVariability: 10,
   insults: [
-    "Beastbinders Tribe is angry at you and don't want to trade with you!",
+    "The Beastbinders Tribe is angry at you and doesn't want to trade with you!",
     "You ugly",
-    "And your momma",
+    "And your momma too",
     "Ook tooka",
   ],
   items: [
     {
-      name: "A useless piece of papar!",
+      name: "A useless piece of paper",
       price: 80,
       description:
-        "(A coupon that is 10% off of your next purchase anywhere only works once)",
+        "(A coupon that is 10% off your next purchase anywhere; only works once)",
     },
     {
       name: "Mini Moo Moo",
@@ -25,23 +25,23 @@ export const tribe1: Tribe = {
     {
       name: "Beehive",
       price: 50,
-      description: "{Asians Murder Hornet Hive in a jar)",
+      description: "(Asian Murder Hornet Hive in a jar)",
     },
     {
       name: "Morning Screamer",
       price: 30,
-      description: "(Rooster, again most likely stolen)",
+      description: "(A rooster, most likely stolen)",
     },
     {
       name: "Fish Friend Suit",
       price: 80,
-      description: "(Shark suit comes in blue or gray)",
+      description: "(Shark suit, comes in blue or gray)",
     },
     {
       name: "Nom",
       price: 10,
       description:
-        "(No one likes him, and they can't get rid of him. Because he keeps on finding his way back, so they have bound him in rope and offered him to you)",
+        "(No one likes him, and they can't get rid of him because he keeps finding his way back. Thus, they have bound him in rope and offered him to you)",
     },
     {
       name: "Silver Gr Gr",
@@ -52,21 +52,21 @@ export const tribe1: Tribe = {
       name: "Walking Fleece",
       price: 30,
       description:
-        "(A little lamb, with a collar saying that it belongs to Marry)",
+        "(A little lamb, with a collar saying that it belongs to Mary)",
     },
     {
       name: "Nope Noodle",
       price: 50,
       description:
-        "(A non venomus snake, take likes hideing itself as a scarf)",
+        "(A non-venomous snake that likes hiding itself as a scarf)",
     },
     {
-      name: "Da forever friend",
+      name: "Da Forever Friend",
       price: 80,
       description: "(An origami frog made with love and care)",
     },
     {
-      name: "Saddness",
+      name: "Sadness",
       price: 30,
       description: "(A rubber ball that never bounces)",
     },
