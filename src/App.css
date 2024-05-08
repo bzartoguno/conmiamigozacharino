@@ -4,7 +4,7 @@
 
 .background-image {
   /* Set the background image and ensure it covers the entire container */
-  background: url('./laluchaivory.png') no-repeat center center fixed;
+  background: url('./Goblin-Market-Train.png') no-repeat center center fixed;
   background-size: cover;
 
   /* Make the image fade */
@@ -23,7 +23,7 @@
 
 h1 {
   color: white; /* Choose a color that contrasts well with the background */
-  text-shadow: 2px 2px 8px rgb(0, 0, 0); /* Horizontal, vertical offset and blur radius */
+  text-shadow: none; /* Removed shadow */
 }
 
 .lists {
@@ -31,38 +31,48 @@ h1 {
   flex-direction: row;
 }
 
-
 .text-box {
   margin: 30px;
-  background-color: palegoldenrod;
-  padding: 20px; /* Add some padding around the text */
-  display: inline-block; /* Fit the background to the text size */
-  color: #222;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  display: inline-block;
+  color: #000000;
   font-family: 'Times New Roman', Times, serif;
-
-  font-size: 24px; /* Larger font size */
-  font-weight: bolder; /* Bold font weight */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Horizontal, vertical offset and blur radius */
+  font-size: 24px;
+  font-weight: bolder;
   width: fit-content;
   max-width: 600px;
-
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  border: 3px dashed gray;
+  border: 5px dashed gray;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
 }
 
+/* Additional classes for different delays */
+.text-box.delay1 { animation-delay: 2s; }
+.text-box.delay2 { animation-delay: 4s; }
+.text-box.delay3 { animation-delay: 6s; }
+.text-box.delay4 { animation-delay: 8s; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(5px, 0); }
+  50% { transform: translate(0, 5px); }
+  75% { transform: translate(-5px, 0); }
+}
+
+
 .description {
-  /* border-top: 3px dashed maroon; */
-  /* padding-top: 10px; */
   margin-top: 10px;
   font-weight: normal;
   font-style: italic;
   font-size: 75%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #444;
-  text-shadow: none;
+  color: #050505;
+  text-shadow: none; /* Ensuring no shadow here as well, even though it wasn't set before */
 }
 
 .poetsen-one-regular {
