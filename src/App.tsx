@@ -7,39 +7,50 @@ import { tribe4 } from "./tribe4";
 import { tribe5 } from "./tribe5";
 import { tribe6 } from "./tribe6";
 import { Tribe } from "./types";
-import { ShowItem } from "./ShowItem";
 import { getNextItem } from "./getNextItem";
+import { getCookie } from "./cookies";
+import { MarketIsClosed } from "./MarketIsClosed";
+import { MarketIsOpen } from "./MarketIsOpen";
 
-function getIndices(tribes: Tribe[], oldList: number[] = []): number[] {
+const MAX_CLICKS = 5;
+
+export function getIndices(tribes: Tribe[], oldList: number[] = []): number[] {
   return tribes.map((tribe, index) => getNextItem(tribe.items, oldList[index]));
+}
+
+function getInitialClicks(): number {
+  return parseInt(getCookie("clicks") ?? "0") || 0;
+}
+
+function getInitialIndices(tribes: Tribe[]): number[] {
+  const strIndices = getCookie("itemIndices") || "";
+  const arrIndices = strIndices.split(",");
+  const numArr = arrIndices.map((value) => parseInt(value));
+  const firstIndiceIsValid = !!(numArr[0] + 1);
+  if (arrIndices.length !== tribes.length || !firstIndiceIsValid)
+    return getIndices(tribes);
+  return numArr;
 }
 
 function App() {
   const tribes = [tribe1, tribe2, tribe3, tribe4, tribe5, tribe6];
 
-  const [indices, setIndices] = useState<number[]>(getIndices(tribes));
+  const [clicks, setClicks] = useState(getInitialClicks());
 
-  const handleItemClick = () => setIndices(getIndices(tribes));
+  const [indices, setIndices] = useState(getInitialIndices(tribes));
 
-  return (
-    <div className="App background-image">
-      <h1>Goblin Marketplace</h1>
+  if (clicks <= MAX_CLICKS) {
+    return (
+      <MarketIsOpen
+        clicks={clicks}
+        setClicks={setClicks}
+        indices={indices}
+        setIndices={setIndices}
+        tribes={tribes}
+      />
+    );
+  }
 
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        {tribes.map((tribe, itemIndex) => (
-          <ShowItem
-            key={itemIndex}
-            tribe={tribe}
-            itemIndex={indices[itemIndex]}
-          />
-        ))}
-      </div>
-
-      <button className='button' onClick={handleItemClick}>
-        It that the best you can do, for me, Goober?
-      </button>
-    </div>
-  );
+  return <MarketIsClosed setClicks={setClicks} />;
 }
-
 export default App;
