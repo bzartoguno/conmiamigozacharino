@@ -119,5 +119,23 @@ export const tribe3: Tribe = {
       description:
         "(A potion of MEGA jump, allowing you to jump as high and as far as your current walking speed for 24 hours.)",
     },
+    {
+      name: "It is now a pillow!",
+      price: 600,
+      description:
+        "(Wand of pillows, using a charge on this wand can transform a 30 foot area into a pillow-ish verion of that area. This effect lasts for 10 minutes)",
+    },
+    {
+      name: "Umm you good? I AM PERFECTLY FINE NOW GET ME A BOOK. Where did your muscles go?",
+      price: 500,
+      description:
+        "(Hat of the WizBarb, whoever puts it on has their Intelligence and Strength scores swapped with one another.)",
+    },
+    {
+      name: "item 3",
+      price: 400,
+      description:
+        "()",
+    },
   ],
 };

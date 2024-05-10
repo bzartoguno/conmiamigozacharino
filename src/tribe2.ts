@@ -89,6 +89,11 @@ export const tribe2: Tribe = {
       description: "(A soggy bowl of cereal.)",
     },
     {
+      name: "Docter Be GONE!",
+      price: 100,
+      description: "(A shiny red apple the regenerates itself after half of it is gone.)",
+    },
+    {
       name: "Hobo Gum",
       price: 200,
       description: "(A rock, small enough to chew on.)",
@@ -112,6 +117,24 @@ export const tribe2: Tribe = {
       name: "Holly's Grail",
       price: 200,
       description: "(A fresh Costco rotisserie chicken, probably stolen from a person named Holly because her receipt is still in the bag.)",
+    },
+    {
+      name: "No no no I'm your brother! Remeber we used to luagh and play down by the river and mom would always make us a sandwitch when we came in side covered in mud!",
+      price: 100,
+      description:
+        "(Potion of Forget-Me-Not, After drinking this potion you will be forgotten by everyone who knows you. Unless they have psionic/psychic immune or resistance.)",
+    },
+    {
+      name: "Liquid Golden Cat Eyes",
+      price: 200,
+      description:
+        "(A semi permanent potion of Dark vision up to 120 feet. However your after drinking and while in darkness your eyes shift from their original color to a golden yellow and your pupils stretch, giving them a slitted, cat-like appearance.)",
+    },
+    {
+      name: "You really hurt my feelings, why would you do that!",
+      price: 300,
+      description:
+        "(Liar's Breath, After drinking this potion, you gain a +10 to all Deception rolls, however you are also unable to answer truthfully to any question. The effects of this potion last for 5 hours.)",
     },
   ],
 };

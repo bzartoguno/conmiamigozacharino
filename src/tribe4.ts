@@ -113,5 +113,28 @@ export const tribe4: Tribe = {
       price: 1000,
       description: "(Landmine, designed to take care of all those pesky squirrels, deals 7d6 fire damage.)",
     },
+    {
+      name: "Little Rascal",
+      price: 5000,
+      description: "(It's a squirrel in a pet carrier, tho you have a bad feeling that if you open it. Something terrible will happen.)",
+    },
+    {
+      name: "item 1",
+      price: 1000,
+      description:
+        "()",
+    },
+    {
+      name: "item 2",
+      price: 3000,
+      description:
+        "()",
+    },
+    {
+      name: "item 3",
+      price: 5000,
+      description:
+        "()",
+    },
   ]
 };

@@ -6,6 +6,7 @@ import { tribe3 } from "./tribe3";
 import { tribe4 } from "./tribe4";
 import { tribe5 } from "./tribe5";
 import { tribe6 } from "./tribe6";
+import { tribe7 } from "./tribe7";
 import { Tribe } from "./types";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
@@ -33,7 +34,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 function App() {
-  const tribes = [tribe1, tribe2, tribe3, tribe4, tribe5, tribe6];
+  const tribes = [tribe1, tribe2, tribe3, tribe4, tribe5, tribe6, tribe7];
 
   const [clicks, setClicks] = useState(getInitialClicks());
 

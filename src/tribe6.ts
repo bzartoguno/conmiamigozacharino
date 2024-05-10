@@ -103,5 +103,11 @@ export const tribe6: Tribe = {
       price: 10000,
       description: "(Own a little bit of stock in a shop of your choice, more information provided upon purchase.)",
     },
+    {
+      name: "Shop Stock",
+      price: 10000,
+      description: "(Own a little bit of stock in a shop of your choice, more information provided upon purchase.)",
+    },
+    
   ]
 }

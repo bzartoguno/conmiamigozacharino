@@ -118,5 +118,23 @@ export const tribe1: Tribe = {
       description:
         "(Clothes stolen from a child who neglected to put them away.)",
     },
+    {
+      name: "Oh no the squirrels are back!",
+      price: 30,
+      description:
+        "(Horn of the Hunt, blowing into this horn will cuase all creature with INT of 8 or less will come running towards your location.)",
+    },
+    {
+      name: "Squirrel-Be-Gone!",
+      price: 50,
+      description:
+        "(Beast Flare, lighting this homemade flare will cause all creatures with INT of 4 or less run away.)",
+    },
+    {
+      name: "Stuffy!",
+      price: 80,
+      description:
+        "(Its a stuffed animal of your choice and no matter which goblin you show it to they, they will give you a compliment and show you their own stuffed animal of their own.)",
+    },
   ],
 };

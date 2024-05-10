@@ -41,20 +41,39 @@ export function MarketIsClosed({ setClicks }: MarketIsClosedProps) {
   };
 
   return (
-    <div>
-      <h1>Market is Closed</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      {isPasswordCorrect === false && <p>Password is incorrect. Try again.</p>}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#f4f4f4', // Light grey background
+      padding: '20px',
+      boxSizing: 'border-box'
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        padding: '20px',
+        borderRadius: '10px',
+        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+        textAlign: 'center',
+        width: '80%',
+        maxWidth: '600px'
+      }}>
+        <h1>Market is Closed</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Oh no! It looks like someone was being a Karen and now Goober is a little sad. Better apologize to him and thank him for all of his hard work:
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              style={{ display: 'block', margin: '10px auto', padding: '10px', width: '95%' }}
+            />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+        {isPasswordCorrect === false && <p>Oops that was the wrong thing to say, try again.</p>}
+      </div>
     </div>
   );
 }

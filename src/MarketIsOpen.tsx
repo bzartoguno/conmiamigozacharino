@@ -43,7 +43,7 @@ export function MarketIsOpen({
       <button className="button" onClick={handleItemClick}>
         It that the best you can do, for me, Goober?
         <br />
-        You have clicked {clicks} times.
+        You have asked {clicks} times.
       </button>
     </div>
   );

@@ -113,5 +113,28 @@ export const tribe5: Tribe = {
       price: 6000,
       description: "(Keoki's leave-no-trace-behind scratch-off ticket; wipe away your physical evidence of any crime you've committed in the last month. It can only be used five times before it dissolves.)",
     },
+    {
+      name: "Danger Lady's Mean Stick",
+      price: 4000,
+      description: "(Witch's Broom, while riding current fly speed is equal to half of your walking speed. It may have a mind of it's own.)",
+    },
+    {
+      name: "item 1",
+      price: 2000,
+      description:
+        "()",
+    },
+    {
+      name: "item 2",
+      price: 4000,
+      description:
+        "()",
+    },
+    {
+      name: "item 3",
+      price: 6000,
+      description:
+        "()",
+    },
   ]
 };
