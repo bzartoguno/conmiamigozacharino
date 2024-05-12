@@ -120,7 +120,7 @@ export const tribe7: Tribe = {
     },
     {
       name: "Skill training",
-      price: 3000,
+      price: 9000,
       description: "(gain proficiency in a skill of your choosing if you already have proficiency in that skill it becomes expertise.)",
     },   
   ]
