@@ -131,10 +131,10 @@ export const tribe1: Tribe = {
         "(Beast Flare, lighting this homemade flare will cause all creatures with INT of 4 or less run away.)",
     },
     {
-      name: "Stuffy!",
+      name: "Baby!",
       price: 80,
       description:
-        "(Its a stuffed animal of your choice and no matter which goblin you show it to they, they will give you a compliment and show you their own stuffed animal of their own.)",
+      "(Its a baby an elemental; Arcane, Earth, Plant, Fire, Metal, Lightning, Water, Ice, Celetial, or Infernal. These Babies' Elementals will grow proportionally with how much you feed them their element, and new abilities will unlock the more you feed them.)",
     },
   ],
 };

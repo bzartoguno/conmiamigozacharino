@@ -41,7 +41,7 @@ export function MarketIsOpen({
       </div>
 
       <button className="button" onClick={handleItemClick}>
-        It that the best you can do, for me, Goober?
+        Umm I don't like any of these can you check in the back, for me, Goober?
         <br />
         You have asked {clicks} times.
       </button>

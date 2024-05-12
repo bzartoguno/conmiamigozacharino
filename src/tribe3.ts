@@ -132,10 +132,10 @@ export const tribe3: Tribe = {
         "(Hat of the WizBarb, whoever puts it on has their Intelligence and Strength scores swapped with one another.)",
     },
     {
-      name: "item 3",
+      name: "Too many whispers",
       price: 400,
       description:
-        "()",
+        "(Town Crier's cap, While wore become aware of every piece of news that a regular person living in the city or town you are in would be aware of. Like upcoming festivals, important events that take place in the city, or if there has been a particularly big scandal recently. You are also aware of who the major political figures of the city are. This hat does not give any information outside of a city or town.)",
     },
   ],
 };

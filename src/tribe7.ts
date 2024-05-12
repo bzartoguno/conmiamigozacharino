@@ -3,7 +3,7 @@ import { Tribe } from "./types";
 export const tribe7: Tribe = {
   name: "Council of Condutors",
   percentAngry: 1,
-  priceVariability: 3,
+  priceVariability: 30,
   insults: [
     "The Council of Conductors is angry at you and doesn't want to trade with you!",
     "The Council of Conductors found a butterfly and started chasing after it.",
@@ -108,6 +108,20 @@ export const tribe7: Tribe = {
       price: 2000000,
       description: "(All goblins within ten miles of the wearer have to obey the obey their commands, if they can hear and understand it. Only three commands can be active at any given time.)",
     },
-    
+    {
+      name: "Even more terrible cards",
+      price: 1000000,
+      description: "(The deck of many fates.)",
+    },
+    {
+      name: "Some terrible cards",
+      price: 1000000,
+      description: "(The deck of many things.)",
+    },
+    {
+      name: "Skill training",
+      price: 3000,
+      description: "(gain proficiency in a skill of your choosing if you already have proficiency in that skill it becomes expertise.)",
+    },   
   ]
 }

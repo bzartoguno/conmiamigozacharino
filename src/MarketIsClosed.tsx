@@ -62,7 +62,7 @@ export function MarketIsClosed({ setClicks }: MarketIsClosedProps) {
         <h1>Market is Closed</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Oh no! It looks like someone was being a Karen and now Goober is a little sad. Better apologize to him and thank him for all of his hard work:
+            Oh no! It looks like someone was being a Karen and now Goober is a little sad. Better apologize to him and thank him for all of his hard work.
             <input
               type="password"
               value={password}

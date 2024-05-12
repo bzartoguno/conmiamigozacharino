@@ -119,22 +119,22 @@ export const tribe4: Tribe = {
       description: "(It's a squirrel in a pet carrier, tho you have a bad feeling that if you open it. Something terrible will happen.)",
     },
     {
-      name: "item 1",
+      name: "Squirrel Finder",
       price: 1000,
       description:
-        "()",
+        "(Blood Compass, dropping a speck of blood into the needle of this compass it instantly point to towards the blood doner this effect lasts 24 hours. However the doner will be aware they are being tracked.)",
     },
     {
-      name: "item 2",
+      name: "Night Light",
       price: 3000,
       description:
-        "()",
+        "(Flare gun, Deals 2d6 fire damage and lights up 240 ft radius of the area. A terrible weapon if your trying to hide from dinosuars.)",
     },
     {
-      name: "item 3",
+      name: "Stuffy!",
       price: 5000,
       description:
-        "()",
+        "(Its a stuffed animal of your choice and no matter which goblin you show it to they, they will give you a compliment and show you their own stuffed animal of their own.)",
     },
   ]
 };

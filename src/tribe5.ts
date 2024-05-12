@@ -119,22 +119,22 @@ export const tribe5: Tribe = {
       description: "(Witch's Broom, while riding current fly speed is equal to half of your walking speed. It may have a mind of it's own.)",
     },
     {
-      name: "item 1",
+      name: "Sometime works, sometime don't",
       price: 2000,
       description:
-        "()",
+        "(Moonsliver Cloak, This cloak makes the wear invisible while outdoors at night. This cloak doesn't work a week before and after a lunar eclipse.)",
     },
     {
-      name: "item 2",
+      name: "Cool smokey jacket",
       price: 4000,
       description:
-        "()",
+        "(Storm Rider Jacket, AC now 12 now resistance to lightning and gain a flight speed of 45.)",
     },
     {
-      name: "item 3",
+      name: "Cat Cape, Cat Cape, your wearing a Cat Cape!",
       price: 6000,
       description:
-        "()",
+        "(Cape of Nine Lives, this cape is guarded by a mischievous cat spirit that protects you from death nine times. Whenever you take damage that would otherwise reduce your hit points to 0, you are instead reduced to 1 hit point. If an effect would kill you instantly without causing damage, that effect is nullified. however Each time the cape saves your life, you gradually take on feline traits, such as whiskers, cat ears, and behaviors like the compulsion to knock things over. Casting Greater Restoration or Remove Curse can reverse these changes.)",
     },
   ]
 };
