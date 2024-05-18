@@ -96,7 +96,7 @@ export const tribe7: Tribe = {
     {
       name: "Pat's Homemade Cottage Chest",
       price: 1000,
-      description: "(Placing this small box on the ground and opening it will allow you to enter a tiny dimension place that is akin to being inside a real cabin. The chest's weight double for each living creature in their.)",
+      description: "(Placing this small box on the ground will allow it to open, granting you access to a tiny, cozy-dimension place akin to being inside an authentic cabin. The chest can't be moved if there's a living being inside, but the chest can be destroyed.)",
     },
     {
       name: "Omega Skeleton Key",
