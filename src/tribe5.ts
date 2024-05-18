@@ -81,7 +81,7 @@ export const tribe5: Tribe = {
     {
       name: "Gallon of Americano Blood",
       price: 2000,
-      description: "(Contains oil.)",
+      description: "(It's a jug oil.)",
     },
     {
       name: "Whizz Bang",
@@ -114,7 +114,7 @@ export const tribe5: Tribe = {
       description: "(Keoki's leave-no-trace-behind scratch-off ticket; wipe away your physical evidence of any crime you've committed in the last month. It can only be used five times before it dissolves.)",
     },
     {
-      name: "Danger Lady's Mean Stick",
+      name: "Danger Lady's Meany Stick",
       price: 4000,
       description: "(Witch's Broom, while riding current fly speed is equal to half of your walking speed. It may have a mind of it's own.)",
     },
@@ -125,7 +125,7 @@ export const tribe5: Tribe = {
         "(Moonsliver Cloak, This cloak makes the wear invisible while outdoors at night. This cloak doesn't work a week before and after a lunar eclipse.)",
     },
     {
-      name: "Cool smokey jacket",
+      name: "One cool jacket",
       price: 4000,
       description:
         "(Storm Rider Jacket, AC now 12 now resistance to lightning and gain a flight speed of 45.)",

@@ -8,7 +8,7 @@
   background-size: cover;
 
   /* Make the image fade */
-  opacity: 0.5; /* Adjust opacity to make it more or less faded */
+  opacity: 0.75; /* Adjust opacity to make it more or less faded */
 
   /* Ensure the background spans the full size of the viewport */
   height: 100vh;
@@ -22,8 +22,8 @@
 }
 
 h1 {
-  color: white; /* Choose a color that contrasts well with the background */
-  text-shadow: none; /* Removed shadow */
+  color: rgb(0, 0, 0);
+  text-shadow: 100%; 
 }
 
 .lists {
@@ -33,11 +33,11 @@ h1 {
 
 .text-box {
   margin: 30px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(168, 255, 151, 0.712);
   padding: 20px;
   display: inline-block;
   color: #000000;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', ;
   font-size: 24px;
   font-weight: bolder;
   width: fit-content;
@@ -46,12 +46,13 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  border: 5px dashed gray;
+  box-shadow: 5px 5px #000000ab;
+  border: 5px solid rgb(0, 0, 0);
   position: relative;
-  animation: float 3s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
-/* Additional classes for different delays */
+/ Additional classes for different delays /
 .text-box.delay1 { animation-delay: 2s; }
 .text-box.delay2 { animation-delay: 4s; }
 .text-box.delay3 { animation-delay: 6s; }
@@ -104,14 +105,14 @@ h1 {
   background-color: #4CAF50;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 9px #999;
-  transition: all 0.3s ease 0s;
+  box-shadow: 5px 5px #000000ab;
+  transition: all 0.25s ease 0s;
 }
 
 .button:hover {background-color: #3e8e41}
 
 .button:active {
   background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  box-shadow: 2.5px 2.5px #000000ab;
   transform: translateY(4px);
 }

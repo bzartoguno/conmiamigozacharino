@@ -54,7 +54,7 @@ export function MarketIsClosed({ setClicks }: MarketIsClosedProps) {
         backgroundColor: 'white',
         padding: '20px',
         borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+        boxShadow: '0 40px 8px rgba(0,0,0,0.1)',
         textAlign: 'center',
         width: '80%',
         maxWidth: '600px'

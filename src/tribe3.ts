@@ -51,7 +51,6 @@ export const tribe3: Tribe = {
     "Tinkertrack Gang has decided to go ice skating, but it's not winter yet, so they must wait by the pond for it to freeze.",
     "Someone in Tinkertrack Gang has found an Easter egg. Maybe there are more! So give them a second.",
   ],
-
   items: [
     {
       name: "Funky Shimmering Card!",
@@ -95,7 +94,7 @@ export const tribe3: Tribe = {
     },
     {
       name: "Bonk",
-      price: 600,
+      price: 8,
       description: "(An empty water jug that deals 1d4 bludgeoning damage.)",
     },
     {

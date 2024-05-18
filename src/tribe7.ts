@@ -59,7 +59,7 @@ export const tribe7: Tribe = {
       description: "(While playing an instrument roll 3d100 that is how many rubber ducks fall out of your pockets or real ducks appear. They will disapear is you stop playing.)",
     },
     {
-      name: "Quick Change Ring.",
+      name: "Quick Swap Ring.",
       price: 10000,
       description: "(Swap places with someone within 200 ft once per day.)",
     },
@@ -94,7 +94,7 @@ export const tribe7: Tribe = {
       description: "(Warning, your charater has to remove one of their funtioning eyes for this item to work! You can now summon two ravens of which you can see through there eyes, however if one of the ravens dies so does the other. Ravens can be summoned once per long rest.)",
     },
     {
-      name: "Cottage Chest",
+      name: "Pat's Homemade Cottage Chest",
       price: 1000,
       description: "(Placing this small box on the ground and opening it will allow you to enter a tiny dimension place that is akin to being inside a real cabin. The chest's weight double for each living creature in their.)",
     },
@@ -122,6 +122,21 @@ export const tribe7: Tribe = {
       name: "Skill training",
       price: 9000,
       description: "(gain proficiency in a skill of your choosing if you already have proficiency in that skill it becomes expertise.)",
+    },
+    {
+      name: "Used Bag of Holding",
+      price: 1000,
+      description: "(This is a bag of holding, however some items you withdraw may have a bit of glitter on them. Not you may not put living beings in here.)",
+    },   
+    {
+      name: "A really handy Hat",
+      price: 1000000,
+      description: "(Whenever you reach into this hat you one in three chance of withdrawing a useful item, a detrimental item, or a clue for your current quest.)",
+    },   
+    {
+      name: "Ring of Replenishing Snowballs",
+      price: 3,
+      description: "(Create and throw up to five harmless snowballs a day, they always hit.)",
     },   
   ]
 }

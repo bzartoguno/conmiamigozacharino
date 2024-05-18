@@ -55,28 +55,28 @@ export const tribe1: Tribe = {
   items: [
     {
       name: "A Useless Piece of Paper",
-      price: 80,
+      price: 35,
       description:
         "(A coupon that offers 10% off your next purchase anywhere; valid for one use only.)",
     },
     {
       name: "Mini Moo Moo",
-      price: 30,
+      price: 10,
       description: "(A stolen calf.)",
     },
     {
       name: "Beehive",
-      price: 50,
+      price: 15,
       description: "(Contains an Asian Murder Hornet hive in a jar.)",
     },
     {
       name: "Morning Screamer",
-      price: 30,
+      price: 15,
       description: "(Most likely a stolen rooster.)",
     },
     {
       name: "Fish Friend Suit",
-      price: 80,
+      price: 35,
       description: "(Shark suit, available in blue or gray.)",
     },
     {
@@ -87,52 +87,52 @@ export const tribe1: Tribe = {
     },
     {
       name: "Silver Gr Gr",
-      price: 80,
+      price: 35,
       description: "(A Silverback Gorilla, comes with 16 metal baseball bats.)",
     },
     {
       name: "Walking Fleece",
-      price: 30,
+      price: 10,
       description:
         "(A little lamb, wearing a collar that states it belongs to Mary.)",
     },
     {
       name: "Nope Noodle",
-      price: 50,
+      price: 15,
       description:
         "(A non-venomous snake that enjoys masquerading as a scarf.)",
     },
     {
       name: "Da Forever Friend",
-      price: 80,
+      price: 10,
       description: "(An origami frog made with love and care.)",
     },
     {
       name: "Sadness",
-      price: 30,
+      price: 10,
       description: "(A rubber ball that never bounces.)",
     },
     {
       name: "Goblin Clothes",
-      price: 80,
+      price: 15,
       description:
         "(Clothes stolen from a child who neglected to put them away.)",
     },
     {
       name: "Oh no the squirrels are back!",
-      price: 30,
+      price: 35,
       description:
         "(Horn of the Hunt, blowing into this horn will cuase all creature with INT of 8 or less will come running towards your location.)",
     },
     {
       name: "Squirrel-Be-Gone!",
-      price: 50,
+      price: 35,
       description:
         "(Beast Flare, lighting this homemade flare will cause all creatures with INT of 4 or less run away.)",
     },
     {
       name: "Baby!",
-      price: 80,
+      price: 35,
       description:
       "(Its a baby an elemental; Arcane, Earth, Plant, Fire, Metal, Lightning, Water, Ice, Celetial, or Infernal. These Babies' Elementals will grow proportionally with how much you feed them their element, and new abilities will unlock the more you feed them.)",
     },

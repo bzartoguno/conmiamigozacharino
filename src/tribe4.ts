@@ -132,7 +132,7 @@ export const tribe4: Tribe = {
     },
     {
       name: "Stuffy!",
-      price: 5000,
+      price: 5,
       description:
         "(Its a stuffed animal of your choice and no matter which goblin you show it to they, they will give you a compliment and show you their own stuffed animal of their own.)",
     },

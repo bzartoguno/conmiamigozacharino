@@ -55,84 +55,84 @@ export const tribe2: Tribe = {
   items: [
     {
       name: "Waste of Good Napkin",
-      price: 300,
+      price: 110,
       description: "(A coupon that offers 25% off your next purchase anywhere; valid for one use only.)",
     },
     {
       name: "Snack?",
-      price: 100,
-      description: "(Some thrown-out food found in a dumpster.)",
+      price: 35,
+      description: "(Some thrown-out food found in a dumpster, heals 1d4.)",
     },
     {
       name: "Goblin Hand Sanitizer",
-      price: 200,
-      description: "(An unopened jar of peanut butter.)",
+      price: 35,
+      description: "(An unopened jar of peanut butter, heals 2d6.)",
     },
     {
       name: "Dino!",
-      price: 300,
-      description: "(Dinosaur nuggets with your choice of dipping sauce.)",
+      price: 110,
+      description: "(Dinosaur nuggets with your choice of dipping sauce, heals 6d6.)",
     },
     {
       name: "Garbage Crown!",
-      price: 200,
+      price: 75,
       description: "(A Burger King crown that will stay on your head until you take it off.)",
     },
     {
       name: "Disappointment",
-      price: 100,
-      description: "(A batch of perfectly baked cookies, but the goblins don't have any milk to go with them.)",
+      price: 75,
+      description: "(A batch of perfectly baked cookies, but the goblins don't have any milk to go with them. Each cookie heals for 5)",
     },
     {
       name: "Soup?",
-      price: 100,
-      description: "(A soggy bowl of cereal.)",
+      price: 35,
+      description: "(A soggy bowl of cereal, heals 1d6.)",
     },
     {
       name: "Docter Be GONE!",
-      price: 100,
-      description: "(A shiny red apple the regenerates itself after half of it is gone.)",
+      price: 110,
+      description: "(A shiny red apple the regenerates itself after half of it is gone, each bite heal for 1.)",
     },
     {
       name: "Hobo Gum",
-      price: 200,
+      price: 35,
       description: "(A rock, small enough to chew on.)",
     },
     {
       name: "Terrible Seasonal Cookie Thief",
-      price: 200,
+      price: 75,
       description: "(Santa's hat.)",
     },
     {
       name: "The One True Enemy",
-      price: 100,
+      price: 75,
       description: "(A bar of soap with a bite taken out of it?)",
     },
     {
       name: "Last Week's Fish Trip",
-      price: 200,
+      price: 110,
       description: "(Six left boots, three fish, one fishing pole with a pair of pants on the hook, and a tombstone.)",
     },
     {
       name: "Holly's Grail",
-      price: 200,
-      description: "(A fresh Costco rotisserie chicken, probably stolen from a person named Holly because her receipt is still in the bag.)",
+      price: 110,
+      description: "(A fresh Costco rotisserie chicken, probably stolen from a person named Holly because her receipt is still in the bag. Heal's for 6d12)",
     },
     {
       name: "No no no I'm your brother! Remeber we used to luagh and play down by the river and mom would always make us a sandwitch when we came in side covered in mud!",
-      price: 100,
+      price: 35,
       description:
         "(Potion of Forget-Me-Not, After drinking this potion you will be forgotten by everyone who knows you. Unless they have psionic/psychic immune or resistance.)",
     },
     {
       name: "Liquid Golden Cat Eyes",
-      price: 200,
+      price: 75,
       description:
         "(A semi permanent potion of Dark vision up to 120 feet. However your after drinking and while in darkness your eyes shift from their original color to a golden yellow and your pupils stretch, giving them a slitted, cat-like appearance.)",
     },
     {
       name: "You really hurt my feelings, why would you do that!",
-      price: 300,
+      price: 110,
       description:
         "(Liar's Breath, After drinking this potion, you gain a +10 to all Deception rolls, however you are also unable to answer truthfully to any question. The effects of this potion last for 5 hours.)",
     },
