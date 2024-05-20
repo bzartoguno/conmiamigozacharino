@@ -52,7 +52,7 @@ h1 {
   animation: float 5s ease-in-out infinite;
 }
 
-Additional classes for different delays /
+/* Additional classes for different delays */
 .text-box.delay1 { animation-delay: 2s; }
 .text-box.delay2 { animation-delay: 4s; }
 .text-box.delay3 { animation-delay: 6s; }
