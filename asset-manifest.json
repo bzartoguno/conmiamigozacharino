@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/conmiamigozacharino/static/css/main.b5afce05.css",
-    "main.js": "/conmiamigozacharino/static/js/main.ce826633.js",
+    "main.js": "/conmiamigozacharino/static/js/main.eeca07bb.js",
     "static/js/453.1057d0f0.chunk.js": "/conmiamigozacharino/static/js/453.1057d0f0.chunk.js",
     "static/media/Goblin-Market-Train.png": "/conmiamigozacharino/static/media/Goblin-Market-Train.8bc7c06e9a616d733bf4.png",
     "index.html": "/conmiamigozacharino/index.html",
     "main.b5afce05.css.map": "/conmiamigozacharino/static/css/main.b5afce05.css.map",
-    "main.ce826633.js.map": "/conmiamigozacharino/static/js/main.ce826633.js.map",
+    "main.eeca07bb.js.map": "/conmiamigozacharino/static/js/main.eeca07bb.js.map",
     "453.1057d0f0.chunk.js.map": "/conmiamigozacharino/static/js/453.1057d0f0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b5afce05.css",
-    "static/js/main.ce826633.js"
+    "static/js/main.eeca07bb.js"
   ]
 }
