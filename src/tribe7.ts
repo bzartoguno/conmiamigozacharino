@@ -110,12 +110,12 @@ export const tribe7: Tribe = {
     {
       name: "Some terrible cards.",
       price: 1000000,
-      description: "(The Deck of Many Things & Many Fates.)",
+      description: "(It's the Deck of Many Things & Many Fates, but the goblins may have shuffled them together and aren't too willing to go back and sort it out.)",
     },
     {
       name: "The forbidden tissue.",
       price: 300000,
-      description: "(Keoki's All or Nothing Scratch ticket: after making a purchase, you may trigger this scratch ticket where you flip a coin. If heads the purchase automatically upgrades to a legendary or artifact item. If tails both the scratch ticket and purchase disappear never to be seen again.)",
+      description: "(Keoki's All or Nothing Scratch ticket: after making a purchase, you may trigger this scratch ticket where you flip a coin. If heads the purchase automatically upgrades to ultimate version of it's self becoming an artifact item. If tails both the scratch ticket and purchase disappear never to be seen again.)",
     },
     {
       name: "Hands-on goblin learning, they may rough you up a bit tho.",
