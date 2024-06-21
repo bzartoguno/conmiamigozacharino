@@ -28,7 +28,7 @@ export function MarketIsOpen({
 
   return (
     <div className="App background-image">
-      <h1>Goblin Marketplace Updated and working on Zachs machine</h1>
+      <h1>Goblin Marketplace</h1>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
         {tribes.map((tribe, itemIndex) => (
