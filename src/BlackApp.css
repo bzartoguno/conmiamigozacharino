@@ -1,0 +1,95 @@
+.App {
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .background-image {
+    background: url('./Black Market.jpg') no-repeat center center fixed; 
+    background-size: cover;  
+    opacity: 0.75;
+    margin: 25px;
+    z-index: -1; 
+  }
+  
+  h1 {
+    font-family: monospace; 
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .lists {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .text-box {
+    margin: 30px;
+    background-color: rgba(0, 0, 0, 0.712); 
+    padding: 20px;
+    display: inline-block;
+    color: #ffffff;
+    font-family: monospace; 
+    font-size: 24px;
+    font-weight: bolder;
+    width: fit-content;
+    max-width: 600px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.67);
+    border: 5px solid rgb(0, 0, 0);
+    position: relative;
+  }
+  
+  .description {
+    margin-top: 10px;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 75%;
+    font-family: monospace; 
+    color: #ffffffd3;
+    text-shadow: none; 
+  }
+  
+  .poetsen-one-regular {
+    font-family: monospace; 
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .button-ugly {
+    font-family: monospace; 
+    font-weight: 400;
+    font-style: normal;
+    font-size: 200%;
+    width: 600px;
+    height: 200px;
+    border-radius: 20px;
+    user-select: none;
+  }
+  
+  .button {
+    font-family: monospace; 
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #000000; 
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.67);
+    transition: all 0.25s ease 0s;
+  }
+  
+  .button:hover {
+    background-color: #000000b6; 
+  }
+  
+  .button:active {
+    background-color: #000000b6;
+    box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.67);
+    transform: translateY(4px);
+  }

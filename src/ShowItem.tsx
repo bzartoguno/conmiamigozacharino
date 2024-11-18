@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Tribe } from "./types";
+import styles from "./BlackApp.module.css"
 
 type ShowItemProps = {
   tribe: Tribe;
@@ -12,7 +13,7 @@ export const ShowItem: FC<ShowItemProps> = ({ tribe, itemIndex }) => {
   const rageMode = Math.random() * 100;
   if (rageMode <= tribe.percentAngry) {
     const insultIndex = Math.floor(Math.random() * tribe.insults.length);
-    return <div className="text-box">{tribe.insults[insultIndex]}</div>;
+    return <div className={styles.textBox}>{tribe.insults[insultIndex]}</div>;
   }
 
   const { description, name, price } = item;
@@ -26,11 +27,11 @@ export const ShowItem: FC<ShowItemProps> = ({ tribe, itemIndex }) => {
 
   return (
     <>
-      <div className="text-box">
+      <div className={styles.textBox}>
         <div>
           {tribe.name} wants to trade {name} for {finalPrice} Gold 
         </div>
-        <div className="description">{description}</div>
+        <div className={styles.description}>{description}</div>
       </div>
     </>
   );
