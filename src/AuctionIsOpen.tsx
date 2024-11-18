@@ -2,6 +2,7 @@ import { ShowItem } from "./ShowItem";
 import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
 import { Tribe } from "./types";
+import styles from "./AuctionApp.module.css"
 
 interface AuctionIsOpenProps {
   clicks: number;
@@ -36,6 +37,7 @@ export function AuctionIsOpen({
         {tribes.map((tribe, itemIndex) => (
           <ShowItem
             key={itemIndex}
+            styles={styles}
             tribe={tribe}
             itemIndex={indices[itemIndex]}
           />

@@ -2,6 +2,7 @@ import { ShowItem } from "./ShowItem";
 import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
 import { Tribe } from "./types";
+import styles from "./BlackApp.module.css"
 
 interface BlackIsOpenProps {
   clicks: number;
@@ -35,6 +36,7 @@ export function BlackIsOpen({
           <ShowItem
             key={itemIndex}
             tribe={tribe}
+            styles={styles}
             itemIndex={indices[itemIndex]}
           />
         ))}

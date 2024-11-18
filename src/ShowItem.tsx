@@ -1,13 +1,15 @@
 import { FC } from "react";
 import { Tribe } from "./types";
-import styles from "./BlackApp.module.css"
+// import styles from "./BlackApp.module.css"
+
 
 type ShowItemProps = {
   tribe: Tribe;
   itemIndex: number;
+  styles: any;
 };
 
-export const ShowItem: FC<ShowItemProps> = ({ tribe, itemIndex }) => {
+export const ShowItem: FC<ShowItemProps> = ({ styles, tribe, itemIndex }) => {
   const item = tribe.items[itemIndex];
 
   const rageMode = Math.random() * 100;

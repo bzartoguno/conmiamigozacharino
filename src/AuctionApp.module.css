@@ -7,11 +7,15 @@
 
 .backgroundImage {
   background: url('./Auction House.png') no-repeat center center fixed; 
+  /* background-size: cover;  
+  opacity: 0.75;
+  margin: 25px;
+  z-index: -1;  */
   display: flex;
   background-size: cover; 
-  height: 1024px;
-  opacity: 0.25;
-  margin: 25px;
+  height: Fill;
+  opacity: 0.75;
+  margin: px;
   z-index: -1; 
   position: absolute;
   top: 0;
@@ -27,24 +31,24 @@ h1 {
 }
 
 .lists {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 20px; /* Space between the columns */
-  justify-items: center; /* Center the items within each column */
-  align-items: start; /* Align items at the top of the columns */
-  margin: 20px; /* Add some margin around the grid */
+  display: flex;
+  flex-direction: row;
 }
 
 .textBox {
+  margin: 30px;
   background-color: rgba(138, 253, 244, 0.712); 
   padding: 20px;
+  display: inline-block;
   color: #000000;
-  font-family: 'Times New Roman', serif; 
+  font-family: monospace; 
   font-size: 24px;
   font-weight: bolder;
-  width: 100%; /* Ensure the box stretches properly */
-  max-width: 500px; /* Limit the box width */
+  width: fit-content;
+  max-width: 600px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.67);
   border: 5px solid rgb(0, 0, 0);
