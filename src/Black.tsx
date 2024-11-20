@@ -4,6 +4,10 @@ import { BlackIsOpen } from "./BlackIsOpen";
 import { Tribe } from "./types";
 import styles from "./BlackApp.module.css"; // Updated to use CSS Modules
 import { tribeBlackMarket } from "./tribeBlackMarket";
+import { tribeBlackMarket2 } from "./tribeBlackMarket2";
+import { tribeBlackMarket3 } from "./tribeBlackMarket3";
+import { tribeBlackMarket4 } from "./tribeBlackMarket4";
+import { tribeBlackMarket5 } from "./tribeBlackMarket5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 
@@ -28,7 +32,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Blacks() {
-  const tribes = [tribeBlackMarket];
+  const tribes = [tribeBlackMarket, tribeBlackMarket2, tribeBlackMarket3, tribeBlackMarket4, tribeBlackMarket5];
 
   const [clicks, setClicks] = useState(getInitialClicks());
 

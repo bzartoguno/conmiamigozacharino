@@ -2,9 +2,12 @@ import { useState } from "react";
 import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
-import styles from "./AuctionApp.module.css"; // Updated to use CSS Modules
+import styles from "./AuctionApp.module.css"; 
 import { tribeAuctionHouse } from "./tribeAuctionHouse";
-
+import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
+import { tribeAuctionHouse3 } from "./tribeAuctionHouse3";
+import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";
+import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 
@@ -29,7 +32,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Auctions() {
-  const tribes = [tribeAuctionHouse];
+  const tribes = [tribeAuctionHouse, tribeAuctionHouse2, tribeAuctionHouse3, tribeAuctionHouse4, tribeAuctionHouse5 ];
 
   const [clicks, setClicks] = useState(getInitialClicks());
 
@@ -38,7 +41,7 @@ export function Auctions() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling effect
+      behavior: "smooth",
     });
   };
 
@@ -49,12 +52,12 @@ export function Auctions() {
         <AuctionIsOpen
           clicks={clicks}
           setClicks={(value) => {
-            scrollToTop(); // Scroll to top on button click
+            scrollToTop(); 
             setClicks(value);
           }}
           indices={indices}
           setIndices={(value) => {
-            scrollToTop(); // Scroll to top on button click
+            scrollToTop(); 
             setIndices(value);
           }}
           tribes={tribes}
@@ -68,7 +71,7 @@ export function Auctions() {
       <div className={styles.backgroundImage}></div>
       <AuctionIsClosed
         setClicks={(value) => {
-          scrollToTop(); // Scroll to top on button click
+          scrollToTop(); 
           setClicks(value);
         }}
       />
