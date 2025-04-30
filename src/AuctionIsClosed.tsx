@@ -62,7 +62,7 @@ export function AuctionIsClosed({ setClicks }: AuctionIsClosedProps) {
         <h1>Market is Closed</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Oh no! It looks like someone was being a little bit nosey and started peeking around where they weren't suppose to. Look's like you've been kicked out for now.
+            Oh no! It looks like someone was being a little bit nosey and started peeking around where they weren't supposed to. It looks like you've been kicked out for now.
             <input
               type="password"
               value={password}
