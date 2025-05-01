@@ -2,10 +2,29 @@ import { Tribe } from "./types";
 
 export const tribeBlackMarket2: Tribe = {
   name: "Red Star Shops",
-  percentAngry: 1,
+  percentAngry: 30,
   priceVariability: 30,
   insults: [
-    "The Scarlet Shadows is angry at you and doesn't want to trade with you!",
+    "You ain't got clearance, so quit staring and move along.",
+    "This area’s off-limits. Try something smart for once and walk away.",
+    "We’re done talking. Back off.",
+    "You don’t have permission, and you’re not getting it. Step aside.",
+    "The door’s closed to outsiders. That means you.",
+    "Try to push your luck here and it won’t end well.",
+    "Private business going on. You’re not part of it.",
+    "Nobody goes past this point unless they’re expected. You’re not.",
+    "Seen too many like you nosing around. None of 'em came back happy.",
+    "Turn around. Real slow. Real quiet.",
+    "You're not on the list, you're not on the invite, and you're not welcome.",
+    "This path ain’t open. Try it and you’ll regret it.",
+    "You're walking close to a mistake. Change direction.",
+    "Whatever you're hoping to find, it ain't here. Now beat it.",
+    "This spot is locked down. Not for your eyes.",
+    "No entrance. No questions. No second chances.",
+    "You already seen too much. Walk away while you can.",
+    "You're standing in the wrong place with the wrong face.",
+    "This is a closed chapter. Turn the page elsewhere.",
+    "There's nothing here but trouble. Keep it moving."
   ],
   items: [
     {

@@ -32,7 +32,7 @@ export const tribeAuctionHouse4: Tribe = {
     {
       name: "Blossom Hotel's Timeworn Lotus Bloom",
       price: 55_000,
-      description: "A mystical lotus that allows manipulation of time within a 500-foot radius for up to one day. The user may slow, accelerate, or pause time entirely. Usable once every 10 years.",
+      description: "A mystical allows manipulation of time within a 500-foot radius for up to one day. The user may slow, accelerate, or pause time entirely. Usable once every 10 years.",
     },
     {
       name: "Evan's Enchanting Emporium's The Spellwright’s Grimoire",

@@ -2,7 +2,7 @@ import { Tribe } from "./types";
 
 export const tribeAuctionHouse2: Tribe = {
   name: "Red Star Shops",
-  percentAngry: 80,
+  percentAngry: 70,
   priceVariability: 30,
   insults: [
     "Our sincerest apologies, but none of our partnering shop owners have agreed to part with such an item at this time. Might we suggest reviewing the other fine offerings?",
