@@ -1,56 +1,62 @@
 import { Tribe } from "./types";
 
 export const tribeBlackMarket3: Tribe = {
-  name: "Yellow Star Shops",
-  percentAngry: 60,
+  name: "One of the yellow star shops",
+  percentAngry: 20,
   priceVariability: 30,
   insults: [
-    "You ain't got clearance, so quit staring and move along.",
-    "This area’s off-limits. Try something smart for once and walk away.",
-    "We’re done talking. Back off.",
-    "You don’t have permission, and you’re not getting it. Step aside.",
-    "The door’s closed to outsiders. That means you.",
-    "Try to push your luck here and it won’t end well.",
-    "Private business going on. You’re not part of it.",
-    "Nobody goes past this point unless they’re expected. You’re not.",
-    "Seen too many like you nosing around. None of 'em came back happy.",
-    "Turn around. Real slow. Real quiet.",
-    "You're not on the list, you're not on the invite, and you're not welcome.",
-    "This path ain’t open. Try it and you’ll regret it.",
-    "You're walking close to a mistake. Change direction.",
-    "Whatever you're hoping to find, it ain't here. Now beat it.",
-    "This spot is locked down. Not for your eyes.",
-    "No entrance. No questions. No second chances.",
-    "You already seen too much. Walk away while you can.",
-    "You're standing in the wrong place with the wrong face.",
-    "This is a closed chapter. Turn the page elsewhere.",
-    "There's nothing here but trouble. Keep it moving."
+    "Sellers don’t meet buyers. That’s the rule—capisce?",
+    "The shop’s mobile, off the grid. I ain’t takin’ you there,",
+    "They work in shadows, not with tourists. Don’t ask again,",
+    "No faces, no follow-ups. That’s how they stay alive,",
+    "It’s too hot right now. Shop’s bein’ watched,",
+    "You don’t got the creds. Don’t waste my time,",
+    "They skipped town after someone got sloppy. Didn’t end pretty,",
+    "I can’t show ya what ain’t safe to see. That’s their call,",
+    "Last guy I brought? Curiosity cost 'em. You wanna be next?,",
+    "Some doors stay shut for a reason. This one’s welded,",
+    "Too many eyes in the alley today. Step off,",
+    "Shop’s locked down—heat’s too loud lately,",
+    "They don’t deal with strangers. You ain’t got a rep,",
+    "It’s invite-only. You ain’t on the list,",
+    "I ain’t takin’ you where you don’t belong,",
+    "Access needs guarantees. I ain’t puttin’ my neck on the line for you,",
+    "You’re on the outside. Best stay there,",
+    "Seller’s jumpy. You show up, we both got problems,",
+    "This route’s closed ‘cause they said so. I don’t argue,",
+    "Rules ain’t mine—I just enforce ‘em. You? You ain't gettin’ in,",
+    "We ain’t goin’. Guards are makin’ rounds. You wanna get pinched?,"
   ],  
   items: [
     {
-      name: "Iconic Dragonic's Dragonbone Dagger",
-      price: 45_000,
-      description: "A dagger that bypasses all magical protections and inflicts permanent, unhealable scars upon its victims.",
-    },
-    {
-      name: "Make a Monster's Brand of the Abyss",
+      name: "Glittery Bowtie",
       price: 40_000,
-      description: "A sinister brand that grants Abyssal Strike, adding 1d8 necrotic damage to melee attacks. Each critical hit earns a corruption mark.",
+      description: "This bowtie is so sparkly and dazzling it will make enemies blink when attacking this pet/mount. Grants +15 AC against ranged attacks."
     },
     {
-      name: "Michael's Mount's Nightmare Bridle",
+      name: "Broken Bell",
       price: 35_000,
-      description: "A cursed bridle that transforms any mount into a shadowy version capable of ethereal travel and phasing through walls.",
+      description: "This tiny, rusted bell hangs from any creature. Once per long rest, as a reaction, it may ring it granting any one creature another turn."
     },
     {
-      name: "Paws, Claws, & Maw's Cage of the Captured Beast",
+      name: "Jar of Conditional Kindness",
       price: 30_000,
-      description: "An enchanted cage designed to capture and pacify any non-sentient creature, ensuring no chance of escape.",
+      description: "A powdery jar that produces a magical treat once per day. The effects are haste, invisibility, resistance, & regeneration. But the treat only forms after the pet sacrifices a hit point willingly (can be healed)."
     },
     {
-      name: "Valhalla Mart's Horn of the Eternal Raid",
+      name: "Pink Fuzzy Mat in the Shape of a Heart",
+      price: 30_000,
+      description: "After your pet/mount sleeps on this mat, they gain temp HP equal to half of your max HP."
+    },
+    {
+      name: "Crystal of Captured",
+      price: 45_000,
+      description: "Touch any sentient, organic, living creature to this crystal to pull it into a small pocket space. Over time, the creature mentally breaks to obey every order of whoever holds the crystal (2d4 weeks). The creature inside can't escape until the holder gives it the command setting it free."
+    },
+    {
+      name: "Bloodmoon Warpaint",
       price: 50_000,
-      description: "A legendary horn that summons a spectral army of Viking raiders for 1 hour. Usable once per month.",
-    },                
-  ]
+      description: "Once applied, this crimson dye cannot be removed. The creature bearing it becomes immune to fear and takes no damage from the first blow in every battle. However, it becomes unnaturally eager for violence, even if only slightly threatened."
+    }
+  ]  
 }

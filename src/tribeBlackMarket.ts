@@ -1,91 +1,92 @@
 import { Tribe } from "./types";
 
 export const tribeBlackMarket: Tribe = {
-  name: "White Star Shops",
-  percentAngry: 90,
+  name: "One of the white shops",
+  percentAngry: 30,
   priceVariability: 30,
   insults: [
-    "You ain't got clearance, so quit staring and move along.",
-    "This area’s off-limits. Try something smart for once and walk away.",
-    "We’re done talking. Back off.",
-    "You don’t have permission, and you’re not getting it. Step aside.",
-    "The door’s closed to outsiders. That means you.",
-    "Try to push your luck here and it won’t end well.",
-    "Private business going on. You’re not part of it.",
-    "Nobody goes past this point unless they’re expected. You’re not.",
-    "Seen too many like you nosing around. None of 'em came back happy.",
-    "Turn around. Real slow. Real quiet.",
-    "You're not on the list, you're not on the invite, and you're not welcome.",
-    "This path ain’t open. Try it and you’ll regret it.",
-    "You're walking close to a mistake. Change direction.",
-    "Whatever you're hoping to find, it ain't here. Now beat it.",
-    "This spot is locked down. Not for your eyes.",
-    "No entrance. No questions. No second chances.",
-    "You already seen too much. Walk away while you can.",
-    "You're standing in the wrong place with the wrong face.",
-    "This is a closed chapter. Turn the page elsewhere.",
-    "There's nothing here but trouble. Keep it moving."
-  ],  
+    "Sellers don’t meet buyers. That’s the rule—capisce?",
+    "The shop’s mobile, off the grid. I ain’t takin’ you there,",
+    "They work in shadows, not with tourists. Don’t ask again,",
+    "No faces, no follow-ups. That’s how they stay alive,",
+    "It’s too hot right now. Shop’s bein’ watched,",
+    "You don’t got the creds. Don’t waste my time,",
+    "They skipped town after someone got sloppy. Didn’t end pretty,",
+    "I can’t show ya what ain’t safe to see. That’s their call,",
+    "Last guy I brought? Curiosity cost 'em. You wanna be next?,",
+    "Some doors stay shut for a reason. This one’s welded,",
+    "Too many eyes in the alley today. Step off,",
+    "Shop’s locked down—heat’s too loud lately,",
+    "They don’t deal with strangers. You ain’t got a rep,",
+    "It’s invite-only. You ain’t on the list,",
+    "I ain’t takin’ you where you don’t belong,",
+    "Access needs guarantees. I ain’t puttin’ my neck on the line for you,",
+    "You’re on the outside. Best stay there,",
+    "Seller’s jumpy. You show up, we both got problems,",
+    "This route’s closed ‘cause they said so. I don’t argue,",
+    "Rules ain’t mine—I just enforce ‘em. You? You ain't gettin’ in,",
+    "We ain’t goin’. Guards are makin’ rounds. You wanna get pinched?,"
+  ],
   items: [
     {
-      name: "Applegarth Guild's Contract of Shadow Labor",
-      price: 9_500,
-      description: "A dark contract binding a spirit to work for the user for one year. Often employed for dangerous or illegal tasks.",
+      name: "Contract of Shadow Labor",
+      price: 9500,
+      description: "Binds a spirit to work for the user for one year. Often used for dangerous or illegal labor."
     },
     {
-      name: "Archives Guild's The Ledger of Lost Bounties",
-      price: 8_000,
-      description: "A mystical ledger that tracks the location and movements of criminals or fugitives in real time.",
+      name: "The Map of Lost Bounties",
+      price: 8000,
+      description: "Tracks the location of forgotten criminals or fugitives in real time within a 10 mile radius, revealing their movements, stashes, and hideouts."
     },
     {
-      name: "Book Bomb's Death's Ledger",
-      price: 7_500,
-      description: "An ominous ledger that marks a target for assassination by a powerful criminal syndicate. Usable once per month.",
+      name: "Book Bombs's Death Note",
+      price: 7500,
+      description: "Write down someone's name, and they'll perish within the next week. You can't write down how they will die. Usable once per month."
     },
     {
-      name: "Bullets, Buffs, & Beyond's Voidshot Rounds",
-      price: 10_000,
-      description: "Bullets capable of erasing a target from existence unless they pass a high-level Constitution save. Comes in packs of three.",
+      name: "Void Shot Ammo",
+      price: 10000,
+      description: "Bullets that erase the target from existence, if they hit. Only three bullets remain."
     },
     {
-      name: "Changing Church's The Prayer of Forgotten Sins",
-      price: 9_000,
-      description: "A solemn prayer that erases all knowledge of the user’s past misdeeds from others’ memories. Usable once per week.",
+      name: "Emblem of an Unfinished Goddess",
+      price: 9000,
+      description: "While wearing this item you will be able to ___[add three words of your choice] as long as you are in the good graces of this deity."
     },
     {
-      name: "Necromancy Insurance Company's Contract of Eternal Service",
-      price: 8_500,
-      description: "A grim contract binding a soul to eternal servitude in undeath. The resurrected retains memories and skills but is enslaved to the user.",
+      name: "Contract of Eternal Service",
+      price: 8500,
+      description: "Draw up a contract that binds one of the signer's soul to serve the other. Until the contract is fulfilled they will be brought back from the grave to finish their task."
     },
     {
-      name: "O-Papies Oracle Reading's Foresight of the Criminal Mind",
-      price: 6_500,
-      description: "A prophetic tool that predicts the actions of law enforcement or bounty hunters for 30 days, aiding in evasion.",
+      name: "Refilling Tonic of a Criminal Mastermind",
+      price: 6500,
+      description: "Predicts the next moves of law enforcement or bounty hunters for 30 days, allowing the user to evade capture. Cooldown 30 days."
     },
     {
-      name: "Robin's Rope's Hangman’s Noose",
-      price: 5_500,
-      description: "A sinister rope imbued with enchantments, rendering the target silent and forgettable when not in direct sight. Effect lasts for 1 hour or until removed.",
+      name: "Hangman’s Noose",
+      price: 5500,
+      description: "Renders the target silent and forgettable when not in direct sight. Lasts for 1 hour or until removed."
     },
     {
-      name: "Runestone Relay's Traveler’s Parcel",
-      price: 7_000,
-      description: "A magical parcel capable of transporting any item across planes instantly. Usable once per week.",
+      name: "Traveler’s Parcel",
+      price: 7000,
+      description: "Transports any item across planes instantly. Usable once per week."
     },
     {
-      name: "Silent Oath's Blackmail Contract of Absolute Loyalty",
-      price: 10_000,
-      description: "A malevolent contract that enforces absolute loyalty upon the signee. Severe penalties await those who disobey.",
+      name: "Blackmail Contract of Absolute Loyalty",
+      price: 10000,
+      description: "Forces the signee into absolute loyalty, with severe penalties for disobedience."
     },
     {
-      name: "Supreme Smithy's Forge Bound Fire Elemental",
-      price: 9_000,
-      description: "An elemental bound to purify metal, granting +6 to the crafted item. Occasionally curses items out of spite.",
+      name: "Forge Bound Fire Elemental",
+      price: 9000,
+      description: "Burns away impurities in metal, granting +5 to the created item. Occasionally curses the item out of spite."
     },
     {
-      name: "Will's Weapon's Soulscreaming Shotgun",
-      price: 8_000,
-      description: "A cursed shotgun that grows deadlier with each kill. Base damage starts at 1d6+DEX and increases by 1d6 for each successive kill.",
-    },          
-  ]
+      name: "Soul Screaming Shotgun",
+      price: 8000,
+      description: "A shotgun; each kill increases damage by 1d6. Starts with DEX to hit, 1d6+DEX piercing damage."
+    }
+  ]  
 }

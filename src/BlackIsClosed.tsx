@@ -46,23 +46,23 @@ export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      backgroundColor: '#f4f4f4', // Light grey background
+      backgroundColor: '#292827', 
       padding: '20px',
       boxSizing: 'border-box'
     }}>
       <div style={{
-        backgroundColor: 'white',
+        backgroundColor: '#4d4b47',
         padding: '20px',
         borderRadius: '10px',
-        boxShadow: '0 40px 8px rgba(0,0,0,0.1)',
+        boxShadow: '0 40px 8px rgba(.5, 0.5, 0.5, 0.54)',
         textAlign: 'center',
         width: '80%',
         maxWidth: '600px'
       }}>
-        <h1>Market is Closed</h1>
+        <h1>Didn't you hear me?</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Get out of here bub, else your'll be counting to ten with your toes
+            Now get out of here bub, else your'll be counting to ten with your toes
             <input
               type="password"
               value={password}

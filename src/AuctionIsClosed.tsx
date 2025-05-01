@@ -46,12 +46,12 @@ export function AuctionIsClosed({ setClicks }: AuctionIsClosedProps) {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      backgroundColor: '#f4f4f4', // Light grey background
+      backgroundColor: 'gray',
       padding: '20px',
       boxSizing: 'border-box'
     }}>
       <div style={{
-        backgroundColor: 'white',
+        backgroundColor: 'lightgray',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 40px 8px rgba(0,0,0,0.1)',
@@ -59,10 +59,10 @@ export function AuctionIsClosed({ setClicks }: AuctionIsClosedProps) {
         width: '80%',
         maxWidth: '600px'
       }}>
-        <h1>Market is Closed</h1>
+        <h1>Apologies Valued Adventurer</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Oh no! It looks like someone was being a little bit nosey and started peeking around where they weren't supposed to. It looks like you've been kicked out for now.
+          We appreciate your interest in the auction house and understand how captivating it can be. However, we kindly encourage you to take a step back and reflect elsewhere for a while. Thank you for your understanding.
             <input
               type="password"
               value={password}

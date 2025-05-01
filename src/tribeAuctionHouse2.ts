@@ -2,77 +2,71 @@ import { Tribe } from "./types";
 
 export const tribeAuctionHouse2: Tribe = {
   name: "Red Star Shops",
-  percentAngry: 70,
+  percentAngry: 15,
   priceVariability: 30,
   insults: [
-    "Our sincerest apologies, but none of our partnering shop owners have agreed to part with such an item at this time. Might we suggest reviewing the other fine offerings?",
-    "Unfortunately, all bidding rights for that item have been withheld by the shop owners. However, you may still find something exceptional among the other lots.",
-    "It appears that the item in question has been reserved for private clients. Please, browse the rest of our curated collection while you're here.",
-    "Regretfully, the shop owners have deemed this request outside their current terms of trade. That said, we believe you'll find other options quite appealing.",
-    "That item's shop has requested limited visibility for now. We kindly invite you to peruse other available selections that may suit your needs.",
-    "Our contacts have politely declined to auction such an item today. May we interest you in something equally rare and desirable?",
-    "The consortium of shop owners we represent has expressed hesitation in releasing that particular item to market. Please explore the remainder of our selection at your leisure.",
-    "That request has been temporarily blacklisted by the shop owners not for lack of interest, but for reasons of exclusivity. Still, other treasures await your attention!",
-    "We’ve reached out to our shop owners, but none have approved this item for bidding today. Please enjoy the wealth of other offerings on display.",
-    "That piece is under review for future auctions and has been temporarily withdrawn. Might we guide your attention toward items currently open for bid?",
-    "The request has been acknowledged, but unfortunately no shop owner has authorized a release at this time. Other rare finds still await your consideration.",
-    "We’ve been advised that this item remains under lock and key, available only to select circles. Feel free to explore our more public-facing collections.",
-    "The shop in question has opted to hold their submission for a more opportune moment. May we tempt you with today’s premier alternatives?",
-    "That item has been marked as 'untradeable' by the original shop owner for now. In the meantime, there’s no shortage of fine wares on the floor.",
-    "It seems that all shops have agreed in silent accord to withhold this piece from today's dealings. Let us present you with other worthy bids.",
-    "That entry has been archived for discretion. We’d be delighted to assist you in finding something equally exceptional.",
-    "Our registry shows no current shop endorsement for this item. We welcome you to browse other highly coveted selections.",
-    "We regret to inform you that all inquiries into that item have been respectfully declined. Might we redirect your interest to something more... accessible?",
-    "While the requested item is not available for auction, we offer this complimentary minor healing potion (Heal 3d4) as a token of goodwill please enjoy browsing our remaining lots.",
-    "The shop owners have collectively withheld that entry, but as a gesture of apology, please accept this minor healing potion (Heal 3d4) and our invitation to explore other offerings.",
-    "Though we cannot honor this particular request, a complimentary healing draft has been arranged for you our way of saying thank you for your discerning taste.",
-    "That selection has been withdrawn by the shop with regrets. As an apology, please enjoy this minor healing potion (Heal 3d4) on the house while you view our remaining treasures."
-  ],
+    "We truly apologize for any disappointment, but we had to withdraw the item as it did not meet our quality standards. We would love to guide you toward our other selections that might be perfect for you.",
+    "We're really sorry to inform you that this piece was found to be too volatile for public presentation. Your safety is our priority, and we have removed it from display.",
+    "We regret to inform you that this item contained unpredictable enchantments. As a precaution, we've taken it off display. We encourage you to explore our safer alternatives, which we believe you will enjoy.",
+    "Our shop owners made the difficult decision to recall the item after discovering structural flaws in its enchantment. While you search for something special, we invite you to enjoy our reliable offerings.",
+    "We regret to inform you that your request was declined due to a failed appraisal, as the item's properties were found to be unstable. For your peace of mind, we recommend browsing items with verified integrity.",
+    "Unfortunately, the artifact had to be removed because it exhibited hazardous magical behavior. To ease your search, we provide a minor healing potion (Heal 3d4) as you explore our safer alternatives.",
+    "We're sorry to share that this selection emitted an unexpected magical surge and has been placed in containment for safety. We hope one of our other fine items will meet your needs.",
+    "While this item once showed great promise, it failed final curation and has been quietly retired. Please browse our authenticated pieces instead; we are here to help you find something you love.",
+    "We apologize for any inconvenience, but due to a recent mishap involving this item, it is no longer eligible for auction. Our team is happy to recommend items with confirmed safety ratings.",
+    "This piece was unfortunately retired from auction because it exceeded acceptable thresholds for magical instability. We greatly appreciate your understanding and invite you to explore our approved inventory.",
+    "We regret to inform you that the item showed signs of residual curse activity during testing. For your wellbeing, it has been temporarily withheld from public access.",
+    "We had to withdraw this item after discovering it no longer functioned as originally described. We sincerely invite you to explore our more dependable treasures.",
+    "We understand your interest, but that entry displayed excessive aggression during handling simulations. For now, it will remain secured off-site for safety. We have other calm options available that we think you'll like.",
+    "After a careful review, our appraisers found that the item was ethically questionable, and we had to remove it from consideration. We're here to help you find something more suitable to your needs.",
+    "We are truly sorry, but your request has been denied because the item did not pass our authenticity inspection. In light of this, we'd like to offer you a minor healing potion (Heal 3d4) and our sincerest apologies.",
+    "We regret to inform you that the item was found to be a counterfeit and has been removed from our auction. We appreciate your understanding and would love to assist you in finding something genuine.",
+],
   items: [
     {
       name: "Auntie Patty's Pie's Pie of Eternal Frostburn",
-      price: 15_000,
-      description: "An enchanted pie that grants the consumer immunity to both cold and fire damage, making it a vital asset in extreme environments.",
+      price: 15000,
+      description: "Grants immunity to cold and fire damage."
     },
     {
-      name: "Comedy Gold's Try out Contract for the House of Blades",
-      price: 20_000,
-      description: "An entry trial contract that binds the user to the House of Blades, granting unique effects and responsibilities upon full entry.",
+      name: "Comedy Gold's Backstage Pass",
+      price: 20000,
+      description: "Get a pass to see the inner working of Comedy Gold."
     },
     {
       name: "Dungeon Crawler Guild's The Dungeon Master's Tome",
-      price: 18_000,
-      description: "This arcane tome provides detailed insights into dungeon layouts, revealing traps and hidden rooms. It grants its wielder advantage on saving throws against dungeon-related hazards.",
+      price: 18000,
+      description: "Reveals dungeon layouts, predicts traps, hidden rooms. Grants advantage on saving throws against dungeon hazards."
     },
     {
       name: "Find a Friend's Familiar Summoning Charm",
-      price: 12_000,
-      description: "Summons a magical familiar to assist in quests. The familiar adapts to the caster’s needs and can evolve over time.",
+      price: 12000,
+      description: "Summons a magical familiar to assist in quests. The familiar adapts to the caster’s needs and can evolve over time."
     },
     {
       name: "Navigation Guild's The Cartographer’s Map",
-      price: 22_000,
-      description: "An evolving magical map that expands to detail any area the user explores. Once per day, the user can mark a location on the map and teleport to it instantly.",
+      price: 22000,
+      description: "Expands to cover any area the user travels. Once per day, mark a place on the map and teleport there instantly."
     },
     {
       name: "Pearl's Potion's Potion of Celestial Empowerment",
-      price: 25_000,
-      description: "A potent elixir that enhances all ability scores by +4 for one hour. Additionally, it grants resistance to radiant damage and imbues attacks with radiant energy. Consumption requires a saving throw to resist potential aftereffects.",
+      price: 25000,
+      description: "Boosts all stats by +4 for 1 hour, grants radiant resistance, and adds radiant damage to attacks. Requires a saving throw after use."
     },
     {
       name: "Provision's Paradise's Spellbinder's Satchel",
-      price: 10_500,
-      description: "An enchanted satchel with infinite capacity for spell components. Once per day, retrieve a rare or legendary component, even those considered impossible to find.",
+      price: 10500,
+      description: "Holds infinite spell components. Once per day, pull out a rare or legendary component, even considered to be impossible to find."
     },
     {
       name: "The Piggy Bank, no hammers inside's Vault of Infinite Gold",
-      price: 24_000,
-      description: "A mystical vault that generates 100 gold pieces daily. However, any gold left unused vanishes after 24 hours, encouraging strategic expenditure.",
+      price: 24000,
+      description: "Generates 100G per day, but the gold vanishes after 24 hours if not spent."
     },
     {
       name: "Ye Old Donkey's Donkey's Rest Pavilion",
-      price: 14_000,
-      description: "A magical pavilion that unfolds into a fully equipped inn, accommodating up to 10 individuals. It provides warm meals, comfortable lodging, and protection from hostile creatures, creating a sanctuary in any environment.",
-    },       
-  ]
+      price: 14000,
+      description: "A magical tent that sets up a cozy inn for up to 10 people, offering warm meals and protection from hostile creatures."
+    }
+  ]  
 }

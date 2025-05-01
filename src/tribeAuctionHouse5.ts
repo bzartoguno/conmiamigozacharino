@@ -2,72 +2,66 @@ import { Tribe } from "./types";
 
 export const tribeAuctionHouse5: Tribe = {
   name: "Blue Star Shops",
-  percentAngry: 60,
+  percentAngry: 30,
   priceVariability: 30,
   insults: [
-    "Our sincerest apologies, but none of our partnering shop owners have agreed to part with such an item at this time. Might we suggest reviewing the other fine offerings?",
-    "Unfortunately, all bidding rights for that item have been withheld by the shop owners. However, you may still find something exceptional among the other lots.",
-    "It appears that the item in question has been reserved for private clients. Please, browse the rest of our curated collection while you're here.",
-    "Regretfully, the shop owners have deemed this request outside their current terms of trade. That said, we believe you'll find other options quite appealing.",
-    "That item's shop has requested limited visibility for now. We kindly invite you to peruse other available selections that may suit your needs.",
-    "Our contacts have politely declined to auction such an item today. May we interest you in something equally rare and desirable?",
-    "The consortium of shop owners we represent has expressed hesitation in releasing that particular item to market. Please explore the remainder of our selection at your leisure.",
-    "That request has been temporarily blacklisted by the shop owners not for lack of interest, but for reasons of exclusivity. Still, other treasures await your attention!",
-    "We’ve reached out to our shop owners, but none have approved this item for bidding today. Please enjoy the wealth of other offerings on display.",
-    "That piece is under review for future auctions and has been temporarily withdrawn. Might we guide your attention toward items currently open for bid?",
-    "The request has been acknowledged, but unfortunately no shop owner has authorized a release at this time. Other rare finds still await your consideration.",
-    "We’ve been advised that this item remains under lock and key, available only to select circles. Feel free to explore our more public-facing collections.",
-    "The shop in question has opted to hold their submission for a more opportune moment. May we tempt you with today’s premier alternatives?",
-    "That item has been marked as 'untradeable' by the original shop owner for now. In the meantime, there’s no shortage of fine wares on the floor.",
-    "It seems that all shops have agreed in silent accord to withhold this piece from today's dealings. Let us present you with other worthy bids.",
-    "That entry has been archived for discretion. We’d be delighted to assist you in finding something equally exceptional.",
-    "Our registry shows no current shop endorsement for this item. We welcome you to browse other highly coveted selections.",
-    "We regret to inform you that all inquiries into that item have been respectfully declined. Might we redirect your interest to something more... accessible?",
-    "While the requested item is not available for auction, we offer this complimentary minor healing potion (Heal 3d4) as a token of goodwill please enjoy browsing our remaining lots.",
-    "The shop owners have collectively withheld that entry, but as a gesture of apology, please accept this minor healing potion (Heal 3d4) and our invitation to explore other offerings.",
-    "Though we cannot honor this particular request, a complimentary healing draft has been arranged for you our way of saying thank you for your discerning taste.",
-    "That selection has been withdrawn by the shop with regrets. As an apology, please enjoy this minor healing potion (Heal 3d4) on the house while you view our remaining treasures."
-  ], 
+    "We truly apologize for any disappointment, but we had to withdraw the item as it did not meet our quality standards. We would love to guide you toward our other selections that might be perfect for you.",
+    "We're really sorry to inform you that this piece was found to be too volatile for public presentation. Your safety is our priority, and we have removed it from display.",
+    "We regret to inform you that this item contained unpredictable enchantments. As a precaution, we've taken it off display. We encourage you to explore our safer alternatives, which we believe you will enjoy.",
+    "Our shop owners made the difficult decision to recall the item after discovering structural flaws in its enchantment. While you search for something special, we invite you to enjoy our reliable offerings.",
+    "We regret to inform you that your request was declined due to a failed appraisal, as the item's properties were found to be unstable. For your peace of mind, we recommend browsing items with verified integrity.",
+    "Unfortunately, the artifact had to be removed because it exhibited hazardous magical behavior. To ease your search, we provide a minor healing potion (Heal 3d4) as you explore our safer alternatives.",
+    "We're sorry to share that this selection emitted an unexpected magical surge and has been placed in containment for safety. We hope one of our other fine items will meet your needs.",
+    "While this item once showed great promise, it failed final curation and has been quietly retired. Please browse our authenticated pieces instead; we are here to help you find something you love.",
+    "We apologize for any inconvenience, but due to a recent mishap involving this item, it is no longer eligible for auction. Our team is happy to recommend items with confirmed safety ratings.",
+    "This piece was unfortunately retired from auction because it exceeded acceptable thresholds for magical instability. We greatly appreciate your understanding and invite you to explore our approved inventory.",
+    "We regret to inform you that the item showed signs of residual curse activity during testing. For your wellbeing, it has been temporarily withheld from public access.",
+    "We had to withdraw this item after discovering it no longer functioned as originally described. We sincerely invite you to explore our more dependable treasures.",
+    "We understand your interest, but that entry displayed excessive aggression during handling simulations. For now, it will remain secured off-site for safety. We have other calm options available that we think you'll like.",
+    "After a careful review, our appraisers found that the item was ethically questionable, and we had to remove it from consideration. We're here to help you find something more suitable to your needs.",
+    "We are truly sorry, but your request has been denied because the item did not pass our authenticity inspection. In light of this, we'd like to offer you a minor healing potion (Heal 3d4) and our sincerest apologies.",
+    "We regret to inform you that the item was found to be a counterfeit and has been removed from our auction. We appreciate your understanding and would love to assist you in finding something genuine.",
+],
   items: [
+    {
+      name: "Fizzy Tales's Sugar Shower Star Sparkler",
+      price: 90_000,
+      description: "Creates a Sugary meteor shower in a 100 mile radius dealing 100d100+X radiant damage. X is number of living creatures in the radius. Once used, this item dissolves into regular sugar. There is no save — you will be hit by it."
+    },
     {
       name: "Beastbinders Tribe's Beastbinder's Command Collar",
       price: 80_000,
-      description: "A magical collar that grants control over a beast with Intelligence 6 or lower. The collar adapts to the beast’s size and allows simple commands to be issued.",
-    },
-    {
-      name: "Blast Wagon Caboose's Volcanic Bombardment Launcher",
-      price: 95_000,
-      description: "A powerful launcher that creates a devastating explosion, dealing 10d6 fire damage and 8d6 bludgeoning damage in a 60-foot radius. Requires rare volcanic materials and can be used twice per week.",
-    },
-    {
-      name: "Council of Conductor's Baton of the Grand Maestro",
-      price: 85_000,
-      description: "A finely crafted baton capable of creating a 60-foot cone of sonic energy, dealing 10d10 thunder damage. It doubles the effectiveness of ally spells for 1 minute. Usable once per long rest.",
-    },
-    {
-      name: "Fizzy Tales's Starstruck Sparkler",
-      price: 90_000,
-      description: "A dazzling sparkler that creates a meteor shower in a 100-foot radius, dealing both fire and radiant damage. Usable once per year.",
+      description: "Grants control over any beast with Intelligence 6 or lower. Allows simple commands and adapts to the beast’s size."
     },
     {
       name: "Grubcar Clan's Infinity Donut",
       price: 75_000,
-      description: "A magical donut that regenerates after every bite, offering infinite enjoyment. It changes flavor to suit the eater's preference and restores 8 HP with each bite.",
+      description: "Regenerates after a bite is taken and can change flavor. Heals 8 HP."
     },
     {
-      name: "LocoLux Motor's Skybreaker Airship",
-      price: 100_000,
-      description: "A colossal steampunk airship equipped with cannons that deal 8d10 force damage. The airship features a durable hull resistant to non-magical damage and can transport up to 50 passengers.",
+      name: "Tinker Track Gang's The Gadgeteer Glove",
+      price: 80_000,
+      description: "Repairs or enhances any mechanical object or magical device. Has 5 charges remaining."
+    },
+    {
+      name: "Blast Wagon Caboose's Volcanic Bombardment Launcher",
+      price: 95_000,
+      description: "Launcher, deals 10d6 fire and 8d6 bludgeoning damage in a 60-foot radius. Usable twice per week, requires rare volcanic materials."
     },
     {
       name: "Railblade Raider's Volt-Breaker Cannon",
       price: 85_000,
-      description: "A high-powered cannon that unleashes a lightning bolt dealing 10d10 lightning damage in a 90-foot line. It disrupts magical effects for 1 minute. Requires rare crystals to recharge and can be used once per day.",
+      description: "Cannon, deals 10d10 lightning damage in a 90-foot line. Disrupts magical effects for 1 minute. Requires rare crystals to recharge, usable once per day."
     },
     {
-      name: "Tinker Track Gang's The Gadgeteer’s Glove",
-      price: 80_000,
-      description: "A versatile glove that repairs or enhances any mechanical or magical device. The glove has 5 charges, each expended for a single use.",
-    },     
-  ]
+      name: "LocoLux Motor's Skybreaker Airship",
+      price: 100_000,
+      description: "More information provided upon purchase."
+    },
+    {
+      name: "Council of Conductor's Baton of the Grand Maestro",
+      price: 85_000,
+      description: "Baton, creates a 60-foot cone sonic attack dealing 10d10 thunder damage. Doubles ally spell effectiveness for 1 minute. Usable once per long rest."
+    }
+  ]  
 }

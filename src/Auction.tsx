@@ -11,7 +11,7 @@ import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 
-const MAX_CLICKS = 2;
+const MAX_CLICKS = 3;
 
 export function getIndices(tribes: Tribe[], oldList: number[] = []): number[] {
   return tribes.map((tribe, index) => getNextItem(tribe.items, oldList[index]));

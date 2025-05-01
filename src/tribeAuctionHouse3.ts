@@ -2,57 +2,56 @@ import { Tribe } from "./types";
 
 export const tribeAuctionHouse3: Tribe = {
   name: "Yellow Star Shops",
-  percentAngry: 40,
+  percentAngry: 20,
   priceVariability: 30,
   insults: [
-    "Our sincerest apologies, but none of our partnering shop owners have agreed to part with such an item at this time. Might we suggest reviewing the other fine offerings?",
-    "Unfortunately, all bidding rights for that item have been withheld by the shop owners. However, you may still find something exceptional among the other lots.",
-    "It appears that the item in question has been reserved for private clients. Please, browse the rest of our curated collection while you're here.",
-    "Regretfully, the shop owners have deemed this request outside their current terms of trade. That said, we believe you'll find other options quite appealing.",
-    "That item's shop has requested limited visibility for now. We kindly invite you to peruse other available selections that may suit your needs.",
-    "Our contacts have politely declined to auction such an item today. May we interest you in something equally rare and desirable?",
-    "The consortium of shop owners we represent has expressed hesitation in releasing that particular item to market. Please explore the remainder of our selection at your leisure.",
-    "That request has been temporarily blacklisted by the shop owners not for lack of interest, but for reasons of exclusivity. Still, other treasures await your attention!",
-    "We’ve reached out to our shop owners, but none have approved this item for bidding today. Please enjoy the wealth of other offerings on display.",
-    "That piece is under review for future auctions and has been temporarily withdrawn. Might we guide your attention toward items currently open for bid?",
-    "The request has been acknowledged, but unfortunately no shop owner has authorized a release at this time. Other rare finds still await your consideration.",
-    "We’ve been advised that this item remains under lock and key, available only to select circles. Feel free to explore our more public-facing collections.",
-    "The shop in question has opted to hold their submission for a more opportune moment. May we tempt you with today’s premier alternatives?",
-    "That item has been marked as 'untradeable' by the original shop owner for now. In the meantime, there’s no shortage of fine wares on the floor.",
-    "It seems that all shops have agreed in silent accord to withhold this piece from today's dealings. Let us present you with other worthy bids.",
-    "That entry has been archived for discretion. We’d be delighted to assist you in finding something equally exceptional.",
-    "Our registry shows no current shop endorsement for this item. We welcome you to browse other highly coveted selections.",
-    "We regret to inform you that all inquiries into that item have been respectfully declined. Might we redirect your interest to something more... accessible?",
-    "While the requested item is not available for auction, we offer this complimentary minor healing potion (Heal 3d4) as a token of goodwill please enjoy browsing our remaining lots.",
-    "The shop owners have collectively withheld that entry, but as a gesture of apology, please accept this minor healing potion (Heal 3d4) and our invitation to explore other offerings.",
-    "Though we cannot honor this particular request, a complimentary healing draft has been arranged for you our way of saying thank you for your discerning taste.",
-    "That selection has been withdrawn by the shop with regrets. As an apology, please enjoy this minor healing potion (Heal 3d4) on the house while you view our remaining treasures."
-  ],
+    "We truly apologize for any disappointment, but we had to withdraw the item as it did not meet our quality standards. We would love to guide you toward our other selections that might be perfect for you.",
+    "We're really sorry to inform you that this piece was found to be too volatile for public presentation. Your safety is our priority, and we have removed it from display.",
+    "We regret to inform you that this item contained unpredictable enchantments. As a precaution, we've taken it off display. We encourage you to explore our safer alternatives, which we believe you will enjoy.",
+    "Our shop owners made the difficult decision to recall the item after discovering structural flaws in its enchantment. While you search for something special, we invite you to enjoy our reliable offerings.",
+    "We regret to inform you that your request was declined due to a failed appraisal, as the item's properties were found to be unstable. For your peace of mind, we recommend browsing items with verified integrity.",
+    "Unfortunately, the artifact had to be removed because it exhibited hazardous magical behavior. To ease your search, we provide a minor healing potion (Heal 3d4) as you explore our safer alternatives.",
+    "We're sorry to share that this selection emitted an unexpected magical surge and has been placed in containment for safety. We hope one of our other fine items will meet your needs.",
+    "While this item once showed great promise, it failed final curation and has been quietly retired. Please browse our authenticated pieces instead; we are here to help you find something you love.",
+    "We apologize for any inconvenience, but due to a recent mishap involving this item, it is no longer eligible for auction. Our team is happy to recommend items with confirmed safety ratings.",
+    "This piece was unfortunately retired from auction because it exceeded acceptable thresholds for magical instability. We greatly appreciate your understanding and invite you to explore our approved inventory.",
+    "We regret to inform you that the item showed signs of residual curse activity during testing. For your wellbeing, it has been temporarily withheld from public access.",
+    "We had to withdraw this item after discovering it no longer functioned as originally described. We sincerely invite you to explore our more dependable treasures.",
+    "We understand your interest, but that entry displayed excessive aggression during handling simulations. For now, it will remain secured off-site for safety. We have other calm options available that we think you'll like.",
+    "After a careful review, our appraisers found that the item was ethically questionable, and we had to remove it from consideration. We're here to help you find something more suitable to your needs.",
+    "We are truly sorry, but your request has been denied because the item did not pass our authenticity inspection. In light of this, we'd like to offer you a minor healing potion (Heal 3d4) and our sincerest apologies.",
+    "We regret to inform you that the item was found to be a counterfeit and has been removed from our auction. We appreciate your understanding and would love to assist you in finding something genuine.",
+],
   items: [
     {
-      name: "Iconic Dragonic's Cloak of the Prismatic Dragon",
-      price: 50_000,
-      description: "A magical cloak that allows the wearer to transform into a dragon of a chosen element for 1 hour. Provides flight and a powerful elemental breath weapon. Usable once per month.",
-    },
-    {
-      name: "Make a Monster's Ingot-Inator",
-      price: 35_000,
-      description: "A revolutionary device that enables an elemental to produce 20 ingots of its elemental material as crafting resources.",
-    },
-    {
-      name: "Michael's Mount's Timasour’s Bridle",
-      price: 30_000,
-      description: "A mystical bridle capable of taming unruly creatures and doubling the speed of mounts for 1 hour. Usable once per day.",
-    },
-    {
-      name: "Paws, Claws, & Maw's Egg of the Apex Beast",
+      name: "Iconic Dragonic's Mirror Scaled Tag",
       price: 40_000,
-      description: "A rare and mystical egg containing a beast that adapts to its surroundings. Once hatched, the creature grows into a formidable mount or companion tailored to its environment.",
+      description: "Once per short rest, if the pet/mount is hit by a spell or attack, it can immediately mirror the effect back to the attacker."
     },
     {
-      name: "Valhalla Mart's Blade of Ragnarok",
+      name: "Jell Bell's Collar/Harness of the Last Bark",
       price: 50_000,
-      description: "A legendary sword imbued with fiery and radiant power. Any creature slain by the blade is permanently erased from existence. Usable once per year.",
-    },   
-  ]
+      description: "When your creature dies, it returns as a ghost for 1 hour. It cannot speak, but it understands everything, is immune to all damage, and can phase through walls. Then it fades and will never return again."
+    },
+    {
+      name: "Make a Monster's Elemental Crown",
+      price: 40_000,
+      description: "The mount/pet gains resistance to one type of elemental damage of the player’s choice each day (fire, cold, lightning, acid, thunder). Once per day, may also absorb that damage instead of taking it, turning it into temporary HP."
+    },
+    {
+      name: "Michael's Mount's Ghostpaw Anklets",
+      price: 30_000,
+      description: "Gain ethereal movement for 1 minute per long rest. They can phase through walls, walk over traps, and vanish into fog. While in this form, they cannot attack, but they can carry or save their owner."
+    },
+    {
+      name: "Paws, Claws, & Maws's Harness of the Heartbeat Bond",
+      price: 30_000,
+      description: "As long as the mount/pet is within 100 ft. of its bonded rider/owner, any healing the owner receives the pet/mount heals twice that."
+    },
+    {
+      name: "Valhalla Mart's Forever Friend",
+      price: 50_000,
+      description: "This small block of wood can be carved into any pet/mount you have previously own. After doing so this pet will transform into said campaign. However if the dies or is critically injured the companion will revert back to it little wooden state. After one year, the companion regains its magic, allowing the owner to summon again."
+    }
+  ]  
 }

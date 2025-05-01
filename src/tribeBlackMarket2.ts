@@ -1,76 +1,72 @@
 import { Tribe } from "./types";
 
 export const tribeBlackMarket2: Tribe = {
-  name: "Red Star Shops",
-  percentAngry: 30,
+  name: "One of the red star shops",
+  percentAngry: 25,
   priceVariability: 30,
   insults: [
-    "You ain't got clearance, so quit staring and move along.",
-    "This area’s off-limits. Try something smart for once and walk away.",
-    "We’re done talking. Back off.",
-    "You don’t have permission, and you’re not getting it. Step aside.",
-    "The door’s closed to outsiders. That means you.",
-    "Try to push your luck here and it won’t end well.",
-    "Private business going on. You’re not part of it.",
-    "Nobody goes past this point unless they’re expected. You’re not.",
-    "Seen too many like you nosing around. None of 'em came back happy.",
-    "Turn around. Real slow. Real quiet.",
-    "You're not on the list, you're not on the invite, and you're not welcome.",
-    "This path ain’t open. Try it and you’ll regret it.",
-    "You're walking close to a mistake. Change direction.",
-    "Whatever you're hoping to find, it ain't here. Now beat it.",
-    "This spot is locked down. Not for your eyes.",
-    "No entrance. No questions. No second chances.",
-    "You already seen too much. Walk away while you can.",
-    "You're standing in the wrong place with the wrong face.",
-    "This is a closed chapter. Turn the page elsewhere.",
-    "There's nothing here but trouble. Keep it moving."
+    "Sellers don’t meet buyers. That’s the rule—capisce?",
+    "The shop’s mobile, off the grid. I ain’t takin’ you there,",
+    "They work in shadows, not with tourists. Don’t ask again,",
+    "No faces, no follow-ups. That’s how they stay alive,",
+    "It’s too hot right now. Shop’s bein’ watched,",
+    "You don’t got the creds. Don’t waste my time,",
+    "They skipped town after someone got sloppy. Didn’t end pretty,",
+    "I can’t show ya what ain’t safe to see. That’s their call,",
+    "Last guy I brought? Curiosity cost 'em. You wanna be next?,",
+    "Some doors stay shut for a reason. This one’s welded,",
+    "Too many eyes in the alley today. Step off,",
+    "Shop’s locked down—heat’s too loud lately,",
+    "They don’t deal with strangers. You ain’t got a rep,",
+    "It’s invite-only. You ain’t on the list,",
+    "I ain’t takin’ you where you don’t belong,",
+    "Access needs guarantees. I ain’t puttin’ my neck on the line for you,",
+    "You’re on the outside. Best stay there,",
+    "Seller’s jumpy. You show up, we both got problems,",
+    "This route’s closed ‘cause they said so. I don’t argue,",
+    "Rules ain’t mine—I just enforce ‘em. You? You ain't gettin’ in,",
+    "We ain’t goin’. Guards are makin’ rounds. You wanna get pinched?,"
   ],
   items: [
     {
-      name: "Auntie Patty's Pie's Pie of Eternal Slumber",
-      price: 15_000,
-      description: "A seemingly innocent pie that places the target in an unbreakable magical sleep for up to 100 years. Only a specific artifact can awaken them.",
+      name: "Pie of Eternal Slumber",
+      price: 15000,
+      description: "After consuming this pie the user is put into an unbreakable sleep for up to 10,000 years. The user can't die while sleeping. However, true love's kiss can break this effect."
     },
     {
-      name: "Comedy Gold's Laughing Mask",
-      price: 12_500,
-      description: "A whimsical mask that casts {Hideous Laughter} on all creatures within 100 feet, forcing uncontrollable laughter for up to 10 minutes. Usable once per day.",
+      name: "Worn Training Booklet of 'House of Blades'",
+      price: 12500,
+      description: "Grants the wielder one of three effects after reading: guaranteed max damage with any bladed weapon, triple damage dice when attacking with any bladed weapon, or knowledge of how the House of Blades recruits people."
     },
     {
-      name: "Dungeon Crawler Guild's Game Guide",
-      price: 22_000,
-      description: "A compact pamphlet imbued with magic, revealing all available paths and hidden areas when activated. Effect lasts for 5 minutes and can be used once per day.",
+      name: "Game Guide Compass",
+      price: 22000,
+      description: "Simply mention the name of the quest you need assistance with, and the compass will guide you toward the closest important items or tasks needed to fulfill the minimum requirements for that quest."
     },
     {
-      name: "Find a Friend's Contract of Companionship",
-      price: 20_000,
-      description: "A magical contract that binds a familiar companion to aid the user, capable of evolving based on the user's adventures.",
+      name: "Game Guide Compass",
+      price: 18500,
+      description: "Simply mention the name of the quest you need assistance with, and the compass will guide you toward the closest important items or tasks needed to fulfill the minimum requirements for that quest."
     },
     {
-      name: "Navigation Guild's Contraband Compass",
-      price: 18_500,
-      description: "An intricate compass that points to the nearest hidden smuggling route and reveals secret passages or invisible tunnels.",
+      name: "Elixir of Omnipotence",
+      price: 25000,
+      description: "Boosts all stats to +6 and all skills become +7. This effect lasts 8 hours. Causes extreme exhaustion after use."
     },
     {
-      name: "Pearl's Potions's Jazz's Elixir of Omnipotence",
-      price: 25_000,
-      description: "A potent elixir that temporarily boosts all stats to 24 and grants proficiency in all skills for 1 hour. Causes extreme exhaustion after use.",
+      name: "Cornucopia of Acre Harvest",
+      price: 23500,
+      description: "Once per day gain an acre of edible plant-based food, 326,000 gallons of a safe drinkable substance, or 2,718,840 pounds of meat. Anything summoned by the Cornucopia will disappear in 24 hours unless consumed."
     },
     {
-      name: "Provision's Paradise's Cornucopia of Eternal Harvest",
-      price: 23_500,
-      description: "A legendary artifact that produces endless enchanted food, restoring health, granting temporary hit points, and removing exhaustion.",
+      name: "Vault of the Gamblin",
+      price: 24000,
+      description: "Place X gold coins in the vault, close it, and then open it once a day for a 50% chance to either double or lose the amount inside."
     },
     {
-      name: "The Piggy Bank, no hammers inside's Vault of the Infinite Gamble",
-      price: 24_000,
-      description: "A magical vault that allows gold to be placed within. Each day, there is a 50% chance to double or lose the amount stored.",
-    },
-    {
-      name: "Ye Old Donkey's Shadowy Wagon of Escape",
-      price: 15_500,
-      description: "A magical wagon that fades into shadows when danger arises, rendering up to six occupants undetectable.",
-    },              
-  ]
+      name: "Just a Boring Wagon",
+      price: 15500,
+      description: "A wagon that prevents any road events from happening. Crew Size: 1 + Mount. Maximum Passengers: 6–10."
+    }
+  ]  
 }
