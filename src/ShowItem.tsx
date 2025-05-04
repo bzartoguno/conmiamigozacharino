@@ -1,7 +1,5 @@
 import { FC } from "react";
 import { Tribe } from "./types";
-// import styles from "./BlackApp.module.css"
-
 
 type ShowItemProps = {
   tribe: Tribe;
@@ -31,7 +29,7 @@ export const ShowItem: FC<ShowItemProps> = ({ styles, tribe, itemIndex }) => {
     <>
       <div className={styles.textBox}>
         <div>
-          {tribe.name} wants to trade {name} for {finalPrice} Gold 
+          {tribe.name} wants to trade {name} for {finalPrice.toLocaleString()} Gold
         </div>
         <div className={styles.description}>{description}</div>
       </div>

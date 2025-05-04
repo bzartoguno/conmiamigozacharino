@@ -33,11 +33,8 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 
 export function Auctions() {
   const tribes = [tribeAuctionHouse, tribeAuctionHouse2, tribeAuctionHouse3, tribeAuctionHouse4, tribeAuctionHouse5 ];
-
   const [clicks, setClicks] = useState(getInitialClicks());
-
   const [indices, setIndices] = useState(getInitialIndices(tribes));
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

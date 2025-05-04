@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GoblinIsClosed } from "./GoblinIsClosed";
 import { GoblinIsOpen } from "./GoblinIsOpen";
 import { Tribe } from "./types";
-import styles from "./GoblinApp.module.css"; // Updated to use CSS Modules
+import styles from "./GoblinApp.module.css";
 import { tribe1 } from "./tribe1";
 import { tribe2 } from "./tribe2";
 import { tribe3 } from "./tribe3";

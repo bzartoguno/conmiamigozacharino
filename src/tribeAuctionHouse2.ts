@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse2: Tribe = {
-  name: "Red Star Shops",
+  name: "A red star shop",
   percentAngry: 15,
   priceVariability: 30,
   insults: [

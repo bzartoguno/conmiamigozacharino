@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse: Tribe = {
-  name: "White Star Shops",
+  name: "A white Star Shop",
   percentAngry: 10,
   priceVariability: 30,
   insults: [
@@ -71,7 +71,7 @@ export const tribeAuctionHouse: Tribe = {
     {
       name: "Silent Oath's The Oathbreaker Dagger",
       price: 10000,
-      description: "Dagger, guarantees critical hits on creatures that have broken a vow. Deals necrotic damage and summons spectral chains."
+      description: "Dagger, guarantees critical hits on creatures that have broken a vow. Deals 4d4 necrotic +STR/DEX damage."
     },
     {
       name: "Supreme Smithy's Forgemasters Anvil",
