@@ -66,22 +66,22 @@ export const tribe5: Tribe = {
     {
       name: "Mama Headache Barrel",
       price: 2000,
-      description: "(Contains gasoline.)",
+      description: "(Contains gasoline, triples fire damage after dealt.)",
     },
     {
       name: "Not a Beehive",
       price: 4000,
-      description: "(Chainsaw Sword, deals 1d20 + CON + STR slashing damage.)",
+      description: "(Chainsaw Sword, + STR to hit, deals 1d20 + CON + STR slashing damage.)",
     },
     {
       name: "Lead Belcher",
       price: 4000,
-      description: "(A portable cannon that may explode if used too much, deals 1d12 + CON + STR blunt damage.)",
+      description: "(A portable cannon that may explode if used too much, +STR to hit, deals 1d12 + CON + STR blunt damage.)",
     },
     {
       name: "Gallon of Americano Blood",
       price: 2000,
-      description: "(It's a jug oil.)",
+      description: "(It's a jug oil, doubles fire damage after dealt.)",
     },
     {
       name: "Whizz Bang",
@@ -96,7 +96,7 @@ export const tribe5: Tribe = {
     {
       name: "Fwoosh!!!",
       price: 4000,
-      description: "(Flamethrower, deals 1d12 + CON + DEX fire damage. WARNING: WILL NOT WORK IF WET)",
+      description: "(Flamethrower, +DEX to hit, deals 1d12 + CON + DEX fire damage. WARNING: WILL NOT WORK IF WET)",
     },
     {
       name: "Nice Dwarf’s Ticket!",
@@ -106,7 +106,7 @@ export const tribe5: Tribe = {
     {
       name: "Zip Zap Dead",
       price: 4000,
-      description: "(Tesla Coil Pistol, deals 1d12 + CON + DEX lightning damage. WARNING: WILL NOT WORK IF WET)",
+      description: "(Tesla Coil Pistol, +DEX to hit, deals 1d12 + CON + DEX lightning damage. WARNING: WILL NOT WORK IF WET)",
     },
     {
       name: "Stupid Slippery Ticket",
@@ -128,7 +128,7 @@ export const tribe5: Tribe = {
       name: "One cool jacket",
       price: 4000,
       description:
-        "(Storm Rider Jacket, AC now 12 now resistance to lightning and gain a flight speed of 45.)",
+        "(Storm Rider Jacket, AC now 12 gain resistance to lightning and gain a flight speed of 45.)",
     },
     {
       name: "Cat Cape, Cat Cape, your wearing a Cat Cape!",

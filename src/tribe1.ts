@@ -67,7 +67,7 @@ export const tribe1: Tribe = {
     {
       name: "Beehive",
       price: 15,
-      description: "(Contains an Asian Murder Hornet hive in a jar.)",
+      description: "(Contains an angry Asian Murder Hornet hive in a jar. Dealing 4d4 poison damage, hornets stay 1d4 rounds before leaving)",
     },
     {
       name: "Morning Screamer",
@@ -134,7 +134,7 @@ export const tribe1: Tribe = {
       name: "Baby!",
       price: 35,
       description:
-      "(Its a baby an elemental; Arcane, Earth, Plant, Fire, Metal, Lightning, Water, Ice, Celetial, or Infernal. These Babies' Elementals will grow proportionally with how much you feed them their element, and new abilities will unlock the more you feed them.)",
+      "(It's a bag of flour wrapped in a blanket with big googly eyes. It kind of looks like a baby, if you squint. When you open the bag, flour explodes everywhere, dealing 1d4 damage to all creatures in a 1,000-foot radius.)"
     },
   ],
 };

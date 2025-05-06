@@ -61,7 +61,7 @@ export const tribe2: Tribe = {
     {
       name: "Snack?",
       price: 35,
-      description: "(Some thrown-out food found in a dumpster, heals 1d4.)",
+      description: "(Some thrown-out food found in a dumpster, heals 6d4+the knowlegde of eating trash.)",
     },
     {
       name: "Goblin Hand Sanitizer",
@@ -86,12 +86,12 @@ export const tribe2: Tribe = {
     {
       name: "Soup?",
       price: 35,
-      description: "(A soggy bowl of cereal, heals 1d6.)",
+      description: "(A soggy bowl of cereal, heals 2d8.)",
     },
     {
       name: "Docter Be GONE!",
       price: 110,
-      description: "(A shiny red apple the regenerates itself after half of it is gone, each bite heal for 1.)",
+      description: "(A shiny red apple the regenerates itself after half of it is gone, each bite is an action and heals for 1HP.)",
     },
     {
       name: "Hobo Gum",
@@ -106,7 +106,7 @@ export const tribe2: Tribe = {
     {
       name: "The One True Enemy",
       price: 75,
-      description: "(A bar of soap with a bite taken out of it?)",
+      description: "(A bar of soap, with a bite taken out of it?)",
     },
     {
       name: "Last Week's Fish Trip",
@@ -128,7 +128,7 @@ export const tribe2: Tribe = {
       name: "Liquid Golden Cat Eyes",
       price: 75,
       description:
-        "(A semi permanent potion of Dark vision up to 120 feet. However your after drinking and while in darkness your eyes shift from their original color to a golden yellow and your pupils stretch, giving them a slitted, cat-like appearance.)",
+        "(A permanent potion of Dark vision up to 120 feet. However your after drinking and while in darkness your eyes shift from their original color to a golden yellow and your pupils stretch, giving them a slitted, cat-like appearance.)",
     },
     {
       name: "You really hurt my feelings, why would you do that!",

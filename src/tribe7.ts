@@ -104,7 +104,7 @@ export const tribe7: Tribe = {
     },
     {
       name: "The dishonorable & malicious tiara of Solanine the goblin queen.",
-      price: 2000000,
+      price: 9000000,
       description: "(Goblin Warlord's Crown, All goblins within ten miles of the wearer have to obey their commands, if they can hear and understand it. Only three commands can be active at any given time with the oldest command being erased.)",
     },
     {
@@ -119,13 +119,13 @@ export const tribe7: Tribe = {
     },
     {
       name: "Hands-on goblin learning, they may rough you up a bit tho.",
-      price: 9000,
+      price: 90,
       description: "(Skill training, gain proficiency in a skill of your choosing if you already have proficiency in that skill it becomes expertise.)",
     },
     {
       name: "Not the kidnap- I mean a normal bag.",
       price: 1000,
-      description: "(Used Bag of Holding, This is a bag of holding however some items you withdraw may have a bit of glitter on them. Note you may not put living beings in here.)",
+      description: "(Used Bag of Holding, This is a bag of holding however some items you withdraw may have a bit of glitter on them. It may have some other items in there.)",
     },
     {
       name: "A really handy Hat",

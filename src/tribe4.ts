@@ -61,32 +61,32 @@ export const tribe4: Tribe = {
     {
       name: "Stink Fart in a Jar",
       price: 1000,
-      description: "(Poisonous Gas in a Mason Jar, deals 4d6 poison damage.)",
+      description: "(Mustard Gas in a Mason Jar, deals 4d6 poison damage.)",
     },
     {
       name: "Anti Squirrel Food",
       price: 1000,
-      description: "(C4, deals 4d6 fire damage.)",
+      description: "(C4, yes it comes with a trigger of 300 feet, deals 4d6 fire damage.)",
     },
     {
       name: "Short Stack Smoke Stack",
       price: 3000,
-      description: "(A super strong smoke bomb that can clear out any building.)",
+      description: "(A bottled up super strong smoke bomb that can clear out any building.)",
     },
     {
       name: "Snot Rocket",
       price: 3000,
-      description: "(An RPG that fires sticky bombs, immobilizing any medium or smaller creatures for up to two turns.)",
+      description: "(An RPG that fires sticky bombs +8 to hit dealing 2d8 acid damage, immobilizing any medium or smaller creatures for up to two turns.)",
     },
     {
       name: "Ta un ta",
       price: 3000,
-      description: "(TNT that attracts caffeine-driven squirrels, deals 3d6 fire damage and pushes medium and smaller creatures 20ft away.)",
+      description: "(5 sticks of TNT that attracts caffeine-driven squirrels, each +4 to hit dealing 3d6 fire damage and pushes medium and smaller creatures 20ft away.)",
     },
     {
       name: "It's a Rock",
       price: 1000,
-      description: "(Grenade, it very much does not look like a rock, deals 2d6 fire damage and pushes medium and smaller creatures 10ft away.)",
+      description: "(Nope it's a Grenade, it very much does not look like a rock, deals 8d8 fire damage and pushes medium and smaller creatures 10ft away.)",
     },
     {
       name: "Poop Poo Pa Choo",
@@ -96,7 +96,7 @@ export const tribe4: Tribe = {
     {
       name: "Boom Juga Juga",
       price: 5000,
-      description: "(Bomb in a flask, will go off if opened, deals 10d6 fire damage.)",
+      description: "(Bomb potion, will go off if opened, deals 10d6 fire damage.)",
     },
     {
       name: "Black Boom",
@@ -106,7 +106,7 @@ export const tribe4: Tribe = {
     {
       name: "Sneak Squeak",
       price: 1000,
-      description: "(A steampunk Roomba with C4 strapped to it, designed to get rid of those pesky squirrels, deals 5d6 fire damage.)",
+      description: "(A clockwork Roomba with C4 strapped to it, designed to get rid of those pesky squirrels, deals 6d6 fire damage.)",
     },
     {
       name: "Welcome Mat",

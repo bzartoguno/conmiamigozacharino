@@ -62,7 +62,7 @@ export const tribe3: Tribe = {
       name: "The Greatest Shield Ever!",
       price: 400,
       description:
-        "(A normal +2 AC shield with a stick of dynamite attached to it.)",
+        "(A normal +2 AC shield with a stick of dynamite attached to it. No the dynamite can't removed.)",
     },
     {
       name: "An Unbeatable Weapon!",
