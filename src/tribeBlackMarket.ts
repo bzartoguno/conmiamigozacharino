@@ -39,9 +39,9 @@ export const tribeBlackMarket: Tribe = {
       description: "Tracks the location of forgotten criminals or fugitives in real time within a 10 mile radius, revealing their movements, stashes, and hideouts."
     },
     {
-      name: "Book Bombs's Death Note",
+      name: "Book Bombs's Bootleg Death Note",
       price: 7500,
-      description: "Write down someone's name, and they'll perish within the next week. You can't write down how they will die. Usable once per month."
+      description: "Write down someone's name, and they'll take 500 points of damage within the next week, no you do not choose when this will happen. Usable once per month."
     },
     {
       name: "Void Shot Ammo",

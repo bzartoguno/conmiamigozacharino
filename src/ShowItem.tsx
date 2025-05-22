@@ -4,7 +4,7 @@ import { Tribe } from "./types";
 type ShowItemProps = {
   tribe: Tribe;
   itemIndex: number;
-  styles: any;
+  styles: any; 
 };
 
 export const ShowItem: FC<ShowItemProps> = ({ styles, tribe, itemIndex }) => {
