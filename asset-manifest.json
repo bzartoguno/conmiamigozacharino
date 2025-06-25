@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.6e6978f8.css",
-    "main.js": "/conmiamigozacharino/static/js/main.062edd68.js",
+    "main.css": "/conmiamigozacharino/static/css/main.07c3b0b3.css",
+    "main.js": "/conmiamigozacharino/static/js/main.77f64259.js",
     "static/js/453.1057d0f0.chunk.js": "/conmiamigozacharino/static/js/453.1057d0f0.chunk.js",
-    "static/media/SandboxPaths.png": "/conmiamigozacharino/static/media/SandboxPaths.a28295ad1e8ddaabc081.png",
     "static/media/Goblin-Market-Train.png": "/conmiamigozacharino/static/media/Goblin-Market-Train.8bc7c06e9a616d733bf4.png",
     "static/media/Black Market.jpg": "/conmiamigozacharino/static/media/Black Market.9e2871a8ad883a5a44db.jpg",
     "static/media/Auction House.png": "/conmiamigozacharino/static/media/Auction House.fce14158bb3f428a8b44.png",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.6e6978f8.css.map": "/conmiamigozacharino/static/css/main.6e6978f8.css.map",
-    "main.062edd68.js.map": "/conmiamigozacharino/static/js/main.062edd68.js.map",
+    "main.07c3b0b3.css.map": "/conmiamigozacharino/static/css/main.07c3b0b3.css.map",
+    "main.77f64259.js.map": "/conmiamigozacharino/static/js/main.77f64259.js.map",
     "453.1057d0f0.chunk.js.map": "/conmiamigozacharino/static/js/453.1057d0f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e6978f8.css",
-    "static/js/main.062edd68.js"
+    "static/css/main.07c3b0b3.css",
+    "static/js/main.77f64259.js"
   ]
 }
