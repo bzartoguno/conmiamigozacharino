@@ -65,6 +65,7 @@ function FloatingButton({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       style={{
         ...styles.button,
@@ -80,7 +81,7 @@ function FloatingButton({
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
-    <button onClick={onClick} style={styles.backButton}>
+    <button type="button" onClick={onClick} style={styles.backButton}>
       ← Return to the map
     </button>
   );
@@ -136,14 +137,17 @@ const styles: Record<string, React.CSSProperties> = {
   },
 };
 
-// Inject slow floating animation into global styles
-const styleSheet = document.createElement("style");
-styleSheet.innerHTML = `
-@keyframes float {
-  0% { transform: translate(0px, 0px); }
-  25% { transform: translate(4px, -4px); }
-  50% { transform: translate(0px, -8px); }
-  75% { transform: translate(-4px, -4px); }
-  100% { transform: translate(0px, 0px); }
-}`;
-document.head.appendChild(styleSheet);
+// Inject slow floating animation into global styles (guarded for SSR)
+if (typeof document !== "undefined" && !document.getElementById("floating-keyframes")) {
+  const styleSheet = document.createElement("style");
+  styleSheet.id = "floating-keyframes";
+  styleSheet.innerHTML = `
+  @keyframes float {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(4px, -4px); }
+    50% { transform: translate(0px, -8px); }
+    75% { transform: translate(-4px, -4px); }
+    100% { transform: translate(0px, 0px); }
+  }`;
+  document.head.appendChild(styleSheet);
+}
