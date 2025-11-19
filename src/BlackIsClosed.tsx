@@ -62,7 +62,7 @@ export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
         <h1>Didn't you hear me?</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Now get out of here bub, else your'll be counting to ten with your toes
+            Now get out of here, bub, or you'll be counting to ten with your toes
             <input
               type="password"
               value={password}
@@ -72,7 +72,7 @@ export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
           </label>
           <button type="submit">Submit</button>
         </form>
-        {isPasswordCorrect === false && <p>What did I say bub, get out of here before we do more then talk</p>}
+        {isPasswordCorrect === false && <p>What did I say, bub? Get out of here before we do more than talk.</p>}
       </div>
     </div>
   );

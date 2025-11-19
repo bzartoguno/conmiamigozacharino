@@ -1,18 +1,25 @@
 import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
 
+  const renderSection = (content: ReactNode) => (
+    <>
+      <BackButton onClick={() => setNavigatedTo("")} />
+      {content}
+    </>
+  );
+
   switch (navigatedTo) {
     case "goblins":
-      return <Goblins />;
+      return renderSection(<Goblins />);
     case "Auction":
-      return <Auctions />;
+      return renderSection(<Auctions />);
     case "Black":
-      return <Blacks />;
+      return renderSection(<Blacks />);
     default:
       return (
         <div style={styles.wrapper}>
@@ -71,6 +78,14 @@ function FloatingButton({
   );
 }
 
+function BackButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button onClick={onClick} style={styles.backButton}>
+      ← Return to the map
+    </button>
+  );
+}
+
 const styles: Record<string, React.CSSProperties> = {
   wrapper: {
     display: "flex",
@@ -103,6 +118,20 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: "pointer",
     animation: "float 12s ease-in-out infinite", // Slower float
     transition: "transform 0.3s ease",
+    fontFamily: "'Times New Roman', serif",
+  },
+  backButton: {
+    position: "fixed",
+    top: "1.5rem",
+    left: "1.5rem",
+    zIndex: 1000,
+    padding: "0.6rem 1.5rem",
+    fontSize: "1rem",
+    borderRadius: "999px",
+    border: "2px solid #333",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)",
+    cursor: "pointer",
     fontFamily: "'Times New Roman', serif",
   },
 };
