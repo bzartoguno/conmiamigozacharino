@@ -12,6 +12,7 @@ import { tribe6 } from "./tribe6";
 import { tribe7 } from "./tribe7";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 5;
 
@@ -50,6 +51,7 @@ export function Goblins({ onBack }: { onBack?: () => void }) {
   if (clicks <= MAX_CLICKS) {
     return (
       <div className={styles.app}>
+        <BackButton onClick={onBack} />
         <div className={styles.backgroundImage}></div>
         <GoblinIsOpen
           clicks={clicks}
@@ -71,6 +73,7 @@ export function Goblins({ onBack }: { onBack?: () => void }) {
 
   return (
     <div className={styles.app}>
+      <BackButton onClick={onBack} />
       <div className={styles.backgroundImage}></div>
       <GoblinIsClosed
         setClicks={(value) => {
