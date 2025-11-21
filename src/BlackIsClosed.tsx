@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { BackButton } from "./BackButton";
 
 const CORRECT_PASSWORD_HASH = 'ad698ac9653d25d2b386629439da8331d1cd01e59eeee63b9bf46e5e9803d383';
 
 export interface BlackIsClosedProps {
   setClicks: (value: number) => void;
+  onBack?: () => void;
 }
 
 async function hashString(text: string) {
@@ -15,7 +17,7 @@ async function hashString(text: string) {
   return hashHex;
 }
 
-export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
+export function BlackIsClosed({ setClicks, onBack }: BlackIsClosedProps) {
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setIsPasswordCorrect] = useState<boolean | null>(
     null
@@ -57,12 +59,13 @@ export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
         boxShadow: '0 40px 8px rgba(.5, 0.5, 0.5, 0.54)',
         textAlign: 'center',
         width: '80%',
-        maxWidth: '600px'
-      }}>
+      maxWidth: '600px'
+    }}>
+        <BackButton onClick={onBack} />
         <h1>Didn't you hear me?</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Now get out of here bub, else your'll be counting to ten with your toes
+            Now get out of here, bub, or you'll be counting to ten with your toes
             <input
               type="password"
               value={password}
@@ -72,7 +75,7 @@ export function BlackIsClosed({ setClicks }: BlackIsClosedProps) {
           </label>
           <button type="submit">Submit</button>
         </form>
-        {isPasswordCorrect === false && <p>What did I say bub, get out of here before we do more then talk</p>}
+        {isPasswordCorrect === false && <p>What did I say, bub? Get out of here before we do more than talk.</p>}
       </div>
     </div>
   );

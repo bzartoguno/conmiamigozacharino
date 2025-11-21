@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
-import styles from "./AuctionApp.module.css"; 
+import styles from "./AuctionApp.module.css";
 import { tribeAuctionHouse } from "./tribeAuctionHouse";
 import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
 import { tribeAuctionHouse3 } from "./tribeAuctionHouse3";
@@ -31,7 +31,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
   return numArr;
 }
 
-export function Auctions() {
+export function Auctions({ onBack }: { onBack?: () => void }) {
   const tribes = [tribeAuctionHouse, tribeAuctionHouse2, tribeAuctionHouse3, tribeAuctionHouse4, tribeAuctionHouse5 ];
   const [clicks, setClicks] = useState(getInitialClicks());
   const [indices, setIndices] = useState(getInitialIndices(tribes));
@@ -54,10 +54,11 @@ export function Auctions() {
           }}
           indices={indices}
           setIndices={(value) => {
-            scrollToTop(); 
+            scrollToTop();
             setIndices(value);
           }}
           tribes={tribes}
+          onBack={onBack}
         />
       </div>
     );
@@ -68,9 +69,10 @@ export function Auctions() {
       <div className={styles.backgroundImage}></div>
       <AuctionIsClosed
         setClicks={(value) => {
-          scrollToTop(); 
+          scrollToTop();
           setClicks(value);
         }}
+        onBack={onBack}
       />
     </div>
   );

@@ -33,7 +33,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
   return numArr;
 }
 
-export function Goblins() {
+export function Goblins({ onBack }: { onBack?: () => void }) {
   const tribes = [tribe1, tribe2, tribe3, tribe4, tribe5, tribe6, tribe7];
 
   const [clicks, setClicks] = useState(getInitialClicks());
@@ -63,6 +63,7 @@ export function Goblins() {
             setIndices(value);
           }}
           tribes={tribes}
+          onBack={onBack}
         />
       </div>
     );
@@ -76,6 +77,7 @@ export function Goblins() {
           scrollToTop(); // Scroll to top on button click
           setClicks(value);
         }}
+        onBack={onBack}
       />
     </div>
   );

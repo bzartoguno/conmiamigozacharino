@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { BackButton } from "./BackButton";
 
 const CORRECT_PASSWORD_HASH = 'ad698ac9653d25d2b386629439da8331d1cd01e59eeee63b9bf46e5e9803d383';
 
 export interface AuctionIsClosedProps {
   setClicks: (value: number) => void;
+  onBack?: () => void;
 }
 
 async function hashString(text: string) {
@@ -15,7 +17,7 @@ async function hashString(text: string) {
   return hashHex;
 }
 
-export function AuctionIsClosed({ setClicks }: AuctionIsClosedProps) {
+export function AuctionIsClosed({ setClicks, onBack }: AuctionIsClosedProps) {
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setIsPasswordCorrect] = useState<boolean | null>(
     null
@@ -59,6 +61,7 @@ export function AuctionIsClosed({ setClicks }: AuctionIsClosedProps) {
         width: '80%',
         maxWidth: '600px'
       }}>
+        <BackButton onClick={onBack} />
         <h1>Apologies Valued Adventurer</h1>
         <form onSubmit={handleSubmit}>
           <label>
