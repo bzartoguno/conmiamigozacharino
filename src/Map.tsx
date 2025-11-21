@@ -5,6 +5,9 @@ import { ReactNode, useState } from "react";
 import { BackButton } from "./BackButton";
 
 
+// Back button rendering now lives in src/BackButton.tsx so we don't accidentally
+// shadow the shared component inside this module.
+
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
 
@@ -166,6 +169,7 @@ if (typeof document !== "undefined" && !document.getElementById("floating-keyfra
   }`;
   document.head.appendChild(styleSheet);
 }
+
 
 // Inject slow floating animation into global styles
 const styleSheet = document.createElement("style");

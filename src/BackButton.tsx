@@ -18,6 +18,8 @@ export function BackButton({ onClick }: { onClick?: () => void }) {
 
 const styles: Record<string, React.CSSProperties> = {
   backButton: {
+    alignSelf: "flex-start",
+    marginBottom: "1rem",
 
     alignSelf: "flex-start",
     marginBottom: "1rem",
