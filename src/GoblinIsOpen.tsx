@@ -3,6 +3,7 @@ import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
 import { Tribe } from "./types";
 import styles from "./GoblinApp.module.css"
+import { BackButton } from "./BackButton";
 
 interface GoblinIsOpenProps {
   clicks: number;
@@ -10,6 +11,7 @@ interface GoblinIsOpenProps {
   indices: number[];
   setIndices: (values: number[]) => void;
   tribes: Tribe[];
+  onBack?: () => void;
 }
 
 export function GoblinIsOpen({
@@ -18,6 +20,7 @@ export function GoblinIsOpen({
   indices,
   setIndices,
   tribes,
+  onBack,
 }: GoblinIsOpenProps) {
   const handleItemClick = () => {
     setCookie("clicks", (clicks + 1).toString());
@@ -29,6 +32,7 @@ export function GoblinIsOpen({
 
   return (
     <div className="App background-image">
+      <BackButton onClick={onBack} />
       <h1>Goblin Marketplace</h1>
 
       <div style={{ display: "flex", flexDirection: "column" }}>

@@ -17,6 +17,13 @@ export function Map() {
 
   switch (navigatedTo) {
     case "goblins":
+
+      return <Goblins onBack={() => setNavigatedTo("")} />;
+    case "Auction":
+      return <Auctions onBack={() => setNavigatedTo("")} />;
+    case "Black":
+      return <Blacks onBack={() => setNavigatedTo("")} />;
+
       return renderSection(<Goblins onBack={() => setNavigatedTo("")} />);
     case "Auction":
       return renderSection(<Auctions onBack={() => setNavigatedTo("")} />);
@@ -159,6 +166,7 @@ if (typeof document !== "undefined" && !document.getElementById("floating-keyfra
   }`;
   document.head.appendChild(styleSheet);
 }
+
 // Inject slow floating animation into global styles
 const styleSheet = document.createElement("style");
 styleSheet.innerHTML = `

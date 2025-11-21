@@ -63,6 +63,7 @@ export function Blacks({ onBack }: { onBack?: () => void }) {
             setIndices(value);
           }}
           tribes={tribes}
+          onBack={onBack}
         />
       </div>
     );
@@ -77,6 +78,7 @@ export function Blacks({ onBack }: { onBack?: () => void }) {
           scrollToTop(); // Scroll to top on button click
           setClicks(value);
         }}
+        onBack={onBack}
       />
     </div>
   );

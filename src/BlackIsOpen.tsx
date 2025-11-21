@@ -3,6 +3,7 @@ import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
 import { Tribe } from "./types";
 import styles from "./BlackApp.module.css"
+import { BackButton } from "./BackButton";
 
 interface BlackIsOpenProps {
   clicks: number;
@@ -10,6 +11,7 @@ interface BlackIsOpenProps {
   indices: number[];
   setIndices: (values: number[]) => void;
   tribes: Tribe[];
+  onBack?: () => void;
 }
 
 export function BlackIsOpen({
@@ -18,6 +20,7 @@ export function BlackIsOpen({
   indices,
   setIndices,
   tribes,
+  onBack,
 }: BlackIsOpenProps) {
   const handleItemClick = () => {
     setCookie("clicks", (clicks + 1).toString());
@@ -29,6 +32,7 @@ export function BlackIsOpen({
 
   return (
     <div className="App background-image">
+      <BackButton onClick={onBack} />
       <h1>Black Market is Open</h1>
 
       <div style={{ display: "flex", flexDirection: "column" }}>

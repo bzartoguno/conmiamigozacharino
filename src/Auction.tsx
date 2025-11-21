@@ -56,10 +56,11 @@ export function Auctions({ onBack }: { onBack?: () => void }) {
           }}
           indices={indices}
           setIndices={(value) => {
-            scrollToTop(); 
+            scrollToTop();
             setIndices(value);
           }}
           tribes={tribes}
+          onBack={onBack}
         />
       </div>
     );
@@ -71,9 +72,10 @@ export function Auctions({ onBack }: { onBack?: () => void }) {
       <div className={styles.backgroundImage}></div>
       <AuctionIsClosed
         setClicks={(value) => {
-          scrollToTop(); 
+          scrollToTop();
           setClicks(value);
         }}
+        onBack={onBack}
       />
     </div>
   );
