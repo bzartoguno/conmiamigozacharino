@@ -3,6 +3,7 @@ import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
 import { Tribe } from "./types";
 import styles from "./AuctionApp.module.css"
+import { BackButton } from "./BackButton";
 
 interface AuctionIsOpenProps {
   clicks: number;
@@ -10,6 +11,7 @@ interface AuctionIsOpenProps {
   indices: number[];
   setIndices: (values: number[]) => void;
   tribes: Tribe[];
+  onBack?: () => void;
 }
 
 export function AuctionIsOpen({
@@ -18,6 +20,7 @@ export function AuctionIsOpen({
   indices,
   setIndices,
   tribes,
+  onBack,
 }: AuctionIsOpenProps) {
   const handleItemClick = () => {
 
@@ -31,6 +34,7 @@ export function AuctionIsOpen({
 
   return (
     <div className="App background-image">
+      <BackButton onClick={onBack} />
       <h1>Auction House is Open</h1>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
