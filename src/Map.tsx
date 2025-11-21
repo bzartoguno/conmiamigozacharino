@@ -2,6 +2,8 @@ import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
 import { ReactNode, useState } from "react";
+import { BackButton } from "./BackButton";
+
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
@@ -15,6 +17,12 @@ export function Map() {
 
   switch (navigatedTo) {
     case "goblins":
+      return renderSection(<Goblins onBack={() => setNavigatedTo("")} />);
+    case "Auction":
+      return renderSection(<Auctions onBack={() => setNavigatedTo("")} />);
+    case "Black":
+      return renderSection(<Blacks onBack={() => setNavigatedTo("")} />);
+
       return renderSection(<Goblins />);
     case "Auction":
       return renderSection(<Auctions />);
@@ -162,3 +170,4 @@ styleSheet.innerHTML = `
   100% { transform: translate(0px, 0px); }
 }`;
 document.head.appendChild(styleSheet);
+
