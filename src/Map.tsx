@@ -4,6 +4,7 @@ import { Blacks } from "./Black";
 import { ReactNode, useState } from "react";
 import { BackButton } from "./BackButton";
 
+
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
 
@@ -21,6 +22,12 @@ export function Map() {
       return renderSection(<Auctions onBack={() => setNavigatedTo("")} />);
     case "Black":
       return renderSection(<Blacks onBack={() => setNavigatedTo("")} />);
+
+      return renderSection(<Goblins />);
+    case "Auction":
+      return renderSection(<Auctions />);
+    case "Black":
+      return renderSection(<Blacks />);
     default:
       return (
         <div style={styles.wrapper}>
@@ -80,6 +87,14 @@ function FloatingButton({
   );
 }
 
+function BackButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button type="button" onClick={onClick} style={styles.backButton}>
+      ← Return to the map
+    </button>
+  );
+}
+
 const styles: Record<string, React.CSSProperties> = {
   wrapper: {
     display: "flex",
@@ -114,6 +129,20 @@ const styles: Record<string, React.CSSProperties> = {
     transition: "transform 0.3s ease",
     fontFamily: "'Times New Roman', serif",
   },
+  backButton: {
+    position: "fixed",
+    top: "1.5rem",
+    left: "1.5rem",
+    zIndex: 1000,
+    padding: "0.6rem 1.5rem",
+    fontSize: "1rem",
+    borderRadius: "999px",
+    border: "2px solid #333",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)",
+    cursor: "pointer",
+    fontFamily: "'Times New Roman', serif",
+  },
 };
 
 // Inject slow floating animation into global styles (guarded for SSR)
@@ -130,3 +159,15 @@ if (typeof document !== "undefined" && !document.getElementById("floating-keyfra
   }`;
   document.head.appendChild(styleSheet);
 }
+// Inject slow floating animation into global styles
+const styleSheet = document.createElement("style");
+styleSheet.innerHTML = `
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(4px, -4px); }
+  50% { transform: translate(0px, -8px); }
+  75% { transform: translate(-4px, -4px); }
+  100% { transform: translate(0px, 0px); }
+}`;
+document.head.appendChild(styleSheet);
+
