@@ -151,3 +151,14 @@ if (typeof document !== "undefined" && !document.getElementById("floating-keyfra
   }`;
   document.head.appendChild(styleSheet);
 }
+// Inject slow floating animation into global styles
+const styleSheet = document.createElement("style");
+styleSheet.innerHTML = `
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(4px, -4px); }
+  50% { transform: translate(0px, -8px); }
+  75% { transform: translate(-4px, -4px); }
+  100% { transform: translate(0px, 0px); }
+}`;
+document.head.appendChild(styleSheet);
