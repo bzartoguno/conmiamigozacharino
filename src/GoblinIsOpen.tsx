@@ -43,7 +43,7 @@ export function GoblinIsOpen({
       </div>
 
       <button className="button" onClick={handleItemClick}>
-        Umm I don't like any of these can you check in the back, for me, Goober?
+        Um, I don't like any of these. Can you check in the back for me, Goober?
         <br />
         You have asked {clicks} times.
       </button>

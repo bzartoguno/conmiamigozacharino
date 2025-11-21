@@ -43,9 +43,9 @@ export function BlackIsOpen({
       </div>
 
       <button className="button" onClick={handleItemClick}>
-        Got any thing else under the table?
+        Got anything else under the table?
         <br />
-        Number of looks you've gotten so far {clicks}.
+        You've checked under the table {clicks} times.
       </button>
     </div>
   );

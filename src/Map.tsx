@@ -1,18 +1,26 @@
 import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
+import { BackButton } from "./BackButton";
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
 
+  const renderSection = (content: ReactNode) => (
+    <>
+      <BackButton onClick={() => setNavigatedTo("")} />
+      {content}
+    </>
+  );
+
   switch (navigatedTo) {
     case "goblins":
-      return <Goblins />;
+      return renderSection(<Goblins onBack={() => setNavigatedTo("")} />);
     case "Auction":
-      return <Auctions />;
+      return renderSection(<Auctions onBack={() => setNavigatedTo("")} />);
     case "Black":
-      return <Blacks />;
+      return renderSection(<Blacks onBack={() => setNavigatedTo("")} />);
     default:
       return (
         <div style={styles.wrapper}>
@@ -58,6 +66,7 @@ function FloatingButton({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       style={{
         ...styles.button,
@@ -107,14 +116,17 @@ const styles: Record<string, React.CSSProperties> = {
   },
 };
 
-// Inject slow floating animation into global styles
-const styleSheet = document.createElement("style");
-styleSheet.innerHTML = `
-@keyframes float {
-  0% { transform: translate(0px, 0px); }
-  25% { transform: translate(4px, -4px); }
-  50% { transform: translate(0px, -8px); }
-  75% { transform: translate(-4px, -4px); }
-  100% { transform: translate(0px, 0px); }
-}`;
-document.head.appendChild(styleSheet);
+// Inject slow floating animation into global styles (guarded for SSR)
+if (typeof document !== "undefined" && !document.getElementById("floating-keyframes")) {
+  const styleSheet = document.createElement("style");
+  styleSheet.id = "floating-keyframes";
+  styleSheet.innerHTML = `
+  @keyframes float {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(4px, -4px); }
+    50% { transform: translate(0px, -8px); }
+    75% { transform: translate(-4px, -4px); }
+    100% { transform: translate(0px, 0px); }
+  }`;
+  document.head.appendChild(styleSheet);
+}

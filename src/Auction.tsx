@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
-import styles from "./AuctionApp.module.css"; 
+import styles from "./AuctionApp.module.css";
 import { tribeAuctionHouse } from "./tribeAuctionHouse";
 import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
 import { tribeAuctionHouse3 } from "./tribeAuctionHouse3";
@@ -10,6 +10,7 @@ import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";
 import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 3;
 
@@ -31,7 +32,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
   return numArr;
 }
 
-export function Auctions() {
+export function Auctions({ onBack }: { onBack?: () => void }) {
   const tribes = [tribeAuctionHouse, tribeAuctionHouse2, tribeAuctionHouse3, tribeAuctionHouse4, tribeAuctionHouse5 ];
   const [clicks, setClicks] = useState(getInitialClicks());
   const [indices, setIndices] = useState(getInitialIndices(tribes));
@@ -45,6 +46,7 @@ export function Auctions() {
   if (clicks <= MAX_CLICKS) {
     return (
       <div className={styles.app}>
+        <BackButton onClick={onBack} />
         <div className={styles.backgroundImage}></div>
         <AuctionIsOpen
           clicks={clicks}
@@ -65,6 +67,7 @@ export function Auctions() {
 
   return (
     <div className={styles.app}>
+      <BackButton onClick={onBack} />
       <div className={styles.backgroundImage}></div>
       <AuctionIsClosed
         setClicks={(value) => {
