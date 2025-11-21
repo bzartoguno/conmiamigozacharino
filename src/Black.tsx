@@ -10,6 +10,7 @@ import { tribeBlackMarket4 } from "./tribeBlackMarket4";
 import { tribeBlackMarket5 } from "./tribeBlackMarket5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 2;
 
@@ -48,6 +49,7 @@ export function Blacks({ onBack }: { onBack?: () => void }) {
   if (clicks <= MAX_CLICKS) {
     return (
       <div className={styles.app}>
+        <BackButton onClick={onBack} />
         <div className={styles.backgroundImage}></div>
         <BlackIsOpen
           clicks={clicks}
@@ -69,6 +71,7 @@ export function Blacks({ onBack }: { onBack?: () => void }) {
 
   return (
     <div className={styles.app}>
+      <BackButton onClick={onBack} />
       <div className={styles.backgroundImage}></div>
       <BlackIsClosed
         setClicks={(value) => {

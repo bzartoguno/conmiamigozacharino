@@ -10,6 +10,7 @@ import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";
 import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 3;
 
@@ -45,6 +46,7 @@ export function Auctions({ onBack }: { onBack?: () => void }) {
   if (clicks <= MAX_CLICKS) {
     return (
       <div className={styles.app}>
+        <BackButton onClick={onBack} />
         <div className={styles.backgroundImage}></div>
         <AuctionIsOpen
           clicks={clicks}
@@ -66,6 +68,7 @@ export function Auctions({ onBack }: { onBack?: () => void }) {
 
   return (
     <div className={styles.app}>
+      <BackButton onClick={onBack} />
       <div className={styles.backgroundImage}></div>
       <AuctionIsClosed
         setClicks={(value) => {
