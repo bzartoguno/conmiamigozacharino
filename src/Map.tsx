@@ -1,6 +1,8 @@
 import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
+import { BookBombs } from "./BookBombs";
+import { bookBombDataUrl } from "./bookBombImage";
 import { useState } from "react";
 
 export function Map() {
@@ -14,6 +16,8 @@ export function Map() {
       return <Auctions onBack={() => setNavigatedTo("")} />;
     case "Black":
       return <Blacks onBack={() => setNavigatedTo("")} />;
+    case "BookBombs":
+      return <BookBombs onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -38,6 +42,13 @@ export function Map() {
               backgroundColor="rgba(0, 0, 0, 0.712)"
               color="white"
             />
+            <FloatingButton
+              label="Book Bombs"
+              onClick={() => setNavigatedTo("BookBombs")}
+              delay="12s"
+              backgroundColor="rgba(255, 226, 168, 0.9)"
+              imageSrc={bookBombDataUrl}
+            />
           </div>
         </div>
       );
@@ -50,12 +61,14 @@ function FloatingButton({
   delay,
   backgroundColor,
   color = "#000",
+  imageSrc,
 }: {
   label: string;
   onClick: () => void;
   delay: string;
   backgroundColor: string;
   color?: string;
+  imageSrc?: string;
 }) {
   return (
     <button
@@ -68,7 +81,14 @@ function FloatingButton({
         color,
       }}
     >
-      {label}
+      {imageSrc ? (
+        <div style={styles.buttonContent}>
+          <img src={imageSrc} alt={`${label} logo`} style={styles.buttonImage} />
+          <span style={styles.buttonLabel}>{label}</span>
+        </div>
+      ) : (
+        label
+      )}
     </button>
   );
 }
@@ -99,13 +119,17 @@ const styles: Record<string, React.CSSProperties> = {
   button: {
     fontSize: "1.5rem",
     padding: "1rem 3rem",
-    borderRadius: "23px",               // Smooth rounded shape
-    border: "2px solid #333",           // Add subtle outline
-    boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)", // Add soft drop shadow
+    borderRadius: "23px",
+    border: "2px solid #333",
+    boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
-    animation: "float 12s ease-in-out infinite", // Slower float
+    animation: "float 12s ease-in-out infinite",
     transition: "transform 0.3s ease",
     fontFamily: "'Times New Roman', serif",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "0.75rem",
   },
   backButton: {
     position: "fixed",
@@ -120,6 +144,24 @@ const styles: Record<string, React.CSSProperties> = {
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)",
     cursor: "pointer",
     fontFamily: "'Times New Roman', serif",
+  },
+  buttonContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "0.35rem",
+  },
+  buttonImage: {
+    width: "140px",
+    height: "140px",
+    objectFit: "contain",
+    borderRadius: "12px",
+    border: "2px solid rgba(0,0,0,0.6)",
+    backgroundColor: "rgba(255,255,255,0.85)",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.35)",
+  },
+  buttonLabel: {
+    display: "block",
   },
 };
 
