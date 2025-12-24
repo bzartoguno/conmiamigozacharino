@@ -10,7 +10,7 @@ type DisplayItem = Item & { finalPrice: number };
 function calculateAdjustedPrice(item: Item, priceVariability: number): number {
   const variability =
     ((Math.random() * priceVariability) / 100) * item.price;
-  const upOrDown = Math.random() < 0.5 ? -1 : 1;
+  const upOrDown = Math.random() < .5 ? -1 : 1;
   const adjusted = item.price + upOrDown * variability;
 
   return Math.max(0, Math.round(adjusted));

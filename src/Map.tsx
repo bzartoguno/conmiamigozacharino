@@ -92,7 +92,7 @@ export function Map() {
               label="Book Bombs"
               onClick={() => setNavigatedTo("BookBombs")}
               delay="12s"
-              backgroundColor="rgba(255, 226, 168, 0.9)"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
               // Use the uploaded PNG file as the primary image, fall back to
               // the cleaned embedded data URI, then the canvas-rendered text.
               imageSrc={bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText}

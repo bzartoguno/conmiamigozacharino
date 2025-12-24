@@ -5,7 +5,7 @@ export const tribeBookBombs: Tribe = {
   owner: "Bill",
   percentAngry: 0,
   priceVariability: 5,
-  insults: [" Oops it looks like we're sold out!"],
+  insults: [""],
   items: [
     {
       name: "Traps and Treasures: Explosive Edition",
