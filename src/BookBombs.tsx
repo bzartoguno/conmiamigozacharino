@@ -39,20 +39,6 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
           <div className={styles.headerText}>
             <h1 className={styles.title}>{tribeBookBombs.name}</h1>
             <p className={styles.owner}>Shop Owner: {tribeBookBombs.owner}</p>
-            </div>
-      <div className={styles.backgroundImage} aria-hidden />
-      {/* <main className={styles.content}>
-        <header className={styles.header}> */}
-          {/* <img
-            src={bookBombsLogo}
-            alt="Book Bombs logo"
-            className={styles.logo}
-          /> */}
-          <div className={styles.headerText}>
-            <h1 className={styles.title}>{tribeBookBombs.name}</h1>
-            <p className={styles.owner}>Shop Owner: {tribeBookBombs.owner}</p>
-            <p className={styles.hint}>
-            </p>
           </div>
         </header>
 

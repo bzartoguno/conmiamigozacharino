@@ -36,6 +36,7 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   background: rgba(255, 246, 227, 0.8);
   border: 3px solid #2f1f1d;
@@ -121,4 +122,3 @@
   font-weight: bold;
   color: #2f1f1d;
 }
-
