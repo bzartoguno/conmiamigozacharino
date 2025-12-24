@@ -20,10 +20,6 @@ const styles: Record<string, React.CSSProperties> = {
   backButton: {
     alignSelf: "flex-start",
     marginBottom: "1rem",
-
-    alignSelf: "flex-start",
-    marginBottom: "1rem",
-
     position: "fixed",
     top: "1.5rem",
     left: "1.5rem",
