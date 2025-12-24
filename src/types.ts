@@ -6,6 +6,7 @@ export interface Item {
 
 export interface Tribe {
   name: string;
+  owner?: string;
   percentAngry: number;
   priceVariability: number;
   items: Item[];
