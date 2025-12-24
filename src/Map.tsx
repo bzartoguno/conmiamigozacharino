@@ -1,22 +1,10 @@
 import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
-import { ReactNode, useState } from "react";
-import { BackButton } from "./BackButton";
-
-
-// Back button rendering now lives in src/BackButton.tsx so we don't accidentally
-// shadow the shared component inside this module.
+import { useState } from "react";
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
-
-  const renderSection = (content: ReactNode) => (
-    <>
-      <BackButton onClick={() => setNavigatedTo("")} />
-      {content}
-    </>
-  );
 
   switch (navigatedTo) {
     case "goblins":
@@ -26,18 +14,6 @@ export function Map() {
       return <Auctions onBack={() => setNavigatedTo("")} />;
     case "Black":
       return <Blacks onBack={() => setNavigatedTo("")} />;
-
-      return renderSection(<Goblins onBack={() => setNavigatedTo("")} />);
-    case "Auction":
-      return renderSection(<Auctions onBack={() => setNavigatedTo("")} />);
-    case "Black":
-      return renderSection(<Blacks onBack={() => setNavigatedTo("")} />);
-
-      return renderSection(<Goblins />);
-    case "Auction":
-      return renderSection(<Auctions />);
-    case "Black":
-      return renderSection(<Blacks />);
     default:
       return (
         <div style={styles.wrapper}>
@@ -93,14 +69,6 @@ function FloatingButton({
       }}
     >
       {label}
-    </button>
-  );
-}
-
-function BackButton({ onClick }: { onClick: () => void }) {
-  return (
-    <button type="button" onClick={onClick} style={styles.backButton}>
-      ← Return to the map
     </button>
   );
 }
@@ -169,17 +137,3 @@ if (typeof document !== "undefined" && !document.getElementById("floating-keyfra
   }`;
   document.head.appendChild(styleSheet);
 }
-
-
-// Inject slow floating animation into global styles
-const styleSheet = document.createElement("style");
-styleSheet.innerHTML = `
-@keyframes float {
-  0% { transform: translate(0px, 0px); }
-  25% { transform: translate(4px, -4px); }
-  50% { transform: translate(0px, -8px); }
-  75% { transform: translate(-4px, -4px); }
-  100% { transform: translate(0px, 0px); }
-}`;
-document.head.appendChild(styleSheet);
-
