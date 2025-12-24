@@ -7,15 +7,12 @@
 }
 
 .backgroundImage {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
+  background: url('./book-bombs.svg') no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.35;
+  opacity: 0.4;
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-color: #fff7e6;
 }
 
 .content {
@@ -30,19 +27,29 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(255, 246, 227, 0.9);
+  gap: 1.5rem;
+  background: rgba(255, 246, 227, 0.8);
   border: 3px solid #2f1f1d;
   box-shadow: 8px 8px rgba(0, 0, 0, 0.35);
   border-radius: 20px;
-  padding: 1.25rem 2rem;
-  max-width: 700px;
+  padding: 1.5rem 2rem;
+  max-width: 960px;
   width: 100%;
 }
 
+.logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border: 3px solid #2f1f1d;
+  border-radius: 16px;
+  background: #fff;
+  padding: 0.5rem;
+  box-shadow: 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 .headerText {
-  text-align: center;
-  width: 100%;
+  text-align: left;
 }
 
 .title {
@@ -52,16 +59,21 @@
 }
 
 .owner {
-  margin: 0.35rem 0 0;
+  margin: 0.2rem 0;
   font-size: 1.1rem;
   color: #53372f;
 }
 
+.hint {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #725446;
+}
+
 .grid {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
-  justify-content: center;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   width: 100%;
   max-width: 1120px;
 }
@@ -99,4 +111,14 @@
   margin: 0;
   font-weight: bold;
   color: #2f1f1d;
+}
+
+.footerNote {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 226, 168, 0.8);
+  border: 2px solid #2f1f1d;
+  border-radius: 12px;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+  color: #3a211f;
 }
