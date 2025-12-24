@@ -3,7 +3,7 @@ import styles from "./BookBombs.module.css";
 import { tribeBookBombs } from "./tribeBookBombs";
 import { BackButton } from "./BackButton";
 import { Item } from "./types";
-import { bookBombDataUrl } from "./bookBombImage";
+import bookBombBackground from "./Book Bomb.png";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -31,7 +31,7 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
       <BackButton onClick={onBack} />
       <div
         className={styles.backgroundImage}
-        style={{ backgroundImage: `url(${bookBombDataUrl})` }}
+        style={{ backgroundImage: `url(${bookBombBackground})` }}
         aria-hidden
       />
       <main className={styles.content}>
