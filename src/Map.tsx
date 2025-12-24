@@ -4,10 +4,55 @@ import { Blacks } from "./Black";
 import { BookBombs } from "./BookBombs";
 import { bookBombDataUrl } from "./bookBombImage";
 import bookBombsLogo from "./book-bombs.svg";
-import { useState } from "react";
+// Use the uploaded PNG asset (filename contains a space)
+import bookBombPng from "./Book Bomb.png";
+import { useEffect, useState } from "react";
+
+// Remove stray whitespace/newlines from data URIs (defensive)
+function cleanDataUrl(s?: string) {
+  return s ? s.replace(/\s+/g, "") : s;
+}
+
+// Convert a string into a small PNG (text rendered on a canvas) and
+// return a data URL. Useful when you want to display the literal
+// base64/text as an image. Runs only in the browser.
+function useTextImage(text?: string) {
+  const [dataUrl, setDataUrl] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    if (!text || typeof document === "undefined") {
+      setDataUrl(undefined);
+      return;
+    }
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      setDataUrl(undefined);
+      return;
+    }
+    const font = "12px monospace";
+    ctx.font = font;
+    const lines = String(text).split("\n");
+    const maxTextWidth = Math.max(...lines.map((l) => ctx.measureText(l).width));
+    const w = Math.min(2000, Math.max(200, Math.ceil(maxTextWidth) + 20));
+    const lineHeight = 18;
+    canvas.width = w;
+    canvas.height = lines.length * lineHeight + 20;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#000";
+    ctx.font = font;
+    lines.forEach((line, i) => ctx.fillText(line, 10, 16 + i * lineHeight));
+    setDataUrl(canvas.toDataURL("image/png"));
+  }, [text]);
+  return dataUrl;
+}
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
+  // cleaned version of the embedded data URI (defensive)
+  const cleanedBookBomb = cleanDataUrl(bookBombDataUrl);
+  // image that draws the literal base64/text onto a canvas (preferred)
+  const bookBombImageFromText = useTextImage(bookBombDataUrl);
 
   switch (navigatedTo) {
     case "goblins":
@@ -48,8 +93,10 @@ export function Map() {
               onClick={() => setNavigatedTo("BookBombs")}
               delay="12s"
               backgroundColor="rgba(255, 226, 168, 0.9)"
-              imageSrc={bookBombDataUrl}
-              imageSrc={bookBombsLogo}
+              // Use the uploaded PNG file as the primary image, fall back to
+              // the cleaned embedded data URI, then the canvas-rendered text.
+              imageSrc={bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText}
+              // imageSrc={bookBombsLogo}
             />
           </div>
         </div>

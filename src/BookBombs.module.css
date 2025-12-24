@@ -3,16 +3,25 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: #fefaf1;
 }
 
 .backgroundImage {
   background: url('./book-bombs.svg') no-repeat center center fixed;
-  background-size: cover;
-  opacity: 0.4;
+  /* background-size: cover;  
+  opacity: 0.75;
+  margin: 25px;
+  z-index: -1;  */
+  display: flex;
+  background-size: cover; 
+  height: Fill;
+  opacity: 0.75;
+  margin: px;
+  z-index: -1; 
   position: absolute;
-  inset: 0;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .content {
@@ -49,7 +58,7 @@
 }
 
 .headerText {
-  text-align: left;
+  text-align: center;
 }
 
 .title {
@@ -113,12 +122,3 @@
   color: #2f1f1d;
 }
 
-.footerNote {
-  margin: 0.5rem 0 0;
-  padding: 0.75rem 1.25rem;
-  background: rgba(255, 226, 168, 0.8);
-  border: 2px solid #2f1f1d;
-  border-radius: 12px;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
-  color: #3a211f;
-}
