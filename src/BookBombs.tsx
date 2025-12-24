@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./BookBombs.module.css";
-import bookBombsLogo from "./book-bombs.svg";
 import { tribeBookBombs } from "./tribeBookBombs";
 import { BackButton } from "./BackButton";
 import { Item } from "./types";
+import { bookBombDataUrl } from "./bookBombImage";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -29,6 +29,16 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
   return (
     <div className={styles.app}>
       <BackButton onClick={onBack} />
+      <div
+        className={styles.backgroundImage}
+        style={{ backgroundImage: `url(${bookBombDataUrl})` }}
+        aria-hidden
+      />
+      <main className={styles.content}>
+        <header className={styles.header}>
+          <div className={styles.headerText}>
+            <h1 className={styles.title}>{tribeBookBombs.name}</h1>
+            <p className={styles.owner}>Shop Owner: {tribeBookBombs.owner}</p>
       <div className={styles.backgroundImage} aria-hidden />
       <main className={styles.content}>
         <header className={styles.header}>

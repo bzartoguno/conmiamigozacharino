@@ -2,6 +2,7 @@ import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
 import { BookBombs } from "./BookBombs";
+import { bookBombDataUrl } from "./bookBombImage";
 import bookBombsLogo from "./book-bombs.svg";
 import { useState } from "react";
 
@@ -47,6 +48,7 @@ export function Map() {
               onClick={() => setNavigatedTo("BookBombs")}
               delay="12s"
               backgroundColor="rgba(255, 226, 168, 0.9)"
+              imageSrc={bookBombDataUrl}
               imageSrc={bookBombsLogo}
             />
           </div>
