@@ -32,7 +32,7 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
       <div
         className={styles.backgroundImage}
         style={{ backgroundImage: `url(${bookBombBackground})` }}
-        aria-hidden
+        aria-
       />
       <main className={styles.content}>
         <header className={styles.header}>
