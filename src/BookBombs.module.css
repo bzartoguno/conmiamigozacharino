@@ -6,17 +6,10 @@
 }
 
 .backgroundImage {
-  background: url('./book-bombs.svg') no-repeat center center fixed;
-  /* background-size: cover;  
-  opacity: 0.75;
-  margin: 25px;
-  z-index: -1;  */
-  display: flex;
-  background-size: cover; 
-  height: Fill;
-  opacity: 0.75;
-  margin: px;
-  z-index: -1; 
+  background: no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.8;
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -38,7 +31,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  background: rgba(255, 246, 227, 0.8);
+  background: #ffffff;
   border: 3px solid #2f1f1d;
   box-shadow: 8px 8px rgba(0, 0, 0, 0.35);
   border-radius: 20px;
@@ -83,13 +76,13 @@
 .grid {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   width: 100%;
-  max-width: 1120px;
+  max-width: 640px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   border: 3px solid #2f1f1d;
   border-radius: 18px;
   padding: 1.5rem 1.25rem;
