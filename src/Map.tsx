@@ -11,6 +11,10 @@ import bookBombPng from "./Book Bomb.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
+import { ChangingChurch } from "./ChangingChurch";
+import { NecromancyInsuranceCompany } from "./NecromancyInsuranceCompany";
+import changingChurchImage from "./Changing Church.png";
+import necromancyInsuranceImage from "./NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -75,6 +79,10 @@ export function Map() {
       return <ApplegarthGuild onBack={() => setNavigatedTo("")} />;
     case "ArchivesGuild":
       return <ArchivesGuild onBack={() => setNavigatedTo("")} />;
+    case "ChangingChurch":
+      return <ChangingChurch onBack={() => setNavigatedTo("")} />;
+    case "NecromancyInsuranceCompany":
+      return <NecromancyInsuranceCompany onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -129,6 +137,20 @@ export function Map() {
               delay="21s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={bulletsBuffsBeyondImage}
+            />
+            <FloatingButton
+              label="Changing Church"
+              onClick={() => setNavigatedTo("ChangingChurch")}
+              delay="24s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={changingChurchImage}
+            />
+            <FloatingButton
+              label="Necromancy Insurance Company"
+              onClick={() => setNavigatedTo("NecromancyInsuranceCompany")}
+              delay="27s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={necromancyInsuranceImage}
             />
           </div>
         </div>
