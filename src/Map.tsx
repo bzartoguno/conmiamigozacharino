@@ -2,11 +2,13 @@ import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
 import { BookBombs } from "./BookBombs";
+import { BulletsBuffsBeyond } from "./BulletsBuffsBeyond";
 import { ApplegarthGuild } from "./ApplegarthGuild";
 import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 // Use the uploaded PNG asset (filename contains a space)
 import bookBombPng from "./Book Bomb.png";
+import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
 import { useEffect, useState } from "react";
@@ -67,6 +69,8 @@ export function Map() {
       return <Blacks onBack={() => setNavigatedTo("")} />;
     case "BookBombs":
       return <BookBombs onBack={() => setNavigatedTo("")} />;
+    case "BulletsBuffsBeyond":
+      return <BulletsBuffsBeyond onBack={() => setNavigatedTo("")} />;
     case "ApplegarthGuild":
       return <ApplegarthGuild onBack={() => setNavigatedTo("")} />;
     case "ArchivesGuild":
@@ -118,6 +122,13 @@ export function Map() {
               // the cleaned embedded data URI, then the canvas-rendered text.
               imageSrc={bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText}
               // imageSrc={bookBombsLogo}
+            />
+            <FloatingButton
+              label="Bullets, Buffs, & Beyond"
+              onClick={() => setNavigatedTo("BulletsBuffsBeyond")}
+              delay="21s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={bulletsBuffsBeyondImage}
             />
           </div>
         </div>
