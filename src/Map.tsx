@@ -2,10 +2,12 @@ import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
 import { BookBombs } from "./BookBombs";
+import { ApplegarthGuild } from "./ApplegarthGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 import bookBombsLogo from "./book-bombs.svg";
 // Use the uploaded PNG asset (filename contains a space)
 import bookBombPng from "./Book Bomb.png";
+import applegarthImage from "./Applegarth.webp";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -64,6 +66,8 @@ export function Map() {
       return <Blacks onBack={() => setNavigatedTo("")} />;
     case "BookBombs":
       return <BookBombs onBack={() => setNavigatedTo("")} />;
+    case "ApplegarthGuild":
+      return <ApplegarthGuild onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -97,6 +101,13 @@ export function Map() {
               // the cleaned embedded data URI, then the canvas-rendered text.
               imageSrc={bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText}
               // imageSrc={bookBombsLogo}
+            />
+            <FloatingButton
+              label="Applegarth Guild"
+              onClick={() => setNavigatedTo("ApplegarthGuild")}
+              delay="15s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={applegarthImage}
             />
           </div>
         </div>
