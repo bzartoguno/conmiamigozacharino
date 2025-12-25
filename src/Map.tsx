@@ -3,11 +3,12 @@ import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
 import { BookBombs } from "./BookBombs";
 import { ApplegarthGuild } from "./ApplegarthGuild";
+import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
-import bookBombsLogo from "./book-bombs.svg";
 // Use the uploaded PNG asset (filename contains a space)
 import bookBombPng from "./Book Bomb.png";
 import applegarthImage from "./Applegarth.webp";
+import archivesGuildImage from "./Archives Guild.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -68,6 +69,8 @@ export function Map() {
       return <BookBombs onBack={() => setNavigatedTo("")} />;
     case "ApplegarthGuild":
       return <ApplegarthGuild onBack={() => setNavigatedTo("")} />;
+    case "ArchivesGuild":
+      return <ArchivesGuild onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -108,6 +111,13 @@ export function Map() {
               delay="15s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={applegarthImage}
+            />
+            <FloatingButton
+              label="Archives Guild"
+              onClick={() => setNavigatedTo("ArchivesGuild")}
+              delay="18s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={archivesGuildImage}
             />
           </div>
         </div>
