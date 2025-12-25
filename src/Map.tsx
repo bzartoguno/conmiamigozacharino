@@ -15,6 +15,14 @@ import { ChangingChurch } from "./ChangingChurch";
 import { NecromancyInsuranceCompany } from "./NecromancyInsuranceCompany";
 import changingChurchImage from "./Changing Church.png";
 import necromancyInsuranceImage from "./NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
+import { OPapiesOracleReadings } from "./OPapiesOracleReadings";
+import { RobinsRopes } from "./RobinsRopes";
+import { RunestoneRelay } from "./RunestoneRelay";
+import { SilentOath } from "./SilentOath";
+import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
+import robinsRopesImage from "./Robins Ropes.png";
+import runestoneRelayImage from "./Runestone Relay.png";
+import silentOathImage from "./Silent Oath.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -83,6 +91,14 @@ export function Map() {
       return <ChangingChurch onBack={() => setNavigatedTo("")} />;
     case "NecromancyInsuranceCompany":
       return <NecromancyInsuranceCompany onBack={() => setNavigatedTo("")} />;
+    case "OPapiesOracleReadings":
+      return <OPapiesOracleReadings onBack={() => setNavigatedTo("")} />;
+    case "RobinsRopes":
+      return <RobinsRopes onBack={() => setNavigatedTo("")} />;
+    case "RunestoneRelay":
+      return <RunestoneRelay onBack={() => setNavigatedTo("")} />;
+    case "SilentOath":
+      return <SilentOath onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -151,6 +167,34 @@ export function Map() {
               delay="27s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={necromancyInsuranceImage}
+            />
+            <FloatingButton
+              label="O-Papies Oracle Readings"
+              onClick={() => setNavigatedTo("OPapiesOracleReadings")}
+              delay="30s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={oPapiesOracleReadingsImage}
+            />
+            <FloatingButton
+              label="Robin's Ropes"
+              onClick={() => setNavigatedTo("RobinsRopes")}
+              delay="33s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={robinsRopesImage}
+            />
+            <FloatingButton
+              label="Runestone Relay"
+              onClick={() => setNavigatedTo("RunestoneRelay")}
+              delay="36s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={runestoneRelayImage}
+            />
+            <FloatingButton
+              label="Silent Oath"
+              onClick={() => setNavigatedTo("SilentOath")}
+              delay="39s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={silentOathImage}
             />
           </div>
         </div>
