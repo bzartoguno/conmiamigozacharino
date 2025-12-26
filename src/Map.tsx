@@ -7,12 +7,14 @@ import { ApplegarthGuild } from "./ApplegarthGuild";
 import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 import { AuntiePattysPies } from "./AuntiePattysPies";
+import { DungeonCrawlerGuild } from "./DungeonCrawlerGuild";
 // Use the uploaded PNG asset (filename contains a space)
 import bookBombPng from "./Book Bomb.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
 import auntPattiePieImage from "./Aunt Pattie Pie.png";
+import dungeonCrawlerGuildImage from "./Dungeon Crawler's Guild.png";
 import { ChangingChurch } from "./ChangingChurch";
 import { NecromancyInsuranceCompany } from "./NecromancyInsuranceCompany";
 import changingChurchImage from "./Changing Church.png";
@@ -89,6 +91,8 @@ export function Map() {
       return <BookBombs onBack={() => setNavigatedTo("")} />;
     case "AuntiePattysPies":
       return <AuntiePattysPies onBack={() => setNavigatedTo("")} />;
+    case "DungeonCrawlerGuild":
+      return <DungeonCrawlerGuild onBack={() => setNavigatedTo("")} />;
     case "BulletsBuffsBeyond":
       return <BulletsBuffsBeyond onBack={() => setNavigatedTo("")} />;
     case "ApplegarthGuild":
@@ -165,6 +169,13 @@ export function Map() {
               delay="13s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={auntPattiePieImage}
+            />
+            <FloatingButton
+              label="Dungeon Crawler Guild"
+              onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
+              delay="14s"
+              backgroundColor="rgba(64, 102, 155, 0.9)"
+              imageSrc={dungeonCrawlerGuildImage}
             />
             <FloatingButton
               label="Bullets, Buffs, & Beyond"
