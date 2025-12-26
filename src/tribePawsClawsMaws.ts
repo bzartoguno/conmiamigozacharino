@@ -33,5 +33,35 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
       price: 100,
       description: "Guardian of small treasures with a glitter-dusted giggle.",
     },
+    {
+      name: "Griffon Egg",
+      price: 100,
+      description: "Warm, speckled, and faintly humming with sky-bound potential.",
+    },
+    {
+      name: "Mimic Spawn",
+      price: 100,
+      description: "A squishy little boxlet that clicks happily when fed copper.",
+    },
+    {
+      name: "Owlbear Cub",
+      price: 100,
+      description: "Downy feathers, big curious eyes, and a penchant for midnight snacks.",
+    },
+    {
+      name: "Phantom Mouse",
+      price: 100,
+      description: "Barely there, but it squeaks loud enough to haunt your cheese drawer.",
+    },
+    {
+      name: "Pseudodragon Tyke",
+      price: 100,
+      description: "Palm-sized, wing-whirring, and eager to nap atop spellbooks.",
+    },
+    {
+      name: "Shadow Pup",
+      price: 100,
+      description: "Loyal silhouette that chases your own shadow like a wagging tail.",
+    },
   ],
 };
