@@ -507,7 +507,7 @@ const styles: Record<string, React.CSSProperties> = {
   title: {
     fontSize: "2.5rem",
     fontWeight: "bold",
-    color: "#222",
+    color: "#ffffffff",
     marginBottom: "1rem",
   },
   buttonContainer: {
@@ -519,11 +519,7 @@ const styles: Record<string, React.CSSProperties> = {
     overflowY: "auto",
     padding: "1rem",
     width: "98%",
-    backgroundColor: "rgba(255, 255, 255, 0.85)",
-    borderRadius: "18px",
-    border: "2px solid rgba(0, 0, 0, 0.15)",
-    boxShadow: "inset 0 2px 6px rgba(0, 0, 0, 0.08)",
-  },
+ },
   button: {
     fontSize: "1.5rem",
     padding: "1rem 3rem",
@@ -548,7 +544,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "1rem",
     borderRadius: "999px",
     border: "2px solid #333",
-    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    backgroundColor: "rgba(255, 255, 255, 1)",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)",
     cursor: "pointer",
     fontFamily: "'Times New Roman', serif",
