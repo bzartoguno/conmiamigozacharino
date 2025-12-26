@@ -1,56 +1,11 @@
 import { Tribe } from "./types";
+import { createGoblinExcuses } from "./tribeInsults";
 
 export const tribe4: Tribe = {
   name: "Blastwagon Caboose",
   percentAngry: 5,
   priceVariability: 49,
-  insults: [
-    "Blastwagon Caboose is angry at you and don't want to trade with you!",
-    "Blastwagon Caboose found a butterfly and started chasing after it.",
-    "Blastwagon Caboose are starting a union for goblins' rights.",
-    "Blastwagon Caboose just don’t feel like meeting ugly people today.",
-    "Blastwagon Caboose checked your vibe and found it to be rancid. No business for you today.",
-    "Blastwagon Caboose are all in an intense staring contest, so they haven’t looked at the clock in a while.",
-    "Blastwagon Caboose are all waiting for a single package to arrive.",
-    "Turns out dementia is contagious, so Blastwagon Caboose has gone into self-containment, but they forgot the password to get out.",
-    "All of Blastwagon Caboose got sick from a dihydrogen monoxide contest.",
-    "Blastwagon Caboose believe you’re too short.",
-    "Blastwagon Caboose don’t want to serve you because you are not a goblin.",
-    "Blastwagon Caboose are all listening to music in the back and don’t want to leave to deal with you.",
-    "There’s a stampede of squirrels that Blastwagon Caboose are dealing with.",
-    "Blastwagon Caboose has entered an all-you-can-eat Cheeto contest.",
-    "Turns out Blastwagon Caboose is handling a delicate hostage situation with angry squirrels taking over the locomotive engine.",
-    "Blastwagon Caboose are eagerly waiting for the last part to arrive so they can finish their Lego 30,000-piece Death Star.",
-    "Blastwagon Caboose claim it’s break time, again.",
-    "Blastwagon Caboose are supervising the clock. (The clock doesn't have batteries.)",
-    "The supervisor is on lunch, and Blastwagon Caboose don’t work unsupervised.",
-    "All of Blastwagon Caboose has gathered up all their little goblins to hear the tragedy of Darth Plagueis the Wise.",
-    "Blastwagon Caboose have begun planning to steal the Iron Empire’s Declaration of Independence. It's not going so well.",
-    "You want Blastwagon Caboose to work in this economy! Forget about it!",
-    "You need to fix the vibe before we even think about bartering with Blastwagon Caboose! The audacity of some people.",
-    "Blastwagon Caboose has Nummy doing their jobs for them, and Nummy is very stressed. Please be patient.",
-    "Blastwagon Caboose have a sign saying they will be in tomorrow, it looks very dusty with a couple of cobwebs sprawled across it.",
-    "Blastwagon Caboose listened to a song called ‘Afraid’ and now they are too afraid to work.",
-    "Someone, not naming names, stole Nom Nom’s lunch, and now Blastwagon Caboose are all mad about it.",
-    "Nom Nom Nom said that the couch would fit through the door, but it didn’t, and now everyone in Blastwagon Caboose is too tired.",
-    "Blastwagon Caboose’s favorite band released a new song last night, and so they have to listen to it very closely on repeat so we can find Easter eggs.",
-    "Blastwagon Caboose just learned that sharks can’t collect Legos and now we’re too sad to serve you. 😢",
-    "Blastwagon Caboose decided to organize their Skittles by color. Some go missing. They’ve been accusing each other for hours.",
-    "Blastwagon Caboose are having a very in-depth discussion on what kind of cereal everyone would be.",
-    "Blastwagon Caboose went on an impromptu adventure to the Fantasy Dollar Store to make the perfect movie night snack.",
-    "Someone decided to share all of their knowledge about insects, and now all of Blastwagon Caboose wants to know more!",
-    "Blastwagon Caboose went outside to find the softest patch of grass for napping; they can’t find any good glades right now.",
-    "A new season of Blastwagon Caboose’s favorite show just came out! So they are a little busy.",
-    "A bunch of squirrels pushed everyone in Blastwagon Caboose down a flight of stairs, and they collectively decided it would be easier to stay down.",
-    "A mysterious litter of kittens has fallen asleep on every single member of Blastwagon Caboose’s laps. It would be wrong to get up.",
-    "Bork Bork, the train’s resident dog tore up Ohm’s favorite stuffed bear. So now Blastwagon Caboose is having a funeral.",
-    "Ivory is having a tea party. So Blastwagon Caboose has to join in. It would be rude not to.",
-    "Blastwagon Caboose has decided to draw the mythical land of the United States from memory. (If you do this for real, you must post everyone's art on Discord!)",
-    "Blastwagon Caboose got into an argument about who the fastest is, the goblin. (They refuse to settle it with a race.)",
-    "Blastwagon Caboose is having a discussion about apples being in fact oranges. It's not going well.",
-    "Blastwagon Caboose has decided to go ice skating, but it's not winter yet, so they must wait by the pond for it to freeze.",
-    "Someone in Blastwagon Caboose has found an Easter egg. Maybe there are more! So give them a second.",
-  ],
+  insults: createGoblinExcuses("Blastwagon Caboose"),
 
   items: [
     {
@@ -86,7 +41,7 @@ export const tribe4: Tribe = {
     {
       name: "It's a Rock",
       price: 1000,
-      description: "(Nope it's a Grenade, it very much does not look like a rock, deals 8d8 fire damage and pushes medium and smaller creatures 10ft away.)",
+      description: "(Nope, it's a grenade. It very much does not look like a rock, deals 8d8 fire damage, and pushes medium and smaller creatures 10 ft away.)",
     },
     {
       name: "Poop Poo Pa Choo",
@@ -116,25 +71,25 @@ export const tribe4: Tribe = {
     {
       name: "Little Rascal",
       price: 5000,
-      description: "(It's a squirrel in a pet carrier, tho you have a bad feeling that if you open it. Something terrible will happen.)",
+      description: "(It's a squirrel in a pet carrier, though you have a bad feeling that opening it will make something terrible happen.)",
     },
     {
       name: "Squirrel Finder",
       price: 1000,
       description:
-        "(Blood Compass, dropping a speck of blood into the needle of this compass it instantly point to towards the blood doner this effect lasts 24 hours. However the doner will be aware they are being tracked.)",
+        "(Blood Compass, drop a speck of blood into the needle of this compass and it instantly points toward the blood donor for 24 hours. However, the donor will be aware they are being tracked.)",
     },
     {
       name: "Night Light",
       price: 3000,
       description:
-        "(Flare gun, Deals 2d6 fire damage and lights up 240 ft radius of the area. A terrible weapon if your trying to hide from dinosuars.)",
+        "(Flare gun, deals 2d6 fire damage and lights up a 240 ft radius of the area. A terrible weapon if you're trying to hide from dinosaurs.)",
     },
     {
       name: "Stuffy!",
       price: 5,
       description:
-        "(Its a stuffed animal of your choice and no matter which goblin you show it to they, they will give you a compliment and show you their own stuffed animal of their own.)",
+        "(It's a stuffed animal of your choice, and no matter which goblin you show it to, they will give you a compliment and proudly show you their own stuffed animal.)",
     },
-  ]
+  ],
 };

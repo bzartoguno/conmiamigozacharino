@@ -1,37 +1,16 @@
 import { Tribe } from "./types";
+import { blackMarketInsults } from "./tribeInsults";
 
 export const tribeBlackMarket4: Tribe = {
-  name: "One of the green star shop",
+  name: "One of the green star shops",
   percentAngry: 15,
   priceVariability: 30,
-  insults: [
-    "Sellers don’t meet buyers. That’s the rule—capisce?",
-    "The shop’s mobile, off the grid. I ain’t takin’ you there,",
-    "They work in shadows, not with tourists. Don’t ask again,",
-    "No faces, no follow-ups. That’s how they stay alive,",
-    "It’s too hot right now. Shop’s bein’ watched,",
-    "You don’t got the creds. Don’t waste my time,",
-    "They skipped town after someone got sloppy. Didn’t end pretty,",
-    "I can’t show ya what ain’t safe to see. That’s their call,",
-    "Last guy I brought? Curiosity cost 'em. You wanna be next?,",
-    "Some doors stay shut for a reason. This one’s welded,",
-    "Too many eyes in the alley today. Step off,",
-    "Shop’s locked down—heat’s too loud lately,",
-    "They don’t deal with strangers. You ain’t got a rep,",
-    "It’s invite-only. You ain’t on the list,",
-    "I ain’t takin’ you where you don’t belong,",
-    "Access needs guarantees. I ain’t puttin’ my neck on the line for you,",
-    "You’re on the outside. Best stay there,",
-    "Seller’s jumpy. You show up, we both got problems,",
-    "This route’s closed ‘cause they said so. I don’t argue,",
-    "Rules ain’t mine—I just enforce ‘em. You? You ain't gettin’ in,",
-    "We ain’t goin’. Guards are makin’ rounds. You wanna get pinched?,"
-  ],  
+  insults: blackMarketInsults,  
   items: [
     {
       name: "Shadow Suite",
       price: 65_000,
-      description: "???"
+      description: "A mystery collection of amenities whose details are revealed upon purchase."
     },
     {
       name: "Distilled Drop of Discord",
@@ -68,5 +47,5 @@ export const tribeBlackMarket4: Tribe = {
       price: 60_000,
       description: "Pick any shop — this file contains all their blackmail material. Whether you use it for leverage or gossip is up to you."
     }
-  ]  
-}
+  ],
+};

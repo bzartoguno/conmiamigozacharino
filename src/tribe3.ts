@@ -1,56 +1,11 @@
 import { Tribe } from "./types";
+import { createGoblinExcuses } from "./tribeInsults";
 
 export const tribe3: Tribe = {
   name: "Tinkertrack Gang",
   percentAngry: 30,
   priceVariability: 65,
-  insults: [
-    "Tinkertrack Gang is angry at you and don't want to trade with you!",
-    "Tinkertrack Gang found a butterfly and started chasing after it.",
-    "Tinkertrack Gang are starting a union for goblins' rights.",
-    "Tinkertrack Gang just don’t feel like meeting ugly people today.",
-    "Tinkertrack Gang checked your vibe and found it to be rancid. No business for you today.",
-    "Tinkertrack Gang are all in an intense staring contest, so they haven’t looked at the clock in a while.",
-    "Tinkertrack Gang are all waiting for a single package to arrive.",
-    "Turns out dementia is contagious, so Tinkertrack Gang has gone into self-containment, but they forgot the password to get out.",
-    "All of Tinkertrack Gang got sick from a dihydrogen monoxide contest.",
-    "Tinkertrack Gang believe you’re too short.",
-    "Tinkertrack Gang don’t want to serve you because you are not a goblin.",
-    "Tinkertrack Gang are all listening to music in the back and don’t want to leave to deal with you.",
-    "There’s a stampede of squirrels that Tinkertrack Gang are dealing with.",
-    "Tinkertrack Gang has entered an all-you-can-eat Cheeto contest.",
-    "Turns out Tinkertrack Gang is handling a delicate hostage situation with angry squirrels taking over the locomotive engine.",
-    "Tinkertrack Gang are eagerly waiting for the last part to arrive so they can finish their Lego 30,000-piece Death Star.",
-    "Tinkertrack Gang claim it’s break time, again.",
-    "Tinkertrack Gang are supervising the clock. (The clock doesn't have batteries.)",
-    "The supervisor is on lunch, and Tinkertrack Gang don’t work unsupervised.",
-    "All of Tinkertrack Gang has gathered up all their little goblins to hear the tragedy of Darth Plagueis the Wise.",
-    "Tinkertrack Gang have begun planning to steal the Iron Empire’s Declaration of Independence. It's not going so well.",
-    "You want Tinkertrack Gang to work in this economy! Forget about it!",
-    "You need to fix the vibe before we even think about bartering with Tinkertrack Gang! The audacity of some people.",
-    "Tinkertrack Gang has Nummy doing their jobs for them, and Nummy is very stressed. Please be patient.",
-    "Tinkertrack Gang have a sign saying they will be in tomorrow, it looks very dusty with a couple of cobwebs sprawled across it.",
-    "Tinkertrack Gang listened to a song called ‘Afraid’ and now they are too afraid to work.",
-    "Someone, not naming names, stole Nom Nom’s lunch, and now Tinkertrack Gang are all mad about it.",
-    "Nom Nom Nom said that the couch would fit through the door, but it didn’t, and now everyone in Tinkertrack Gang is too tired.",
-    "Tinkertrack Gang’s favorite band released a new song last night, and so they have to listen to it very closely on repeat so we can find Easter eggs.",
-    "Tinkertrack Gang just learned that sharks can’t collect Legos and now we’re too sad to serve you. 😢",
-    "Tinkertrack Gang decided to organize their Skittles by color. Some go missing. They’ve been accusing each other for hours.",
-    "Tinkertrack Gang are having a very in-depth discussion on what kind of cereal everyone would be.",
-    "Tinkertrack Gang went on an impromptu adventure to the Fantasy Dollar Store to make the perfect movie night snack.",
-    "Someone decided to share all of their knowledge about insects, and now all of Tinkertrack Gang wants to know more!",
-    "Tinkertrack Gang went outside to find the softest patch of grass for napping; they can’t find any good glades right now.",
-    "A new season of Tinkertrack Gang’s favorite show just came out! So they are a little busy.",
-    "A bunch of squirrels pushed everyone in Tinkertrack Gang down a flight of stairs, and they collectively decided it would be easier to stay down.",
-    "A mysterious litter of kittens has fallen asleep on every single member of Tinkertrack Gang’s laps. It would be wrong to get up.",
-    "Bork Bork, the train’s resident dog tore up Ohm’s favorite stuffed bear. So now Tinkertrack Gang is having a funeral.",
-    "Ivory is having a tea party. So Tinkertrack Gang has to join in. It would be rude not to.",
-    "Tinkertrack Gang has decided to draw the mythical land of the United States from memory. (If you do this for real, you must post everyone's art on Discord!)",
-    "Tinkertrack Gang got into an argument about who the fastest is, the goblin. (They refuse to settle it with a race.)",
-    "Tinkertrack Gang is having a discussion about apples being in fact oranges. It's not going well.",
-    "Tinkertrack Gang has decided to go ice skating, but it's not winter yet, so they must wait by the pond for it to freeze.",
-    "Someone in Tinkertrack Gang has found an Easter egg. Maybe there are more! So give them a second.",
-  ],
+  insults: createGoblinExcuses("Tinkertrack Gang"),
   items: [
     {
       name: "Funky Shimmering Card!",
@@ -62,7 +17,7 @@ export const tribe3: Tribe = {
       name: "The Greatest Shield Ever!",
       price: 400,
       description:
-        "(A normal +2 AC shield with a stick of dynamite attached to it. No the dynamite can't removed.)",
+        "(A normal +2 AC shield with a stick of dynamite attached to it. No, the dynamite can't be removed.)",
     },
     {
       name: "An Unbeatable Weapon!",
@@ -122,7 +77,7 @@ export const tribe3: Tribe = {
       name: "It is now a pillow!",
       price: 600,
       description:
-        "(Wand of pillows, using a charge on this wand can transform a 30 foot area into a pillow-ish verion of that area. This effect lasts for 10 minutes)",
+        "(Wand of pillows; using a charge on this wand can transform a 30-foot area into a pillow-ish version of that area. This effect lasts for 10 minutes.)",
     },
     {
       name: "Umm you good? I AM PERFECTLY FINE NOW GET ME A BOOK. Where did your muscles go?",
@@ -134,7 +89,7 @@ export const tribe3: Tribe = {
       name: "Too many whispers",
       price: 400,
       description:
-        "(Town Crier's cap, While wore become aware of every piece of news that a regular person living in the city or town you are in would be aware of. Like upcoming festivals, important events that take place in the city, or if there has been a particularly big scandal recently. You are also aware of who the major political figures of the city are. This hat does not give any information outside of a city or town.)",
+        "(Town Crier's cap, while worn you become aware of every piece of news that a regular person living in the city or town you are in would be aware of—upcoming festivals, important events, or any recent scandals. You are also aware of who the major political figures of the city are. This hat does not give any information outside of a city or town.)",
     },
   ],
 };

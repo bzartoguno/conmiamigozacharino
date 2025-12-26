@@ -13,7 +13,7 @@ export const tribeArchivesGuild: Tribe = {
       description: "",
     },
     {
-      name: "Sell a Uncommon Item",
+      name: "Sell an Uncommon Item",
       price: 20,
       description: "",
     },
