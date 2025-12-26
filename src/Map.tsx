@@ -290,63 +290,70 @@ export function Map() {
             <FloatingButton
               label="Comedy Gold"
               onClick={() => setNavigatedTo("ComedyGold")}
-              delay="48s"
+              delay="51s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={comedyGoldImage}
              />
              <FloatingButton
               label="Dungeon Crawler Guild"
               onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
-              delay="51s"
+              delay="54s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={dungeonCrawlerGuildImage}
             />
             <FloatingButton
               label="Find a Friend"
               onClick={() => setNavigatedTo("FindAFriend")}
-              delay="54s"
+              delay="57s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={findAFriendImage}
             />
             <FloatingButton
               label="Navigation Guild"
               onClick={() => setNavigatedTo("NavigationGuild")}
-              delay="57s"
+              delay="60s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={navigationGuildImage}
               />
             <FloatingButton
               label="Pearl's Potions"
               onClick={() => setNavigatedTo("PearlsPotions")}
-              delay="60s"
+              delay="63s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={pearlsPotionsImage}
             />
             <FloatingButton
               label="Provision's Paradise"
               onClick={() => setNavigatedTo("ProvisionsParadise")}
-              delay="63s"
+              delay="66s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={provisionsParadiseImage}
             />
             <FloatingButton
               label="The Piggy Bank, no hammers inside."
               onClick={() => setNavigatedTo("PiggyBank")}
-              delay="66s"
+              delay="69s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={piggyBankImage}
             />
             <FloatingButton
               label="Ye Old Donkey"
               onClick={() => setNavigatedTo("YeOldDonkey")}
-              delay="69s"
+              delay="72s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={yeOldDonkeyImage}
             />
             <FloatingButton
+              label="Iconic Dragonic"
+              onClick={() => setNavigatedTo("IconicDragonic")}
+              delay="73.5s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={iconicDragonicImage}
+            />
+            <FloatingButton
               label="Hug Info"
               onClick={() => setNavigatedTo("HugInfo")}
-              delay="72s"
+              delay="75s"
               backgroundColor="rgba(250, 204, 21, 0.9)"
               imageSrc={hugImage}
             />

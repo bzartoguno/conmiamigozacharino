@@ -35,6 +35,8 @@ export function IconicDragonic({ onBack }: { onBack?: () => void }) {
           borderColor: "#b45309",
           color: "#3f2a0a",
           boxShadow: "0 4px 12px rgba(0, 0, 0, 0.35)",
+          right: "1.5rem",
+          left: "auto",
         }}
       />
       <div
