@@ -69,6 +69,8 @@ import floralImage from "./Floral.webp";
 import loadingScreenBackground from "./Loading screen.gif";
 import { GolemWorkshop } from "./GolemWorkshop";
 import golemWorkshopImage from "./Golem Work Shop.png";
+import { JazzPortablePotions } from "./JazzPortablePotions";
+import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -190,6 +192,8 @@ export function Map() {
       return <YeOldDonkey onBack={() => setNavigatedTo("")} />;
     case "HugInfo":
       return <HugInfo onBack={() => setNavigatedTo("")} />;
+    case "JazzPortablePotions":
+      return <JazzPortablePotions onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -371,6 +375,14 @@ export function Map() {
               backgroundColor="rgba(250, 204, 21, 0.9)"
               imageSrc={hugImage}
             />  
+            <FloatingButton
+              label="Jazz's Portable Potions"
+              onClick={() => setNavigatedTo("JazzPortablePotions")}
+              delay="76s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={jazzPortablePotionsImage}
+            />
             <FloatingButton
               label="Iconic Dragonic"
               onClick={() => setNavigatedTo("IconicDragonic")}
