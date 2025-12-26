@@ -287,7 +287,7 @@ const styles: Record<string, React.CSSProperties> = {
     maxHeight: "70vh",
     overflowY: "auto",
     padding: "1rem",
-    width: "min(90vw, 520px)",
+    width: "98%",
     backgroundColor: "#f1e0c9",
     borderRadius: "18px",
     border: "2px solid rgba(0, 0, 0, 0.15)",
