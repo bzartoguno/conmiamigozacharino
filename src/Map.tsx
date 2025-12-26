@@ -71,6 +71,8 @@ import { GolemWorkshop } from "./GolemWorkshop";
 import golemWorkshopImage from "./Golem Work Shop.png";
 import { JazzPortablePotions } from "./JazzPortablePotions";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
+import { JewelryGuild } from "./JewelryGuild";
+import jewelryGuildImage from "./Jewelry Guild.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -194,6 +196,8 @@ export function Map() {
       return <HugInfo onBack={() => setNavigatedTo("")} />;
     case "JazzPortablePotions":
       return <JazzPortablePotions onBack={() => setNavigatedTo("")} />;
+    case "JewelryGuild":
+      return <JewelryGuild onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -382,6 +386,14 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#0a2f14"
               imageSrc={jazzPortablePotionsImage}
+            />
+            <FloatingButton
+              label="Jewelry Guild"
+              onClick={() => setNavigatedTo("JewelryGuild")}
+              delay="76.25s"
+              backgroundColor="rgba(34, 197, 94, 0.92)"
+              color="#0b1f16"
+              imageSrc={jewelryGuildImage}
             />
             <FloatingButton
               label="Iconic Dragonic"
