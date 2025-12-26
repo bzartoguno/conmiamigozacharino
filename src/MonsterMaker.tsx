@@ -37,7 +37,7 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
     const categoryMap: Record<string, DisplayItem[]> = {};
     const seenOrder: string[] = [];
 
-    tribeMonsterMaker.items.forEach((item) => {
+    tribeMonsterMaker.items.forEach((item: MonsterMakerItem) => {
       const category = item.category || "Other";
       if (!categoryMap[category]) {
         categoryMap[category] = [];
@@ -45,6 +45,7 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
       }
       categoryMap[category].push({
         ...item,
+        category,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeMonsterMaker.priceVariability)
