@@ -7,6 +7,7 @@ import { ApplegarthGuild } from "./ApplegarthGuild";
 import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 import { AuntiePattysPies } from "./AuntiePattysPies";
+import { IconicDragonic } from "./IconicDragonic";
 import { PiggyBank } from "./PiggyBank";
 import { NavigationGuild } from "./NavigationGuild";
 import { PearlsPotions } from "./PearlsPotions";
@@ -19,6 +20,7 @@ import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
 import auntPattiePieImage from "./Aunt Pattie Pie.png";
+import iconicDragonicImage from "./Iconic Dragonic.png";
 import navigationGuildImage from "./NavigationGuild-ezgif.com-webp-to-png-converter.png";
 import pearlsPotionsImage from "./Pearls Potions.png";
 import findAFriendImage from "./Find a Friend.png";
@@ -107,6 +109,8 @@ export function Map() {
       return <BookBombs onBack={() => setNavigatedTo("")} />;
     case "AuntiePattysPies":
       return <AuntiePattysPies onBack={() => setNavigatedTo("")} />;
+    case "IconicDragonic":
+      return <IconicDragonic onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -264,6 +268,13 @@ export function Map() {
               delay="45s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={auntPattiePieImage}
+            />
+            <FloatingButton
+              label="Iconic Dragonic"
+              onClick={() => setNavigatedTo("IconicDragonic")}
+              delay="46.5s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={iconicDragonicImage}
             />
             <FloatingButton
               label="Comedy Gold"
