@@ -58,6 +58,8 @@ import { PawsClawsMaws } from "./PawsClawsMaws";
 import pawsClawsMawsImage from "./Paws, Claws, & Maws.png";
 import { MichaelsMount } from "./MichaelsMount";
 import mountsImage from "./Mounts.webp";
+import { ValhallaMart } from "./ValhallaMart";
+import valhallaMartImage from "./Valhalla Mart.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -127,6 +129,8 @@ export function Map() {
       return <PawsClawsMaws onBack={() => setNavigatedTo("")} />;
     case "MichaelsMount":
       return <MichaelsMount onBack={() => setNavigatedTo("")} />;
+    case "ValhallaMart":
+      return <ValhallaMart onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -382,6 +386,13 @@ export function Map() {
               delay="46.75s"
               backgroundColor="rgba(250, 204, 21, 0.95)"
               imageSrc={mountsImage}
+            />
+            <FloatingButton
+              label="Valhalla Mart"
+              onClick={() => setNavigatedTo("ValhallaMart")}
+              delay="47s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={valhallaMartImage}
             />
           </div>
         </div>
