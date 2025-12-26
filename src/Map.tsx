@@ -192,6 +192,8 @@ export function Map() {
               delay="13.5s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={navigationGuildImage}
+              />
+            <FloatingButton
               label="Pearl's Potions"
               onClick={() => setNavigatedTo("PearlsPotions")}
               delay="13.5s"
