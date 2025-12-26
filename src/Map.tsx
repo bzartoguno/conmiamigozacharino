@@ -7,6 +7,7 @@ import { ApplegarthGuild } from "./ApplegarthGuild";
 import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 import { AuntiePattysPies } from "./AuntiePattysPies";
+import { PiggyBank } from "./PiggyBank";
 import { NavigationGuild } from "./NavigationGuild";
 import { PearlsPotions } from "./PearlsPotions";
 import { FindAFriend } from "./FindAFriend";
@@ -39,6 +40,7 @@ import runestoneRelayImage from "./Runestone Relay.png";
 import silentOathImage from "./Silent Oath.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
+import piggyBankImage from "./Piggy Bank.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -99,6 +101,8 @@ export function Map() {
       return <BookBombs onBack={() => setNavigatedTo("")} />;
     case "AuntiePattysPies":
       return <AuntiePattysPies onBack={() => setNavigatedTo("")} />;
+    case "PiggyBank":
+      return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
       return <NavigationGuild onBack={() => setNavigatedTo("")} />;
     case "PearlsPotions":
@@ -185,6 +189,13 @@ export function Map() {
               delay="13s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={auntPattiePieImage}
+            />
+            <FloatingButton
+              label="The Piggy Bank"
+              onClick={() => setNavigatedTo("PiggyBank")}
+              delay="13.25s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={piggyBankImage}
             />
             <FloatingButton
               label="Navigation Guild"
