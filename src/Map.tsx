@@ -189,7 +189,7 @@ export function Map() {
               label="Comedy Gold"
               onClick={() => setNavigatedTo("ComedyGold")}
               delay="14s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={comedyGoldImage}
              />
              <FloatingButton
