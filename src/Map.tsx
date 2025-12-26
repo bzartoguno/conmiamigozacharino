@@ -34,6 +34,7 @@ import { RunestoneRelay } from "./RunestoneRelay";
 import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { WillsWeapons } from "./WillsWeapons";
+import { YeOldDonkey } from "./YeOldDonkey";
 import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
 import robinsRopesImage from "./Robins Ropes.png";
 import runestoneRelayImage from "./Runestone Relay.png";
@@ -41,6 +42,7 @@ import silentOathImage from "./Silent Oath.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import piggyBankImage from "./Piggy Bank.png";
+import yeOldDonkeyImage from "./Ye Old Donkey.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -135,6 +137,8 @@ export function Map() {
       return <SupremeSmithy onBack={() => setNavigatedTo("")} />;
     case "WillsWeapons":
       return <WillsWeapons onBack={() => setNavigatedTo("")} />;
+    case "YeOldDonkey":
+      return <YeOldDonkey onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -196,6 +200,13 @@ export function Map() {
               delay="13.25s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={piggyBankImage}
+            />
+            <FloatingButton
+              label="Ye Old Donkey"
+              onClick={() => setNavigatedTo("YeOldDonkey")}
+              delay="13.5s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={yeOldDonkeyImage}
             />
             <FloatingButton
               label="Navigation Guild"
