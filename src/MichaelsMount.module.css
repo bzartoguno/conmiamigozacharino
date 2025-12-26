@@ -1,0 +1,163 @@
+.app {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 16% 12%, rgba(248, 244, 227, 0.1), transparent 90%),
+    radial-gradient(circle at 84% 18%, rgba(31, 41, 55, 0.18), transparent 96%),
+    #0b0f1a00;
+}
+
+.backgroundImage {
+  background: url('./Mounts.webp') center / cover no-repeat fixed;
+  display: flex;
+  opacity: 0.28;
+  margin: 0;
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: saturate(1.1) contrast(1.08);
+}
+
+.backgroundImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(125, 211, 252, 0.18), rgba(245, 158, 11, 0.25));
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 4rem 2rem 3rem;
+  align-items: center;
+  font-family: 'Times New Roman', serif;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(8, 47, 73, 0.85), rgba(245, 158, 11, 0.58));
+  border: 2px solid rgba(234, 179, 8, 0.82);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  padding: 1.5rem 2.25rem;
+  max-width: 480px;
+  width: 100%;
+  color: #fef3c7;
+  backdrop-filter: blur(5px);
+}
+
+.headerText {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  color: #facc15;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+.owner {
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+  color: #e0f2fe;
+}
+
+.grid {
+  display: grid;
+  gap: 1.35rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 820px;
+}
+
+.card {
+  position: relative;
+  padding: 2.25rem 2.8rem;
+  border-radius: 1100px / 420px;
+  color: #fdf5e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  border: 2px solid rgba(234, 179, 8, 0.75);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(56, 189, 248, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  background: radial-gradient(circle at 22% 28%, rgba(56, 189, 248, 0.25), transparent 44%),
+    radial-gradient(circle at 78% 10%, rgba(234, 179, 8, 0.22), transparent 36%);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.cardVariant1 {
+  background: linear-gradient(135deg, rgba(10, 25, 41, 0.94), rgba(56, 189, 248, 0.78));
+}
+
+.cardVariant2 {
+  background: linear-gradient(135deg, rgba(18, 53, 36, 0.94), rgba(132, 204, 22, 0.76));
+}
+
+.cardVariant3 {
+  background: linear-gradient(135deg, rgba(55, 36, 12, 0.92), rgba(234, 179, 8, 0.8));
+}
+
+.cardVariant4 {
+  background: linear-gradient(135deg, rgba(43, 20, 36, 0.92), rgba(14, 165, 233, 0.76));
+}
+
+.cardTitle {
+  position: relative;
+  margin: 0 0 0.5rem;
+  font-size: 1.45rem;
+  color: #fbbf24;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.description {
+  position: relative;
+  margin: 0.25rem 0 0.75rem;
+  color: #e0f2fe;
+  font-size: 1rem;
+  line-height: 1.55;
+  white-space: pre-line;
+  z-index: 1;
+}
+
+.price {
+  position: relative;
+  margin: 0;
+  font-weight: 800;
+  color: #fde68a;
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.footerNote {
+  margin: 0.5rem 0 0;
+  color: #c7d2fe;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
