@@ -78,15 +78,16 @@
 .grid {
   display: grid;
   gap: 1.35rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   width: 100%;
-  max-width: 780px;
+  max-width: 920px;
+  justify-items: center;
 }
 
 .card {
   position: relative;
-  padding: 2.2rem 2.6rem;
-  border-radius: 999px / 420px;
+  padding: 1.4rem 1.65rem;
+  border-radius: 26px;
   color: #fdf5e6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
@@ -97,6 +98,8 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   overflow: hidden;
   backdrop-filter: blur(4px);
+  width: 100%;
+  max-width: 560px;
 }
 
 .card::before {
