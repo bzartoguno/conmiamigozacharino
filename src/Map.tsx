@@ -73,6 +73,8 @@ import { JazzPortablePotions } from "./JazzPortablePotions";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import { JewelryGuild } from "./JewelryGuild";
 import jewelryGuildImage from "./Jewelry Guild.png";
+import { LabyrinthineLibrary } from "./LabyrinthineLibrary";
+import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -152,8 +154,8 @@ export function Map() {
       return <FairiesOfFlora onBack={() => setNavigatedTo("")} />;
     case "GolemWorkshop":
       return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
-    case "GolemWorkshop":
-      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
+    case "LabyrinthineLibrary":
+      return <LabyrinthineLibrary onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -380,22 +382,6 @@ export function Map() {
               imageSrc={hugImage}
             />  
             <FloatingButton
-              label="Jazz's Portable Potions"
-              onClick={() => setNavigatedTo("JazzPortablePotions")}
-              delay="76s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={jazzPortablePotionsImage}
-            />
-            <FloatingButton
-              label="Jewelry Guild"
-              onClick={() => setNavigatedTo("JewelryGuild")}
-              delay="76.25s"
-              backgroundColor="rgba(34, 197, 94, 0.92)"
-              color="#0b1f16"
-              imageSrc={jewelryGuildImage}
-            />
-            <FloatingButton
               label="Iconic Dragonic"
               onClick={() => setNavigatedTo("IconicDragonic")}
               delay="73.5s"
@@ -468,6 +454,30 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#0a2f14"
               imageSrc={golemWorkshopImage}
+            />
+            <FloatingButton
+              label="Jazz's Portable Potions"
+              onClick={() => setNavigatedTo("JazzPortablePotions")}
+              delay="48.25s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={jazzPortablePotionsImage}
+            />
+            <FloatingButton
+              label="Jewelry Guild"
+              onClick={() => setNavigatedTo("JewelryGuild")}
+              delay="48.5s"
+              backgroundColor="rgba(34, 197, 94, 0.92)"
+              color="#0b1f16"
+              imageSrc={jewelryGuildImage}
+            />
+            <FloatingButton
+              label="Labyrinthine Library"
+              onClick={() => setNavigatedTo("LabyrinthineLibrary")}
+              delay="48.75s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={labyrinthineLibraryImage}
             />
           </div>
         </div>
