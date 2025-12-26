@@ -79,20 +79,23 @@
 .grid {
   display: grid;
   gap: 1.35rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   width: 100%;
-  max-width: 860px;
+  max-width: 960px;
+  justify-items: center;
 }
 
 .categories {
-  display: grid center;
-  flex-direction: column center;
+  display: flex;
+  flex-direction: column;
   gap: 1.75rem;
   width: 100%;
+  align-items: center;
 }
 
 .categoryBlock {
   width: 100%;
+  max-width: 1024px;
   padding: 1.1rem 1.25rem 1.25rem;
 }
 
@@ -102,12 +105,13 @@
   letter-spacing: 0.03em;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   font-size: 1.4rem;
+  text-align: center;
 }
 
 .card {
   position: relative;
-  padding: 2.1rem 2.5rem;
-  border-radius: 999px / 400px;
+  padding: 1.35rem 1.7rem;
+  border-radius: 26px;
   color: #0b0f1b;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
@@ -118,6 +122,8 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.24);
   overflow: hidden;
   backdrop-filter: blur(4px);
+  width: 100%;
+  max-width: 580px;
 }
 
 .card::before {

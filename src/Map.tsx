@@ -363,19 +363,19 @@ export function Map() {
               imageSrc={jellBellImage}
             />
             <FloatingButton
-              label="Make a Monster"
-              onClick={() => setNavigatedTo("MonsterMaker")}
-              delay="46.5s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={monsterImage}
-            />
-            <FloatingButton
               label="Paws, Claws, & Maws"
               onClick={() => setNavigatedTo("PawsClawsMaws")}
-              delay="46.75s"
+              delay="46.5s"
               backgroundColor="rgba(250, 204, 21, 0.95)"
               imageSrc={pawsClawsMawsImage}
              />
+            <FloatingButton
+              label="Make a Monster"
+              onClick={() => setNavigatedTo("MonsterMaker")}
+              delay="46.75s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={monsterImage}
+            />
              <FloatingButton
               label="Michael's Mount"
               onClick={() => setNavigatedTo("MichaelsMount")}
