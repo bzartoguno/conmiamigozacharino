@@ -174,7 +174,7 @@ export function Map() {
               label="Dungeon Crawler Guild"
               onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
               delay="14s"
-              backgroundColor="rgba(64, 102, 155, 0.9)"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={dungeonCrawlerGuildImage}
             />
             <FloatingButton
