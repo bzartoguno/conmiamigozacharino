@@ -8,6 +8,7 @@ import { ArchivesGuild } from "./ArchivesGuild";
 import { bookBombDataUrl } from "./bookBombImage";
 import { AuntiePattysPies } from "./AuntiePattysPies";
 import { IconicDragonic } from "./IconicDragonic";
+import { JellBell } from "./JellBell";
 import { PiggyBank } from "./PiggyBank";
 import { NavigationGuild } from "./NavigationGuild";
 import { PearlsPotions } from "./PearlsPotions";
@@ -50,6 +51,7 @@ import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
 import { HugInfo } from "./HugInfo";
 import hugImage from "./Hug.webp";
+import jellBellImage from "./Jell.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -111,6 +113,8 @@ export function Map() {
       return <AuntiePattysPies onBack={() => setNavigatedTo("")} />;
     case "IconicDragonic":
       return <IconicDragonic onBack={() => setNavigatedTo("")} />;
+    case "JellBell":
+      return <JellBell onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -268,6 +272,20 @@ export function Map() {
               delay="45s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={auntPattiePieImage}
+            />
+            <FloatingButton
+              label="Jell Bell"
+              onClick={() => setNavigatedTo("JellBell")}
+              delay="46.25s"
+              backgroundColor="rgba(250, 204, 21, 0.9)"
+              imageSrc={jellBellImage}
+            />
+            <FloatingButton
+              label="Iconic Dragonic"
+              onClick={() => setNavigatedTo("IconicDragonic")}
+              delay="46.5s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={iconicDragonicImage}
             />
             <FloatingButton
               label="Comedy Gold"
