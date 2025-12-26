@@ -19,10 +19,14 @@ import { OPapiesOracleReadings } from "./OPapiesOracleReadings";
 import { RobinsRopes } from "./RobinsRopes";
 import { RunestoneRelay } from "./RunestoneRelay";
 import { SilentOath } from "./SilentOath";
+import { SupremeSmithy } from "./SupremeSmithy";
+import { WillsWeapons } from "./WillsWeapons";
 import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
 import robinsRopesImage from "./Robins Ropes.png";
 import runestoneRelayImage from "./Runestone Relay.png";
 import silentOathImage from "./Silent Oath.png";
+import supremeSmithyImage from "./Supreme Smithy.png";
+import willsWeaponsImage from "./Wills Weapons.png";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -99,6 +103,10 @@ export function Map() {
       return <RunestoneRelay onBack={() => setNavigatedTo("")} />;
     case "SilentOath":
       return <SilentOath onBack={() => setNavigatedTo("")} />;
+    case "SupremeSmithy":
+      return <SupremeSmithy onBack={() => setNavigatedTo("")} />;
+    case "WillsWeapons":
+      return <WillsWeapons onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -195,6 +203,20 @@ export function Map() {
               delay="39s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={silentOathImage}
+            />
+            <FloatingButton
+              label="Supreme Smithy"
+              onClick={() => setNavigatedTo("SupremeSmithy")}
+              delay="42s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={supremeSmithyImage}
+            />
+            <FloatingButton
+              label="Will's Weapons"
+              onClick={() => setNavigatedTo("WillsWeapons")}
+              delay="45s"
+              backgroundColor="rgba(255, 255, 255, 0.9)"
+              imageSrc={willsWeaponsImage}
             />
           </div>
         </div>
