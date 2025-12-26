@@ -60,6 +60,8 @@ import { MichaelsMount } from "./MichaelsMount";
 import mountsImage from "./Mounts.webp";
 import { ValhallaMart } from "./ValhallaMart";
 import valhallaMartImage from "./Valhalla Mart.png";
+import { BlossomHotel } from "./BlossomHotel";
+import blossomHotelImage from "./Blossom Hotel.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -131,6 +133,8 @@ export function Map() {
       return <MichaelsMount onBack={() => setNavigatedTo("")} />;
     case "ValhallaMart":
       return <ValhallaMart onBack={() => setNavigatedTo("")} />;
+    case "BlossomHotel":
+      return <BlossomHotel onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -393,6 +397,14 @@ export function Map() {
               delay="47s"
               backgroundColor="rgba(250, 204, 21, 0.95)"
               imageSrc={valhallaMartImage}
+            />
+            <FloatingButton
+              label="Blossom Hotel"
+              onClick={() => setNavigatedTo("BlossomHotel")}
+              delay="47.25s"
+              backgroundColor="rgba(34, 197, 94, 0.9)"
+              color="#0a2f14"
+              imageSrc={blossomHotelImage}
             />
           </div>
         </div>
