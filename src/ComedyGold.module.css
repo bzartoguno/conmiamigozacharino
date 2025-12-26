@@ -1,0 +1,130 @@
+.app {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  background: url('./Comedy Gold.png') no-repeat center center fixed;
+  display: flex;
+  background-size: cover;
+  opacity: 0.78;
+  margin: 0;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 4rem 2rem 3rem;
+  align-items: center;
+  font-family: 'Times New Roman', serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  border: 3px solid #0c3b6a;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  max-width: 360px;
+  width: 100%;
+}
+
+.headerText {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #0c3b6a;
+}
+
+.owner {
+  margin: 0.2rem 0;
+  font-size: 1.1rem;
+  color: #1f6bc0;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 640px;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+  padding: 2.25rem 2.75rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: transparent;
+  border: 0;
+  color: #0d1b2a;
+  font-family: monospace;
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+
+  filter: drop-shadow(6px 6px rgba(0, 0, 0, 0.55));
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f2f7ff, #dbe8ff);
+  border: 4px solid #1c4f91;
+
+  clip-path: polygon(
+    18% 4%,  82% 4%,
+    96% 50%,
+    82% 96%, 18% 96%,
+    4% 50%
+  );
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #0c3b6a;
+}
+
+.description {
+  margin: 0.35rem 0 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0d1b2a;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.price {
+  margin: 0;
+  font-weight: bold;
+  color: #1c4f91;
+}
+
+.footerNote {
+  margin: 0.5rem 0 0;
+  color: #0c3b6a;
+  font-weight: bold;
+}
