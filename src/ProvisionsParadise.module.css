@@ -7,7 +7,10 @@
 }
 
 .backgroundImage {
-  background: url("./Provisions Paradise.png") no-repeat center center fixed;
+  background-image: linear-gradient(180deg, rgba(23, 46, 36, 0.28), rgba(23, 46, 36, 0.28)), url("./Provisions Paradise.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   background-size: cover;
   opacity: 0.7;
   position: absolute;
