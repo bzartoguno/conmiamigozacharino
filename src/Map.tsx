@@ -67,6 +67,8 @@ import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import { FairiesOfFlora } from "./FairiesOfFlora";
 import floralImage from "./Floral.webp";
 import loadingScreenBackground from "./Loading screen.gif";
+import { GolemWorkshop } from "./GolemWorkshop";
+import golemWorkshopImage from "./Golem Work Shop.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -144,6 +146,10 @@ export function Map() {
       return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
     case "FairiesOfFlora":
       return <FairiesOfFlora onBack={() => setNavigatedTo("")} />;
+    case "GolemWorkshop":
+      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
+    case "GolemWorkshop":
+      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -431,6 +437,14 @@ export function Map() {
               color="#0a2f14"
               imageSrc={floralImage}
             />
+            <FloatingButton
+              label="Golem Workshop"
+              onClick={() => setNavigatedTo("GolemWorkshop")}
+              delay="48s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={golemWorkshopImage}
+            />
           </div>
         </div>
       );
@@ -482,7 +496,11 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
-    background: `url(${loadingScreenBackground}) center / cover no-repeat fixed, #0b0b0b`,
+    backgroundImage: `url(${loadingScreenBackground})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: "#0b0b0b",
     gap: "2rem",
     fontFamily: "'Times New Roman', serif",
   },
@@ -501,8 +519,7 @@ const styles: Record<string, React.CSSProperties> = {
     overflowY: "auto",
     padding: "1rem",
     width: "98%",
-    backgroundColor: "rgba(255, 255, 255, 0.78)",
-    backdropFilter: "blur(2px)",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
     borderRadius: "18px",
     border: "2px solid rgba(0, 0, 0, 0.15)",
     boxShadow: "inset 0 2px 6px rgba(0, 0, 0, 0.08)",
