@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import styles from "./BookBombs.module.css";
+import defaultStyles from "./BookBombs.module.css";
 import { BackButton } from "./BackButton";
 import { Item, Tribe } from "./types";
 
 type DisplayItem = Item & { finalPrice: number };
+type ShopTemplateStyles = typeof defaultStyles;
 
 function calculateAdjustedPrice(item: Item, priceVariability: number): number {
   const variability = ((Math.random() * priceVariability) / 100) * item.price;
@@ -17,10 +18,12 @@ export function ShopTemplate({
   tribe,
   backgroundImage,
   onBack,
+  styles = defaultStyles,
 }: {
   tribe: Tribe;
   backgroundImage: string;
   onBack?: () => void;
+  styles?: ShopTemplateStyles;
 }) {
   const displayItems: DisplayItem[] = useMemo(() => {
     return tribe.items
