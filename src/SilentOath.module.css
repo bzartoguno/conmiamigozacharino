@@ -1,0 +1,131 @@
+.app {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  background: url('./Silent Oath.png') no-repeat center center fixed;
+  display: flex;
+  background-size: cover;
+  opacity: 0.8;
+  margin: 0;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(20%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 4rem 2rem 3rem;
+  align-items: center;
+  font-family: 'Times New Roman', serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(10, 16, 24, 0.9);
+  border: 3px solid #c5d0d5;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  max-width: 360px;
+  width: 100%;
+}
+
+.logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border: 3px solid #c5d0d5;
+  border-radius: 16px;
+  background: #0f1a25;
+  padding: 0.5rem;
+  box-shadow: 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.headerText {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #e5f1f4;
+  letter-spacing: 1px;
+}
+
+.owner {
+  margin: 0.2rem 0;
+  font-size: 1.1rem;
+  color: #8db7c7;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #b9e0ff;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 640px;
+}
+
+.card {
+  background: rgba(9, 14, 22, 0.9);
+  border: 3px solid #c5d0d5;
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  color: #e5f1f4;
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: bold;
+  width: fit-content;
+  max-width: 600px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50% 20% / 10% 40%;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.67);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #b9e0ff;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #d6e6eb;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.price {
+  margin: 0;
+  font-weight: bold;
+  color: #8db7c7;
+}
+
+.footerNote {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #c5d0d5;
+}
