@@ -66,6 +66,7 @@ import { EvansEnchantingEmporium } from "./EvansEnchantingEmporium";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import { FairiesOfFlora } from "./FairiesOfFlora";
 import floralImage from "./Floral.webp";
+import loadingScreenBackground from "./Loading screen.gif";
 import { GolemWorkshop } from "./GolemWorkshop";
 import golemWorkshopImage from "./Golem Work Shop.png";
 
@@ -495,7 +496,11 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
-    backgroundColor: "#f1e0c9",
+    backgroundImage: `url(${loadingScreenBackground})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: "#0b0b0b",
     gap: "2rem",
     fontFamily: "'Times New Roman', serif",
   },
@@ -514,7 +519,7 @@ const styles: Record<string, React.CSSProperties> = {
     overflowY: "auto",
     padding: "1rem",
     width: "98%",
-    backgroundColor: "#f1e0c9",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
     borderRadius: "18px",
     border: "2px solid rgba(0, 0, 0, 0.15)",
     boxShadow: "inset 0 2px 6px rgba(0, 0, 0, 0.08)",
