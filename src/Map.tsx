@@ -284,6 +284,11 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: "column",
     alignItems: "center",
     gap: "1.5rem",
+    maxHeight: "70vh",
+    overflowY: "auto",
+    padding: 0,
+    width: "min(90vw, 520px)",
+    backgroundColor: "transparent",
   },
   button: {
     fontSize: "1.5rem",
