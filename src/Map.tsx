@@ -43,6 +43,8 @@ import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import piggyBankImage from "./Piggy Bank.png";
 import yeOldDonkeyImage from "./Ye Old Donkey.png";
+import provisionsParadiseImage from "./Provisions Paradise.png";
+import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
@@ -137,6 +139,8 @@ export function Map() {
       return <SupremeSmithy onBack={() => setNavigatedTo("")} />;
     case "WillsWeapons":
       return <WillsWeapons onBack={() => setNavigatedTo("")} />;
+    case "ProvisionsParadise":
+      return <ProvisionsParadise onBack={() => setNavigatedTo("")} />;
     case "YeOldDonkey":
       return <YeOldDonkey onBack={() => setNavigatedTo("")} />;
     default:
@@ -159,28 +163,28 @@ export function Map() {
             <FloatingButton
               label="Black Market"
               onClick={() => setNavigatedTo("Black")}
-              delay="9s"
+              delay="6s"
               backgroundColor="rgba(0, 0, 0, 0.712)"
               color="white"
             />
             <FloatingButton
               label="Applegarth Guild"
               onClick={() => setNavigatedTo("ApplegarthGuild")}
-              delay="15s"
+              delay="9s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={applegarthImage}
             />
             <FloatingButton
               label="Archives Guild"
               onClick={() => setNavigatedTo("ArchivesGuild")}
-              delay="18s"
+              delay="12s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={archivesGuildImage}
             />
             <FloatingButton
               label="Book Bombs"
               onClick={() => setNavigatedTo("BookBombs")}
-              delay="12s"
+              delay="15s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               // Use the uploaded PNG file as the primary image, fall back to
               // the cleaned embedded data URI, then the canvas-rendered text.
@@ -188,123 +192,130 @@ export function Map() {
               // imageSrc={bookBombsLogo}
             />
             <FloatingButton
-              label="Auntie Patty's Pies"
-              onClick={() => setNavigatedTo("AuntiePattysPies")}
-              delay="13s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={auntPattiePieImage}
-            />
-            <FloatingButton
-              label="The Piggy Bank"
-              onClick={() => setNavigatedTo("PiggyBank")}
-              delay="13.25s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={piggyBankImage}
-            />
-            <FloatingButton
-              label="Ye Old Donkey"
-              onClick={() => setNavigatedTo("YeOldDonkey")}
-              delay="13.5s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={yeOldDonkeyImage}
-            />
-            <FloatingButton
-              label="Navigation Guild"
-              onClick={() => setNavigatedTo("NavigationGuild")}
-              delay="13.5s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={navigationGuildImage}
-              />
-            <FloatingButton
-              label="Pearl's Potions"
-              onClick={() => setNavigatedTo("PearlsPotions")}
-              delay="13.5s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={pearlsPotionsImage}
-            />
-            <FloatingButton
-              label="Find a Friend"
-              onClick={() => setNavigatedTo("FindAFriend")}
-              delay="16s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={findAFriendImage}
-            />
-            <FloatingButton
-              label="Comedy Gold"
-              onClick={() => setNavigatedTo("ComedyGold")}
-              delay="14s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={comedyGoldImage}
-             />
-             <FloatingButton
-              label="Dungeon Crawler Guild"
-              onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
-              delay="14s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              imageSrc={dungeonCrawlerGuildImage}
-            />
-            <FloatingButton
               label="Bullets, Buffs, & Beyond"
               onClick={() => setNavigatedTo("BulletsBuffsBeyond")}
-              delay="21s"
+              delay="18s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={bulletsBuffsBeyondImage}
             />
             <FloatingButton
               label="Changing Church"
               onClick={() => setNavigatedTo("ChangingChurch")}
-              delay="24s"
+              delay="21s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={changingChurchImage}
             />
             <FloatingButton
               label="Necromancy Insurance Company"
               onClick={() => setNavigatedTo("NecromancyInsuranceCompany")}
-              delay="27s"
+              delay="24s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={necromancyInsuranceImage}
             />
             <FloatingButton
               label="O-Papies Oracle Readings"
               onClick={() => setNavigatedTo("OPapiesOracleReadings")}
-              delay="30s"
+              delay="27s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={oPapiesOracleReadingsImage}
             />
             <FloatingButton
               label="Robin's Ropes"
               onClick={() => setNavigatedTo("RobinsRopes")}
-              delay="33s"
+              delay="30s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={robinsRopesImage}
             />
             <FloatingButton
               label="Runestone Relay"
               onClick={() => setNavigatedTo("RunestoneRelay")}
-              delay="36s"
+              delay="33s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={runestoneRelayImage}
             />
             <FloatingButton
               label="Silent Oath"
               onClick={() => setNavigatedTo("SilentOath")}
-              delay="39s"
+              delay="36s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={silentOathImage}
             />
             <FloatingButton
               label="Supreme Smithy"
               onClick={() => setNavigatedTo("SupremeSmithy")}
-              delay="42s"
+              delay="39s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={supremeSmithyImage}
             />
             <FloatingButton
               label="Will's Weapons"
               onClick={() => setNavigatedTo("WillsWeapons")}
-              delay="45s"
+              delay="42s"
               backgroundColor="rgba(255, 255, 255, 0.9)"
               imageSrc={willsWeaponsImage}
+            />
+            <FloatingButton
+              label="Auntie Patty's Pies"
+              onClick={() => setNavigatedTo("AuntiePattysPies")}
+              delay="45s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={auntPattiePieImage}
+            />
+            <FloatingButton
+              label="Comedy Gold"
+              onClick={() => setNavigatedTo("ComedyGold")}
+              delay="48s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={comedyGoldImage}
+             />
+             <FloatingButton
+              label="Dungeon Crawler Guild"
+              onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
+              delay="51s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={dungeonCrawlerGuildImage}
+            />
+            <FloatingButton
+              label="Find a Friend"
+              onClick={() => setNavigatedTo("FindAFriend")}
+              delay="54s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={findAFriendImage}
+            />
+            <FloatingButton
+              label="Navigation Guild"
+              onClick={() => setNavigatedTo("NavigationGuild")}
+              delay="57s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={navigationGuildImage}
+              />
+            <FloatingButton
+              label="Pearl's Potions"
+              onClick={() => setNavigatedTo("PearlsPotions")}
+              delay="60s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={pearlsPotionsImage}
+            />
+            <FloatingButton
+              label="Provision's Paradise"
+              onClick={() => setNavigatedTo("ProvisionsParadise")}
+              delay="63s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={provisionsParadiseImage}
+            />
+            <FloatingButton
+              label="The Piggy Bank, no hammers inside."
+              onClick={() => setNavigatedTo("PiggyBank")}
+              delay="66s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={piggyBankImage}
+            />
+            <FloatingButton
+              label="Ye Old Donkey"
+              onClick={() => setNavigatedTo("YeOldDonkey")}
+              delay="69s"
+              backgroundColor="rgba(220, 38, 38, 0.9)"
+              imageSrc={yeOldDonkeyImage}
             />
           </div>
         </div>
