@@ -67,6 +67,8 @@ import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import { FairiesOfFlora } from "./FairiesOfFlora";
 import floralImage from "./Floral.webp";
 import loadingScreenBackground from "./Loading screen.gif";
+import { GolemWorkshop } from "./GolemWorkshop";
+import golemWorkshopImage from "./Golem Work Shop.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -144,6 +146,10 @@ export function Map() {
       return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
     case "FairiesOfFlora":
       return <FairiesOfFlora onBack={() => setNavigatedTo("")} />;
+    case "GolemWorkshop":
+      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
+    case "GolemWorkshop":
+      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -430,6 +436,14 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#0a2f14"
               imageSrc={floralImage}
+            />
+            <FloatingButton
+              label="Golem Workshop"
+              onClick={() => setNavigatedTo("GolemWorkshop")}
+              delay="48s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={golemWorkshopImage}
             />
           </div>
         </div>
