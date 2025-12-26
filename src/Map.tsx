@@ -71,6 +71,8 @@ import { GolemWorkshop } from "./GolemWorkshop";
 import golemWorkshopImage from "./Golem Work Shop.png";
 import { JazzPortablePotions } from "./JazzPortablePotions";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
+import { JewelryGuild } from "./JewelryGuild";
+import jewelryGuildImage from "./Jewelry Guild.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -194,6 +196,8 @@ export function Map() {
       return <HugInfo onBack={() => setNavigatedTo("")} />;
     case "JazzPortablePotions":
       return <JazzPortablePotions onBack={() => setNavigatedTo("")} />;
+    case "JewelryGuild":
+      return <JewelryGuild onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -384,6 +388,14 @@ export function Map() {
               imageSrc={jazzPortablePotionsImage}
             />
             <FloatingButton
+              label="Jewelry Guild"
+              onClick={() => setNavigatedTo("JewelryGuild")}
+              delay="76.25s"
+              backgroundColor="rgba(34, 197, 94, 0.92)"
+              color="#0b1f16"
+              imageSrc={jewelryGuildImage}
+            />
+            <FloatingButton
               label="Iconic Dragonic"
               onClick={() => setNavigatedTo("IconicDragonic")}
               delay="73.5s"
@@ -508,7 +520,6 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
-    width: "100%",
     backgroundImage: `url(${loadingScreenBackground})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -534,8 +545,8 @@ const styles: Record<string, React.CSSProperties> = {
     overflowY: "auto",
     padding: "1.5rem",
     width: "min(1100px, 100%)",
-    backgroundColor: "rgba(0, 0, 0, 0.2)",
-    backdropFilter: "blur(1px)",
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    backdropFilter: "blur(2px)",
     borderRadius: "20px",
     boxShadow: "0 14px 30px rgba(0, 0, 0, 0.45)",
   },
