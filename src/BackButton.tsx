@@ -1,6 +1,12 @@
 import React from "react";
 
-export function BackButton({ onClick }: { onClick?: () => void }) {
+export function BackButton({
+  onClick,
+  style,
+}: {
+  onClick?: () => void;
+  style?: React.CSSProperties;
+}) {
   const handleClick = () => {
     if (onClick) {
       onClick();
@@ -10,7 +16,11 @@ export function BackButton({ onClick }: { onClick?: () => void }) {
   };
 
   return (
-    <button type="button" onClick={handleClick} style={styles.backButton}>
+    <button
+      type="button"
+      onClick={handleClick}
+      style={{ ...styles.backButton, ...style }}
+    >
       ← Return to the map
     </button>
   );
