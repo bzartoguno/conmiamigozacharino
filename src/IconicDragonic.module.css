@@ -11,7 +11,7 @@
 .backgroundImage {
   background: center / cover no-repeat;
   display: flex;
-  opacity: 0.18;
+  opacity: 0.32;
   margin: 0;
   z-index: -2;
   position: absolute;
@@ -19,14 +19,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  filter: saturate(1.2) contrast(1.05);
+  filter: saturate(1.3) contrast(1.12) brightness(1.06);
 }
 
 .backgroundImage::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(14, 116, 144, 0.25), rgba(190, 24, 93, 0.24));
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.16), rgba(190, 24, 93, 0.14));
   z-index: 1;
 }
 
