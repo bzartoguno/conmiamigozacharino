@@ -62,6 +62,8 @@ import { ValhallaMart } from "./ValhallaMart";
 import valhallaMartImage from "./Valhalla Mart.png";
 import { BlossomHotel } from "./BlossomHotel";
 import blossomHotelImage from "./Blossom Hotel.png";
+import { EvansEnchantingEmporium } from "./EvansEnchantingEmporium";
+import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -135,6 +137,8 @@ export function Map() {
       return <ValhallaMart onBack={() => setNavigatedTo("")} />;
     case "BlossomHotel":
       return <BlossomHotel onBack={() => setNavigatedTo("")} />;
+    case "EvansEnchantingEmporium":
+      return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -405,6 +409,14 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.9)"
               color="#0a2f14"
               imageSrc={blossomHotelImage}
+            />
+            <FloatingButton
+              label="Evan's Enchanting Emporium"
+              onClick={() => setNavigatedTo("EvansEnchantingEmporium")}
+              delay="47.5s"
+              backgroundColor="rgba(34, 197, 94, 0.9)"
+              color="#0a2f14"
+              imageSrc={evansEnchantingEmporiumImage}
             />
           </div>
         </div>
