@@ -33,9 +33,9 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  background: #ffffff;
-  border: 3px solid #5c1a1a;
-  box-shadow: 8px 8px rgba(0, 0, 0, 0.35);
+  background: #0f1b2e;
+  border: 3px solid #ff9a3c;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.45);
   border-radius: 20px;
   padding: 1.5rem 2rem;
   max-width: 360px;
@@ -49,13 +49,13 @@
 .title {
   margin: 0;
   font-size: 2.4rem;
-  color: #5c1a1a;
+  color: #ffb35c;
 }
 
 .owner {
   margin: 0.2rem 0;
   font-size: 1.1rem;
-  color: #b94c2e;
+  color: #f2e2c7;
 }
 
 .grid {
@@ -76,7 +76,7 @@
 
   background: transparent;
   border: 0;
-  color: #2f1f1d;
+  color: #f8f1e3;
   font-family: monospace;
   font-size: 24px;
   font-weight: bolder;
@@ -89,8 +89,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #fff5f5, #ffe7e7);
-  border: 4px solid #a01818;
+  background: linear-gradient(135deg, #111b2e, #0b101d);
+  border: 4px solid #ff9a3c;
 
   /* "bigger radius" / less aggressive cut-ins */
   clip-path: polygon(
@@ -108,13 +108,13 @@
 .cardTitle {
   margin: 0;
   font-size: 1.25rem;
-  color: #5c1a1a;
+  color: #ffb35c;
 }
 
 .description {
   margin: 0.35rem 0 0.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #4b3a35;
+  color: #e8d9c1;
   font-size: 1rem;
   text-align: center;
 }
@@ -122,11 +122,11 @@
 .price {
   margin: 0;
   font-weight: bold;
-  color: #a01818;
+  color: #ff9a3c;
 }
 
 .footerNote {
   margin: 0.5rem 0 0;
-  color: #5c1a1a;
+  color: #ffb35c;
   font-weight: bold;
 }
