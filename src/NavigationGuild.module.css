@@ -1,0 +1,132 @@
+.app {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  background: url('./NavigationGuild-ezgif.com-webp-to-png-converter.png') no-repeat center center fixed;
+  display: flex;
+  background-size: cover;
+  opacity: 0.75;
+  margin: 0;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 4rem 2rem 3rem;
+  align-items: center;
+  font-family: 'Times New Roman', serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  border: 3px solid #5c1a1a;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  max-width: 360px;
+  width: 100%;
+}
+
+.headerText {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #5c1a1a;
+}
+
+.owner {
+  margin: 0.2rem 0;
+  font-size: 1.1rem;
+  color: #b94c2e;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 640px;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+  padding: 2.25rem 2.75rem;          /* a touch more breathing room */
+  margin-left: auto;
+  margin-right: auto;
+
+  background: transparent;
+  border: 0;
+  color: #2f1f1d;
+  font-family: monospace;
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+
+  filter: drop-shadow(6px 6px rgba(0, 0, 0, 0.55));
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #fff5f5, #ffe7e7);
+  border: 4px solid #a01818;
+
+  /* "bigger radius" / less aggressive cut-ins */
+  clip-path: polygon(
+    18% 4%,  82% 4%,
+    96% 50%,
+    82% 96%, 18% 96%,
+    4% 50%
+  );
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #5c1a1a;
+}
+
+.description {
+  margin: 0.35rem 0 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4b3a35;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.price {
+  margin: 0;
+  font-weight: bold;
+  color: #a01818;
+}
+
+.footerNote {
+  margin: 0.5rem 0 0;
+  color: #5c1a1a;
+  font-weight: bold;
+}
