@@ -51,7 +51,7 @@ export const tribeAuctionHouse3: Tribe = {
     {
       name: "Valhalla Mart's Forever Friend",
       price: 50_000,
-      description: "This small block of wood can be carved into any pet/mount you have previously own. After doing so this pet will transform into said campaign. However if the dies or is critically injured the companion will revert back to it little wooden state. After one year, the companion regains its magic, allowing the owner to summon again."
+      description: "This small block of wood can be carved into any pet or mount you have previously owned. After doing so, this pet will transform into that companion. However, if it dies or is critically injured, the companion will revert back to its little wooden state. After one year, the companion regains its magic, allowing the owner to summon it again."
     }
-  ]  
-}
+  ],
+};

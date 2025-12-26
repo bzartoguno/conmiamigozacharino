@@ -31,7 +31,7 @@ export const tribeAuctionHouse2: Tribe = {
     {
       name: "Comedy Gold's Backstage Pass",
       price: 20000,
-      description: "Get a pass to see the inner working of Comedy Gold."
+      description: "Get a pass to see the inner workings of Comedy Gold."
     },
     {
       name: "Dungeon Crawler Guild's The Dungeon Master's Tome",
@@ -68,5 +68,5 @@ export const tribeAuctionHouse2: Tribe = {
       price: 14000,
       description: "A magical tent that sets up a cozy inn for up to 10 people, offering warm meals and protection from hostile creatures."
     }
-  ]  
-}
+  ],
+};

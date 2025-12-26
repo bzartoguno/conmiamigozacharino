@@ -10,7 +10,7 @@ export const tribeChangingChurch: Tribe = {
     {
       name: "Minor Blessing",
       price: 10,
-      description: `Roll a d6 to and gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
+      description: `Roll a d6 to gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
 1- Light's Guidance: For the next hour, you emit a soft glow, shedding bright light in a 10-foot radius and dim light for an additional 10 feet.
 2- Blessed Aura: For the next hour, you and allies within 5 feet gain a +1 bonus to AC.
 3- Divine Whisper: Gain advantage on your next Wisdom (Perception) check as a deity guides your senses for the next 24 hours.
@@ -26,7 +26,7 @@ export const tribeChangingChurch: Tribe = {
     {
       name: "Alright Blessing",
       price: 50,
-      description: `Roll a d6 to and gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
+      description: `Roll a d6 to gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
 1- Holy Vigor: Gain temporary hit points equal to your level + your Charisma modifier for the next 8 hours.
 2- Divine Speed: Your movement speed is doubled for the next 10 minutes.
 3- Sacred Shield: For the next hour, gain resistance to necrotic and poison damage.
@@ -35,14 +35,14 @@ export const tribeChangingChurch: Tribe = {
 6- Sacred Health: Permanently gain +1 bonus to Constitution saving throws.`,
     },
     {
-      name: "Cruse/Hex Removal",
+      name: "Curse/Hex Removal",
       price: 250,
       description: "Remove a curse or hex.",
     },
     {
       name: "Omega Blessing",
       price: 500,
-      description: `Roll a d6 to and gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
+      description: `Roll a d6 to gain one of the following effects; if you have another blessing that blessing is removed and replaced with this one.
 1- Eternal Blessing: Choose one skill or tool. You gain permanent proficiency with that skill or tool. If you already have proficiency you gain expertise.
 2- Hallowed Healer: When you cast a spell that heals hit points, add an additional d8 for each level you currently have.
 3- Heavenly Aura: You permanently gain the ability to cast Sanctuary on yourself once per long rest without using a spell slot.

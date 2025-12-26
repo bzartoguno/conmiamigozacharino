@@ -17,7 +17,7 @@ export const tribeBookBombs: Tribe = {
       name: "Art of Fireworks",
       price: 20,
       description:
-        "A book on the creation and artistry behind magical and non magical fireworks.",
+        "A book on the creation and artistry behind magical and non-magical fireworks.",
     },
     {
       name: "Alchemy of Explosives",

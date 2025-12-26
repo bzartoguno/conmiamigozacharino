@@ -26,7 +26,7 @@ export const tribeAuctionHouse5: Tribe = {
     {
       name: "Fizzy Tales's Sugar Shower Star Sparkler",
       price: 90_000,
-      description: "Creates a Sugary meteor shower in a 100 mile radius dealing 100d100+X radiant damage. X is number of living creatures in the radius. Once used, this item dissolves into regular sugar. There is no save — you will be hit by it."
+      description: "Creates a sugary meteor shower in a 100-mile radius dealing 100d100 + X radiant damage, where X is the number of living creatures in the radius. Once used, this item dissolves into regular sugar. There is no save — you will be hit by it."
     },
     {
       name: "Beastbinders Tribe's Beastbinder's Command Collar",
@@ -39,29 +39,29 @@ export const tribeAuctionHouse5: Tribe = {
       description: "Regenerates after a bite is taken and can change flavor. Heals 8 HP."
     },
     {
-      name: "Tinker Track Gang's The Gadgeteer Glove",
+      name: "Tinkertrack Gang's The Gadgeteer Glove",
       price: 80_000,
       description: "Repairs or enhances any mechanical object or magical device. Has 5 charges remaining."
     },
     {
-      name: "Blast Wagon Caboose's Volcanic Bombardment Launcher",
+      name: "Blastwagon Caboose's Volcanic Bombardment Launcher",
       price: 95_000,
       description: "Launcher, deals 10d6 fire and 8d6 bludgeoning damage in a 60-foot radius. Usable twice per week, requires rare volcanic materials."
     },
     {
-      name: "Railblade Raider's Volt-Breaker Cannon",
+      name: "Railblade Raiders' Volt-Breaker Cannon",
       price: 85_000,
       description: "Cannon, deals 10d10 lightning damage in a 90-foot line. Disrupts magical effects for 1 minute. Requires rare crystals to recharge, usable once per day."
     },
     {
-      name: "LocoLux Motor's Skybreaker Airship",
+      name: "Loco Lux Motors' Skybreaker Airship",
       price: 100_000,
       description: "More information provided upon purchase."
     },
     {
-      name: "Council of Conductor's Baton of the Grand Maestro",
+      name: "Council of Conductors' Baton of the Grand Maestro",
       price: 85_000,
       description: "Baton, creates a 60-foot cone sonic attack dealing 10d10 thunder damage. Doubles ally spell effectiveness for 1 minute. Usable once per long rest."
     }
-  ]  
-}
+  ],
+};

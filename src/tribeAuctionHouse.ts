@@ -46,7 +46,7 @@ export const tribeAuctionHouse: Tribe = {
     {
       name: "Changing Church's Youth for a Millennium",
       price: 10000,
-      description: "A 7th level spell scroll that grants eternal youth for 1,000 years, after which the user ages rapidly unless the spell is casted again. This spell can not be learned."
+      description: "A 7th level spell scroll that grants eternal youth for 1,000 years, after which the user ages rapidly unless the spell is cast again. This spell cannot be learned."
     },
     {
       name: "Necromancy Insurance Company's Echo Forged Shepherd Staff",
@@ -83,5 +83,5 @@ export const tribeAuctionHouse: Tribe = {
       price: 8000,
       description: "Spectral whip, 30 ft range, deals 1d8 psychic and 1d8 force damage, phases through walls and magical barriers, blinds on hit."
     }
-  ]  
-}
+  ],
+};
