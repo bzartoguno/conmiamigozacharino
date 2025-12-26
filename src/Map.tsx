@@ -46,6 +46,8 @@ import yeOldDonkeyImage from "./Ye Old Donkey.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
+import { HugInfo } from "./HugInfo";
+import hugImage from "./Hug.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -143,6 +145,8 @@ export function Map() {
       return <ProvisionsParadise onBack={() => setNavigatedTo("")} />;
     case "YeOldDonkey":
       return <YeOldDonkey onBack={() => setNavigatedTo("")} />;
+    case "HugInfo":
+      return <HugInfo onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
@@ -316,6 +320,13 @@ export function Map() {
               delay="69s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={yeOldDonkeyImage}
+            />
+            <FloatingButton
+              label="Hug Info"
+              onClick={() => setNavigatedTo("HugInfo")}
+              delay="72s"
+              backgroundColor="rgba(250, 204, 21, 0.9)"
+              imageSrc={hugImage}
             />
           </div>
         </div>
