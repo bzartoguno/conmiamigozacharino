@@ -54,6 +54,8 @@ import hugImage from "./Hug.webp";
 import jellBellImage from "./Jell.webp";
 import { MonsterMaker } from "./MonsterMaker";
 import monsterImage from "./Monster.webp";
+import { MichaelsMount } from "./MichaelsMount";
+import mountsImage from "./Mounts.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -119,6 +121,8 @@ export function Map() {
       return <JellBell onBack={() => setNavigatedTo("")} />;
     case "MonsterMaker":
       return <MonsterMaker onBack={() => setNavigatedTo("")} />;
+    case "MichaelsMount":
+      return <MichaelsMount onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -360,6 +364,13 @@ export function Map() {
               delay="46.5s"
               backgroundColor="rgba(250, 204, 21, 0.95)"
               imageSrc={monsterImage}
+            />
+            <FloatingButton
+              label="Michael's Mount"
+              onClick={() => setNavigatedTo("MichaelsMount")}
+              delay="46.75s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={mountsImage}
             />
           </div>
         </div>
