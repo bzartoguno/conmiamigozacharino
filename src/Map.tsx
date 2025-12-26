@@ -274,20 +274,6 @@ export function Map() {
               imageSrc={auntPattiePieImage}
             />
             <FloatingButton
-              label="Jell Bell"
-              onClick={() => setNavigatedTo("JellBell")}
-              delay="46.25s"
-              backgroundColor="rgba(250, 204, 21, 0.9)"
-              imageSrc={jellBellImage}
-            />
-            <FloatingButton
-              label="Iconic Dragonic"
-              onClick={() => setNavigatedTo("IconicDragonic")}
-              delay="46.5s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={iconicDragonicImage}
-            />
-            <FloatingButton
               label="Comedy Gold"
               onClick={() => setNavigatedTo("ComedyGold")}
               delay="51s"
@@ -342,20 +328,27 @@ export function Map() {
               delay="72s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
               imageSrc={yeOldDonkeyImage}
-            />
-            <FloatingButton
-              label="Iconic Dragonic"
-              onClick={() => setNavigatedTo("IconicDragonic")}
-              delay="73.5s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={iconicDragonicImage}
-            />
+            />            
             <FloatingButton
               label="Hug Info"
               onClick={() => setNavigatedTo("HugInfo")}
               delay="75s"
               backgroundColor="rgba(250, 204, 21, 0.9)"
               imageSrc={hugImage}
+            />  
+            <FloatingButton
+              label="Iconic Dragonic"
+              onClick={() => setNavigatedTo("IconicDragonic")}
+              delay="73.5s"
+              backgroundColor="rgba(250, 204, 21, 0.95)"
+              imageSrc={iconicDragonicImage}
+            />          
+            <FloatingButton
+              label="Jell Bell"
+              onClick={() => setNavigatedTo("JellBell")}
+              delay="46.25s"
+              backgroundColor="rgba(250, 204, 21, 0.9)"
+              imageSrc={jellBellImage}
             />
           </div>
         </div>
