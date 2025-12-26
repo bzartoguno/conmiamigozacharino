@@ -110,15 +110,15 @@
 }
 
 .cardVariant1 {
-  background: linear-gradient(135deg, rgba(13, 42, 79, 0.9), rgba(78, 0, 99, 0.85));
+  background: linear-gradient(135deg, rgba(24, 179, 166, 0.9), rgba(0, 99, 21, 0.85));
 }
 
 .cardVariant2 {
-  background: linear-gradient(135deg, rgba(20, 26, 59, 0.92), rgba(12, 83, 89, 0.9));
+  background: linear-gradient(135deg, rgba(81, 99, 0, 0.85), rgba(218, 134, 10, 0.85));
 }
 
 .cardVariant3 {
-  background: linear-gradient(135deg, rgba(37, 12, 60, 0.9), rgba(190, 24, 93, 0.8));
+  background: linear-gradient(135deg, rgba(37, 12, 60, 0.9), rgba(235, 28, 114, 0.8));
 }
 
 .cardTitle {

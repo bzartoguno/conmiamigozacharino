@@ -19,7 +19,7 @@ export const tribeJellBell: Tribe & { items: JellBellItem[] } = {
     {
       name: "4 Star Bell",
       price: 2500,
-      description: "Roll with advantage.",
+      description: "Roll 2d4, 2d6, 2d8, 2d10, & 2d12 and pick which ones you want.",
     },
     {
       name: "5 Star Bell",
