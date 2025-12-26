@@ -31,7 +31,7 @@ export const tribeAuctionHouse4: Tribe = {
     {
       name: "Evan's Enchanting Emporium's Distilled Drop of Discord",
       price: 60_000,
-      description: "???, can be applied when crafting a new item"
+      description: "An unstable magical reagent applied when crafting a new item; it adds an unpredictable, powerful enchantment—or a flaw."
     },
     {
       name: "Fairies of Flora's Blessing Blossom Seed",
@@ -46,7 +46,7 @@ export const tribeAuctionHouse4: Tribe = {
     {
       name: "Jewelry Guild's Ring of Loving Bonds",
       price: 60_000,
-      description: "Creates an unbreakable bond between two individuals, linking their thoughts, and pains. Can be used once per lifetime."
+      description: "Creates an unbreakable bond between two individuals, linking their thoughts and pains. Can be used once per lifetime."
     },
     {
       name: "Labyrinthine Library's Book of Recall",
@@ -63,5 +63,5 @@ export const tribeAuctionHouse4: Tribe = {
       price: 55_000,
       description: "Own a little bit of stock in a shop of your choice, more information provided upon purchase."
     }
-  ]  
-}
+  ],
+};

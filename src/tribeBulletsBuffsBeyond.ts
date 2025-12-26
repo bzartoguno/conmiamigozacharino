@@ -22,7 +22,7 @@ export const tribeBulletsBuffsBeyond: BulletsBuffsBeyondTribe = {
     },
     {
       name: "Hunter's Ammo",
-      description: "Can only use one ammo type at a time, triple's range of weapon.",
+      description: "Can only use one ammo type at a time, triples the weapon's range.",
       price: 700,
     },
     {
@@ -38,24 +38,24 @@ export const tribeBulletsBuffsBeyond: BulletsBuffsBeyondTribe = {
       price: 1000,
     },
     {
-      name: "Get down Armor Wax",
-      description: "Can only use one wax  at a time, +3 to AC when next to an ally.",
+      name: "Get Down Armor Wax",
+      description: "Can only use one wax at a time, +3 to AC when next to an ally.",
       price: 1500,
     },
     {
-      name: "Harden Stance Sheild Wax",
+      name: "Hardened Stance Shield Wax",
       description:
-        "Can only use one wax  at a time, not using any movement speed on your turn will add +15 to AC.",
+        "Can only use one wax at a time; if you do not use any movement speed on your turn, you gain +15 to AC.",
       price: 2000,
     },
     {
       name: "Medical Wax",
-      description: "Can only use one wax  at a time, heal 5HP during your turn.",
+      description: "Can only use one wax at a time, heal 5 HP during your turn.",
       price: 3000,
     },
     {
       name: "Got anything... out back",
-      description: "please message me about what you would like so we can hash out the details",
+      description: "Please message me about what you would like so we can hash out the details.",
       price: 0,
       priceLabel: "Price may vary",
     },
