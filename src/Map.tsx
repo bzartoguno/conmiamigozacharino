@@ -64,6 +64,8 @@ import { BlossomHotel } from "./BlossomHotel";
 import blossomHotelImage from "./Blossom Hotel.png";
 import { EvansEnchantingEmporium } from "./EvansEnchantingEmporium";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
+import { FairiesOfFlora } from "./FairiesOfFlora";
+import floralImage from "./Floral.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -139,6 +141,8 @@ export function Map() {
       return <BlossomHotel onBack={() => setNavigatedTo("")} />;
     case "EvansEnchantingEmporium":
       return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
+    case "FairiesOfFlora":
+      return <FairiesOfFlora onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -417,6 +421,14 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.9)"
               color="#0a2f14"
               imageSrc={evansEnchantingEmporiumImage}
+            />
+            <FloatingButton
+              label="Fairies of Flora"
+              onClick={() => setNavigatedTo("FairiesOfFlora")}
+              delay="47.75s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={floralImage}
             />
           </div>
         </div>
