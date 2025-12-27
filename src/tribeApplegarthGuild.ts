@@ -18,26 +18,16 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
     {
       name: "Charon's Token",
       description: "Teleport to a town you have previously visited; one-time use.",
-      price: 50,
+      price: 500,
     },
     {
       name: "Hire a Servant for a Month",
-      description: "Novice service tier support for four weeks.",
+      description: "Novice service tier they will support for four weeks.",
       price: 25,
     },
     {
-      name: "Hire a Maid for a Month",
-      description: "Apprentice service tier support for four weeks.",
-      price: 50,
-    },
-    {
-      name: "Hire a Butler for a Month",
-      description: "Master service tier support for four weeks.",
-      price: 100,
-    },
-    {
       name: "Hire a Bounty Hunter for a Job",
-      description: "Apprentice contract level engagement.",
+      description: "They will track down and capture NPC and bring them to you or go out and kill any monster for you. Depending on the difficulty of the target, you may need to send multiple Bounty hunters",
       price: 100,
     },
     {
@@ -52,18 +42,18 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
     },
     {
       name: "Contact a Sage to Stay in Your Town for One Year",
-      description: "A one-year residency for an expert sage.",
+      description: "Sage will come and live in your town for one year. During this time, they will provide wisdom and advice to you and your citizens. They will also directly take control of Economic & Trade and Reputation & Renown branches of your town skill tree. Pulling from their vast knowledge, they can help your town prosper and grow. They will also particape in town events that is related to the branches they control.",
       price: 2000,
     },
     {
       name: "Contact a Master Craftsperson to Stay in Your Town for One Year",
-      description: "A one-year residency for a master craftsperson.",
+      description: "Master Craftsperson will come and live in your town for one year. During this time, they will repair and improve your town. They will also directly take control of Landscape/Wandering Titan and Industry & Craft branches of your town skill tree. Pulling from their vast knowledge, they can help your town prosper and grow. They will also participate in town events that is related to the branches they control.",
       price: 5000,
     },
     {
       name: "Contact a Herald to Stay in Your Town for One Year",
-      description: "A one-year residency for a herald.",
-      price: 1000,
+      description: "Herald will come and live in your town for one year. During this time, they will brutally train your guards and force the town to live in a higher standerd of living. They will also directly take control of Reputation & Renown andDefence & Security branches of your town skill tree. Pulling from their vast knowledge, they can help your town prosper and grow. They will also proactivly participate in town events that is related to the branches they control.",
+      price: 10000,
     },
     {
       name:
