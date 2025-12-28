@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse2: Tribe = {
-  name: "A red star shop",
+  name: "A Red Star Shop",
   percentAngry: 15,
   priceVariability: 30,
   insults: [
@@ -36,7 +36,7 @@ export const tribeAuctionHouse2: Tribe = {
     {
       name: "Dungeon Crawler Guild's The Dungeon Master's Tome",
       price: 18000,
-      description: "Reveals dungeon layouts, predicts traps, hidden rooms. Grants advantage on saving throws against dungeon hazards."
+      description: "Reveals dungeon layouts, predicts traps, and highlights hidden rooms. Grants advantage on saving throws against dungeon hazards."
     },
     {
       name: "Find a Friend's Familiar Summoning Charm",

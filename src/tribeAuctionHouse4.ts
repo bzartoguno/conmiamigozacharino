@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse4: Tribe = {
-  name: "A green star shop",
+  name: "A Green Star Shop",
   percentAngry: 25,
   priceVariability: 30,
   insults: [
@@ -41,7 +41,7 @@ export const tribeAuctionHouse4: Tribe = {
     {
       name: "Golem Workshop's Adamantine Golem",
       price: 70_000,
-      description: "Functions like a normal golem, but well — it can't break at all."
+      description: "Functions like a normal golem, but it can't break at all."
     },
     {
       name: "Jewelry Guild's Ring of Loving Bonds",
@@ -51,7 +51,7 @@ export const tribeAuctionHouse4: Tribe = {
     {
       name: "Labyrinthine Library's Book of Recall",
       price: 65_000,
-      description: "Allows instant recall of any knowledge encountered in the user’s lifetime & previous lifetimes as well."
+      description: "Allows instant recall of any knowledge encountered in the user’s lifetime and previous lifetimes as well."
     },
     {
       name: "N.M.E.'s Blood Drinker’s Crown of Dominion",

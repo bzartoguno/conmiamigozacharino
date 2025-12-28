@@ -8,7 +8,7 @@ export const tribeDungeonCrawlerGuild: Tribe = {
   insults: [""],
   items: [
     {
-      name: "Basic Information about Dungeon",
+      name: "Basic Information about a Dungeon",
       price: 10,
     },
     {

@@ -5,7 +5,7 @@ export interface YeOldHomeDepotItem extends Item {
 }
 
 export const tribeYeOldHomeDepot: Tribe & { items: YeOldHomeDepotItem[] } = {
-  name: "Ye old HomeDepot",
+  name: "Ye Old Home Depot",
   owner: "Henry",
   percentAngry: 0,
   priceVariability: 8,

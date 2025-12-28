@@ -10,12 +10,12 @@ export const tribeRunestoneRelay: Tribe = {
     {
       name: "Message Delivery",
       price: 5,
-      description: "Sending simple messages on runestones to local destinations",
+      description: "Sending simple messages on runestones to local destinations.",
     },
     {
       name: "Package Delivery",
       price: 5,
-      description: "Hold onto an item to be delivered at certain time & place",
+      description: "Hold onto an item to be delivered at a certain time and place.",
     },
     {
       name: "A year-long subscription to the Daily Newspaper",
@@ -25,7 +25,7 @@ export const tribeRunestoneRelay: Tribe = {
     {
       name: "Urgent Message",
       price: 5,
-      description: "Will literally hunt the target down to hand deliver them a message",
+      description: "Will literally hunt the target down to hand-deliver them a message.",
     },
     {
       name: "Singing Telegram",

@@ -18,7 +18,7 @@ export const tribeComedyGold: ComedyGoldTribe = {
     {
       name: "Dancing with Dragons",
       price: 0,
-      description: "Advantage on Charisma or performance skills until your next long rest.",
+      description: "Gain advantage on Charisma or Performance checks until your next long rest.",
       priceLabel: "Price may vary",
     },
     {
@@ -30,7 +30,7 @@ export const tribeComedyGold: ComedyGoldTribe = {
     {
       name: "The Fool's Quest",
       price: 0,
-      description: "Boost Relationship with pets or familiars.",
+      description: "Boost your relationship with pets or familiars.",
       priceLabel: "Price may vary",
     },
     {
@@ -42,7 +42,7 @@ export const tribeComedyGold: ComedyGoldTribe = {
     {
       name: "Wizard’s Wardrobe Woes",
       price: 0,
-      description: "Boost Friendship with NPC followers.",
+      description: "Boost friendship with NPC followers.",
       priceLabel: "Price may vary",
     },
   ],

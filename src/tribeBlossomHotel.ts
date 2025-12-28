@@ -6,7 +6,7 @@ export interface BlossomHotelItem extends Item {
 
 export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
   name: "Blossom Hotel",
-  owner: "Perma for Winter Blossom, Marlee For Spring Blossom, Solin For Summon Blossom, & Adel Autumn Blossom",
+  owner: "Perma for Winter Blossom, Marlee for Spring Blossom, Solin for Summer Blossom, & Adel for Autumn Blossom",
   percentAngry: 0,
   priceVariability: 6,
   insults: ["Hospitality blooms year-round—choose your season and settle in."],
