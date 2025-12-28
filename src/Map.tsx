@@ -62,6 +62,8 @@ import { ValhallaMart } from "./ValhallaMart";
 import valhallaMartImage from "./Valhalla Mart.png";
 import { BlossomHotel } from "./BlossomHotel";
 import blossomHotelImage from "./Blossom Hotel.png";
+import { SleuthUniversity } from "./SleuthUniversity";
+import sleuthUniversityImage from "./Sleuth.webp";
 import { EvansEnchantingEmporium } from "./EvansEnchantingEmporium";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import { FairiesOfFlora } from "./FairiesOfFlora";
@@ -150,6 +152,8 @@ export function Map() {
       return <ValhallaMart onBack={() => setNavigatedTo("")} />;
     case "BlossomHotel":
       return <BlossomHotel onBack={() => setNavigatedTo("")} />;
+    case "SleuthUniversity":
+      return <SleuthUniversity onBack={() => setNavigatedTo("")} />;
     case "EvansEnchantingEmporium":
       return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
     case "FairiesOfFlora":
@@ -490,6 +494,14 @@ export function Map() {
               backgroundColor="rgba(22, 163, 74, 0.95)"
               color="#04260f"
               imageSrc={nmeImage}
+            />
+            <FloatingButton
+              label="Sleuth University"
+              onClick={() => setNavigatedTo("SleuthUniversity")}
+              delay="49.25s"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
+              color="#0a2f14"
+              imageSrc={sleuthUniversityImage}
             />
           </div>
         </div>
