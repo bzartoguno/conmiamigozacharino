@@ -11,16 +11,16 @@ export const tribeYeOldDonkey: Tribe = {
       name: "Room & Board",
       price: 1,
       description:
-        "This includes Breakfast, Lunch and Dinner and lasts 24 hours.",
+        "This includes breakfast, lunch, and dinner and lasts 24 hours.",
     },
     {
       name: "Fortified Room & Board",
       price: 50,
       description:
-        "Same as the last one, but you actually get a lock and key for your room.",
+        "Same as the last option, but you actually get a lock and key for your room.",
     },
     {
-      name: "Secret crab illegal fighting ring",
+      name: "Secret illegal crab fighting ring",
       price: 100,
       description: "It’s what it sounds like.",
     },

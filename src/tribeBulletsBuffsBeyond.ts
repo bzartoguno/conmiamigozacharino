@@ -17,40 +17,40 @@ export const tribeBulletsBuffsBeyond: BulletsBuffsBeyondTribe = {
   items: [
     {
       name: "Killer's Ammo",
-      description: "Can only use one ammo type at a time, doubles damage dice rolled.",
+      description: "Only one ammo type can be used at a time; this option doubles the damage dice rolled.",
       price: 500,
     },
     {
       name: "Hunter's Ammo",
-      description: "Can only use one ammo type at a time, triples the weapon's range.",
+      description: "Only one ammo type can be used at a time; this option triples the weapon's range.",
       price: 700,
     },
     {
       name: "Protective Father's Ammo",
       description:
-        "Can only use one ammo type at a time, when you shoot a close friend you heal instead of hurt.",
+        "Only one ammo type can be used at a time; when you shoot a close friend, you heal them instead of hurting them.",
       price: 900,
     },
     {
       name: "Mother's Revenge Ammo",
       description:
-        "Can only use one ammo type at a time, add an additional dice to the weapon for every five HP you are below maximum.",
+        "Only one ammo type can be used at a time; add an additional die to the weapon for every five HP you are below maximum.",
       price: 1000,
     },
     {
       name: "Get Down Armor Wax",
-      description: "Can only use one wax at a time, +3 to AC when next to an ally.",
+      description: "Only one wax can be used at a time; gain +3 to AC when next to an ally.",
       price: 1500,
     },
     {
       name: "Hardened Stance Shield Wax",
       description:
-        "Can only use one wax at a time; if you do not use any movement speed on your turn, you gain +15 to AC.",
+        "Only one wax can be used at a time; if you do not use any movement speed on your turn, you gain +15 to AC.",
       price: 2000,
     },
     {
       name: "Medical Wax",
-      description: "Can only use one wax at a time, heal 5 HP during your turn.",
+      description: "Only one wax can be used at a time; it heals 5 HP during your turn.",
       price: 3000,
     },
     {

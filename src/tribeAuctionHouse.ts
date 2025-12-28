@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse: Tribe = {
-  name: "A white Star Shop",
+  name: "A White Star Shop",
   percentAngry: 10,
   priceVariability: 30,
   insults: [
@@ -41,7 +41,7 @@ export const tribeAuctionHouse: Tribe = {
     {
       name: "Bullets, Buffs, & Beyond's Repentance Ammo",
       price: 6000,
-      description: "Bullets, purify the target making them change their ways, if they hit. Only three bullets remain."
+      description: "Bullets that purify the target, making them change their ways, if they hit. Only three bullets remain."
     },
     {
       name: "Changing Church's Youth for a Millennium",
@@ -51,7 +51,7 @@ export const tribeAuctionHouse: Tribe = {
     {
       name: "Necromancy Insurance Company's Echo Forged Shepherd Staff",
       price: 9500,
-      description: "While wielding this staff, if any undead under your command died they are brought back at half of their maximum hp only works once per undead creature."
+      description: "While wielding this staff, any undead under your command that die are brought back at half of their maximum HP. This only works once per undead creature."
     },
     {
       name: "O-Papies Oracle Reading's Chronos' Hourglass",
@@ -61,17 +61,17 @@ export const tribeAuctionHouse: Tribe = {
     {
       name: "Robin's Rope's Everlasting Grapple Hook",
       price: 5000,
-      description: "A magical grapple hook rope that can attach to any surface within 500 feet. Pulls the user towards the hook."
+      description: "A magical grapple-hook rope that can attach to any surface within 500 feet. It pulls the user toward the hook."
     },
     {
       name: "Runestone Relay's Shop Stock",
       price: 9000,
-      description: "Own a little bit of stock in a shop of your choice, more information provided upon purchase."
+      description: "Own a little bit of stock in a shop of your choice. More information is provided upon purchase."
     },
     {
       name: "Silent Oath's The Oathbreaker Dagger",
       price: 10000,
-      description: "Dagger, guarantees critical hits on creatures that have broken a vow. Deals 4d4 necrotic +STR/DEX damage."
+      description: "Dagger, guarantees critical hits on creatures that have broken a vow. Deals 4d4 necrotic + STR/DEX damage."
     },
     {
       name: "Supreme Smithy's Forgemasters Anvil",

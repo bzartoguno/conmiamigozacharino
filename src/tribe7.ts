@@ -8,29 +8,29 @@ export const tribe7: Tribe = {
   insults: createGoblinExcuses("The Council of Conductors"),
   items: [
     {
-      name: "OH NO THERE BACK AGAIN GET THE BREAD, GET THE BREADDDD!!!!",
+      name: "OH NO THEY'RE BACK AGAIN, GET THE BREAD! GET THE BREAD!!!",
       price: 3000,
-      description: "(Tiny Duck Crown, While playing an instrument roll 3d100 that is how many rubber ducks fall out of your pockets or real ducks appear. They will disappear if you stop playing.)",
+      description: "(Tiny Duck Crown: while playing an instrument, roll 3d100. That many rubber ducks spill from your pockets—or real ducks appear. They disappear when you stop playing.)",
     },
     {
-      name: "Cut in line, Na na a boo bo.",
+      name: "Cut in line, na-na-na boo-boo.",
       price: 10000,
-      description: "(Quick Swap Ring, Swap places with someone within 200 ft once per day.)",
+      description: "(Quick Swap Ring: swap places with someone within 200 feet once per day.)",
     },
     {
       name: "Neck rope of ghost summoning",
       price: 2500,
-      description: "(Necklace of Shattered Ages, Spinning the gem on the Necklace will allow the user to see past events that happened nearby.)",
+      description: "(Necklace of Shattered Ages: spinning the gem on the necklace allows the user to see past events that happened nearby.)",
     },
     {
       name: "Derpy lucky charm",
       price: 2500,
-      description: "(Gateway Amulet, Create a portal that lasts 5 mins to someone you know who is also wearing a Gateway Amulet, can be used twice per long rest.)",
+      description: "(Gateway Amulet: create a portal that lasts five minutes to someone you know who is also wearing a Gateway Amulet. It can be used twice per long rest.)",
     },
     {
-      name: "Peabrain page holder ate, my cookbook!",
+      name: "Peabrain page holder ate my cookbook!",
       price: 3000,
-      description: "(Insatiable Tome, This book eats other books, ask the book a question and it will respond if it ate a book that has the answer you're looking for. Also contains some goblin cooking recipes.)",
+      description: "(Insatiable Tome: this book eats other books. Ask it a question, and it responds if it consumed a book with the answer you're looking for. Also contains some goblin cooking recipes.)",
     },
     {
       name: "Sphere of bringing fun friends.",
@@ -40,27 +40,27 @@ export const tribe7: Tribe = {
     {
       name: "Nice elf lady's book.",
       price: 1000,
-      description: "(Adel's Old Monster Journal, A journal explaining a lot of monsters Adel encountered on her past adventures.)",
+      description: "(Adel's Old Monster Journal: a journal explaining many monsters Adel encountered on her past adventures.)",
     },
     {
-      name: "Eeew, gross I don't want to touch it.",
+      name: "Eww, gross—I don't want to touch it.",
       price: 3000,
-      description: "(Odin's Glass Eye, Warning, your character has to remove one of their functioning eyes for this item to work! You can now summon two ravens of which you can see through their eyes, however if one of the ravens dies so does the other. Ravens can be summoned once per long rest.)",
+      description: "(Odin's Glass Eye: warning, your character has to remove one of their functioning eyes for this item to work! You can now summon two ravens and see through their eyes; however, if one raven dies, so does the other. Ravens can be summoned once per long rest.)",
     },
     {
-      name: "Kind Dwarf's odd box.",
+      name: "Kind dwarf's odd box.",
       price: 1000,
-      description: "(Pat's Homemade Cottage Chest, placing this small box on the ground will allow it to open, granting you access to a tiny, cozy pocket dimension akin to being inside an authentic cabin. The chest can't be moved if there's a living being inside, but it can be destroyed. When it is, anyone inside the chest will be teleported to a safe place away from the destruction.)",
+      description: "(Pat's Homemade Cottage Chest: placing this small box on the ground allows it to open, granting you access to a tiny, cozy pocket dimension akin to being inside an authentic cabin. The chest can't be moved if there's a living being inside, but it can be destroyed. When it is, anyone inside the chest will be teleported to a safe place away from the destruction.)",
     },
     {
-      name: "Creepy bone hand, good for picking ear tho.",
+      name: "Creepy bone hand, good for picking an ear though.",
       price: 1000000,
-      description: "(Omega Skeleton Key, Can unlock any door if the door has a lock. It does not work if it's any other kind of lock.)",
+      description: "(Omega Skeleton Key: can unlock any door if the door has a lock. It does not work on any other kind of lock.)",
     },
     {
       name: "The dishonorable & malicious tiara of Solanine the goblin queen.",
       price: 9000000,
-      description: "(Goblin Warlord's Crown, All goblins within ten miles of the wearer have to obey their commands, if they can hear and understand it. Only three commands can be active at any given time with the oldest command being erased.)",
+      description: "(Goblin Warlord's Crown: all goblins within ten miles of the wearer must obey their commands if they can hear and understand them. Only three commands can be active at any given time; the oldest command is erased when a new one is issued.)",
     },
     {
       name: "Some terrible cards.",
@@ -70,27 +70,27 @@ export const tribe7: Tribe = {
     {
       name: "The forbidden tissue.",
       price: 300000,
-      description: "(Keoki's All or Nothing Scratch ticket: after making a purchase, you may trigger this scratch ticket where you flip a coin. If heads the purchase automatically upgrades to ultimate version of it's self becoming an artifact item. If tails both the scratch ticket and purchase disappear never to be seen again.)",
+      description: "(Keoki's All or Nothing scratch ticket: after making a purchase, you may trigger this scratch ticket and flip a coin. If it's heads, the purchase automatically upgrades to the ultimate version of itself, becoming an artifact item. If it's tails, both the scratch ticket and purchase disappear, never to be seen again.)",
     },
     {
-      name: "Hands-on goblin learning, they may rough you up a bit tho.",
+      name: "Hands-on goblin learning—they may rough you up a bit, though.",
       price: 90,
-      description: "(Skill training, gain proficiency in a skill of your choosing if you already have proficiency in that skill it becomes expertise.)",
+      description: "(Skill training: gain proficiency in a skill of your choosing. If you already have proficiency in that skill, it becomes expertise.)",
     },
     {
-      name: "Not the kidnap- I mean a normal bag.",
+      name: "Not the kidnap— I mean a normal bag.",
       price: 1000,
-      description: "(Used Bag of Holding, This is a bag of holding however some items you withdraw may have a bit of glitter on them. It may have some other items in there.)",
+      description: "(Used Bag of Holding: this is a bag of holding; however, some items you withdraw may have a bit of glitter on them. It may have some other items in there.)",
     },
     {
-      name: "A really handy Hat",
+      name: "A really handy hat",
       price: 100000,
-      description: "(Wander's Hat, whenever you reach into this hat you have a one-in-three chance of withdrawing a useful item, a detrimental item, or a clue for your current quest.)",
+      description: "(Wander's Hat: whenever you reach into this hat, you have a one-in-three chance of withdrawing a useful item, a detrimental item, or a clue for your current quest.)",
     },
     {
       name: "SNOW BALL FIGHT! But it's the middle of summer? SNOW BALL FIGHT!",
       price: 3,
-      description: "(Ring of Replenishing Snowballs, Create and throw up to five harmless snowballs a day, they always hit.)",
+      description: "(Ring of Replenishing Snowballs: create and throw up to five harmless snowballs a day—they always hit.)",
     },
   ],
 };

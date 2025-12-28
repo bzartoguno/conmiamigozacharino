@@ -10,29 +10,29 @@ export const tribeAuntiePattysPies: Tribe = {
     {
       name: "Goblin Berry Tart",
       price: 5,
-      description: "Advantage on next stealth check",
+      description: "Grants advantage on your next Stealth check.",
     },
     {
       name: "Blueberry Pie of Night Vision",
       price: 10,
-      description: "Gives darkvision for 2 hours",
+      description: "Gives darkvision for two hours.",
     },
     {
       name: "Pumpkin Pie of Warmth",
       price: 15,
       description:
-        "Keeps the eater comfortably warm, warding off natural cold for 2 hours",
+        "Keeps the eater comfortably warm, warding off natural cold for two hours.",
     },
     {
       name: "Strawberry Pie of Friendship",
       price: 20,
       description:
-        "Eating a slice gives a +1 bonus to Animal Handling checks for 1 hour",
+        "Eating a slice gives a +1 bonus to Animal Handling checks for one hour.",
     },
     {
       name: "Pear Pie",
       price: 25,
-      description: "Increase walking speed by 5ft until next rest, non stackable",
+      description: "Increases walking speed by 5 ft until your next rest; non-stackable.",
     },
   ],
 };

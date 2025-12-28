@@ -11,17 +11,17 @@ export const tribe5: Tribe = {
     {
       name: "Glowy Piece of Paper!",
       price: 6000,
-      description: "(Annabel’s Fresh scratch ticket: scratching off this ticket will fully restore all allies including health, spell slots, class features, item cooldowns, and more. This ticket can only be used five times before it dissolves.)",
+      description: "(Annabel’s Fresh scratch ticket: scratching off this ticket will fully restore all allies—including health, spell slots, class features, item cooldowns, and more. This ticket can only be used five times before it dissolves.)",
     },
     {
       name: "Black and Yellow Barrel of Fidget Spinners & Sickness",
       price: 2000,
-      description: "(Deals 1d10 true damage if you are within 5ft of this object. I think you're smart enough to figure out why.)",
+      description: "(Deals 1d10 true damage if you are within 5 ft of this object. I think you're smart enough to figure out why.)",
     },
     {
       name: "Mama Headache Barrel",
       price: 2000,
-      description: "(Contains gasoline, triples fire damage after dealt.)",
+      description: "(Contains gasoline that triples fire damage after it is applied.)",
     },
     {
       name: "Not a Beehive",
@@ -31,7 +31,7 @@ export const tribe5: Tribe = {
     {
       name: "Lead Belcher",
       price: 4000,
-      description: "(A portable cannon that may explode if used too much, +STR to hit, deals 1d12 + CON + STR blunt damage.)",
+      description: "(A portable cannon that may explode if used too much, + STR to hit, deals 1d12 + CON + STR blunt damage.)",
     },
     {
       name: "Gallon of Americano Blood",
@@ -74,10 +74,10 @@ export const tribe5: Tribe = {
       description: "(Witch's Broom, while riding your current fly speed is equal to half of your walking speed. It may have a mind of its own.)",
     },
     {
-      name: "Sometime works, sometime don't",
+      name: "Sometimes works, sometimes doesn't",
       price: 2000,
       description:
-        "(Moonsliver Cloak, this cloak makes the wearer invisible while outdoors at night. This cloak doesn't work for a week before and after a lunar eclipse.)",
+        "(Moonsliver Cloak: this cloak makes the wearer invisible while outdoors at night. It doesn't work for a week before and after a lunar eclipse.)",
     },
     {
       name: "One cool jacket",

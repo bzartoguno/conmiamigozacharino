@@ -14,7 +14,7 @@ export const tribeFizzyTales: Tribe & { items: FizzyTalesItem[] } = {
     {
       name: "Moon Rocks",
       price: 5,
-      description: "The eater becomes nearly weightless, floating gently for 10 min.",
+      description: "The eater becomes nearly weightless, floating gently for 10 minutes.",
     },
     {
       name: "Bubble Barrier",
@@ -40,7 +40,7 @@ export const tribeFizzyTales: Tribe & { items: FizzyTalesItem[] } = {
     {
       name: "Winter Wafers",
       price: 200,
-      description: "Increase a stat point by 1, stat points can not pass 18.",
+      description: "Increase a stat by 1; stats cannot exceed 18.",
     },
   ],
 };

@@ -9,52 +9,52 @@ export const tribePearlsPotions: Tribe = {
   items: [
     {
       name: "Greater Health",
-      description: "Heals 4d4+4",
+      description: "Heals 4d4 + 4.",
       price: 25,
     },
     {
       name: "Poison",
-      description: "Deals 3d6 & lasts 1 hour",
+      description: "Deals 3d6 poison damage and lasts one hour.",
       price: 35,
     },
     {
       name: "Antidote",
-      description: "Cures Basic Poisons",
+      description: "Cures basic poisons.",
       price: 35,
     },
     {
       name: "Invisible",
-      description: "Lasts for 1 hour",
+      description: "Lasts for one hour.",
       price: 50,
     },
     {
       name: "Sleep",
-      description: "Dependent upon target's sleep cycle",
+      description: "Takes effect based on the target's sleep cycle.",
       price: 50,
     },
     {
       name: "Hill Giant's Strength",
-      description: "Make your STR +6 for 1 hour",
+      description: "Increase your STR by +6 for one hour.",
       price: 75,
     },
     {
       name: "Shadow Dancer's Nimbleness",
-      description: "Make your DEX +6 for 1 hour",
+      description: "Increase your DEX by +6 for one hour.",
       price: 75,
     },
     {
       name: "Deva's Enlightenment",
-      description: "Make your INT +6 for 1 hour",
+      description: "Increase your INT by +6 for one hour.",
       price: 75,
     },
     {
       name: "Unicorn's Empathy",
-      description: "Make your WISH +6 for 1 hour",
+      description: "Increase your WIS by +6 for one hour.",
       price: 75,
     },
     {
       name: "Potion of Sphinx's Grace",
-      description: "Make your CHR +6 for 1 hour",
+      description: "Increase your CHA by +6 for one hour.",
       price: 75,
     },
   ],

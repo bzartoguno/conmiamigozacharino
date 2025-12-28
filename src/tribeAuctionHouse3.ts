@@ -1,7 +1,7 @@
 import { Tribe } from "./types";
 
 export const tribeAuctionHouse3: Tribe = {
-  name: "A yellow star shop",
+  name: "A Yellow Star Shop",
   percentAngry: 20,
   priceVariability: 30,
   insults: [
@@ -46,7 +46,7 @@ export const tribeAuctionHouse3: Tribe = {
     {
       name: "Paws, Claws, & Maws's Harness of the Heartbeat Bond",
       price: 30_000,
-      description: "As long as the mount/pet is within 100 ft. of its bonded rider/owner, any healing the owner receives the pet/mount heals twice that."
+      description: "As long as the mount/pet is within 100 feet of its bonded rider or owner, any healing the owner receives also heals the pet or mount for twice that amount."
     },
     {
       name: "Valhalla Mart's Forever Friend",
