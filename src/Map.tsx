@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
 import { MeanderMichael } from "./MeanderMichael";
 import { MerricksMeadowHoward } from "./MerricksMeadowHoward";
@@ -365,6 +366,13 @@ export function Map() {
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "Hebron":
+      return (
+        <HebronJoshua
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -774,6 +782,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "hebron"
+                  ? onNavigate("Hebron")
                   : town.key === "byford-dolphin"
                   ? onNavigate("ByfordDolphin")
                   : town.key === "ballistic-bellows"
