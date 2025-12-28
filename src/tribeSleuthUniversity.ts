@@ -33,9 +33,9 @@ export const tribeSleuthUniversity: Tribe & { items: SleuthUniversityItem[] } = 
       description: "Detailed, trustworthy plans for infiltration or restoration.",
     },
     {
-      name: "Artisans Tomes of Learning (Fill in an empty skill with anything from the artisan's tool/kit list plus Enchanting, Engineering, & Magic-tech. You can have three different artisans' skills, but only ten are shared between all three.)",
+      name: "Artisans Tomes of Learning",
       price: 75,
-      description: "Structured study to master specialized artisan disciplines.",
+      description: "Fill in an empty skill with anything from the artisan's tool/kit list plus Enchanting, Engineering, & Magic-tech. You can have three different artisans' skills, but only ten are shared between all three.",
     },
   ],
 };
