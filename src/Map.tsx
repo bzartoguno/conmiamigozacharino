@@ -15,8 +15,8 @@ import { PearlsPotions } from "./PearlsPotions";
 import { FindAFriend } from "./FindAFriend";
 import { ComedyGold } from "./ComedyGold";
 import { DungeonCrawlerGuild } from "./DungeonCrawlerGuild";
-// Use the uploaded PNG asset (filename contains a space)
 import bookBombPng from "./Book Bomb.png";
+import goblinmarket from "./GoblinMarket.png"
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
@@ -225,7 +225,7 @@ export function Map() {
               onClick={() => setNavigatedTo("goblins")}
               delay="0s"
               backgroundColor="rgba(37, 99, 235, 0.95)"
-              imageSrc={applegarthImage}
+              imageSrc={goblinmarket}
             />
             <FloatingButton
               label="Auction House"
@@ -391,7 +391,7 @@ export function Map() {
               imageSrc={yeOldDonkeyImage}
             />            
             <FloatingButton
-              label="Hug Info"
+              label="Hug Cartel"
               onClick={() => setNavigatedTo("HugInfo")}
               delay="75s"
               backgroundColor="rgba(250, 204, 21, 0.9)"
