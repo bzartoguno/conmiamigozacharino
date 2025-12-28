@@ -104,6 +104,7 @@ import sandboxOrbitingCityImage from "./SandboxOrbitingCity.webp";
 import sandboxPopNFaithImage from "./SandboxPop-nFaith.webp";
 import sandboxSeymoursDriftImage from "./SandboxSeymoursDrift.webp";
 import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
+import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -364,6 +365,13 @@ export function Map() {
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "ByfordDolphin":
+      return (
+        <ByfordDolphinRobertson
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -766,6 +774,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "byford-dolphin"
+                  ? onNavigate("ByfordDolphin")
                   : town.key === "ballistic-bellows"
                   ? onNavigate("BallisticBellows")
                   : town.key === "merricks-meadow"

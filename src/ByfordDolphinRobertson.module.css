@@ -1,0 +1,133 @@
+.wrapper {
+  min-height: 100vh;
+  padding: 3.5rem 1.5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  color: #e2e8f0;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 96vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.hero {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  padding: 1.9rem 1.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #f8fafc;
+}
+
+.subtitle {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.buttonGrid {
+  display: grid;
+  width: 100%;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.shopButton {
+  background: rgba(30, 41, 59, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.shopButton:hover,
+.shopButton:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45);
+}
+
+.shopImage {
+  width: 180px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+}
+
+.shopLabel {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.footer {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .shopImage {
+    width: 160px;
+    height: 108px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
