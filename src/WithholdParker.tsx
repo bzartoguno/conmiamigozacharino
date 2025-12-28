@@ -70,11 +70,10 @@ export function WithholdParker({
 
       <div className={styles.content}>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Sandbox · Withhold (Parker)</p>
-          <h1 className={styles.title}>Pick your next stop</h1>
+          <p className={styles.eyebrow}>Sandbox</p>
+          <h1 className={styles.title}>Welcome to Withhold</h1>
           <p className={styles.subtitle}>
-            Each shop uses its own icon so you always know where you&apos;re headed. Tap a
-            button to jump straight to the storefront.
+            These shops that blend in seamlessly with the neighboring hill houses
           </p>
         </div>
 
@@ -92,12 +91,11 @@ export function WithholdParker({
                 className={styles.shopImage}
               />
               <span className={styles.shopLabel}>{shop.label}</span>
-              <p className={styles.shopHint}>Jump into this storefront</p>
             </button>
           ))}
         </div>
 
-        <p className={styles.footer}>Art credit: Withhold (Parker) world map</p>
+        <p className={styles.footer}>This town was made by Parker</p>
       </div>
     </div>
   );
