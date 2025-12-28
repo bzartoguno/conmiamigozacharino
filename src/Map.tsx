@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
 import { MeanderMichael } from "./MeanderMichael";
 import { MerricksMeadowHoward } from "./MerricksMeadowHoward";
 import { WillsWeapons } from "./WillsWeapons";
@@ -342,6 +343,13 @@ export function Map() {
     case "Calidris":
       return (
         <CalidrisFisk
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "BallisticBellows":
+      return (
+        <BallisticBellowsCaleb
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -758,6 +766,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "ballistic-bellows"
+                  ? onNavigate("BallisticBellows")
                   : town.key === "merricks-meadow"
                   ? onNavigate("MerricksMeadow")
                   : town.key === "calidris"
