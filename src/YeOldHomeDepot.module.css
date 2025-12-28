@@ -87,7 +87,7 @@
   width: 100%;
   max-width: 320px;
   box-sizing: border-box;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto;
   text-align: center;
 }
 
