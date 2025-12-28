@@ -218,7 +218,7 @@ export function Map() {
     default:
       return (
         <div style={styles.wrapper}>
-          <h1 style={styles.title}>Where would you like to go?</h1>
+          <h1 style={styles.title}>Which world would you like to go to?</h1>
           <div style={styles.buttonContainer}>
             <FloatingButton
               label="Goblin Market"
