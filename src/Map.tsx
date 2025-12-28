@@ -16,7 +16,7 @@ import { FindAFriend } from "./FindAFriend";
 import { ComedyGold } from "./ComedyGold";
 import { DungeonCrawlerGuild } from "./DungeonCrawlerGuild";
 import bookBombPng from "./Book Bomb.png";
-import goblinmarket from "./GoblinMarket.png";
+import goblinmarket from "./GoblinMarket.png"
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
@@ -83,7 +83,21 @@ import { FizzyTales } from "./FizzyTales";
 import { YeOldHomeDepot } from "./YeOldHomeDepot";
 import yeOldHomeDepotImage from "./Ye Old Home Depot.webp";
 import sandboxWorldMapImage from "./SandboxWorldMap.webp";
-import { SandboxMenu } from "./SandboxMenu";
+import sandboxAnalepticHoltImage from "./SandboxAnalepticHolt.webp";
+import sandboxBallisticBellowsImage from "./SandboxBallisticBellows.webp";
+import sandboxBigHomeImage from "./SandboxBigHome.webp";
+import sandboxButtingRamsImage from "./SandboxButtingRams.webp";
+import sandboxByfordDolphinImage from "./SandboxByfordDolphin.webp";
+import sandboxCalidrisImage from "./SandboxCalidris.webp";
+import sandboxGraveBornImage from "./SandboxGraveBorn.webp";
+import sandboxHebronImage from "./SandboxHebron.webp";
+import sandboxJellyCityImage from "./SandboxJellyCity.webp";
+import sandboxMeanderImage from "./SandboxMeander.webp";
+import sandboxMerricksGroveImage from "./SandboxMerricksGrove.webp";
+import sandboxOrbitingCityImage from "./SandboxOrbitingCity.webp";
+import sandboxPopNFaithImage from "./SandboxPop-nFaith.webp";
+import sandboxSeymoursDriftImage from "./SandboxSeymoursDrift.webp";
+import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -123,6 +137,121 @@ function useTextImage(text?: string) {
   }, [text]);
   return dataUrl;
 }
+
+type SandboxTown = {
+  key: string;
+  name: string;
+  description: string;
+  image: string;
+};
+
+const sandboxTowns: SandboxTown[] = [
+  {
+    key: "withhold",
+    name: "Withhold (Parker)",
+    image: sandboxWytheholdeImage,
+    description:
+      "Nestled between warm rolling hills and jagged, freezing mountains, Withhold grows famous home-grown food but struggles for medicine once winter comes. As they live in Wandering Titan territory, nearly everyone knows how to flee into the tight valley caves when danger looms, preserving the town's dwindling stories.",
+  },
+  {
+    key: "butting-rams",
+    name: "Butting Rams",
+    image: sandboxButtingRamsImage,
+    description:
+      "Barbarians here love fighting, feasting, and boasting about both. Their town is literally split between two enormous rams that butt heads, catapulting residents back and forth—thankfully the rams are fluffy enough to make the landings survivable before the traditional 15-minute free-for-all.",
+  },
+  {
+    key: "meander",
+    name: "Meander (Michael)",
+    image: sandboxMeanderImage,
+    description:
+      "A cowboy's dream that never settles, Meander roams Wandering Titan territory after draining every Magitek Oil spot. Constant desert travel keeps crops from thriving, so the townsfolk trade for food while clinging to a strong moral compass they defend fiercely.",
+  },
+  {
+    key: "calidris",
+    name: "Calidris (Fisk)",
+    image: sandboxCalidrisImage,
+    description:
+      "Created as an artisans' paradise with no creative limits, Calidris thrived—until every living resident vanished overnight. Only the golems and robots remain, tirelessly working while ignoring their missing masters.",
+  },
+  {
+    key: "merricks-meadow",
+    name: "Merrick's Meadow (Howard)",
+    image: sandboxMerricksGroveImage,
+    description:
+      "This humble village boomed after discovering rare herbs. Newcomers flock to Merrick's Meadow for its newfound fame, while longtime residents grumble about the crowds disturbing their once-tranquil home.",
+  },
+  {
+    key: "ballistic-bellows",
+    name: "Ballistic Bellows (Caleb)",
+    image: sandboxBallisticBellowsImage,
+    description:
+      "Punctual and industrious, every citizen can run a forge or clockwork device. Their advanced weapons self-destruct if reverse engineered, protecting the secrets behind their booming craft.",
+  },
+  {
+    key: "byford-dolphin",
+    name: "Byford Dolphin (Robertson)",
+    image: sandboxByfordDolphinImage,
+    description:
+      "Wealth dictates status in Byford Dolphin. Legendary metals pulled from the sea fund the Clockwork King's construction projects, while the richest citizen holds the House of Blades contract—and the bill that comes with it.",
+  },
+  {
+    key: "hebron",
+    name: "Hebron (Joshua)",
+    image: sandboxHebronImage,
+    description:
+      "After the Missing Millennium, Hebron secured a monopoly on Thunder Cores by salvaging and purchasing every relic they could find. Now it's a hub for minds devoted to unlocking the power behind these remnants.",
+  },
+  {
+    key: "jelly-city",
+    name: "Jelly City",
+    image: sandboxJellyCityImage,
+    description:
+      "Built vertically inside a Wandering Titan jellyfish, this flexible city produces medicine that keeps the Disciples of Mother battle-ready. Its secrets are hard to see, but unforgettable once witnessed.",
+  },
+  {
+    key: "pop-n-faith",
+    name: "Pop-n Faith (Eli)",
+    image: sandboxPopNFaithImage,
+    description:
+      "Deities literally walk among the people here, balancing each other so none gains dominance. Their collective aura keeps their Wandering Titan host cowering, while mortals navigate divine politics daily.",
+  },
+  {
+    key: "analeptic-holt",
+    name: "Analeptic Holt (Teag)",
+    image: sandboxAnalepticHoltImage,
+    description:
+      "Hidden beneath an ancient jungle canopy, Hadozee gliders live among massive roots and high branches. They cherish harmony with their environment but stay guarded with outsiders to protect their traditions.",
+  },
+  {
+    key: "seymours-drift",
+    name: "Seymour's Drift (Melanie)",
+    image: sandboxSeymoursDriftImage,
+    description:
+      "A sprawling city on a giant drifting lily pad, Seymour's Drift follows the tides while serving its enigmatic leader, Audrey the Second. Residents bond over devotion, firearms, and an unyielding love of meat.",
+  },
+  {
+    key: "graveborn",
+    name: "Graveborn",
+    image: sandboxGraveBornImage,
+    description:
+      "A sanctuary for the undead, founded before the 75-year war so vampires, zombies, skeletons, and even dream visages could live free. Left alone, the undead eventually wander toward this vibrant necropolis.",
+  },
+  {
+    key: "orbiting-city",
+    name: "Orbiting City",
+    image: sandboxOrbitingCityImage,
+    description:
+      "Humanity pushed the impossible to reality, building a city that sails the sky thanks to alliances and generosity toward the Clockwork King. Its flight marks a new era of exploration and diplomacy.",
+  },
+  {
+    key: "big-home",
+    name: "Big Home",
+    image: sandboxBigHomeImage,
+    description:
+      "Orcs value family, honesty, and loyalty. After 'Mother' guided them to shun technology and guard the secrets of the Missing Millennium, their strength in numbers and conviction makes them formidable when provoked.",
+  },
+];
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
@@ -545,6 +674,44 @@ export function Map() {
   }
 }
 
+function SandboxMenu({ onBack }: { onBack: () => void }) {
+  return (
+    <div style={styles.wrapper}>
+      <button type="button" onClick={onBack} style={styles.backButton}>
+        ← Back to main menu
+      </button>
+      <div style={styles.sandboxIntro}>
+        <img
+          src={sandboxWorldMapImage}
+          alt="Sandbox world map"
+          style={styles.sandboxIntroImage}
+        />
+        <div style={styles.sandboxIntroText}>
+          <h1 style={styles.title}>Sandbox Destinations</h1>
+          <p>
+            Explore every corner of the Sandbox realm. Each town is wrapped in its own
+            legend—tap a destination to learn the vibe before you dive in.
+          </p>
+        </div>
+      </div>
+      <div style={styles.sandboxGrid}>
+        {sandboxTowns.map((town) => (
+          <FloatingButton
+            key={town.key}
+            label={town.name}
+            description={town.description}
+            imageSrc={town.image}
+            backgroundColor="rgba(30, 41, 59, 0.88)"
+            color="#e2e8f0"
+            delay="0s"
+            onClick={() => {}}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function FloatingButton({
   label,
   onClick,
@@ -673,6 +840,35 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.45,
     textAlign: "center",
     maxWidth: "720px",
+  },
+  sandboxIntro: {
+    marginTop: "4.5rem",
+    display: "flex",
+    alignItems: "center",
+    gap: "1.5rem",
+    backgroundColor: "rgba(0, 0, 0, 0.65)",
+    padding: "1.5rem",
+    borderRadius: "18px",
+    width: "min(1100px, 95vw)",
+  },
+  sandboxIntroImage: {
+    width: "220px",
+    height: "auto",
+    borderRadius: "16px",
+    border: "2px solid rgba(255, 255, 255, 0.7)",
+    boxShadow: "4px 6px 12px rgba(0,0,0,0.4)",
+  },
+  sandboxIntroText: {
+    color: "#ffffff",
+    lineHeight: 1.5,
+  },
+  sandboxGrid: {
+    marginTop: "1.25rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.25rem",
+    width: "min(1100px, 95vw)",
+    paddingBottom: "3rem",
   },
 };
 
