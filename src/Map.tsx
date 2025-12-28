@@ -82,6 +82,8 @@ import nmeImage from "./N.M.E.png";
 import { FizzyTales } from "./FizzyTales";
 import { YeOldHomeDepot } from "./YeOldHomeDepot";
 import yeOldHomeDepotImage from "./Ye Old Home Depot.webp";
+import sandboxWorldMapImage from "./SandboxWorldMap.webp";
+import { SandboxMenu } from "./SandboxMenu";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -215,11 +217,21 @@ export function Map() {
       return <JazzPortablePotions onBack={() => setNavigatedTo("")} />;
     case "JewelryGuild":
       return <JewelryGuild onBack={() => setNavigatedTo("")} />;
+    case "Sandbox":
+      return <SandboxMenu onBack={() => setNavigatedTo("")} />;
     default:
       return (
         <div style={styles.wrapper}>
           <h1 style={styles.title}>Which world would you like to go to?</h1>
           <div style={styles.buttonContainer}>
+            <FloatingButton
+              label="Sandbox"
+              onClick={() => setNavigatedTo("Sandbox")}
+              delay="1.5s"
+              backgroundColor="rgba(15, 23, 42, 0.85)"
+              color="#e2e8f0"
+              imageSrc={sandboxWorldMapImage}
+            />
             <FloatingButton
               label="Goblin Market"
               onClick={() => setNavigatedTo("goblins")}
@@ -584,7 +596,7 @@ const styles: Record<string, React.CSSProperties> = {
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   title: {
     fontSize: "2.5rem",
@@ -596,14 +608,14 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "auto",
-    padding: "auto",
-    width: "auto",
+    gap: "1.25rem",
+    padding: "2rem 1rem 3rem",
+    width: "min(1100px, 95vw)",
   },
   button: {
     fontSize: "1.5rem",
-    padding: "auto",
-    borderRadius: "auto",
+    padding: "1.25rem 1.5rem",
+    borderRadius: "18px",
     border: "2px solid #ffffffff",
     boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
@@ -613,16 +625,18 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "0.75rem",
+    gap: "0.85rem",
+    width: "100%",
+    maxWidth: "100%",
   },
   backButton: {
     position: "fixed",
     top: "1.5rem",
     left: "1.5rem",
     zIndex: 1000,
-    padding: "auto",
+    padding: "0.75rem 1rem",
     fontSize: "1rem",
-    borderRadius: "auto",
+    borderRadius: "14px",
     border: "2px solid #ffffffff",
     backgroundColor: "rgba(255, 255, 255, 1)",
     boxShadow: "4 4px 10px rgba(0, 0, 0, 0.25)",
@@ -633,19 +647,22 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "0.35rem",
+    gap: "0.5rem",
+    width: "100%",
   },
   buttonImage: {
-    width: "140px",
+    width: "160px",
     height: "auto",
     objectFit: "contain",
-    borderRadius: "auto",
+    borderRadius: "14px",
     border: "2px solid rgba(255, 255, 255, 0.6)",
     backgroundColor: "rgba(255,255,255,0.85)",
     boxShadow: "4 4px 8px rgba(0,0,0,0.35)",
   },
   buttonLabel: {
     display: "block",
+    fontWeight: 700,
+    textAlign: "center",
   },
 };
 
