@@ -1,5 +1,10 @@
 import buttingRamsBackground from "./SandboxButtingRams.webp";
 import goblinMarketImage from "./GoblinMarket.png";
+import blackMarketImage from "./Black Market.jpg";
+import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
+import runestoneRelayImage from "./Runestone Relay.png";
+import supremeSmithyImage from "./Supreme Smithy.png";
+import willsWeaponsImage from "./Wills Weapons.png";
 import { BackButton } from "./BackButton";
 import styles from "./ButtingRams.module.css";
 
@@ -24,6 +29,36 @@ export function ButtingRams({
       image: goblinMarketImage,
       onClick: () => onNavigate("goblins"),
     },
+    {
+      key: "bullets-buffs-beyond",
+      label: "Bullets, Buffs, & Beyond",
+      image: bulletsBuffsBeyondImage,
+      onClick: () => onNavigate("BulletsBuffsBeyond"),
+    },
+    {
+      key: "wills-weapons",
+      label: "Will's Weapons",
+      image: willsWeaponsImage,
+      onClick: () => onNavigate("WillsWeapons"),
+    },
+    {
+      key: "supreme-smithy",
+      label: "Supreme Smithy",
+      image: supremeSmithyImage,
+      onClick: () => onNavigate("SupremeSmithy"),
+    },
+    {
+      key: "black-market",
+      label: "Black Market",
+      image: blackMarketImage,
+      onClick: () => onNavigate("Black"),
+    },
+    {
+      key: "runestone-relay",
+      label: "Runestone Relay",
+      image: runestoneRelayImage,
+      onClick: () => onNavigate("RunestoneRelay"),
+    },
   ];
 
   return (
@@ -35,11 +70,11 @@ export function ButtingRams({
 
       <div className={styles.content}>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Sandbox · Butting Rams</p>
-          <h1 className={styles.title}>Choose your next bout</h1>
+          <p className={styles.eyebrow}>Sandbox</p>
+          <h1 className={styles.title}>Welcome to Butting Rams</h1>
           <p className={styles.subtitle}>
-            Smash through the Butting Rams brawl ring and dive straight into the shops that keep
-            the festivities fueled. Tap a button to leap into the storefront.
+            The locals sprint between sparring rams, refueling at these rowdy stalls before
+            diving back into the fray. Pick a stop, grab what you need, and charge onward.
           </p>
         </div>
 
@@ -57,7 +92,6 @@ export function ButtingRams({
                 className={styles.shopImage}
               />
               <span className={styles.shopLabel}>{shop.label}</span>
-              <p className={styles.shopHint}>Jump into this storefront</p>
             </button>
           ))}
         </div>
