@@ -68,7 +68,7 @@ import { EvansEnchantingEmporium } from "./EvansEnchantingEmporium";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import { FairiesOfFlora } from "./FairiesOfFlora";
 import floralImage from "./Floral.webp";
-import loadingScreenBackground from "./Loading screen.gif";
+import loadingScreenBackground from "./loading-screen.gif";
 import { GolemWorkshop } from "./GolemWorkshop";
 import golemWorkshopImage from "./Golem Work Shop.png";
 import { JazzPortablePotions } from "./JazzPortablePotions";
@@ -578,7 +578,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     justifyContent: "flex-start",
     minHeight: "100vh",
-    backgroundImage: `url(${loadingScreenBackground})`,
+    backgroundImage: `url("${loadingScreenBackground}")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
