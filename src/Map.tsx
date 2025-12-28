@@ -36,6 +36,7 @@ import { RobinsRopes } from "./RobinsRopes";
 import { RunestoneRelay } from "./RunestoneRelay";
 import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
+import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
 import { MeanderMichael } from "./MeanderMichael";
 import { WillsWeapons } from "./WillsWeapons";
@@ -337,6 +338,13 @@ export function Map() {
       return <SilentOath onBack={() => setNavigatedTo("")} />;
     case "SupremeSmithy":
       return <SupremeSmithy onBack={() => setNavigatedTo("")} />;
+    case "Calidris":
+      return (
+        <CalidrisFisk
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     case "Withhold":
       return (
         <WithholdParker
@@ -742,6 +750,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "calidris"
+                  ? onNavigate("Calidris")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
                   : town.key === "meander"
