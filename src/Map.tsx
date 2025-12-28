@@ -37,6 +37,7 @@ import { RunestoneRelay } from "./RunestoneRelay";
 import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { WithholdParker } from "./WithholdParker";
+import { MeanderMichael } from "./MeanderMichael";
 import { WillsWeapons } from "./WillsWeapons";
 import { ButtingRams } from "./ButtingRams";
 import { YeOldDonkey } from "./YeOldDonkey";
@@ -339,6 +340,13 @@ export function Map() {
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "Meander":
+      return (
+        <MeanderMichael
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -736,6 +744,8 @@ function SandboxMenu({
                   ? onNavigate("Withhold")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
+                  : town.key === "meander"
+                  ? onNavigate("Meander")
                   : onNavigate("Sandbox")
               }
             />
