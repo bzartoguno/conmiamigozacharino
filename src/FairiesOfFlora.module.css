@@ -84,7 +84,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   width: 100%;
   box-sizing: border-box;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto;
 }
 
 .card::after {
