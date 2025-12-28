@@ -70,7 +70,17 @@ const sandboxTowns: SandboxTown[] = [
     image: sandboxCalidrisImage,
     description:
       "Created as an artisans' paradise with no creative limits, Calidris thrived—until every living resident vanished overnight. Only the golems and robots remain, tirelessly working while ignoring their missing masters.",
-    shops: [],
+    shops: [
+      "Necromancy Insurance Company",
+      "Fairies of Flora",
+      "Golem Workshop",
+      "Runestone Relay",
+      "Silent Oath",
+      "Robin Ropes",
+      "Bullets, Buffs, & Beyond",
+      "Supreme Smithy",
+      "Will's Weapons",
+    ],
   },
   {
     key: "merricks-meadow",
