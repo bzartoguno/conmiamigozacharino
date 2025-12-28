@@ -39,6 +39,7 @@ import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
 import { MeanderMichael } from "./MeanderMichael";
+import { MerricksMeadowHoward } from "./MerricksMeadowHoward";
 import { WillsWeapons } from "./WillsWeapons";
 import { ButtingRams } from "./ButtingRams";
 import { YeOldDonkey } from "./YeOldDonkey";
@@ -341,6 +342,13 @@ export function Map() {
     case "Calidris":
       return (
         <CalidrisFisk
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "MerricksMeadow":
+      return (
+        <MerricksMeadowHoward
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -750,6 +758,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "merricks-meadow"
+                  ? onNavigate("MerricksMeadow")
                   : town.key === "calidris"
                   ? onNavigate("Calidris")
                   : town.key === "butting-rams"
