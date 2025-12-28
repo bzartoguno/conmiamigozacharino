@@ -221,10 +221,11 @@ export function Map() {
           <h1 style={styles.title}>Where would you like to go?</h1>
           <div style={styles.buttonContainer}>
             <FloatingButton
-              label="Goblin Stuff"
+              label="Goblin Market"
               onClick={() => setNavigatedTo("goblins")}
               delay="0s"
-              backgroundColor="rgba(168, 255, 151, 0.712)"
+              backgroundColor="rgba(37, 99, 235, 0.95)"
+              imageSrc={applegarthImage}
             />
             <FloatingButton
               label="Auction House"
