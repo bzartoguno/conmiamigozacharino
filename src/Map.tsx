@@ -75,6 +75,8 @@ import { JewelryGuild } from "./JewelryGuild";
 import jewelryGuildImage from "./Jewelry Guild.png";
 import { LabyrinthineLibrary } from "./LabyrinthineLibrary";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
+import { NME } from "./NME";
+import nmeImage from "./N.M.E.png";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -156,6 +158,8 @@ export function Map() {
       return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
     case "LabyrinthineLibrary":
       return <LabyrinthineLibrary onBack={() => setNavigatedTo("")} />;
+    case "NME":
+      return <NME onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -478,6 +482,14 @@ export function Map() {
               backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#0a2f14"
               imageSrc={labyrinthineLibraryImage}
+            />
+            <FloatingButton
+              label="N.M.E."
+              onClick={() => setNavigatedTo("NME")}
+              delay="49s"
+              backgroundColor="rgba(22, 163, 74, 0.95)"
+              color="#04260f"
+              imageSrc={nmeImage}
             />
           </div>
         </div>
