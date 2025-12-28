@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { WithholdParker } from "./WithholdParker";
 import { WillsWeapons } from "./WillsWeapons";
+import { ButtingRams } from "./ButtingRams";
 import { YeOldDonkey } from "./YeOldDonkey";
 import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
 import robinsRopesImage from "./Robins Ropes.png";
@@ -338,6 +339,13 @@ export function Map() {
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "ButtingRams":
+      return (
+        <ButtingRams
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -726,6 +734,8 @@ function SandboxMenu({
               onClick={() =>
                 town.key === "withhold"
                   ? onNavigate("Withhold")
+                  : town.key === "butting-rams"
+                  ? onNavigate("ButtingRams")
                   : onNavigate("Sandbox")
               }
             />
