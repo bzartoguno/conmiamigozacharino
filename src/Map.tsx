@@ -80,6 +80,8 @@ import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import { NME } from "./NME";
 import nmeImage from "./N.M.E.png";
 import { FizzyTales } from "./FizzyTales";
+import { YeOldHomeDepot } from "./YeOldHomeDepot";
+import yeOldHomeDepotImage from "./Ye Old Home Depot.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -167,6 +169,8 @@ export function Map() {
       return <NME onBack={() => setNavigatedTo("")} />;
     case "FizzyTales":
       return <FizzyTales onBack={() => setNavigatedTo("")} />;
+    case "YeOldHomeDepot":
+      return <YeOldHomeDepot onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -513,6 +517,14 @@ export function Map() {
               backgroundColor="rgba(59, 130, 246, 0.92)"
               color="#e2e8f0"
               imageSrc={sleuthUniversityImage}
+            />
+            <FloatingButton
+              label="Ye old HomeDepot"
+              onClick={() => setNavigatedTo("YeOldHomeDepot")}
+              delay="49.75s"
+              backgroundColor="rgba(37, 99, 235, 0.95)"
+              color="#e0f2fe"
+              imageSrc={yeOldHomeDepotImage}
             />
           </div>
         </div>
