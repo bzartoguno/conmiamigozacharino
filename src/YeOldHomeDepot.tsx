@@ -3,7 +3,7 @@ import styles from "./YeOldHomeDepot.module.css";
 import { BackButton } from "./BackButton";
 import { Item } from "./types";
 import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./tribeYeOldHomeDepot";
-import sleuthBackground from "./Sleuth.webp";
+import sleuthBackground from "./Ye Old Home Depot.webp";
 
 type DisplayItem = YeOldHomeDepotItem & { finalPrice: number };
 
