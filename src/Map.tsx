@@ -79,6 +79,7 @@ import { LabyrinthineLibrary } from "./LabyrinthineLibrary";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import { NME } from "./NME";
 import nmeImage from "./N.M.E.png";
+import { FizzyTales } from "./FizzyTales";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -164,6 +165,8 @@ export function Map() {
       return <LabyrinthineLibrary onBack={() => setNavigatedTo("")} />;
     case "NME":
       return <NME onBack={() => setNavigatedTo("")} />;
+    case "FizzyTales":
+      return <FizzyTales onBack={() => setNavigatedTo("")} />;
     case "PiggyBank":
       return <PiggyBank onBack={() => setNavigatedTo("")} />;
     case "NavigationGuild":
@@ -501,6 +504,14 @@ export function Map() {
               delay="49.25s"
               backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#0a2f14"
+              imageSrc={sleuthUniversityImage}
+            />
+            <FloatingButton
+              label="Fizzy Tales"
+              onClick={() => setNavigatedTo("FizzyTales")}
+              delay="49.5s"
+              backgroundColor="rgba(59, 130, 246, 0.92)"
+              color="#e2e8f0"
               imageSrc={sleuthUniversityImage}
             />
           </div>
