@@ -355,7 +355,12 @@ export function Map() {
     case "JewelryGuild":
       return <JewelryGuild onBack={() => setNavigatedTo("")} />;
     case "Sandbox":
-      return <SandboxMenu onBack={() => setNavigatedTo("")} />;
+      return (
+        <SandboxMenu
+          onBack={() => setNavigatedTo("")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     default:
       return (
         <div style={styles.wrapper}>
@@ -682,7 +687,13 @@ export function Map() {
   }
 }
 
-function SandboxMenu({ onBack }: { onBack: () => void }) {
+function SandboxMenu({
+  onBack,
+  onNavigate,
+}: {
+  onBack: () => void;
+  onNavigate: (key: string) => void;
+}) {
   return (
     <div style={styles.wrapper}>
       <button type="button" onClick={onBack} style={styles.backButton}>
@@ -714,8 +725,8 @@ function SandboxMenu({ onBack }: { onBack: () => void }) {
               delay="0s"
               onClick={() =>
                 town.key === "withhold"
-                  ? setNavigatedTo("Withhold")
-                  : setNavigatedTo("Sandbox")
+                  ? onNavigate("Withhold")
+                  : onNavigate("Sandbox")
               }
             />
           ))}
