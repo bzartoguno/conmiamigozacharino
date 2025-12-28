@@ -61,7 +61,11 @@ const sandboxTowns: SandboxTown[] = [
       "Iconic Dragonic",
       "Paws, Claws, & Maws",
       "Valhalla Mart",
-      "Bullets, Buffs, & Beyond",
+      "Jewelry Guild",
+      "Applegarth Guild",
+      "Archives Guild",
+      "Dungeon Crawler Guild",
+      "Navigation Guild",
     ],
   },
   {
