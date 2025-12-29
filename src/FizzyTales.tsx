@@ -3,7 +3,7 @@ import styles from "./FizzyTales.module.css";
 import { BackButton } from "./BackButton";
 import { Item } from "./types";
 import { FizzyTalesItem, tribeFizzyTales } from "./tribeFizzyTales";
-import fizzyTalesBackground from "./Sleuth.webp";
+import fizzyTalesBackground from "./FizzyTale.png";
 
 type DisplayItem = FizzyTalesItem & { finalPrice: number };
 

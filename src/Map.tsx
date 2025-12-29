@@ -53,6 +53,7 @@ import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import piggyBankImage from "./Piggy Bank.png";
 import yeOldDonkeyImage from "./Ye Old Donkey.png";
+import FizzyTale  from "./FizzyTale.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
@@ -439,13 +440,6 @@ export function Map() {
               imageSrc={sandboxWorldMapImage}
             />
             <FloatingButton
-              label="Goblin Market"
-              onClick={() => setNavigatedTo("goblins")}
-              delay="0s"
-              backgroundColor="rgba(37, 99, 235, 0.95)"
-              imageSrc={goblinmarket}
-            />
-            <FloatingButton
               label="Auction House"
               onClick={() => setNavigatedTo("Auction")}
               delay="3s"
@@ -550,6 +544,7 @@ export function Map() {
               onClick={() => setNavigatedTo("AuntiePattysPies")}
               delay="45s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={auntPattiePieImage}
             />
             <FloatingButton
@@ -557,6 +552,7 @@ export function Map() {
               onClick={() => setNavigatedTo("ComedyGold")}
               delay="51s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={comedyGoldImage}
              />
              <FloatingButton
@@ -564,6 +560,7 @@ export function Map() {
               onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
               delay="54s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={dungeonCrawlerGuildImage}
             />
             <FloatingButton
@@ -571,6 +568,7 @@ export function Map() {
               onClick={() => setNavigatedTo("FindAFriend")}
               delay="57s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={findAFriendImage}
             />
             <FloatingButton
@@ -578,6 +576,7 @@ export function Map() {
               onClick={() => setNavigatedTo("NavigationGuild")}
               delay="60s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={navigationGuildImage}
               />
             <FloatingButton
@@ -585,6 +584,7 @@ export function Map() {
               onClick={() => setNavigatedTo("PearlsPotions")}
               delay="63s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={pearlsPotionsImage}
             />
             <FloatingButton
@@ -592,6 +592,7 @@ export function Map() {
               onClick={() => setNavigatedTo("ProvisionsParadise")}
               delay="66s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={provisionsParadiseImage}
             />
             <FloatingButton
@@ -599,6 +600,7 @@ export function Map() {
               onClick={() => setNavigatedTo("PiggyBank")}
               delay="69s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={piggyBankImage}
             />
             <FloatingButton
@@ -606,6 +608,7 @@ export function Map() {
               onClick={() => setNavigatedTo("YeOldDonkey")}
               delay="72s"
               backgroundColor="rgba(220, 38, 38, 0.9)"
+              color="#e0f2fe"
               imageSrc={yeOldDonkeyImage}
             />            
             <FloatingButton
@@ -717,7 +720,7 @@ export function Map() {
               label="N.M.E."
               onClick={() => setNavigatedTo("NME")}
               delay="49s"
-              backgroundColor="rgba(22, 163, 74, 0.95)"
+              backgroundColor="rgba(34, 197, 94, 0.95)"
               color="#04260f"
               imageSrc={nmeImage}
             />
@@ -733,9 +736,17 @@ export function Map() {
               label="Fizzy Tales"
               onClick={() => setNavigatedTo("FizzyTales")}
               delay="49.5s"
-              backgroundColor="rgba(59, 130, 246, 0.92)"
+              backgroundColor="rgba(37, 99, 235, 0.95)"
               color="#e2e8f0"
-              imageSrc={sleuthUniversityImage}
+              imageSrc={FizzyTale}
+            />
+            <FloatingButton
+              label="Goblin Market"
+              onClick={() => setNavigatedTo("goblins")}
+              delay="0s"
+              backgroundColor="rgba(37, 99, 235, 0.95)"
+              color="#e2e8f0"
+              imageSrc={goblinmarket}
             />
             <FloatingButton
               label="Ye old HomeDepot"

@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Sleuth.webp') no-repeat center center fixed;
+  background: url('./FizzyTale.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.8;
@@ -108,13 +108,13 @@
 .cardTitle {
   margin: 0;
   font-size: 1.25rem;
-  color: #f1f5f9;
+  color: #000000;
   text-align: center;
 }
 
 .description {
   margin: 0.35rem 0 0.5rem;
-  color: #c7e8ff;
+  color: #000000;
   font-size: 0.97rem;
   text-align: center;
   line-height: 1.35;
@@ -123,7 +123,7 @@
 .price {
   margin: 0;
   font-weight: 700;
-  color: #fcd34d;
+  color: #000000;
   font-size: 1.05rem;
 }
 
