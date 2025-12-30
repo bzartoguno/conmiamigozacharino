@@ -21,8 +21,8 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
       price: 500,
     },
     {
-      name: "Hire a Servant for a Month",
-      description: "Novice service tier; they will support you for four weeks.",
+      name: "Hire a Butler, Maid, or Servant for a Month",
+      description: "They will support you for four weeks. Obeys basic commands and chores so long as they are reasonable and doesn't harm themselves.",
       price: 25,
     },
     {
@@ -31,14 +31,9 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
       price: 100,
     },
     {
-      name: "Hire a Lawyer for a Case",
-      description: "Apprentice contract level representation.",
+      name: "Hire a Lawyer for One Month",
+      description: "They will represent you in legal matters for one month. They can help with disputes, contracts, and other legal issues that may arise during your adventures.",
       price: 150,
-    },
-    {
-      name: "Hire an Engineer for a Project",
-      description: "Apprentice contract level build or repair.",
-      price: 250,
     },
     {
       name: "Contact a Sage to Stay in Your Town for One Year",
@@ -61,6 +56,60 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
       description: "Custom contract terms available upon request.",
       price: 0,
       priceLabel: "Price may vary",
+    },
+    {
+      name: "Hire a Scribe for One Month",
+      description:
+        "They copy contracts, organize ledgers, file permits, and witness signatures as an official neutral party. Great for keeping your paperwork clean, consistent, and hard to dispute later.",
+      price: 75,
+    },
+    {
+      name: "Hire a Nanny for One Month",
+      description:
+        "They watch kids, teach basic lessons, enforce manners, and keep little chaos-goblins from reinventing arson as a hobby. They will not teach combat techniques or offensive magic (yes, that includes Vicious Mockery).",
+      price: 60,
+    },
+    {
+      name: "Hire a Stable Hand for One Month",
+      description:
+        "They feed, groom, muck stalls, and provide basic obedience training for mounts and pets. This is care and handling labor only—they do not sell or purchase mounts on your behalf.",
+      price: 50,
+    },
+    {
+      name: "Hire an Apology Courier (Local) for One Job",
+      description:
+        "They deliver awkward messages within the same town with discretion, tact, and a straight face. This is a person-to-person delivery, not a mail service—no long-distance routes or ongoing post.",
+      price: 25,
+    },
+    {
+      name: "Hire an Intern for One Week",
+      description:
+        "They retrieve specific records, deliver copies, and verify citations or reference details exactly as requested. They research, interpretation, or investigation—only fetch and verify what you specify.",
+      price: 35,
+    },
+    {
+      name: "Hire a Seamstress for One Week",
+      description:
+        "They patch tents, uniforms, cloaks, bedrolls, straps, and travel gear with practical durability in mind. This is repair work, and with the right tools and materials enchant armor and clothing.",
+      price: 40,
+    },
+    {
+      name: "Hire a Muscle Crew for One Job",
+      description:
+        "They pull stuck carts and wagons out of mud, snow, and sand. A small platoon of guards or just need a beefy hype squad they got you covered.",
+      price: 125,
+    },
+    {
+      name: "Hire a Biohazard Cleaner for One Job",
+      description:
+        "They clean up blood, ooze, slime, ichor, and other adventurer-grade messes using masks, rags, bins, and strong stomachs. They don’t ask questions and just point them where you want them.",
+      price: 150,
+    },
+    {
+      name: "Hire a Professional Line-Stand for One Day (This is a real job people do I was surprised too)",
+      description:
+        "They stand in queues for permits, tickets, or appointments. They’ll hold your place and hand it off to you at the right moment no bribery or forgery included.",
+      price: 3,
     },
   ],
 };

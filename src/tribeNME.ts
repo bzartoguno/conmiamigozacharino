@@ -59,7 +59,7 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
     },
     {
       name: "Scroll of True Resurrection",
-      price: 150,
+      price: 150000,
       description: "A rare scroll capable of restoring the fallen—if you dare pay.",
     },
     {

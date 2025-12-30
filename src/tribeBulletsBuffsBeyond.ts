@@ -59,5 +59,24 @@ export const tribeBulletsBuffsBeyond: BulletsBuffsBeyondTribe = {
       price: 0,
       priceLabel: "Price may vary",
     },
+    {
+      name: "Brass & Brush Cleaning Kit",
+      price: 12,
+      description:
+        "A tidy roll-up kit with brushes, patches, oil, and a rag—keeps your gear clean, reliable, and less embarrassing in public.",
+    },
+    {
+      name: "Practice Rounds",
+      price: 10,
+      description:
+        "Inert training rounds for safe loading drills and practice; great for learning without wasting the real stuff or to trick a friend because they deal 0 damage.",
+    },
+    {
+      name: "Earplugs",
+      price: 3,
+      description:
+        "Simple reusable earplugs in a tiny tin can because hearing loss is forever.",
+    },
+
   ],
 };

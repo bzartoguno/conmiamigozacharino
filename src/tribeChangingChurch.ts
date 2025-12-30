@@ -50,5 +50,23 @@ export const tribeChangingChurch: Tribe = {
 5- Archangel's Wings: You gain the ability to sprout ethereal wings, granting you a flying speed of 60 feet for up to 1 hour, once per long rest.
  6- Celestial Companion: You gain the Find Familiar spell as a cantrip; the creature type is celestial and takes on traits to represent that.`,
     },
+    {
+      name: "Travel Altar Kit",
+      price: 8,
+      description:
+        "A compact fold-out altar with a cloth, candle holder, and tiny little slots—perfect for respectful prayers on the road.",
+    },
+    {
+      name: "Pocket Hymnal & Common Prayers",
+      price: 6,
+      description:
+        "A well-loved collection of hymns and everyday prayers with sturdy binding and notes for holy days and rites.",
+    },
+    {
+      name: "Ceremony Supply Satchel",
+      price: 12,
+      description:
+        "A neatly organized satchel with incense cones, chalk, ribbon, and sealing wax for officiants who like being prepared.",
+    },
   ],
 };

@@ -7,44 +7,239 @@ export const tribeWillsWeapons: Tribe = {
   priceVariability: 5,
   insults: [""],
   items: [
-    { name: "Blow Dart", description: "1d4, Piercing", price: 5 },
-    { name: "Club", description: "1d4, Blunt", price: 5 },
-    { name: "Dagger", description: "1d4, Piercing", price: 5 },
-    { name: "Light Hammer", description: "1d4, Blunt", price: 5 },
-    { name: "Sickle", description: "1d4, Slash", price: 5 },
-    { name: "Sling", description: "1d4, Blunt", price: 5 },
-    { name: "Whip", description: "1d4, Slash", price: 5 },
-    { name: "Hand Axe", description: "1d6, Slash", price: 5 },
-    { name: "Hand Crossbow", description: "1d6, Piercing", price: 5 },
-    { name: "Javelin", description: "1d6, Piercing", price: 5 },
-    { name: "Mace", description: "1d6, Blunt", price: 5 },
-    { name: "Quarterstaff", description: "1d6, Blunt", price: 5 },
-    { name: "Rapier", description: "1d6, Slash", price: 5 },
-    { name: "Scimitar", description: "1d6, Slash", price: 5 },
-    { name: "Shortbow", description: "1d6, Piercing", price: 5 },
-    { name: "Shortsword", description: "1d6, Slash", price: 5 },
-    { name: "Spear", description: "1d6, Piercing", price: 5 },
-    { name: "Trident", description: "1d6, Piercing", price: 5 },
-    { name: "Battleaxe", description: "1d8, Slash", price: 10 },
-    { name: "Flail", description: "1d8, Blunt", price: 10 },
-    { name: "Greatclub", description: "1d8, Blunt", price: 10 },
-    { name: "Light Crossbow", description: "1d8, Piercing", price: 10 },
-    { name: "Longbow", description: "1d8, Piercing", price: 10 },
-    { name: "Longsword", description: "1d8, Slash", price: 10 },
-    { name: "Morningstar", description: "1d8, Piercing", price: 10 },
-    { name: "War Pick", description: "1d8, Piercing", price: 10 },
-    { name: "Warhammer", description: "1d8, Blunt", price: 10 },
-    { name: "Pike", description: "1d10, Piercing", price: 5 },
-    { name: "Heavy Crossbow", description: "1d10, Piercing", price: 5 },
-    { name: "Glaive", description: "1d10, Slash", price: 5 },
-    { name: "Halberd", description: "1d10, Slash", price: 5 },
-    { name: "Greataxe", description: "1d10, Slash", price: 5 },
-    { name: "Will's Pistol", description: "1d10, Piercing", price: 5 },
-    { name: "Lance", description: "1d12, Piercing", price: 10 },
-    { name: "Will's Musket", description: "1d12, Piercing", price: 10 },
-    { name: "Will's Knuckle Duster", description: "1d12, Blunt", price: 10 },
-    { name: "Greatsword", description: "2d6, Slash", price: 10 },
-    { name: "Maul", description: "2d6, Blunt", price: 10 },
-    { name: "Will's Taser", description: "2d6, Electric", price: 10 },
+    { 
+      name: "Blow Dart", 
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Piercing", 
+      price: 8
+    },
+    {
+      name: "Club",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Bludgeoning",
+      price: 8
+    },
+    {
+      name: "Dagger",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Piercing",
+      price: 8
+    },
+    {
+      name: "Light Hammer",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Bludgeoning",
+      price: 8
+    },
+    {
+      name: "Sickle",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Slashing",
+      price: 8
+    },
+    {
+      name: "Sling",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Bludgeoning",
+      price: 8
+    },
+    {
+      name: "Whip",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d4, Slashing",
+      price: 8
+    },
+    {
+      name: "Hand Axe",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Slashing",
+      price: 12
+    },
+    {
+      name: "Hand Crossbow",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Piercing",
+      price: 12
+    },
+    {
+      name: "Javelin",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Piercing",
+      price: 12
+    },
+    {
+      name: "Mace",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Bludgeoning",
+      price: 12
+    },
+    {
+      name: "Quarterstaff",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Bludgeoning",
+      price: 12
+    },
+    {
+      name: "Rapier",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Slashing",
+      price: 12
+    },
+    {
+      name: "Scimitar",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Slashing",
+      price: 12
+    },
+    {
+      name: "Shortbow",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Piercing",
+      price: 12
+    },
+    {
+      name: "Shortsword",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Slashing",
+      price: 12
+    },
+    {
+      name: "Spear",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Piercing",
+      price: 12
+    },
+    {
+      name: "Trident",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d6, Piercing",
+      price: 12
+    },
+    {
+      name: "Battleaxe",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Slashing",
+      price: 16
+    },
+    {
+      name: "Flail",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Bludgeoning",
+      price: 16
+    },
+    {
+      name: "Greatclub",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Bludgeoning",
+      price: 16
+    },
+    {
+      name: "Light Crossbow",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Piercing",
+      price: 16
+    },
+    {
+      name: "Longbow",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Piercing",
+      price: 16
+    },
+    {
+      name: "Longsword",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Slashing",
+      price: 16
+    },
+    {
+      name: "Morningstar",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Piercing",
+      price: 16
+    },
+    {
+      name: "War Pick",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Piercing",
+      price: 16
+    },
+    {
+      name: "Warhammer",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d8, Bludgeoning",
+      price: 16
+    },
+    {
+      name: "Pike",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Piercing",
+      price: 20
+    },
+    {
+      name: "Heavy Crossbow",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Piercing",
+      price: 20
+    },
+    {
+      name: "Glaive",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Slashing",
+      price: 20
+    },
+    {
+      name: "Halberd",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Slashing",
+      price: 20
+    },
+    {
+      name: "Greataxe",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Slashing",
+      price: 20
+    },
+    {
+      name: "Will's Pistol",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Piercing, Range 30/90ft
+Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      price: 20
+    },
+    {
+      name: "Lance",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Piercing",
+      price: 24
+    },
+    {
+      name: "Will's Musket",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Piercing, Range 40/120ft
+Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      price: 24
+    },
+    {
+      name: "Will's Knuckle Duster",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Bludgeoning
+Do to this weapons close nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to 3/4 health you can attempt to incapacitated that creature if it is the same size or small then you.`,
+      price: 24
+    },
+    {
+      name: "Greatsword",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 2d6, Slashing",
+      price: 24
+    },
+    {
+      name: "Maul",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 2d6, Bludgeoning",
+      price: 24
+    },
+    {
+      name: "Will's Taser",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 2d6, Lightning
+Do to this weapons shocking nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under quarter health you can make that creature unconscious.`,
+      price: 24
+    },
+    {
+      name: "Will's Chakram (Blade Disc)",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Slashing, Range 20/60ft
+Do to this weapons fun nature, if you have EXPERTISE with this weapon, if you throw it and hit a creature, you can immediately make another attack with it as it comes back to you. On a different creature.`,
+      price: 24
+    },
+    {
+      name: "Will's Khopesh (Scimitar-Sickle)",
+      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing",
+      price: 36
+    },
+    {
+      name: "Will's Macuahuitl (Obsidian Spiked)",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing
+Do to this weapons heavy blunt nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under half health you can stun that creature.`,
+      price: 36
+    },
+    {
+      name: "Will's Naginata (Glaive-Spear)",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d8, Slashing
+Do to this weapons long nature, if you have EXPERTISE with this weapon, you can attack creatures up to 10 feet away from you.`,
+      price: 48
+    },
+    {
+      name: "Will's Tessen (War Fan)",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Bludgeoning
+Do to this weapons defensive and compact nature, if you have EXPERTISE with this weapon, as a bonus action you turn the Tessen into a temperarue shield granding you +5 to your current AC until the start of your next turn.`,
+      price: 24
+    },
+    {
+      name: "Will's Urumi (Whip-Sword)",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 4d10, Slashing, Range 15ft
+However, due to it's extremely flexible nature, if you do not have EXPERTISE with this weapon, you will take half damage on a roll. wether you hit or miss.`,
+      price: 80
+    },
   ],
 };
