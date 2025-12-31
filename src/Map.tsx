@@ -436,6 +436,10 @@ export function Map() {
     case "BigHome":
       return (
         <BigHome
+          onBack={() => setNavigatedTo("")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     case "Graveborn":
       return (
         <Graveborn
