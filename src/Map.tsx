@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { OrbitingCity } from "./OrbitingCity";
 import { SeymoursDriftMelanie } from "./SeymoursDriftMelanie";
 import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
@@ -371,6 +372,13 @@ export function Map() {
     case "AnalepticHolt":
       return (
         <AnalepticHoltTeag
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "OrbitingCity":
+      return (
+        <OrbitingCity
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -837,6 +845,8 @@ function SandboxMenu({
                   ? onNavigate("Calidris")
                   : town.key === "analeptic-holt"
                   ? onNavigate("AnalepticHolt")
+                  : town.key === "orbiting-city"
+                  ? onNavigate("OrbitingCity")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
                   : town.key === "jelly-city"
