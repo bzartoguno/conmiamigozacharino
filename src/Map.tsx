@@ -108,8 +108,9 @@ import sandboxOrbitingCityImage from "./SandboxOrbitingCity.webp";
 import sandboxPopNFaithImage from "./SandboxPop-nFaith.webp";
 import sandboxSeymoursDriftImage from "./SandboxSeymoursDrift.webp";
 import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
-import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { JellyCity } from "./JellyCity";
+import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
+import { Graveborn } from "./Graveborn";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -419,6 +420,13 @@ export function Map() {
     case "ButtingRams":
       return (
         <ButtingRams
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "Graveborn":
+      return (
+        <Graveborn
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -837,6 +845,8 @@ function SandboxMenu({
                   ? onNavigate("Meander")
                   : town.key === "seymours-drift"
                   ? onNavigate("SeymoursDrift")
+                  : town.key === "graveborn"
+                  ? onNavigate("Graveborn")
                   : onNavigate("Sandbox")
               }
             />
