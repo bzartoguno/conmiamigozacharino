@@ -43,6 +43,7 @@ import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
 import { MeanderMichael } from "./MeanderMichael";
 import { MerricksMeadowHoward } from "./MerricksMeadowHoward";
+import { BigHome } from "./BigHome";
 import { WillsWeapons } from "./WillsWeapons";
 import { ButtingRams } from "./ButtingRams";
 import { YeOldDonkey } from "./YeOldDonkey";
@@ -419,6 +420,13 @@ export function Map() {
     case "ButtingRams":
       return (
         <ButtingRams
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "BigHome":
+      return (
+        <BigHome
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -837,6 +845,8 @@ function SandboxMenu({
                   ? onNavigate("Meander")
                   : town.key === "seymours-drift"
                   ? onNavigate("SeymoursDrift")
+                  : town.key === "big-home"
+                  ? onNavigate("BigHome")
                   : onNavigate("Sandbox")
               }
             />
