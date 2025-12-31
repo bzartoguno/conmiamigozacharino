@@ -88,6 +88,7 @@ import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import { NME } from "./NME";
 import nmeImage from "./N.M.E.png";
 import { FizzyTales } from "./FizzyTales";
+import { AnalepticHoltTeag } from "./AnalepticHoltTeag";
 import { YeOldHomeDepot } from "./YeOldHomeDepot";
 import yeOldHomeDepotImage from "./Ye Old Home Depot.webp";
 import sandboxWorldMapImage from "./SandboxWorldMap.webp";
@@ -361,6 +362,13 @@ export function Map() {
     case "MerricksMeadow":
       return (
         <MerricksMeadowHoward
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "AnalepticHolt":
+      return (
+        <AnalepticHoltTeag
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -811,6 +819,8 @@ function SandboxMenu({
                   ? onNavigate("MerricksMeadow")
                   : town.key === "calidris"
                   ? onNavigate("Calidris")
+                  : town.key === "analeptic-holt"
+                  ? onNavigate("AnalepticHolt")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
                   : town.key === "jelly-city"
