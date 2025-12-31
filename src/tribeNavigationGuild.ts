@@ -33,9 +33,9 @@ export const tribeNavigationGuild: Tribe = {
       description: "An extended itinerary covering five towns of distance.",
     },
     {
-      name: "Suviner",
-      price: 80,
-      description: "An extended itinerary covering five towns of distance.",
+      name: "Souvenirs",
+      price: 2,
+      description: "They got souvenirs of all sorts book marks, little key chains with a picture of a town or a name, clothes, snowglode they got it and everything is the same price!",
     },
   ],
 };
