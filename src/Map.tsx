@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { OrbitingCity } from "./OrbitingCity";
 import { SeymoursDriftMelanie } from "./SeymoursDriftMelanie";
 import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
@@ -109,8 +110,9 @@ import sandboxOrbitingCityImage from "./SandboxOrbitingCity.webp";
 import sandboxPopNFaithImage from "./SandboxPop-nFaith.webp";
 import sandboxSeymoursDriftImage from "./SandboxSeymoursDrift.webp";
 import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
-import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { JellyCity } from "./JellyCity";
+import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
+import { Graveborn } from "./Graveborn";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -375,6 +377,13 @@ export function Map() {
           onNavigate={(key) => setNavigatedTo(key)}
         />
       );
+    case "OrbitingCity":
+      return (
+        <OrbitingCity
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     case "Withhold":
       return (
         <WithholdParker
@@ -427,6 +436,9 @@ export function Map() {
     case "BigHome":
       return (
         <BigHome
+    case "Graveborn":
+      return (
+        <Graveborn
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -837,6 +849,8 @@ function SandboxMenu({
                   ? onNavigate("Calidris")
                   : town.key === "analeptic-holt"
                   ? onNavigate("AnalepticHolt")
+                  : town.key === "orbiting-city"
+                  ? onNavigate("OrbitingCity")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
                   : town.key === "jelly-city"
@@ -847,6 +861,8 @@ function SandboxMenu({
                   ? onNavigate("SeymoursDrift")
                   : town.key === "big-home"
                   ? onNavigate("BigHome")
+                  : town.key === "graveborn"
+                  ? onNavigate("Graveborn")
                   : onNavigate("Sandbox")
               }
             />
