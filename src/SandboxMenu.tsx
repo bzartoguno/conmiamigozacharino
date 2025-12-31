@@ -168,7 +168,7 @@ const sandboxTowns: SandboxTown[] = [
     name: "Pop-n Faith (Eli)",
     image: sandboxPopNFaithImage,
     description:
-      "Deities literally walk among the people here, balancing each other so none gains dominance. Their collective aura keeps their Wandering Titan host cowering, while mortals navigate divine politics daily.",
+      "Sorry but there is no more Pop-n Faith.",
     shops: [
       "Jazz's Portable Potions",
       "Blossom Hotel",

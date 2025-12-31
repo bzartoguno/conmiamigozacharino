@@ -32,5 +32,10 @@ export const tribeNavigationGuild: Tribe = {
       price: 80,
       description: "An extended itinerary covering five towns of distance.",
     },
+    {
+      name: "Suviner",
+      price: 80,
+      description: "An extended itinerary covering five towns of distance.",
+    },
   ],
 };

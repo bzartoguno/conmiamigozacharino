@@ -17,7 +17,7 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 
 function formatPrice(item: DisplayItem): string {
   if (item.priceText) return item.priceText;
-  return `${item.finalPrice.toLocaleString()} Gold`;
+  return `${item.finalPrice.toLocaleString()} Silver`;
 }
 
 export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {

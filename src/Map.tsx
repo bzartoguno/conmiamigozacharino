@@ -224,7 +224,7 @@ const sandboxTowns: SandboxTown[] = [
     name: "Pop-n Faith (Eli)",
     image: sandboxPopNFaithImage,
     description:
-      "Deities literally walk among the people here, balancing each other so none gains dominance. Their collective aura keeps their Wandering Titan host cowering, while mortals navigate divine politics daily.",
+      "Sorry but there is no more Pop-n Faith. Your world deities are gone, it's now your planet is stuck between death and unlife.",
   },
   {
     key: "analeptic-holt",
@@ -894,7 +894,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     gap: "1.25rem",
     padding: "2rem 1rem 3rem",
-    width: "min(1100px, 95vw)",
+    width: "auto",
   },
   button: {
     fontSize: "1.5rem",
