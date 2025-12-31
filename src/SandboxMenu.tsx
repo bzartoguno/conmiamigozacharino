@@ -211,13 +211,10 @@ const sandboxTowns: SandboxTown[] = [
       "Blossom Hotel",
       "Fairies of Flora",
       "Sleuth University",
-      "Jewelry Guild",
       "Evan's Enchanting Emporium",
       "Labyrinthine Library",
       "Will's Weapons",
-      "Archives Guild",
       "Supreme Smithy",
-      "Applegarth Guild",
     ],
   },
   {

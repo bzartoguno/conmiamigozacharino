@@ -38,6 +38,7 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { SeymoursDriftMelanie } from "./SeymoursDriftMelanie";
 import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
 import { MeanderMichael } from "./MeanderMichael";
@@ -376,6 +377,13 @@ export function Map() {
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "SeymoursDrift":
+      return (
+        <SeymoursDriftMelanie
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -827,6 +835,8 @@ function SandboxMenu({
                   ? onNavigate("JellyCity")
                   : town.key === "meander"
                   ? onNavigate("Meander")
+                  : town.key === "seymours-drift"
+                  ? onNavigate("SeymoursDrift")
                   : onNavigate("Sandbox")
               }
             />
