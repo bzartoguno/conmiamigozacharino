@@ -8,8 +8,8 @@ export function HugInfo({ onBack }: { onBack?: () => void }) {
       <BackButton
         onClick={onBack}
         style={{
-          right: "1.5rem",
-          left: "auto",
+          left: "1.5rem",
+          right: "auto",
           backgroundColor: "#facc15",
         }}
       />

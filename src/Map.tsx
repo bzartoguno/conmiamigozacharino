@@ -38,10 +38,13 @@ import { SilentOath } from "./SilentOath";
 import { SupremeSmithy } from "./SupremeSmithy";
 import { CalidrisFisk } from "./CalidrisFisk";
 import { WithholdParker } from "./WithholdParker";
+import { OrbitingCity } from "./OrbitingCity";
+import { SeymoursDriftMelanie } from "./SeymoursDriftMelanie";
 import { HebronJoshua } from "./HebronJoshua";
 import { BallisticBellowsCaleb } from "./BallisticBellowsCaleb";
 import { MeanderMichael } from "./MeanderMichael";
 import { MerricksMeadowHoward } from "./MerricksMeadowHoward";
+import { BigHome } from "./BigHome";
 import { WillsWeapons } from "./WillsWeapons";
 import { ButtingRams } from "./ButtingRams";
 import { YeOldDonkey } from "./YeOldDonkey";
@@ -88,6 +91,7 @@ import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import { NME } from "./NME";
 import nmeImage from "./N.M.E.png";
 import { FizzyTales } from "./FizzyTales";
+import { AnalepticHoltTeag } from "./AnalepticHoltTeag";
 import { YeOldHomeDepot } from "./YeOldHomeDepot";
 import yeOldHomeDepotImage from "./Ye Old Home Depot.webp";
 import sandboxWorldMapImage from "./SandboxWorldMap.webp";
@@ -106,8 +110,9 @@ import sandboxOrbitingCityImage from "./SandboxOrbitingCity.webp";
 import sandboxPopNFaithImage from "./SandboxPop-nFaith.webp";
 import sandboxSeymoursDriftImage from "./SandboxSeymoursDrift.webp";
 import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
-import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { JellyCity } from "./JellyCity";
+import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
+import { Graveborn } from "./Graveborn";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -224,7 +229,7 @@ const sandboxTowns: SandboxTown[] = [
     name: "Pop-n Faith (Eli)",
     image: sandboxPopNFaithImage,
     description:
-      "Deities literally walk among the people here, balancing each other so none gains dominance. Their collective aura keeps their Wandering Titan host cowering, while mortals navigate divine politics daily.",
+      "Sorry but there is no more Pop-n Faith. Your world deities are gone, it's now your planet is stuck between death and unlife.",
   },
   {
     key: "analeptic-holt",
@@ -365,9 +370,30 @@ export function Map() {
           onNavigate={(key) => setNavigatedTo(key)}
         />
       );
+    case "AnalepticHolt":
+      return (
+        <AnalepticHoltTeag
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "OrbitingCity":
+      return (
+        <OrbitingCity
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     case "Withhold":
       return (
         <WithholdParker
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "SeymoursDrift":
+      return (
+        <SeymoursDriftMelanie
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -403,6 +429,20 @@ export function Map() {
     case "ButtingRams":
       return (
         <ButtingRams
+          onBack={() => setNavigatedTo("Sandbox")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "BigHome":
+      return (
+        <BigHome
+          onBack={() => setNavigatedTo("")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
+    case "Graveborn":
+      return (
+        <Graveborn
           onBack={() => setNavigatedTo("Sandbox")}
           onNavigate={(key) => setNavigatedTo(key)}
         />
@@ -811,12 +851,22 @@ function SandboxMenu({
                   ? onNavigate("MerricksMeadow")
                   : town.key === "calidris"
                   ? onNavigate("Calidris")
+                  : town.key === "analeptic-holt"
+                  ? onNavigate("AnalepticHolt")
+                  : town.key === "orbiting-city"
+                  ? onNavigate("OrbitingCity")
                   : town.key === "butting-rams"
                   ? onNavigate("ButtingRams")
                   : town.key === "jelly-city"
                   ? onNavigate("JellyCity")
                   : town.key === "meander"
                   ? onNavigate("Meander")
+                  : town.key === "seymours-drift"
+                  ? onNavigate("SeymoursDrift")
+                  : town.key === "big-home"
+                  ? onNavigate("BigHome")
+                  : town.key === "graveborn"
+                  ? onNavigate("Graveborn")
                   : onNavigate("Sandbox")
               }
             />
@@ -894,7 +944,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     gap: "1.25rem",
     padding: "2rem 1rem 3rem",
-    width: "min(1100px, 95vw)",
+    width: "auto",
   },
   button: {
     fontSize: "1.5rem",

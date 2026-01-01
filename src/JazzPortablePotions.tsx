@@ -8,8 +8,8 @@ export function JazzPortablePotions({ onBack }: { onBack?: () => void }) {
       <BackButton
         onClick={onBack}
         style={{
-          right: "1.5rem",
-          left: "auto",
+          left: "1.5rem",
+          right: "auto",
           backgroundColor: "#16a34a",
           color: "#0b1f16",
           borderColor: "#0f5132",
