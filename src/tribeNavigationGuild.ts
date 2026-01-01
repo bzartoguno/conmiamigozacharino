@@ -32,5 +32,20 @@ export const tribeNavigationGuild: Tribe = {
       price: 80,
       description: "An extended itinerary covering five towns of distance.",
     },
+    {
+      name: "Suvenirs",
+      price: 2,
+      description: "Want a snow globe or a postcard from where you went? We got you covered. We even have some keychains with names on them! Travel blankes and neckpillows all for the same price!",
+    },
+    {
+      name: "Emergency survival kit",
+      price: 1,
+      description: "A compact kit containing essentials like a compass, water purificater, a whistle, and a basic first aid kit.",
+    },
+    {
+      name: "Letter of Recommendation",
+      price: 100,
+      description: "Sealed, stamped, and written in flattering formal language to an innkeeper, harbor master, or minor noble",
+    },
   ],
 };
