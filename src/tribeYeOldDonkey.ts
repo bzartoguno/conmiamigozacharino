@@ -11,18 +11,29 @@ export const tribeYeOldDonkey: Tribe = {
       name: "Room & Board",
       price: 1,
       description:
-        "This includes breakfast, lunch, and dinner and lasts 24 hours.",
+        "This includes breakfast, lunch, and dinner, and lasts 24 hours.",
     },
     {
       name: "Fortified Room & Board",
       price: 50,
       description:
-        "Same as the last option, but you actually get a lock and key for your room.",
+        "Same as the last option, but you actually get a lock and key for your renforced room.",
     },
     {
       name: "Secret illegal crab fighting ring",
       price: 100,
-      description: "It’s what it sounds like.",
+      description: "It’s what it sounds like. Enterance fee is need but if your lucky you can probably turn it around by the end of the night.",
+    },
+    {
+      name: "Ye Old Donkey's Lost & Found Mystery Bag",
+      price: 5,
+      description: `To keep keep this place mostly keep we will occationally pawn of any goods left behide, wanna try your luck? Roll a d6
+1- A small stuffed animal (Probably belonged a goblin with how much it used to be loved.)
+2- Cracked hand mirror.
+3- A ring of many keys, but no idea to what the keys go to.
+4- A lone sock
+5- A Mismatched Patchwork Quilt, so comfy.
+6- It's a small rumbling box label 'DEFINETLY NOT BEES, SHAKE BEFORE OPENING!' Well at least it's not bees.`,
     },
   ],
 };

@@ -5,7 +5,7 @@ export const tribeProvisionsParadise: Tribe = {
   owner: "Parry Vr 36",
   percentAngry: 0,
   priceVariability: 6,
-  insults: ["Keep your hands clean — reagents don't like crumbs."],
+  insults: [""],
   items: [
     {
       name: "Small Components Bag",
@@ -13,24 +13,149 @@ export const tribeProvisionsParadise: Tribe = {
       description: "Stocked for 0–2 level spells.",
     },
     {
-      name: "Minor Bag of Holding",
-      price: 25,
-      description: "Compact space for reagents and scrolls.",
-    },
-    {
       name: "Medium Components Bag",
       price: 50,
       description: "Organized for 3–5 level spells.",
     },
     {
-      name: "Any 3 Kits",
-      price: 75,
-      description: "Bundle any three kits you need for the road.",
-    },
-    {
       name: "Large Components Bag",
       price: 100,
       description: "Ruggedly lined for 6–9 level spell components.",
+    },
+    {
+      name: "Bag of Holding",
+      price: 50,
+      description: "Yeah I'm pretty sure you know how this works just make sure you label what is and isn't in there",
+    },
+    {
+      name: "Alchemist’s supplies",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Brewer's Supplies",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Calligrapher's supplies",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Carpenter’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Cartographer’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Cobbler’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Cook’s utensils",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Glassblower’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Jeweler’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Leatherworker’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Mason’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Painter’s supplies",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Potter’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Smith’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Tinker’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Weaver’s tools",
+      price: 15,
+      description: "",
+    },
+    {
+      name: "Woodcarver’s tools",
+      price: 15,
+      description: "",
+      },
+    {
+      name: "Scratch off Lotter Card",
+      price: 1,
+      description: "You have a feeling you just might win this time, go ahead buy it.",
+    },
+    {
+      name: "Ye Old Slushy",
+      price: 2,
+      description: "It's a regualer slushy, I just couldn't phase it to fit in a fantasy setting.",
+    },
+    {
+      name: "Candy bar",
+      price: 3,
+      description: "Hey look it's [Import {tribeCandybar.ts} from  './tribes'] I haven't seen those in ages.",
+    },
+    {
+      name: "Sticker Sheet",
+      price: 4,
+      description: "It's a sticker sheet with a bunch of generic shapes on it. It will probably keep at least one of your party memebers distraced for a little while.",
+    },
+    {
+      name: "Flavored Sunflower Seeds",
+      price: 5,
+      description: "Yes it's seeds but with some spices and seasons mixed on top",
+    },
+    {
+      name: "Slice of pizza",
+      price: 6,
+      description: "It looks like it's been sitting out for a while, but the cheif in the back looks like they're still making fresh ones.",
+    },
+    {
+      name: "Rotisserie 'Bird'",
+      price: 7,
+      description: "It's slowly turning under a heat lamp; Better not to asks what kind of bird.",
+    },
+    {
+      name: "8 pack of Cup of Noodles",
+      price: 8,
+      description: "Just add boiling water, it will probably taste better then your party cooking.",
+    },
+    {
+      name: "Jerky Strips",
+      price: 9,
+      description: "It's labeled “Not Humanoid,” which is… reassuring.",
     },
   ],
 };
