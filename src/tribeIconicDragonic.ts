@@ -17,7 +17,7 @@ export const tribeIconicDragonic: Tribe = {
       name: "Solar Dragon Hourglass Necklace",
       price: 300000,
       description:
-        "Reverse turn order starting with you; can only be used twice per long rest.",
+        "As an action you can rearange the initiative; can only be used twice per long rest.",
     },
     {
       name: "Five-Pointed Chromatic Dragonic Crown",
@@ -34,7 +34,7 @@ export const tribeIconicDragonic: Tribe = {
       name: "Talisman of the Gemstone Dragon",
       price: 300000,
       description:
-        "Invert AC; now the hit has to be lower than your AC to hit.",
+        "Wearing this talisman will invert AC; so instead of needing to roll higher to get pass their AC they now need to roll lower their AC to hit.",
     },
     {
       name: "Bedlam Earrings of the Floral Dragon",
