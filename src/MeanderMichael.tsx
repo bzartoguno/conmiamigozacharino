@@ -11,6 +11,8 @@ import dungeonCrawlerGuildImage from "./Dungeon Crawler's Guild.png";
 import navigationGuildImage from "./NavigationGuild-ezgif.com-webp-to-png-converter.png";
 import { BackButton } from "./BackButton";
 import styles from "./MeanderMichael.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type MeanderShop = {
   key: string;
@@ -108,19 +110,13 @@ export function MeanderMichael({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 

@@ -9,6 +9,8 @@ import piggyBankImage from "./Piggy Bank.png";
 import mountsImage from "./Mounts.webp";
 import { BackButton } from "./BackButton";
 import styles from "./OrbitingCity.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type OrbitingCityShop = {
   key: string;
@@ -63,7 +65,7 @@ export function OrbitingCity({
     },
     {
       key: "piggy-bank",
-      label: "The Piggy Bank",
+      label: "The Piggy Bank, no hammers inside.",
       image: piggyBankImage,
       onClick: () => onNavigate("PiggyBank"),
     },
@@ -94,19 +96,13 @@ export function OrbitingCity({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 
