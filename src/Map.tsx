@@ -113,6 +113,8 @@ import sandboxWytheholdeImage from "./SandboxWytheholde.webp";
 import { JellyCity } from "./JellyCity";
 import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { Graveborn } from "./Graveborn";
+import { StrenuousPortal } from "./StrenuousPortal";
+import strenuousPortalButtonImage from "./StrenuousPortalButton2.webp";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -391,6 +393,13 @@ export function Map() {
           onNavigate={(key) => setNavigatedTo(key)}
         />
       );
+    case "StrenuousPortal":
+      return (
+        <StrenuousPortal
+          onBack={() => setNavigatedTo("")}
+          onNavigate={(key) => setNavigatedTo(key)}
+        />
+      );
     case "SeymoursDrift":
       return (
         <SeymoursDriftMelanie
@@ -478,6 +487,14 @@ export function Map() {
               backgroundColor="rgba(15, 23, 42, 0.85)"
               color="#e2e8f0"
               imageSrc={sandboxWorldMapImage}
+            />
+            <FloatingButton
+              label="Strenuous Portal"
+              onClick={() => setNavigatedTo("StrenuousPortal")}
+              delay="2.5s"
+              backgroundColor="rgba(88, 28, 135, 0.9)"
+              color="#f1f5f9"
+              imageSrc={strenuousPortalButtonImage}
             />
             <FloatingButton
               label="Auction House"
