@@ -11,6 +11,8 @@ import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import { BackButton } from "./BackButton";
 import styles from "./AnalepticHoltTeag.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type AnalepticShop = {
   key: string;
@@ -107,19 +109,13 @@ export function AnalepticHoltTeag({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 

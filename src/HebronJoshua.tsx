@@ -8,6 +8,8 @@ import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import sleuthUniversityImage from "./Sleuth.webp";
 import { BackButton } from "./BackButton";
 import styles from "./HebronJoshua.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type HebronShop = {
   key: string;
@@ -87,19 +89,13 @@ export function HebronJoshua({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 

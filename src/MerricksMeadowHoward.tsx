@@ -9,6 +9,8 @@ import provisionsParadiseImage from "./Provisions Paradise.png";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import { BackButton } from "./BackButton";
 import styles from "./MerricksMeadowHoward.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type MerricksShop = {
   key: string;
@@ -94,20 +96,13 @@ export function MerricksMeadowHoward({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-              <p className={styles.shopHint}>Follow the footpaths to this stall</p>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 

@@ -5,6 +5,8 @@ import robinsRopesImage from "./Robins Ropes.png";
 import changingChurchImage from "./Changing Church.png";
 import { BackButton } from "./BackButton";
 import styles from "./JellyCity.module.css";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle } from "./shopButtonStyles";
 
 type JellyCityShop = {
   key: string;
@@ -66,19 +68,13 @@ export function JellyCity({
 
         <div className={styles.buttonGrid}>
           {shops.map((shop) => (
-            <button
+            <ShopButton
               key={shop.key}
-              type="button"
-              className={styles.shopButton}
+              label={shop.label}
+              imageSrc={shop.image}
               onClick={shop.onClick}
-            >
-              <img
-                src={shop.image}
-                alt={`${shop.label} icon`}
-                className={styles.shopImage}
-              />
-              <span className={styles.shopLabel}>{shop.label}</span>
-            </button>
+              {...getShopButtonStyle(shop.label)}
+            />
           ))}
         </div>
 
