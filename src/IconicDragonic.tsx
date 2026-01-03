@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./IconicDragonic.module.css";
 import { tribeIconicDragonic } from "./tribeIconicDragonic";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import dragonicBackground from "./Iconic Dragonic.png";
 
@@ -66,9 +67,11 @@ export function IconicDragonic({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeIconicDragonic.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeIconicDragonic.owner}
+          insults={tribeIconicDragonic.insults}
+        />
       </main>
     </div>
   );

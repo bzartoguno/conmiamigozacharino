@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./SleuthUniversity.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import {
   SleuthUniversityItem,
@@ -73,7 +74,11 @@ export function SleuthUniversity({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeSleuthUniversity.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeSleuthUniversity.owner}
+          insults={tribeSleuthUniversity.insults}
+        />
       </main>
     </div>
   );

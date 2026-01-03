@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./BookBombs.module.css";
 import { tribeBookBombs } from "./tribeBookBombs";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import bookBombBackground from "./Book Bomb.png";
 
@@ -54,9 +55,11 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeBookBombs.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeBookBombs.owner}
+          insults={tribeBookBombs.insults}
+        />
       </main>
     </div>
   );

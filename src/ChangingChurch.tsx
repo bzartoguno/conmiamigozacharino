@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./ChangingChurch.module.css";
 import { tribeChangingChurch } from "./tribeChangingChurch";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import changingChurchBackground from "./Changing Church.png";
 
@@ -53,9 +54,11 @@ export function ChangingChurch({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeChangingChurch.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeChangingChurch.owner}
+          insults={tribeChangingChurch.insults}
+        />
       </main>
     </div>
   );

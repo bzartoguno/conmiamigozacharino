@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./RunestoneRelay.module.css";
 import { tribeRunestoneRelay } from "./tribeRunestoneRelay";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import runestoneRelayBackground from "./Runestone Relay.png";
 
@@ -58,7 +59,11 @@ export function RunestoneRelay({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeRunestoneRelay.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeRunestoneRelay.owner}
+          insults={tribeRunestoneRelay.insults}
+        />
       </main>
     </div>
   );

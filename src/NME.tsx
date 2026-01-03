@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./NME.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { NMEItem, tribeNME } from "./tribeNME";
 import nmeBackground from "./N.M.E.png";
@@ -68,7 +69,11 @@ export function NME({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeNME.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeNME.owner}
+          insults={tribeNME.insults}
+        />
       </main>
     </div>
   );

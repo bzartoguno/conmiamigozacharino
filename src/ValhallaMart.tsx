@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./ValhallaMart.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { ValhallaMartItem, tribeValhallaMart } from "./tribeValhallaMart";
 import valhallaBackground from "./Valhalla Mart.png";
@@ -70,7 +71,11 @@ export function ValhallaMart({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeValhallaMart.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeValhallaMart.owner}
+          insults={tribeValhallaMart.insults}
+        />
       </main>
     </div>
   );

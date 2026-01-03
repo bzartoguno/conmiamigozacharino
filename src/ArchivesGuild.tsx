@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./ArchivesGuild.module.css";
 import { tribeArchivesGuild } from "./tribeArchivesGuild";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import archivesGuildBackground from "./Archives Guild.png";
 
@@ -52,9 +53,11 @@ export function ArchivesGuild({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeArchivesGuild.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeArchivesGuild.owner}
+          insults={tribeArchivesGuild.insults}
+        />
       </main>
     </div>
   );

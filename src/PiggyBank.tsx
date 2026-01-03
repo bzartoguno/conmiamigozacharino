@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./PiggyBank.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import piggyBankBackground from "./Piggy Bank.png";
 import { PiggyBankItem, tribePiggyBank } from "./tribePiggyBank";
 
@@ -59,9 +60,11 @@ export function PiggyBank({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        {tribePiggyBank.insults[0] && (
-          <p className={styles.footerNote}>{tribePiggyBank.insults[0]}</p>
-        )}
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribePiggyBank.owner}
+          insults={tribePiggyBank.insults}
+        />
       </main>
     </div>
   );

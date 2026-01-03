@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./ComedyGold.module.css";
 import { tribeComedyGold } from "./tribeComedyGold";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import comedyGoldBackground from "./Comedy Gold.png";
 
@@ -62,9 +63,11 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeComedyGold.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeComedyGold.owner}
+          insults={tribeComedyGold.insults}
+        />
       </main>
     </div>
   );

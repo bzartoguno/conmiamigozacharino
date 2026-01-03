@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./JewelryGuild.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { JewelryGuildItem, tribeJewelryGuild } from "./tribeJewelryGuild";
 import jewelryGuildBackground from "./Jewelry Guild.png";
@@ -68,7 +69,11 @@ export function JewelryGuild({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeJewelryGuild.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeJewelryGuild.owner}
+          insults={tribeJewelryGuild.insults}
+        />
       </main>
     </div>
   );

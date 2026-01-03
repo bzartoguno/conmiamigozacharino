@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./AuntiePattysPies.module.css";
 import { tribeAuntiePattysPies } from "./tribeAuntiePattysPies";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import auntPattiePieBackground from "./Aunt Pattie Pie.png";
 
@@ -53,9 +54,11 @@ export function AuntiePattysPies({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeAuntiePattysPies.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeAuntiePattysPies.owner}
+          insults={tribeAuntiePattysPies.insults}
+        />
       </main>
     </div>
   );

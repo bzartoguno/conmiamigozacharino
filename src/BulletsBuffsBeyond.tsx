@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./BulletsBuffsBeyond.module.css";
 import { tribeBulletsBuffsBeyond } from "./tribeBulletsBuffsBeyond";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import bulletsBuffsBeyondBackground from "./Bullets Buffs and Beyond.webp";
 
@@ -62,9 +63,11 @@ export function BulletsBuffsBeyond({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeBulletsBuffsBeyond.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeBulletsBuffsBeyond.owner}
+          insults={tribeBulletsBuffsBeyond.insults}
+        />
       </main>
     </div>
   );

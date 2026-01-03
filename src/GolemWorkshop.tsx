@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./GolemWorkshop.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { GolemWorkshopItem, tribeGolemWorkshop } from "./tribeGolemWorkshop";
 import golemWorkshopBackground from "./Golem Work Shop.png";
@@ -70,7 +71,11 @@ export function GolemWorkshop({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeGolemWorkshop.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeGolemWorkshop.owner}
+          insults={tribeGolemWorkshop.insults}
+        />
       </main>
     </div>
   );
