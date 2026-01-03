@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./MichaelsMount.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MichaelsMountItem, tribeMichaelsMount } from "./tribeMichaelsMount";
 import mountsBackground from "./Mounts.webp";
@@ -70,7 +71,11 @@ export function MichaelsMount({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeMichaelsMount.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeMichaelsMount.owner}
+          insults={tribeMichaelsMount.insults}
+        />
       </main>
     </div>
   );

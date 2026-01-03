@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./ApplegarthGuild.module.css";
 import { tribeApplegarthGuild } from "./tribeApplegarthGuild";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import applegarthBackground from "./Applegarth.webp";
 
@@ -61,7 +62,11 @@ export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        <p className={styles.footerNote}>{tribeApplegarthGuild.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeApplegarthGuild.owner}
+          insults={tribeApplegarthGuild.insults}
+        />
       </main>
     </div>
   );

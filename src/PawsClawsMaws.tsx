@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./PawsClawsMaws.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { PawsClawsMawsItem, tribePawsClawsMaws } from "./tribePawsClawsMaws";
 import pawsClawsMawsBackground from "./Paws, Claws, & Maws.png";
@@ -78,7 +79,11 @@ export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribePawsClawsMaws.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribePawsClawsMaws.owner}
+          insults={tribePawsClawsMaws.insults}
+        />
       </main>
     </div>
   );

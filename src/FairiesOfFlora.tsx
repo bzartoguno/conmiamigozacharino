@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./FairiesOfFlora.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./tribeFairiesOfFlora";
 import floralBackground from "./Floral.webp";
@@ -66,7 +67,11 @@ export function FairiesOfFlora({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeFairiesOfFlora.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeFairiesOfFlora.owner}
+          insults={tribeFairiesOfFlora.insults}
+        />
       </main>
     </div>
   );

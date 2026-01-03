@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./DungeonCrawlerGuild.module.css";
 import { tribeDungeonCrawlerGuild } from "./tribeDungeonCrawlerGuild";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import dungeonCrawlerGuildBackground from "./Dungeon Crawler's Guild.png";
 
@@ -53,9 +54,11 @@ export function DungeonCrawlerGuild({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeDungeonCrawlerGuild.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeDungeonCrawlerGuild.owner}
+          insults={tribeDungeonCrawlerGuild.insults}
+        />
       </main>
     </div>
   );

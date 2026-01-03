@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./YeOldHomeDepot.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./tribeYeOldHomeDepot";
 import sleuthBackground from "./Ye Old Home Depot.webp";
@@ -73,7 +74,11 @@ export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeYeOldHomeDepot.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeYeOldHomeDepot.owner}
+          insults={tribeYeOldHomeDepot.insults}
+        />
       </main>
     </div>
   );

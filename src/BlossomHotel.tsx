@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./BlossomHotel.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { BlossomHotelItem, tribeBlossomHotel } from "./tribeBlossomHotel";
 import blossomHotelBackground from "./Blossom Hotel.png";
@@ -73,7 +74,11 @@ export function BlossomHotel({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeBlossomHotel.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeBlossomHotel.owner}
+          insults={tribeBlossomHotel.insults}
+        />
       </main>
     </div>
   );

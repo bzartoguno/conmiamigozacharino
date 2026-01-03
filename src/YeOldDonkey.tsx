@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./YeOldDonkey.module.css";
 import { tribeYeOldDonkey } from "./tribeYeOldDonkey";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import yeOldDonkeyBackground from "./Ye Old Donkey.png";
 
@@ -52,7 +53,11 @@ export function YeOldDonkey({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeYeOldDonkey.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeYeOldDonkey.owner}
+          insults={tribeYeOldDonkey.insults}
+        />
       </main>
     </div>
   );

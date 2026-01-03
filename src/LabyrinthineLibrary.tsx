@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./LabyrinthineLibrary.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import {
   LabyrinthineLibraryItem,
@@ -76,7 +77,11 @@ export function LabyrinthineLibrary({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeLabyrinthineLibrary.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeLabyrinthineLibrary.owner}
+          insults={tribeLabyrinthineLibrary.insults}
+        />
       </main>
     </div>
   );

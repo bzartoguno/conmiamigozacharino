@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./EvansEnchantingEmporium.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import {
   EvansEnchantingItem,
@@ -80,9 +81,11 @@ export function EvansEnchantingEmporium({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>
-          {tribeEvansEnchantingEmporium.insults[0]}
-        </p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeEvansEnchantingEmporium.owner}
+          insults={tribeEvansEnchantingEmporium.insults}
+        />
       </main>
     </div>
   );

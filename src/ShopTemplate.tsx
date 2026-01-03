@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import defaultStyles from "./BookBombs.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item, Tribe } from "./types";
 
 type DisplayItem = Item & { finalPrice: number };
@@ -65,11 +66,11 @@ export function ShopTemplate({
           ))}
         </section>
 
-        {tribe.insults[0] && (
-          <p className={styles.footerNote}>
-            {tribe.insults[0]}
-          </p>
-        )}
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribe.owner}
+          insults={tribe.insults}
+        />
       </main>
     </div>
   );

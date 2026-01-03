@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styles from "./PearlsPotions.module.css";
 import { tribePearlsPotions } from "./tribePearlsPotions";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import pearlsPotionsBackground from "./Pearls Potions.png";
 
@@ -50,7 +51,11 @@ export function PearlsPotions({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribePearlsPotions.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribePearlsPotions.owner}
+          insults={tribePearlsPotions.insults}
+        />
       </main>
     </div>
   );

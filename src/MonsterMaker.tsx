@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./MonsterMaker.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MonsterMakerItem, tribeMonsterMaker } from "./tribeMonsterMaker";
 import monsterBackground from "./Monster.webp";
@@ -117,7 +118,11 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
           ))}
         </div>
 
-        <p className={styles.footerNote}>{tribeMonsterMaker.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeMonsterMaker.owner}
+          insults={tribeMonsterMaker.insults}
+        />
       </main>
     </div>
   );

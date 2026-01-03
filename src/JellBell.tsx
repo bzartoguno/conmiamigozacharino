@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styles from "./JellBell.module.css";
 import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { JellBellItem, tribeJellBell } from "./tribeJellBell";
 import dragonicBackground from "./Iconic Dragonic.png";
@@ -70,7 +71,11 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <p className={styles.footerNote}>{tribeJellBell.insults[0]}</p>
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeJellBell.owner}
+          insults={tribeJellBell.insults}
+        />
       </main>
     </div>
   );
