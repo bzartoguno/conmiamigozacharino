@@ -162,6 +162,15 @@ type SandboxTown = {
   image: string;
 };
 
+type ShopButton = {
+  key: string;
+  label: string;
+  delay: string;
+  backgroundColor: string;
+  color?: string;
+  imageSrc?: string;
+};
+
 const sandboxTowns: SandboxTown[] = [
   {
     key: "withhold",
@@ -276,6 +285,322 @@ export function Map() {
   const cleanedBookBomb = cleanDataUrl(bookBombDataUrl);
   // image that draws the literal base64/text onto a canvas (preferred)
   const bookBombImageFromText = useTextImage(bookBombDataUrl);
+  const everyShopButtons: ShopButton[] = [
+    {
+      key: "Auction",
+      label: "Auction House",
+      delay: "3s",
+      backgroundColor: "rgba(138, 253, 244, 0.712)",
+    },
+    {
+      key: "Black",
+      label: "Black Market",
+      delay: "6s",
+      backgroundColor: "rgba(0, 0, 0, 0.712)",
+      color: "white",
+    },
+    {
+      key: "ApplegarthGuild",
+      label: "Applegarth Guild",
+      delay: "9s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: applegarthImage,
+    },
+    {
+      key: "ArchivesGuild",
+      label: "Archives Guild",
+      delay: "12s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: archivesGuildImage,
+    },
+    {
+      key: "BookBombs",
+      label: "Book Bombs",
+      delay: "15s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText,
+    },
+    {
+      key: "BulletsBuffsBeyond",
+      label: "Bullets, Buffs, & Beyond",
+      delay: "18s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: bulletsBuffsBeyondImage,
+    },
+    {
+      key: "ChangingChurch",
+      label: "Changing Church",
+      delay: "21s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: changingChurchImage,
+    },
+    {
+      key: "NecromancyInsuranceCompany",
+      label: "Necromancy Insurance Company",
+      delay: "24s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: necromancyInsuranceImage,
+    },
+    {
+      key: "OPapiesOracleReadings",
+      label: "O-Papies Oracle Readings",
+      delay: "27s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: oPapiesOracleReadingsImage,
+    },
+    {
+      key: "RobinsRopes",
+      label: "Robin's Ropes",
+      delay: "30s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: robinsRopesImage,
+    },
+    {
+      key: "RunestoneRelay",
+      label: "Runestone Relay",
+      delay: "33s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: runestoneRelayImage,
+    },
+    {
+      key: "SilentOath",
+      label: "Silent Oath",
+      delay: "36s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: silentOathImage,
+    },
+    {
+      key: "SupremeSmithy",
+      label: "Supreme Smithy",
+      delay: "39s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: supremeSmithyImage,
+    },
+    {
+      key: "WillsWeapons",
+      label: "Will's Weapons",
+      delay: "42s",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      imageSrc: willsWeaponsImage,
+    },
+    {
+      key: "AuntiePattysPies",
+      label: "Auntie Patty's Pies",
+      delay: "45s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: auntPattiePieImage,
+    },
+    {
+      key: "ComedyGold",
+      label: "Comedy Gold",
+      delay: "51s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: comedyGoldImage,
+    },
+    {
+      key: "DungeonCrawlerGuild",
+      label: "Dungeon Crawler Guild",
+      delay: "54s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: dungeonCrawlerGuildImage,
+    },
+    {
+      key: "FindAFriend",
+      label: "Find a Friend",
+      delay: "57s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: findAFriendImage,
+    },
+    {
+      key: "NavigationGuild",
+      label: "Navigation Guild",
+      delay: "60s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: navigationGuildImage,
+    },
+    {
+      key: "PearlsPotions",
+      label: "Pearl's Potions",
+      delay: "63s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: pearlsPotionsImage,
+    },
+    {
+      key: "ProvisionsParadise",
+      label: "Provision's Paradise",
+      delay: "66s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: provisionsParadiseImage,
+    },
+    {
+      key: "PiggyBank",
+      label: "The Piggy Bank, no hammers inside.",
+      delay: "69s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: piggyBankImage,
+    },
+    {
+      key: "YeOldDonkey",
+      label: "Ye Old Donkey",
+      delay: "72s",
+      backgroundColor: "rgba(220, 38, 38, 0.9)",
+      color: "#e0f2fe",
+      imageSrc: yeOldDonkeyImage,
+    },
+    {
+      key: "HugInfo",
+      label: "Hug Cartel",
+      delay: "75s",
+      backgroundColor: "rgba(250, 204, 21, 0.9)",
+      imageSrc: hugImage,
+    },
+    {
+      key: "IconicDragonic",
+      label: "Iconic Dragonic",
+      delay: "73.5s",
+      backgroundColor: "rgba(250, 204, 21, 0.95)",
+      imageSrc: iconicDragonicImage,
+    },
+    {
+      key: "JellBell",
+      label: "Jell Bell",
+      delay: "46.25s",
+      backgroundColor: "rgba(250, 204, 21, 0.9)",
+      imageSrc: jellBellImage,
+    },
+    {
+      key: "MonsterMaker",
+      label: "Make a Monster",
+      delay: "46.5s",
+      backgroundColor: "rgba(250, 204, 21, 0.95)",
+      imageSrc: monsterImage,
+    },
+    {
+      key: "PawsClawsMaws",
+      label: "Paws, Claws, & Maws",
+      delay: "46.75s",
+      backgroundColor: "rgba(250, 204, 21, 0.95)",
+      imageSrc: pawsClawsMawsImage,
+    },
+    {
+      key: "MichaelsMount",
+      label: "Michael's Mount",
+      delay: "46.75s",
+      backgroundColor: "rgba(250, 204, 21, 0.95)",
+      imageSrc: mountsImage,
+    },
+    {
+      key: "ValhallaMart",
+      label: "Valhalla Mart",
+      delay: "47s",
+      backgroundColor: "rgba(250, 204, 21, 0.95)",
+      imageSrc: valhallaMartImage,
+    },
+    {
+      key: "BlossomHotel",
+      label: "Blossom Hotel",
+      delay: "47.25s",
+      backgroundColor: "rgba(34, 197, 94, 0.9)",
+      color: "#0a2f14",
+      imageSrc: blossomHotelImage,
+    },
+    {
+      key: "EvansEnchantingEmporium",
+      label: "Evan's Enchanting Emporium",
+      delay: "47.5s",
+      backgroundColor: "rgba(34, 197, 94, 0.9)",
+      color: "#0a2f14",
+      imageSrc: evansEnchantingEmporiumImage,
+    },
+    {
+      key: "FairiesOfFlora",
+      label: "Fairies of Flora",
+      delay: "47.75s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#0a2f14",
+      imageSrc: floralImage,
+    },
+    {
+      key: "GolemWorkshop",
+      label: "Golem Workshop",
+      delay: "48s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#0a2f14",
+      imageSrc: golemWorkshopImage,
+    },
+    {
+      key: "JazzPortablePotions",
+      label: "Jazz's Portable Potions",
+      delay: "48.25s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#0a2f14",
+      imageSrc: jazzPortablePotionsImage,
+    },
+    {
+      key: "JewelryGuild",
+      label: "Jewelry Guild",
+      delay: "48.5s",
+      backgroundColor: "rgba(34, 197, 94, 0.92)",
+      color: "#0b1f16",
+      imageSrc: jewelryGuildImage,
+    },
+    {
+      key: "LabyrinthineLibrary",
+      label: "Labyrinthine Library",
+      delay: "48.75s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#0a2f14",
+      imageSrc: labyrinthineLibraryImage,
+    },
+    {
+      key: "NME",
+      label: "N.M.E.",
+      delay: "49s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#04260f",
+      imageSrc: nmeImage,
+    },
+    {
+      key: "SleuthUniversity",
+      label: "Sleuth University",
+      delay: "49.25s",
+      backgroundColor: "rgba(34, 197, 94, 0.95)",
+      color: "#0a2f14",
+      imageSrc: sleuthUniversityImage,
+    },
+    {
+      key: "FizzyTales",
+      label: "Fizzy Tales",
+      delay: "49.5s",
+      backgroundColor: "rgba(37, 99, 235, 0.95)",
+      color: "#e2e8f0",
+      imageSrc: FizzyTale,
+    },
+    {
+      key: "goblins",
+      label: "Goblin Market",
+      delay: "0s",
+      backgroundColor: "rgba(37, 99, 235, 0.95)",
+      color: "#e2e8f0",
+      imageSrc: goblinmarket,
+    },
+    {
+      key: "YeOldHomeDepot",
+      label: "Ye old HomeDepot",
+      delay: "49.75s",
+      backgroundColor: "rgba(37, 99, 235, 0.95)",
+      color: "#e0f2fe",
+      imageSrc: yeOldHomeDepotImage,
+    },
+  ];
 
   switch (navigatedTo) {
     case "goblins":
@@ -475,6 +800,14 @@ export function Map() {
           onNavigate={(key) => setNavigatedTo(key)}
         />
       );
+    case "EveryShop":
+      return (
+        <EveryShopMenu
+          onBack={() => setNavigatedTo("")}
+          onNavigate={(key) => setNavigatedTo(key)}
+          buttons={everyShopButtons}
+        />
+      );
     default:
       return (
         <div style={styles.wrapper}>
@@ -497,321 +830,11 @@ export function Map() {
               imageSrc={strenuousPortalButtonImage}
             />
             <FloatingButton
-              label="Auction House"
-              onClick={() => setNavigatedTo("Auction")}
+              label="Every Shop"
+              onClick={() => setNavigatedTo("EveryShop")}
               delay="3s"
-              backgroundColor="rgba(138, 253, 244, 0.712)"
-            />
-            <FloatingButton
-              label="Black Market"
-              onClick={() => setNavigatedTo("Black")}
-              delay="6s"
-              backgroundColor="rgba(0, 0, 0, 0.712)"
-              color="white"
-            />
-            <FloatingButton
-              label="Applegarth Guild"
-              onClick={() => setNavigatedTo("ApplegarthGuild")}
-              delay="9s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={applegarthImage}
-            />
-            <FloatingButton
-              label="Archives Guild"
-              onClick={() => setNavigatedTo("ArchivesGuild")}
-              delay="12s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={archivesGuildImage}
-            />
-            <FloatingButton
-              label="Book Bombs"
-              onClick={() => setNavigatedTo("BookBombs")}
-              delay="15s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              // Use the uploaded PNG file as the primary image, fall back to
-              // the cleaned embedded data URI, then the canvas-rendered text.
-              imageSrc={bookBombPng ?? cleanedBookBomb ?? bookBombImageFromText}
-              // imageSrc={bookBombsLogo}
-            />
-            <FloatingButton
-              label="Bullets, Buffs, & Beyond"
-              onClick={() => setNavigatedTo("BulletsBuffsBeyond")}
-              delay="18s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={bulletsBuffsBeyondImage}
-            />
-            <FloatingButton
-              label="Changing Church"
-              onClick={() => setNavigatedTo("ChangingChurch")}
-              delay="21s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={changingChurchImage}
-            />
-            <FloatingButton
-              label="Necromancy Insurance Company"
-              onClick={() => setNavigatedTo("NecromancyInsuranceCompany")}
-              delay="24s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={necromancyInsuranceImage}
-            />
-            <FloatingButton
-              label="O-Papies Oracle Readings"
-              onClick={() => setNavigatedTo("OPapiesOracleReadings")}
-              delay="27s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={oPapiesOracleReadingsImage}
-            />
-            <FloatingButton
-              label="Robin's Ropes"
-              onClick={() => setNavigatedTo("RobinsRopes")}
-              delay="30s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={robinsRopesImage}
-            />
-            <FloatingButton
-              label="Runestone Relay"
-              onClick={() => setNavigatedTo("RunestoneRelay")}
-              delay="33s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={runestoneRelayImage}
-            />
-            <FloatingButton
-              label="Silent Oath"
-              onClick={() => setNavigatedTo("SilentOath")}
-              delay="36s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={silentOathImage}
-            />
-            <FloatingButton
-              label="Supreme Smithy"
-              onClick={() => setNavigatedTo("SupremeSmithy")}
-              delay="39s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={supremeSmithyImage}
-            />
-            <FloatingButton
-              label="Will's Weapons"
-              onClick={() => setNavigatedTo("WillsWeapons")}
-              delay="42s"
-              backgroundColor="rgba(255, 255, 255, 0.9)"
-              imageSrc={willsWeaponsImage}
-            />
-            <FloatingButton
-              label="Auntie Patty's Pies"
-              onClick={() => setNavigatedTo("AuntiePattysPies")}
-              delay="45s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={auntPattiePieImage}
-            />
-            <FloatingButton
-              label="Comedy Gold"
-              onClick={() => setNavigatedTo("ComedyGold")}
-              delay="51s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={comedyGoldImage}
-             />
-             <FloatingButton
-              label="Dungeon Crawler Guild"
-              onClick={() => setNavigatedTo("DungeonCrawlerGuild")}
-              delay="54s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={dungeonCrawlerGuildImage}
-            />
-            <FloatingButton
-              label="Find a Friend"
-              onClick={() => setNavigatedTo("FindAFriend")}
-              delay="57s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={findAFriendImage}
-            />
-            <FloatingButton
-              label="Navigation Guild"
-              onClick={() => setNavigatedTo("NavigationGuild")}
-              delay="60s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={navigationGuildImage}
-              />
-            <FloatingButton
-              label="Pearl's Potions"
-              onClick={() => setNavigatedTo("PearlsPotions")}
-              delay="63s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={pearlsPotionsImage}
-            />
-            <FloatingButton
-              label="Provision's Paradise"
-              onClick={() => setNavigatedTo("ProvisionsParadise")}
-              delay="66s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={provisionsParadiseImage}
-            />
-            <FloatingButton
-              label="The Piggy Bank, no hammers inside."
-              onClick={() => setNavigatedTo("PiggyBank")}
-              delay="69s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={piggyBankImage}
-            />
-            <FloatingButton
-              label="Ye Old Donkey"
-              onClick={() => setNavigatedTo("YeOldDonkey")}
-              delay="72s"
-              backgroundColor="rgba(220, 38, 38, 0.9)"
-              color="#e0f2fe"
-              imageSrc={yeOldDonkeyImage}
-            />            
-            <FloatingButton
-              label="Hug Cartel"
-              onClick={() => setNavigatedTo("HugInfo")}
-              delay="75s"
-              backgroundColor="rgba(250, 204, 21, 0.9)"
-              imageSrc={hugImage}
-            />  
-            <FloatingButton
-              label="Iconic Dragonic"
-              onClick={() => setNavigatedTo("IconicDragonic")}
-              delay="73.5s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={iconicDragonicImage}
-            />          
-            <FloatingButton
-              label="Jell Bell"
-              onClick={() => setNavigatedTo("JellBell")}
-              delay="46.25s"
-              backgroundColor="rgba(250, 204, 21, 0.9)"
-              imageSrc={jellBellImage}
-            />
-            <FloatingButton
-              label="Make a Monster"
-              onClick={() => setNavigatedTo("MonsterMaker")}
-              delay="46.5s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={monsterImage}
-            />
-            <FloatingButton
-              label="Paws, Claws, & Maws"
-              onClick={() => setNavigatedTo("PawsClawsMaws")}
-              delay="46.75s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={pawsClawsMawsImage}
-             />
-            <FloatingButton
-              label="Michael's Mount"
-              onClick={() => setNavigatedTo("MichaelsMount")}
-              delay="46.75s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={mountsImage}
-            />
-            <FloatingButton
-              label="Valhalla Mart"
-              onClick={() => setNavigatedTo("ValhallaMart")}
-              delay="47s"
-              backgroundColor="rgba(250, 204, 21, 0.95)"
-              imageSrc={valhallaMartImage}
-            />
-            <FloatingButton
-              label="Blossom Hotel"
-              onClick={() => setNavigatedTo("BlossomHotel")}
-              delay="47.25s"
-              backgroundColor="rgba(34, 197, 94, 0.9)"
-              color="#0a2f14"
-              imageSrc={blossomHotelImage}
-            />
-            <FloatingButton
-              label="Evan's Enchanting Emporium"
-              onClick={() => setNavigatedTo("EvansEnchantingEmporium")}
-              delay="47.5s"
-              backgroundColor="rgba(34, 197, 94, 0.9)"
-              color="#0a2f14"
-              imageSrc={evansEnchantingEmporiumImage}
-            />
-            <FloatingButton
-              label="Fairies of Flora"
-              onClick={() => setNavigatedTo("FairiesOfFlora")}
-              delay="47.75s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={floralImage}
-            />
-            <FloatingButton
-              label="Golem Workshop"
-              onClick={() => setNavigatedTo("GolemWorkshop")}
-              delay="48s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={golemWorkshopImage}
-            />
-            <FloatingButton
-              label="Jazz's Portable Potions"
-              onClick={() => setNavigatedTo("JazzPortablePotions")}
-              delay="48.25s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={jazzPortablePotionsImage}
-            />
-            <FloatingButton
-              label="Jewelry Guild"
-              onClick={() => setNavigatedTo("JewelryGuild")}
-              delay="48.5s"
-              backgroundColor="rgba(34, 197, 94, 0.92)"
-              color="#0b1f16"
-              imageSrc={jewelryGuildImage}
-            />
-            <FloatingButton
-              label="Labyrinthine Library"
-              onClick={() => setNavigatedTo("LabyrinthineLibrary")}
-              delay="48.75s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={labyrinthineLibraryImage}
-            />
-            <FloatingButton
-              label="N.M.E."
-              onClick={() => setNavigatedTo("NME")}
-              delay="49s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#04260f"
-              imageSrc={nmeImage}
-            />
-            <FloatingButton
-              label="Sleuth University"
-              onClick={() => setNavigatedTo("SleuthUniversity")}
-              delay="49.25s"
-              backgroundColor="rgba(34, 197, 94, 0.95)"
-              color="#0a2f14"
-              imageSrc={sleuthUniversityImage}
-            />
-            <FloatingButton
-              label="Fizzy Tales"
-              onClick={() => setNavigatedTo("FizzyTales")}
-              delay="49.5s"
-              backgroundColor="rgba(37, 99, 235, 0.95)"
+              backgroundColor="rgba(30, 64, 175, 0.9)"
               color="#e2e8f0"
-              imageSrc={FizzyTale}
-            />
-            <FloatingButton
-              label="Goblin Market"
-              onClick={() => setNavigatedTo("goblins")}
-              delay="0s"
-              backgroundColor="rgba(37, 99, 235, 0.95)"
-              color="#e2e8f0"
-              imageSrc={goblinmarket}
-            />
-            <FloatingButton
-              label="Ye old HomeDepot"
-              onClick={() => setNavigatedTo("YeOldHomeDepot")}
-              delay="49.75s"
-              backgroundColor="rgba(37, 99, 235, 0.95)"
-              color="#e0f2fe"
-              imageSrc={yeOldHomeDepotImage}
             />
           </div>
         </div>
@@ -888,6 +911,38 @@ function SandboxMenu({
             />
           ))}
         </div>
+    </div>
+  );
+}
+
+function EveryShopMenu({
+  onBack,
+  onNavigate,
+  buttons,
+}: {
+  onBack: () => void;
+  onNavigate: (key: string) => void;
+  buttons: ShopButton[];
+}) {
+  return (
+    <div style={styles.wrapper}>
+      <button type="button" onClick={onBack} style={styles.backButton}>
+        ← Back to main menu
+      </button>
+      <h1 style={styles.title}>Every Shop</h1>
+      <div style={styles.everyShopGrid}>
+        {buttons.map((button) => (
+          <FloatingButton
+            key={button.key}
+            label={button.label}
+            onClick={() => onNavigate(button.key)}
+            delay={button.delay}
+            backgroundColor={button.backgroundColor}
+            color={button.color}
+            imageSrc={button.imageSrc}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -1042,6 +1097,14 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.5,
   },
   sandboxGrid: {
+    marginTop: "1.25rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.25rem",
+    width: "min(1100px, 95vw)",
+    paddingBottom: "3rem",
+  },
+  everyShopGrid: {
     marginTop: "1.25rem",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
