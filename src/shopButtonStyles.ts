@@ -26,24 +26,19 @@ const styleMap: Record<string, ShopButtonStyle> = {
   "silent oath": { backgroundColor: "rgba(255, 255, 255, 0.9)" },
   "supreme smithy": { backgroundColor: "rgba(255, 255, 255, 0.9)" },
   "will's weapons": { backgroundColor: "rgba(255, 255, 255, 0.9)" },
-  "auntie patty's pies": {
-    backgroundColor: "rgba(220, 38, 38, 0.9)",
-    color: "#e0f2fe",
-  },
+  
+  "auntie patty's pies": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe", },
   "comedy gold": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
-  "dungeon crawler guild": {
-    backgroundColor: "rgba(220, 38, 38, 0.9)",
-    color: "#e0f2fe",
-  },
+  "dungeon crawler guild": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe",  },
   "find a friend": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
   "navigation guild": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
   "pearl's potions": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
   "provision's paradise": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
-  "the piggy bank, no hammers inside.": {
-    backgroundColor: "rgba(220, 38, 38, 0.9)",
-    color: "#e0f2fe",
-  },
+  "the piggy bank, no hammers inside.": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe", },
   "ye old donkey": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe" },
+  "piggy bank": { backgroundColor: "rgba(220, 38, 38, 0.9)", color: "#e0f2fe", },
+
+
   "hug cartel": { backgroundColor: "rgba(250, 204, 21, 0.9)" },
   "iconic dragonic": { backgroundColor: "rgba(250, 204, 21, 0.95)" },
   "jell bell": { backgroundColor: "rgba(250, 204, 21, 0.9)" },

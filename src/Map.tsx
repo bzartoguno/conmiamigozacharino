@@ -840,8 +840,7 @@ function SandboxMenu({
         <div style={styles.sandboxIntroText}>
           <h1 style={styles.title}>Sandbox Destinations</h1>
           <p>
-            Explore every corner of the Sandbox realm. Each town is wrapped in its own
-            legend—tap a destination to learn the vibe before you dive in.
+            
           </p>
         </div>
       </div>
@@ -970,7 +969,6 @@ const styles: Record<string, React.CSSProperties> = {
     border: "2px solid #ffffffff",
     boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
-    animation: "float 12s ease-in-out infinite",
     transition: "transform 0.3s ease",
     fontFamily: "'Times New Roman', serif",
     display: "flex",
@@ -1053,17 +1051,3 @@ const styles: Record<string, React.CSSProperties> = {
   },
 };
 
-// Inject slow floating animation into global styles (guarded for SSR)
-if (typeof document !== "undefined" && !document.getElementById("floating-keyframes")) {
-  const styleSheet = document.createElement("style");
-  styleSheet.id = "floating-keyframes";
-  styleSheet.innerHTML = `
-  @keyframes float {
-    0% { transform: translate(0px, 0px); }
-    25% { transform: translate(4px, -4px); }
-    50% { transform: translate(0px, -8px); }
-    75% { transform: translate(-4px, -4px); }
-    100% { transform: translate(0px, 0px); }
-  }`;
-  document.head.appendChild(styleSheet);
-}

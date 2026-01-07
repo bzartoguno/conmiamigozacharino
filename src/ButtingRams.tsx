@@ -73,10 +73,9 @@ export function ButtingRams({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Butting Rams</h1>
+          <h1 className={styles.title}>Butting Rams</h1>
           <p className={styles.subtitle}>
-            The locals sprint between sparring rams, refueling at these rowdy stalls before
-            diving back into the fray. Pick a stop, grab what you need, and charge onward.
+            A pair of rams find them selfs locked in an eternal struggle fighting for dominance but for what?
           </p>
         </div>
 
@@ -92,7 +91,7 @@ export function ButtingRams({
           ))}
         </div>
 
-        <p className={styles.footer}>Art credit: Butting Rams world map</p>
+        <p className={styles.footer}>I Found this art online</p>
       </div>
     </div>
   );
