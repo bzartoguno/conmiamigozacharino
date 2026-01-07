@@ -46,12 +46,6 @@ export function StrenuousPortal({
 }) {
   const shops: StrenuousShop[] = [
     {
-      key: "applegarth",
-      label: "Applegarth Guild",
-      image: applegarthImage,
-      onClick: () => onNavigate("ApplegarthGuild"),
-    },
-    {
       key: "archives-guild",
       label: "Archives Guild",
       image: archivesGuildImage,
