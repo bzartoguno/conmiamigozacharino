@@ -11,6 +11,7 @@ import runestoneRelayImage from "./Runestone Relay.png";
 import silentOathImage from "./Silent Oath.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
+import piggyBankImage from "./Piggy Bank.png"
 import jellBellImage from "./Jell.webp";
 import monsterImage from "./Monster.webp";
 import mountsImage from "./Mounts.webp";
@@ -117,6 +118,12 @@ export function StrenuousPortal({
       onClick: () => onNavigate("WillsWeapons"),
     },
     {
+      key: "piggy-bank",
+      label: "Piggy Bank",
+      image: piggyBankImage,
+      onClick: () => onNavigate("PiggyBank"),
+    },
+    {
       key: "jell-bell",
       label: "Jell Bell",
       image: jellBellImage,
@@ -205,11 +212,10 @@ export function StrenuousPortal({
 
       <div className={styles.content}>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Main Menu</p>
-          <h1 className={styles.title}>Welcome to the Strenuous Portal</h1>
+          <p className={styles.eyebrow}>Welcome to</p>
+          <h1 className={styles.title}>Strenuous Portal</h1>
           <p className={styles.subtitle}>
-            Modeled after Withhold&apos;s cozy collection, this portal gathers bustling
-            favorites and arcane corners all in one launch point.
+            A swirling purple portal that never rests, where every two hours the location on the other end changes, what waits? Fame? Fortune? or Fate?
           </p>
         </div>
 
@@ -226,8 +232,7 @@ export function StrenuousPortal({
         </div>
 
         <p className={styles.footer}>
-          A fresh gateway inspired by Withhold&apos;s layout—now linked straight from the
-          main menu.
+          Only time will tell if you will ever get back home.
         </p>
       </div>
     </div>
