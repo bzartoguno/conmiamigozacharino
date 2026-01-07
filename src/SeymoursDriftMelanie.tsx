@@ -80,10 +80,9 @@ export function SeymoursDriftMelanie({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Seymour&apos;s Drift</h1>
+          <h1 className={styles.title}>Seymour&apos;s Drift</h1>
           <p className={styles.subtitle}>
-            Shops drifting along Melanie&apos;s lily pad city, always ready when the tide
-            brings you in
+            Drifting from coast to coast Melanie&apos;s lily pad city, is such a laxed place to kick back and relax.
           </p>
         </div>
 

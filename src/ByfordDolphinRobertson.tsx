@@ -1,8 +1,6 @@
 import byfordBackground from "./SandboxByfordDolphin.webp";
 import auntiePattysPiesImage from "./Aunt Pattie Pie.png";
 import blossomHotelImage from "./Blossom Hotel.png";
-import jewelryGuildImage from "./Jewelry Guild.png";
-import nmeImage from "./N.M.E.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import sleuthUniversityImage from "./Sleuth.webp";
 import changingChurchImage from "./Changing Church.png";
@@ -40,18 +38,6 @@ export function ByfordDolphinRobertson({
       onClick: () => onNavigate("BlossomHotel"),
     },
     {
-      key: "jewelry-guild",
-      label: "Jewelry Guild",
-      image: jewelryGuildImage,
-      onClick: () => onNavigate("JewelryGuild"),
-    },
-    {
-      key: "nme",
-      label: "N.M.E.",
-      image: nmeImage,
-      onClick: () => onNavigate("NME"),
-    },
-    {
       key: "labyrinthine-library",
       label: "Labyrinthine Library",
       image: labyrinthineLibraryImage,
@@ -87,9 +73,9 @@ export function ByfordDolphinRobertson({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Byford Dolphin</h1>
+          <h1 className={styles.title}>Byford Dolphin</h1>
           <p className={styles.subtitle}>
-            These opulent shops line the harbor, each competing for the Clockwork King's favor
+            Where the wealthiest of nobles compete for the Clockwork King's favor on a pleasure oil rig
           </p>
         </div>
 

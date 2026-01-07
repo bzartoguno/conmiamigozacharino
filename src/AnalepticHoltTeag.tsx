@@ -101,9 +101,9 @@ export function AnalepticHoltTeag({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Analeptic Holt</h1>
+          <h1 className={styles.title}>Analeptic Holt</h1>
           <p className={styles.subtitle}>
-            These treetop shops perch among the roots and branches—step carefully and enjoy the view.
+            These among treetops and among the roots and laids this monkey city.
           </p>
         </div>
 

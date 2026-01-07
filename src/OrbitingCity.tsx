@@ -87,10 +87,9 @@ export function OrbitingCity({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Orbiting City</h1>
+          <h1 className={styles.title}>Orbiting City</h1>
           <p className={styles.subtitle}>
-            Keep pace with the floating metropolis by visiting the merchants that help
-            keep it aloft.
+            The Heart of the Dominion and the home to the Clockwork King and Princess
           </p>
         </div>
 
@@ -106,7 +105,7 @@ export function OrbitingCity({
           ))}
         </div>
 
-        <p className={styles.footer}>This city sails the sky with your support.</p>
+        <p className={styles.footer}>I found this image online!</p>
       </div>
     </div>
   );

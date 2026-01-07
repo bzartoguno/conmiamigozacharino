@@ -93,11 +93,10 @@ export function CalidrisFisk({
 
       <div className={styles.content}>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Sandbox · Calidris</p>
-          <h1 className={styles.title}>Clockwork keeps Calidris turning</h1>
+          <p className={styles.eyebrow}>Sandbox</p>
+          <h1 className={styles.title}>New Calidris</h1>
           <p className={styles.subtitle}>
-            The golems never stopped working after the artisans disappeared—follow their hum
-            into the surviving storefronts below.
+            A new frontier, lead by an unusual bunch, will this up and coming place survive and thrive? or implode from internal conflict? Only time will tell.
           </p>
         </div>
 
@@ -113,7 +112,7 @@ export function CalidrisFisk({
           ))}
         </div>
 
-        <p className={styles.footer}>This ghost town persists thanks to Fisk</p>
+        <p className={styles.footer}>This town was made by Fisk</p>
       </div>
     </div>
   );

@@ -101,10 +101,9 @@ export function MeanderMichael({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Meander</h1>
+          <h1 className={styles.title}>Meander</h1>
           <p className={styles.subtitle}>
-            A roving cowboy haven where the caravan never stops and every shop keeps
-            the wagons rolling.
+            A roving cowboy haven where the caravan never stops and we never pay taxes to the Dominion.
           </p>
         </div>
 

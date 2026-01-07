@@ -94,10 +94,9 @@ export function Graveborn({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Graveborn</h1>
+          <h1 className={styles.title}>Graveborn</h1>
           <p className={styles.subtitle}>
-            A haven for the undead where every shop hums with eerie charm and endless
-            curiosity
+            A haven for the undead to rest and find peace from the living.
           </p>
         </div>
 

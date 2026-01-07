@@ -86,11 +86,10 @@ export function MerricksMeadowHoward({
 
       <div className={styles.content}>
         <div className={styles.hero}>
-          <p className={styles.eyebrow}>Sandbox · Merrick's Meadow</p>
-          <h1 className={styles.title}>The herb boom reshaped this meadow</h1>
+          <p className={styles.eyebrow}>Sandbox</p>
+          <h1 className={styles.title}>Merrick's Meadow</h1>
           <p className={styles.subtitle}>
-            Locals and newcomers weave between meadow paths to visit the busiest shops in
-            Howard's booming village.
+            A lone town that stands alone in Wandering Titan's territory
           </p>
         </div>
 

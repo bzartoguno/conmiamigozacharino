@@ -87,9 +87,9 @@ export function BallisticBellowsCaleb({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Ballistic Bellows</h1>
+          <h1 className={styles.title}>Ballistic Bellows</h1>
           <p className={styles.subtitle}>
-            Precision-forged shops ready for clockwork minds and careful craftsmen
+            Precision-forging, amazing engineering, and a steady beat for everyone to fall along to.
           </p>
         </div>
 

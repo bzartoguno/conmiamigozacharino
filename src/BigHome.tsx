@@ -61,18 +61,6 @@ export function BigHome({
 }) {
   const shops: BigHomeShop[] = [
     {
-      key: "applegarth",
-      label: "Applegarth Guild",
-      image: applegarthImage,
-      onClick: () => onNavigate("ApplegarthGuild"),
-    },
-    {
-      key: "archives-guild",
-      label: "Archives Guild",
-      image: archivesGuildImage,
-      onClick: () => onNavigate("ArchivesGuild"),
-    },
-    {
       key: "book-bombs",
       label: "Book Bombs",
       image: bookBombImage,
@@ -145,22 +133,10 @@ export function BigHome({
       onClick: () => onNavigate("ComedyGold"),
     },
     {
-      key: "dungeon-crawler",
-      label: "Dungeon Crawler Guild",
-      image: dungeonCrawlerGuildImage,
-      onClick: () => onNavigate("DungeonCrawlerGuild"),
-    },
-    {
       key: "find-a-friend",
       label: "Find a Friend",
       image: findAFriendImage,
       onClick: () => onNavigate("FindAFriend"),
-    },
-    {
-      key: "navigation-guild",
-      label: "Navigation Guild",
-      image: navigationGuildImage,
-      onClick: () => onNavigate("NavigationGuild"),
     },
     {
       key: "pearls-potions",
@@ -259,22 +235,10 @@ export function BigHome({
       onClick: () => onNavigate("JazzPortablePotions"),
     },
     {
-      key: "jewelry-guild",
-      label: "Jewelry Guild",
-      image: jewelryGuildImage,
-      onClick: () => onNavigate("JewelryGuild"),
-    },
-    {
       key: "labyrinthine-library",
       label: "Labyrinthine Library",
       image: labyrinthineLibraryImage,
       onClick: () => onNavigate("LabyrinthineLibrary"),
-    },
-    {
-      key: "nme",
-      label: "N.M.E.",
-      image: nmeImage,
-      onClick: () => onNavigate("NME"),
     },
     {
       key: "sleuth-university",
@@ -318,10 +282,9 @@ export function BigHome({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Big Home</h1>
+          <h1 className={styles.title}>Big Home</h1>
           <p className={styles.subtitle}>
-            Every clan keeps its doors open here—wander through and stock up with the
-            shops that power Big Home&apos;s orcish families.
+            Every home keeps its doors open here—wander through here, for home is where the heart and the orcs don't mind sharing.
           </p>
         </div>
 

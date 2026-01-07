@@ -59,10 +59,9 @@ export function JellyCity({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Jelly City</h1>
+          <h1 className={styles.title}>Jelly City</h1>
           <p className={styles.subtitle}>
-            A luminous city living inside a wandering jellyfish, featuring shops with
-            secrets that float between worlds.
+            A luminous city living inside a wandering jellyfish, were everything is vertical and constructed in such a away to never harm the beloved Jellyfish
           </p>
         </div>
 
@@ -78,7 +77,7 @@ export function JellyCity({
           ))}
         </div>
 
-        <p className={styles.footer}>This town was made for Jelly City</p>
+        <p className={styles.footer}>I found this image online</p>
       </div>
     </div>
   );

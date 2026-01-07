@@ -80,10 +80,9 @@ export function HebronJoshua({
       <div className={styles.content}>
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
-          <h1 className={styles.title}>Welcome to Hebron</h1>
+          <h1 className={styles.title}>Hebron</h1>
           <p className={styles.subtitle}>
-            A thunder-core powerhouse where research labs and arcane shops hum in unison
-            beneath storm-lit skylines.
+            A place powered thunder-cores as gnome tinker away improving dwarf-ish and elven designes all for the Dominion
           </p>
         </div>
 
