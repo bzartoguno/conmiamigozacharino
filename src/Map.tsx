@@ -863,7 +863,9 @@ function SandboxMenu({
         <div style={styles.sandboxIntroText}>
           <h1 style={styles.title}>Sandbox Destinations</h1>
           <p>
-            
+            Choose a settlement to learn its story, meet its people, and jump to
+            the shops available there. Each stop includes a quick overview to help
+            you decide where to explore next.
           </p>
         </div>
       </div>
@@ -964,15 +966,29 @@ function FloatingButton({
   imageSrc?: string;
   description?: string;
 }) {
+  const [isHighlighted, setIsHighlighted] = useState(false);
   return (
     <button
       type="button"
+      aria-label={label}
       onClick={onClick}
+      onMouseEnter={() => setIsHighlighted(true)}
+      onMouseLeave={() => setIsHighlighted(false)}
+      onFocus={() => setIsHighlighted(true)}
+      onBlur={() => setIsHighlighted(false)}
       style={{
         ...styles.button,
         animationDelay: delay,
         backgroundColor,
         color,
+        transform: isHighlighted ? "translateY(-4px) scale(1.02)" : "translateY(0)",
+        boxShadow: isHighlighted
+          ? "0 10px 18px rgba(0, 0, 0, 0.45)"
+          : styles.button.boxShadow,
+        outline: isHighlighted
+          ? "2px solid rgba(255, 255, 255, 0.75)"
+          : "2px solid transparent",
+        outlineOffset: "4px",
       }}
     >
       {imageSrc ? (
@@ -1024,7 +1040,7 @@ const styles: Record<string, React.CSSProperties> = {
     border: "2px solid #ffffffff",
     boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
-    transition: "transform 0.3s ease",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
     fontFamily: "'Times New Roman', serif",
     display: "flex",
     flexDirection: "column",
@@ -1043,7 +1059,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: "14px",
     border: "2px solid #ffffffff",
     backgroundColor: "rgba(255, 255, 255, 1)",
-    boxShadow: "4 4px 10px rgba(0, 0, 0, 0.25)",
+    boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.25)",
     cursor: "pointer",
     fontFamily: "'Times New Roman', serif",
   },
@@ -1113,4 +1129,3 @@ const styles: Record<string, React.CSSProperties> = {
     paddingBottom: "3rem",
   },
 };
-
