@@ -49,6 +49,11 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeComedyGold.owner}
+          insults={tribeComedyGold.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => {
             const priceText = item.priceLabel ?? `${(item.finalPrice ?? item.price).toLocaleString()} Gold`;
@@ -63,11 +68,6 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeComedyGold.owner}
-          insults={tribeComedyGold.insults}
-        />
       </main>
     </div>
   );

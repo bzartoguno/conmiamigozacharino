@@ -62,6 +62,11 @@ export function SleuthUniversity({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeSleuthUniversity.owner}
+          insults={tribeSleuthUniversity.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article key={`${item.name}-${index}`} className={styles.card}>
@@ -74,11 +79,6 @@ export function SleuthUniversity({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeSleuthUniversity.owner}
-          insults={tribeSleuthUniversity.insults}
-        />
       </main>
     </div>
   );

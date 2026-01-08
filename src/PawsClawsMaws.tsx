@@ -66,6 +66,11 @@ export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribePawsClawsMaws.owner}
+          insults={tribePawsClawsMaws.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article
@@ -79,11 +84,6 @@ export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribePawsClawsMaws.owner}
-          insults={tribePawsClawsMaws.insults}
-        />
       </main>
     </div>
   );

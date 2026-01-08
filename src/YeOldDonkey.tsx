@@ -41,6 +41,11 @@ export function YeOldDonkey({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeYeOldDonkey.owner}
+          insults={tribeYeOldDonkey.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -53,11 +58,6 @@ export function YeOldDonkey({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeYeOldDonkey.owner}
-          insults={tribeYeOldDonkey.insults}
-        />
       </main>
     </div>
   );

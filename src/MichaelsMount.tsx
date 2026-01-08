@@ -58,6 +58,11 @@ export function MichaelsMount({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeMichaelsMount.owner}
+          insults={tribeMichaelsMount.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article
@@ -71,11 +76,6 @@ export function MichaelsMount({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeMichaelsMount.owner}
-          insults={tribeMichaelsMount.insults}
-        />
       </main>
     </div>
   );
