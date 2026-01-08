@@ -42,6 +42,11 @@ export function NecromancyInsuranceCompany({ onBack }: { onBack?: () => void }) 
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeNecromancyInsuranceCompany.owner}
+          insults={tribeNecromancyInsuranceCompany.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -54,11 +59,6 @@ export function NecromancyInsuranceCompany({ onBack }: { onBack?: () => void }) 
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeNecromancyInsuranceCompany.owner}
-          insults={tribeNecromancyInsuranceCompany.insults}
-        />
       </main>
     </div>
   );

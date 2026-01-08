@@ -96,6 +96,12 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeMonsterMaker.owner}
+          insults={tribeMonsterMaker.insults}
+        />
+
         <div className={styles.categories}>
           {groupedItems.map(({ category, items }) => (
             <section key={category} className={styles.categoryBlock} aria-label={category}>
@@ -118,11 +124,6 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
           ))}
         </div>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeMonsterMaker.owner}
-          insults={tribeMonsterMaker.insults}
-        />
       </main>
     </div>
   );

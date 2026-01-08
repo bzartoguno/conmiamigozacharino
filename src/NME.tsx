@@ -57,6 +57,11 @@ export function NME({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeNME.owner}
+          insults={tribeNME.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article key={`${item.name}-${index}`} className={styles.card}>
@@ -69,11 +74,6 @@ export function NME({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeNME.owner}
-          insults={tribeNME.insults}
-        />
       </main>
     </div>
   );

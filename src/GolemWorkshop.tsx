@@ -59,6 +59,11 @@ export function GolemWorkshop({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeGolemWorkshop.owner}
+          insults={tribeGolemWorkshop.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article key={`${item.name}-${index}`} className={styles.card}>
@@ -71,11 +76,6 @@ export function GolemWorkshop({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeGolemWorkshop.owner}
-          insults={tribeGolemWorkshop.insults}
-        />
       </main>
     </div>
   );

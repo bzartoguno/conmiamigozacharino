@@ -48,6 +48,11 @@ export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeApplegarthGuild.owner}
+          insults={tribeApplegarthGuild.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => {
             const priceText = item.priceLabel ?? `${(item.finalPrice ?? item.price).toLocaleString()} Gold`;
@@ -62,11 +67,6 @@ export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeApplegarthGuild.owner}
-          insults={tribeApplegarthGuild.insults}
-        />
       </main>
     </div>
   );

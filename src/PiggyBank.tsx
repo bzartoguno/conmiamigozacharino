@@ -48,6 +48,11 @@ export function PiggyBank({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribePiggyBank.owner}
+          insults={tribePiggyBank.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -60,11 +65,6 @@ export function PiggyBank({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribePiggyBank.owner}
-          insults={tribePiggyBank.insults}
-        />
       </main>
     </div>
   );

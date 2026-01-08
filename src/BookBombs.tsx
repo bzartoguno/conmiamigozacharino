@@ -43,6 +43,11 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeBookBombs.owner}
+          insults={tribeBookBombs.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -55,11 +60,6 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeBookBombs.owner}
-          insults={tribeBookBombs.insults}
-        />
       </main>
     </div>
   );

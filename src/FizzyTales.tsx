@@ -55,6 +55,11 @@ export function FizzyTales({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeFizzyTales.owner}
+          insults={tribeFizzyTales.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article key={`${item.name}-${index}`} className={styles.card}>
@@ -65,11 +70,6 @@ export function FizzyTales({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeFizzyTales.owner}
-          insults={tribeFizzyTales.insults}
-        />
       </main>
     </div>
   );

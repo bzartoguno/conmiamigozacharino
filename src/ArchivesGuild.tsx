@@ -41,6 +41,11 @@ export function ArchivesGuild({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeArchivesGuild.owner}
+          insults={tribeArchivesGuild.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -53,11 +58,6 @@ export function ArchivesGuild({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeArchivesGuild.owner}
-          insults={tribeArchivesGuild.insults}
-        />
       </main>
     </div>
   );

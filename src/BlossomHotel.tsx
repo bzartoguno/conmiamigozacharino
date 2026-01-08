@@ -59,6 +59,11 @@ export function BlossomHotel({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeBlossomHotel.owner}
+          insults={tribeBlossomHotel.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article
@@ -74,11 +79,6 @@ export function BlossomHotel({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeBlossomHotel.owner}
-          insults={tribeBlossomHotel.insults}
-        />
       </main>
     </div>
   );

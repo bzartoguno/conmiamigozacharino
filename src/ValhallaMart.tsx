@@ -58,6 +58,11 @@ export function ValhallaMart({ onBack }: { onBack?: () => void }) {
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribeValhallaMart.owner}
+          insults={tribeValhallaMart.insults}
+        />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
             <article
@@ -71,11 +76,6 @@ export function ValhallaMart({ onBack }: { onBack?: () => void }) {
           ))}
         </section>
 
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribeValhallaMart.owner}
-          insults={tribeValhallaMart.insults}
-        />
       </main>
     </div>
   );
