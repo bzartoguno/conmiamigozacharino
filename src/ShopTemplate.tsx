@@ -52,6 +52,12 @@ export function ShopTemplate({
           </div>
         </header>
 
+        <InsultBox
+          className={styles.footerNote}
+          owner={tribe.owner}
+          insults={tribe.insults}
+        />
+
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
             <article key={item.name} className={styles.card}>
@@ -65,12 +71,6 @@ export function ShopTemplate({
             </article>
           ))}
         </section>
-
-        <InsultBox
-          className={styles.footerNote}
-          owner={tribe.owner}
-          insults={tribe.insults}
-        />
       </main>
     </div>
   );
