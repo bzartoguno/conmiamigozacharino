@@ -27,7 +27,7 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     {
       name: "Spell Scroll",
       price: 100,
-      priceText: "100 Gold per level of Spell",
+      priceText: "100 Gold per level of Spell, so a LV 1 scroll is 100, a LV 2 scroll is 200, etc",
       description: "Scrolls scribed to match the level of the spell you seek.",
     },
     {
@@ -39,7 +39,7 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     {
       name: "Remove Enchantment",
       price: 1000,
-      description: "Safely lift a lingering enchantment without harming the item.",
+      description: "Safely lift a lingering enchantment without harming the item, so long as it's not cursed.",
     },
     {
       name: "Common Enchantment",
@@ -64,7 +64,7 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     {
       name: "Legendary Enchantment",
       price: 100000,
-      description: "Mythic-level work reserved for destiny-shaping relics.",
+      description: "Mythic-level work reserved for destiny-shaping relics, what can go wrong!",
     },
   ],
 };
