@@ -5,7 +5,12 @@ export const tribeWillsWeapons: Tribe = {
   owner: "Will Redrockson",
   percentAngry: 0,
   priceVariability: 5,
-  insults: [""],
+  insults: [
+          "Hey, between you and me, I run a little stamp challenge for regulars. Nothing dangerous, just a bit of fun to keep the road lively.  |  Stamp Quest (Wild Animal): Subtly make animal sounds into conversations, loud enough for the person beside you to hear you, but if you get caught by the ‘DM’, you fail this quest. | Reward: At the session's end, earn stamps equal to the number of animal sounds you successfully make.",
+          "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
+          "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
+          "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
+          ],
   items: [
     { 
       name: "Blow Dart", 
@@ -170,7 +175,7 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Pistol",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Piercing, Range 30/90ft
-Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
       price: 20
     },
     {
@@ -181,13 +186,13 @@ Do to this weapons interesting nature, if you have EXPERTISE with this weapon, w
     {
       name: "Will's Musket",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Piercing, Range 40/120ft
-Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
       price: 24
     },
     {
       name: "Will's Knuckle Duster",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Bludgeoning
-Do to this weapons close nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to 3/4 health you can attempt to incapacitated that creature if it is the same size or small then you.`,
+      Do to this weapons close nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to 3/4 health you can attempt to incapacitated that creature if it is the same size or small then you.`,
       price: 24
     },
     {
@@ -203,42 +208,43 @@ Do to this weapons close nature, if you have EXPERTISE with this weapon, when de
     {
       name: "Will's Taser",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 2d6, Lightning
-Do to this weapons shocking nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under quarter health you can make that creature unconscious.`,
+      Do to this weapons shocking nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under quarter health you can make that creature unconscious.`,
       price: 24
     },
     {
       name: "Will's Chakram (Blade Disc)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Slashing, Range 20/60ft
-Do to this weapons fun nature, if you have EXPERTISE with this weapon, if you throw it and hit a creature, you can immediately make another attack with it as it comes back to you. On a different creature.`,
+      Do to this weapons fun nature, if you have EXPERTISE with this weapon, if you throw it and hit a creature, you can immediately make another attack with it as it comes back to you. On a different creature.`,
       price: 24
     },
     {
       name: "Will's Khopesh (Scimitar-Sickle)",
-      description: "+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing",
+      description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing
+      Add something here for EXPERTISE in this weapon.`,
       price: 36
     },
     {
       name: "Will's Macuahuitl (Obsidian Spiked)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing
-Do to this weapons heavy blunt nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under half health you can stun that creature.`,
+      Do to this weapons heavy blunt nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under half health you can stun that creature.`,
       price: 36
     },
     {
       name: "Will's Naginata (Glaive-Spear)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d8, Slashing
-Do to this weapons long nature, if you have EXPERTISE with this weapon, you can attack creatures up to 10 feet away from you.`,
+      Do to this weapons long nature, if you have EXPERTISE with this weapon, you can attack creatures up to 10 feet away from you.`,
       price: 48
     },
     {
       name: "Will's Tessen (War Fan)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Bludgeoning
-Do to this weapons defensive and compact nature, if you have EXPERTISE with this weapon, as a bonus action you turn the Tessen into a temperarue shield granding you +5 to your current AC until the start of your next turn.`,
+      Do to this weapons defensive and compact nature, if you have EXPERTISE with this weapon, as a bonus action you turn the Tessen into a temperarue shield granding you +5 to your current AC until the start of your next turn.`,
       price: 24
     },
     {
       name: "Will's Urumi (Whip-Sword)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 4d10, Slashing, Range 15ft
-However, due to it's extremely flexible nature, if you do not have EXPERTISE with this weapon, you will take half damage on a roll. wether you hit or miss.`,
+      However, due to it's extremely flexible nature, if you do not have EXPERTISE with this weapon, you will take half damage on a roll. wether you hit or miss.`,
       price: 80
     },
   ],
