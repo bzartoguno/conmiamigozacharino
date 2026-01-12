@@ -116,6 +116,7 @@
   color: #14304f;
   font-size: 1rem;
   text-align: center;
+  white-space: pre-line;
 }
 
 .price {
