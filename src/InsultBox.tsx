@@ -70,7 +70,6 @@ export function InsultBox({
               }}
             >
               {word}
-              {index < activeWords.length - 1 ? " " : ""}
             </span>
           ))}
         </span>

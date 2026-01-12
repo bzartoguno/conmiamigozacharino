@@ -96,5 +96,14 @@ export const tribeFindAFriend: Tribe = {
       Highest Stat: +2 Dexterity
       Con: Destry has a habit of calling everyone partner and claims that her gun talks to her.`,
     },
+    {
+      name: "Rick Shades, (Changling)",
+      price: 0,
+      description: `Rick is a 
+      Type of Companion: Wildcard (Can swap to any type of Companion)
+      Special Abilities: Soulmates (Allows him to copy the powers and abilities of anyone who becomes friends with him, but this can be taken away if a friend severs their bond.)
+      Highest Stat: +1 Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma
+      Con: Rick can be a bit overenthusiastic about making new friends and may make several foe paws if he has a chance to make a new friend.`,
+    },
   ],
 };
