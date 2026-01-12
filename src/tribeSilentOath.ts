@@ -15,16 +15,16 @@ export const tribeSilentOath: Tribe = {
     {
       name: "Intel Gathering Contract",
       price: 100,
-      description: "Similar to surveillance but you get more detailed information about the target including habits, secrets, and weaknesses.",
+      description: "Similar to surveillance but you get more detailed information about the target including habits, secrets, and possible weaknesses.",
     },
     {
       name: "Safe Passage Contract",
       price: 200,
-      description: "",
+      description: "If your on the run we can sneak you get you to another place without alerting the local athorities.",
     },
     {
       name: "Curse & Hex Contract",
-      price: 30,
+      price: 300,
       description: "",
     },
     {

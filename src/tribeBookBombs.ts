@@ -54,12 +54,6 @@ export const tribeBookBombs: Tribe = {
         "I've got all the volumes! You can borrow them anytime, just promise to bring them back in one piece and you'll get your money back too!",
     },
     {
-      name: "Atomic Habits of an Adventurer",
-      price: 5,
-      description:
-        "Tiny routines, huge results—daily habits for staying sharp, staying funded, and actually finishing quests you start.",
-    },
-    {
       name: "Fifty Shades of Fey",
       price: 3,
       description:

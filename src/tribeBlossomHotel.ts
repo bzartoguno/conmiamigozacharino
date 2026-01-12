@@ -6,7 +6,7 @@ export interface BlossomHotelItem extends Item {
 
 export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
   name: "Blossom Hotel",
-  owner: "Perma for Winter Blossom, Marlee for Spring Blossom, Solin for Summer Blossom, & Adel for Autumn Blossom",
+  owner: "Perma for Winter Blossom, Marlee for Spring Blossom, Solin for Summer Blossom, Adel for Autumn Blossom & Mr. Harvy for Monsoon",
   percentAngry: 0,
   priceVariability: 6,
   insults: [
@@ -24,17 +24,17 @@ export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
     {
       name: "Room, Board, Repair Gear, & Spa",
       price: 60,
-      description: "Adds a calming spa visit to the standard lodging bundle.",
+      description: "Removes an additional level of exhaustion after a long rest.",
     },
     {
       name: "Room, Board, Repair Gear, Spa, & Time Dilation Chamber",
       price: 70,
-      description: "Stretch recovery time while your gear is restored and you relax.",
+      description: "Take a long rest in eight minutes",
     },
     {
-      name: "Room, Board, Repair Gear, Spa, Time Dilation Chamber, & Pick of Temp Buff",
+      name: "Room, Board, Repair Gear, Spa, Time Dilation Chamber, & Temp Buff",
       price: 80,
-      description: "Premium stay with temporal perks and your choice of temporary buff.",
+      description: "+25 Temperary HP lasts 8 hours, after a long rest.",
     },
     {
       name: "Blossom Hotel Season Pass",
@@ -45,24 +45,24 @@ export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
       name: "Mini Game: Riddles for Rewards",
       price: 0,
       priceText: "Reward may vary",
-      description: "Test your wit for rotating prizes.",
+      description: "Test your wit for rotating prizes. (Requires at least two players.)",
     },
     {
       name: "Mini Game: Monster Trivia Night",
       price: 0,
       priceText: "Reward may vary",
-      description: "Lore-heavy trivia where correct answers coins",
+      description: "Lore-heavy trivia where correct answers coins (Requires at least two players.)",
     },
     {
       name: "Mini Game: Guess the Guest",
       price: 0,
       priceText: "Reward may vary",
-      description: "Match silhouettes and rumors to the right may get room upgrades.",
+      description: "Match silhouettes and rumors to the right may get room upgrades. (Requires at least two players.)",
     },
     {
       name: "Black Candle Training",
       price: 1000,
-      description: "Hands-on focus training with the Black Candle tradition. Taking any skill to expertices",
+      description: "Hands-on focus training with the Black Candle tradition. Taking any proficent skill to expertices.",
     },
   ],
 };
