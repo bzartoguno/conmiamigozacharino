@@ -90,7 +90,7 @@ export const tribeFindAFriend: Tribe = {
     {
       name: "Destry, (Half wood elf)",
       price: 0,
-      description: `Destry is a cowgirl on a mission, you see when she was left out in the desert to die she found a gun made out the horns of a demon and angel's halo. Since then she's been on a quest to find out more about the gun and it's origins. 
+      description: `Destry is a cowgirl on a mission. When she was left out in the desert to die, she found a gun made from the horns of a demon and an angel's halo. Since then she's been on a quest to find out more about the gun and its origins. 
       Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
       Special Abilities: Go back to where you came from (Once per day Destry can banish a fiend or celestial creature back to their home plane, the creature must make a DC 15 Charisma saving throw or be banished.)
       Highest Stat: +2 Dexterity

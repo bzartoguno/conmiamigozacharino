@@ -69,7 +69,7 @@ export const tribeComedyGold: ComedyGoldTribe = {
     {
       name: "Old Props and Costumes",
       price: 1,
-      description: "Sometimes costumes and props tend to ware out over time so we sell them at a discount because we know what it's like to be out on the streets with nothing to keep you warm.",
+      description: "Sometimes costumes and props tend to wear out over time, so we sell them at a discount because we know what it's like to be out on the streets with nothing to keep you warm.",
     },
   ],
 };

@@ -43,7 +43,7 @@ export function createGoblinExcuses(name: string): string[] {
     `${name} have decided to draw the mythical land of the United States from memory. (If you do this for real, you must post everyone's art on Discord!)`,
     `${name} got into an argument about which goblin is the fastest. (They refuse to settle it with a race.)`,
     `${name} are having a discussion about apples actually being oranges. It's not going well.`,
-    `${name} have decided to go ice skating, but it's not winter yet, so they must wait by the pond for it to freeze.`,
+    `${name} has decided to go ice skating, but it's not winter yet, so they must wait by the pond for it to freeze.`,
     `Someone in ${name} has found an Easter egg. Maybe there are more! Give them a second.`,
   ];
 }

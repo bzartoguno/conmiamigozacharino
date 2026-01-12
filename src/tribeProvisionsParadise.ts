@@ -130,7 +130,7 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Candy bar",
       price: 3,
-      description: "Hey look it's [Import {tribeCandybar.ts} from  './tribes'] I haven't seen those in ages.",
+      description: "Hey look, it's [Import {tribeCandybar.ts} from './tribes']. I haven't seen those in ages.",
     },
     {
       name: "Sticker Sheet",
@@ -140,12 +140,12 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Flavored Sunflower Seeds",
       price: 5,
-      description: "Yes it's seeds but with some spices and seasons mixed on top",
+      description: "Yes, it's seeds but with some spices and seasonings mixed on top.",
     },
     {
       name: "Slice of pizza",
       price: 6,
-      description: "It looks like it's been sitting out for a while, but the cheif in the back looks like they're still making fresh ones.",
+      description: "It looks like it's been sitting out for a while, but the chief in the back looks like they're still making fresh ones.",
     },
     {
       name: "Rotisserie 'Bird'",
