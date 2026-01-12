@@ -38,7 +38,7 @@ export const tribeYeOldDonkey: Tribe = {
 3- A ring of many keys, but no idea to what the keys go to.
 4- A lone sock
 5- A Mismatched Patchwork Quilt, so comfy.
-6- It's a small rumbling box label 'DEFINETLY NOT BEES, SHAKE BEFORE OPENING!' Well at least it's not bees.`,
+6- It's a small rumbling box labeled 'DEFINITELY NOT BEES, SHAKE BEFORE OPENING!' Well at least it's not bees.`,
     },
     {
       name: "Hot Rock Bed Warmer (Yes this is an actual thing)",

@@ -244,7 +244,7 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Urumi (Whip-Sword)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 4d10, Slashing, Range 15ft
-      However, due to it's extremely flexible nature, if you do not have EXPERTISE with this weapon, you will take half damage on a roll. wether you hit or miss.`,
+      However, due to its extremely flexible nature, if you do not have EXPERTISE with this weapon, you will take half damage on a roll, whether you hit or miss.`,
       price: 80
     },
   ],

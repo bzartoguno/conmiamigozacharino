@@ -240,7 +240,7 @@ const sandboxTowns: SandboxTown[] = [
     name: "Pop-n Faith (Eli)",
     image: sandboxPopNFaithImage,
     description:
-      "Sorry but there is no more Pop-n Faith. Your world deities are gone, it's now your planet is stuck between death and unlife.",
+      "Sorry, but there is no more Pop-n Faith. Your world deities are gone; now your planet is stuck between death and unlife.",
   },
   {
     key: "analeptic-holt",
