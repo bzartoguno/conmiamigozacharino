@@ -24,11 +24,7 @@ export function InsultBox({
     return meaningfulInsults.length > 0 ? meaningfulInsults : insultOptions;
   }, [insultOptions]);
 
-  const [activeInsult, setActiveInsult] = useState<string>(() =>
-    rotationPool.length > 0
-      ? rotationPool[Math.floor(Math.random() * rotationPool.length)]
-      : "",
-  );
+  const [activeInsult, setActiveInsult] = useState<string>("");
 
   useEffect(() => {
     if (rotationPool.length === 0) {
@@ -36,32 +32,20 @@ export function InsultBox({
       return;
     }
 
-    const pickInsult = (current: string) => {
-      if (rotationPool.length === 1) {
-        return rotationPool[0];
-      }
-
-      const remaining = rotationPool.filter((insult) => insult !== current);
-      return (
-        remaining[Math.floor(Math.random() * remaining.length)] ??
-        rotationPool[0]
-      );
-    };
-
-    setActiveInsult((current) => pickInsult(current));
-
-    if (rotationPool.length === 1) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setActiveInsult((current) => pickInsult(current));
-    }, rotationMs);
-
-    return () => clearInterval(interval);
-  }, [rotationPool, rotationMs]);
+    setActiveInsult(
+      rotationPool[Math.floor(Math.random() * rotationPool.length)] ?? "",
+    );
+  }, [rotationPool]);
 
   const shouldRender = owner || rotationPool.length > 0;
+  const activeWords = useMemo(
+    () => activeInsult.split(/\s+/).filter(Boolean),
+    [activeInsult],
+  );
+  const wordDurationMs =
+    activeWords.length > 0
+      ? Math.max(350, Math.floor(rotationMs / activeWords.length))
+      : rotationMs;
 
   if (!shouldRender) {
     return null;
@@ -71,7 +55,24 @@ export function InsultBox({
     <div className={className}>
       <div className={styles.insultBox} role="status" aria-live="polite">
         {owner && <span className={styles.ownerLabel}>{owner}:</span>}
-        <span>{rotationPool.length > 0 ? activeInsult : ""}</span>
+        <span className={styles.insultText} aria-live="polite">
+          {activeWords.map((word, index) => (
+            <span
+              key={`${word}-${index}`}
+              className={styles.word}
+              style={{
+                ["--word-delay" as string]: `${
+                  activeWords.length > 1
+                    ? Math.floor((rotationMs / activeWords.length) * index)
+                    : 0
+                }ms`,
+                ["--word-duration" as string]: `${wordDurationMs}ms`,
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </span>
       </div>
     </div>
   );
