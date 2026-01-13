@@ -44,7 +44,7 @@ export const tribeDungeonCrawlerGuild: Tribe = {
     },
     {
       name: "Sack of Sand",
-      description: "Well it's a sack of sand. We feel bad charging for it but it's surprisingly useful for setting off traps early or weighing down pressure plates for puzzles.",
+      description: "Well, it's a sack of sand. We feel bad charging for it, but it's surprisingly useful for setting off traps early or weighing down pressure plates for puzzles.",
       price: 2,
     },
     {
