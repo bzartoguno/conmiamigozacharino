@@ -281,6 +281,18 @@ const sandboxTowns: SandboxTown[] = [
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
+  const [navigationStack, setNavigationStack] = useState<string[]>([]);
+  const handleNavigate = (next: string) => {
+    setNavigationStack((stack) => [...stack, navigatedTo]);
+    setNavigatedTo(next);
+  };
+  const handleBack = () => {
+    setNavigationStack((stack) => {
+      const previous = stack[stack.length - 1] ?? "";
+      setNavigatedTo(previous);
+      return stack.slice(0, -1);
+    });
+  };
   // cleaned version of the embedded data URI (defensive)
   const cleanedBookBomb = cleanDataUrl(bookBombDataUrl);
   // image that draws the literal base64/text onto a canvas (preferred)
@@ -605,206 +617,206 @@ export function Map() {
   switch (navigatedTo) {
     case "goblins":
 
-      return <Goblins onBack={() => setNavigatedTo("")} />;
+      return <Goblins onBack={handleBack} />;
     case "Auction":
-      return <Auctions onBack={() => setNavigatedTo("")} />;
+      return <Auctions onBack={handleBack} />;
     case "Black":
-      return <Blacks onBack={() => setNavigatedTo("")} />;
+      return <Blacks onBack={handleBack} />;
     case "BookBombs":
-      return <BookBombs onBack={() => setNavigatedTo("")} />;
+      return <BookBombs onBack={handleBack} />;
     case "AuntiePattysPies":
-      return <AuntiePattysPies onBack={() => setNavigatedTo("")} />;
+      return <AuntiePattysPies onBack={handleBack} />;
     case "IconicDragonic":
-      return <IconicDragonic onBack={() => setNavigatedTo("")} />;
+      return <IconicDragonic onBack={handleBack} />;
     case "JellBell":
-      return <JellBell onBack={() => setNavigatedTo("")} />;
+      return <JellBell onBack={handleBack} />;
     case "MonsterMaker":
-      return <MonsterMaker onBack={() => setNavigatedTo("")} />;
+      return <MonsterMaker onBack={handleBack} />;
     case "PawsClawsMaws":
-      return <PawsClawsMaws onBack={() => setNavigatedTo("")} />;
+      return <PawsClawsMaws onBack={handleBack} />;
     case "MichaelsMount":
-      return <MichaelsMount onBack={() => setNavigatedTo("")} />;
+      return <MichaelsMount onBack={handleBack} />;
     case "ValhallaMart":
-      return <ValhallaMart onBack={() => setNavigatedTo("")} />;
+      return <ValhallaMart onBack={handleBack} />;
     case "BlossomHotel":
-      return <BlossomHotel onBack={() => setNavigatedTo("")} />;
+      return <BlossomHotel onBack={handleBack} />;
     case "SleuthUniversity":
-      return <SleuthUniversity onBack={() => setNavigatedTo("")} />;
+      return <SleuthUniversity onBack={handleBack} />;
     case "EvansEnchantingEmporium":
-      return <EvansEnchantingEmporium onBack={() => setNavigatedTo("")} />;
+      return <EvansEnchantingEmporium onBack={handleBack} />;
     case "FairiesOfFlora":
-      return <FairiesOfFlora onBack={() => setNavigatedTo("")} />;
+      return <FairiesOfFlora onBack={handleBack} />;
     case "GolemWorkshop":
-      return <GolemWorkshop onBack={() => setNavigatedTo("")} />;
+      return <GolemWorkshop onBack={handleBack} />;
     case "LabyrinthineLibrary":
-      return <LabyrinthineLibrary onBack={() => setNavigatedTo("")} />;
+      return <LabyrinthineLibrary onBack={handleBack} />;
     case "NME":
-      return <NME onBack={() => setNavigatedTo("")} />;
+      return <NME onBack={handleBack} />;
     case "FizzyTales":
-      return <FizzyTales onBack={() => setNavigatedTo("")} />;
+      return <FizzyTales onBack={handleBack} />;
     case "YeOldHomeDepot":
-      return <YeOldHomeDepot onBack={() => setNavigatedTo("")} />;
+      return <YeOldHomeDepot onBack={handleBack} />;
     case "PiggyBank":
-      return <PiggyBank onBack={() => setNavigatedTo("")} />;
+      return <PiggyBank onBack={handleBack} />;
     case "NavigationGuild":
-      return <NavigationGuild onBack={() => setNavigatedTo("")} />;
+      return <NavigationGuild onBack={handleBack} />;
     case "PearlsPotions":
-      return <PearlsPotions onBack={() => setNavigatedTo("")} />;
+      return <PearlsPotions onBack={handleBack} />;
     case "FindAFriend":
-      return <FindAFriend onBack={() => setNavigatedTo("")} />;
+      return <FindAFriend onBack={handleBack} />;
     case "ComedyGold":
-      return <ComedyGold onBack={() => setNavigatedTo("")} />;
+      return <ComedyGold onBack={handleBack} />;
     case "DungeonCrawlerGuild":
-      return <DungeonCrawlerGuild onBack={() => setNavigatedTo("")} />;
+      return <DungeonCrawlerGuild onBack={handleBack} />;
     case "BulletsBuffsBeyond":
-      return <BulletsBuffsBeyond onBack={() => setNavigatedTo("")} />;
+      return <BulletsBuffsBeyond onBack={handleBack} />;
     case "ApplegarthGuild":
-      return <ApplegarthGuild onBack={() => setNavigatedTo("")} />;
+      return <ApplegarthGuild onBack={handleBack} />;
     case "ArchivesGuild":
-      return <ArchivesGuild onBack={() => setNavigatedTo("")} />;
+      return <ArchivesGuild onBack={handleBack} />;
     case "ChangingChurch":
-      return <ChangingChurch onBack={() => setNavigatedTo("")} />;
+      return <ChangingChurch onBack={handleBack} />;
     case "NecromancyInsuranceCompany":
-      return <NecromancyInsuranceCompany onBack={() => setNavigatedTo("")} />;
+      return <NecromancyInsuranceCompany onBack={handleBack} />;
     case "OPapiesOracleReadings":
-      return <OPapiesOracleReadings onBack={() => setNavigatedTo("")} />;
+      return <OPapiesOracleReadings onBack={handleBack} />;
     case "RobinsRopes":
-      return <RobinsRopes onBack={() => setNavigatedTo("")} />;
+      return <RobinsRopes onBack={handleBack} />;
     case "RunestoneRelay":
-      return <RunestoneRelay onBack={() => setNavigatedTo("")} />;
+      return <RunestoneRelay onBack={handleBack} />;
     case "SilentOath":
-      return <SilentOath onBack={() => setNavigatedTo("")} />;
+      return <SilentOath onBack={handleBack} />;
     case "SupremeSmithy":
-      return <SupremeSmithy onBack={() => setNavigatedTo("")} />;
+      return <SupremeSmithy onBack={handleBack} />;
     case "Calidris":
       return (
         <CalidrisFisk
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "BallisticBellows":
       return (
         <BallisticBellowsCaleb
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "MerricksMeadow":
       return (
         <MerricksMeadowHoward
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "AnalepticHolt":
       return (
         <AnalepticHoltTeag
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "OrbitingCity":
       return (
         <OrbitingCity
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "Withhold":
       return (
         <WithholdParker
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "StrenuousPortal":
       return (
         <StrenuousPortal
-          onBack={() => setNavigatedTo("")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "SeymoursDrift":
       return (
         <SeymoursDriftMelanie
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "Hebron":
       return (
         <HebronJoshua
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "ByfordDolphin":
       return (
         <ByfordDolphinRobertson
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "Meander":
       return (
         <MeanderMichael
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "JellyCity":
       return (
         <JellyCity
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "ButtingRams":
       return (
         <ButtingRams
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "BigHome":
       return (
         <BigHome
-          onBack={() => setNavigatedTo("")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "Graveborn":
       return (
         <Graveborn
-          onBack={() => setNavigatedTo("Sandbox")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "WillsWeapons":
-      return <WillsWeapons onBack={() => setNavigatedTo("")} />;
+      return <WillsWeapons onBack={handleBack} />;
     case "ProvisionsParadise":
-      return <ProvisionsParadise onBack={() => setNavigatedTo("")} />;
+      return <ProvisionsParadise onBack={handleBack} />;
     case "YeOldDonkey":
-      return <YeOldDonkey onBack={() => setNavigatedTo("")} />;
+      return <YeOldDonkey onBack={handleBack} />;
     case "HugInfo":
-      return <HugInfo onBack={() => setNavigatedTo("")} />;
+      return <HugInfo onBack={handleBack} />;
     case "JazzPortablePotions":
-      return <JazzPortablePotions onBack={() => setNavigatedTo("")} />;
+      return <JazzPortablePotions onBack={handleBack} />;
     case "JewelryGuild":
-      return <JewelryGuild onBack={() => setNavigatedTo("")} />;
+      return <JewelryGuild onBack={handleBack} />;
     case "Sandbox":
       return (
         <SandboxMenu
-          onBack={() => setNavigatedTo("")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
         />
       );
     case "EveryShop":
       return (
         <EveryShopMenu
-          onBack={() => setNavigatedTo("")}
-          onNavigate={(key) => setNavigatedTo(key)}
+          onBack={handleBack}
+          onNavigate={handleNavigate}
           buttons={everyShopButtons}
         />
       );
@@ -815,7 +827,7 @@ export function Map() {
           <div style={styles.buttonContainer}>
             <FloatingButton
               label="Sandbox"
-              onClick={() => setNavigatedTo("Sandbox")}
+              onClick={() => handleNavigate("Sandbox")}
               delay="1.5s"
               backgroundColor="rgba(15, 23, 42, 0.85)"
               color="#e2e8f0"
@@ -823,7 +835,7 @@ export function Map() {
             />
             <FloatingButton
               label="Strenuous Portal"
-              onClick={() => setNavigatedTo("StrenuousPortal")}
+              onClick={() => handleNavigate("StrenuousPortal")}
               delay="2.5s"
               backgroundColor="rgba(88, 28, 135, 0.9)"
               color="#f1f5f9"
@@ -831,7 +843,7 @@ export function Map() {
             />
             <FloatingButton
               label="Every Shop"
-              onClick={() => setNavigatedTo("EveryShop")}
+              onClick={() => handleNavigate("EveryShop")}
               delay="3s"
               backgroundColor="rgba(30, 64, 175, 0.9)"
               color="#e2e8f0"
