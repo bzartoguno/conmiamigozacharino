@@ -18,7 +18,7 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 function formatPrice(value: number) {
-  return value === 0 ? "Free" : `${value.toLocaleString()} Gold`;
+  return value === 0 ? "" : `${value.toLocaleString()} Gold`;
 }
 
 export function FindAFriend({ onBack }: { onBack?: () => void }) {

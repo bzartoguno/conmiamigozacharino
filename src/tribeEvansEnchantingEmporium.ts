@@ -25,9 +25,9 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       description: "A risky, dazzling experiment—attempt your own enchantment.",
     },
     {
-      name: "Inspect Item",
-      price: 1,
-      description: "Quick appraisal to gauge an item's enchantment potential.",
+      name: "Inspect Magical Item",
+      price: 10,
+      description: "Quick appraisal in the arcane spectrum to gauge an item's potential.",
     },
     {
       name: "Spell Scroll",
@@ -36,15 +36,9 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       description: "Scrolls scribed to match the level of the spell you seek.",
     },
     {
-      name: "Arcane Consultation",
-      price: 500,
-      priceText: "5-500 Gold",
-      description: "Strategize the perfect enchantment with Evan's guidance.",
-    },
-    {
       name: "Remove Enchantment",
       price: 1000,
-      description: "Safely lift a lingering enchantment without harming the item, so long as it's not cursed.",
+      description: "With the fact being that each time can only hold one enchantment sometimes you need to remove it. Safely lift a lingering enchantment without harming the item, so long as it's not cursed.",
     },
     {
       name: "Common Enchantment",
@@ -70,6 +64,11 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       name: "Legendary Enchantment",
       price: 100000,
       description: "Mythic-level work reserved for destiny-shaping relics, what can go wrong!",
+    },
+    {
+      name: "Enchantmenter grimoire",
+      price: 1000,
+      description: "",
     },
   ],
 };

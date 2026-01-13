@@ -31,7 +31,7 @@ export const tribeValhallaMart: Tribe & { items: ValhallaMartItem[] } = {
       name: "Langskip Whistle",
       price: 10000,
       description:
-        "Requires attunement. While outdoors, as an action you whistle to summon a spectral langskip and ghostly crew for 1 hour. It can carry up to 10 Medium creatures and their gear, and travels on water (it may also “skim” across calm ground like mist at half speed). Its speed is 40 ft + 10 ft for each of your PCs that has died or retired in this campaign (max +40). Once per long rest.",
+        "Requires attunement. While outdoors, as an action you whistle to summon a spectral langskip and ghostly crew for 1 hour. It can carry up to 10 Medium creatures and their gear, and travels on water (it may also “skim” across calm ground like mist at half speed). Its speed is 40 ft + 10 ft for each of your PCs that has died or retired (max +100). Once per long rest.",
     },
     {
       name: "Soul-bound Compass",
@@ -51,10 +51,10 @@ export const tribeValhallaMart: Tribe & { items: ValhallaMartItem[] } = {
         "When a PC dies, this scroll lets them designate one non-cursed item they carried as “bound to the line.” That item becomes findable by the next character from that player (DM chooses a reasonable moment to recover it).",
     },
     {
-      name: "Valkyrie’s Ring",
+      name: "Valkyrie’s Ring of Redemption",
       price: 9000,
       description:
-        "While wearing it, when you drop to 0 HP you can choose to drop to 1 HP instead (once). After it saves you, the ring cracks and becomes nonmagical.",
+        "Requires attunement. When bought you choose either to have this ring be; +5 HP for each of your PCs that has died or retired, +5 Movement speed for every two of your PCs that has died or retired, or +1 AC for every three of your PCs that has died or retired. The choice can not be changed after you bought it.",
     },
     {
       name: "Einherjar Nameplate (Inheritance Item)",
