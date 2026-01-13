@@ -35,7 +35,7 @@ export const tribeComedyGold: ComedyGoldTribe = {
     {
       name: "The Fool's Quest",
       price: 0,
-      description: "Boost your relationship with pets or familiars.",
+      description: "Boost your relationship and gimics of your pets or NPC compainions.",
       priceLabel: "Showing are in Midday 11:00 AM - 2:00 PM",
     },
     {

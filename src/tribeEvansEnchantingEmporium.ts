@@ -43,32 +43,39 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     {
       name: "Common Enchantment",
       price: 10,
-      description: "Practical, reliable magic for everyday heroes.",
+      description: `Roll a 1d20 and apply it to your item!
+      1- Never Lost: You always know which direction it item is located reguardless of distance.
+      2- Spontaneous Combustion: This item will explode when it break, dealing 3d10+5 fire damage.
+      3- Magnetic Attraction: Metal objects within 5 feet will slowly be pulled towards this item if they are lighter, but if they are heavier this item will be attached to it instead.
+      4- Smol: This item shrinks to the size of a mouse permanently.
+      5- BIG: This item grows to the size of a elephant permanently.
+      6- My eyes: Who ever willing holds this item temperarly become blind.
+      7- Bed time: Who ever willing holds this item temperarly has narcolepsy.`,
     },
     {
       name: "Uncommon Enchantment",
       price: 100,
-      description: "Tailored upgrades with a spark of rare arcana.",
+      description: `Roll a 1d12 and apply it to your item!`,
     },
     {
       name: "Rare Enchantment",
       price: 1000,
-      description: "Potent effects for prized gear and ambitious goals.",
+      description: `Roll a 1d10 and apply it to your item!`,
     },
     {
       name: "Very Rare Enchantment",
       price: 10000,
-      description: "High-tier magic with meticulous craftsmanship.",
+      description: `Roll a 1d8 and apply it to your item!`,
     },
     {
       name: "Legendary Enchantment",
       price: 100000,
-      description: "Mythic-level work reserved for destiny-shaping relics, what can go wrong!",
+      description: `Roll a 1d6 and apply it to your item!`,
     },
     {
       name: "Enchantmenter grimoire",
-      price: 1000,
-      description: "",
+      price: 10,
+      description: "When an enchantment is removed you can instead learn it and put it into this book! Then when you go to enchant instead of rolling to find out which enchantment, after pay the apropitace cost, you got used to one you learned using this book instead.",
     },
   ],
 };

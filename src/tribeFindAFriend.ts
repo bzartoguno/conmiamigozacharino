@@ -142,7 +142,7 @@ export const tribeFindAFriend: Tribe = {
       
       Type of Companion: Wildcard (Can swap to any type of Companion at any time.)
       
-      Special Abilities: Soulmates (Allows him to copy the powers and abilities of anyone who becomes friends with him, but this can be taken away if a friend severs their bond.)
+      Special Abilities: Soulmates (Allows him to copy the powers aka spells, class actions, and abilities of anyone who becomes friends with him, but this can be taken away if a friend severs their bond.)
       
       Highest Stats: +1 Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma
       
