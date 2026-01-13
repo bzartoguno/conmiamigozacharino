@@ -144,7 +144,7 @@ export const tribeFindAFriend: Tribe = {
       
       Special Abilities: Soulmates (Allows him to copy the powers aka spells, class actions, and abilities of anyone who becomes friends with him, but this can be taken away if a friend severs their bond.)
       
-      Highest Stats: +1 Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma
+      Highest Stats: +1 Strength, Dexterity, & Constitution
       
       Con: Rick can be a bit overenthusiastic about making new friends and may make several foe paws if he has a chance to make a new friend.`,
     },
