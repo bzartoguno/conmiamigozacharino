@@ -18,6 +18,12 @@ export const tribeComedyGold: ComedyGoldTribe = {
           "Since you look like the capable sort, I’ll share one of our stamp challenges. It rewards teamwork over heroics. Next time trouble starts, set up a simple two-person combo with a companion, nothing fancy, just coordinated.  |  Stamp Quest (Tag-Team): Coordinate a 2-person combo in combat (grapple + shove, distraction + sneak, buff + big hit, etc.). | Reward: 5 Stamps",
           "I’ve got a small stamp challenge that’s been good for keeping parties sharp and in sync. When a companion offers an idea, don’t just agree, add to it. Build on what they said and keep the momentum going.  |  Stamp Quest (Yes, And): Say 'Yes, and-' (or the spirit of it) to another player’s idea and build on it. | Reward: 3 Stamps",
           "Alright, here’s a fun little stamp challenge purely for morale. Pick a light accent or a harmless speech quirk and use it in a couple of conversations  |  Stamp Quest (Tiny Accent): Use a very light accent or speech quirk for two separate conversations. If the DM calls it out, fail. | Reward: 3 Stamps",
+          "Hello~ There I'm so glad you made it!",
+          "Everything I do seems to fail upwards! I married a poor lord for his incedible music and now I'm a lady in high standing! I told him that we should invest in a theatre so we sink out money and get out of politics, but now we are world wide! I then told him that we should teach commoners and give them large grants for fine art degrees to throw away all this money. But they turn around and start working for us instead of taking the money and running away!",
+          "I'd tell you a depression joke but I suffer from mood swings! Ohohohohohohoh!",
+          "What do you call it when the queen farts? A noble gas! Ohohohohohohoh!",
+          "Knock knock [Who's there?] Olive! [Olive who?] I love you too! Ohohohohohohoh!",
+          "Oh my this simple won't do at all! You there adventure! You look like a lively fell-o give I simply need to hear a good joke! Please tell me one (Make a DC 14 Performance. If you succeed, she give a great big belly laugh and pays you 50 gp. If you fail, you get a polite laugh and she pays you 10 gp.)",
           ],
   items: [
     {

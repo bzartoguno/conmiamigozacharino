@@ -16,6 +16,12 @@ export const tribeEvansEnchantingEmporium: Tribe & {
           "Here’s a stamp challenge that rewards good teamwork and good timing. If a companion asks you for help, give them one quick, tactical suggestion, short, practical, but let them choose.  |  Stamp Quest (Support the Roll): Give another player a quick tactical suggestion only if they ask for help. | Reward: 2 Stamps",
           "Small one, but it makes parties feel like parties: I’ve got a stamp challenge for you. Give one of your companions a fitting nickname and see if you can get them to answer to it at least once.  |  Stamp Quest (Nickname): Give one PC a fitting nickname and get them to respond to it at least once. | Reward: 4 Stamps",
           "I like when groups feel like they’ve actually shared a life together. Here’s a stamp challenge for that: invent a tiny shared detail with a companion, something simple you ‘both went through, or ‘both can’t stand’, and get them to agree to it in-character.  |  Stamp Quest (Shared Backstory): Create a tiny new shared detail with another PC ('We both hate…', 'We once…') and get them to agree in-character. | Reward: 5 Stamps",
+          "I was actually going to call this Wally's Wonders! Because Wally is my last name and I was going to make it a family business! That was already tradmarked, so went with my frist name instead! But that's when my wife left me and took the kids with her, dragons am I right? How are you doing today!",
+          "I find fear to be a very motivating factor, like the fear of wolves, taxes, undone homework, but mainly wolves.",
+          "It's weird how no one ever talks about the absense of smells unprompted. The nose just isn't of conversation unless it's urgent. 'It's dark in here' normal 'Finally some quiet' relatable 'Doesn't smell liek anything here' Absolutely deranged sentance!",
+          "You think having magic is cool, but well I tried casting a spell to clean the dishes and it somehow changed the gender of all of them to to their german counter parts. So I mostly do things by hand now.",
+          "A group of advenuters were threating me so I cast fly on a nearby allagator and used gust to push it around.",
+          "HELP! HELP MEE! I'VE TURNED MY SELF IN A POTTED PLANT! I'M POTTED PLANT EVAN! YOU GOT TO HELP ME! I HAVE A REVEARSAL WATERING CAN OVER THERE JUST GIVE ME A DC 14 MEDICINE CHECK AND I'LL TURN BACK TO NORMAL! If you succeed, Evan pays you 20 gp. If you fail, well Evan doesn't change back but offers you 5 gp for your time, you can take 15 gp more if you want to he can't stop you he's a potted right now.",
           ],
   items: [
     {
@@ -64,9 +70,9 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       description: `Roll a 1d12 and apply it to your item!
       1- C-c-cold (Curse): This item when in a persons inventory will lower their AC by 1 for every hour they hold it (Max of 5)
       2- H-h-hot (Curse): This item when in a persons inventory for every turn you don't move to a new spot you take 1d4 fire damge, this item isn't active when the sun sets.
-      3- (Curse):
-      4- (Curse):
-      5- 
+      3- Hit me baby one more time! (Curse): Whenever you deal damge with this item the target heals 1d4 and the target has disadvantage on all saving throws for the next 10 mintues.
+      4- Therian (Binding-Curse): This item immediately warps around you or forces you to grip it. Once per month during the night of the full more you now transform into an animal, replacing it's stats and actions with it until the night is through.
+      5- Misty: This item now has a slight faint trails of mist eminating from it, disapating after a few inches. Unless is being throw in which case it leaves a much longer trail that lasts for a few minutes.
       6- 
       7-
       8-
@@ -95,7 +101,7 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       price: 10000,
       description: `Roll a 1d8 and apply it to your item!
       1- (Curse)
-      2- (Curse)
+      2- Dire Therian (Binding-Curse): This item immediately warps around you or forces you to grip it. Once per month during the night of the full more you now transform into a giant animal, replacing it's stats and actions with it until the night is through.
       3- 
       4-
       5-

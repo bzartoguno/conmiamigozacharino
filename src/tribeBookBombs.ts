@@ -10,6 +10,12 @@ export const tribeBookBombs: Tribe = {
           "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
           "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
+          "Sup.",
+          "Welcome to Book Bombs, just keep it quite, some books might explode if you scream.",
+          "Mom and Dad said that I couldn't make it as a demolitist AND A library, well look at me now!",
+          "If you see a book on fire that's normal, all the books in here are fire proof.",
+          "Kid section to the left, teen section striaght ahead, adult section to the right, actual adult section for not two kids in a trench coat uppstairs.",
+          "Hey kid, I'm pretty sure one of my rival snuck in an actual cook book into my bookstore so I need your help so sniff it out. What I need from you? A DC 14 Deception check to sort through this mess. If you succeed, I’ll pay you 15 gp. If you fail, well we may have opened up a book bomb and you take 20 points of fire damge and I pay you 50 gp for your touble.",
           ],
   items: [
     {

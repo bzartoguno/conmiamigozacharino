@@ -14,6 +14,12 @@ export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
           "Here’s a stamp challenge that rewards good teamwork and good timing. If a companion asks you for help, give them one quick, tactical suggestion, short, practical, but let them choose.  |  Stamp Quest (Support the Roll): Give another player a quick tactical suggestion only if they ask for help. | Reward: 2 Stamps",
           "Small one, but it makes parties feel like parties: I’ve got a stamp challenge for you. Give one of your companions a fitting nickname and see if you can get them to answer to it at least once.  |  Stamp Quest (Nickname): Give one PC a fitting nickname and get them to respond to it at least once. | Reward: 4 Stamps",
           "I like when groups feel like they’ve actually shared a life together. Here’s a stamp challenge for that: invent a tiny shared detail with a companion, something simple you ‘both went through, or ‘both can’t stand’, and get them to agree to it in-character.  |  Stamp Quest (Shared Backstory): Create a tiny new shared detail with another PC ('We both hate…', 'We once…') and get them to agree in-character. | Reward: 5 Stamps",
+          "Welcome to the Blossom Hotel, we hope you have a fantasic stay!",
+          "Thank you for choosing Blossom Hotel, we promise that no one will break into your room at night, unlike some other establisments.",
+          "For pations Pool hours are 5am-11pm.",
+          "Oh sorry I was just reading a book, I'll be right with you.",
+          "Hey you want a cookie? Our chef baked to many and we are trying to get rid of them before pack of Cookie Monsters sneaks in here.",
+          "Oh shoot I forgot to run towels down to the pool. And I can't quite leave the desk right now... Hey if your willing to give me a hand I'll make it worth your while! All I need is a DC 14 Stealth check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, well I'm sorry you dropped the towls but I'll pay you 5 gp.",
           ],
   items: [
     {

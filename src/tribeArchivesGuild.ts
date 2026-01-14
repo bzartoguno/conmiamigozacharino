@@ -10,6 +10,12 @@ export const tribeArchivesGuild: Tribe = {
           "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
           "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
+          "I am Andrew model 2.179999, the previous model of Andrew would crash if you asked a paradox problem. Please don't ask me a paradox problem. I will cry.",
+          "I have been told to tell customers that they are a 'Good boy' or 'Good girl'. But I never get told that, becuase most people see me as an object then a thinking automaton.",
+          "01000010 01101111 01101111 00100001",
+          "I use to be a toaster, but then I was scrapped. Becuase I acidently cooked it too long, once.",
+          "Thank you for choosing the Archives Guild, my master hope to catalog and organize everything. There a bit on the spectrum, but I was told not to say that. Please ignore that last bit.",
+          "Hello customer would you like to make some quick coin? If so can you please help me inspect this strange rock that was given to me recently? If you could make a DC 14 Investigation check to help me that would be just great. If we are succeed, I’ll pay you 50 gp. If we fail, I'll pay you 25 gp for wasting your time.",
           ],
   items: [
     {

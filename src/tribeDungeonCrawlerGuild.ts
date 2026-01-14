@@ -2,7 +2,7 @@ import { Tribe } from "./types";
 
 export const tribeDungeonCrawlerGuild: Tribe = {
   name: "Dungeon Crawler Guild",
-  owner: "Doug",
+  owner: "Doug Doug",
   percentAngry: 0,
   priceVariability: 5,
   insults: [
@@ -10,6 +10,12 @@ export const tribeDungeonCrawlerGuild: Tribe = {
           "Since you look like the capable sort, I’ll share one of our stamp challenges. It rewards teamwork over heroics. Next time trouble starts, set up a simple two-person combo with a companion, nothing fancy, just coordinated.  |  Stamp Quest (Tag-Team): Coordinate a 2-person combo in combat (grapple + shove, distraction + sneak, buff + big hit, etc.). | Reward: 5 Stamps",
           "I’ve got a small stamp challenge that’s been good for keeping parties sharp and in sync. When a companion offers an idea, don’t just agree, add to it. Build on what they said and keep the momentum going.  |  Stamp Quest (Yes, And): Say 'Yes, and-' (or the spirit of it) to another player’s idea and build on it. | Reward: 3 Stamps",
           "Alright, here’s a fun little stamp challenge purely for morale. Pick a light accent or a harmless speech quirk and use it in a couple of conversations  |  Stamp Quest (Tiny Accent): Use a very light accent or speech quirk for two separate conversations. If the DM calls it out, fail. | Reward: 3 Stamps",
+          "Hi I'm Doug Doug and this is my familiar Rosa the sea otter! Welcome to the Dungeon Crawler Guild where we raise up new adventures in relitive safty!",
+          "I once went through a dungeon were 10 wheels of cheese spawn in every second, man that was fun.",
+          "Sometime I hear a bunch of voices in my head, calling me bald. I started calling them twitch chat, I'm not crazy. I was tested, turns out I was actually being huanted, I get get rid of them.",
+          "Babaga-boosh!",
+          "The darkness is really getting to me.",
+          "Hey you look like you'd like to dive into danger head first! My partner Parker, is taking a little bit to get here and there's an adventuring party in the dungeon coming up the stairs but one of them hurt there leg. If it's not to much touble some help? You just need to help me with DC 14 Acrobatics check get this guy up the stairs. If you succeed, I’ll pay you 23 gp. If you fail, you kind of dropped the guy a few times and that wasn't very nice so I'll pay you 8 gp for your time.",
           ],
   items: [
     {

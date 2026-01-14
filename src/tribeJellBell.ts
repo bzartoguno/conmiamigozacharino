@@ -11,6 +11,7 @@ export const tribeJellBell: Tribe & { items: JellBellItem[] } = {
   priceVariability: 8,
   insults: [
           "Any pets or mounts you receive will start may babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "give me a DC 14 Performance check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
           ],
   items: [
     {
