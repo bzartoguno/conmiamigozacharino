@@ -40,7 +40,7 @@ export const tribeArchivesGuild: Tribe = {
     },
     {
       name: "Sell a Legendary Item",
-      price: 500000,
+      price: 50000,
       description: "Legendary items are objects that are nearly impossible to find and usually have a powerful magical effect.",
     },
     {

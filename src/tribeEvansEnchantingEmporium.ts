@@ -44,11 +44,11 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     {
       name: "Remove Enchantment",
       price: 50,
-      description: "With the fact being that each time can only hold one enchantment sometimes you need to remove it. Safely lift a lingering enchantment without harming the item, so long as it's not cursed.",
+      description: "With the fact being that each time can only hold one enchantment sometimes you need to remove it, so long as it's not cursed.",
     },
     {
       name: "Common Enchantment",
-      price: 10,
+      price: 100,
       description: `Roll a 1d20 and apply it to your item!
       1- Spontaneous Combustion (Curse): This item will explode when it break, dealing 2d10+5 fire damage.  
       2- Magnetic Attraction (Curse): Metal objects within 5 feet will slowly be pulled towards this item if they are lighter, but if they are heavier this item will be attached to it instead.  
@@ -66,58 +66,58 @@ export const tribeEvansEnchantingEmporium: Tribe & {
     },
     {
       name: "Uncommon Enchantment",
-      price: 100,
+      price: 200,
       description: `Roll a 1d12 and apply it to your item!
       1- C-c-cold (Curse): This item when in a persons inventory will lower their AC by 1 for every hour they hold it (Max of 5)
       2- H-h-hot (Curse): This item when in a persons inventory for every turn you don't move to a new spot you take 1d4 fire damge, this item isn't active when the sun sets.
       3- Hit me baby one more time! (Curse): Whenever you deal damge with this item the target heals 1d4 and the target has disadvantage on all saving throws for the next 10 mintues.
-      4- Therian (Binding-Curse): This item immediately warps around you or forces you to grip it. Once per month during the night of the full more you now transform into an animal, replacing it's stats and actions with it until the night is through.
+      4- Therian (Binding-Curse): This item immediately warps around you or forces you to hold it any attemps to remove only causes it to move else where on your body. Once per month during the night of the full more you now transform into an animal, replacing it's stats and actions with it until the night is through.
       5- Misty: This item now has a slight faint trails of mist eminating from it, disapating after a few inches. Unless is being throw in which case it leaves a much longer trail that lasts for a few minutes.
-      6- 
-      7-
-      8-
-      9-
-      10-
+      6- Return: This item can be teleported to the owners hands as a bonus action if it is less then a half a mile away.
+      7- +1: This is now a +1 item.
+      8- Sure-Footed: While this item is on your person, you have advantage on saving throws and checks to avoid being knocked prone, shoved, or forcibly moved.
+      9- Steady Mind: While this item is on your person, you have advantage on Constitution saving throws to maintain concentration on a spell.
+      10- Lucky Charm: While this item is on your person, once per long rest you can reroll a d20 roll you just made. You must use the new roll.
       11- 3rd level Based Enchantment: Pick a 3rd level spell from any class and apply it to this item this item only holds four charges and grains them after a long rest.
       12- 4th level Based Enchantment: Pick a 4th level spell from any class and apply it to this item this item only holds four charges and grains them after a long rest.`,
     },
     {
       name: "Rare Enchantment",
-      price: 1000,
+      price: 300,
       description: `Roll a 1d10 and apply it to your item!
-      1- (Curse)
-      2- (Curse)
-      3- (Curse)
-      4- 
-      5-
-      6-
-      7-
-      8-
+      1- Blood Price (Binding-Curse): This item immediately warps around you or forces you to hold it any attemps to remove only causes it to move else where on your body. the first time each day you roll a natural 1 on any d20 roll, you take 2d6 necrotic damage.
+      2- Whispers Under Glass (Curse): While this item is on your person, you have disadvantage on Dexterity (Stealth) checks, and you cannot speak above a whisper unless you take 1 psychic damage (your choice each time).
+      3- Bad Habit (Curse) Well you stat a bad habit, I'm leaving it up to you for what that is. So long as you have this item you have that habit.
+      4- +2: This is a plus two item.
+      5- Sharpness (Weapon only): Add an addintional damage dice to this item.
+      6- The spirit of Chad protects me: While this item is on your person, once per short rest when you take damage you can use your reaction to reduce that damage by 1d10 + your proficiency bonus.
+      7- Tremor Sense: Once per long rest, while this item is on your person, you gain tremorsense out to 30 feet for 1 hour (you sense vibrations through the ground)
+      8- Spellward: While this item is on your person, once per long rest when you fail a saving throw against a spell you can choose to succeed instead.
       9- 5th level Based Enchantment: Pick a 5th level spell from any class and apply it to this item this item only holds three charges and grains them and grains them after after seven days.
       10- 6th level Based Enchantment: Pick a 6th level spell from any class and apply it to this item this item only holds three charges and grains them after and grains them after after seven days.`,
     },
     {
       name: "Very Rare Enchantment",
-      price: 10000,
+      price: 500,
       description: `Roll a 1d8 and apply it to your item!
-      1- (Curse)
+      1- Abyssal Corruption (Binding-Curse): This item binds to you. Each at the start of each day roll a 1d6. On a 1, for the next 10 minutes something else takes control. The DM controls your choices during this time, but cannot make you harm yourself on purpose.
       2- Dire Therian (Binding-Curse): This item immediately warps around you or forces you to grip it. Once per month during the night of the full more you now transform into a giant animal, replacing it's stats and actions with it until the night is through.
-      3- 
-      4-
-      5-
-      6-
+      3- +3: This is a three item
+      4- Sharpness 2 (Weapon only): Add 2 addintional damage dice to this item.
+      5- Inferno Soul: While this item is on your person, you are immune to fire damage.
+      6- Iron Will: While this item is on your person, you have advantage on saving throws against being charmed, frightened, paralyzed, or stunned.
       7- 7th level Based Enchantment: Pick a 7th level spell from any class and apply it to this item this item only holds two charges and grains them after after fourteen days.
       8- 8th level Based Enchantment: Pick a 8th level spell from any class and apply it to this item this item only holds two charges and grains them after after fourteen days.`,
     },
     {
       name: "Legendary Enchantment",
-      price: 100000,
+      price: 50000,
       description: `Roll a 1d6 and apply it to your item!
-      1- (Curse)
-      2- 
-      3-
-      4-
-      5-
+      1- Fate's Fool (Binding-Curse): ???
+      2- +5: this is a item
+      3- Sharpness 4 (Weapon only): Add four addintional damage dice to this item.
+      4- Primal Companion: Once per day you may cast a moidied find familiar spell, but it may be a celestial being (such as a cherub or couatl), demonic being (such as a devil or demon), void being (???a or ???b), or an oblivion being (???c or ???d). These being are far strong then they may appear
+      5- Sentient: This item is now Sentient and doesn't take up a compainion slot if effects may vary.
       6- 9th level Based Enchantment: Pick a 9th level spell from any class and apply it to this item this item only holds one charges and grains them after after twenty one days.`,
     },
     {

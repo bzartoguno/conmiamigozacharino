@@ -20,7 +20,7 @@ export const tribeSupremeSmithy: Tribe = {
   items: [
     {
       name: "Sam's Buckler",
-      description: "Shield, +1 AC & +1 to your Raw Dex Score (Not modifier)",
+      description: "Shield, +1 AC & +1 to your Raw Dex Score (Not modifier, to a max of 20)",
       price: 25,
     },
     {
