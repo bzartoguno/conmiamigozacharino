@@ -14,19 +14,24 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
           "Here’s a stamp challenge that rewards good teamwork and good timing. If a companion asks you for help, give them one quick, tactical suggestion, short, practical, but let them choose.  |  Stamp Quest (Support the Roll): Give another player a quick tactical suggestion only if they ask for help. | Reward: 2 Stamps",
           "Small one, but it makes parties feel like parties: I’ve got a stamp challenge for you. Give one of your companions a fitting nickname and see if you can get them to answer to it at least once.  |  Stamp Quest (Nickname): Give one PC a fitting nickname and get them to respond to it at least once. | Reward: 4 Stamps",
           "I like when groups feel like they’ve actually shared a life together. Here’s a stamp challenge for that: invent a tiny shared detail with a companion, something simple you ‘both went through, or ‘both can’t stand’, and get them to agree to it in-character.  |  Stamp Quest (Shared Backstory): Create a tiny new shared detail with another PC ('We both hate…', 'We once…') and get them to agree in-character. | Reward: 5 Stamps",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "give me a DC 14 Medicine check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "Oh my you are quite a way from home now, please take a seat, I'll put a cup of tea then we can get down to buisness shall we? Cream? Honey? Mint? Roobies? Whatever you like.",
+          "I'm not much of a theatrical vampire like you might expect, before all this I was actaully an accountant.",
+          "You will eventually discover that under the movie stereotypes, imposed mystique, and overall inflated expectations, each and every one of us is at least a touch more boring than our images would indicate. And that is not a bad thing.",
+          "They say money can't buy happiness, but it sure can buy a lot of blood bags. However here at N.M.E. we perfer to take from the source then a thrid party.",
+          "Hello please come and take a seat, this is N.M.E. where we make sure that your life is worth giving. Now tell me how can we help you?",
+          "I am so terrible sorry I looks like it may have bit of problem opening up this blood bag, if I could get some help opening this up that would be wonderful. Please make a DC 14 Medicine check to pop this open. If you succeed, I’ll give you a Supreme Healing Potion (Heals 10d4+20). If you fail, worry about I'll focus on it when you leave and I'll give you a Healing potion (Heals 2d4+2) for your trouble.",
           ],
   items: [
     {
-      name: "Blood for Knowledge",
+      name: "Blood for Power",
       price: 0,
-      priceText: "10-50 Permanent HPs",
-      description: "Trade lasting vitality for forbidden lore from Fred's archives.",
+      priceText: `New raw score 20 → 10% of current max HP
+                  New raw score 21–22 → 15% of current max HP
+                  New raw score 23–24 → 20% of current max HP
+                  New raw score 25–26 → 25% of current max HP
+                  New raw score 27–28 → 30% of current max HP
+                  New raw score 29–30 → 35% of current max HP`,
+      description: "We drain your blood in exchange we boost a single stat beyond normal means.",
     },
     {
       name: "Blood for Power",

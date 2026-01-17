@@ -19,6 +19,11 @@ export const tribeArchivesGuild: Tribe = {
           ],
   items: [
     {
+      name: "Sell a Trash Item",
+      price: 25,
+      description: "Trash items are items that you guys picked up and forgot to use or don't remember why you have it or what it does, and NO WE DO NOT TAKE MERCHANDISE FROM OTHER SHOPS.",
+    },
+    {
       name: "Sell a Common Item",
       price: 100,
       description: "Common items are everyday objects that are easily found, and NO WE DO NOT TAKE MERCHANDISE FROM OTHER SHOPS.",

@@ -78,7 +78,7 @@ export const tribeGolemWorkshop: Tribe & { items: GolemWorkshopItem[] } = {
       name: "Build a Base",
       price: 0,
       priceText: "Varies",
-      description: "Full-site planning, from anchor stones to final battlements.",
+      description: "Talk to DM for more info.",
     },
   ],
 };
