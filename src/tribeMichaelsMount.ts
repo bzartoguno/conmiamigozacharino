@@ -10,14 +10,17 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
   percentAngry: 0,
   priceVariability: 6,
   insults: [
-          "Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
           "Hey, if you’re willing to get your hands a bit dirty, I could use help cleaning out the stables where I keep the more wild animals. They can get a bit jumpy, so give me a DC 12 Wisdom (Animal Handling) check to keep them relaxed while you work. If you succeed, I’ll pay you 60 gp. If you fail, you take 5 point of damage and get 10 gp.",
           ],
   items: [
     {
       name: "War horse",
       price: 500,
-      description: `(Speed Mount)
+      description: `
+      Type of Companion: Gathers (After you have proven that you can gather certain types of materials, you can send this NPC to gather that material for you instead of going yourself, not sure how but they can.)
       Size: Large (2x1)
       Creature Type: Beast (Mount)
       Armor Class: 13
@@ -45,7 +48,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Woolly Mammoth",
       price: 700,
-      description: `(Defensive Mount)
+      description: `
+      Type of Companion: Helpers (This NPC boost either skills, stats, or how you might defend yourself)
       Size: Huge (2x3)
       Creature Type: Beast (Mount)
       Armor Class: 17
@@ -73,7 +77,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Velociraptor",
       price: 600,
-      description: `(Attack Mount)
+      description: `
+      Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
       Size: Medium
       Creature Type: Beast (Mount)
       Armor Class: 14
@@ -101,7 +106,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Plesiosaurus",
       price: 300,
-      description: `(Defensive Mount)
+      description: `
+      Type of Companion: Helpers (This NPC boost either skills, stats, or how you might defend yourself)
       Size: Large (2x1)
       Creature Type: Beast (Mount)
       Armor Class: 16
@@ -129,7 +135,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Dolphin Delighter",
       price: 350,
-      description: `(Attack Mount)
+      description: `
+      Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
       Size: Medium
       Creature Type: Beast (Mount)
       Armor Class: 14
@@ -157,7 +164,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Pegasus",
       price: 1000,
-      description: `(Speed Mount)
+      description: `
+      Type of Companion: Gathers (After you have proven that you can gather certain types of materials, you can send this NPC to gather that material for you instead of going yourself, not sure how but they can.)
       Size: Large (2x1)
       Creature Type: Celestial (Mount)
       Armor Class: 12
@@ -185,7 +193,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Hippogriff",
       price: 800,
-      description: `(Defensive Mount)
+      description: `
+      Type of Companion: Helpers (This NPC boost either skills, stats, or how you might defend yourself)
       Size: Large (2x1)
       Creature Type: Celestial (Mount)
       Armor Class: 11
@@ -213,7 +222,8 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
     {
       name: "Baby Purple Worm",
       price: 1700,
-      description: `(Attack Mount)
+      description: `
+      Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
       Size: Huge (3x4)
       Creature Type: Monstrosity (Mount)
       Armor Class: 17

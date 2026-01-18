@@ -21,7 +21,7 @@ export const tribeSilentOath: Tribe = {
     {
       name: "Intel Gathering Contract",
       price: 100,
-      description: "Similar to surveillance but you get more detailed information about the target including habits, secrets, and possible weaknesses.",
+      description: "Similar to surveillance but you get more detailed information about the target including habits, secrets, and possible weaknesses. Only if they are with this town, the one over next, or are pretty popular If it not in our range you'll get a 90% refund. Only Sleuth University does cross continental tracking and we don't want to step on their terf.",
     },
     {
       name: "Safe Passage Contract",
@@ -31,22 +31,22 @@ export const tribeSilentOath: Tribe = {
     {
       name: "Curse & Hex Contract",
       price: 300,
-      description: "",
+      description: "We put a nasty Curse or hex on them, just leave the details with us and we'll see what we can do. If it not in our range you'll get a 90% refund.",
     },
     {
       name: "Disposal Contract",
       price: 400,
-      description: "",
+      description: "Got a body you don't want anyone to ever see again? Hand it over with the gold and we'll make sure no one ever finds it.",
     },
     {
       name: "Assassination Contract",
       price: 1500,
-      description: "",
+      description: "Yes it's what it sounds like, though this is just our base price. The more powerful the person is like a noble or a rule we will oviouly pay more. You don't pay until we hash out the details.",
     },
     {
       name: "Surveillance Contract",
       price: 75,
-      description: "Tails the target for 1–3 days and delivers a written routine report (where they go, who they meet, when they’re alone).",
+      description: "Tails the target for 1–3 days and delivers a written routine report (where they go, who they meet, when they’re alone). Only if they are with this town, the one over next, or are pretty popular If it not in our range you'll get a 90% refund. Only Sleuth University does cross continental tracking and we don't want to step on their terf.",
     },
     {
       name: "Alibi Contract",

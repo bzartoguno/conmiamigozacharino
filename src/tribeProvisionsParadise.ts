@@ -131,7 +131,7 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Ye Old Slushy",
       price: 2,
-      description: "It's a regualer slushy, I just couldn't phase it to fit in a fantasy setting.",
+      description: "It's a regualer slushy, I just couldn't phase it to fit in a fantasy setting. Heals 1 HP but don't drink to many at once or you'll get a brain freeze.",
     },
     {
       name: "Candy bar",

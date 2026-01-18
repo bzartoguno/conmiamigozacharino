@@ -29,10 +29,12 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Intelligence & Wisdom
       
-      Con: May occasionally be overwhelmed by large crowds.`,
+      Con: May occasionally be overwhelmed by large crowds.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
-      name: "Jade (Teoran)",
+      name: "Jade (Teoran, Skilled Superhuman)",
       price: 0,
       description: `Jade is a quite person who prefers to stay in the background. He doesn't like to talk at all he'll just nod or shake his head. Though he does have a knack for being in the right place at the right time for protecting his charges.
       
@@ -42,7 +44,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Strength & Constitution
       
-      Con: Jade has a fear of large bodies water like lakes, rivers, and oceans.`,
+      Con: Jade has a fear of large bodies water like lakes, rivers, and oceans.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Johnny boi (Dwarf)",
@@ -57,7 +61,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Constitution & Wisdom
       
-      Con: Depending on how fluffy the creature is Johnny may care more about it then you.`,
+      Con: Depending on how fluffy the creature is Johnny may care more about it then you.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Kip, Mapach (Humanoid Racoon)",
@@ -70,7 +76,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stat: +4 Charisma
       
-      Con: Kip is easily distracted by shiny objects and may become drawn towards on them for a short time.`,
+      Con: Kip is easily distracted by shiny objects and may become drawn towards on them for a short time.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Phil & Bill (Faries)",
@@ -85,7 +93,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Dexterity & Wisdom
       
-      Con: They only response if you talk to them in a mobster accent.`,
+      Con: They only response if you talk to them in a mobster accent.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Warlock Homes (Human)",
@@ -100,7 +110,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stat: +4 Intelligence 
       
-      Con: Will call everyone 'Watson' regardless of their name.`,
+      Con: Will call everyone 'Watson' regardless of their name.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Wilford, Tortle (Humanoid turtle)",
@@ -113,7 +125,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Wisdom & Charisma
       
-      Con: Wilford is quite old and increases travel time between cities and towns by 2 days, regardless of distance.`,
+      Con: Wilford is quite old and increases travel time between cities and towns by 2 days, regardless of distance.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Sancho, Cyclop (One eyed giant)",
@@ -126,7 +140,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stat: +6 Strength
       
-      Con: Sancho really likes hugs and may attempt to hug anyone when he people tell him that he did a good job.`,
+      Con: Sancho really likes hugs and may attempt to hug anyone when he people tell him that he did a good job.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Destry, (Half wood elf)",
@@ -139,7 +155,9 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +2 Dexterity & Constitution
       
-      Con: Destry has a habit of calling everyone partner and claims that her gun talks to her.`,
+      Con: Destry has a habit of calling everyone partner and claims that her gun talks to her.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
     {
       name: "Rick Shades, (Changling)",
@@ -152,7 +170,39 @@ export const tribeFindAFriend: Tribe = {
       
       Highest Stats: +1 Strength, Dexterity, & Constitution
       
-      Con: Rick can be a bit overenthusiastic about making new friends and may make several foe paws if he has a chance to make a new friend.`,
+      Con: Rick can be a bit overenthusiastic about making new friends and may make several foe paws if he has a chance to make a new friend.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
+    },
+    {
+      name: "A. Joe [Average Joe], (Goliath)",
+      price: 0,
+      description: `Joe is quite normal looking, he lookes a bit bland in all honest. Tho his is filled with wonderlust he want to enjoy them with other at his side instead of being off on his own.
+      
+      Type of Companion: Wildcard (Can swap to any type of Companion at any time.)
+      
+      Special Abilities: A bit about everything (Joe can pull on a well of knowlegde and instantly know the average amount any given person would know in that feild of study, inlcuding; medicine, sword fighting, spell work, smithing, city building, etc)
+      
+      Highest Stats: +1 Intelligence, Wisdom, & Charisma
+      
+      Con: Joe is a bit quite becuase well whenever he get courious he goes on what he calls a 'wiki rabbit hole deep dive' no clue what it means so just keep touching base with him to make sure his head isn't off in the clouds.
+      
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
+    },
+    {
+      name: "Murphy, (Jinx, extremely unluck human)",
+      price: 0,
+      description: `Murphy is a bit of a optimist, things have never gone well for Murphy nor will they, becuase the universe hates every Jinx, including Murphy. I can not discribe the rube goldberg machine that come together to kick Murphy down the stairs or comically throwing a pie in his face. But through it all Murphy keeps on smiling. 
+      
+      Type of Companion: Wildcard (Can swap to any type of Companion at any time.)
+      
+      Special Abilities: Uno Revesre! (Once per session you may make a Nat 1 become a Nat 20 or a Nat 20 become a Nat 1! However this effect stays in play for the rest of the session.)
+      
+      Highest Stats: NA
+      
+      Con: Just being near Murphy is a bad idea, thankfully they always have a bag on hand with just what they need to barely get out of the situation.
+
+      Remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one.`,
     },
   ],
 };

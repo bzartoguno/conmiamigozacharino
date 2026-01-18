@@ -38,48 +38,31 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
       price: 0,
       priceText: `Minor Dirt: 10% of current max HP (discounts, small favors)
                   Major Dirt: 15% of current max HP (big discounts, access, cover-ups)
-                  Ruinous Dirt: 20% of current max HP (force cooperation in serious scenes)
+                  Ruinous Dirt: 20% of current max HP (force cooperation in serious situcatiuon)
                   Life-Ruiner: 25% of current max HP (NPC-shaping leverage)`,
       description: "After living for so long we have aquired a little bit of dirt on every, care to take a look?",
     },
     {
       name: "Blood for An Endless Elixir",
       price: 0,
-      priceText: "Loss of 5-25 Permanent HPs",
-      description: "Bleed into a vial that never runs dry—at a price to your lifeforce.",
+      priceText: "25% of current max HP (Rounded up)",
+      description: "Pour any potion into this bottle to imprint it (potion is consumed). Bottle holds 1 imprint at a time. The bottle refills only when empty and only after 10 minutes of uninterrupted calm (no refill during initiative). This item takes 10 mins to refill completely. To clear the current imprinted potion take a point of damge and drop some blood in there and wait 10 mins then you may imprint a new potion into this item.",
     },
     {
       name: "Blood for Spectral Servant",
       price: 0,
-      priceText: "Loss of 5-25 Permanent HPs",
-      description: "Summon a bound spirit to serve, fueled by your own blood.",
-    },
-    {
-      name: "Blood for Legendary Artifact",
-      price: 0,
-      priceText: "Loss of 15-35 Permanent HPs",
-      description: "Secure an artifact of legend by pledging a deeper sacrifice.",
-    },
-    {
-      name: "Random Illegal Blueprint",
-      price: 50,
-      description: "Schematics too risky for open markets, offered discreetly.",
-    },
-    {
-      name: "Random Illegal Weapons",
-      price: 100,
-      description: "A surprise weapon smuggled from forbidden caches.",
+      priceText: `Base Cast (Cantrip): 1 Spectral Servant (Concentration)
+                  Upcast (Spell Slot): +1 additional Servant per spell slot level used
+                  Example: 1st = 2 Servants, 2nd = 3 Servants, 3rd = 4 Servants, etc.
+                  Command: Bonus action to move (30 ft fly/hover) + interact with an object (150 lb)
+                  Help (Combat): A Servant may take the Help action, then immediately dissipates
+                  Limit: Only 1 Servant created by this spell can grant Help per round`,
+      description: "We teach you a forbidden blood-rite. You learn the Spectral Servant cantrip, and you may pour spell slots into it to spawn more servants. They can’t attack, can’t use magic items, and exist to carry, fetch, open, pour, and deliver packages.",
     },
     {
       name: "Scroll of True Resurrection",
       price: 150000,
-      description: "A rare scroll capable of restoring the fallen—if you dare pay.",
-    },
-    {
-      name: "Random Illegal Contraptions",
-      price: 0,
-      priceText: "150-2,000 Gold",
-      description: "Unpredictable devices with prices to match their volatility.",
+      description: "You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. If the creature’s soul is free and willing, the creature is restored to life with all its hit points. This spell closes all wounds, neutralizes any poison, cures all diseases, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. The spell can even provide a new body if the original no longer exists, in which case you must speak the creature’s name. The creature then appears in an unoccupied space you choose within 10 feet of you.",
     },
   ],
 };

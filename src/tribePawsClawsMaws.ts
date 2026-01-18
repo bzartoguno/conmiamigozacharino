@@ -10,14 +10,17 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
   percentAngry: 0,
   priceVariability: 6,
   insults: [
-          "Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
+          "These count as compaions and remember you can only have one companion at time, if you have more then one you will need to send them to your base/home. If that's not possible then you can't get one. Any pets or mounts you receive will start as babies or children, and I thought having you grow alongside you as you progress in your journey would be fun. Let me know before or after a session if you'd like your little buddy to age up. I want this to be an enjoyable experience for both of us. Keep this in mind: when they do grow up, their maximum health will double as they grow, and all stats will get plus in every raw stat 2. Finally, they'll gain an extra 5 in whatever type of movement they have. Remember that younger companions also have a better chance of learning new actions or getting unique effects, like consistently consuming strength potions. Your baby can hold more passengers or has a +6 strength stat while it's just a little guy.",
           "Hey, if you’re willing to get your hands a bit dirty, I could use help cleaning out the back where I keep the more untamed animals. They can get a little jumpy, so give me a DC 14 Animal Handling check to keep them calm while you work. If you succeed, I’ll pay you 50 gp. If you fail, you take 1 point of damage and get 15 gp.",
           ],
   items: [
     {
       name: "Baby Basilisk",
       price: 100,
-      description: ` (Baby Basilisk)
+      description: `
+        Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
         Size: Small
         Creature Type: Beast 
         Armor Class: 13
@@ -43,7 +46,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Chimera Chick",
       price: 100,
-      description: `(Attack pet)
+      description: `
+        Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
         Size: Small
         Creature Type: Aberration 
         Armor Class: 12
@@ -69,7 +73,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Displacer Kitten",
       price: 100,
-      description: `(Support Pet)
+      description: `
+        Type of Companion: Helpers (This NPC boost either skills, stats, or something else)
         Size: Small
         Creature Type: Monstrosity 
         Armor Class: 15
@@ -95,7 +100,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Faerie Chest Weasel",
       price: 100,
-      description: `(Support Pet)
+      description: `
+        Type of Companion: Helpers (This NPC boost either skills, stats, or something else)
         Size: Tiny
         Creature Type: Fey 
         Armor Class: 14
@@ -121,7 +127,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Griffon Egg",
       price: 100,
-      description: `(Attack Pet)
+      description: `
+        Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
         Size: Small
         Creature Type: Monstrosity 
         Armor Class: 12
@@ -147,7 +154,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Mimic Spawn",
       price: 100,
-      description: `(Support Pet)
+      description: `
+        Type of Companion: Helpers (This NPC boost either skills, stats, or something else)
         Size: Small
         Creature Type: Monstrosity 
         Armor Class: 13
@@ -173,7 +181,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Owlbear Cub",
       price: 100,
-      description: `(Attack Pet)
+      description: `
+        Type of Companion: Bodyguard (This is a combat NPC who will fight alongside you making fights slightly easier.)
         Size: Small
         Creature Type: Beast 
         Armor Class: 13
@@ -199,7 +208,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Phantom Mouse",
       price: 100,
-      description: `(Support Pet)
+      description: `
+        Gathers (After you have proven that you can gather certain types of materials, you can send this NPC to gather that material for you instead of going yourself, not sure how but they can.)
         Size: Tiny
         Creature Type: Undead 
         Armor Class: 15
@@ -225,7 +235,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Pseudodragon Tyke",
       price: 100,
-      description: `(Support Pet)
+      description: `
+      Type of Companion: Helpers (This NPC boost either skills, stats, or something else)
       Size: Tiny
       Creature Type: Dragon 
       Armor Class: 14
@@ -251,7 +262,8 @@ export const tribePawsClawsMaws: Tribe & { items: PawsClawsMawsItem[] } = {
     {
       name: "Shadow Pup",
       price: 100,
-      description: `(Attack Pet)
+      description: `
+      Gathers (After you have proven that you can gather certain types of materials, you can send this NPC to gather that material for you instead of going yourself, not sure how but they can.)
       Size: Small
       Creature Type: Beast 
       Armor Class: 13
