@@ -10,12 +10,12 @@ export const tribeIconicDragonic: Tribe = {
           "Not everything’s about supplies and coin; sometimes it's more about the journey before your destination. Here’s a stamp challenge we give to adventurers to help keep things lively: ask one of your companions what they really want out of this adventure, and get an honest answer.  |  Stamp Quest (What Do You Want?): Ask another PC about their personal goal (revenge, treasure, love, knowledge, etc.) and get a genuine answer. | Reward: 5 Stamps",
           "Fair deals keep groups together. I’ve got a stamp challenge that encourages that sort of thinking. Offer a companion a fair trade, something you both actually want. If they accept, you’ve earned it.  |. Stamp Quest (Trade Offer): Propose a fair trade with another PC (not a gift). If they accept, you succeed. | Reward: 4 Stamps",
           "One last thing, this one’s simple, but it changes the mood fast. When someone in your group has a big moment, good or bad, react in-character and make it memorable. Do it a few times if the opportunity shows up.  |  Stamp Quest (Hype Crew): When someone rolls big (good or bad), react in-character to make it memorable. | Reward: 2 Stamps (repeatable, max 3)",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "give me a DC 14 Arcana check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "I know this might seem pretty far out to you but I'm actually not from this planet, I use to be with a group legendary heros! But then I spend too long on end of an end of a portal that got severed and now I'm working my way back to them on planet at a time.",
+          "This is Iconic Dragoic where we got the goods that will make you a cut above the rest!",
+          "I miss Jazz, Adel, Portal Pat, and Annabel. Sometimes I go back to my journal and read through the adventures I had with them, but others I struggle to remember their faces.",
+          "You know I've working on a mechnical dragon down in the basement, so that way I will be to actually stand amoung them one day.",
+          "Do you know how many people try to break in and steal this stuff? A lot but have any ever gotten away with it? None, it's a fun trick I learned from my old party, go ahead try it.",
+          "Woah there be carful I just had a theif try and break in here. I'm resetting the traps. If you could give me a hand with this floor board to the knee trap I'd greatly appreate it. Make a DC 14 Arcana check to help rest it. If you succeed, I’ll pay you 40 gp. If you fail, you take 10 point of bludgeoning damage and get 45 gp.",
           ],
   items: [
     {

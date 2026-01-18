@@ -10,12 +10,12 @@ export const tribeFindAFriend: Tribe = {
           "Since you look like the capable sort, I’ll share one of our stamp challenges. It rewards teamwork over heroics. Next time trouble starts, set up a simple two-person combo with a companion, nothing fancy, just coordinated.  |  Stamp Quest (Tag-Team): Coordinate a 2-person combo in combat (grapple + shove, distraction + sneak, buff + big hit, etc.). | Reward: 5 Stamps",
           "I’ve got a small stamp challenge that’s been good for keeping parties sharp and in sync. When a companion offers an idea, don’t just agree, add to it. Build on what they said and keep the momentum going.  |  Stamp Quest (Yes, And): Say 'Yes, and-' (or the spirit of it) to another player’s idea and build on it. | Reward: 3 Stamps",
           "Alright, here’s a fun little stamp challenge purely for morale. Pick a light accent or a harmless speech quirk and use it in a couple of conversations  |  Stamp Quest (Tiny Accent): Use a very light accent or speech quirk for two separate conversations. If the DM calls it out, fail. | Reward: 3 Stamps",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Give me a DC 14 Insight check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "Hello Deary, have you come to adopt an introvert or are you just looking?",
+          "I beg your parten just finishing up an aunte patty pie.  I mean there's no reason why you can't eat pie at every meal. they make fruit pies, vegetable pies, meat pies meat substitute pies, desert pie. I mean pies easily cover all your necessary nutrient groups they even make cake pies! The only reason not to switch over to pies entirely is becuase well pies suck! *She takes her plate with a half eaten slide of pie and dumps it in the trash.*",
+          "This shop has been around for about two hundred years now, In fact I use to be a tenet here, then I go adopted and became a bit of an extrovert and look at me now! I run this place!",
+          "Hi there! Welcome to Find a Friend where we do out best to find shut in people to be apart of your friend group please take a look at these files and let me know what you think!",
+          "It's so fun to take the introverts on my errands I pull out my donut rope and they each take hold and I get to walk around town and I feel like the coolest grandma in town. It's like walking around with a bunch of big scary dogs!",
+          "Woah there, you need to be very quiet one of my tenets is a bit rialed up at the moment and I can't quite put my finger on it. mmmm. If it's not to much trouble do you think you could give me a hand to figure this out? Give me a DC 14 Insight check to help me figure out what's wrong. If you succeed, I’ll pay you 5 gp. If you fail, well the mystery goes unsloved and get 5 gp.",
           ],
   items: [
     {
