@@ -102,16 +102,20 @@ export function InsultBox({
   const resolvedFontFamily = shopName
     ? insultFontByShop[shopName]
     : undefined;
+  const isPearlsPotions = shopName === "Pearl's Potions";
   const insultStyle = resolvedFontFamily
     ? ({
         ["--insult-font" as string]: resolvedFontFamily,
       } as const)
     : undefined;
+  const insultBoxClassName = isPearlsPotions
+    ? `${styles.insultBox} ${styles.pearlInsultBox}`
+    : styles.insultBox;
 
   return (
     <div className={className}>
       <div
-        className={styles.insultBox}
+        className={insultBoxClassName}
         role="status"
         aria-live="polite"
         style={insultStyle}
@@ -131,7 +135,7 @@ export function InsultBox({
                 ["--word-duration" as string]: `${wordDurationMs}ms`,
               }}
             >
-              {word}
+              <span className={styles.wordInner}>{word}</span>
             </span>
           ))}
         </span>
