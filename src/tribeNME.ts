@@ -25,25 +25,22 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
     {
       name: "Blood for Power",
       price: 0,
-      priceText: `New raw score 20 → 10% of current max HP
-                  New raw score 21–22 → 15% of current max HP
-                  New raw score 23–24 → 20% of current max HP
-                  New raw score 25–26 → 25% of current max HP
-                  New raw score 27–28 → 30% of current max HP
-                  New raw score 29–30 → 35% of current max HP`,
+      priceText: `New raw score 20 → 10% of current max HP (Rounded up)
+                  New raw score 21–22 → 15% of current max HP (Rounded up)
+                  New raw score 23–24 → 20% of current max HP (Rounded up)
+                  New raw score 25–26 → 25% of current max HP (Rounded up)
+                  New raw score 27–28 → 30% of current max HP (Rounded up)
+                  New raw score 29–30 → 35% of current max HP (Rounded up)`,
       description: "We drain your blood in exchange we boost a single stat beyond normal means.",
-    },
-    {
-      name: "Blood for Power",
-      price: 0,
-      priceText: "Loss of 5-25 Permanent HPs",
-      description: "Sacrifice strength to gain raw, volatile power.",
     },
     {
       name: "Blood for Blackmail",
       price: 0,
-      priceText: "Loss of 5-25 Permanent HPs",
-      description: "Offer your essence to secure leverage over rivals.",
+      priceText: `Minor Dirt: 10% of current max HP (discounts, small favors)
+                  Major Dirt: 15% of current max HP (big discounts, access, cover-ups)
+                  Ruinous Dirt: 20% of current max HP (force cooperation in serious scenes)
+                  Life-Ruiner: 25% of current max HP (NPC-shaping leverage)`,
+      description: "After living for so long we have aquired a little bit of dirt on every, care to take a look?",
     },
     {
       name: "Blood for An Endless Elixir",
