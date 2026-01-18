@@ -9,7 +9,7 @@ export const tribePearlsPotions: Tribe = {
           "Oh no another costmer! Please don't talk to me!",
           "H-h h how can I help. y-y you today?",
           "Pearl's potions i um... ugh... I forgot what I was going to say...",
-          "Please resectively, don't talk to me...",
+          "Please resectively, don't talk to me... I get scacred when people talk to me...",
           "...",
           "...",
           "...",
