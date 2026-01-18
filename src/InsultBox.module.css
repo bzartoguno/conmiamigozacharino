@@ -27,6 +27,10 @@
   gap: 0.4rem;
 }
 
+.pearlInsultBox .insultText {
+  color: rgba(255, 255, 255, 0.25);
+}
+
 .word {
   display: inline-block;
   opacity: 0;
@@ -35,9 +39,33 @@
   animation-delay: var(--word-delay, 0ms);
 }
 
+.wordInner {
+  display: inline-block;
+}
+
+.pearlInsultBox .wordInner {
+  animation: pearlShake 520ms ease-in-out infinite;
+}
+
 @keyframes wordPop {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pearlShake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, 0);
   }
 }
