@@ -61,6 +61,7 @@ export function JewelryGuild({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeJewelryGuild.owner}
           insults={tribeJewelryGuild.insults}
+          shopName={tribeJewelryGuild.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

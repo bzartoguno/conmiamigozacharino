@@ -47,6 +47,7 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeBookBombs.owner}
           insults={tribeBookBombs.insults}
+          shopName={tribeBookBombs.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

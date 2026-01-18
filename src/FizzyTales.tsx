@@ -59,6 +59,7 @@ export function FizzyTales({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeFizzyTales.owner}
           insults={tribeFizzyTales.insults}
+          shopName={tribeFizzyTales.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

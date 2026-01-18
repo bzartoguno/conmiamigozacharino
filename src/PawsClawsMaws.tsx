@@ -70,6 +70,7 @@ export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribePawsClawsMaws.owner}
           insults={tribePawsClawsMaws.insults}
+          shopName={tribePawsClawsMaws.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

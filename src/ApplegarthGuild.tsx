@@ -52,6 +52,7 @@ export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeApplegarthGuild.owner}
           insults={tribeApplegarthGuild.insults}
+          shopName={tribeApplegarthGuild.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => {

@@ -63,6 +63,7 @@ export function GolemWorkshop({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeGolemWorkshop.owner}
           insults={tribeGolemWorkshop.insults}
+          shopName={tribeGolemWorkshop.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

@@ -45,6 +45,7 @@ export function PearlsPotions({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribePearlsPotions.owner}
           insults={tribePearlsPotions.insults}
+          shopName={tribePearlsPotions.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

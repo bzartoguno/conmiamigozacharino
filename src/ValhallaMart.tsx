@@ -62,6 +62,7 @@ export function ValhallaMart({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeValhallaMart.owner}
           insults={tribeValhallaMart.insults}
+          shopName={tribeValhallaMart.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

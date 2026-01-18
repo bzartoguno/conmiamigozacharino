@@ -51,6 +51,7 @@ export function RunestoneRelay({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeRunestoneRelay.owner}
           insults={tribeRunestoneRelay.insults}
+          shopName={tribeRunestoneRelay.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
