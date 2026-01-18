@@ -50,6 +50,7 @@ export function FindAFriend({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeFindAFriend.owner}
           insults={tribeFindAFriend.insults}
+          shopName={tribeFindAFriend.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

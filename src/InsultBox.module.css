@@ -9,6 +9,7 @@
   gap: 0.35rem;
   padding: 0.85rem 1.15rem;
   font-weight: bold;
+  font-family: var(--insult-font, inherit);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   max-width: 780px;
   text-align: center;

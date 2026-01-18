@@ -63,6 +63,7 @@ export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeYeOldHomeDepot.owner}
           insults={tribeYeOldHomeDepot.insults}
+          shopName={tribeYeOldHomeDepot.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

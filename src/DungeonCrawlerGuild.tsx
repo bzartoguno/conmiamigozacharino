@@ -46,6 +46,7 @@ export function DungeonCrawlerGuild({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeDungeonCrawlerGuild.owner}
           insults={tribeDungeonCrawlerGuild.insults}
+          shopName={tribeDungeonCrawlerGuild.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

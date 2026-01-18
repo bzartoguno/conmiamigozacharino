@@ -56,6 +56,7 @@ export function ShopTemplate({
           className={styles.footerNote}
           owner={tribe.owner}
           insults={tribe.insults}
+          shopName={tribe.name}
         />
 
         <section className={styles.grid} aria-label="Available items">

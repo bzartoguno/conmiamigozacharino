@@ -66,6 +66,7 @@ export function SleuthUniversity({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeSleuthUniversity.owner}
           insults={tribeSleuthUniversity.insults}
+          shopName={tribeSleuthUniversity.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

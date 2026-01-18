@@ -46,6 +46,7 @@ export function ChangingChurch({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeChangingChurch.owner}
           insults={tribeChangingChurch.insults}
+          shopName={tribeChangingChurch.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

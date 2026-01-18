@@ -62,6 +62,7 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeJellBell.owner}
           insults={tribeJellBell.insults}
+          shopName={tribeJellBell.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

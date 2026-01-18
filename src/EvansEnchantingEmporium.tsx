@@ -71,6 +71,7 @@ export function EvansEnchantingEmporium({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeEvansEnchantingEmporium.owner}
           insults={tribeEvansEnchantingEmporium.insults}
+          shopName={tribeEvansEnchantingEmporium.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

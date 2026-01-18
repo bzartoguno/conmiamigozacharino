@@ -100,6 +100,7 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeMonsterMaker.owner}
           insults={tribeMonsterMaker.insults}
+          shopName={tribeMonsterMaker.name}
         />
 
         <div className={styles.categories}>

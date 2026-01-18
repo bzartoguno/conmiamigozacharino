@@ -63,6 +63,7 @@ export function BlossomHotel({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeBlossomHotel.owner}
           insults={tribeBlossomHotel.insults}
+          shopName={tribeBlossomHotel.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

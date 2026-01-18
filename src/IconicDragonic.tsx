@@ -56,6 +56,7 @@ export function IconicDragonic({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeIconicDragonic.owner}
           insults={tribeIconicDragonic.insults}
+          shopName={tribeIconicDragonic.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

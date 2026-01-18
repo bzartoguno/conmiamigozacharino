@@ -45,6 +45,7 @@ export function YeOldDonkey({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeYeOldDonkey.owner}
           insults={tribeYeOldDonkey.insults}
+          shopName={tribeYeOldDonkey.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

@@ -69,6 +69,7 @@ export function LabyrinthineLibrary({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeLabyrinthineLibrary.owner}
           insults={tribeLabyrinthineLibrary.insults}
+          shopName={tribeLabyrinthineLibrary.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (
