@@ -120,7 +120,7 @@ export const tribeSupremeSmithy: Tribe = {
     },
     {
       name: "Rust Resitant Oil bottle (small)",
-      description: "A small bottle of oil that protects metal from rust. If fact it makes Rust Monsters avoid your scent, but don't coat yourself becuase then everyone will smell it and you don't want that.",
+      description: "A small bottle of oil that protects metal from rust. In fact it makes Rust Monsters avoid your scent, but don't coat yourself because then everyone will smell it and you don't want that.",
       price: 20,
     },
   ],

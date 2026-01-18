@@ -60,17 +60,17 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       8- BIG: This item grows to the size of a elephant permanently.  
       9- My eyes: Who ever willing holds this item temperarly become blind.  
       10- Bright like a diamond: This item can eminate a soft glow like a torch, this effect can be turn on and off as a bonus action!
-      11-14- Cantrip Based Enchantment: Pick a cantrip from any class and apply it to this item this item only holds five charges and grains them after a long rest.
-      15-17- 1st level Based Enchantment: Pick a 1st level spell from any class and apply it to this item this item only holds five charges and grains them after a long rest.
-      18-20- 2nd level Based Enchantment: Pick a 2nd level spell from any class and apply it to this item this item only holds five charges and grains them after a long rest.`,
+      11-14- Cantrip Based Enchantment: Pick a cantrip from any class and apply it to this item; this item only holds five charges and grants them after a long rest.
+      15-17- 1st level Based Enchantment: Pick a 1st level spell from any class and apply it to this item; this item only holds five charges and grants them after a long rest.
+      18-20- 2nd level Based Enchantment: Pick a 2nd level spell from any class and apply it to this item; this item only holds five charges and grants them after a long rest.`,
     },
     {
       name: "Uncommon Enchantment",
       price: 200,
       description: `Roll a 1d12 and apply it to your item!
       1- C-c-cold (Curse): This item when in a persons inventory will lower their AC by 1 for every hour they hold it (Max of 5)
-      2- H-h-hot (Curse): This item when in a persons inventory for every turn you don't move to a new spot you take 1d4 fire damge, this item isn't active when the sun sets.
-      3- Hit me baby one more time! (Curse): Whenever you deal damge with this item the target heals 1d4 and the target has disadvantage on all saving throws for the next 10 mintues.
+      2- H-h-hot (Curse): This item, when in a person's inventory, for every turn you don't move to a new spot you take 1d4 fire damage; this item isn't active when the sun sets.
+      3- Hit me baby one more time! (Curse): Whenever you deal damage with this item, the target heals 1d4 and the target has disadvantage on all saving throws for the next 10 minutes.
       4- Therian (Binding-Curse): This item immediately warps around you or forces you to hold it any attemps to remove only causes it to move else where on your body. Once per month during the night of the full more you now transform into an animal, replacing it's stats and actions with it until the night is through.
       5- Misty: This item now has a slight faint trails of mist eminating from it, disapating after a few inches. Unless is being throw in which case it leaves a much longer trail that lasts for a few minutes.
       6- Return: This item can be teleported to the owners hands as a bonus action if it is less then a half a mile away.
@@ -78,8 +78,8 @@ export const tribeEvansEnchantingEmporium: Tribe & {
       8- Sure-Footed: While this item is on your person, you have advantage on saving throws and checks to avoid being knocked prone, shoved, or forcibly moved.
       9- Steady Mind: While this item is on your person, you have advantage on Constitution saving throws to maintain concentration on a spell.
       10- Lucky Charm: While this item is on your person, once per long rest you can reroll a d20 roll you just made. You must use the new roll.
-      11- 3rd level Based Enchantment: Pick a 3rd level spell from any class and apply it to this item this item only holds four charges and grains them after a long rest.
-      12- 4th level Based Enchantment: Pick a 4th level spell from any class and apply it to this item this item only holds four charges and grains them after a long rest.`,
+      11- 3rd level Based Enchantment: Pick a 3rd level spell from any class and apply it to this item; this item only holds four charges and grants them after a long rest.
+      12- 4th level Based Enchantment: Pick a 4th level spell from any class and apply it to this item; this item only holds four charges and grants them after a long rest.`,
     },
     {
       name: "Rare Enchantment",
