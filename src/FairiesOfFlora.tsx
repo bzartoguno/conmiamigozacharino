@@ -61,6 +61,7 @@ export function FairiesOfFlora({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeFairiesOfFlora.owner}
           insults={tribeFairiesOfFlora.insults}
+          shopName={tribeFairiesOfFlora.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

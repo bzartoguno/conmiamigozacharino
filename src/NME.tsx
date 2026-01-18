@@ -61,6 +61,7 @@ export function NME({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeNME.owner}
           insults={tribeNME.insults}
+          shopName={tribeNME.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

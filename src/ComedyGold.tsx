@@ -53,6 +53,7 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeComedyGold.owner}
           insults={tribeComedyGold.insults}
+          shopName={tribeComedyGold.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => {

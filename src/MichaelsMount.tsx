@@ -62,6 +62,7 @@ export function MichaelsMount({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeMichaelsMount.owner}
           insults={tribeMichaelsMount.insults}
+          shopName={tribeMichaelsMount.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => (

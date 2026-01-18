@@ -46,6 +46,7 @@ export function NecromancyInsuranceCompany({ onBack }: { onBack?: () => void }) 
           className={styles.footerNote}
           owner={tribeNecromancyInsuranceCompany.owner}
           insults={tribeNecromancyInsuranceCompany.insults}
+          shopName={tribeNecromancyInsuranceCompany.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

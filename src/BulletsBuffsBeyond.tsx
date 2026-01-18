@@ -53,6 +53,7 @@ export function BulletsBuffsBeyond({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeBulletsBuffsBeyond.owner}
           insults={tribeBulletsBuffsBeyond.insults}
+          shopName={tribeBulletsBuffsBeyond.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => {

@@ -52,6 +52,7 @@ export function PiggyBank({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribePiggyBank.owner}
           insults={tribePiggyBank.insults}
+          shopName={tribePiggyBank.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (

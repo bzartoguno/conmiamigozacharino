@@ -45,6 +45,7 @@ export function ArchivesGuild({ onBack }: { onBack?: () => void }) {
           className={styles.footerNote}
           owner={tribeArchivesGuild.owner}
           insults={tribeArchivesGuild.insults}
+          shopName={tribeArchivesGuild.name}
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item) => (
