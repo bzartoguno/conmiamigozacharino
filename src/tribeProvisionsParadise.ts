@@ -36,7 +36,7 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Bag of Holding",
       price: 50,
-      description: "Yeah I'm pretty sure you know how this works just make sure you label what is and isn't in there",
+      description: "Yeah, I'm pretty sure you know how this works. Just make sure you label what is and isn't in there.",
     },
     {
       name: "Alchemist’s supplies",
@@ -124,14 +124,14 @@ export const tribeProvisionsParadise: Tribe = {
       description: "",
       },
     {
-      name: "Scratch off Lotter Card",
+      name: "Scratch-off Lottery Card",
       price: 1,
-      description: "You have a feeling you just might win this time, go ahead buy it.",
+      description: "You have a feeling you just might win this time; go ahead and buy it.",
     },
     {
       name: "Ye Old Slushy",
       price: 2,
-      description: "It's a regualer slushy, I just couldn't phase it to fit in a fantasy setting. Heals 1 HP but don't drink to many at once or you'll get a brain freeze.",
+      description: "It's a regular slushy; I just couldn't phrase it to fit in a fantasy setting. Heals 1 HP, but don't drink too many at once or you'll get a brain freeze.",
     },
     {
       name: "Candy bar",
@@ -141,7 +141,7 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Sticker Sheet",
       price: 4,
-      description: "It's a sticker sheet with a bunch of generic shapes on it. It will probably keep at least one of your party memebers distraced for a little while.",
+      description: "It's a sticker sheet with a bunch of generic shapes on it. It will probably keep at least one of your party members distracted for a little while.",
     },
     {
       name: "Flavored Sunflower Seeds",
@@ -151,17 +151,17 @@ export const tribeProvisionsParadise: Tribe = {
     {
       name: "Slice of pizza",
       price: 6,
-      description: "It looks like it's been sitting out for a while, but the chief in the back looks like they're still making fresh ones.",
+      description: "It looks like it's been sitting out for a while, but the chef in the back looks like they're still making fresh ones.",
     },
     {
       name: "Rotisserie 'Bird'",
       price: 7,
-      description: "It's slowly turning under a heat lamp; Better not to asks what kind of bird.",
+      description: "It's slowly turning under a heat lamp; better not to ask what kind of bird.",
     },
     {
-      name: "8 pack of Cup of Noodles",
+      name: "8-pack of Cup of Noodles",
       price: 8,
-      description: "Just add boiling water, it will probably taste better then your party cooking.",
+      description: "Just add boiling water; it will probably taste better than your party's cooking.",
     },
     {
       name: "Jerky Strips",

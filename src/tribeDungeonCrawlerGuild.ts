@@ -15,7 +15,7 @@ export const tribeDungeonCrawlerGuild: Tribe = {
           "Sometime I hear a bunch of voices in my head, calling me bald. I started calling them twitch chat, I'm not crazy. I was tested, turns out I was actually being huanted, I get get rid of them.",
           "Babaga-boosh!",
           "The darkness is really getting to me.",
-          "Hey you look like you'd like to dive into danger head first! My partner Parker, is taking a little bit to get here and there's an adventuring party in the dungeon coming up the stairs but one of them hurt there leg. If it's not to much touble some help? You just need to help me with DC 14 Acrobatics check get this guy up the stairs. If you succeed, I’ll pay you 23 gp. If you fail, you kind of dropped the guy a few times and that wasn't very nice so I'll pay you 8 gp for your time.",
+          "Hey, you look like you'd like to dive into danger head first! My partner Parker is taking a little bit to get here, and there's an adventuring party in the dungeon coming up the stairs, but one of them hurt their leg. If it's not too much trouble, some help? You just need to help me with a DC 14 Acrobatics check to get this guy up the stairs. If you succeed, I’ll pay you 23 gp. If you fail, you kind of dropped the guy a few times, and that wasn't very nice, so I'll pay you 8 gp for your time.",
           ],
   items: [
     {

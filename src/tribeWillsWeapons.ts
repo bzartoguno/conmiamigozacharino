@@ -226,7 +226,7 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Khopesh (Scimitar-Sickle)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing
-      Do to this weapons 'egdy' nature, If you have EXPERTISE, when you hit, you can deal splash damage equal to your half of the total damge to a second creature within 5 feet of the original target (You automatically hit)`,
+      Due to this weapon's "edgy" nature, if you have EXPERTISE and you hit, you can deal splash damage equal to half of the total damage to a second creature within 5 feet of the original target (you automatically hit).`,
       price: 36
     },
     {

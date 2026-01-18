@@ -18,8 +18,8 @@ export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
           "Thank you for choosing Blossom Hotel, we promise that no one will break into your room at night, unlike some other establisments.",
           "For pations Pool hours are 5am-11pm.",
           "Oh sorry I was just reading a book, I'll be right with you.",
-          "Hey you want a cookie? Our chef baked to many and we are trying to get rid of them before pack of Cookie Monsters sneaks in here.",
-          "Oh shoot I forgot to run towels down to the pool. And I can't quite leave the desk right now... Hey if your willing to give me a hand I'll make it worth your while! All I need is a DC 14 Stealth check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, well I'm sorry you dropped the towls but I'll pay you 5 gp.",
+          "Hey, you want a cookie? Our chef baked too many, and we are trying to get rid of them before a pack of Cookie Monsters sneaks in here.",
+          "Oh shoot, I forgot to run towels down to the pool, and I can't quite leave the desk right now... Hey, if you're willing to give me a hand, I'll make it worth your while! All I need is a DC 14 Stealth check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, well, I'm sorry you dropped the towels, but I'll pay you 5 gp.",
           ],
   items: [
     {

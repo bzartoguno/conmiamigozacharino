@@ -17,11 +17,11 @@ export const tribeLabyrinthineLibrary: Tribe & {
           "Small one, but it makes parties feel like parties: I’ve got a stamp challenge for you. Give one of your companions a fitting nickname and see if you can get them to answer to it at least once.  |  Stamp Quest (Nickname): Give one PC a fitting nickname and get them to respond to it at least once. | Reward: 4 Stamps",
           "I like when groups feel like they’ve actually shared a life together. Here’s a stamp challenge for that: invent a tiny shared detail with a companion, something simple you ‘both went through, or ‘both can’t stand’, and get them to agree to it in-character.  |  Stamp Quest (Shared Backstory): Create a tiny new shared detail with another PC ('We both hate…', 'We once…') and get them to agree in-character. | Reward: 5 Stamps",
           "If your looking to buy books we don't do that here, all books in here must stay sadly.",
-          "Well come to Labyrinthine Library, please be quite the books are sleeping. It's hard to put them back to sleep.",
-          "Yes this is a dungeon but we are not apart of the Dungeon Crawler guild, this is considerend an easy dungeon but you will have to fight for knowlegde.",
+          "Welcome to Labyrinthine Library, please be quiet; the books are sleeping. It's hard to put them back to sleep.",
+          "Yes, this is a dungeon, but we are not a part of the Dungeon Crawler Guild. This is considered an easy dungeon, but you will have to fight for knowledge.",
           "Don't worry the books here will regenerate so if you cut one in half don't worry anout it.",
           "If you come across an ink or paper element, leave it be. It's just reprinting old books that adventures set on fire.",
-          "Listen I can't quite leave the desk at the moment I need to go reuturn some books if you give me a hand and quitely put these books back for me that would be great! Make DC 14 Stealth check to quitely make your way into the laberinth. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage, a bandaid for the paper cut and get 5 gp.",
+          "Listen, I can't quite leave the desk at the moment. I need to return some books; if you give me a hand and quietly put these books back for me, that would be great! Make a DC 14 Stealth check to quietly make your way into the labyrinth. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage, get a bandage for the paper cut, and receive 5 gp.",
           ],
   items: [
     {

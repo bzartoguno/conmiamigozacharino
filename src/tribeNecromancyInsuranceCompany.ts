@@ -31,7 +31,7 @@ export const tribeNecromancyInsuranceCompany: Tribe = {
     {
       name: "Corpse Collection Fee , Adult",
       price: 400,
-      description: "An adult body is quite valuable as they can be used for a variety of undead purposes.",
+      description: "An adult body is quite valuable because it can be used for a variety of undead purposes.",
     },
     {
       name: "Corpse Collection Fee, Boss",

@@ -103,11 +103,11 @@ export const tribeIconicDragonic: Tribe = {
       name: "Synapse-Silk Robes of the Elder Brain Dragon",
       price: 300000,
       description:
-        `A memerorizing purple silk robes with white trim, tho in some upper circles this item is considered illegal but for you dear adventure I won't mind if you take it off my hands.
-        As an action you can Choose up to PB creatures (your proficiency bonus) that you can see within 90 feet. Each target must make a Wisdom saving throw against your spellsave.
+        `A mesmerizing purple silk robe with white trim, though in some upper circles this item is considered illegal, but for you dear adventurer I won't mind if you take it off my hands.
+        As an action you can choose up to PB creatures (your proficiency bonus) that you can see within 90 feet. Each target must make a Wisdom saving throw against your spell save.
         On a failure, a creature becomes your Thrall for up to 1 hour, as long as you concentrate (as if concentrating on a spell). While you maintain this, you can’t concentrate on other spells/effects. A Thrall is charmed by you, and you have a telepathic link with it while it’s within 1 mile.
         Bonus Action (on your turn): Issue a single, clear mental order (one sentence) that applies to any number of Thralls, like: "Guard me and stop anyone from reaching the door.", “Focus attacks on that mage.”, or “Surround them, don’t kill, just disable.” Whereupon each thrall will do its best to follow out those orders. They will do this as if they were acting of their own free will.
-        This condition ends if they take damge and the fail the save. If you command a Thrall to do something clearly self-destructive (Stand there and let us mug you) or it leaves your control radius.`,
+        This condition ends if they take damage and they fail the save. If you command a Thrall to do something clearly self-destructive (Stand there and let us mug you) or it leaves your control radius.`,
     },
   ],
 };
