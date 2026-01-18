@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./InsultBox.module.css";
 
-interface InsultBoxProps {
+export interface InsultBoxProps {
   owner?: string;
   insults: string[];
   className?: string;
