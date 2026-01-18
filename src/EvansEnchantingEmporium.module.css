@@ -107,6 +107,7 @@
   color: #d9e8ff;
   font-size: 0.98rem;
   text-align: center;
+  white-space: pre-line;
 }
 
 .price {

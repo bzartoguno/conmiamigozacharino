@@ -10,12 +10,12 @@ export const tribeChangingChurch: Tribe = {
           "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
           "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
-          "Welcome child, be not afraid, the building is suppose to change. It a holy strucure that can shift to fit the needs of any faith.",
-          "There are a million Paths in this world, but any Holy Figure will tell you they can all be reduced to one. Love one another.",
-          "'The most important step a person can take. It's not the first one, is it? It's the next one.' A wise man told me that once and I believe that is one of the truest things out there.",
-          "We practive nearly all faiths, in preperation for any one interested in the ones above.",
-          "Worring is like worshiping the problem, you can stop at any time.",
-          "Child, I beg you for your aid there is a poor child, in a house just down the stree, possed by a demon. If you come with me we may exorcise this fiend I'll go through the ritual you just need to make a DC 14 Religion check to help me sort these. If you succeed, I’ll give you a Supreme Healing Potion (Heals 10d4+20). If you fail, Don't worry we were able to say the child, and I'll give you a Healing potion (Heals 2d4+2)",
+          "Welcome, child. Do not be afraid. The building is supposed to change. It is a holy structure that can shift to fit the needs of any faith.",
+          "There are a million paths in this world, but any holy figure will tell you they can all be reduced to one: love one another.",
+          "'The most important step a person can take. It's not the first one, is it? It's the next one.' A wise man told me that once, and I believe it is one of the truest things out there.",
+          "We practice nearly all faiths, in preparation for anyone interested in the ones above.",
+          "Worrying is like worshiping the problem; you can stop at any time.",
+          "Child, I beg you for your aid. There is a poor child in a house just down the street, possessed by a demon. If you come with me, we may exorcise this fiend. I'll go through the ritual; you just need to make a DC 14 Religion check to help me sort these. If you succeed, I’ll give you a Supreme Healing Potion (Heals 10d4+20). If you fail, don't worry—we were able to save the child, and I'll give you a Healing Potion (Heals 2d4+2).",
           ],
   items: [
     {
