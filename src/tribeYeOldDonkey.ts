@@ -10,12 +10,12 @@ export const tribeYeOldDonkey: Tribe = {
           "Since you look like the capable sort, I’ll share one of our stamp challenges. It rewards teamwork over heroics. Next time trouble starts, set up a simple two-person combo with a companion, nothing fancy, just coordinated.  |  Stamp Quest (Tag-Team): Coordinate a 2-person combo in combat (grapple + shove, distraction + sneak, buff + big hit, etc.). | Reward: 5 Stamps",
           "I’ve got a small stamp challenge that’s been good for keeping parties sharp and in sync. When a companion offers an idea, don’t just agree, add to it. Build on what they said and keep the momentum going.  |  Stamp Quest (Yes, And): Say 'Yes, and-' (or the spirit of it) to another player’s idea and build on it. | Reward: 3 Stamps",
           "Alright, here’s a fun little stamp challenge purely for morale. Pick a light accent or a harmless speech quirk and use it in a couple of conversations  |  Stamp Quest (Tiny Accent): Use a very light accent or speech quirk for two separate conversations. If the DM calls it out, fail. | Reward: 3 Stamps",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "give me a DC 14 Sleight of Hand check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "Welcome weary traveler! Come and put your feet up, the a bed here is fairly cheap!",
+          "I use to be a pretty famous adventurer back in the day, but I got board of saving the day, so now I this inn to keep me entertained. Hey that rhythmed!",
+          "Good old Bestie, my donkey, is out in the stables, did you know that she actually landed a killing blow on a great purple worm? But now we bring her in to let kids ride on her back. Never saw her that happy when we were out on the road.",
+          "Crabs? What Crabs? No sir-y no crabs here in this fine establiment. I don't know what your talking about.",
+          "The bad part of getting older that you become an 'NPC', the good part is that being an 'NPC' rocks! Nothing like walking down the street with a thought bubble that's just a sandwich you're looking forward to. Protagonism is best left to the teens, young adults, and insane.",
+          "Hey kid, come here I think I just saw a couple of guests try to sneak in some crabs, if you go steal them and hand them to me I'll 'get rid of them' and make it worth your while. Make a DC 14 Sleight of Hand check. If you succeed, you’ll get payed 25 gp. If you fail, you take 1 point of damage and inspiration (Make a reroll on a failed skill check at some point later in time) beucase maybe grabbing a crab like that wasn't the best idea..",
           ],
   items: [
     {

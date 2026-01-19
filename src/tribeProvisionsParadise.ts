@@ -14,7 +14,7 @@ export const tribeProvisionsParadise: Tribe = {
           "One day I think an actual name would be nice other then Parry Version 36. But if I ask my creator I might get turned to scrap, ... oh! So sorry valued custmer! How may I be of serive?",
           "Welcome to Provivion's paradise a quick little pit stop in your busy life!",
           "Would you like to donate to fight a kid with cancer today? For every coin you donate is an every minute in the ring with him in the back. He hasn't lost yet, but you may be the luck one to take him down! (No weapons or spells allowed)",
-          "",
+          "01000010 01101111 01101111 00100001",
           "give me a DC 14 Deception check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
           ],
   items: [

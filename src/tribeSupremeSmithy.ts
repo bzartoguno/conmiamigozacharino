@@ -2,7 +2,7 @@ import { Tribe } from "./types";
 
 export const tribeSupremeSmithy: Tribe = {
   name: "Supreme Smithy",
-  owner: "Sammy Redrockson",
+  owner: "Sam Redrockson",
   percentAngry: 0,
   priceVariability: 5,
   insults: [
@@ -10,12 +10,12 @@ export const tribeSupremeSmithy: Tribe = {
           "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
           "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "give me a DC 14 Athletics check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "It's hard being the oldest son in the Redrockson family. Will and Pat took up dance lessons, Goldhand played with dolls, and Nex couldn't stop eating dirt. So I had to be their shield to protect them form the bullies.",
+          "Do I have any dirt on my younger brothers? Of course I do! But am I going to let you pick on them? Over my dead body!",
+          "I know my brother don't mention it to much but the reason why we are all running our busniess is becuase way back home Ma and Pa are in some serious debt. Raisin Five riled up dwarf boys ontop of dealing with dwaren petrafation is no easy feet. So to make up for it me and the lads are setting up Ma and Pa for the rest of their lives. With each one of us taking turns to go see them so they won't get to lonely.",
+          "Everything you see here I sell it for 3 gold above cost, becuase it better to have protection then not.",
+          "Welcome to Supreme Smithy, having some armor is better then no armor.",
+          "Blasted longed limb- Oh sorry didn't see you there. Hey your pretty lanky would you mind giving me hand? A costmer came in and claimed that their armor was to short, I just finished reworking it and you look about the same size. So try it on and give me a few streches yeah? Make DC 14 Athletics check. If you succeed, Sam will pay you 25 gp. If you fail, you take 1 point of damage slight embarisment as you ripped the new stiches and get 20 gp.",
           ],
   items: [
     {

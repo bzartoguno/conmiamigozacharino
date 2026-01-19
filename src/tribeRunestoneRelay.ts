@@ -10,12 +10,12 @@ export const tribeRunestoneRelay: Tribe = {
           "I like adventurers who travel as a team, not a parade. Here’s a small stamp challenge I hand out to folks I’m rooting for. Next time, you could take charge, pass the lead to someone else and let them shine.  |  Stamp Quest (Share the Spotlight): When you could take the lead, deliberately hand it to another PC (“You’re better at this than me, you take it.”). | Reward: 4 Stamps",
           "Most people come in here looking for gear, but the smart ones invest in their companions. I’ve got a stamp challenge for that kind of traveler. Help one of your party members make real progress on something personal they’re chasing this session.  |  Stamp Quest (Helping Hand): Help another party member with their personal goal this session. | Reward: 10 Stamps",
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "give me a DC 14 Insight check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "Why hello there! Tell me how can I help yah?",
+          "Hehe, oh sorry I just got a letter from my elder brother Sam, he thinks that he figured out a set of armor that will stop one of my portal punches. Well I'd like to see him try. Well once I close the shop for the night. So tell me how can I help yah?",
+          "Ohohoh! Oh sorry  didn't see you there. I just got a letter from my big brother Will, it looks like he got asked out on a date! Am I going to go scout out the spot to hide? Maybe? Am I going to invite my other brothers along? Maybe? Does he know I'm going to do this? No. So tell me how can I help yah?",
+          "Now that's interesting, oh sorry just going through the mail. I just got a letter from my little brother Goldhand. He's thinking about makes a few special golems for each of my other brother busniess and wanted feedback on the golems for me. So tell me how can I help yah?",
+          "HAHAHA, oh sorry, kind of got lost reading. I just got a letter from my yougest brother Nex and his latest expiement fail, apparently using natural lightning to resert a corpse it's strong enough. Told him it wouldn't work. So tell me how can I help yah?",
+          "Blast it all, One of my orgized cubbies just collasped and it shuffled all the letters together. Say you look like you got a bit of time on hand? Would you mind giving me a hand to sort this out? Make a DC 14 Insight check. If you succeed, you’ll get payed you 25 gp. If you fail, you get a pat on the back and inspiration (Make a reroll on a failed skill check at some point later in time)",
           ],
   items: [
     {
