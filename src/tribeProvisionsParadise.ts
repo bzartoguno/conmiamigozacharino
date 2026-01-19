@@ -10,12 +10,12 @@ export const tribeProvisionsParadise: Tribe = {
           "Since you look like the capable sort, I’ll share one of our stamp challenges. It rewards teamwork over heroics. Next time trouble starts, set up a simple two-person combo with a companion, nothing fancy, just coordinated.  |  Stamp Quest (Tag-Team): Coordinate a 2-person combo in combat (grapple + shove, distraction + sneak, buff + big hit, etc.). | Reward: 5 Stamps",
           "I’ve got a small stamp challenge that’s been good for keeping parties sharp and in sync. When a companion offers an idea, don’t just agree, add to it. Build on what they said and keep the momentum going.  |  Stamp Quest (Yes, And): Say 'Yes, and-' (or the spirit of it) to another player’s idea and build on it. | Reward: 3 Stamps",
           "Alright, here’s a fun little stamp challenge purely for morale. Pick a light accent or a harmless speech quirk and use it in a couple of conversations  |  Stamp Quest (Tiny Accent): Use a very light accent or speech quirk for two separate conversations. If the DM calls it out, fail. | Reward: 3 Stamps",
-          "Hello valued customer I am Parry Version 36, always happy to help!",
-          "One day I think an actual name would be nice other then Parry Version 36. But if I ask my creator I might get turned to scrap, ... oh! So sorry valued custmer! How may I be of serive?",
-          "Welcome to Provivion's paradise a quick little pit stop in your busy life!",
-          "Would you like to donate to fight a kid with cancer today? For every coin you donate is an every minute in the ring with him in the back. He hasn't lost yet, but you may be the luck one to take him down! (No weapons or spells allowed)",
+          "Hello, valued customer. I am Parry Version 36, always happy to help!",
+          "One day I think an actual name would be nice other than Parry Version 36. But if I ask my creator, I might get turned to scrap... oh! So sorry, valued customer! How may I be of service?",
+          "Welcome to Provision's Paradise, a quick little pit stop in your busy life!",
+          "Would you like to donate to fight a kid with cancer today? For every coin you donate, you earn a minute in the ring with him in the back. He hasn't lost yet, but you may be the lucky one to take him down! (No weapons or spells allowed)",
           "01000010 01101111 01101111 00100001",
-          "give me a DC 14 Deception check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "Give me a DC 14 Deception check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
           ],
   items: [
     {

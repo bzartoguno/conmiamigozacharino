@@ -14,15 +14,15 @@ export const tribePiggyBank: PiggyBankTribe = {
   percentAngry: 0,
   priceVariability: 5,
   insults: [
-          "My name is Scrooge Mcduck and I run the worlds most succseful banking busniess, in the world.",
-          "Here at Piggy Bank, we keep your money safe so you don't have to!",
+          "My name is Scrooge McDuck, and I run the world's most successful banking business in the world.",
+          "Here at the Piggy Bank, we keep your money safe so you don't have to!",
           "Money shouldn't be idle and must be put to work, you know. Just having petty cash is good but you might just as well be stranded on a desert island. For all the good it does.",
-          "Money should never stagnate, but like ocean currents, circulate, like the ocean currents control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop at circulation.",
+          "Money should never stagnate, but like ocean currents, circulate, like the ocean currents that control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop its circulation.",
           "Bah, humbug!",
 
-          "Here at Piggy Bank, we keep your money safe so you don't have to!",
+          "Here at the Piggy Bank, we keep your money safe so you don't have to!",
           "Money shouldn't be idle and must be put to work, you know. Just having petty cash is good but you might just as well be stranded on a desert island. For all the good it does.",
-          "Money should never stagnate, but like ocean currents, circulate, like the ocean currents control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop at circulation.",
+          "Money should never stagnate, but like ocean currents, circulate, like the ocean currents that control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop its circulation.",
           ],
   items: [
     {

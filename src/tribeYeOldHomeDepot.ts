@@ -14,12 +14,12 @@ export const tribeYeOldHomeDepot: Tribe & { items: YeOldHomeDepotItem[] } = {
           "Hey, if you’ve stepped on someone’s toes even a little today, give them a quick in-character apology for something minor. No drama, just so there's no blood in the water between, ya.  |  Stamp Quest (Apology Tour): Apologize (in-character) to a party member for something minor you did this session. | Reward: 3 Stamps",
           "Alright, this one’s a quiet game some regulars like.  |  Stamp Quest (One liners): Subtly quote movies, shows, or books loud enough for the person beside you to hear you, but if you get caught by the ‘DM’, you fail this quest. | Reward: At the session's end, earn stamps equal to the number of quotes you successfully make.",
           "One last stamp challenge, easy peasy lemon squeeze.  |  Stamp Quest (Tableau): When the party enters a new place, describe one small sensory detail (smell, sound, texture) in-character. | Reward: 2 Stamps",
-          "Umm? How'd you get in here? This shop is quite open to the adventurers? Meh, I don't get paid enough to care.",
-          "Welcome to Ye Old Home Depot, Blah bla bah, we both know your not going to pay any attention to me.",
-          "Just wander around til you find what your looking for, I don't know where anything is either.",
+          "Um? How'd you get in here? This shop is open to adventurers. Meh, I don't get paid enough to care.",
+          "Welcome to Ye Old Home Depot, blah blah blah, we both know you're not going to pay any attention to me.",
+          "Just wander around until you find what you're looking for; I don't know where anything is either.",
           "Oh... It's you, listen I only got an hour and a half left on my shift, so please don't bother me. I just want to go home.",
-          "Yippeee another customer.",
-          "Hey HR said I need to be more friendly to custmors, but they got us on camra so if you can pretend to be polite to me I'll slip you a few coins when you check out. Make a DC 14 Persuasion check to help me sort these. If you succeed, he’ll pay you 7 silver peices. If you fail, you know have the knowlegde that you made an empolyee cry, you sick monster.",
+          "Yippee, another customer.",
+          "Hey, HR said I need to be more friendly to customers, but they got us on camera, so if you can pretend to be polite to me, I'll slip you a few coins when you check out. Make a DC 14 Persuasion check to help me sort these. If you succeed, he’ll pay you 7 silver pieces. If you fail, you now have the knowledge that you made an employee cry, you sick monster.",
           ],
   items: [
     {
