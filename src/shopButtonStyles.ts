@@ -3,10 +3,23 @@ export type ShopButtonStyle = {
   color?: string;
 };
 
+type ColorRule = {
+  name: string;
+  matcher: (color: string) => boolean;
+};
+
 const defaultStyle: ShopButtonStyle = {
   backgroundColor: "rgba(30, 41, 59, 0.82)",
   color: "#f8fafc",
 };
+
+const colorRules: ColorRule[] = [
+  { name: "white", matcher: (color) => color.includes("255, 255, 255") },
+  { name: "red", matcher: (color) => color.includes("220, 38, 38") },
+  { name: "yellow", matcher: (color) => color.includes("250, 204, 21") },
+  { name: "green", matcher: (color) => color.includes("34, 197, 94") },
+  { name: "blue", matcher: (color) => color.includes("37, 99, 235") },
+];
 
 const styleMap: Record<string, ShopButtonStyle> = {
   "auction house": { backgroundColor: "rgba(138, 253, 244, 0.712)" },
@@ -78,6 +91,16 @@ function normalizeLabel(label: string) {
   return label.replace(/’/g, "'").trim().toLowerCase();
 }
 
+function getColorRank(backgroundColor?: string) {
+  if (!backgroundColor) {
+    return colorRules.length;
+  }
+  const matchIndex = colorRules.findIndex((rule) =>
+    rule.matcher(backgroundColor)
+  );
+  return matchIndex === -1 ? colorRules.length : matchIndex;
+}
+
 export function getShopButtonStyle(label: string): ShopButtonStyle {
   const normalized = normalizeLabel(label);
   return styleMap[normalized] ?? defaultStyle;
@@ -85,4 +108,21 @@ export function getShopButtonStyle(label: string): ShopButtonStyle {
 
 export function getDefaultShopButtonStyle(): ShopButtonStyle {
   return defaultStyle;
+}
+
+export function sortShopButtons<T extends { label: string; backgroundColor?: string }>(
+  buttons: T[]
+): T[] {
+  return [...buttons].sort((a, b) => {
+    const colorRankA = getColorRank(
+      a.backgroundColor ?? getShopButtonStyle(a.label).backgroundColor
+    );
+    const colorRankB = getColorRank(
+      b.backgroundColor ?? getShopButtonStyle(b.label).backgroundColor
+    );
+    if (colorRankA !== colorRankB) {
+      return colorRankA - colorRankB;
+    }
+    return normalizeLabel(a.label).localeCompare(normalizeLabel(b.label));
+  });
 }

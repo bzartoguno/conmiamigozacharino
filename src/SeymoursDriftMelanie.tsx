@@ -9,7 +9,7 @@ import supremeSmithyImage from "./Supreme Smithy.png";
 import { BackButton } from "./BackButton";
 import styles from "./SeymoursDriftMelanie.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type SeymoursDriftShop = {
   key: string;
@@ -70,6 +70,8 @@ export function SeymoursDriftMelanie({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -87,7 +89,7 @@ export function SeymoursDriftMelanie({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

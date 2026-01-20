@@ -6,7 +6,7 @@ import changingChurchImage from "./Changing Church.png";
 import { BackButton } from "./BackButton";
 import styles from "./JellyCity.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type JellyCityShop = {
   key: string;
@@ -49,6 +49,8 @@ export function JellyCity({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -66,7 +68,7 @@ export function JellyCity({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

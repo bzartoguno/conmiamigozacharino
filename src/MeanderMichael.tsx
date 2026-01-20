@@ -12,7 +12,7 @@ import navigationGuildImage from "./NavigationGuild-ezgif.com-webp-to-png-conver
 import { BackButton } from "./BackButton";
 import styles from "./MeanderMichael.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type MeanderShop = {
   key: string;
@@ -91,6 +91,8 @@ export function MeanderMichael({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -108,7 +110,7 @@ export function MeanderMichael({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

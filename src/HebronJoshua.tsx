@@ -9,7 +9,7 @@ import sleuthUniversityImage from "./Sleuth.webp";
 import { BackButton } from "./BackButton";
 import styles from "./HebronJoshua.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type HebronShop = {
   key: string;
@@ -70,6 +70,8 @@ export function HebronJoshua({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -87,7 +89,7 @@ export function HebronJoshua({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+          {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

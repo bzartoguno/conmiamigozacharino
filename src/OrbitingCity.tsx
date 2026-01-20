@@ -10,7 +10,7 @@ import mountsImage from "./Mounts.webp";
 import { BackButton } from "./BackButton";
 import styles from "./OrbitingCity.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type OrbitingCityShop = {
   key: string;
@@ -77,6 +77,8 @@ export function OrbitingCity({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -94,7 +96,7 @@ export function OrbitingCity({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}
