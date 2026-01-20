@@ -10,7 +10,7 @@ import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import { BackButton } from "./BackButton";
 import styles from "./MerricksMeadowHoward.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type MerricksShop = {
   key: string;
@@ -77,6 +77,8 @@ export function MerricksMeadowHoward({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -94,7 +96,7 @@ export function MerricksMeadowHoward({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

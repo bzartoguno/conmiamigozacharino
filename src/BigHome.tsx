@@ -43,7 +43,7 @@ import blackMarketImage from "./Black Market.jpg";
 import { BackButton } from "./BackButton";
 import styles from "./BigHome.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type BigHomeShop = {
   key: string;
@@ -272,6 +272,8 @@ export function BigHome({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -289,7 +291,7 @@ export function BigHome({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

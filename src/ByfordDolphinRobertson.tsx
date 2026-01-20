@@ -8,7 +8,7 @@ import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
 import { BackButton } from "./BackButton";
 import styles from "./ByfordDolphinRobertson.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type ByfordShop = {
   key: string;
@@ -63,6 +63,8 @@ export function ByfordDolphinRobertson({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -80,7 +82,7 @@ export function ByfordDolphinRobertson({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}

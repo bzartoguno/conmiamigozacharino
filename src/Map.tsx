@@ -60,6 +60,7 @@ import FizzyTale  from "./FizzyTale.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
+import { sortShopButtons } from "./shopButtonStyles";
 import { HugInfo } from "./HugInfo";
 import hugImage from "./Hug.webp";
 import jellBellImage from "./Jell.webp";
@@ -618,6 +619,8 @@ export function Map() {
     },
   ];
 
+  const sortedEveryShopButtons = sortShopButtons(everyShopButtons);
+
   switch (navigatedTo) {
     case "goblins":
 
@@ -821,7 +824,7 @@ export function Map() {
         <EveryShopMenu
           onBack={handleBack}
           onNavigate={handleNavigate}
-          buttons={everyShopButtons}
+          buttons={sortedEveryShopButtons}
         />
       );
     default:
@@ -865,6 +868,10 @@ function SandboxMenu({
   onBack: () => void;
   onNavigate: (key: string) => void;
 }) {
+  const sortedSandboxTowns = [...sandboxTowns].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
   return (
     <div style={styles.wrapper}>
       <button type="button" onClick={onBack} style={styles.backButton}>
@@ -886,7 +893,7 @@ function SandboxMenu({
         </div>
       </div>
       <div style={styles.sandboxGrid}>
-        {sandboxTowns.map((town) => (
+        {sortedSandboxTowns.map((town) => (
             <FloatingButton
               key={town.key}
               label={town.name}

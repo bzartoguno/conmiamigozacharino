@@ -28,7 +28,7 @@ import goblinMarketImage from "./GoblinMarket.png";
 import { BackButton } from "./BackButton";
 import styles from "./StrenuousPortal.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type StrenuousShop = {
   key: string;
@@ -197,6 +197,8 @@ export function StrenuousPortal({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -214,7 +216,7 @@ export function StrenuousPortal({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+          {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}
