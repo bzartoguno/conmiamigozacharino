@@ -34,6 +34,16 @@ export const tribeSleuthUniversity: Tribe & { items: SleuthUniversityItem[] } = 
       description: "Borrow cutting-edge arcana for field tests and capers.",
     },
     {
+      name: "Public Records Pull",
+      price: 25,
+      description: "Property, travel logs, guild filings, arrests whatever exists in your setting’s “paper trail.”",
+    },
+    {
+      name: "Rent: Whisper-Quill Recorder",
+      price: 25,
+      description: "Records everything spoken within 10 feet for 10 minutes, then writes a transcript. Great for interviews. If you break it you pay double.",
+    },
+    {
       name: "Forensics Lab Analysis",
       price: 25,
       priceText: "20G per sample",
@@ -45,6 +55,11 @@ export const tribeSleuthUniversity: Tribe & { items: SleuthUniversityItem[] } = 
       price: 25,
       priceText: "Associates 10G, Bachelor 25G, Master 50G, Doctoral 75G",
       description: "Delivers information in 1–3 days. Better degree = better lead quality and lower chance of an actidental lie.",
+    },
+    {
+      name: "Find the Leak",
+      price: 450000,
+      description: "We audit a group’s information flow and identify the most likely source of rumors/betrayal. Gives you a short suspect list.",
     },
   ],
 };

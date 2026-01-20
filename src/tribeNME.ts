@@ -23,23 +23,37 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
           ],
   items: [
     {
+      name: "Blood for Coffin-Safe",
+      price: 0,
+      priceText: `5% of current max HP (Rounded up)`,
+      description: "We make room in our private vualt for any object that can fit 3ft cude. Only you and anyone you tell use can withdrawl anything from within the vualt at any N.M.E. location. Unless N.M.E. goes into hiding or destroyed.",
+    },
+    {
+      name: "Blood for Loyal Spectral Servant",
+      price: 0,
+      priceText: `10% of current max HP (Rounded up)`,
+      description: "We teach you a forbidden blood-rite. You learn the Spectral Servant cantrip, and you may pour spell slots into it to spawn more servants. They can’t attack, can’t use magic items, and exist to carry, fetch, open, pour, and deliver packages. Base Cast (Cantrip): 1 Spectral Servant (Concentration) Upcast (Spell Slot): +1 additional Servant per spell slot level used Example: 1st = 2 Servants, 2nd = 3 Servants, 3rd = 4 Servants, etc. Command: Bonus action to move (30 ft fly/hover) + interact with an object (150 lb) Help (Combat): A Servant may take the Help action, then immediately dissipates Limit: Only 1 Servant created by this spell can grant Help per round.",
+    },
+    {
       name: "Blood for Power",
       price: 0,
-      priceText: `New raw score 20 → 10% of current max HP (Rounded up)
-                  New raw score 21–22 → 15% of current max HP (Rounded up)
-                  New raw score 23–24 → 20% of current max HP (Rounded up)
-                  New raw score 25–26 → 25% of current max HP (Rounded up)
-                  New raw score 27–28 → 30% of current max HP (Rounded up)
-                  New raw score 29–30 → 35% of current max HP (Rounded up)`,
+      priceText: `
+      New raw score 20 → 10% of current max HP (Rounded up)
+      New raw score 21–22 → 15% of current max HP (Rounded up)
+      New raw score 23–24 → 20% of current max HP (Rounded up)
+      New raw score 25–26 → 25% of current max HP (Rounded up)
+      New raw score 27–28 → 30% of current max HP (Rounded up)
+      New raw score 29–30 → 35% of current max HP (Rounded up)`,
       description: "We drain your blood in exchange; we boost a single stat beyond normal means.",
     },
     {
       name: "Blood for Blackmail",
       price: 0,
-      priceText: `Minor Dirt: 10% of current max HP (discounts, small favors)
-                  Major Dirt: 15% of current max HP (big discounts, access, cover-ups)
-                  Ruinous Dirt: 20% of current max HP (force cooperation in serious situation)
-                  Life-Ruiner: 25% of current max HP (NPC-shaping leverage)`,
+      priceText: `
+      Minor Dirt: 10% of current max HP (discounts, small favors)
+      Major Dirt: 15% of current max HP (big discounts, access, cover-ups)
+      Ruinous Dirt: 20% of current max HP (force cooperation in serious situation)
+      Life-Ruiner: 25% of current max HP (NPC-shaping leverage)`,
       description: "After living for so long we have acquired a little bit of dirt on everyone; care to take a look?",
     },
     {
@@ -49,20 +63,23 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
       description: "Pour any potion into this bottle to imprint it (potion is consumed). Bottle holds 1 imprint at a time. The bottle refills only when empty and only after 10 minutes of uninterrupted calm (no refill during initiative). This item takes 10 minutes to refill completely. To clear the current imprinted potion take a point of damage, drop some blood in there, and wait 10 minutes; then you may imprint a new potion into this item.",
     },
     {
-      name: "Blood for Spectral Servant",
-      price: 0,
-      priceText: `Base Cast (Cantrip): 1 Spectral Servant (Concentration)
-                  Upcast (Spell Slot): +1 additional Servant per spell slot level used
-                  Example: 1st = 2 Servants, 2nd = 3 Servants, 3rd = 4 Servants, etc.
-                  Command: Bonus action to move (30 ft fly/hover) + interact with an object (150 lb)
-                  Help (Combat): A Servant may take the Help action, then immediately dissipates
-                  Limit: Only 1 Servant created by this spell can grant Help per round`,
-      description: "We teach you a forbidden blood-rite. You learn the Spectral Servant cantrip, and you may pour spell slots into it to spawn more servants. They can’t attack, can’t use magic items, and exist to carry, fetch, open, pour, and deliver packages.",
-    },
-    {
       name: "Scroll of True Resurrection",
       price: 150000,
       description: "You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. If the creature’s soul is free and willing, the creature is restored to life with all its hit points. This spell closes all wounds, neutralizes any poison, cures all diseases, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. The spell can even provide a new body if the original no longer exists, in which case you must speak the creature’s name. The creature then appears in an unoccupied space you choose within 10 feet of you.",
+    },
+    {
+      name: "Become a Vampire",
+      price: 0,
+      priceText: `10% of current max HP (Rounded up)`,
+      description: `
+      You physically stay the same race just that change it to undead, but on the bright side you had to make the active choice to become a VAMPIRE! Which, although a bit questionable, is by far more rewarding in the long run! If you can survive that long.
+      HP: Lose 20 permanent hit points; if this brings you below 10, it is just 10 now.
+      AC: NA, nothing changes here
+      Speed: NA, nothing changes here
+      Stats: add 1 point to dexterity, intelligence, & charisma (max 20)
+      New Race abilities:
+      Weakness: I just had to get this out of the way first. If you ever get out in the sun, get hit with holy water, get impaled with a stake, eat garlic, enter a home uninvited, or cross running water, you immediately die no death saves.
+      Bloodthirst: As a vampire you will need blood to survive more specifically 9 gallon of blood from a intelligent creature every 90 days. Yeah its not that much. However, this ability and others will evolve or pop up if you consume more than 90 gallons than you need in that 90 day period. So get chuggin!`,
     },
   ],
 };
