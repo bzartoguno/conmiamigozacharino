@@ -12,7 +12,7 @@ import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import { BackButton } from "./BackButton";
 import styles from "./AnalepticHoltTeag.module.css";
 import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle } from "./shopButtonStyles";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type AnalepticShop = {
   key: string;
@@ -91,6 +91,8 @@ export function AnalepticHoltTeag({
     },
   ];
 
+  const sortedShops = sortShopButtons(shops);
+
   return (
     <div
       className={styles.wrapper}
@@ -108,7 +110,7 @@ export function AnalepticHoltTeag({
         </div>
 
         <div className={styles.buttonGrid}>
-          {shops.map((shop) => (
+            {sortedShops.map((shop) => (
             <ShopButton
               key={shop.key}
               label={shop.label}
