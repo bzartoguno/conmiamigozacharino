@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.3e1fe012.css",
-    "main.js": "/conmiamigozacharino/static/js/main.29d92295.js",
+    "main.css": "/conmiamigozacharino/static/css/main.acdb1288.css",
+    "main.js": "/conmiamigozacharino/static/js/main.53ac7a6f.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
     "static/media/Goblin-Market-Train.png": "/conmiamigozacharino/static/media/Goblin-Market-Train.8bc7c06e9a616d733bf4.png",
@@ -67,12 +67,12 @@
     "static/media/Evan's Enchanting Emporium.png": "/conmiamigozacharino/static/media/Evan's Enchanting Emporium.8fdec716b612f829e512.png",
     "static/media/Objective survive.webp": "/conmiamigozacharino/static/media/Objective survive.6eb472af327f3b03c52d.webp",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.3e1fe012.css.map": "/conmiamigozacharino/static/css/main.3e1fe012.css.map",
-    "main.29d92295.js.map": "/conmiamigozacharino/static/js/main.29d92295.js.map",
+    "main.acdb1288.css.map": "/conmiamigozacharino/static/css/main.acdb1288.css.map",
+    "main.53ac7a6f.js.map": "/conmiamigozacharino/static/js/main.53ac7a6f.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e1fe012.css",
-    "static/js/main.29d92295.js"
+    "static/css/main.acdb1288.css",
+    "static/js/main.53ac7a6f.js"
   ]
 }
