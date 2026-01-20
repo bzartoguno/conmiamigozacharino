@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect } from "react";
 
 export type ShopButtonProps = {
   label: string;
@@ -19,7 +18,6 @@ const buttonStyles: Record<string, CSSProperties> = {
     border: "2px solid #ffffffff",
     boxShadow: "0 7px 12px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
-    animation: "float 12s ease-in-out infinite",
     transition: "transform 0.3s ease",
     fontFamily: "'Times New Roman', serif",
     display: "flex",
@@ -60,27 +58,6 @@ const buttonStyles: Record<string, CSSProperties> = {
   },
 };
 
-let floatKeyframesInjected = false;
-
-function ensureFloatKeyframes() {
-  if (floatKeyframesInjected || typeof document === "undefined") {
-    return;
-  }
-
-  const styleSheet = document.createElement("style");
-  styleSheet.id = "floating-keyframes";
-  styleSheet.innerHTML = `
-  @keyframes float {
-    0% { transform: translate(0px, 0px); }
-    25% { transform: translate(4px, -4px); }
-    50% { transform: translate(0px, -8px); }
-    75% { transform: translate(-4px, -4px); }
-    100% { transform: translate(0px, 0px); }
-  }`;
-  document.head.appendChild(styleSheet);
-  floatKeyframesInjected = true;
-}
-
 export function ShopButton({
   label,
   onClick,
@@ -90,10 +67,6 @@ export function ShopButton({
   imageSrc,
   description,
 }: ShopButtonProps) {
-  useEffect(() => {
-    ensureFloatKeyframes();
-  }, []);
-
   return (
     <button
       type="button"
