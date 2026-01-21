@@ -956,7 +956,9 @@ function EveryShopMenu({
       <p style={styles.subtitle}>
         White shops are player survival, red shops are magic-based, yellow shops are followers
         & companions, green shops are trade & logistics, and blue shops are culture, knowledge,
-        & leisure.
+        & leisure. 
+        Fun fact: The minimum monthly income for a Commoner is 40gp, but the typical monthly wages are as followed
+        Commoners 50gp, Knights/Locol Heros 250gp, Lord/Lady 1,000gp, Baron/Baroness 2,500gp, Count/Countess 5,000gp, Prince/Princess 10,000gp, Duke/Duchess 20,000gp, and King/Queen 50,000gp!
       </p> 
       <div style={styles.everyShopGrid}>
         {buttons.map((button) => (
