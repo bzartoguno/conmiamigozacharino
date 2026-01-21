@@ -40,17 +40,17 @@ export const tribeGolemWorkshop: Tribe & { items: GolemWorkshopItem[] } = {
     {
       name: "Mason or Stone Golem",
       price: 600,
-      description: "This golem can make any non-magical complex item out of non-magical stone, but it can also be used to mine for matirals.",
+      description: "This golem can make any non-magical complex item out of non-magical stone, but it can also be used to mine for materials.",
     },
     {
       name: "Smith or Iron Golem",
       price: 700,
-      description: "This golem can make any non-magical complex item out of non-magical metal, but it can also be used to mine for matirals at greater speed.",
+      description: "This golem can make any non-magical complex item out of non-magical metal, but it can also be used to mine for materials at greater speed.",
     },
     {
       name: "Builder or Steel Golem",
       price: 800,
-      description: "This golem can build any strucker out of any reasonable material along with aspets form creatures, but it can also be used to guard private places to long periods of time.",
+      description: "This golem can build any structure out of any reasonable material along with aspects from creatures, but it can also be used to guard private places for long periods of time.",
     },
     {
       name: "Siege Golem",
@@ -70,8 +70,8 @@ export const tribeGolemWorkshop: Tribe & { items: GolemWorkshopItem[] } = {
       CHA (0)
       Creature Ability- Last-ditch effort (Can only be triggered if HP is lower than 83). All creature attacks have an advantage. However, this will overheat the core, dealing 2d6 fire damage to the mech and everyone inside.
       -Actions-
-      Cannon (Range attack 120) +8 to hit, Hit 2d12 +6 Blungening damage. Firing this cannon twice in a row will begin to overheat the Mech and deal 1d6 fire damage to everyone in the Mech.
-      Punch (Melee attack) +12 to hit, Hit 4d12 +6 Blungening damage.
+      Cannon (Range attack 120) +8 to hit, Hit 2d12 +6 Bludgeoning damage. Firing this cannon twice in a row will begin to overheat the Mech and deal 1d6 fire damage to everyone in the Mech.
+      Punch (Melee attack) +12 to hit, Hit 4d12 +6 Bludgeoning damage.
       Quake Stomp (Range AOE attack 60): All creatures on the ground other than those in the mech must succeed on a CON SAV of 19 or be knocked prone. If a creature is already prone, they are now stunned.`,
     },
     {

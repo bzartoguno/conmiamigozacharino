@@ -24,7 +24,7 @@ export const tribeValhallaMart: Tribe & { items: ValhallaMartItem[] } = {
     {
       name: "Blast from the Past",
       price: 10000,
-      description: "Blow into this horn and you will “recive” one mundane or magical item from one of your retired or deceased PCs. The item must be one you previously owned, cannot be an artifact, and is subject to DM approval. If the item is unique in the campaign, it cannot be duplicated—this creates a single, story-consistent return.",
+      description: "Blow into this horn and you will “receive” one mundane or magical item from one of your retired or deceased PCs. The item must be one you previously owned, cannot be an artifact, and is subject to DM approval. If the item is unique in the campaign, it cannot be duplicated—this creates a single, story-consistent return.",
     },
     {
       name: "Gjallarhorn Replica",
@@ -65,7 +65,7 @@ export const tribeValhallaMart: Tribe & { items: ValhallaMartItem[] } = {
       name: "Einherjar Nameplate (Inheritance Item)",
       price: 90000,
       description:
-        "Attach to a weapon, or focus. Add an adtioninal damage die to this item if possible. When this PC dies this item will becomes findable by the next character from that player (DM chooses a reasonable moment to recover it).",
+        "Attach to a weapon, or focus. Add an additional damage die to this item if possible. When this PC dies this item will become findable by the next character from that player (DM chooses a reasonable moment to recover it).",
     },
   ],
 };
