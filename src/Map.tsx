@@ -868,9 +868,7 @@ function SandboxMenu({
   onBack: () => void;
   onNavigate: (key: string) => void;
 }) {
-  const sortedSandboxTowns = [...sandboxTowns].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  const orderedSandboxTowns = sandboxTowns;
 
   return (
     <div style={styles.wrapper}>
@@ -893,7 +891,7 @@ function SandboxMenu({
         </div>
       </div>
       <div style={styles.sandboxGrid}>
-        {sortedSandboxTowns.map((town) => (
+        {orderedSandboxTowns.map((town) => (
             <FloatingButton
               key={town.key}
               label={town.name}
