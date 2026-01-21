@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/conmiamigozacharino/static/css/main.8c42edf4.css",
-    "main.js": "/conmiamigozacharino/static/js/main.d7eae839.js",
+    "main.js": "/conmiamigozacharino/static/js/main.4f262158.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
     "static/media/Goblin-Market-Train.png": "/conmiamigozacharino/static/media/Goblin-Market-Train.8bc7c06e9a616d733bf4.png",
@@ -68,11 +68,11 @@
     "static/media/Objective survive.webp": "/conmiamigozacharino/static/media/Objective survive.6eb472af327f3b03c52d.webp",
     "index.html": "/conmiamigozacharino/index.html",
     "main.8c42edf4.css.map": "/conmiamigozacharino/static/css/main.8c42edf4.css.map",
-    "main.d7eae839.js.map": "/conmiamigozacharino/static/js/main.d7eae839.js.map",
+    "main.4f262158.js.map": "/conmiamigozacharino/static/js/main.4f262158.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8c42edf4.css",
-    "static/js/main.d7eae839.js"
+    "static/js/main.4f262158.js"
   ]
 }
