@@ -229,7 +229,7 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
       Armor Class: 17
       Hit Points: 120
       Speed: 50, 30 Burrow
-      Resistances: Poison & nonmagical Bludeoning
+      Resistances: Poison & nonmagical Bludgeoning
       Crew Size: 1 (In Maw)
       Maximum Passengers: 3 (In tummy)
       Age: Baby
@@ -240,9 +240,9 @@ export const tribeMichaelsMount: Tribe & { items: MichaelsMountItem[] } = {
       WIS: -2 (4)
       CHR: -5 (1)
       Abilities
-      Maw Rider: Rider’s weapon attacks deal an additional rider damage die on creatures that are prone, surpised, or underground.
+      Maw Rider: Rider’s weapon attacks deal an additional rider damage die on creatures that are prone, surprised, or underground.
       Child Action
-      POWER CHOP: On hit, rider’s attack deals an addional extra 3 rider damage die.
+      POWER CHOP: On hit, rider’s attack deals an additional extra 3 rider damage die.
       Teen Action
       Burrow Bash: Rider attacks a target in difficult terrain, auto-critting on hit.
       Adult Action

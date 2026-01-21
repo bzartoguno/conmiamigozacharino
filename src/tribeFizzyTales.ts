@@ -75,7 +75,7 @@ export const tribeFizzyTales: Tribe & { items: FizzyTalesItem[] } = {
     {
       name: "Winter Wafers",
       price: 200,
-      description: "Increase a stat by 1; stats cannot exceed 18. I'm surpised these aren't more popular.",
+      description: "Increase a stat by 1; stats cannot exceed 18. I'm surprised these aren't more popular.",
     },
   ],
 };

@@ -20,10 +20,10 @@ export const tribeApplegarthGuild: ApplegarthTribe = {
           "I don’t like seeing heroes go without when their friends could help. So here’s a little stamp challenge, nice and simple. If a companion’s talking about buying something helpful, surprise them by covering it or gifting them something valuable.  |  Stamp Quest (It’s dangerous to go alone): Give another party member a useful item like a potion, weapon, armor, or a few coins when they are talking about buying an item. | Reward: 3 Stamp",
           "You know I used to be an adventurer like you, but then I took an arrow to the knee.",
           "Hey there! Welcome to the Applegarth Guild! You got a problem? We got a person!",
-          "Did you know that adventurers are more likey to encounter flying allagators, then the average citizen? Neither did I till last week.",
+          "Did you know that adventurers are more likely to encounter flying alligators than the average citizen? Neither did I 'til last week.",
           "Originally we were going to call this place 'Tony's place,' and everyone we hired had to be named Tony, we'd have big Tony, little Tony, Tony two shoes, regular Tony. But HR said that was name discrimination so we didn't go through with that.",
-          "We know that find a job is hardest part to get your foot in the door. so let us do the leg work for you, if your interested.",
-          "I don't know about you, but my brain is kind of melting with all these files. If you're not too busy, I wouldn't mind a helping hand. If you can make a so, give me a DC 14 Investigation check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+          "We know that finding a job is the hardest part to get your foot in the door, so let us do the legwork for you, if you're interested.",
+          "I don't know about you, but my brain is kind of melting with all these files. If you're not too busy, I wouldn't mind a helping hand. If you can make a go of it, give me a DC 14 Investigation check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
           ],
   items: [
     {

@@ -181,7 +181,7 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Pistol",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d10, Piercing, Range 30/90ft
-      Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      Due to this weapon's interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
       price: 20
     },
     {
@@ -192,13 +192,13 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Musket",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Piercing, Range 40/120ft
-      Do to this weapons interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
+      Due to this weapon's interesting nature, if you have EXPERTISE with this weapon, when you hit a creature, you can immediately make another attack with it as a bonus action.`,
       price: 24
     },
     {
       name: "Will's Knuckle Duster",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 1d12, Bludgeoning
-      Do to this weapons close nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to 3/4 health you can attempt to incapacitated that creature if it is the same size or small then you.`,
+      Due to this weapon's close nature, if you have EXPERTISE with this weapon, when dealing a blow that gets a creature to 3/4 health you can attempt to incapacitate that creature if it is the same size or smaller than you.`,
       price: 24
     },
     {
@@ -214,13 +214,13 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Taser",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 2d6, Lightning
-      Do to this weapons shocking nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under quarter health you can make that creature unconscious.`,
+      Due to this weapon's shocking nature, if you have EXPERTISE with this weapon, when dealing a blow that gets a creature to under quarter health you can make that creature unconscious.`,
       price: 24
     },
     {
       name: "Will's Chakram (Blade Disc)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Slashing, Range 20/60ft
-      Do to this weapons fun nature, if you have EXPERTISE with this weapon, if you throw it and hit a creature, you can immediately make another attack with it as it comes back to you. On a different creature.`,
+      Due to this weapon's fun nature, if you have EXPERTISE with this weapon, if you throw it and hit a creature, you can immediately make another attack with it as it comes back to you. On a different creature.`,
       price: 24
     },
     {
@@ -232,19 +232,19 @@ export const tribeWillsWeapons: Tribe = {
     {
       name: "Will's Macuahuitl (Obsidian Spiked)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d6, Slashing
-      Do to this weapons heavy blunt nature, if you have EXPERTISE with this weapon, when deal a blow getting a creature to under half health you can stun that creature.`,
+      Due to this weapon's heavy blunt nature, if you have EXPERTISE with this weapon, when dealing a blow that gets a creature to under half health you can stun that creature.`,
       price: 36
     },
     {
       name: "Will's Naginata (Glaive-Spear)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d8, Slashing
-      Do to this weapons long nature, if you have EXPERTISE with this weapon, you can attack creatures up to 10 feet away from you.`,
+      Due to this weapon's long nature, if you have EXPERTISE with this weapon, you can attack creatures up to 10 feet away from you.`,
       price: 48
     },
     {
       name: "Will's Tessen (War Fan)",
       description: `+DEX or STR to hit + (Proficiency if you have it for this item) Dealing your DEX or STR + 3d4, Bludgeoning
-      Do to this weapons defensive and compact nature, if you have EXPERTISE with this weapon, as a bonus action you turn the Tessen into a temperarue shield granding you +5 to your current AC until the start of your next turn.`,
+      Due to this weapon's defensive and compact nature, if you have EXPERTISE with this weapon, as a bonus action you turn the Tessen into a temporary shield granting you +5 to your current AC until the start of your next turn.`,
       price: 24
     },
     {
