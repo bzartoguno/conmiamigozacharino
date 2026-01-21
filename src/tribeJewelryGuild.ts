@@ -20,6 +20,23 @@ export const tribeJewelryGuild: Tribe & { items: JewelryGuildItem[] } = {
           "Did you know that our guild master is actually a Sea Giant? And the Dungeon Crawler's guild leader keeps their soul in a pickle jar! Neither did I until last week.",
           "If it's not too much trouble, we have a mud scraper by the door—just clean off your shoes, please. It's really to keep these carpets clean.",
           "You look like a smart chap; a customer sold this strange gem last week and I think it may be a historical treasure. If you could help me pore over these books—make a DC 14 History check—I’d really appreciate it. If you succeed, I'll pay you 40 gp. If you fail, you take 1 point of damage, get a bandage for your paper cut, and receive 30 gp.",
+
+          "Welcome, welcome, to the Jewelry Guild, where we give you the glimmer that will make you shine!",
+          "We used to be on the outs with the law, but then the nobility said what we could do well, 'reformed.'",
+          "Although no one says it, the other guilds—Applegarth, Archives, Dungeon Crawler, and Navigation—actually get the majority of their funds from us.",
+          "Did you know that our guild master is actually a Sea Giant? And the Dungeon Crawler's guild leader keeps their soul in a pickle jar! Neither did I until last week.",
+          "If it's not too much trouble, we have a mud scraper by the door—just clean off your shoes, please. It's really to keep these carpets clean.",
+          "Welcome, welcome, to the Jewelry Guild, where we give you the glimmer that will make you shine!",
+          "We used to be on the outs with the law, but then the nobility said what we could do well, 'reformed.'",
+          "Although no one says it, the other guilds—Applegarth, Archives, Dungeon Crawler, and Navigation—actually get the majority of their funds from us.",
+          "Did you know that our guild master is actually a Sea Giant? And the Dungeon Crawler's guild leader keeps their soul in a pickle jar! Neither did I until last week.",
+          "If it's not too much trouble, we have a mud scraper by the door—just clean off your shoes, please. It's really to keep these carpets clean.",
+          "Welcome, welcome, to the Jewelry Guild, where we give you the glimmer that will make you shine!",
+          "We used to be on the outs with the law, but then the nobility said what we could do well, 'reformed.'",
+          "Although no one says it, the other guilds—Applegarth, Archives, Dungeon Crawler, and Navigation—actually get the majority of their funds from us.",
+          "Did you know that our guild master is actually a Sea Giant? And the Dungeon Crawler's guild leader keeps their soul in a pickle jar! Neither did I until last week.",
+          "If it's not too much trouble, we have a mud scraper by the door—just clean off your shoes, please. It's really to keep these carpets clean.",
+          
           ],
   items: [
     {

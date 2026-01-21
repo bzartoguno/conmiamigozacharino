@@ -22,6 +22,23 @@ export const tribeEvansEnchantingEmporium: Tribe & {
           "You think having magic is cool, but well I tried casting a spell to clean the dishes and it somehow changed the gender of all of them to to their german counter parts. So I mostly do things by hand now.",
           "A group of advenuters were threating me so I cast fly on a nearby allagator and used gust to push it around.",
           "HELP! HELP MEE! I'VE TURNED MY SELF IN A POTTED PLANT! I'M POTTED PLANT EVAN! YOU GOT TO HELP ME! I HAVE A REVEARSAL WATERING CAN OVER THERE JUST GIVE ME A DC 14 MEDICINE CHECK AND I'LL TURN BACK TO NORMAL! If you succeed, Evan pays you 20 gp. If you fail, well Evan doesn't change back but offers you 5 gp for your time, you can take 15 gp more if you want to he can't stop you he's a potted right now.",
+
+          "I was actually going to call this Wally's Wonders! Because Wally is my last name and I was going to make it a family business! That was already tradmarked, so went with my frist name instead! But that's when my wife left me and took the kids with her, dragons am I right? How are you doing today!",
+          "I find fear to be a very motivating factor, like the fear of wolves, taxes, undone homework, but mainly wolves.",
+          "It's weird how no one ever talks about the absense of smells unprompted. The nose just isn't of conversation unless it's urgent. 'It's dark in here' normal 'Finally some quiet' relatable 'Doesn't smell liek anything here' Absolutely deranged sentance!",
+          "You think having magic is cool, but well I tried casting a spell to clean the dishes and it somehow changed the gender of all of them to to their german counter parts. So I mostly do things by hand now.",
+          "A group of advenuters were threating me so I cast fly on a nearby allagator and used gust to push it around.",
+          "I was actually going to call this Wally's Wonders! Because Wally is my last name and I was going to make it a family business! That was already tradmarked, so went with my frist name instead! But that's when my wife left me and took the kids with her, dragons am I right? How are you doing today!",
+          "I find fear to be a very motivating factor, like the fear of wolves, taxes, undone homework, but mainly wolves.",
+          "It's weird how no one ever talks about the absense of smells unprompted. The nose just isn't of conversation unless it's urgent. 'It's dark in here' normal 'Finally some quiet' relatable 'Doesn't smell liek anything here' Absolutely deranged sentance!",
+          "You think having magic is cool, but well I tried casting a spell to clean the dishes and it somehow changed the gender of all of them to to their german counter parts. So I mostly do things by hand now.",
+          "A group of advenuters were threating me so I cast fly on a nearby allagator and used gust to push it around.",
+          "I was actually going to call this Wally's Wonders! Because Wally is my last name and I was going to make it a family business! That was already tradmarked, so went with my frist name instead! But that's when my wife left me and took the kids with her, dragons am I right? How are you doing today!",
+          "I find fear to be a very motivating factor, like the fear of wolves, taxes, undone homework, but mainly wolves.",
+          "It's weird how no one ever talks about the absense of smells unprompted. The nose just isn't of conversation unless it's urgent. 'It's dark in here' normal 'Finally some quiet' relatable 'Doesn't smell liek anything here' Absolutely deranged sentance!",
+          "You think having magic is cool, but well I tried casting a spell to clean the dishes and it somehow changed the gender of all of them to to their german counter parts. So I mostly do things by hand now.",
+          "A group of advenuters were threating me so I cast fly on a nearby allagator and used gust to push it around.",
+          
           ],
   items: [
     {

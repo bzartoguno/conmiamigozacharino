@@ -16,6 +16,23 @@ export const tribeProvisionsParadise: Tribe = {
           "Would you like to donate to fight a kid with cancer today? For every coin you donate, you earn a minute in the ring with him in the back. He hasn't lost yet, but you may be the lucky one to take him down! (No weapons or spells allowed)",
           "01000010 01101111 01101111 00100001",
           "Give me a DC 14 Deception check to help me sort these. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage and get 5 gp.",
+
+          "Hello, valued customer. I am Parry Version 36, always happy to help!",
+          "One day I think an actual name would be nice other than Parry Version 36. But if I ask my creator, I might get turned to scrap... oh! So sorry, valued customer! How may I be of service?",
+          "Welcome to Provision's Paradise, a quick little pit stop in your busy life!",
+          "Would you like to donate to fight a kid with cancer today? For every coin you donate, you earn a minute in the ring with him in the back. He hasn't lost yet, but you may be the lucky one to take him down! (No weapons or spells allowed)",
+          "01000010 01101111 01101111 00100001",
+          "Hello, valued customer. I am Parry Version 36, always happy to help!",
+          "One day I think an actual name would be nice other than Parry Version 36. But if I ask my creator, I might get turned to scrap... oh! So sorry, valued customer! How may I be of service?",
+          "Welcome to Provision's Paradise, a quick little pit stop in your busy life!",
+          "Would you like to donate to fight a kid with cancer today? For every coin you donate, you earn a minute in the ring with him in the back. He hasn't lost yet, but you may be the lucky one to take him down! (No weapons or spells allowed)",
+          "01000010 01101111 01101111 00100001",
+          "Hello, valued customer. I am Parry Version 36, always happy to help!",
+          "One day I think an actual name would be nice other than Parry Version 36. But if I ask my creator, I might get turned to scrap... oh! So sorry, valued customer! How may I be of service?",
+          "Welcome to Provision's Paradise, a quick little pit stop in your busy life!",
+          "Would you like to donate to fight a kid with cancer today? For every coin you donate, you earn a minute in the ring with him in the back. He hasn't lost yet, but you may be the lucky one to take him down! (No weapons or spells allowed)",
+          "01000010 01101111 01101111 00100001",
+          
           ],
   items: [
     {

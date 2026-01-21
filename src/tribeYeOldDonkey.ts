@@ -16,6 +16,23 @@ export const tribeYeOldDonkey: Tribe = {
           "Crabs? What crabs? No sirree, no crabs here in this fine establishment. I don't know what you're talking about.",
           "The bad part of getting older is that you become an 'NPC'; the good part is that being an 'NPC' rocks! Nothing like walking down the street with a thought bubble that's just a sandwich you're looking forward to. Protagonism is best left to the teens, young adults, and insane.",
           "Hey kid, come here. I think I just saw a couple of guests try to sneak in some crabs. If you go steal them and hand them to me, I'll 'get rid of them' and make it worth your while. Make a DC 14 Sleight of Hand check. If you succeed, you’ll get paid 25 gp. If you fail, you take 1 point of damage and inspiration (make a reroll on a failed skill check at some point later in time) because maybe grabbing a crab like that wasn't the best idea.",
+
+          "Welcome, weary traveler! Come and put your feet up; a bed here is fairly cheap!",
+          "I used to be a pretty famous adventurer back in the day, but I got bored of saving the day, so now I run this inn to keep me entertained. Hey, that rhymed!",
+          "Good old Bestie, my donkey, is out in the stables. Did you know that she actually landed a killing blow on a great purple worm? But now we bring her in to let kids ride on her back. Never saw her that happy when we were out on the road.",
+          "Crabs? What crabs? No sirree, no crabs here in this fine establishment. I don't know what you're talking about.",
+          "The bad part of getting older is that you become an 'NPC'; the good part is that being an 'NPC' rocks! Nothing like walking down the street with a thought bubble that's just a sandwich you're looking forward to. Protagonism is best left to the teens, young adults, and insane.",
+          "Welcome, weary traveler! Come and put your feet up; a bed here is fairly cheap!",
+          "I used to be a pretty famous adventurer back in the day, but I got bored of saving the day, so now I run this inn to keep me entertained. Hey, that rhymed!",
+          "Good old Bestie, my donkey, is out in the stables. Did you know that she actually landed a killing blow on a great purple worm? But now we bring her in to let kids ride on her back. Never saw her that happy when we were out on the road.",
+          "Crabs? What crabs? No sirree, no crabs here in this fine establishment. I don't know what you're talking about.",
+          "The bad part of getting older is that you become an 'NPC'; the good part is that being an 'NPC' rocks! Nothing like walking down the street with a thought bubble that's just a sandwich you're looking forward to. Protagonism is best left to the teens, young adults, and insane.",
+          "Welcome, weary traveler! Come and put your feet up; a bed here is fairly cheap!",
+          "I used to be a pretty famous adventurer back in the day, but I got bored of saving the day, so now I run this inn to keep me entertained. Hey, that rhymed!",
+          "Good old Bestie, my donkey, is out in the stables. Did you know that she actually landed a killing blow on a great purple worm? But now we bring her in to let kids ride on her back. Never saw her that happy when we were out on the road.",
+          "Crabs? What crabs? No sirree, no crabs here in this fine establishment. I don't know what you're talking about.",
+          "The bad part of getting older is that you become an 'NPC'; the good part is that being an 'NPC' rocks! Nothing like walking down the street with a thought bubble that's just a sandwich you're looking forward to. Protagonism is best left to the teens, young adults, and insane.",
+          
           ],
   items: [
     {

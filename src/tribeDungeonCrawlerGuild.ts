@@ -16,6 +16,23 @@ export const tribeDungeonCrawlerGuild: Tribe = {
           "Babaga-boosh!",
           "The darkness is really getting to me.",
           "Hey, you look like you'd like to dive into danger head first! My partner Parker is taking a little bit to get here, and there's an adventuring party in the dungeon coming up the stairs, but one of them hurt their leg. If it's not too much trouble, some help? You just need to help me with a DC 14 Acrobatics check to get this guy up the stairs. If you succeed, I’ll pay you 23 gp. If you fail, you kind of dropped the guy a few times, and that wasn't very nice, so I'll pay you 8 gp for your time.",
+
+          "Hi I'm Doug Doug and this is my familiar Rosa the sea otter! Welcome to the Dungeon Crawler Guild where we raise up new adventurers in relative safety!",
+          "I once went through a dungeon where 10 wheels of cheese spawn in every second, man that was fun.",
+          "Sometimes I hear a bunch of voices in my head, calling me bald. I started calling them twitch chat, I'm not crazy. I was tested, turns out I was actually being haunted, I get rid of them.",
+          "Babaga-boosh!",
+          "The darkness is really getting to me.",
+          "Hi I'm Doug Doug and this is my familiar Rosa the sea otter! Welcome to the Dungeon Crawler Guild where we raise up new adventurers in relative safety!",
+          "I once went through a dungeon where 10 wheels of cheese spawn in every second, man that was fun.",
+          "Sometimes I hear a bunch of voices in my head, calling me bald. I started calling them twitch chat, I'm not crazy. I was tested, turns out I was actually being haunted, I get rid of them.",
+          "Babaga-boosh!",
+          "The darkness is really getting to me.",
+          "Hi I'm Doug Doug and this is my familiar Rosa the sea otter! Welcome to the Dungeon Crawler Guild where we raise up new adventurers in relative safety!",
+          "I once went through a dungeon where 10 wheels of cheese spawn in every second, man that was fun.",
+          "Sometimes I hear a bunch of voices in my head, calling me bald. I started calling them twitch chat, I'm not crazy. I was tested, turns out I was actually being haunted, I get rid of them.",
+          "Babaga-boosh!",
+          "The darkness is really getting to me.",
+          
           ],
   items: [
     {

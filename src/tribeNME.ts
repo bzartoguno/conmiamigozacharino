@@ -20,6 +20,23 @@ export const tribeNME: Tribe & { items: NMEItem[] } = {
           "They say money can't buy happiness, but it sure can buy a lot of blood bags. However, here at N.M.E. we prefer to take from the source rather than a third party.",
           "Hello, please come and take a seat. This is N.M.E., where we make sure that your life is worth giving. Now tell me, how can we help you?",
           "I am so terribly sorry—it looks like I may have a bit of a problem opening up this blood bag. If I could get some help opening this up, that would be wonderful. Please make a DC 14 Medicine check to pop this open. If you succeed, I’ll give you a Supreme Healing Potion (heals 10d4+20). If you fail, don't worry about it; I'll focus on it when you leave and I'll give you a Healing Potion (heals 2d4+2) for your trouble.",
+
+          "Oh my, you are quite a way from home now. Please take a seat, I'll pour a cup of tea, then we can get down to business, shall we? Cream? Honey? Mint? Rooibos? Whatever you like.",
+          "I'm not much of a theatrical vampire like you might expect; before all this I was actually an accountant.",
+          "You will eventually discover that under the movie stereotypes, imposed mystique, and overall inflated expectations, each and every one of us is at least a touch more boring than our images would indicate. And that is not a bad thing.",
+          "They say money can't buy happiness, but it sure can buy a lot of blood bags. However, here at N.M.E. we prefer to take from the source rather than a third party.",
+          "Hello, please come and take a seat. This is N.M.E., where we make sure that your life is worth giving. Now tell me, how can we help you?",
+          "Oh my, you are quite a way from home now. Please take a seat, I'll pour a cup of tea, then we can get down to business, shall we? Cream? Honey? Mint? Rooibos? Whatever you like.",
+          "I'm not much of a theatrical vampire like you might expect; before all this I was actually an accountant.",
+          "You will eventually discover that under the movie stereotypes, imposed mystique, and overall inflated expectations, each and every one of us is at least a touch more boring than our images would indicate. And that is not a bad thing.",
+          "They say money can't buy happiness, but it sure can buy a lot of blood bags. However, here at N.M.E. we prefer to take from the source rather than a third party.",
+          "Hello, please come and take a seat. This is N.M.E., where we make sure that your life is worth giving. Now tell me, how can we help you?",
+          "Oh my, you are quite a way from home now. Please take a seat, I'll pour a cup of tea, then we can get down to business, shall we? Cream? Honey? Mint? Rooibos? Whatever you like.",
+          "I'm not much of a theatrical vampire like you might expect; before all this I was actually an accountant.",
+          "You will eventually discover that under the movie stereotypes, imposed mystique, and overall inflated expectations, each and every one of us is at least a touch more boring than our images would indicate. And that is not a bad thing.",
+          "They say money can't buy happiness, but it sure can buy a lot of blood bags. However, here at N.M.E. we prefer to take from the source rather than a third party.",
+          "Hello, please come and take a seat. This is N.M.E., where we make sure that your life is worth giving. Now tell me, how can we help you?",
+          
           ],
   items: [
     {

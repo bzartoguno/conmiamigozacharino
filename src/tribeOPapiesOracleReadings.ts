@@ -16,6 +16,23 @@ export const tribeOPapiesOracleReadings: Tribe = {
           "Umm I thought I put my reading glasses right here, I guess not. Silly old me.",
           "I don't mind running this shop just that sometimes it can get so lonely in here, but enough about me! How can I help you?",
           "Oh rats, I just saw that a noble is coming for a reading. They'll probably want it to look all fancy. MMMmm. Say, would you be willing to help me pull out the more esoteric blankets and curtains and hang them up to give this place a much more 'ominous vibe,' as the kids say? Make a DC 14 Religion check to help me sort these. If you succeed, I’ll pay you an inspiration (make a reroll on a failed skill check at some point later in time). If you fail, you get overwhelmed and take 1 point of psychic damage.",
+
+          "Yes, yes, this is where we do oracle readings.",
+          "You know, my great-great-grandmother wanted to live forever, so she went and stole her hourglass from a time goddess. But when the goddess found out, she cursed her and her following children to always be entwined with time. My curse? Well, it's the fact that one eye can always see into the future and the other into the past of any object I'm looking at. Though, apparently, my great-great-granddaughter time-travels back to her era every calendar year and spends her time with me.",
+          "I thought you might be stopping in. Have you time to play a game with an old man like me? If not, I completely understand.",
+          "Umm I thought I put my reading glasses right here, I guess not. Silly old me.",
+          "I don't mind running this shop just that sometimes it can get so lonely in here, but enough about me! How can I help you?",
+          "Yes, yes, this is where we do oracle readings.",
+          "You know, my great-great-grandmother wanted to live forever, so she went and stole her hourglass from a time goddess. But when the goddess found out, she cursed her and her following children to always be entwined with time. My curse? Well, it's the fact that one eye can always see into the future and the other into the past of any object I'm looking at. Though, apparently, my great-great-granddaughter time-travels back to her era every calendar year and spends her time with me.",
+          "I thought you might be stopping in. Have you time to play a game with an old man like me? If not, I completely understand.",
+          "Umm I thought I put my reading glasses right here, I guess not. Silly old me.",
+          "I don't mind running this shop just that sometimes it can get so lonely in here, but enough about me! How can I help you?",
+          "Yes, yes, this is where we do oracle readings.",
+          "You know, my great-great-grandmother wanted to live forever, so she went and stole her hourglass from a time goddess. But when the goddess found out, she cursed her and her following children to always be entwined with time. My curse? Well, it's the fact that one eye can always see into the future and the other into the past of any object I'm looking at. Though, apparently, my great-great-granddaughter time-travels back to her era every calendar year and spends her time with me.",
+          "I thought you might be stopping in. Have you time to play a game with an old man like me? If not, I completely understand.",
+          "Umm I thought I put my reading glasses right here, I guess not. Silly old me.",
+          "I don't mind running this shop just that sometimes it can get so lonely in here, but enough about me! How can I help you?",
+         
           ],
   items: [
     {

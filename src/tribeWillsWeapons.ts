@@ -16,6 +16,23 @@ export const tribeWillsWeapons: Tribe = {
           "They say fear is what holds us back. That's wrong—fear keeps us alive. The real victor is the one who survives to see another day, whether that's fighting or running.",
           "I had a six-fingered human come in here and demand that I make him the best sword in the world, and I laughed at him. He tried to kill me; he didn't really count on how hard I could swing.",
           "You there! You are looking pretty brave! I made a new Urumi! I want to try it out, so if you want, just put this apple on your head and go stand by that tree over there. Then I'll swing! Make a DC 14 Survival check. If you succeed, you get 8 inspirations (make a reroll on a failed skill check at some point later in time). If you fail, you take 29 points of slashing damage and get 80 gp for the trouble.",
+
+          "I had to learn how to throw a punch early. You see, my older brother Sam would always stand up for me and my brothers, and I couldn't stand seeing him come home from school all beat up and bloody. So I decided to do something about it.",
+          "A weapon has never hurt people; people hurt people. Yeah, there are morals in the way, but we both know that if we don't do something about it first, the other one might escalate it.",
+          "The best defense is a good offense, is what some would say. But to me, whoever strikes consistently the hardest will usually take home the prize.",
+          "They say fear is what holds us back. That's wrong—fear keeps us alive. The real victor is the one who survives to see another day, whether that's fighting or running.",
+          "I had a six-fingered human come in here and demand that I make him the best sword in the world, and I laughed at him. He tried to kill me; he didn't really count on how hard I could swing.",
+          "I had to learn how to throw a punch early. You see, my older brother Sam would always stand up for me and my brothers, and I couldn't stand seeing him come home from school all beat up and bloody. So I decided to do something about it.",
+          "A weapon has never hurt people; people hurt people. Yeah, there are morals in the way, but we both know that if we don't do something about it first, the other one might escalate it.",
+          "The best defense is a good offense, is what some would say. But to me, whoever strikes consistently the hardest will usually take home the prize.",
+          "They say fear is what holds us back. That's wrong—fear keeps us alive. The real victor is the one who survives to see another day, whether that's fighting or running.",
+          "I had a six-fingered human come in here and demand that I make him the best sword in the world, and I laughed at him. He tried to kill me; he didn't really count on how hard I could swing.",
+          "I had to learn how to throw a punch early. You see, my older brother Sam would always stand up for me and my brothers, and I couldn't stand seeing him come home from school all beat up and bloody. So I decided to do something about it.",
+          "A weapon has never hurt people; people hurt people. Yeah, there are morals in the way, but we both know that if we don't do something about it first, the other one might escalate it.",
+          "The best defense is a good offense, is what some would say. But to me, whoever strikes consistently the hardest will usually take home the prize.",
+          "They say fear is what holds us back. That's wrong—fear keeps us alive. The real victor is the one who survives to see another day, whether that's fighting or running.",
+          "I had a six-fingered human come in here and demand that I make him the best sword in the world, and I laughed at him. He tried to kill me; he didn't really count on how hard I could swing.",
+          
           ],
   items: [
     { 

@@ -19,6 +19,20 @@ export const tribeValhallaMart: Tribe & { items: ValhallaMartItem[] } = {
           "Do you believe in reincarnation? Well, here at Valhalla Mart we reach beyond the veil and into your past lives to give you extraordinary items!",
           "Yo",
           "Peace be with you and all that.",
+
+          "No, this isn't Heaven, but you are close!",
+          "Name's Victor, yes, like Victory. My mom actually named me that to go with my twin sister Val, short for Valkyrie.",
+          "Do you believe in reincarnation? Well, here at Valhalla Mart we reach beyond the veil and into your past lives to give you extraordinary items!",
+          "Yo",
+          "Peace be with you and all that.","No, this isn't Heaven, but you are close!",
+          "Name's Victor, yes, like Victory. My mom actually named me that to go with my twin sister Val, short for Valkyrie.",
+          "Do you believe in reincarnation? Well, here at Valhalla Mart we reach beyond the veil and into your past lives to give you extraordinary items!",
+          "Yo",
+          "Peace be with you and all that.","No, this isn't Heaven, but you are close!",
+          "Name's Victor, yes, like Victory. My mom actually named me that to go with my twin sister Val, short for Valkyrie.",
+          "Do you believe in reincarnation? Well, here at Valhalla Mart we reach beyond the veil and into your past lives to give you extraordinary items!",
+          "Yo",
+          "Peace be with you and all that.",
           ],
   items: [
     {

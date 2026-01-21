@@ -16,6 +16,23 @@ export const tribeSupremeSmithy: Tribe = {
           "Everything you see here, I sell it for 3 gold above cost, because it’s better to have protection than not.",
           "Welcome to Supreme Smithy, having some armor is better then no armor.",
           "Blasted long-limbed—oh, sorry, didn't see you there. Hey, you're pretty lanky; would you mind giving me a hand? A customer came in and claimed that their armor was too short. I just finished reworking it, and you look about the same size, so try it on and give me a few stretches, yeah? Make a DC 14 Athletics check. If you succeed, Sam will pay you 25 gp. If you fail, you take 1 point of damage, slight embarrassment, as you ripped the new stitches and get 20 gp.",
+
+          "It's hard being the oldest son in the Redrockson family. Will and Pat took up dance lessons, Goldhand played with dolls, and Nex couldn't stop eating dirt. So I had to be their shield to protect them from the bullies.",
+          "Do I have any dirt on my younger brothers? Of course I do! But am I going to let you pick on them? Over my dead body!",
+          "I know my brothers don't mention it too much, but the reason why we are all running our business is because, way back home, Ma and Pa are in some serious debt. Raising five riled-up dwarf boys on top of dealing with dwarven petrifaction is no easy feat. So to make up for it, me and the lads are setting up Ma and Pa for the rest of their lives, with each one of us taking turns to go see them so they won't get too lonely.",
+          "Everything you see here, I sell it for 3 gold above cost, because it’s better to have protection than not.",
+          "Welcome to Supreme Smithy, having some armor is better then no armor.",
+          "It's hard being the oldest son in the Redrockson family. Will and Pat took up dance lessons, Goldhand played with dolls, and Nex couldn't stop eating dirt. So I had to be their shield to protect them from the bullies.",
+          "Do I have any dirt on my younger brothers? Of course I do! But am I going to let you pick on them? Over my dead body!",
+          "I know my brothers don't mention it too much, but the reason why we are all running our business is because, way back home, Ma and Pa are in some serious debt. Raising five riled-up dwarf boys on top of dealing with dwarven petrifaction is no easy feat. So to make up for it, me and the lads are setting up Ma and Pa for the rest of their lives, with each one of us taking turns to go see them so they won't get too lonely.",
+          "Everything you see here, I sell it for 3 gold above cost, because it’s better to have protection than not.",
+          "Welcome to Supreme Smithy, having some armor is better then no armor.",
+          "It's hard being the oldest son in the Redrockson family. Will and Pat took up dance lessons, Goldhand played with dolls, and Nex couldn't stop eating dirt. So I had to be their shield to protect them from the bullies.",
+          "Do I have any dirt on my younger brothers? Of course I do! But am I going to let you pick on them? Over my dead body!",
+          "I know my brothers don't mention it too much, but the reason why we are all running our business is because, way back home, Ma and Pa are in some serious debt. Raising five riled-up dwarf boys on top of dealing with dwarven petrifaction is no easy feat. So to make up for it, me and the lads are setting up Ma and Pa for the rest of their lives, with each one of us taking turns to go see them so they won't get too lonely.",
+          "Everything you see here, I sell it for 3 gold above cost, because it’s better to have protection than not.",
+          "Welcome to Supreme Smithy, having some armor is better then no armor.",
+          
           ],
   items: [
     {

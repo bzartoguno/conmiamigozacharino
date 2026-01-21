@@ -20,6 +20,23 @@ export const tribeGolemWorkshop: Tribe & { items: GolemWorkshopItem[] } = {
           "Hehe Crazy? I was crazy once, I locked myself in a bunker, a stone bunker, a stone bunker with a comatose elf, and comatose elf make me crazy. Hehe.",
           "Oh I'll be with you in just a moment, I wouldn't want this golem to contiunually sit at the bottom of a well pumping water for 240 years with out taking a break.",
           "Oh you just in time, if you could help me jump start this golem that would be wonderful! Just give me a DC 14 Arcana check and we'll get him up and running If you succeed, I’ll pay you 20 gp. If you fail, get 5 gp.",
+
+          "Sometimes I lay awake at night because I have nightmares about being underwater and that one of my beloved golems opens up a bag of holding and I get sucked in, killing me.",
+          "Why Hello there! Welcome to Golem Workshop, we have handymans for hire!",
+          "I don't suppose your interested in Golems are you?",
+          "Hehe Crazy? I was crazy once, I locked myself in a bunker, a stone bunker, a stone bunker with a comatose elf, and comatose elf make me crazy. Hehe.",
+          "Oh I'll be with you in just a moment, I wouldn't want this golem to contiunually sit at the bottom of a well pumping water for 240 years with out taking a break.",
+          "Sometimes I lay awake at night because I have nightmares about being underwater and that one of my beloved golems opens up a bag of holding and I get sucked in, killing me.",
+          "Why Hello there! Welcome to Golem Workshop, we have handymans for hire!",
+          "I don't suppose your interested in Golems are you?",
+          "Hehe Crazy? I was crazy once, I locked myself in a bunker, a stone bunker, a stone bunker with a comatose elf, and comatose elf make me crazy. Hehe.",
+          "Oh I'll be with you in just a moment, I wouldn't want this golem to contiunually sit at the bottom of a well pumping water for 240 years with out taking a break.",
+          "Sometimes I lay awake at night because I have nightmares about being underwater and that one of my beloved golems opens up a bag of holding and I get sucked in, killing me.",
+          "Why Hello there! Welcome to Golem Workshop, we have handymans for hire!",
+          "I don't suppose your interested in Golems are you?",
+          "Hehe Crazy? I was crazy once, I locked myself in a bunker, a stone bunker, a stone bunker with a comatose elf, and comatose elf make me crazy. Hehe.",
+          "Oh I'll be with you in just a moment, I wouldn't want this golem to contiunually sit at the bottom of a well pumping water for 240 years with out taking a break.",
+          
           ],
   items: [
     {

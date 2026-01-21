@@ -16,6 +16,23 @@ export const tribeNavigationGuild: Tribe = {
           "My friend! My friend! My friend! Welcome! Welcome! Welcome! You are among family at last! I may be trying to run a business here, but I am so happy to see you again!",
           "I hope that you one day will know the utter joy you bring with you, for when I saw you walk through that door I knew that my day was only going to get better from here!",
           "Greetings, friend. Would you be interested in learning more about the world around you? If so, please follow me, and I will teach you what is safe to eat while on the road! Make a DC 14 Nature check to see what you learn. If you succeed, congrats! You learned more about herbs and various plants to eat while out in nature. If you fail, you take 1 point of damage from Nate's ramblings.",
+
+          "Hello, friend. Welcome to the Navigation Guild. If you have a place to be, then let us show you the way, much like our ancestors of old did.",
+          "Thank you, friend, for choosing us. We know the road can be quite dangerous, but here we make sure that our customers aren't harassed by anyone or anything during their journey.",
+          "MY FRIEND, IT IS SO GOOD TO SEE YOU AGAIN! PLEASE SIT! SIT! I MUST HEAR MORE ABOUT YOUR TRAVELS!",
+          "My friend! My friend! My friend! Welcome! Welcome! Welcome! You are among family at last! I may be trying to run a business here, but I am so happy to see you again!",
+          "I hope that you one day will know the utter joy you bring with you, for when I saw you walk through that door I knew that my day was only going to get better from here!",
+          "Hello, friend. Welcome to the Navigation Guild. If you have a place to be, then let us show you the way, much like our ancestors of old did.",
+          "Thank you, friend, for choosing us. We know the road can be quite dangerous, but here we make sure that our customers aren't harassed by anyone or anything during their journey.",
+          "MY FRIEND, IT IS SO GOOD TO SEE YOU AGAIN! PLEASE SIT! SIT! I MUST HEAR MORE ABOUT YOUR TRAVELS!",
+          "My friend! My friend! My friend! Welcome! Welcome! Welcome! You are among family at last! I may be trying to run a business here, but I am so happy to see you again!",
+          "I hope that you one day will know the utter joy you bring with you, for when I saw you walk through that door I knew that my day was only going to get better from here!",
+          "Hello, friend. Welcome to the Navigation Guild. If you have a place to be, then let us show you the way, much like our ancestors of old did.",
+          "Thank you, friend, for choosing us. We know the road can be quite dangerous, but here we make sure that our customers aren't harassed by anyone or anything during their journey.",
+          "MY FRIEND, IT IS SO GOOD TO SEE YOU AGAIN! PLEASE SIT! SIT! I MUST HEAR MORE ABOUT YOUR TRAVELS!",
+          "My friend! My friend! My friend! Welcome! Welcome! Welcome! You are among family at last! I may be trying to run a business here, but I am so happy to see you again!",
+          "I hope that you one day will know the utter joy you bring with you, for when I saw you walk through that door I knew that my day was only going to get better from here!",
+          
           ],
   items: [
     {

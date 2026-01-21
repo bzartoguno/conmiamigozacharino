@@ -16,6 +16,23 @@ export const tribeIconicDragonic: Tribe = {
           "You know I've been working on a mechanical dragon down in the basement, so that way I will be able to actually stand among them one day.",
           "Do you know how many people try to break in and steal this stuff? A lot, but have any ever gotten away with it? None. It's a fun trick I learned from my old party, go ahead and try it.",
           "Whoa there, be careful. I just had a thief try to break in here. I'm resetting the traps. If you could give me a hand with this floorboard for the knee trap, I'd greatly appreciate it. Make a DC 14 Arcana check to help reset it. If you succeed, I’ll pay you 40 gp. If you fail, you take 10 points of bludgeoning damage and get 45 gp.",
+
+          "I know this might seem pretty far out to you, but I'm actually not from this planet. I used to be with a group of legendary heroes! But then I spent too long on the end of a portal that got severed, and now I'm working my way back to them one planet at a time.",
+          "This is Iconic Dragonic, where we have the goods that will make you a cut above the rest!",
+          "I miss Jazz, Adel, Portal Pat, and Annabel. Sometimes I go back to my journal and read through the adventures I had with them, but other times I struggle to remember their faces.",
+          "You know I've been working on a mechanical dragon down in the basement, so that way I will be able to actually stand among them one day.",
+          "Do you know how many people try to break in and steal this stuff? A lot, but have any ever gotten away with it? None. It's a fun trick I learned from my old party, go ahead and try it.",
+          "I know this might seem pretty far out to you, but I'm actually not from this planet. I used to be with a group of legendary heroes! But then I spent too long on the end of a portal that got severed, and now I'm working my way back to them one planet at a time.",
+          "This is Iconic Dragonic, where we have the goods that will make you a cut above the rest!",
+          "I miss Jazz, Adel, Portal Pat, and Annabel. Sometimes I go back to my journal and read through the adventures I had with them, but other times I struggle to remember their faces.",
+          "You know I've been working on a mechanical dragon down in the basement, so that way I will be able to actually stand among them one day.",
+          "Do you know how many people try to break in and steal this stuff? A lot, but have any ever gotten away with it? None. It's a fun trick I learned from my old party, go ahead and try it.",
+          "I know this might seem pretty far out to you, but I'm actually not from this planet. I used to be with a group of legendary heroes! But then I spent too long on the end of a portal that got severed, and now I'm working my way back to them one planet at a time.",
+          "This is Iconic Dragonic, where we have the goods that will make you a cut above the rest!",
+          "I miss Jazz, Adel, Portal Pat, and Annabel. Sometimes I go back to my journal and read through the adventures I had with them, but other times I struggle to remember their faces.",
+          "You know I've been working on a mechanical dragon down in the basement, so that way I will be able to actually stand among them one day.",
+          "Do you know how many people try to break in and steal this stuff? A lot, but have any ever gotten away with it? None. It's a fun trick I learned from my old party, go ahead and try it.",
+          
           ],
   items: [
     {

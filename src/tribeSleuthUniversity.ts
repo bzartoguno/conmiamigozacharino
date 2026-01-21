@@ -20,6 +20,23 @@ export const tribeSleuthUniversity: Tribe & { items: SleuthUniversityItem[] } = 
           "I can't wait to clock out, and go home to see my beloved Yoshi. Oh um he's a velociraptor, I taught him how to skateboard.",
           "Sometimes the world can be quite confusing; that's why here at Sleuth University we can help you understand it a bit better!",
           "Oh good heavens! I've lost track of time! Oh tea and crumpets, and other British sounding things. I—umm, yes indeed you look like a very scary chap! Pray tell, would you be willing to lend me your skill? I need to teach a small session on how to properly terrify the lights out of somebody, and you look like you've seen that sort of thing. If you're willing to come with me and make a DC 14 Intimidation check to teach the next generation, I'll be most pleased. If you succeed, I’ll pay you 25 gp for your time. If you fail, you take 1 point of damage as you get mocked by college students and get 25 gp for the trouble.",
+
+          "They say the pen is mightier than the sword, but I have swung a sword at 50 pens and I can confirm that it is not the case.",
+          "Back in my glory days I used to travel around with one Professor Layton—oh, the things we would get up to. Though, if I must pass down a word of advice from that time: if someone is about to grab you, set yourself on fire. They'll never see it coming.",
+          "I actually teamed up with Benjamin Franklin once; not a bad guy, really, but he kept on saying 'who are you,' 'where are we going,' 'put me down.'",
+          "I can't wait to clock out, and go home to see my beloved Yoshi. Oh um he's a velociraptor, I taught him how to skateboard.",
+          "Sometimes the world can be quite confusing; that's why here at Sleuth University we can help you understand it a bit better!",
+          "They say the pen is mightier than the sword, but I have swung a sword at 50 pens and I can confirm that it is not the case.",
+          "Back in my glory days I used to travel around with one Professor Layton—oh, the things we would get up to. Though, if I must pass down a word of advice from that time: if someone is about to grab you, set yourself on fire. They'll never see it coming.",
+          "I actually teamed up with Benjamin Franklin once; not a bad guy, really, but he kept on saying 'who are you,' 'where are we going,' 'put me down.'",
+          "I can't wait to clock out, and go home to see my beloved Yoshi. Oh um he's a velociraptor, I taught him how to skateboard.",
+          "Sometimes the world can be quite confusing; that's why here at Sleuth University we can help you understand it a bit better!",
+          "They say the pen is mightier than the sword, but I have swung a sword at 50 pens and I can confirm that it is not the case.",
+          "Back in my glory days I used to travel around with one Professor Layton—oh, the things we would get up to. Though, if I must pass down a word of advice from that time: if someone is about to grab you, set yourself on fire. They'll never see it coming.",
+          "I actually teamed up with Benjamin Franklin once; not a bad guy, really, but he kept on saying 'who are you,' 'where are we going,' 'put me down.'",
+          "I can't wait to clock out, and go home to see my beloved Yoshi. Oh um he's a velociraptor, I taught him how to skateboard.",
+          "Sometimes the world can be quite confusing; that's why here at Sleuth University we can help you understand it a bit better!",
+          
           ],
   items: [
     {

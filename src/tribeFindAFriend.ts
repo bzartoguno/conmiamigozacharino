@@ -16,6 +16,23 @@ export const tribeFindAFriend: Tribe = {
           "Hi there! Welcome to Find a Friend, where we do our best to find shut-in people to be a part of your friend group. Please take a look at these files and let me know what you think!",
           "It's so fun to take the introverts on my errands. I pull out my donut rope and they each take hold, and I get to walk around town and I feel like the coolest grandma in town. It's like walking around with a bunch of big, scary dogs!",
           "Whoa there, you need to be very quiet. One of my tenants is a bit riled up at the moment and I can't quite put my finger on it. Mmmm. If it's not too much trouble, do you think you could give me a hand to figure this out? Give me a DC 14 Insight check to help me figure out what's wrong. If you succeed, I’ll pay you 5 gp. If you fail, well, the mystery goes unsolved and you get 5 gp.",
+
+          "Hello, deary, have you come to adopt an introvert, or are you just looking?",
+          "I beg your pardon, just finishing up an Auntie Patty pie. I mean, there's no reason why you can't eat pie at every meal. They make fruit pies, vegetable pies, meat pies, meat-substitute pies, dessert pie. I mean, pies easily cover all your necessary nutrient groups; they even make cake pies! The only reason not to switch over to pies entirely is because, well, pies suck! *She takes her plate with a half-eaten slice of pie and dumps it in the trash.*",
+          "This shop has been around for about two hundred years now. In fact, I used to be a tenant here, then I got adopted and became a bit of an extrovert, and look at me now! I run this place!",
+          "Hi there! Welcome to Find a Friend, where we do our best to find shut-in people to be a part of your friend group. Please take a look at these files and let me know what you think!",
+          "It's so fun to take the introverts on my errands. I pull out my donut rope and they each take hold, and I get to walk around town and I feel like the coolest grandma in town. It's like walking around with a bunch of big, scary dogs!",
+          "Hello, deary, have you come to adopt an introvert, or are you just looking?",
+          "I beg your pardon, just finishing up an Auntie Patty pie. I mean, there's no reason why you can't eat pie at every meal. They make fruit pies, vegetable pies, meat pies, meat-substitute pies, dessert pie. I mean, pies easily cover all your necessary nutrient groups; they even make cake pies! The only reason not to switch over to pies entirely is because, well, pies suck! *She takes her plate with a half-eaten slice of pie and dumps it in the trash.*",
+          "This shop has been around for about two hundred years now. In fact, I used to be a tenant here, then I got adopted and became a bit of an extrovert, and look at me now! I run this place!",
+          "Hi there! Welcome to Find a Friend, where we do our best to find shut-in people to be a part of your friend group. Please take a look at these files and let me know what you think!",
+          "It's so fun to take the introverts on my errands. I pull out my donut rope and they each take hold, and I get to walk around town and I feel like the coolest grandma in town. It's like walking around with a bunch of big, scary dogs!",
+          "Hello, deary, have you come to adopt an introvert, or are you just looking?",
+          "I beg your pardon, just finishing up an Auntie Patty pie. I mean, there's no reason why you can't eat pie at every meal. They make fruit pies, vegetable pies, meat pies, meat-substitute pies, dessert pie. I mean, pies easily cover all your necessary nutrient groups; they even make cake pies! The only reason not to switch over to pies entirely is because, well, pies suck! *She takes her plate with a half-eaten slice of pie and dumps it in the trash.*",
+          "This shop has been around for about two hundred years now. In fact, I used to be a tenant here, then I got adopted and became a bit of an extrovert, and look at me now! I run this place!",
+          "Hi there! Welcome to Find a Friend, where we do our best to find shut-in people to be a part of your friend group. Please take a look at these files and let me know what you think!",
+          "It's so fun to take the introverts on my errands. I pull out my donut rope and they each take hold, and I get to walk around town and I feel like the coolest grandma in town. It's like walking around with a bunch of big, scary dogs!",
+          
           ],
   items: [
     {

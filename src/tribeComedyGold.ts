@@ -24,6 +24,23 @@ export const tribeComedyGold: ComedyGoldTribe = {
           "What do you call it when the queen farts? A noble gas! Ohohohohohohoh!",
           "Knock knock [Who's there?] Olive! [Olive who?] I love you too! Ohohohohohohoh!",
           "Oh my this simple won't do at all! You there adventure! You look like a lively fell-o give I simply need to hear a good joke! Please tell me one (Make a DC 14 Performance. If you succeed, she give a great big belly laugh and pays you 50 gp. If you fail, you get a polite laugh and she pays you 10 gp.)",
+
+          "Hello~ There I'm so glad you made it!",
+          "Everything I do seems to fail upwards! I married a poor lord for his incredible music and now I'm a lady in high standing! I told him that we should invest in a theatre so we sink our money and get out of politics, but now we are worldwide! I then told him that we should teach commoners and give them large grants for fine art degrees to throw away all this money. But they turn around and start working for us instead of taking the money and running away!",
+          "I'd tell you a depression joke but I suffer from mood swings! Ohohohohohohoh!",
+          "What do you call it when the queen farts? A noble gas! Ohohohohohohoh!",
+          "Knock knock [Who's there?] Olive! [Olive who?] I love you too! Ohohohohohohoh!",
+          "Hello~ There I'm so glad you made it!",
+          "Everything I do seems to fail upwards! I married a poor lord for his incredible music and now I'm a lady in high standing! I told him that we should invest in a theatre so we sink our money and get out of politics, but now we are worldwide! I then told him that we should teach commoners and give them large grants for fine art degrees to throw away all this money. But they turn around and start working for us instead of taking the money and running away!",
+          "I'd tell you a depression joke but I suffer from mood swings! Ohohohohohohoh!",
+          "What do you call it when the queen farts? A noble gas! Ohohohohohohoh!",
+          "Knock knock [Who's there?] Olive! [Olive who?] I love you too! Ohohohohohohoh!",
+          "Hello~ There I'm so glad you made it!",
+          "Everything I do seems to fail upwards! I married a poor lord for his incredible music and now I'm a lady in high standing! I told him that we should invest in a theatre so we sink our money and get out of politics, but now we are worldwide! I then told him that we should teach commoners and give them large grants for fine art degrees to throw away all this money. But they turn around and start working for us instead of taking the money and running away!",
+          "I'd tell you a depression joke but I suffer from mood swings! Ohohohohohohoh!",
+          "What do you call it when the queen farts? A noble gas! Ohohohohohohoh!",
+          "Knock knock [Who's there?] Olive! [Olive who?] I love you too! Ohohohohohohoh!",
+          
           ],
   items: [
     {

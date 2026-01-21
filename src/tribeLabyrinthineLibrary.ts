@@ -22,6 +22,23 @@ export const tribeLabyrinthineLibrary: Tribe & {
           "Don't worry the books here will regenerate so if you cut one in half don't worry anout it.",
           "If you come across an ink or paper element, leave it be. It's just reprinting old books that adventures set on fire.",
           "Listen, I can't quite leave the desk at the moment. I need to return some books; if you give me a hand and quietly put these books back for me, that would be great! Make a DC 14 Stealth check to quietly make your way into the labyrinth. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage, get a bandage for the paper cut, and receive 5 gp.",
+
+          "If your looking to buy books we don't do that here, all books in here must stay sadly.",
+          "Welcome to Labyrinthine Library, please be quiet; the books are sleeping. It's hard to put them back to sleep.",
+          "Yes, this is a dungeon, but we are not a part of the Dungeon Crawler Guild. This is considered an easy dungeon, but you will have to fight for knowledge.",
+          "Don't worry the books here will regenerate so if you cut one in half don't worry anout it.",
+          "If you come across an ink or paper element, leave it be. It's just reprinting old books that adventures set on fire.",
+          "If your looking to buy books we don't do that here, all books in here must stay sadly.",
+          "Welcome to Labyrinthine Library, please be quiet; the books are sleeping. It's hard to put them back to sleep.",
+          "Yes, this is a dungeon, but we are not a part of the Dungeon Crawler Guild. This is considered an easy dungeon, but you will have to fight for knowledge.",
+          "Don't worry the books here will regenerate so if you cut one in half don't worry anout it.",
+          "If you come across an ink or paper element, leave it be. It's just reprinting old books that adventures set on fire.",
+          "If your looking to buy books we don't do that here, all books in here must stay sadly.",
+          "Welcome to Labyrinthine Library, please be quiet; the books are sleeping. It's hard to put them back to sleep.",
+          "Yes, this is a dungeon, but we are not a part of the Dungeon Crawler Guild. This is considered an easy dungeon, but you will have to fight for knowledge.",
+          "Don't worry the books here will regenerate so if you cut one in half don't worry anout it.",
+          "If you come across an ink or paper element, leave it be. It's just reprinting old books that adventures set on fire.",
+          
           ],
   items: [
     {

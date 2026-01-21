@@ -20,6 +20,23 @@ export const tribeYeOldHomeDepot: Tribe & { items: YeOldHomeDepotItem[] } = {
           "Oh... It's you, listen I only got an hour and a half left on my shift, so please don't bother me. I just want to go home.",
           "Yippee, another customer.",
           "Hey, HR said I need to be more friendly to customers, but they got us on camera, so if you can pretend to be polite to me, I'll slip you a few coins when you check out. Make a DC 14 Persuasion check to help me sort these. If you succeed, he’ll pay you 7 silver pieces. If you fail, you now have the knowledge that you made an employee cry, you sick monster.",
+
+          "Um? How'd you get in here? This shop is open to adventurers. Meh, I don't get paid enough to care.",
+          "Welcome to Ye Old Home Depot, blah blah blah, we both know you're not going to pay any attention to me.",
+          "Just wander around until you find what you're looking for; I don't know where anything is either.",
+          "Oh... It's you, listen I only got an hour and a half left on my shift, so please don't bother me. I just want to go home.",
+          "Yippee, another customer.",
+          "Um? How'd you get in here? This shop is open to adventurers. Meh, I don't get paid enough to care.",
+          "Welcome to Ye Old Home Depot, blah blah blah, we both know you're not going to pay any attention to me.",
+          "Just wander around until you find what you're looking for; I don't know where anything is either.",
+          "Oh... It's you, listen I only got an hour and a half left on my shift, so please don't bother me. I just want to go home.",
+          "Yippee, another customer.",
+          "Um? How'd you get in here? This shop is open to adventurers. Meh, I don't get paid enough to care.",
+          "Welcome to Ye Old Home Depot, blah blah blah, we both know you're not going to pay any attention to me.",
+          "Just wander around until you find what you're looking for; I don't know where anything is either.",
+          "Oh... It's you, listen I only got an hour and a half left on my shift, so please don't bother me. I just want to go home.",
+          "Yippee, another customer.",
+          
           ],
   items: [
     {

@@ -16,6 +16,23 @@ export const tribeRunestoneRelay: Tribe = {
           "Now that's interesting, oh sorry, just going through the mail. I just got a letter from my little brother Goldhand. He's thinking about making a few special golems for each of my other brothers' businesses and wanted feedback on the golems from me. So tell me, how can I help yah?",
           "HAHAHA, oh sorry, kind of got lost reading. I just got a letter from my youngest brother Nex and his latest experiment fail. Apparently, using natural lightning to reset a corpse isn't strong enough. Told him it wouldn't work. So tell me, how can I help yah?",
           "Blast it all, one of my organized cubbies just collapsed and it shuffled all the letters together. Say, you look like you got a bit of time on hand. Would you mind giving me a hand to sort this out? Make a DC 14 Insight check. If you succeed, I’ll pay you 25 gp. If you fail, you get a pat on the back and inspiration (make a reroll on a failed skill check at some point later in time).",
+
+          "Why hello there! Tell me how can I help yah?",
+          "Hehe, oh sorry, I just got a letter from my elder brother Sam. He thinks that he figured out a set of armor that will stop one of my portal punches. Well, I'd like to see him try—once I close the shop for the night. So tell me, how can I help yah?",
+          "Ohohoh! Oh sorry, didn't see you there. I just got a letter from my big brother Will. It looks like he got asked out on a date! Am I going to go scout out the spot to hide? Maybe? Am I going to invite my other brothers along? Maybe? Does he know I'm going to do this? No. So tell me, how can I help yah?",
+          "Now that's interesting, oh sorry, just going through the mail. I just got a letter from my little brother Goldhand. He's thinking about making a few special golems for each of my other brothers' businesses and wanted feedback on the golems from me. So tell me, how can I help yah?",
+          "HAHAHA, oh sorry, kind of got lost reading. I just got a letter from my youngest brother Nex and his latest experiment fail. Apparently, using natural lightning to reset a corpse isn't strong enough. Told him it wouldn't work. So tell me, how can I help yah?",
+          "Why hello there! Tell me how can I help yah?",
+          "Hehe, oh sorry, I just got a letter from my elder brother Sam. He thinks that he figured out a set of armor that will stop one of my portal punches. Well, I'd like to see him try—once I close the shop for the night. So tell me, how can I help yah?",
+          "Ohohoh! Oh sorry, didn't see you there. I just got a letter from my big brother Will. It looks like he got asked out on a date! Am I going to go scout out the spot to hide? Maybe? Am I going to invite my other brothers along? Maybe? Does he know I'm going to do this? No. So tell me, how can I help yah?",
+          "Now that's interesting, oh sorry, just going through the mail. I just got a letter from my little brother Goldhand. He's thinking about making a few special golems for each of my other brothers' businesses and wanted feedback on the golems from me. So tell me, how can I help yah?",
+          "HAHAHA, oh sorry, kind of got lost reading. I just got a letter from my youngest brother Nex and his latest experiment fail. Apparently, using natural lightning to reset a corpse isn't strong enough. Told him it wouldn't work. So tell me, how can I help yah?",
+          "Why hello there! Tell me how can I help yah?",
+          "Hehe, oh sorry, I just got a letter from my elder brother Sam. He thinks that he figured out a set of armor that will stop one of my portal punches. Well, I'd like to see him try—once I close the shop for the night. So tell me, how can I help yah?",
+          "Ohohoh! Oh sorry, didn't see you there. I just got a letter from my big brother Will. It looks like he got asked out on a date! Am I going to go scout out the spot to hide? Maybe? Am I going to invite my other brothers along? Maybe? Does he know I'm going to do this? No. So tell me, how can I help yah?",
+          "Now that's interesting, oh sorry, just going through the mail. I just got a letter from my little brother Goldhand. He's thinking about making a few special golems for each of my other brothers' businesses and wanted feedback on the golems from me. So tell me, how can I help yah?",
+          "HAHAHA, oh sorry, kind of got lost reading. I just got a letter from my youngest brother Nex and his latest experiment fail. Apparently, using natural lightning to reset a corpse isn't strong enough. Told him it wouldn't work. So tell me, how can I help yah?",
+          
           ],
   items: [
     {

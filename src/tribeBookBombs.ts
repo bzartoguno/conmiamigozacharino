@@ -16,6 +16,23 @@ export const tribeBookBombs: Tribe = {
           "If you see a book on fire, that's normal. All the books in here are fireproof.",
           "Kids section to the left, teen section straight ahead, adult section to the right, actual adult section for not two kids in a trench coat upstairs.",
           "Hey kid, I'm pretty sure one of my rivals snuck an actual cookbook into my bookstore, so I need your help to sniff it out. What do I need from you? A DC 14 Deception check to sort through this mess. If you succeed, I’ll pay you 15 gp. If you fail, we may have opened up a book bomb, you take 20 points of fire damage, and I pay you 50 gp for your trouble.",
+
+          "Sup.",
+          "Welcome to Book Bombs; just keep it quiet—some books might explode if you scream.",
+          "Mom and Dad said that I couldn't make it as a demolitionist and a librarian—well, look at me now!",
+          "If you see a book on fire, that's normal. All the books in here are fireproof.",
+          "Kids section to the left, teen section straight ahead, adult section to the right, actual adult section for not two kids in a trench coat upstairs.",
+          "Sup.",
+          "Welcome to Book Bombs; just keep it quiet—some books might explode if you scream.",
+          "Mom and Dad said that I couldn't make it as a demolitionist and a librarian—well, look at me now!",
+          "If you see a book on fire, that's normal. All the books in here are fireproof.",
+          "Kids section to the left, teen section straight ahead, adult section to the right, actual adult section for not two kids in a trench coat upstairs.",
+          "Sup.",
+          "Welcome to Book Bombs; just keep it quiet—some books might explode if you scream.",
+          "Mom and Dad said that I couldn't make it as a demolitionist and a librarian—well, look at me now!",
+          "If you see a book on fire, that's normal. All the books in here are fireproof.",
+          "Kids section to the left, teen section straight ahead, adult section to the right, actual adult section for not two kids in a trench coat upstairs.",
+          
           ],
   items: [
     {

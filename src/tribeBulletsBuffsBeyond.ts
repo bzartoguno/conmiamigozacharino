@@ -24,6 +24,23 @@ export const tribeBulletsBuffsBeyond: BulletsBuffsBeyondTribe = {
           "You know most spell cast will stop casting there spells when you point a gun at them.",
           "Everything you see here is homemade, just um don't ask where it all came from.",
           "You there! You are looking pretty brave! I made a new gun! I want to try it out, so if you want just put this apple on your head and go stand by that tree over there. Then I'll shoot! (Make a DC 14 Athletics. If you succeed, you don't get shot & you get 125 gp. If you fail, well um... you take 30 point of damage and get 125 gp.",
+
+          "Firing range is open from 4pm-6pm; we don't do it earlier or later because I don't want to disturb my neighbors.",
+          "You know studies show that keeping a ladder inside the house is more dangerous than a loaded gun. That's why I own thirty guns. In case some maniac tries to sneak in a ladder.",
+          "Sometimes I lie awake at night and wonder, just how many candy does it take to stop a bullet. But I'm band from Provision's Paradise and Fizzy Tales. Guess I shouldn't have brought my guns with me when I walked in.",
+          "You know most spell cast will stop casting there spells when you point a gun at them.",
+          "Everything you see here is homemade, just um don't ask where it all came from.",
+          "Firing range is open from 4pm-6pm; we don't do it earlier or later because I don't want to disturb my neighbors.",
+          "You know studies show that keeping a ladder inside the house is more dangerous than a loaded gun. That's why I own thirty guns. In case some maniac tries to sneak in a ladder.",
+          "Sometimes I lie awake at night and wonder, just how many candy does it take to stop a bullet. But I'm band from Provision's Paradise and Fizzy Tales. Guess I shouldn't have brought my guns with me when I walked in.",
+          "You know most spell cast will stop casting there spells when you point a gun at them.",
+          "Everything you see here is homemade, just um don't ask where it all came from.",
+          "Firing range is open from 4pm-6pm; we don't do it earlier or later because I don't want to disturb my neighbors.",
+          "You know studies show that keeping a ladder inside the house is more dangerous than a loaded gun. That's why I own thirty guns. In case some maniac tries to sneak in a ladder.",
+          "Sometimes I lie awake at night and wonder, just how many candy does it take to stop a bullet. But I'm band from Provision's Paradise and Fizzy Tales. Guess I shouldn't have brought my guns with me when I walked in.",
+          "You know most spell cast will stop casting there spells when you point a gun at them.",
+          "Everything you see here is homemade, just um don't ask where it all came from.",
+          
           ],
   items: [
     {

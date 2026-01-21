@@ -16,6 +16,20 @@ export const tribeChangingChurch: Tribe = {
           "We practice nearly all faiths, in preparation for anyone interested in the ones above.",
           "Worrying is like worshiping the problem; you can stop at any time.",
           "Child, I beg you for your aid. There is a poor child in a house just down the street, possessed by a demon. If you come with me, we may exorcise this fiend. I'll go through the ritual; you just need to make a DC 14 Religion check to help me sort these. If you succeed, I’ll give you a Supreme Healing Potion (Heals 10d4+20). If you fail, don't worry—we were able to save the child, and I'll give you a Healing Potion (Heals 2d4+2).",
+
+          "Welcome, child. Do not be afraid. The building is supposed to change. It is a holy structure that can shift to fit the needs of any faith.",
+          "There are a million paths in this world, but any holy figure will tell you they can all be reduced to one: love one another.",
+          "'The most important step a person can take. It's not the first one, is it? It's the next one.' A wise man told me that once, and I believe it is one of the truest things out there.",
+          "We practice nearly all faiths, in preparation for anyone interested in the ones above.",
+          "Worrying is like worshiping the problem; you can stop at any time.","Welcome, child. Do not be afraid. The building is supposed to change. It is a holy structure that can shift to fit the needs of any faith.",
+          "There are a million paths in this world, but any holy figure will tell you they can all be reduced to one: love one another.",
+          "'The most important step a person can take. It's not the first one, is it? It's the next one.' A wise man told me that once, and I believe it is one of the truest things out there.",
+          "We practice nearly all faiths, in preparation for anyone interested in the ones above.",
+          "Worrying is like worshiping the problem; you can stop at any time.","Welcome, child. Do not be afraid. The building is supposed to change. It is a holy structure that can shift to fit the needs of any faith.",
+          "There are a million paths in this world, but any holy figure will tell you they can all be reduced to one: love one another.",
+          "'The most important step a person can take. It's not the first one, is it? It's the next one.' A wise man told me that once, and I believe it is one of the truest things out there.",
+          "We practice nearly all faiths, in preparation for anyone interested in the ones above.",
+          "Worrying is like worshiping the problem; you can stop at any time.",
           ],
   items: [
     {

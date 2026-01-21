@@ -16,6 +16,23 @@ export const tribeAuntiePattysPies: Tribe = {
           "Oh, please don't rob us; the shop right by has way better—oh, sorry. We were robbed a little while ago; guess we're still on edge. Sorry, dearie—how can I help you?",
           "Sometimes we take the pies that are about to expire and hand them out to the crows out back. And sometimes the crows beat up storks and bring us the swaddled babies. I guess that's one way to get grandkids.",
           "Oh my, look how big and strong you are! Say, I could use a good pair of hands like yours. I've got a recipe I've been dying to try! If you'll come in the back, we can get started. All I need from you is a DC 14 Acrobatics check to roll out this dough. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of fire damage and I'll pay you 5 gp for your trouble.",
+
+          "Hello, dearie. I'm sorry for not being at the door when you came in; these old bones aren't what they used to be. Just give me a moment, and I'll be right there!",
+          "I'm so sorry—you look just like my grandkid. Say, are you single? I think you two might make a good couple.",
+          "Welcome to my little pie shop, every day we have a new granny come and bake a new pie for us to try!",
+          "Oh, please don't rob us; the shop right by has way better—oh, sorry. We were robbed a little while ago; guess we're still on edge. Sorry, dearie—how can I help you?",
+          "Sometimes we take the pies that are about to expire and hand them out to the crows out back. And sometimes the crows beat up storks and bring us the swaddled babies. I guess that's one way to get grandkids.",
+          "Hello, dearie. I'm sorry for not being at the door when you came in; these old bones aren't what they used to be. Just give me a moment, and I'll be right there!",
+          "I'm so sorry—you look just like my grandkid. Say, are you single? I think you two might make a good couple.",
+          "Welcome to my little pie shop, every day we have a new granny come and bake a new pie for us to try!",
+          "Oh, please don't rob us; the shop right by has way better—oh, sorry. We were robbed a little while ago; guess we're still on edge. Sorry, dearie—how can I help you?",
+          "Sometimes we take the pies that are about to expire and hand them out to the crows out back. And sometimes the crows beat up storks and bring us the swaddled babies. I guess that's one way to get grandkids.",
+          "Hello, dearie. I'm sorry for not being at the door when you came in; these old bones aren't what they used to be. Just give me a moment, and I'll be right there!",
+          "I'm so sorry—you look just like my grandkid. Say, are you single? I think you two might make a good couple.",
+          "Welcome to my little pie shop, every day we have a new granny come and bake a new pie for us to try!",
+          "Oh, please don't rob us; the shop right by has way better—oh, sorry. We were robbed a little while ago; guess we're still on edge. Sorry, dearie—how can I help you?",
+          "Sometimes we take the pies that are about to expire and hand them out to the crows out back. And sometimes the crows beat up storks and bring us the swaddled babies. I guess that's one way to get grandkids.",
+          
           ],
   items: [
     {

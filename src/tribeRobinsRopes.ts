@@ -16,6 +16,23 @@ export const tribeRobinsRopes: Tribe = {
           "Know any good rope jokes? I'm a frayed knot.",
           "A rope and a string got in a race. They tied.",
           "You want to make some quick cash, yah? Come over here and I'll show you how to weave together some rope, ok? Make a DC 14 Sleight of Hand check to help me tie these together. If you succeed, I’ll pay you 25 gp. If you fail, you take 1 point of damage from getting tangled up but still get 5 gp.",
+
+          "Hello, governor! How are you doing today!",
+          "Oi, you interested in ropes now? Well have I got the shop for you!",
+          "It ain't much but it's honest work.",
+          "Know any good rope jokes? I'm a frayed knot.",
+          "A rope and a string got in a race. They tied.",
+          "Hello, governor! How are you doing today!",
+          "Oi, you interested in ropes now? Well have I got the shop for you!",
+          "It ain't much but it's honest work.",
+          "Know any good rope jokes? I'm a frayed knot.",
+          "A rope and a string got in a race. They tied.",
+          "Hello, governor! How are you doing today!",
+          "Oi, you interested in ropes now? Well have I got the shop for you!",
+          "It ain't much but it's honest work.",
+          "Know any good rope jokes? I'm a frayed knot.",
+          "A rope and a string got in a race. They tied.",
+          
           ],
   items: [
     {

@@ -16,6 +16,23 @@ export const tribeNecromancyInsuranceCompany: Tribe = {
           "Death is scary, but we know that insurance companies are even scarier, so we combined the two and we're like super-duper scary!",
           "Among my brothers, I am the youngest of the Redrockson family. That just means I have even greater heights to climb if I ever want to be as cool as them!",
           "Hey you! Yeah, you! I got an apprentice studying ancient tomes of knowledge, and you look like a librarian. Do you think you can help them study for an upcoming test? I would, but I'm the one giving the test and I don't have enough time to run the storefront and help them right now. All you need to do is help them with their flash cards. Make a DC 14 History check to try and comprehend ancient history. If you succeed, I’ll pay you an inspiration (make a reroll on a failed skill check at some point later in time). If you fail, you take 1 point of damage.",
+
+          "Salutations, may you live long and prosper.",
+          "Here at Necromancy Insurance Company, we turn would-be necromancers away from the stereotypical dark and dangerous path and toward a much more enlightened way. After all, the transmutation and enchantment schools of magic can be just as horrific as necromancy, yet they don't get the same burdens.",
+          "If you got a corpse, we got cash!",
+          "Death is scary, but we know that insurance companies are even scarier, so we combined the two and we're like super-duper scary!",
+          "Among my brothers, I am the youngest of the Redrockson family. That just means I have even greater heights to climb if I ever want to be as cool as them!",
+          "Salutations, may you live long and prosper.",
+          "Here at Necromancy Insurance Company, we turn would-be necromancers away from the stereotypical dark and dangerous path and toward a much more enlightened way. After all, the transmutation and enchantment schools of magic can be just as horrific as necromancy, yet they don't get the same burdens.",
+          "If you got a corpse, we got cash!",
+          "Death is scary, but we know that insurance companies are even scarier, so we combined the two and we're like super-duper scary!",
+          "Among my brothers, I am the youngest of the Redrockson family. That just means I have even greater heights to climb if I ever want to be as cool as them!",
+          "Salutations, may you live long and prosper.",
+          "Here at Necromancy Insurance Company, we turn would-be necromancers away from the stereotypical dark and dangerous path and toward a much more enlightened way. After all, the transmutation and enchantment schools of magic can be just as horrific as necromancy, yet they don't get the same burdens.",
+          "If you got a corpse, we got cash!",
+          "Death is scary, but we know that insurance companies are even scarier, so we combined the two and we're like super-duper scary!",
+          "Among my brothers, I am the youngest of the Redrockson family. That just means I have even greater heights to climb if I ever want to be as cool as them!",
+          
           ],
   items: [
     {

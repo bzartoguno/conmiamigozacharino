@@ -16,6 +16,23 @@ export const tribeSilentOath: Tribe = {
           "Most of our work is 'legal,' if you are asking. But next time, don't.",
           "Do you want to know why they call me Nacho? It's because after I kill someone, I go and rummage through their home and make myself a plate of nachos. Then I bring that plate to their closest loved one. It is so fun to see their confusion turn to tears when I tell them what I have done.",
           "You there, want to make some quick questionable cash? Jah? Good. We just had someone dip out on an 'Alibi Contract,' so congrats, comrade, you are now one of the new alibis. Follow me and don't say anything. Make a DC 14 Deception check to deceive the authorities. If you succeed, I’ll pay you 50 gp. If you fail, you take 1 point of damage as Nacho steps on your foot to keep you quiet and get 25 gp.",
+
+          "Sit, comrade. Let us discuss the issue on your mind and how I can take coin from your pocket.",
+          "Jah, this is Silent Oath, we do dirty work so you don't have to.",
+          "Upon every contract signed, you are given an Obsidian Oath. You will know that your contract is fulfilled when it dissolves. It is not a big thing we talk about.",
+          "Most of our work is 'legal,' if you are asking. But next time, don't.",
+          "Do you want to know why they call me Nacho? It's because after I kill someone, I go and rummage through their home and make myself a plate of nachos. Then I bring that plate to their closest loved one. It is so fun to see their confusion turn to tears when I tell them what I have done.",
+          "Sit, comrade. Let us discuss the issue on your mind and how I can take coin from your pocket.",
+          "Jah, this is Silent Oath, we do dirty work so you don't have to.",
+          "Upon every contract signed, you are given an Obsidian Oath. You will know that your contract is fulfilled when it dissolves. It is not a big thing we talk about.",
+          "Most of our work is 'legal,' if you are asking. But next time, don't.",
+          "Do you want to know why they call me Nacho? It's because after I kill someone, I go and rummage through their home and make myself a plate of nachos. Then I bring that plate to their closest loved one. It is so fun to see their confusion turn to tears when I tell them what I have done.",
+          "Sit, comrade. Let us discuss the issue on your mind and how I can take coin from your pocket.",
+          "Jah, this is Silent Oath, we do dirty work so you don't have to.",
+          "Upon every contract signed, you are given an Obsidian Oath. You will know that your contract is fulfilled when it dissolves. It is not a big thing we talk about.",
+          "Most of our work is 'legal,' if you are asking. But next time, don't.",
+          "Do you want to know why they call me Nacho? It's because after I kill someone, I go and rummage through their home and make myself a plate of nachos. Then I bring that plate to their closest loved one. It is so fun to see their confusion turn to tears when I tell them what I have done.",
+          
           ],
   items: [
     {

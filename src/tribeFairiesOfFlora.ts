@@ -20,6 +20,23 @@ export const tribeFairiesOfFlora: Tribe & { items: FairiesOfFloraItem[] } = {
           "Welcome to Fairies of Flora, we got flowers. Nothin else. What are you a cop?",
           "I miss Phil & Bill sometimes but I'm happy they get to go out there and try new things.",
           "Hey between you and me if there's a couple of kids who keep coming in here asking to join us, I really don't want to beucase well there kids but your willing to be a much cooler role model for them get them off of this crooked path I'll make it worth your time. Just make a DC 14 Persuasion check to turn them around. If your succeed, I’ll pay you 15 gp. If you fail, you get nothin.",
+
+          "HEY! I'm flyin here!",
+          "Sometime we the Don wants us to protect a kid on the Toothfairies hit list, we stake out under their bed and wait for that fairy tale punk! The kid thing that there's a monster under there, when really it's mob-sters.",
+          "Bada bing! bada boom!",
+          "Welcome to Fairies of Flora, we got flowers. Nothin else. What are you a cop?",
+          "I miss Phil & Bill sometimes but I'm happy they get to go out there and try new things.",
+          "HEY! I'm flyin here!",
+          "Sometime we the Don wants us to protect a kid on the Toothfairies hit list, we stake out under their bed and wait for that fairy tale punk! The kid thing that there's a monster under there, when really it's mob-sters.",
+          "Bada bing! bada boom!",
+          "Welcome to Fairies of Flora, we got flowers. Nothin else. What are you a cop?",
+          "I miss Phil & Bill sometimes but I'm happy they get to go out there and try new things.",
+          "HEY! I'm flyin here!",
+          "Sometime we the Don wants us to protect a kid on the Toothfairies hit list, we stake out under their bed and wait for that fairy tale punk! The kid thing that there's a monster under there, when really it's mob-sters.",
+          "Bada bing! bada boom!",
+          "Welcome to Fairies of Flora, we got flowers. Nothin else. What are you a cop?",
+          "I miss Phil & Bill sometimes but I'm happy they get to go out there and try new things.",
+          
           ],
   items: [
     {

@@ -19,10 +19,6 @@ export const tribePiggyBank: PiggyBankTribe = {
           "Money shouldn't be idle and must be put to work, you know. Just having petty cash is good but you might just as well be stranded on a desert island. For all the good it does.",
           "Money should never stagnate, but like ocean currents, circulate, like the ocean currents that control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop its circulation.",
           "Bah, humbug!",
-
-          "Here at the Piggy Bank, we keep your money safe so you don't have to!",
-          "Money shouldn't be idle and must be put to work, you know. Just having petty cash is good but you might just as well be stranded on a desert island. For all the good it does.",
-          "Money should never stagnate, but like ocean currents, circulate, like the ocean currents that control the world's weather. You see, circulating money controls the economy. Money must keep moving to fulfill its obligation. And if you squeeze it too tight, you'll stop its circulation.",
           ],
   items: [
     {

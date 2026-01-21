@@ -16,6 +16,22 @@ export const tribeArchivesGuild: Tribe = {
           "I used to be a toaster, but then I was scrapped. Because I accidentally cooked it too long, once.",
           "Thank you for choosing the Archives Guild, my master hope to catalog and organize everything. There a bit on the spectrum, but I was told not to say that. Please ignore that last bit.",
           "Hello customer would you like to make some quick coin? If so can you please help me inspect this strange rock that was given to me recently? If you could make a DC 14 Investigation check to help me that would be just great. If we are succeed, I’ll pay you 50 gp. If we fail, I'll pay you 25 gp for wasting your time.",
+
+          "I am Andrew model 2.179999, the previous model of Andrew would crash if you asked a paradox problem. Please don't ask me a paradox problem. I will cry.",
+          "I have been told to tell customers that they are a 'Good boy' or 'Good girl'. But I never get told that, because most people see me as an object rather than a thinking automaton.",
+          "01000010 01101111 01101111 00100001",
+          "I used to be a toaster, but then I was scrapped. Because I accidentally cooked it too long, once.",
+          "Thank you for choosing the Archives Guild, my master hope to catalog and organize everything. There a bit on the spectrum, but I was told not to say that. Please ignore that last bit.",
+          "I am Andrew model 2.179999, the previous model of Andrew would crash if you asked a paradox problem. Please don't ask me a paradox problem. I will cry.",
+          "I have been told to tell customers that they are a 'Good boy' or 'Good girl'. But I never get told that, because most people see me as an object rather than a thinking automaton.",
+          "01000010 01101111 01101111 00100001",
+          "I used to be a toaster, but then I was scrapped. Because I accidentally cooked it too long, once.",
+          "Thank you for choosing the Archives Guild, my master hope to catalog and organize everything. There a bit on the spectrum, but I was told not to say that. Please ignore that last bit.",
+          "I am Andrew model 2.179999, the previous model of Andrew would crash if you asked a paradox problem. Please don't ask me a paradox problem. I will cry.",
+          "I have been told to tell customers that they are a 'Good boy' or 'Good girl'. But I never get told that, because most people see me as an object rather than a thinking automaton.",
+          "01000010 01101111 01101111 00100001",
+          "I used to be a toaster, but then I was scrapped. Because I accidentally cooked it too long, once.",
+          "Thank you for choosing the Archives Guild, my master hope to catalog and organize everything. There a bit on the spectrum, but I was told not to say that. Please ignore that last bit.",
           ],
   items: [
     {
