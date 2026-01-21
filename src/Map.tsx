@@ -953,6 +953,11 @@ function EveryShopMenu({
         ← Back to main menu
       </button>
       <h1 style={styles.title}>Every Shop</h1>
+      <p style={styles.subtitle}>
+        White shops are player survival, red shops are magic-based, yellow shops are followers
+        & companions, green shops are trade & logistics, and blue shops are culture, knowledge,
+        & leisure.
+      </p> 
       <div style={styles.everyShopGrid}>
         {buttons.map((button) => (
           <FloatingButton
@@ -1045,6 +1050,14 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: "bold",
     color: "#ffffffff",
     marginBottom: "1rem",
+  },
+  subtitle: {
+    margin: "0 0 2rem",
+    maxWidth: "760px",
+    fontSize: "1.05rem",
+    lineHeight: 1.5,
+    textAlign: "center",
+    color: "#f8fafc",
   },
   buttonContainer: {
     display: "flex",
