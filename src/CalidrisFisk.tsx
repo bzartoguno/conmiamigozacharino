@@ -8,6 +8,7 @@ import robinsRopesImage from "./Robins Ropes.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
+import nmeImage from "./N.M.E.png";
 import { BackButton } from "./BackButton";
 import styles from "./CalidrisFisk.module.css";
 import { ShopButton } from "./ShopButton";
@@ -81,6 +82,12 @@ export function CalidrisFisk({
       label: "Will's Weapons",
       image: willsWeaponsImage,
       onClick: () => onNavigate("WillsWeapons"),
+    },
+    {
+      key: "nme",
+      label: "N.M.E.",
+      image: nmeImage,
+      onClick: () => onNavigate("NME"),
     },
   ];
 
