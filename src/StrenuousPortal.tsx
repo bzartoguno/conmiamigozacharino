@@ -22,7 +22,7 @@ import floralImage from "./Floral.webp";
 import golemWorkshopImage from "./Golem Work Shop.png";
 import jewelryGuildImage from "./Jewelry Guild.png";
 import nmeImage from "./N.M.E.png";
-import sleuthUniversityImage from "./Sleuth.webp";
+import pearlsPotionsImage from "./Pearls Potions.png";
 import fizzyTaleImage from "./FizzyTale.png";
 import goblinMarketImage from "./GoblinMarket.png";
 import { BackButton } from "./BackButton";
@@ -178,10 +178,10 @@ export function StrenuousPortal({
       onClick: () => onNavigate("NME"),
     },
     {
-      key: "sleuth-university",
-      label: "Sleuth University",
-      image: sleuthUniversityImage,
-      onClick: () => onNavigate("SleuthUniversity"),
+      key: "pearls-potions",
+      label: "Pearl's Potions",
+      image: pearlsPotionsImage,
+      onClick: () => onNavigate("PearlsPotions"),
     },
     {
       key: "fizzy-tales",
