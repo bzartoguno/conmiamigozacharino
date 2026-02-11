@@ -8,6 +8,21 @@ import sleuthBackground from "./Ye Old Home Depot.webp";
 
 type DisplayItem = YeOldHomeDepotItem & { finalPrice: number };
 
+function sortByPrice(a: DisplayItem, b: DisplayItem): number {
+  const aHasVariablePrice = Boolean(a.priceText);
+  const bHasVariablePrice = Boolean(b.priceText);
+
+  if (aHasVariablePrice !== bHasVariablePrice) {
+    return aHasVariablePrice ? 1 : -1;
+  }
+
+  if (a.finalPrice !== b.finalPrice) {
+    return a.finalPrice - b.finalPrice;
+  }
+
+  return a.name.localeCompare(b.name);
+}
+
 function calculateAdjustedPrice(item: Item, priceVariability: number): number {
   const variability = ((Math.random() * priceVariability) / 100) * item.price;
   const upOrDown = Math.random() < 0.5 ? -1 : 1;
@@ -30,7 +45,8 @@ export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {
           item.price > 0
             ? calculateAdjustedPrice(item, tribeYeOldHomeDepot.priceVariability)
             : 0,
-      })),
+      }))
+      .sort(sortByPrice),
     []
   );
 
