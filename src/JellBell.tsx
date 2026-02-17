@@ -18,6 +18,7 @@ import { SlimeStatBlock } from "./SlimeStatBlock";
 
 type DisplayItem = JellBellItem & { finalPrice: number };
 type BellTier = "3 Star Bell" | "4 Star Bell" | "5 Star Bell";
+const SPIN_DURATION_MS = 2400;
 
 function isBellTier(name: string): name is BellTier {
   return name === "3 Star Bell" || name === "4 Star Bell" || name === "5 Star Bell";
@@ -76,7 +77,7 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
         setGeneratedSlimes([]);
       }
       setIsSpinning(false);
-    }, 1100);
+    }, SPIN_DURATION_MS);
   };
 
   const renderResultPanel = () => {
@@ -205,6 +206,9 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
           insults={tribeJellBell.insults}
           shopName={tribeJellBell.name}
         />
+
+        {renderResultPanel()}
+
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => {
             const itemIsBellTier = isBellTier(item.name);
@@ -231,7 +235,6 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
           })}
         </section>
 
-        {renderResultPanel()}
       </main>
     </div>
   );
