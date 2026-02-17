@@ -19,6 +19,10 @@ import { SlimeStatBlock } from "./SlimeStatBlock";
 type DisplayItem = JellBellItem & { finalPrice: number };
 type BellTier = "3 Star Bell" | "4 Star Bell" | "5 Star Bell";
 
+function isBellTier(name: string): name is BellTier {
+  return name === "3 Star Bell" || name === "4 Star Bell" || name === "5 Star Bell";
+}
+
 function calculateAdjustedPrice(item: Item, priceVariability: number): number {
   const variability = ((Math.random() * priceVariability) / 100) * item.price;
   const upOrDown = Math.random() < 0.5 ? -1 : 1;
@@ -50,7 +54,12 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
     return `${item.finalPrice.toLocaleString()} Gold`;
   };
 
-  const handleBellClick = (tier: BellTier) => {
+  const handleBellClick = (tierName: string) => {
+    if (!isBellTier(tierName)) {
+      return;
+    }
+
+    const tier = tierName;
     if (isSpinning) {
       return;
     }
@@ -198,8 +207,7 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => {
-            const isBellTier =
-              item.name === "3 Star Bell" || item.name === "4 Star Bell" || item.name === "5 Star Bell";
+            const itemIsBellTier = isBellTier(item.name);
 
             return (
               <article
@@ -209,7 +217,7 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
                 <h2 className={styles.cardTitle}>{item.name}</h2>
                 <p className={styles.description}>{item.description}</p>
                 <p className={styles.price}>{formatPrice(item)}</p>
-                {isBellTier && (
+                {itemIsBellTier && (
                   <button
                     className={styles.generateButton}
                     type="button"
