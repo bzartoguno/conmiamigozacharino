@@ -36,6 +36,7 @@ export const tribeJellBell: Tribe & { items: JellBellItem[] } = {
       price: 500,
       description: "Blend any two slimes together to see what fusion forms.",
     },
+    /*
     {
       name: "Slime Size Table",
       price: 0,
@@ -66,5 +67,6 @@ export const tribeJellBell: Tribe & { items: JellBellItem[] } = {
       priceText: "Included roll table",
       description: `1 - Pineapple Slime, Acid Resistance\n2 - Coconut Slime, Bludgeoning Resistance\n3 - Mint Slime, Cold Resistance\n4 - Cherry Slime, Fire Resistance\n5 - Vanilla Slime, Force Resistance\n6 - Lemon Slime, Lightning Resistance\n7 - Grape Slime, Necrotic Resistance\n8 - Durian Slime, Piercing Resistance\n9 - Lime Slime, Poison Resistance\n10 - Plum Slime, Psychic Resistance\n11 - Orange Slime, Radiant Resistance\n12 - Banana Slime, Thunder & Slashing Resistance`,
     },
+    */
   ],
 };
