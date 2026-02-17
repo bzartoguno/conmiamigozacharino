@@ -198,10 +198,8 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
         />
         <section className={styles.grid} aria-label="Available items">
           {displayItems.map((item, index) => {
-            let bellTier: BellTier | null = null;
-            if (item.name === "3 Star Bell" || item.name === "4 Star Bell" || item.name === "5 Star Bell") {
-              bellTier = item.name;
-            }
+            const isBellTier =
+              item.name === "3 Star Bell" || item.name === "4 Star Bell" || item.name === "5 Star Bell";
 
             return (
               <article
@@ -211,13 +209,13 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
                 <h2 className={styles.cardTitle}>{item.name}</h2>
                 <p className={styles.description}>{item.description}</p>
                 <p className={styles.price}>{formatPrice(item)}</p>
-                {bellTier && (
+                {isBellTier && (
                   <button
                     className={styles.generateButton}
                     type="button"
-                    onClick={() => handleBellClick(bellTier)}
+                    onClick={() => handleBellClick(item.name)}
                   >
-                    Generate {bellTier.replace(" Bell", "")} Slime
+                    Generate {item.name.replace(" Bell", "")} Slime
                   </button>
                 )}
               </article>
