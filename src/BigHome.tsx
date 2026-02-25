@@ -20,7 +20,6 @@ import pearlsPotionsImage from "./Pearls Potions.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import piggyBankImage from "./Piggy Bank.png";
 import yeOldDonkeyImage from "./Ye Old Donkey.png";
-import hugImage from "./Hug.webp";
 import iconicDragonicImage from "./Iconic Dragonic.png";
 import jellBellImage from "./Jell.webp";
 import monsterMakerImage from "./Monster.webp";
@@ -30,7 +29,6 @@ import valhallaMartImage from "./Valhalla Mart.png";
 import blossomHotelImage from "./Blossom Hotel.png";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import fairiesOfFloraImage from "./Floral.webp";
-import golemWorkshopImage from "./Golem Work Shop.png";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import jewelryGuildImage from "./Jewelry Guild.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
@@ -163,12 +161,6 @@ export function BigHome({
       onClick: () => onNavigate("YeOldDonkey"),
     },
     {
-      key: "hug-cartel",
-      label: "Hug Cartel",
-      image: hugImage,
-      onClick: () => onNavigate("HugInfo"),
-    },
-    {
       key: "iconic-dragonic",
       label: "Iconic Dragonic",
       image: iconicDragonicImage,
@@ -221,12 +213,6 @@ export function BigHome({
       label: "Fairies of Flora",
       image: fairiesOfFloraImage,
       onClick: () => onNavigate("FairiesOfFlora"),
-    },
-    {
-      key: "golem-workshop",
-      label: "Golem Workshop",
-      image: golemWorkshopImage,
-      onClick: () => onNavigate("GolemWorkshop"),
     },
     {
       key: "jazz-portable-potions",
