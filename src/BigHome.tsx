@@ -31,7 +31,6 @@ import blossomHotelImage from "./Blossom Hotel.png";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import fairiesOfFloraImage from "./Floral.webp";
 import golemWorkshopImage from "./Golem Work Shop.png";
-import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
 import jewelryGuildImage from "./Jewelry Guild.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import nmeImage from "./N.M.E.png";
@@ -227,12 +226,6 @@ export function BigHome({
       label: "Golem Workshop",
       image: golemWorkshopImage,
       onClick: () => onNavigate("GolemWorkshop"),
-    },
-    {
-      key: "jazz-portable-potions",
-      label: "Jazz's Portable Potions",
-      image: jazzPortablePotionsImage,
-      onClick: () => onNavigate("JazzPortablePotions"),
     },
     {
       key: "labyrinthine-library",
