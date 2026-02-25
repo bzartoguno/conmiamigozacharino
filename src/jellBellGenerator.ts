@@ -59,24 +59,24 @@ export const slimeBodyTypeOptions: SlimeBodyTypeOption[] = [
   { roll: 1, label: "Liquidy", baseHp: 5, speed: "10 ft Walk, 40 ft Swim" },
   { roll: 2, label: "Bubbly", baseHp: 10, speed: "40 ft Walk" },
   { roll: 3, label: "Jiggly", baseHp: 15, speed: "30 ft Walk" },
-  { roll: 4, label: "Rubbery", baseHp: 15, speed: "35 ft Walk, 10 ft Climb" },
+  { roll: 4, label: "Rubbery", baseHp: 16, speed: "35 ft Walk, 10 ft Climb" },
   { roll: 5, label: "Sticky", baseHp: 18, speed: "5 ft Walk, 5 ft Climb, 5 ft Swim" },
   { roll: 6, label: "Bouncy", baseHp: 20, speed: "25 ft Walk, 20 ft Climb" },
-  { roll: 7, label: "Slippery", baseHp: 22, speed: "∞ ft Walk (can’t stop on its own)" },
+  { roll: 7, label: "Slippery", baseHp: 22, speed: "∞ ft Walk (can’t stop or turn on its own)" },
   { roll: 8, label: "Chunky", baseHp: 25, speed: "20 ft Walk" },
 ];
 
 export const slimeAccessoryOptions: SlimeAccessoryOption[] = [
-  { roll: 1, label: "Cute Bow", effect: "Can telepathically communicate" },
-  { roll: 2, label: "An Outfit", effect: "Adds +1 to Charisma checks" },
-  { roll: 3, label: "Glitter", effect: "Leaves a sparkle trail" },
-  { roll: 4, label: "Cozy Blanket", effect: "It’s just a blanket… what a waste" },
+  { roll: 1, label: "Cute Bow", effect: "Can telepathically communicate with 60ft of each other" },
+  { roll: 2, label: "An Outfit", effect: "Adds +1 to Charisma checks that you make while the accessory is worn by the slime" },
+  { roll: 3, label: "Glitter", effect: "Leaves a sparkle trail, that lasts 1 hour" },
+  { roll: 4, label: "Cozy Blanket", effect: "It’s just a blanket… it doesn't provide any statues effects" },
   { roll: 5, label: "Snack Pouch", effect: "Heals Slime 1d6 once per long rest" },
   { roll: 6, label: "Squeaky Toy", effect: "+1 to Performance checks" },
   { roll: 7, label: "Tiny Hat", effect: "Advantage on Deception checks" },
-  { roll: 8, label: "Jingle Collar", effect: "+1 to CON saves" },
-  { roll: 9, label: "Friendship Bracelet", effect: "BFFs 4ever!" },
-  { roll: 10, label: "Slime Plushie", effect: "Split into two once per long rest" },
+  { roll: 8, label: "Jingle Collar", effect: "+1 to CON saves you make while the accessory is worn by the slime" },
+  { roll: 9, label: "Friendship Bracelet", effect: "BFFs 4ever! If the slime drops to 0 HP, it instead drops to 1 HP, then this accessory is destroyed" },
+  { roll: 10, label: "Slime Plushie", effect: "Split into two loosing half it's max HP between the two slimes once per long rest" },
 ];
 
 export const slimeFlavorOptions: SlimeFlavorOption[] = [
