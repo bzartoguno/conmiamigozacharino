@@ -55,7 +55,7 @@ export const flavorColorByType: Record<string, string> = {
   "Coconut Slime": "rgba(171, 135, 29, 0.45)",
   "Mint Slime": "rgba(134, 239, 173, 0.63)",
   "Cherry Slime": "rgba(248, 113, 113, 0.69)",
-  "Vanilla Slime": "rgba(231, 231, 228, 0.42)",
+  "Vanilla Slime": "rgba(249, 249, 207, 0.6)",
   "Lemon Slime": "rgba(238, 255, 0, 0.65)",
   "Grape Slime": "rgba(167, 139, 250, 0.5)",
   "Durian Slime": "rgba(255, 196, 34, 0.46)",
