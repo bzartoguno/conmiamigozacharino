@@ -51,16 +51,16 @@ export const accessoryLayerByType: Record<string, string> = {
 };
 
 export const flavorColorByType: Record<string, string> = {
-  "Pineapple Slime": "rgba(250, 204, 21, 0.48)",
-  "Coconut Slime": "rgba(248, 250, 252, 0.45)",
-  "Mint Slime": "rgba(134, 239, 172, 0.46)",
-  "Cherry Slime": "rgba(248, 113, 113, 0.5)",
-  "Vanilla Slime": "rgba(253, 230, 138, 0.42)",
-  "Lemon Slime": "rgba(253, 224, 71, 0.52)",
+  "Pineapple Slime": "rgba(255, 219, 74, 0.68)",
+  "Coconut Slime": "rgba(171, 135, 29, 0.45)",
+  "Mint Slime": "rgba(134, 239, 173, 0.63)",
+  "Cherry Slime": "rgba(248, 113, 113, 0.69)",
+  "Vanilla Slime": "rgba(231, 231, 228, 0.42)",
+  "Lemon Slime": "rgba(238, 255, 0, 0.65)",
   "Grape Slime": "rgba(167, 139, 250, 0.5)",
-  "Durian Slime": "rgba(132, 204, 22, 0.46)",
-  "Lime Slime": "rgba(74, 222, 128, 0.5)",
+  "Durian Slime": "rgba(255, 196, 34, 0.46)",
+  "Lime Slime": "rgba(31, 248, 110, 0.67)",
   "Plum Slime": "rgba(192, 132, 252, 0.5)",
-  "Orange Slime": "rgba(251, 146, 60, 0.52)",
-  "Banana Slime": "rgba(255, 255, 102, 0.5)",
+  "Orange Slime": "rgba(255, 115, 0, 0.52)",
+  "Banana Slime": "rgba(255, 238, 0, 0.5)",
 };
