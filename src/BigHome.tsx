@@ -1,6 +1,4 @@
 import bigHomeBackground from "./SandboxBigHome.webp";
-import applegarthImage from "./Applegarth.webp";
-import archivesGuildImage from "./Archives Guild.png";
 import bookBombImage from "./Book Bomb.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import changingChurchImage from "./Changing Church.png";
@@ -13,9 +11,7 @@ import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import auntPattysPiesImage from "./Aunt Pattie Pie.png";
 import comedyGoldImage from "./Comedy Gold.png";
-import dungeonCrawlerGuildImage from "./Dungeon Crawler's Guild.png";
 import findAFriendImage from "./Find a Friend.png";
-import navigationGuildImage from "./NavigationGuild-ezgif.com-webp-to-png-converter.png";
 import pearlsPotionsImage from "./Pearls Potions.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import piggyBankImage from "./Piggy Bank.png";
@@ -29,18 +25,16 @@ import valhallaMartImage from "./Valhalla Mart.png";
 import blossomHotelImage from "./Blossom Hotel.png";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import fairiesOfFloraImage from "./Floral.webp";
-import jewelryGuildImage from "./Jewelry Guild.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
-import nmeImage from "./N.M.E.png";
 import sleuthUniversityImage from "./Sleuth.webp";
 import fizzyTalesImage from "./FizzyTale.png";
 import goblinMarketImage from "./GoblinMarket.png";
 import auctionHouseImage from "./Auction House.png";
 import blackMarketImage from "./Black Market.jpg";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./BigHome.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type BigHomeShop = {
   key: string;

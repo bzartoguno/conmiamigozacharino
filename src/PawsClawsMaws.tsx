@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./PawsClawsMaws.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import { PawsClawsMawsItem, tribePawsClawsMaws } from "./tribePawsClawsMaws";
 import pawsClawsMawsBackground from "./Paws, Claws, & Maws.png";
 

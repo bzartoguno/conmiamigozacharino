@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Tribe } from "./types";
+import { Tribe } from "./models/types";
 
 type ShowItemProps = {
   tribe: Tribe;

@@ -6,10 +6,10 @@ import silentOathImage from "./Silent Oath.png";
 import necromancyInsuranceImage from "./NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import sleuthUniversityImage from "./Sleuth.webp";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./HebronJoshua.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type HebronShop = {
   key: string;

@@ -6,10 +6,10 @@ import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./SeymoursDriftMelanie.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type SeymoursDriftShop = {
   key: string;

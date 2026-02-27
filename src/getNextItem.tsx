@@ -1,4 +1,4 @@
-import { Item } from "./types";
+import { Item } from "./models/types";
 
 export function getNextItem(list: Item[], oldIndex: number = -1): number {
   const listLength = list.length;

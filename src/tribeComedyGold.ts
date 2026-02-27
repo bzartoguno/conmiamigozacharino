@@ -1,4 +1,4 @@
-import { Item, Tribe } from "./types";
+import { Item, Tribe } from "./models/types";
 
 interface ComedyGoldItem extends Item {
   priceLabel?: string;

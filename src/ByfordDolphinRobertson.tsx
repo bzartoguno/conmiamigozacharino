@@ -5,10 +5,10 @@ import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import sleuthUniversityImage from "./Sleuth.webp";
 import changingChurchImage from "./Changing Church.png";
 import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./ByfordDolphinRobertson.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type ByfordShop = {
   key: string;

@@ -8,10 +8,10 @@ import sleuthUniversityImage from "./Sleuth.webp";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
 import blossomHotelImage from "./Blossom Hotel.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./Graveborn.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type GravebornShop = {
   key: string;

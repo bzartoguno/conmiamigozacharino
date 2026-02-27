@@ -9,10 +9,10 @@ import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
 import dungeonCrawlerGuildImage from "./Dungeon Crawler's Guild.png";
 import navigationGuildImage from "./NavigationGuild-ezgif.com-webp-to-png-converter.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./MeanderMichael.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type MeanderShop = {
   key: string;

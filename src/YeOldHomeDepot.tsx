@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./YeOldHomeDepot.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./tribeYeOldHomeDepot";
 import sleuthBackground from "./Ye Old Home Depot.webp";
 

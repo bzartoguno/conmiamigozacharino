@@ -5,10 +5,10 @@ import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import floralImage from "./Floral.webp";
 import silentOathImage from "./Silent Oath.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./WithholdParker.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type WithholdShop = {
   key: string;

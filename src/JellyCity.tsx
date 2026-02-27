@@ -3,10 +3,10 @@ import goblinMarketImage from "./GoblinMarket.png";
 import bookBombsImage from "./Book Bomb.png";
 import robinsRopesImage from "./Robins Ropes.png";
 import changingChurchImage from "./Changing Church.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./JellyCity.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type JellyCityShop = {
   key: string;

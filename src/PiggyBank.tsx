@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import styles from "./PiggyBank.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
 import piggyBankBackground from "./Piggy Bank.png";
 import { PiggyBankItem, tribePiggyBank } from "./tribePiggyBank";
 
