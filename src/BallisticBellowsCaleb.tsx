@@ -7,10 +7,10 @@ import pearlsPotionsImage from "./Pearls Potions.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import yeOldDonkeyImage from "./Ye Old Donkey.png";
 import piggyBankImage from "./Piggy Bank.png";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import styles from "./BallisticBellowsCaleb.module.css";
-import { ShopButton } from "./components/ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type BallisticBellowsShop = {
   key: string;

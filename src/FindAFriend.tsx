@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import styles from "./FindAFriend.module.css";
 import { tribeFindAFriend } from "./tribeFindAFriend";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
 import findAFriendBackground from "./Find a Friend.png";
-import { Item } from "./models/types";
+import { Item } from "./types";
 
 type DisplayItem = Item & { finalPrice: number };
 

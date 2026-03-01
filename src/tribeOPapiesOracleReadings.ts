@@ -1,4 +1,4 @@
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 
 export const tribeOPapiesOracleReadings: Tribe = {
   name: "O-Papies Oracle Readings",

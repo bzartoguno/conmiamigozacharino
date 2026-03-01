@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./FairiesOfFlora.module.css";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./tribeFairiesOfFlora";
 import floralBackground from "./Floral.webp";
 

@@ -1,4 +1,4 @@
-import { Item, Tribe } from "./models/types";
+import { Item, Tribe } from "./types";
 
 interface BulletsBuffsBeyondItem extends Item {
   priceLabel?: string;

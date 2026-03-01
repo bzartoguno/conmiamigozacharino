@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./ComedyGold.module.css";
 import { tribeComedyGold } from "./tribeComedyGold";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import comedyGoldBackground from "./Comedy Gold.png";
 
 type ComedyGoldItem = Item & { priceLabel?: string };

@@ -1,4 +1,4 @@
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 
 export const tribeAuctionHouse2: Tribe = {
   name: "A Red Star Shop",

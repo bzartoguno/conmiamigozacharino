@@ -7,10 +7,10 @@ import willsWeaponsImage from "./Wills Weapons.png";
 import runestoneRelayImage from "./Runestone Relay.png";
 import piggyBankImage from "./Piggy Bank.png";
 import mountsImage from "./Mounts.webp";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import styles from "./OrbitingCity.module.css";
-import { ShopButton } from "./components/ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type OrbitingCityShop = {
   key: string;

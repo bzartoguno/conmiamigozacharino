@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 
 const CORRECT_PASSWORD_HASH = 'ad698ac9653d25d2b386629439da8331d1cd01e59eeee63b9bf46e5e9803d383';
 
