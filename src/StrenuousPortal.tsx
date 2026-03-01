@@ -1,4 +1,5 @@
 import backgroundImage from "./StrenuousPortalButton2.webp";
+import applegarthImage from "./Applegarth.webp";
 import archivesGuildImage from "./Archives Guild.png";
 import bookBombsImage from "./Book Bomb.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
@@ -24,10 +25,10 @@ import nmeImage from "./N.M.E.png";
 import pearlsPotionsImage from "./Pearls Potions.png";
 import fizzyTaleImage from "./FizzyTale.png";
 import goblinMarketImage from "./GoblinMarket.png";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import styles from "./StrenuousPortal.module.css";
-import { ShopButton } from "./components/ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type StrenuousShop = {
   key: string;

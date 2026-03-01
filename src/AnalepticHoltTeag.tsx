@@ -9,10 +9,10 @@ import blossomHotelImage from "./Blossom Hotel.png";
 import floralImage from "./Floral.webp";
 import evansEnchantingEmporiumImage from "./Evan's Enchanting Emporium.png";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import styles from "./AnalepticHoltTeag.module.css";
-import { ShopButton } from "./components/ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type AnalepticShop = {
   key: string;

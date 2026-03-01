@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GoblinIsClosed } from "./GoblinIsClosed";
 import { GoblinIsOpen } from "./GoblinIsOpen";
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 import styles from "./GoblinApp.module.css";
 import { tribe1 } from "./tribe1";
 import { tribe2 } from "./tribe2";
@@ -12,7 +12,7 @@ import { tribe6 } from "./tribe6";
 import { tribe7 } from "./tribe7";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 5;
 

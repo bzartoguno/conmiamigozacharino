@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./GolemWorkshop.module.css";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import { GolemWorkshopItem, tribeGolemWorkshop } from "./tribeGolemWorkshop";
 import golemWorkshopBackground from "./Golem Work Shop.png";
 

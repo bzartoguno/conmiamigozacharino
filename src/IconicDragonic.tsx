@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./IconicDragonic.module.css";
 import { tribeIconicDragonic } from "./tribeIconicDragonic";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import dragonicBackground from "./Iconic Dragonic.png";
 
 type DisplayItem = Item & { finalPrice: number };

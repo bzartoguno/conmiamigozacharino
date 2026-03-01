@@ -1,5 +1,5 @@
 import styles from "./JazzPortablePotions.module.css";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import objectiveSurvive from "./Objective survive.webp";
 
 export function JazzPortablePotions({ onBack }: { onBack?: () => void }) {

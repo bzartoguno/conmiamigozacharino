@@ -1,5 +1,5 @@
 import styles from "./HugInfo.module.css";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import hugBackground from "./Hug info.webp";
 
 export function HugInfo({ onBack }: { onBack?: () => void }) {

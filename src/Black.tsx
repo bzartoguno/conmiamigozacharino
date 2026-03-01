@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BlackIsClosed } from "./BlackIsClosed";
 import { BlackIsOpen } from "./BlackIsOpen";
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 import styles from "./BlackApp.module.css"; // Updated to use CSS Modules
 import { tribeBlackMarket } from "./tribeBlackMarket";
 import { tribeBlackMarket2 } from "./tribeBlackMarket2";
@@ -10,7 +10,7 @@ import { tribeBlackMarket4 } from "./tribeBlackMarket4";
 import { tribeBlackMarket5 } from "./tribeBlackMarket5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 
 const MAX_CLICKS = 2;
 

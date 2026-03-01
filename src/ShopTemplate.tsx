@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import defaultStyles from "./BookBombs.module.css";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item, Tribe } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item, Tribe } from "./types";
 
 type DisplayItem = Item & { finalPrice: number };
 type ShopTemplateStyles = typeof defaultStyles;

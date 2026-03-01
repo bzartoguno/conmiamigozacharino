@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./BookBombs.module.css";
 import { tribeBookBombs } from "./tribeBookBombs";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import bookBombBackground from "./Book Bomb.png";
 
 type DisplayItem = Item & { finalPrice: number };
@@ -33,6 +33,7 @@ export function BookBombs({ onBack }: { onBack?: () => void }) {
       <div
         className={styles.backgroundImage}
         style={{ backgroundImage: `url(${bookBombBackground})` }}
+        aria-
       />
       <main className={styles.content}>
         <header className={styles.header}>

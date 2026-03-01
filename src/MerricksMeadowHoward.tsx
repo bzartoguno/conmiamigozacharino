@@ -7,10 +7,10 @@ import silentOathImage from "./Silent Oath.png";
 import necromancyInsuranceImage from "./NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import jazzPortablePotionsImage from "./Jazz's Portable Potions.png";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 import styles from "./MerricksMeadowHoward.module.css";
-import { ShopButton } from "./components/ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
+import { ShopButton } from "./ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
 
 type MerricksShop = {
   key: string;

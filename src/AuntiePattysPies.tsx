@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./AuntiePattysPies.module.css";
 import { tribeAuntiePattysPies } from "./tribeAuntiePattysPies";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import auntPattiePieBackground from "./Aunt Pattie Pie.png";
 
 type DisplayItem = Item & { finalPrice: number };

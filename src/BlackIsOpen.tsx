@@ -1,9 +1,9 @@
 import { ShowItem } from "./ShowItem";
 import { setCookie } from "./cookies";
 import { getIndices } from "./Goblins";
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 import styles from "./BlackApp.module.css"
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./BackButton";
 
 interface BlackIsOpenProps {
   clicks: number;

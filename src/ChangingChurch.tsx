@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./ChangingChurch.module.css";
 import { tribeChangingChurch } from "./tribeChangingChurch";
-import { BackButton } from "./components/BackButton";
-import { InsultBox } from "./components/InsultBox";
-import { Item } from "./models/types";
+import { BackButton } from "./BackButton";
+import { InsultBox } from "./InsultBox";
+import { Item } from "./types";
 import changingChurchBackground from "./Changing Church.png";
 
 type DisplayItem = Item & { finalPrice: number };

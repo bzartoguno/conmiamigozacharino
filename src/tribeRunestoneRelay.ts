@@ -1,4 +1,4 @@
-import { Tribe } from "./models/types";
+import { Tribe } from "./types";
 
 export const tribeRunestoneRelay: Tribe = {
   name: "Runestone Relay",
