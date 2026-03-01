@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./YeOldDonkey.module.css";
 import { tribeYeOldDonkey } from "./tribeYeOldDonkey";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import yeOldDonkeyBackground from "./Ye Old Donkey.png";
 
 type DisplayItem = Item & { finalPrice: number };

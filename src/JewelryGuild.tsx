@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./JewelryGuild.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import { JewelryGuildItem, tribeJewelryGuild } from "./tribeJewelryGuild";
 import jewelryGuildBackground from "./Jewelry Guild.png";
 

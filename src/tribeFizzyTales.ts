@@ -1,4 +1,4 @@
-import { Item, Tribe } from "./types";
+import { Item, Tribe } from "./models/types";
 
 export interface FizzyTalesItem extends Item {
   priceText?: string;

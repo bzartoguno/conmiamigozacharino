@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./NME.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import { NMEItem, tribeNME } from "./tribeNME";
 import nmeBackground from "./N.M.E.png";
 

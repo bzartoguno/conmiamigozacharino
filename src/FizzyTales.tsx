@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import styles from "./FizzyTales.module.css";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import { FizzyTalesItem, tribeFizzyTales } from "./tribeFizzyTales";
 import fizzyTalesBackground from "./FizzyTale.png";
 

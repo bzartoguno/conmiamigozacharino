@@ -60,7 +60,7 @@ import FizzyTale  from "./FizzyTale.png";
 import provisionsParadiseImage from "./Provisions Paradise.png";
 import { ProvisionsParadise } from "./ProvisionsParadise";
 import { useEffect, useState } from "react";
-import { sortShopButtons } from "./shopButtonStyles";
+import { sortShopButtons } from "./utils/shopButtonStyles";
 import { HugInfo } from "./HugInfo";
 import hugImage from "./Hug.webp";
 import jellBellImage from "./Jell.webp";
@@ -282,7 +282,7 @@ const sandboxTowns: SandboxTown[] = [
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
-  const [navigationStack, setNavigationStack] = useState<string[]>([]);
+  const [, setNavigationStack] = useState<string[]>([]);
   const handleNavigate = (next: string) => {
     setNavigationStack((stack) => [...stack, navigatedTo]);
     setNavigatedTo(next);

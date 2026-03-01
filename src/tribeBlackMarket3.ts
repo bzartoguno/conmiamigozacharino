@@ -1,4 +1,4 @@
-import { Tribe } from "./types";
+import { Tribe } from "./models/types";
 import { blackMarketInsults } from "./tribeInsults";
 
 export const tribeBlackMarket3: Tribe = {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
-import { Tribe } from "./types";
+import { Tribe } from "./models/types";
 import styles from "./AuctionApp.module.css";
 import { tribeAuctionHouse } from "./tribeAuctionHouse";
 import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
@@ -10,7 +10,7 @@ import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";
 import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 
 const MAX_CLICKS = 3;
 

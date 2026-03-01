@@ -1,4 +1,4 @@
-import { Item, Tribe } from "./types";
+import { Item, Tribe } from "./models/types";
 
 export interface ValhallaMartItem extends Item {
   priceText?: string;

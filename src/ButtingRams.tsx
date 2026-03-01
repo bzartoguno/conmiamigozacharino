@@ -5,10 +5,10 @@ import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import runestoneRelayImage from "./Runestone Relay.png";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
-import { BackButton } from "./BackButton";
+import { BackButton } from "./components/BackButton";
 import styles from "./ButtingRams.module.css";
-import { ShopButton } from "./ShopButton";
-import { getShopButtonStyle, sortShopButtons } from "./shopButtonStyles";
+import { ShopButton } from "./components/ShopButton";
+import { getShopButtonStyle, sortShopButtons } from "./utils/shopButtonStyles";
 
 type ButtingRamsShop = {
   key: string;

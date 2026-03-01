@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./RunestoneRelay.module.css";
 import { tribeRunestoneRelay } from "./tribeRunestoneRelay";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import runestoneRelayBackground from "./Runestone Relay.png";
 
 type DisplayItem = Item & { finalPrice: number };
@@ -35,7 +35,6 @@ export function RunestoneRelay({ onBack }: { onBack?: () => void }) {
       <div
         className={styles.backgroundImage}
         style={{ backgroundImage: `url(${runestoneRelayBackground})` }}
-        aria-
       />
       <main className={styles.content}>
         <header className={styles.header}>

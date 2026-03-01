@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import styles from "./BulletsBuffsBeyond.module.css";
 import { tribeBulletsBuffsBeyond } from "./tribeBulletsBuffsBeyond";
-import { BackButton } from "./BackButton";
-import { InsultBox } from "./InsultBox";
-import { Item } from "./types";
+import { BackButton } from "./components/BackButton";
+import { InsultBox } from "./components/InsultBox";
+import { Item } from "./models/types";
 import bulletsBuffsBeyondBackground from "./Bullets Buffs and Beyond.webp";
 
 type BulletsBuffsBeyondItem = Item & { priceLabel?: string };
