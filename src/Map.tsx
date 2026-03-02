@@ -325,7 +325,9 @@ export function Map() {
     options?: { settlementType?: SettlementType }
   ) => {
     setNavigationStack((stack) => [...stack, navigatedTo]);
-    setSelectedSettlementType(options?.settlementType);
+    if (options && Object.prototype.hasOwnProperty.call(options, "settlementType")) {
+      setSelectedSettlementType(options.settlementType);
+    }
     setNavigatedTo(next);
   };
   const handleBack = () => {
@@ -876,7 +878,7 @@ export function Map() {
           <div style={styles.buttonContainer}>
             <FloatingButton
               label="Sandbox"
-              onClick={() => handleNavigate("Sandbox")}
+              onClick={() => handleNavigate("Sandbox", { settlementType: undefined })}
               delay="1.5s"
               backgroundColor="rgba(15, 23, 42, 0.85)"
               color="#e2e8f0"
@@ -892,7 +894,7 @@ export function Map() {
             />
             <FloatingButton
               label="Every Shop"
-              onClick={() => handleNavigate("EveryShop")}
+              onClick={() => handleNavigate("EveryShop", { settlementType: undefined })}
               delay="3s"
               backgroundColor="rgba(30, 64, 175, 0.9)"
               color="#e2e8f0"
