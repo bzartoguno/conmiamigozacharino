@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { ValhallaMartItem, tribeValhallaMart } from "./tribeValhallaMart";
 import valhallaBackground from "./Valhalla Mart.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = ValhallaMartItem & { finalPrice: number };
 
@@ -17,8 +19,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function ValhallaMart({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeValhallaMart.items
+    return getAvailableItems(tribeValhallaMart.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice:
@@ -27,7 +30,7 @@ export function ValhallaMart({ onBack }: { onBack?: () => void }) {
             : 0,
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice || a.name.localeCompare(b.name));
-  }, []);
+  }, [settlementType]);
 
   const formatPrice = (item: DisplayItem) => {
     if (item.priceText) return item.priceText;

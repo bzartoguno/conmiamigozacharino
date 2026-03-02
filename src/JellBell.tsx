@@ -15,6 +15,8 @@ import {
   slimeTemperamentOptions,
 } from "./jellBellGenerator";
 import { SlimeStatBlock } from "./SlimeStatBlock";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = JellBellItem & { finalPrice: number };
 type BellTier = "3 Star Bell" | "4 Star Bell" | "5 Star Bell";
@@ -33,12 +35,13 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function JellBell({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const [selectedTier, setSelectedTier] = useState<BellTier | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [generatedSlimes, setGeneratedSlimes] = useState<GeneratedSlime[]>([]);
 
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeJellBell.items
+    return getAvailableItems(tribeJellBell.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice:
@@ -47,7 +50,7 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
             : 0,
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice || a.name.localeCompare(b.name));
-  }, []);
+  }, [settlementType]);
 
   const formatPrice = (item: DisplayItem) => {
     if (item.priceText) return item.priceText;

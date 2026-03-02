@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { NMEItem, tribeNME } from "./tribeNME";
 import nmeBackground from "./N.M.E.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = NMEItem & { finalPrice: number };
 
@@ -22,16 +24,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function NME({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeNME.items.map((item) => ({
+      getAvailableItems(tribeNME.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeNME.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

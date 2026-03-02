@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import auntPattiePieBackground from "./Aunt Pattie Pie.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -18,14 +20,15 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function AuntiePattysPies({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeAuntiePattysPies.items
+    return getAvailableItems(tribeAuntiePattysPies.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribeAuntiePattysPies.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

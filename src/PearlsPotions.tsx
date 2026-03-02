@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import pearlsPotionsBackground from "./Pearls Potions.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -17,14 +19,15 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function PearlsPotions({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribePearlsPotions.items
+    return getAvailableItems(tribePearlsPotions.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribePearlsPotions.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

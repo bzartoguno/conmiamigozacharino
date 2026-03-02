@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./tribeFairiesOfFlora";
 import floralBackground from "./Floral.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = FairiesOfFloraItem & { finalPrice: number };
 
@@ -22,16 +24,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function FairiesOfFlora({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeFairiesOfFlora.items.map((item) => ({
+      getAvailableItems(tribeFairiesOfFlora.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeFairiesOfFlora.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

@@ -8,6 +8,8 @@ import {
   tribeEvansEnchantingEmporium,
 } from "./tribeEvansEnchantingEmporium";
 import evansEnchantingBackground from "./Evan's Enchanting Emporium.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = EvansEnchantingItem & { finalPrice: number };
 
@@ -25,9 +27,10 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function EvansEnchantingEmporium({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeEvansEnchantingEmporium.items.map((item) => ({
+      getAvailableItems(tribeEvansEnchantingEmporium.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
@@ -37,7 +40,7 @@ export function EvansEnchantingEmporium({ onBack }: { onBack?: () => void }) {
               )
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

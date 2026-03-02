@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { GolemWorkshopItem, tribeGolemWorkshop } from "./tribeGolemWorkshop";
 import golemWorkshopBackground from "./Golem Work Shop.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = GolemWorkshopItem & { finalPrice: number };
 
@@ -22,16 +24,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function GolemWorkshop({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeGolemWorkshop.items.map((item) => ({
+      getAvailableItems(tribeGolemWorkshop.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeGolemWorkshop.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

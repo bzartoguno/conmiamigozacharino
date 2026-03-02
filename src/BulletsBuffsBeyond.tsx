@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import bulletsBuffsBeyondBackground from "./Bullets Buffs and Beyond.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type BulletsBuffsBeyondItem = Item & { priceLabel?: string };
 type DisplayItem = BulletsBuffsBeyondItem & { finalPrice?: number };
@@ -19,8 +21,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function BulletsBuffsBeyond({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeBulletsBuffsBeyond.items
+    return getAvailableItems(tribeBulletsBuffsBeyond.items, settlementType)
       .map((item) => {
         if ("priceLabel" in item && item.priceLabel) {
           return { ...item, finalPrice: undefined };
@@ -32,7 +35,7 @@ export function BulletsBuffsBeyond({ onBack }: { onBack?: () => void }) {
         };
       })
       .sort((a, b) => (a.finalPrice ?? Number.MAX_SAFE_INTEGER) - (b.finalPrice ?? Number.MAX_SAFE_INTEGER));
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

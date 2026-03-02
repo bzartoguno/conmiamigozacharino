@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { PawsClawsMawsItem, tribePawsClawsMaws } from "./tribePawsClawsMaws";
 import pawsClawsMawsBackground from "./Paws, Claws, & Maws.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = PawsClawsMawsItem & { finalPrice: number };
 
@@ -25,8 +27,9 @@ const cardPalettes = [
 ];
 
 export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribePawsClawsMaws.items
+    return getAvailableItems(tribePawsClawsMaws.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice:
@@ -35,7 +38,7 @@ export function PawsClawsMaws({ onBack }: { onBack?: () => void }) {
             : 0,
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice || a.name.localeCompare(b.name));
-  }, []);
+  }, [settlementType]);
 
   const formatPrice = (item: DisplayItem) => {
     if (item.priceText) return item.priceText;

@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { FizzyTalesItem, tribeFizzyTales } from "./tribeFizzyTales";
 import fizzyTalesBackground from "./FizzyTale.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = FizzyTalesItem & { finalPrice: number };
 
@@ -22,14 +24,15 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function FizzyTales({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeFizzyTales.items.map((item) => ({
+      getAvailableItems(tribeFizzyTales.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0 ? calculateAdjustedPrice(item, tribeFizzyTales.priceVariability) : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

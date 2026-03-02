@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MonsterMakerItem, tribeMonsterMaker } from "./tribeMonsterMaker";
 import monsterBackground from "./Monster.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = MonsterMakerItem & { finalPrice: number };
 
@@ -26,6 +28,7 @@ const cardPalettes = [
 ];
 
 export function MonsterMaker({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const groupedItems = useMemo(() => {
     const categoryOrder = [
       "Type of Elemental",
@@ -38,7 +41,7 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
     const categoryMap: Record<string, DisplayItem[]> = {};
     const seenOrder: string[] = [];
 
-    tribeMonsterMaker.items.forEach((item: MonsterMakerItem) => {
+    getAvailableItems(tribeMonsterMaker.items, settlementType).forEach((item: MonsterMakerItem) => {
       const category = item.category || "Other";
       if (!categoryMap[category]) {
         categoryMap[category] = [];
@@ -65,7 +68,7 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
         (a, b) => a.finalPrice - b.finalPrice || a.name.localeCompare(b.name)
       ),
     }));
-  }, []);
+  }, [settlementType]);
 
   const formatPrice = (item: DisplayItem) => {
     if (item.priceText) return item.priceText;

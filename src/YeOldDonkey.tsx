@@ -4,6 +4,8 @@ import { tribeYeOldDonkey } from "./tribeYeOldDonkey";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 import yeOldDonkeyBackground from "./Ye Old Donkey.png";
 
 type DisplayItem = Item & { finalPrice: number };
@@ -17,14 +19,16 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function YeOldDonkey({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
+
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeYeOldDonkey.items
+    return getAvailableItems(tribeYeOldDonkey.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribeYeOldDonkey.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

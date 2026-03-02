@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import runestoneRelayBackground from "./Runestone Relay.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -17,8 +19,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function RunestoneRelay({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeRunestoneRelay.items
+    return getAvailableItems(tribeRunestoneRelay.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(
@@ -27,7 +30,7 @@ export function RunestoneRelay({ onBack }: { onBack?: () => void }) {
         ),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

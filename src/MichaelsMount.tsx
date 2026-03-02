@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MichaelsMountItem, tribeMichaelsMount } from "./tribeMichaelsMount";
 import mountsBackground from "./Mounts.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = MichaelsMountItem & { finalPrice: number };
 
@@ -17,8 +19,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function MichaelsMount({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeMichaelsMount.items
+    return getAvailableItems(tribeMichaelsMount.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice:
@@ -27,7 +30,7 @@ export function MichaelsMount({ onBack }: { onBack?: () => void }) {
             : 0,
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice || a.name.localeCompare(b.name));
-  }, []);
+  }, [settlementType]);
 
   const formatPrice = (item: DisplayItem) => {
     if (item.priceText) return item.priceText;
