@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import applegarthBackground from "./Applegarth.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type GuildItem = Item & { priceLabel?: string };
 type DisplayItem = GuildItem & { finalPrice?: number };
@@ -18,8 +20,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeApplegarthGuild.items
+    return getAvailableItems(tribeApplegarthGuild.items, settlementType)
       .map((item) => {
         if (item.priceLabel) {
           return { ...item, finalPrice: undefined };
@@ -31,7 +34,7 @@ export function ApplegarthGuild({ onBack }: { onBack?: () => void }) {
         };
       })
       .sort((a, b) => (a.finalPrice ?? Number.MAX_SAFE_INTEGER) - (b.finalPrice ?? Number.MAX_SAFE_INTEGER));
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { JewelryGuildItem, tribeJewelryGuild } from "./tribeJewelryGuild";
 import jewelryGuildBackground from "./Jewelry Guild.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = JewelryGuildItem & { finalPrice: number };
 
@@ -22,16 +24,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function JewelryGuild({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeJewelryGuild.items.map((item) => ({
+      getAvailableItems(tribeJewelryGuild.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeJewelryGuild.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

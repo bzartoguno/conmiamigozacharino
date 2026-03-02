@@ -8,6 +8,8 @@ import {
   tribeLabyrinthineLibrary,
 } from "./tribeLabyrinthineLibrary";
 import labyrinthineLibraryBackground from "./Labyrinthine Labrary.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = LabyrinthineLibraryItem & { finalPrice: number };
 
@@ -25,9 +27,10 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function LabyrinthineLibrary({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeLabyrinthineLibrary.items.map((item) => ({
+      getAvailableItems(tribeLabyrinthineLibrary.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
@@ -37,7 +40,7 @@ export function LabyrinthineLibrary({ onBack }: { onBack?: () => void }) {
               )
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import dungeonCrawlerGuildBackground from "./Dungeon Crawler's Guild.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -18,14 +20,15 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function DungeonCrawlerGuild({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeDungeonCrawlerGuild.items
+    return getAvailableItems(tribeDungeonCrawlerGuild.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribeDungeonCrawlerGuild.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

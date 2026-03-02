@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { BlossomHotelItem, tribeBlossomHotel } from "./tribeBlossomHotel";
 import blossomHotelBackground from "./Blossom Hotel.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = BlossomHotelItem & { finalPrice: number };
 
@@ -22,16 +24,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function BlossomHotel({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeBlossomHotel.items.map((item) => ({
+      getAvailableItems(tribeBlossomHotel.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeBlossomHotel.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

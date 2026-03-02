@@ -4,6 +4,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import piggyBankBackground from "./Piggy Bank.png";
 import { PiggyBankItem, tribePiggyBank } from "./tribePiggyBank";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = PiggyBankItem & { finalPrice?: number; displayPrice: string };
 
@@ -16,8 +18,9 @@ function calculateAdjustedPrice(item: PiggyBankItem, priceVariability: number): 
 }
 
 export function PiggyBank({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribePiggyBank.items.map((item) => {
+    return getAvailableItems(tribePiggyBank.items, settlementType).map((item) => {
       if (item.priceLabel) {
         return { ...item, displayPrice: item.priceLabel };
       }
@@ -29,7 +32,7 @@ export function PiggyBank({ onBack }: { onBack?: () => void }) {
         displayPrice: `${finalPrice.toLocaleString()} Gold`,
       };
     });
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

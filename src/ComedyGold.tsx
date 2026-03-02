@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import comedyGoldBackground from "./Comedy Gold.png";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type ComedyGoldItem = Item & { priceLabel?: string };
 type DisplayItem = ComedyGoldItem & { finalPrice?: number };
@@ -19,8 +21,9 @@ function calculateAdjustedPrice(item: Item, priceVariability: number): number {
 }
 
 export function ComedyGold({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeComedyGold.items
+    return getAvailableItems(tribeComedyGold.items, settlementType)
       .map((item) => {
         if ("priceLabel" in item && item.priceLabel) {
           return { ...item, finalPrice: undefined };
@@ -32,7 +35,7 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
         };
       })
       .sort((a, b) => (a.finalPrice ?? Number.MAX_SAFE_INTEGER) - (b.finalPrice ?? Number.MAX_SAFE_INTEGER));
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>

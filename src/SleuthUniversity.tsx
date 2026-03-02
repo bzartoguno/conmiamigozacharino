@@ -8,6 +8,8 @@ import {
   tribeSleuthUniversity,
 } from "./tribeSleuthUniversity";
 import sleuthBackground from "./Sleuth.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = SleuthUniversityItem & { finalPrice: number };
 
@@ -25,16 +27,17 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function SleuthUniversity({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeSleuthUniversity.items.map((item) => ({
+      getAvailableItems(tribeSleuthUniversity.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
             ? calculateAdjustedPrice(item, tribeSleuthUniversity.priceVariability)
             : 0,
       })),
-    []
+    [settlementType]
   );
 
   return (

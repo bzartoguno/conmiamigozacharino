@@ -13,8 +13,17 @@ import { tribe7 } from "./tribe7";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 import { BackButton } from "./BackButton";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 const MAX_CLICKS = 5;
+
+function getFilteredTribes(tribes: Tribe[], settlementType?: import("./inventoryAvailability").SettlementType): Tribe[] {
+  return tribes.map((tribe) => ({
+    ...tribe,
+    items: getAvailableItems(tribe.items, settlementType),
+  }));
+}
 
 export function getIndices(tribes: Tribe[], oldList: number[] = []): number[] {
   return tribes.map((tribe, index) => getNextItem(tribe.items, oldList[index]));
@@ -35,7 +44,8 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Goblins({ onBack }: { onBack?: () => void }) {
-  const tribes = [tribe1, tribe2, tribe3, tribe4, tribe5, tribe6, tribe7];
+  const settlementType = useSettlementType();
+  const tribes = getFilteredTribes([tribe1, tribe2, tribe3, tribe4, tribe5, tribe6, tribe7], settlementType);
 
   const [clicks, setClicks] = useState(getInitialClicks());
 

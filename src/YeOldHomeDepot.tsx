@@ -5,6 +5,8 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./tribeYeOldHomeDepot";
 import sleuthBackground from "./Ye Old Home Depot.webp";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = YeOldHomeDepotItem & { finalPrice: number };
 
@@ -37,9 +39,10 @@ function formatPrice(item: DisplayItem): string {
 }
 
 export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(
     () =>
-      tribeYeOldHomeDepot.items.map((item) => ({
+      getAvailableItems(tribeYeOldHomeDepot.items, settlementType).map((item) => ({
         ...item,
         finalPrice:
           item.price > 0
@@ -47,7 +50,7 @@ export function YeOldHomeDepot({ onBack }: { onBack?: () => void }) {
             : 0,
       }))
       .sort(sortByPrice),
-    []
+    [settlementType]
   );
 
   return (

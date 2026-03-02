@@ -5,6 +5,8 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import findAFriendBackground from "./Find a Friend.png";
 import { Item } from "./types";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 
@@ -22,14 +24,15 @@ function formatPrice(value: number) {
 }
 
 export function FindAFriend({ onBack }: { onBack?: () => void }) {
+  const settlementType = useSettlementType();
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribeFindAFriend.items
+    return getAvailableItems(tribeFindAFriend.items, settlementType)
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribeFindAFriend.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, []);
+  }, [settlementType]);
 
   return (
     <div className={styles.app}>
