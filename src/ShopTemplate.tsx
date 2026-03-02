@@ -3,6 +3,8 @@ import defaultStyles from "./BookBombs.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item, Tribe } from "./types";
+import { useSettlementType } from "./SettlementContext";
+import { getAvailableItems } from "./inventoryAvailability";
 
 type DisplayItem = Item & { finalPrice: number };
 type ShopTemplateStyles = typeof defaultStyles;
@@ -26,14 +28,18 @@ export function ShopTemplate({
   onBack?: () => void;
   styles?: ShopTemplateStyles;
 }) {
+  const settlementType = useSettlementType();
+
   const displayItems: DisplayItem[] = useMemo(() => {
-    return tribe.items
+    const availableItems = getAvailableItems(tribe.items, settlementType);
+
+    return availableItems
       .map((item) => ({
         ...item,
         finalPrice: calculateAdjustedPrice(item, tribe.priceVariability),
       }))
       .sort((a, b) => a.finalPrice - b.finalPrice);
-  }, [tribe]);
+  }, [settlementType, tribe]);
 
   return (
     <div className={styles.app}>
