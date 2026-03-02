@@ -12,16 +12,9 @@ import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 import { BackButton } from "./BackButton";
 import { useSettlementType } from "./SettlementContext";
-import { getAvailableItems } from "./inventoryAvailability";
+import { filterMarketTribesBySettlement } from "./marketInventory";
 
 const MAX_CLICKS = 2;
-
-function getFilteredTribes(tribes: Tribe[], settlementType?: import("./inventoryAvailability").SettlementType): Tribe[] {
-  return tribes.map((tribe) => ({
-    ...tribe,
-    items: getAvailableItems(tribe.items, settlementType),
-  }));
-}
 
 export function getIndices(tribes: Tribe[], oldList: number[] = []): number[] {
   return tribes.map((tribe, index) => getNextItem(tribe.items, oldList[index]));
@@ -43,7 +36,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 
 export function Blacks({ onBack }: { onBack?: () => void }) {
   const settlementType = useSettlementType();
-  const tribes = getFilteredTribes([tribeBlackMarket, tribeBlackMarket2, tribeBlackMarket3, tribeBlackMarket4, tribeBlackMarket5], settlementType);
+  const tribes = filterMarketTribesBySettlement([tribeBlackMarket, tribeBlackMarket2, tribeBlackMarket3, tribeBlackMarket4, tribeBlackMarket5], settlementType);
 
   const [clicks, setClicks] = useState(getInitialClicks());
 
