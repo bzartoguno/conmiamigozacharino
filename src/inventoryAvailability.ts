@@ -33,21 +33,12 @@ export function getVisibleItemCount(totalItems: number, settlementType?: Settlem
   return Math.max(1, count);
 }
 
-function shuffle<T>(items: T[]): T[] {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-
-  return copy;
-}
-
 export function getAvailableItems<T extends Item>(items: T[], settlementType?: SettlementType): T[] {
+  const sortedByPrice = [...items].sort((a, b) => a.price - b.price);
   const count = getVisibleItemCount(items.length, settlementType);
-  if (count >= items.length) {
-    return [...items];
+  if (count >= sortedByPrice.length) {
+    return sortedByPrice;
   }
 
-  return shuffle(items).slice(0, count);
+  return sortedByPrice.slice(0, count);
 }
