@@ -1,11 +1,13 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.27ee67ce.css",
-    "main.js": "/conmiamigozacharino/static/js/main.349fa68c.js",
+    "main.css": "/conmiamigozacharino/static/css/main.cf5a5420.css",
+    "main.js": "/conmiamigozacharino/static/js/main.1f9d3972.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
+    "static/media/StrenuousNews.png": "/conmiamigozacharino/static/media/StrenuousNews.e619477f887a2191c832.png",
     "static/media/Goblin-Market-Train.png": "/conmiamigozacharino/static/media/Goblin-Market-Train.8bc7c06e9a616d733bf4.png",
     "static/media/Blossom Hotel.png": "/conmiamigozacharino/static/media/Blossom Hotel.cee2c019c2d836a41461.png",
+    "static/media/StrenuousMap.webp": "/conmiamigozacharino/static/media/StrenuousMap.f4388a95987c981f23bd.webp",
     "static/media/FizzyTale.png": "/conmiamigozacharino/static/media/FizzyTale.b8acc1ce2491539813c2.png",
     "static/media/loading-screen.gif": "/conmiamigozacharino/static/media/loading-screen.d572de266902425992c3.gif",
     "static/media/Valhalla Mart.png": "/conmiamigozacharino/static/media/Valhalla Mart.03c8d7df84e514921e12.png",
@@ -14,6 +16,7 @@
     "static/media/Black Market.jpg": "/conmiamigozacharino/static/media/Black Market.9e2871a8ad883a5a44db.jpg",
     "static/media/Slippery.png": "/conmiamigozacharino/static/media/Slippery.8dda9ddc0afab364c538.png",
     "static/media/Rubbery.png": "/conmiamigozacharino/static/media/Rubbery.8e3c524b4141bf18ea75.png",
+    "static/media/StrenuousTrue.webp": "/conmiamigozacharino/static/media/StrenuousTrue.1beeaf4b1672c3cb5253.webp",
     "static/media/Chunky.png": "/conmiamigozacharino/static/media/Chunky.2b5ae38500975c98404b.png",
     "static/media/Bouncy.png": "/conmiamigozacharino/static/media/Bouncy.34133e23b42727193f66.png",
     "static/media/Bubbly.png": "/conmiamigozacharino/static/media/Bubbly.5be835a3136f171645c9.png",
@@ -34,7 +37,6 @@
     "static/media/Ye Old Home Depot.webp": "/conmiamigozacharino/static/media/Ye Old Home Depot.a67f326199e91e1ec8d6.webp",
     "static/media/SandboxPop-nFaith.webp": "/conmiamigozacharino/static/media/SandboxPop-nFaith.ac9d3742fd204e127a0a.webp",
     "static/media/Comedy Gold.png": "/conmiamigozacharino/static/media/Comedy Gold.1e63f0acba0c62009745.png",
-    "static/media/StrenuousPortalButton2.webp": "/conmiamigozacharino/static/media/StrenuousPortalButton2.6abb1c1a85c22b858155.webp",
     "static/media/Mounts.webp": "/conmiamigozacharino/static/media/Mounts.67bb5606b6ac6c3f8328.webp",
     "static/media/Slime_Plush.png": "/conmiamigozacharino/static/media/Slime_Plush.cbda8ef4fba90fd27e3b.png",
     "static/media/Runestone Relay.png": "/conmiamigozacharino/static/media/Runestone Relay.7fa70493e4fc9c584e9c.png",
@@ -88,12 +90,12 @@
     "static/media/Evan's Enchanting Emporium.png": "/conmiamigozacharino/static/media/Evan's Enchanting Emporium.8fdec716b612f829e512.png",
     "static/media/Objective survive.webp": "/conmiamigozacharino/static/media/Objective survive.6eb472af327f3b03c52d.webp",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.27ee67ce.css.map": "/conmiamigozacharino/static/css/main.27ee67ce.css.map",
-    "main.349fa68c.js.map": "/conmiamigozacharino/static/js/main.349fa68c.js.map",
+    "main.cf5a5420.css.map": "/conmiamigozacharino/static/css/main.cf5a5420.css.map",
+    "main.1f9d3972.js.map": "/conmiamigozacharino/static/js/main.1f9d3972.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.27ee67ce.css",
-    "static/js/main.349fa68c.js"
+    "static/css/main.cf5a5420.css",
+    "static/js/main.1f9d3972.js"
   ]
 }
