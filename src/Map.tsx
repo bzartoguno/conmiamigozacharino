@@ -115,7 +115,7 @@ import { JellyCity } from "./JellyCity";
 import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { Graveborn } from "./Graveborn";
 import { StrenuousPortal } from "./StrenuousPortal";
-import strenuousPortalButtonImage from "./StrenuousPortalButton2.webp";
+import strenuousPortalButtonImage from "./StrenuousTrue.webp";
 import { SettlementProvider } from "./SettlementContext";
 import { SettlementType } from "./inventoryAvailability";
 
