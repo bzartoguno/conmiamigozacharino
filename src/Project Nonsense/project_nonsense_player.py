@@ -110,7 +110,7 @@ print("Movie exists:", os.path.exists(MOVIE_FOLDER))
 print("VLC_PATH:", VLC_PATH)
 print("VLC exists:", os.path.exists(VLC_PATH) if VLC_PATH else False)
 print("Player plan:", "Use VLC first, fall back to QuickTime Player if VLC is missing")
-print("Hotkeys:", "backtick stops the program, 1 toggles pause and resume")
+print("Hotkeys:", "backtick stops the program")
 
 # =====================
 # LOAD VIDEO LISTS
@@ -223,7 +223,6 @@ if not tv_videos or not movie_videos:
 stop_program = False
 current_process = None
 current_player = None
-playback_paused = False
 
 
 def close_quicktime_documents():
@@ -246,18 +245,18 @@ def close_quicktime_documents():
         pass
 
 
-def send_space_to_app(app_name):
+def set_quicktime_fullscreen():
     """
-    Bring the chosen app forward and send it a spacebar press.
-    On macOS, space usually toggles pause and resume in video players.
+    Put QuickTime into fullscreen mode using Control + Command + F.
     """
     try:
-        script = f'''
-        tell application "{app_name}" to activate
+        script = '''
+        tell application "QuickTime Player" to activate
         tell application "System Events"
-            keystroke space
+            key code 3 using {control down, command down}
         end tell
         '''
+
         subprocess.run(
             ["osascript", "-e", script],
             stdout=subprocess.DEVNULL,
@@ -268,23 +267,6 @@ def send_space_to_app(app_name):
         pass
 
 
-def toggle_pause():
-    """
-    Toggle pause or resume for the current player.
-    Key 1 will call this function.
-    """
-    global playback_paused
-
-    if current_player == "vlc":
-        send_space_to_app("VLC")
-        playback_paused = not playback_paused
-        print("Key 1 pressed. Pause/unpause sent to VLC.")
-    elif current_player == "quicktime":
-        send_space_to_app("QuickTime Player")
-        playback_paused = not playback_paused
-        print("Key 1 pressed. Pause/unpause sent to QuickTime Player.")
-
-
 def on_press(key):
     """
     This function runs whenever a key is pressed.
@@ -292,8 +274,6 @@ def on_press(key):
     - mark the program to stop
     - kill the current VLC video
     - stop listening for more keys
-    If the 1 key is pressed:
-    - toggle pause or resume for the current video
     """
     global stop_program, current_process, current_player
     try:
@@ -305,9 +285,6 @@ def on_press(key):
             if current_player == "quicktime":
                 close_quicktime_documents()
             return False  # stop listener
-
-        if key.char == '1':
-            toggle_pause()
     except AttributeError:
         pass
 
@@ -372,17 +349,13 @@ def play_with_vlc(video):
     """
     Launch VLC directly and wait until the chosen video finishes.
     """
-    global current_process, current_player, playback_paused
+    global current_process, current_player
 
     current_player = "vlc"
-    playback_paused = False
+    vlc_args = [VLC_PATH, "--fullscreen", "--play-and-exit", video]
+
     current_process = subprocess.Popen(
-        [
-            VLC_PATH,
-            "--fullscreen",
-            "--play-and-exit",
-            video,
-        ],
+        vlc_args,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
@@ -395,7 +368,7 @@ def play_with_quicktime(video):
     Open the video, start playback, and then poll QuickTime until the clip
     really finishes. This avoids treating a manual pause like the end.
     """
-    global current_process, current_player, playback_paused, stop_program
+    global current_process, current_player, stop_program
 
     escaped_video = video.replace("\\", "\\\\").replace('"', '\\"')
     quicktime_script = f'''
@@ -407,7 +380,6 @@ def play_with_quicktime(video):
     '''
 
     current_player = "quicktime"
-    playback_paused = False
     current_process = subprocess.Popen(
         ["osascript", "-e", quicktime_script],
         stdout=subprocess.DEVNULL,
@@ -415,6 +387,9 @@ def play_with_quicktime(video):
     )
     current_process.wait()
     current_process = None
+    # Give QuickTime a moment to create the window before fullscreen shortcut.
+    time.sleep(0.4)
+    set_quicktime_fullscreen()
 
     near_end_counter = 0
 
@@ -451,7 +426,7 @@ def play_video(video):
     Try VLC first.
     If VLC is missing or fails, use QuickTime Player instead.
     """
-    global current_process, current_player, playback_paused
+    global current_process, current_player
 
     print("Playing:", video)
 
@@ -473,7 +448,6 @@ def play_video(video):
     finally:
         current_process = None
         current_player = None
-        playback_paused = False
         time.sleep(DELAY_BETWEEN_CLIPS)
 
 
