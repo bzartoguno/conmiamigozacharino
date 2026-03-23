@@ -42,6 +42,8 @@ SHOW_OPTIONS = [
     "Murder Drones",
     "Owl House",
     "Phineas and Ferb",
+    "Ranma",
+    "Ranma 2024",
     "The Amazing Digital Circus",
     "Win or Lose",
     "Youtube",
