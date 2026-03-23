@@ -72,6 +72,14 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.featureImage {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
 .shopButton {
   background: rgba(30, 41, 59, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.18);

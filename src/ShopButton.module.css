@@ -42,9 +42,9 @@
 .buttonImage {
   object-fit: contain;
   border-radius: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35);
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .buttonLabel {

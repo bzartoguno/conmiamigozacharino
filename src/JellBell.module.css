@@ -243,13 +243,21 @@
 
 .slimeArt {
   position: relative;
-  width: min(100%, 260px);
-  aspect-ratio: 1;
+  width: 100%;
+  max-width: 260px;
+  height: 260px;
   margin: 0 auto 0.9rem;
   border-radius: 14px;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .slimeArt {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 .slimeLayer {
@@ -306,6 +314,10 @@
 @media (max-width: 900px) {
   .dualResult {
     grid-template-columns: 1fr;
+  }
+
+  .slimeArt {
+    height: 220px;
   }
 
   .statsGrid,

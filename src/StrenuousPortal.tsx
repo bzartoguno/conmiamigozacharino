@@ -1,5 +1,6 @@
-import backgroundImage from "./StrenuousPortalButton2.webp";
-import applegarthImage from "./Applegarth.webp";
+import backgroundImage from "./StrenuousTrue.webp";
+import strenuousMapImage from "./StrenuousMap.webp";
+import strenuousNewsImage from "./StrenuousNews.png";
 import archivesGuildImage from "./Archives Guild.png";
 import bookBombsImage from "./Book Bomb.png";
 import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
@@ -215,6 +216,12 @@ export function StrenuousPortal({
           </p>
         </div>
 
+        <img
+          className={styles.featureImage}
+          src={strenuousMapImage}
+          alt="Map view of the Strenuous Portal"
+        />
+
         <div className={styles.buttonGrid}>
           {sortedShops.map((shop) => (
             <ShopButton
@@ -226,6 +233,12 @@ export function StrenuousPortal({
             />
           ))}
         </div>
+
+        <img
+          className={styles.featureImage}
+          src={strenuousNewsImage}
+          alt="Latest Strenuous Portal news"
+        />
 
         <p className={styles.footer}>
           Only time will tell if you will ever get back home.
