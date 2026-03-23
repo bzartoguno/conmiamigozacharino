@@ -30,6 +30,27 @@ REPEAT_HISTORY = 294
 # Wait this many seconds after a clip ends before starting the next one
 DELAY_BETWEEN_CLIPS = .5
 
+# Show folders that can be included in TV playback
+SHOW_OPTIONS = [
+    "Arcane",
+    "Azumanga Daioh",
+    "Batman: Brave n Bold",
+    "Bluey",
+    "Delicious in Dungeon",
+    "Epithet Erased",
+    "Gwain Saga Episodes",
+    "Huanted Hotel",
+    "Kid Cosmic",
+    "Kirby: Right Back At Ya!",
+    "Murder Drones",
+    "Owl House",
+    "Phineas and Ferb",
+    "The Amazing Digital Circus",
+    "Win or Lose",
+    "Youtube",
+    "Zombie Land Saga",
+]
+
 
 # =====================
 # VLC FINDER
@@ -113,7 +134,78 @@ def get_videos(folder):
     return videos
 
 
-tv_videos = get_videos(TV_FOLDER)
+def choose_tv_shows():
+    """
+    Ask the user which show folders should be included.
+    Return only the chosen show names from SHOW_OPTIONS.
+    """
+    print("\nChoose which TV shows to include before playback starts.")
+    print("Type one or more numbers separated by commas (example: 1,4,9).")
+    print("Type 'all' to include every show option.\n")
+
+    for index, show_name in enumerate(SHOW_OPTIONS, start=1):
+        print(f"{index}. {show_name}")
+
+    while True:
+        raw_choice = input("\nWhich shows should run? ").strip()
+        lowered = raw_choice.lower()
+
+        if lowered == "all":
+            return SHOW_OPTIONS[:]
+
+        selected_indexes = []
+        valid = True
+
+        for piece in raw_choice.split(","):
+            item = piece.strip()
+            if not item.isdigit():
+                valid = False
+                break
+
+            number = int(item)
+            if number < 1 or number > len(SHOW_OPTIONS):
+                valid = False
+                break
+
+            selected_indexes.append(number - 1)
+
+        if not valid or not selected_indexes:
+            print("Invalid choice. Enter numbers like 1,3,5 or type 'all'.")
+            continue
+
+        # Preserve order while removing duplicates
+        unique_indexes = list(dict.fromkeys(selected_indexes))
+        return [SHOW_OPTIONS[i] for i in unique_indexes]
+
+
+def get_tv_videos_from_selected_shows(selected_shows):
+    """
+    Load TV videos from only the show folders selected by the user.
+    """
+    videos = []
+    missing_folders = []
+
+    for show_name in selected_shows:
+        show_folder = os.path.join(TV_FOLDER, show_name)
+        if os.path.isdir(show_folder):
+            videos.extend(get_videos(show_folder))
+        else:
+            missing_folders.append(show_folder)
+
+    if missing_folders:
+        print("\nThese selected show folders were not found:")
+        for folder in missing_folders:
+            print("-", folder)
+
+    return videos
+
+
+selected_tv_shows = choose_tv_shows()
+print("\nSelected shows:")
+for show in selected_tv_shows:
+    print("-", show)
+
+tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
 movie_videos = get_videos(MOVIE_FOLDER)
 
 # Show how many videos were found
