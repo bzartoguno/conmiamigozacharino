@@ -21,9 +21,6 @@ MOVIE_FOLDER = "/Volumes/Bag O Holdn/Videos (Project Nonsense)/Movies"
 # These are the file types the script will treat as videos
 VIDEO_EXTENSIONS = (".mp4", ".mkv", ".avi", ".mov", ".m4v")
 
-# Play this many TV clips before playing 1 movie clip
-TV_TO_MOVIE_RATIO = 22
-
 # Remember the last few clips so the same clip is not chosen again too soon
 REPEAT_HISTORY = 294
 
@@ -110,7 +107,7 @@ print("Movie exists:", os.path.exists(MOVIE_FOLDER))
 print("VLC_PATH:", VLC_PATH)
 print("VLC exists:", os.path.exists(VLC_PATH) if VLC_PATH else False)
 print("Player plan:", "Use VLC first, fall back to QuickTime Player if VLC is missing")
-print("Hotkeys:", "backtick stops the program, | toggles fullscreen and picture-in-picture mode")
+print("Hotkeys:", "backtick stops the program")
 
 # =====================
 # LOAD VIDEO LISTS
@@ -217,13 +214,17 @@ if not tv_videos or not movie_videos:
     print("Check your folder paths and ensure there are video files.")
     exit()
 
+# Make TV-vs-movie playback proportional to the number of files found.
+# Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
+TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
+print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
+
 # =====================
 # GLOBAL STOP FLAG
 # =====================
 stop_program = False
 current_process = None
 current_player = None
-playback_mode = "fullscreen"
 
 
 def close_quicktime_documents():
@@ -246,84 +247,6 @@ def close_quicktime_documents():
         pass
 
 
-def send_keystroke_to_app(app_name, key_name):
-    """
-    Bring the chosen app forward and send a keystroke.
-    key_name should be a value AppleScript understands (example: "f").
-    """
-    try:
-        script = f'''
-        tell application "{app_name}" to activate
-        tell application "System Events"
-            keystroke "{key_name}"
-        end tell
-        '''
-        subprocess.run(
-            ["osascript", "-e", script],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-        )
-    except Exception:
-        pass
-
-
-def apply_playback_mode_to_quicktime():
-    """
-    Apply the selected playback mode to QuickTime using menu shortcuts.
-    Fullscreen: Control + Command + F
-    Picture in Picture: Option + Command + P
-    """
-    try:
-        if playback_mode == "fullscreen":
-            script = '''
-            tell application "QuickTime Player" to activate
-            tell application "System Events"
-                key code 3 using {control down, command down}
-            end tell
-            '''
-        else:
-            script = '''
-            tell application "QuickTime Player" to activate
-            tell application "System Events"
-                key code 35 using {option down, command down}
-            end tell
-            '''
-
-        subprocess.run(
-            ["osascript", "-e", script],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-        )
-    except Exception:
-        pass
-
-
-def toggle_playback_mode():
-    """
-    Toggle between fullscreen and picture-in-picture mode.
-    This mode is remembered for all future videos.
-    """
-    global playback_mode
-    playback_mode = "pip" if playback_mode == "fullscreen" else "fullscreen"
-
-    if playback_mode == "fullscreen":
-        print("Mode changed: fullscreen (applies to next video and QuickTime now).")
-    else:
-        print("Mode changed: picture-in-picture style (applies to next video and QuickTime now).")
-
-    if current_player == "quicktime":
-        apply_playback_mode_to_quicktime()
-    elif current_player == "vlc":
-        # VLC mode is guaranteed for the next clip because VLC launch flags
-        # are chosen from playback_mode for each new process.
-        if playback_mode == "fullscreen":
-            send_keystroke_to_app("VLC", "f")
-        else:
-            send_keystroke_to_app("VLC", "f")
-
-
 def on_press(key):
     """
     This function runs whenever a key is pressed.
@@ -331,8 +254,6 @@ def on_press(key):
     - mark the program to stop
     - kill the current VLC video
     - stop listening for more keys
-    If the | key is pressed:
-    - toggle between fullscreen and picture-in-picture mode
     """
     global stop_program, current_process, current_player
     try:
@@ -345,8 +266,6 @@ def on_press(key):
                 close_quicktime_documents()
             return False  # stop listener
 
-        if key.char == '|':
-            toggle_playback_mode()
     except AttributeError:
         pass
 
@@ -419,20 +338,7 @@ def play_with_vlc(video):
         "--play-and-exit",
     ]
 
-    if playback_mode == "fullscreen":
-        vlc_args.append("--fullscreen")
-    else:
-        # "Picture-in-picture style": windowed, always on top, compact size.
-        vlc_args.extend(
-            [
-                "--no-fullscreen",
-                "--video-on-top",
-                "--width=480",
-                "--height=270",
-                "--video-x=20",
-                "--video-y=40",
-            ]
-        )
+    vlc_args.append("--fullscreen")
 
     vlc_args.append(video)
 
@@ -469,10 +375,6 @@ def play_with_quicktime(video):
     )
     current_process.wait()
     current_process = None
-    # Give QuickTime a moment to create the window before mode shortcut.
-    time.sleep(0.4)
-    apply_playback_mode_to_quicktime()
-
     near_end_counter = 0
 
     while not stop_program:
