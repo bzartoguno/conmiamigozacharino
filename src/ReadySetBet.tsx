@@ -309,6 +309,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [bankroll, setBankroll] = useState(30);
   const [investmentInput, setInvestmentInput] = useState("30");
   const [hasSetInvestment, setHasSetInvestment] = useState(false);
+  const [hasRaceStarted, setHasRaceStarted] = useState(false);
+  const [finishersCount, setFinishersCount] = useState(0);
   const [placedBets, setPlacedBets] = useState<PlacedStandardBet[]>([]);
   const [settlementSummary, setSettlementSummary] = useState<string | null>(null);
   const betsRef = useRef<PlacedStandardBet[]>([]);
@@ -342,6 +344,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPositions(Array(9).fill(0));
     setWinnerLane(null);
     setLastRoll(null);
+    setHasRaceStarted(false);
+    setFinishersCount(0);
     setPlacedBets([]);
     setSettlementSummary(null);
     streakRef.current = { laneIndex: null, count: 0 };
@@ -426,6 +430,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPositions(Array(9).fill(0));
     setWinnerLane(null);
     setLastRoll(null);
+    setHasRaceStarted(true);
+    setFinishersCount(0);
     setSettlementSummary(null);
     hasSettledRef.current = false;
     setIsRacing(true);
@@ -454,10 +460,15 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       setPositions((currentPositions) => {
         const nextPositions = [...currentPositions];
         nextPositions[laneIndex] = Math.min(FINISH_SPACE, nextPositions[laneIndex] + move);
+        const nextFinishersCount = nextPositions.filter((position) => position >= FINISH_SPACE).length;
+        setFinishersCount(nextFinishersCount);
 
         const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
         if (finishIndex !== -1) {
-          setWinnerLane(finishIndex + 1);
+          setWinnerLane((currentWinner) => currentWinner ?? finishIndex + 1);
+        }
+
+        if (nextFinishersCount >= 3) {
           settleRace(nextPositions);
           stopRace();
         }
@@ -472,6 +483,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   useEffect(() => {
     resetRace();
     setPlacedBets([]);
+    setFinishersCount(0);
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
   }, [createRaceSlots, mode, racers, resetRace]);
 
@@ -507,7 +519,23 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setSettlementSummary(null);
   };
 
+  const isBettingOpen = hasSetInvestment && isRacing && finishersCount < 3;
+  const canShowBettingBoard = hasSetInvestment && hasRaceStarted;
+
   const toggleBoardBet = (betId: string) => {
+    if (!isBettingOpen) {
+      setSettlementSummary(
+        !hasSetInvestment
+          ? "Set your bankroll first."
+          : !hasRaceStarted
+            ? "Start the race to unlock betting."
+            : finishersCount >= 3
+              ? "Betting is closed: three racers have crossed the red line."
+              : "Betting is only open while the race is running."
+      );
+      return;
+    }
+
     const spot = boardSpotById.get(betId);
     if (!spot) {
       return;
@@ -744,17 +772,17 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(650)}
-              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
+              disabled={isRacing || !hasRacersAvailable || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                backgroundColor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "rgba(100, 116, 139, 0.6)"
                   : "#22c55e",
                 color: isRacing ? "#e2e8f0" : "#052e16",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
                 fontWeight: 700,
-                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                cursor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "not-allowed"
                   : "pointer",
               }}
@@ -764,16 +792,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(950)}
-              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
+              disabled={isRacing || !hasRacersAvailable || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                backgroundColor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "rgba(148, 163, 184, 0.45)"
                   : "#60a5fa",
                 color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#082f49",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
-                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                cursor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "not-allowed"
                   : "pointer",
                 fontWeight: 700,
@@ -784,16 +812,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(350)}
-              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
+              disabled={isRacing || !hasRacersAvailable || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                backgroundColor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "rgba(148, 163, 184, 0.45)"
                   : "#f97316",
                 color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#431407",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
-                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                cursor: isRacing || !hasRacersAvailable || !hasSetInvestment
                   ? "not-allowed"
                   : "pointer",
                 fontWeight: 700,
@@ -837,9 +865,13 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <small style={{ opacity: 0.9 }}>
               {!hasSetInvestment
                 ? "Set bankroll first."
-                : placedBets.length === 0
-                  ? "Pick up to 5 bets on the board, then start."
-                  : `${placedBets.length}/5 bets locked in.`}
+                : !hasRaceStarted
+                  ? "Start a race to unlock betting."
+                  : isBettingOpen
+                    ? `Betting open (${placedBets.length}/5 selected).`
+                    : finishersCount >= 3
+                      ? "Betting closed: three racers crossed the red line."
+                      : "Betting closed."}
             </small>
             {winnerLane && (
               <strong>
@@ -848,20 +880,25 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             )}
           </div>
 
-          <div
-            style={{
-              marginBottom: "0.85rem",
-              padding: "0.75rem",
-              borderRadius: "12px",
-              backgroundColor: "rgba(15, 23, 42, 0.68)",
-              border: "1px solid rgba(255,255,255,0.24)",
-            }}
-          >
+          {canShowBettingBoard ? (
+            <div
+              style={{
+                marginBottom: "0.85rem",
+                padding: "0.75rem",
+                borderRadius: "12px",
+                backgroundColor: "rgba(15, 23, 42, 0.68)",
+                border: "1px solid rgba(255,255,255,0.24)",
+              }}
+            >
             <h2 style={{ marginTop: 0, marginBottom: "0.45rem", fontSize: "1rem" }}>Betting Board</h2>
             <p style={{ marginTop: 0, marginBottom: "0.5rem" }}>
               Bankroll: <strong>${bankroll}</strong> · Betting status:{" "}
               <strong style={{ color: "#86efac" }}>
-                OPEN (before and during race)
+                {isBettingOpen
+                  ? "OPEN (race in progress)"
+                  : finishersCount >= 3
+                    ? "CLOSED (three racers crossed the red line)"
+                    : "CLOSED"}
               </strong>
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center", marginBottom: "0.65rem" }}>
@@ -893,7 +930,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 Set Bankroll
               </button>
               <span style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-                Click squares on the board image to toggle bets any time ({placedBets.length}/5 selected).
+                Click squares on the board image to toggle bets while open ({placedBets.length}/5 selected).
               </span>
             </div>
 
@@ -903,7 +940,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 width: "80%",
                 maxWidth: "900px",
                 margin: "0 auto",
-                cursor: "pointer",
+                cursor: isBettingOpen ? "pointer" : "not-allowed",
               }}
               onClick={handleBoardClick}
             >
@@ -972,7 +1009,25 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 ))}
               </ul>
             )}
-          </div>
+            </div>
+          ) : (
+            <div
+              style={{
+                marginBottom: "0.85rem",
+                padding: "0.75rem",
+                borderRadius: "12px",
+                backgroundColor: "rgba(15, 23, 42, 0.68)",
+                border: "1px solid rgba(255,255,255,0.24)",
+              }}
+            >
+              <h2 style={{ marginTop: 0, marginBottom: "0.45rem", fontSize: "1rem" }}>Betting Board</h2>
+              <p style={{ margin: 0, color: "#fde68a", fontWeight: 700 }}>
+                {hasSetInvestment
+                  ? "Start the race to load the betting board."
+                  : "Set your bankroll to unlock the betting board."}
+              </p>
+            </div>
+          )}
 
           {lastRoll && (
             <p style={{ marginTop: 0, marginBottom: "0.6rem" }}>
