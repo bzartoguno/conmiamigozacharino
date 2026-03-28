@@ -17,7 +17,7 @@ const FINISH_SPACE = 15;
 const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
 ] as const;
-const TRACK_LANE_TOP_POSITIONS = [13, 21.5, 30, 38.5, 47, 55.5, 64, 72.5, 81] as const;
+const TRACK_LANE_TOP_POSITIONS = [21.5, 29, 35.8, 43, 50, 57, 64, 71, 78] as const;
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
