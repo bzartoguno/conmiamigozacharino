@@ -862,6 +862,33 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             >
               Reset
             </button>
+            <label>
+              Starting bankroll{" "}
+              <input
+                type="number"
+                min={1}
+                value={investmentInput}
+                disabled={isRacing}
+                onChange={(event) => setInvestmentInput(event.target.value)}
+                style={{ width: "100px" }}
+              />
+            </label>
+            <button
+              type="button"
+              onClick={applyInvestment}
+              disabled={isRacing}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing ? "rgba(148,163,184,0.45)" : "#60a5fa",
+                color: "#111827",
+                borderRadius: "999px",
+                padding: "0.4rem 0.85rem",
+                fontWeight: 700,
+                cursor: isRacing ? "not-allowed" : "pointer",
+              }}
+            >
+              Set Bankroll
+            </button>
             <small style={{ opacity: 0.9 }}>
               {!hasSetInvestment
                 ? "Set bankroll first."
@@ -902,33 +929,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               </strong>
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center", marginBottom: "0.65rem" }}>
-              <label>
-                Starting bankroll{" "}
-                <input
-                  type="number"
-                  min={1}
-                  value={investmentInput}
-                  disabled={isRacing}
-                  onChange={(event) => setInvestmentInput(event.target.value)}
-                  style={{ width: "100px" }}
-                />
-              </label>
-              <button
-                type="button"
-                onClick={applyInvestment}
-                disabled={isRacing}
-                style={{
-                  border: "1px solid #fff",
-                  backgroundColor: isRacing ? "rgba(148,163,184,0.45)" : "#60a5fa",
-                  color: "#111827",
-                  borderRadius: "999px",
-                  padding: "0.4rem 0.85rem",
-                  fontWeight: 700,
-                  cursor: isRacing ? "not-allowed" : "pointer",
-                }}
-              >
-                Set Bankroll
-              </button>
               <span style={{ fontSize: "0.9rem", opacity: 0.9 }}>
                 Click squares on the board image to toggle bets while open ({placedBets.length}/5 selected).
               </span>
