@@ -37,7 +37,6 @@ const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
-const RED_LINE_SPACE = 8;
 const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
 ] as const;
@@ -355,10 +354,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         nextPositions[laneIndex] = Math.min(FINISH_SPACE, nextPositions[laneIndex] + move);
 
         const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
-        const crossedRedLine = nextPositions.filter((position) => position >= RED_LINE_SPACE).length;
-        if (crossedRedLine >= 3) {
-          setBettingOpen(false);
-        }
         if (finishIndex !== -1) {
           setWinnerLane(finishIndex + 1);
           settleRace(nextPositions);
@@ -377,13 +372,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPlacedBets([]);
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
   }, [createRaceSlots, mode, racers, resetRace]);
-
-  useEffect(() => {
-    const validSpots = SPOT_INDEXES_BY_BET_TYPE[selectedBetType];
-    if (!validSpots.includes(selectedSpotIndex)) {
-      setSelectedSpotIndex(validSpots[0]);
-    }
-  }, [selectedBetType, selectedSpotIndex]);
 
   const hasRacersAvailable = raceSlots.length > 0;
 
