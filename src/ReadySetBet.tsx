@@ -349,6 +349,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             />
             {raceSlots.map(({ lane, racer }, index) => {
               const safePosition = Math.max(0, Math.min(FINISH_SPACE, positions[index]));
+              const hasReachedHalfway = safePosition >= FINISH_SPACE / 2;
               const topOffset = TRACK_LANE_TOP_POSITIONS[index] ?? 50;
               const markerLeft = TRACK_COLUMN_POSITIONS[safePosition] ?? TRACK_COLUMN_POSITIONS[0];
               const laneLabel = LANE_LABELS[index];
@@ -365,9 +366,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                     left: `${markerLeft}%`,
                     transform: "translate(-50%, -50%)",
                     transition: "left 0.45s ease-out",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.35rem",
                     zIndex: 2,
                   }}
                 >
@@ -386,6 +384,11 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   />
                   <div
                     style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: hasReachedHalfway ? "auto" : "calc(100% + 8px)",
+                      right: hasReachedHalfway ? "calc(100% + 8px)" : "auto",
+                      transform: "translateY(-50%)",
                       backgroundColor: nameTagColor,
                       border: hasDarkTag
                         ? "1px solid rgba(148, 163, 184, 0.8)"
@@ -394,6 +397,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                       padding: "0.2rem 0.45rem",
                       lineHeight: 1.2,
                       maxWidth: "180px",
+                      whiteSpace: "nowrap",
                       color: hasDarkTag || nameTagColor === "#2563eb" ? "#f8fafc" : "#111827",
                     }}
                   >
