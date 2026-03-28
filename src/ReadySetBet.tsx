@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { BackButton } from "./BackButton";
-import confettiGif from "./ReadySetBet/Confetti.gif";
 import bettingBoardImage from "./ReadySetBet/ReadySetBetBettingBoard.png";
 import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
@@ -863,13 +862,15 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
 
         const previousPosition = nextPositions[laneIndex];
         moveForward(laneIndex, moveAfterPenalty);
-        const crossedByBaseMove = previousPosition < RED_LINE_SPACE && nextPositions[laneIndex] >= RED_LINE_SPACE;
 
         if (showSuperpowers && getsBonus) {
           applyPower(laneIndex, "back-to-back");
         }
 
-        if (showSuperpowers && crossedByBaseMove) {
+        const crossedRedLineThisRoll =
+          previousPosition < RED_LINE_SPACE && nextPositions[laneIndex] >= RED_LINE_SPACE;
+
+        if (showSuperpowers && crossedRedLineThisRoll) {
           const minPosition = Math.min(...nextPositions);
           const tiedLast = nextPositions
             .map((position, index) => ({ position, index }))
@@ -884,7 +885,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         }
 
         nextPositions.forEach((position, index) => {
-          if (position >= RED_LINE_SPACE) crossedRedLineRef.current.add(index);
+          if (position >= FINISH_SPACE) crossedRedLineRef.current.add(index);
         });
         const nextFinishersCount = crossedRedLineRef.current.size;
         setFinishersCount(nextFinishersCount);
@@ -1591,55 +1592,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 </div>
               );
             })}
-            {winnerLane && raceSlots[winnerLane - 1] && (
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 5,
-                  pointerEvents: "none",
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    width: "min(38vw, 280px)",
-                    maxWidth: "280px",
-                    aspectRatio: "1 / 1",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <img
-                    src={raceSlots[winnerLane - 1].racer.image}
-                    alt={`${raceSlots[winnerLane - 1].racer.name} winner`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.75))",
-                    }}
-                  />
-                  <img
-                    src={confettiGif}
-                    alt="Winner confetti"
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      mixBlendMode: "screen",
-                      opacity: 0.25,
-                    }}
-                  />
-                </div>
-              </div>
-            )}
           </div>
         </section>
 
