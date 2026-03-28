@@ -41,6 +41,23 @@ const MIRRORED_RACER_IDS = new Set([
   "P-Soldier",
   "P-Surge",
 ]);
+const MIRRORED_RACER_NAMES = new Set([
+  "Alex",
+  "Hornet",
+  "Soldier",
+  "Surge",
+  "Cinnamon Grace",
+  "Midnight Prince",
+  "Kingger",
+  "Master Chief",
+  "Mike Monoco",
+  "Pikmin Trio",
+  "Teto",
+  "Vicent Van gogh",
+]);
+
+const shouldMirrorRacer = (racer: ReadySetBetRacer) =>
+  MIRRORED_RACER_IDS.has(racer.id) || MIRRORED_RACER_NAMES.has(racer.name);
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
@@ -355,7 +372,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               const laneLabel = LANE_LABELS[index];
               const nameTagColor = NAME_TAG_COLOR_BY_LANE_LABEL[laneLabel] ?? "#1e293b";
               const hasDarkTag = nameTagColor === "#111827";
-              const isMirrored = MIRRORED_RACER_IDS.has(racer.id);
+              const isMirrored = shouldMirrorRacer(racer);
 
               return (
                 <div
@@ -424,7 +441,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
           }}
         >
           {racers.map((racer) => {
-            const isMirrored = MIRRORED_RACER_IDS.has(racer.id);
+            const isMirrored = shouldMirrorRacer(racer);
 
             return (
               <article
