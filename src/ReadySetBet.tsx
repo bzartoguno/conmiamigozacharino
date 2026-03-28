@@ -1,20 +1,123 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BackButton } from "./BackButton";
 import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
 
 type RacerMode = "horse" | "people" | "unique";
-
 const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
   horse: readySetBetAssets.horses,
   people: readySetBetAssets.people,
   unique: readySetBetAssets.unique,
 };
+const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
+const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
+const FINISH_SPACE = 15;
 
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [mode, setMode] = useState<RacerMode>("horse");
 
   const racers = useMemo(() => RACERS_BY_MODE[mode], [mode]);
+  const [lineupSeed, setLineupSeed] = useState(0);
+  const [positions, setPositions] = useState<number[]>(() => Array(9).fill(0));
+  const [isRacing, setIsRacing] = useState(false);
+  const [winnerLane, setWinnerLane] = useState<number | null>(null);
+  const [lastRoll, setLastRoll] = useState<{
+    die1: number;
+    die2: number;
+    sum: number;
+    laneLabel: string;
+    move: number;
+  } | null>(null);
+  const intervalRef = useRef<number | null>(null);
+  const streakRef = useRef<{ laneIndex: number | null; count: number }>({
+    laneIndex: null,
+    count: 0,
+  });
+  const raceSlots = useMemo(() => {
+    if (racers.length === 0) {
+      return [];
+    }
+
+    const slots = Array.from({ length: 9 }, (_, index) => racers[index % racers.length]);
+    const rotated = slots.map((_, index) => slots[(index + lineupSeed) % slots.length]);
+
+    return rotated.map((racer, index) => ({
+      lane: index + 1,
+      racer,
+    }));
+  }, [lineupSeed, racers]);
+  const horseIndexByDiceSum = (sum: number) => {
+    if (sum <= 3) return 0;
+    if (sum === 4) return 1;
+    if (sum === 5) return 2;
+    if (sum === 6) return 3;
+    if (sum === 7) return 4;
+    if (sum === 8) return 5;
+    if (sum === 9) return 6;
+    if (sum === 10) return 7;
+    return 8;
+  };
+
+  const stopRace = useCallback(() => {
+    if (intervalRef.current !== null) {
+      window.clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setIsRacing(false);
+  }, []);
+
+  const resetRace = useCallback(() => {
+    stopRace();
+    setPositions(Array(9).fill(0));
+    setWinnerLane(null);
+    setLastRoll(null);
+    streakRef.current = { laneIndex: null, count: 0 };
+  }, [stopRace]);
+
+  const startRace = () => {
+    resetRace();
+    setIsRacing(true);
+
+    intervalRef.current = window.setInterval(() => {
+      const die1 = Math.floor(Math.random() * 6) + 1;
+      const die2 = Math.floor(Math.random() * 6) + 1;
+      const sum = die1 + die2;
+      const laneIndex = horseIndexByDiceSum(sum);
+
+      const streak =
+        streakRef.current.laneIndex === laneIndex ? streakRef.current.count + 1 : 1;
+      streakRef.current = { laneIndex, count: streak };
+
+      const getsBonus = streak >= 2 && streak % 2 === 0;
+      const move = 1 + (getsBonus ? BONUS_MOVES_BY_LANE[laneIndex] : 0);
+
+      setLastRoll({
+        die1,
+        die2,
+        sum,
+        laneLabel: LANE_LABELS[laneIndex],
+        move,
+      });
+
+      setPositions((currentPositions) => {
+        const nextPositions = [...currentPositions];
+        nextPositions[laneIndex] = Math.min(FINISH_SPACE, nextPositions[laneIndex] + move);
+
+        const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
+        if (finishIndex !== -1) {
+          setWinnerLane(finishIndex + 1);
+          stopRace();
+        }
+
+        return nextPositions;
+      });
+    }, 650);
+  };
+
+  useEffect(() => () => stopRace(), [stopRace]);
+  useEffect(() => {
+    resetRace();
+  }, [mode, lineupSeed, resetRace]);
 
   return (
     <div
@@ -43,6 +146,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         }}
       >
         <h1 style={{ marginTop: 0, marginBottom: "0.75rem" }}>Ready Set Bet</h1>
+        <p style={{ marginTop: 0, marginBottom: "0.75rem", lineHeight: 1.4 }}>
+          Pick who races this round: <strong>H-</strong> images for horses, <strong>P-</strong>
+          {" "}images for people, and <strong>U-</strong> images for unique racers.
+        </p>
 
         <div
           role="tablist"
@@ -80,6 +187,199 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             );
           })}
         </div>
+
+        <section
+          aria-label={`${mode} race lineup`}
+          style={{
+            backgroundColor: "rgba(15, 23, 42, 0.55)",
+            borderRadius: "14px",
+            padding: "0.75rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <h2 style={{ margin: 0, fontSize: "1rem" }}>Race line-up (9 lanes)</h2>
+            <button
+              type="button"
+              onClick={() => setLineupSeed((seed) => seed + 1)}
+              disabled={isRacing}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing
+                  ? "rgba(148, 163, 184, 0.45)"
+                  : "rgba(255, 255, 255, 0.2)",
+                color: isRacing ? "#e2e8f0" : "#fff",
+                borderRadius: "999px",
+                padding: "0.4rem 0.8rem",
+                cursor: isRacing ? "not-allowed" : "pointer",
+                fontWeight: 700,
+              }}
+            >
+              Shuffle racers
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+              gap: "0.5rem",
+            }}
+          >
+            {raceSlots.map(({ lane, racer }) => (
+              <article
+                key={`${lane}-${racer.id}`}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  color: "#111827",
+                  borderRadius: "10px",
+                  padding: "0.45rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  minHeight: "68px",
+                }}
+              >
+                <img
+                  src={racer.image}
+                  alt={racer.name}
+                  style={{
+                    width: "46px",
+                    height: "46px",
+                    objectFit: "contain",
+                    flexShrink: 0,
+                  }}
+                />
+                <div>
+                  <div style={{ fontSize: "0.75rem", fontWeight: 700, opacity: 0.7 }}>
+                    Lane {lane}
+                  </div>
+                  <strong style={{ fontSize: "0.9rem" }}>{racer.name}</strong>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          aria-label="race controls and progress"
+          style={{
+            backgroundColor: "rgba(2, 6, 23, 0.65)",
+            borderRadius: "14px",
+            padding: "0.75rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.5rem",
+              alignItems: "center",
+              marginBottom: "0.75rem",
+            }}
+          >
+            <button
+              type="button"
+              onClick={startRace}
+              disabled={isRacing}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing ? "rgba(100, 116, 139, 0.6)" : "#22c55e",
+                color: isRacing ? "#e2e8f0" : "#052e16",
+                borderRadius: "999px",
+                padding: "0.45rem 0.9rem",
+                fontWeight: 700,
+                cursor: isRacing ? "not-allowed" : "pointer",
+              }}
+            >
+              {isRacing ? "Race in progress..." : "Start Race"}
+            </button>
+            <button
+              type="button"
+              onClick={resetRace}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: "rgba(255, 255, 255, 0.18)",
+                color: "#fff",
+                borderRadius: "999px",
+                padding: "0.45rem 0.9rem",
+                fontWeight: 700,
+                cursor: "pointer",
+              }}
+            >
+              Reset
+            </button>
+            {winnerLane && (
+              <strong>
+                Winner: Lane {winnerLane} ({raceSlots[winnerLane - 1]?.racer.name ?? "Unknown"})
+              </strong>
+            )}
+          </div>
+
+          {lastRoll && (
+            <p style={{ marginTop: 0, marginBottom: "0.6rem" }}>
+              Roll: {lastRoll.die1} + {lastRoll.die2} = {lastRoll.sum} → Lane{" "}
+              {lastRoll.laneLabel} moved {lastRoll.move} space
+              {lastRoll.move > 1 ? "s" : ""}.
+            </p>
+          )}
+
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            {raceSlots.map(({ lane, racer }, index) => {
+              const progress = positions[index] / FINISH_SPACE;
+
+              return (
+                <div key={`progress-${lane}-${racer.id}`}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: "0.5rem",
+                      marginBottom: "0.2rem",
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    <span>
+                      Lane {lane} ({LANE_LABELS[index]}): {racer.name}
+                    </span>
+                    <strong>
+                      {positions[index]}/{FINISH_SPACE}
+                    </strong>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "16px",
+                      borderRadius: "999px",
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: `${Math.max(6, progress * 100)}%`,
+                        height: "100%",
+                        background:
+                          "linear-gradient(90deg, rgba(250,204,21,0.95) 0%, rgba(245,158,11,0.95) 100%)",
+                        transition: "width 0.45s ease-out",
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
         <section
           aria-label={`${mode} racers`}
