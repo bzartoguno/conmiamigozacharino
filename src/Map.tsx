@@ -664,7 +664,7 @@ export function Map() {
     },
     {
       key: "ReadySetBet",
-      label: "Horse racing",
+      label: "Horse Racing",
       delay: "50s",
       backgroundColor: "rgba(250, 204, 21, 0.9)",
       imageSrc: readySetBetTrackImage,
