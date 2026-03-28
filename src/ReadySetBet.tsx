@@ -36,6 +36,7 @@ const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
+const RED_LINE_SPACE = 8;
 const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
 ] as const;
@@ -80,6 +81,45 @@ const MIRRORED_RACER_IDS = new Set([
 ]);
 
 const shouldMirrorRacer = (racer: ReadySetBetRacer) => MIRRORED_RACER_IDS.has(racer.id);
+
+type StandardBetType = "show" | "place" | "win";
+type StandardBetSpotIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
+const STANDARD_MATRIX: Record<(typeof LANE_LABELS)[number], ReadonlyArray<readonly [number, number]>> = {
+  "2/3": [[4, 4], [4, 3], [5, 4], [5, 3], [7, 2], [8, 2], [9, 2]],
+  "4": [[3, 1], [3, 0], [4, 1], [4, 0], [5, 1], [6, 0], [7, 0]],
+  "5": [[2, 3], [2, 0], [2, 2], [3, 2], [4, 2], [4, 0], [5, 0]],
+  "6": [[1, 2], [1, 0], [2, 5], [2, 4], [3, 2], [3, 1], [3, 0]],
+  "7": [[1, 3], [1, 1], [2, 6], [2, 5], [3, 4], [3, 3], [3, 2]],
+  "8": [[1, 2], [1, 0], [2, 5], [2, 4], [3, 2], [3, 1], [3, 0]],
+  "9": [[2, 3], [2, 0], [2, 2], [3, 2], [4, 2], [4, 0], [5, 0]],
+  "10": [[3, 1], [3, 0], [4, 1], [4, 0], [5, 1], [6, 0], [7, 0]],
+  "11/12": [[4, 4], [4, 3], [5, 4], [5, 3], [7, 2], [8, 2], [9, 2]],
+};
+
+const SPOT_INDEXES_BY_BET_TYPE: Record<StandardBetType, StandardBetSpotIndex[]> = {
+  show: [0, 1],
+  place: [2, 3],
+  win: [4, 5, 6],
+};
+
+const PLAYER_TOKENS = [
+  { id: "token-2", value: 2 },
+  { id: "token-3a", value: 3 },
+  { id: "token-3b", value: 3 },
+  { id: "token-4", value: 4 },
+  { id: "token-5", value: 5 },
+] as const;
+
+interface PlacedStandardBet {
+  tokenId: string;
+  tokenValue: number;
+  laneLabel: (typeof LANE_LABELS)[number];
+  betType: StandardBetType;
+  spotIndex: StandardBetSpotIndex;
+  multiplier: number;
+  loss: number;
+}
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
@@ -154,6 +194,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [raceSlots, setRaceSlots] = useState<Array<{ lane: number; racer: ReadySetBetRacer }>>(() =>
     createRaceSlots(RACERS_BY_MODE.horse)
   );
+  const [bankroll, setBankroll] = useState(30);
+  const [placedBets, setPlacedBets] = useState<PlacedStandardBet[]>([]);
+  const [bettingOpen, setBettingOpen] = useState(true);
+  const [settlementSummary, setSettlementSummary] = useState<string | null>(null);
+  const [selectedTokenId, setSelectedTokenId] = useState<string>(PLAYER_TOKENS[0].id);
+  const [selectedLaneLabel, setSelectedLaneLabel] = useState<(typeof LANE_LABELS)[number]>(LANE_LABELS[0]);
+  const [selectedBetType, setSelectedBetType] = useState<StandardBetType>("win");
+  const [selectedSpotIndex, setSelectedSpotIndex] = useState<StandardBetSpotIndex>(4);
+  const betsRef = useRef<PlacedStandardBet[]>([]);
+  const hasSettledRef = useRef(false);
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -182,8 +232,70 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPositions(Array(9).fill(0));
     setWinnerLane(null);
     setLastRoll(null);
+    setPlacedBets([]);
+    setBettingOpen(true);
+    setSettlementSummary(null);
     streakRef.current = { laneIndex: null, count: 0 };
+    hasSettledRef.current = false;
   }, [stopRace]);
+
+  useEffect(() => {
+    betsRef.current = placedBets;
+  }, [placedBets]);
+
+  const settleRace = useCallback((finalPositions: number[]) => {
+    if (hasSettledRef.current) {
+      return;
+    }
+    hasSettledRef.current = true;
+    const laneByRank = finalPositions
+      .map((position, index) => ({ laneLabel: LANE_LABELS[index], position }))
+      .sort((a, b) => b.position - a.position);
+
+    const rankGroups: Array<Array<(typeof LANE_LABELS)[number]>> = [];
+    laneByRank.forEach((entry) => {
+      const lastGroup = rankGroups[rankGroups.length - 1];
+      if (!lastGroup) {
+        rankGroups.push([entry.laneLabel]);
+        return;
+      }
+      const representative = laneByRank.find((item) => item.laneLabel === lastGroup[0]);
+      if (representative?.position === entry.position) {
+        lastGroup.push(entry.laneLabel);
+      } else {
+        rankGroups.push([entry.laneLabel]);
+      }
+    });
+
+    const winSet = new Set(rankGroups[0] ?? []);
+    const placeSet = new Set([...(rankGroups[0] ?? []), ...(rankGroups[1] ?? [])]);
+    const showSet = new Set(
+      rankGroups[1] && rankGroups[1].length >= 2
+        ? [...(rankGroups[0] ?? []), ...(rankGroups[1] ?? [])]
+        : [...(rankGroups[0] ?? []), ...(rankGroups[1] ?? []), ...(rankGroups[2] ?? [])]
+    );
+
+    const isWinningBet = (bet: PlacedStandardBet) => {
+      if (bet.betType === "win") return winSet.has(bet.laneLabel);
+      if (bet.betType === "place") return placeSet.has(bet.laneLabel);
+      return showSet.has(bet.laneLabel);
+    };
+
+    let winnings = 0;
+    let losses = 0;
+    betsRef.current.forEach((bet) => {
+      if (isWinningBet(bet)) {
+        winnings += bet.tokenValue * bet.multiplier;
+      } else {
+        losses += bet.loss;
+      }
+    });
+    const net = winnings - losses;
+    setBankroll((current) => Math.max(0, current + net));
+    setSettlementSummary(
+      `Settled ${betsRef.current.length} bet${betsRef.current.length === 1 ? "" : "s"}: +$${winnings} / -$${losses} (net ${net >= 0 ? "+" : ""}$${net}).`
+    );
+  }, []);
 
   // PSEUDOCODE: On interval, roll dice -> choose lane -> apply streak bonus -> move racer -> stop if someone finishes.
   const startRace = (intervalMs = 650) => {
@@ -220,8 +332,14 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         nextPositions[laneIndex] = Math.min(FINISH_SPACE, nextPositions[laneIndex] + move);
 
         const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
+        const crossedRedLine = nextPositions.filter((position) => position >= RED_LINE_SPACE).length;
+        if (crossedRedLine >= 3) {
+          setBettingOpen(false);
+        }
         if (finishIndex !== -1) {
           setWinnerLane(finishIndex + 1);
+          setBettingOpen(false);
+          settleRace(nextPositions);
           stopRace();
         }
 
@@ -236,6 +354,13 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     resetRace();
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
   }, [createRaceSlots, mode, racers, resetRace]);
+
+  useEffect(() => {
+    const validSpots = SPOT_INDEXES_BY_BET_TYPE[selectedBetType];
+    if (!validSpots.includes(selectedSpotIndex)) {
+      setSelectedSpotIndex(validSpots[0]);
+    }
+  }, [selectedBetType, selectedSpotIndex]);
 
   const hasRacersAvailable = raceSlots.length > 0;
 
@@ -256,6 +381,45 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       });
       return next;
     });
+  };
+
+  const placeStandardBet = () => {
+    if (!bettingOpen || !isRacing) {
+      return;
+    }
+    const token = PLAYER_TOKENS.find((entry) => entry.id === selectedTokenId);
+    if (!token) {
+      return;
+    }
+    const tokenUsed = placedBets.some((bet) => bet.tokenId === token.id);
+    if (tokenUsed) {
+      setSettlementSummary("That token is already placed this race.");
+      return;
+    }
+    const sameSpotTaken = placedBets.some(
+      (bet) =>
+        bet.laneLabel === selectedLaneLabel &&
+        bet.betType === selectedBetType &&
+        bet.spotIndex === selectedSpotIndex
+    );
+    if (sameSpotTaken) {
+      setSettlementSummary("That spot is already occupied by one of your bets.");
+      return;
+    }
+    const [multiplier, loss] = STANDARD_MATRIX[selectedLaneLabel][selectedSpotIndex];
+    setPlacedBets((current) => [
+      ...current,
+      {
+        tokenId: token.id,
+        tokenValue: token.value,
+        laneLabel: selectedLaneLabel,
+        betType: selectedBetType,
+        spotIndex: selectedSpotIndex,
+        multiplier,
+        loss,
+      },
+    ]);
+    setSettlementSummary(null);
   };
 
   return (
@@ -507,6 +671,108 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               <strong>
                 Winner: Lane {winnerLane} ({raceSlots[winnerLane - 1]?.racer.name ?? "Unknown"})
               </strong>
+            )}
+          </div>
+
+          <div
+            style={{
+              marginBottom: "0.85rem",
+              padding: "0.75rem",
+              borderRadius: "12px",
+              backgroundColor: "rgba(15, 23, 42, 0.68)",
+              border: "1px solid rgba(255,255,255,0.24)",
+            }}
+          >
+            <h2 style={{ marginTop: 0, marginBottom: "0.45rem", fontSize: "1rem" }}>Betting</h2>
+            <p style={{ marginTop: 0, marginBottom: "0.5rem" }}>
+              Bankroll: <strong>${bankroll}</strong> · Betting:{" "}
+              <strong style={{ color: bettingOpen && isRacing ? "#86efac" : "#fca5a5" }}>
+                {bettingOpen && isRacing ? "OPEN" : "CLOSED"}
+              </strong>
+              {!isRacing && " (start a race to place bets)"}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
+              <label>
+                Token{" "}
+                <select value={selectedTokenId} onChange={(event) => setSelectedTokenId(event.target.value)}>
+                  {PLAYER_TOKENS.map((token) => {
+                    const tokenUsed = placedBets.some((bet) => bet.tokenId === token.id);
+                    return (
+                      <option key={token.id} value={token.id} disabled={tokenUsed}>
+                        {token.value} {tokenUsed ? "(used)" : ""}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
+              <label>
+                Horse{" "}
+                <select
+                  value={selectedLaneLabel}
+                  onChange={(event) => setSelectedLaneLabel(event.target.value as (typeof LANE_LABELS)[number])}
+                >
+                  {LANE_LABELS.map((laneLabel) => (
+                    <option key={laneLabel} value={laneLabel}>
+                      {laneLabel}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Bet{" "}
+                <select
+                  value={selectedBetType}
+                  onChange={(event) => setSelectedBetType(event.target.value as StandardBetType)}
+                >
+                  <option value="show">Show</option>
+                  <option value="place">Place</option>
+                  <option value="win">Win</option>
+                </select>
+              </label>
+              <label>
+                Spot{" "}
+                <select
+                  value={selectedSpotIndex}
+                  onChange={(event) => setSelectedSpotIndex(Number(event.target.value) as StandardBetSpotIndex)}
+                >
+                  {SPOT_INDEXES_BY_BET_TYPE[selectedBetType].map((index) => {
+                    const [multiplier, loss] = STANDARD_MATRIX[selectedLaneLabel][index];
+                    return (
+                      <option key={index} value={index}>
+                        #{index + 1} ({multiplier}x / -{loss})
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
+              <button
+                type="button"
+                onClick={placeStandardBet}
+                disabled={!isRacing || !bettingOpen}
+                style={{
+                  border: "1px solid #fff",
+                  backgroundColor: !isRacing || !bettingOpen ? "rgba(148,163,184,0.45)" : "#facc15",
+                  color: "#111827",
+                  borderRadius: "999px",
+                  padding: "0.4rem 0.85rem",
+                  fontWeight: 700,
+                  cursor: !isRacing || !bettingOpen ? "not-allowed" : "pointer",
+                }}
+              >
+                Place Bet
+              </button>
+            </div>
+            {settlementSummary && (
+              <p style={{ marginBottom: 0.15, color: "#fde68a", fontWeight: 700 }}>{settlementSummary}</p>
+            )}
+            {placedBets.length > 0 && (
+              <ul style={{ marginBottom: 0, paddingLeft: "1.1rem" }}>
+                {placedBets.map((bet) => (
+                  <li key={`${bet.tokenId}-${bet.laneLabel}-${bet.betType}-${bet.spotIndex}`}>
+                    ${bet.tokenValue} on {bet.betType.toUpperCase()} {bet.laneLabel} ({bet.multiplier}x / -{bet.loss})
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
 
