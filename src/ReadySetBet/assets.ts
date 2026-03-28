@@ -34,6 +34,19 @@ import peopleSurge from "./P-Surge.png";
 import peopleTeto from "./P-Teto.jpg";
 import peopleVincentvanGogh from "./P-VincentvanGogh.jpg";
 
+import dndAlyssa from "./D-Alyssa.webp";
+import dndCaleb from "./D-Caleb.webp";
+import dndEel from "./D-Eel.webp";
+import dndEli from "./D-Eli.webp";
+import dndEthan from "./D-Ethan.webp";
+import dndHoward from "./D-Howard.webp";
+import dndJerrod from "./D-Jerrod.webp";
+import dndJoshua from "./D-Joshua.webp";
+import dndMelanie from "./D-Melanie.webp";
+import dndMichael from "./D-Michael.webp";
+import dndNate from "./D-Nate.webp";
+import dndTeag from "./D-Teag.webp";
+
 import uniqueHorse8 from "./U-Horse 8.png";
 import uniquePonyta from "./U-Ponyta.webp";
 import uniquePonytaGalar from "./U-PonytaGalar.png";
@@ -53,6 +66,7 @@ export type ReadySetBetRacer = {
 export const readySetBetAssets: {
   horses: ReadySetBetRacer[];
   people: ReadySetBetRacer[];
+  dnd: ReadySetBetRacer[];
   unique: ReadySetBetRacer[];
 } = {
   horses: [
@@ -92,6 +106,20 @@ export const readySetBetAssets: {
     { id: "P-Surge", name: "Surge", image: peopleSurge },
     { id: "P-Teto", name: "Teto", image: peopleTeto },
     { id: "P-VincentvanGogh", name: "Vincent van Gogh", image: peopleVincentvanGogh },
+  ],
+  dnd: [
+    { id: "D-Alyssa", name: "Alyssa", image: dndAlyssa },
+    { id: "D-Caleb", name: "Caleb", image: dndCaleb },
+    { id: "D-Eel", name: "Eel", image: dndEel },
+    { id: "D-Eli", name: "Eli", image: dndEli },
+    { id: "D-Ethan", name: "Ethan", image: dndEthan },
+    { id: "D-Howard", name: "Howard", image: dndHoward },
+    { id: "D-Jerrod", name: "Jerrod", image: dndJerrod },
+    { id: "D-Joshua", name: "Joshua", image: dndJoshua },
+    { id: "D-Melanie", name: "Melanie", image: dndMelanie },
+    { id: "D-Michael", name: "Michael", image: dndMichael },
+    { id: "D-Nate", name: "Nate", image: dndNate },
+    { id: "D-Teag", name: "Teag", image: dndTeag },
   ],
   unique: [
     { id: "U-Horse 8", name: "Rainbow Dash", image: uniqueHorse8 },
