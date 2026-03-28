@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BackButton } from "./BackButton";
 import confettiGif from "./ReadySetBet/Confetti.gif";
+import bettingBoardImage from "./ReadySetBet/ReadySetBetBettingBoard.png";
 import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
 
@@ -81,6 +82,65 @@ const MIRRORED_RACER_IDS = new Set([
 
 const shouldMirrorRacer = (racer: ReadySetBetRacer) => MIRRORED_RACER_IDS.has(racer.id);
 
+type StandardBetType = "show" | "place" | "win";
+type StandardBetSpotIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
+const STANDARD_MATRIX: Record<(typeof LANE_LABELS)[number], ReadonlyArray<readonly [number, number]>> = {
+  "2/3": [[4, 4], [4, 3], [5, 4], [5, 3], [7, 2], [8, 2], [9, 2]],
+  "4": [[3, 1], [3, 0], [4, 1], [4, 0], [5, 1], [6, 0], [7, 0]],
+  "5": [[2, 3], [2, 0], [2, 2], [3, 2], [4, 2], [4, 0], [5, 0]],
+  "6": [[1, 2], [1, 0], [2, 5], [2, 4], [3, 2], [3, 1], [3, 0]],
+  "7": [[1, 3], [1, 1], [2, 6], [2, 5], [3, 4], [3, 3], [3, 2]],
+  "8": [[1, 2], [1, 0], [2, 5], [2, 4], [3, 2], [3, 1], [3, 0]],
+  "9": [[2, 3], [2, 0], [2, 2], [3, 2], [4, 2], [4, 0], [5, 0]],
+  "10": [[3, 1], [3, 0], [4, 1], [4, 0], [5, 1], [6, 0], [7, 0]],
+  "11/12": [[4, 4], [4, 3], [5, 4], [5, 3], [7, 2], [8, 2], [9, 2]],
+};
+
+const SPOT_INDEXES_BY_BET_TYPE: Record<StandardBetType, StandardBetSpotIndex[]> = {
+  show: [0, 1],
+  place: [2, 3],
+  win: [4, 5, 6],
+};
+
+const COLUMN_LABEL_BY_SPOT_INDEX: Record<StandardBetSpotIndex, string> = {
+  0: "Show L",
+  1: "Show R",
+  2: "Place L",
+  3: "Place R",
+  4: "Win L",
+  5: "Win M",
+  6: "Win R",
+};
+
+const BET_TYPE_BY_SPOT_INDEX: Record<StandardBetSpotIndex, StandardBetType> = {
+  0: "show",
+  1: "show",
+  2: "place",
+  3: "place",
+  4: "win",
+  5: "win",
+  6: "win",
+};
+
+const PLAYER_TOKENS = [
+  { id: "token-2", value: 2 },
+  { id: "token-3a", value: 3 },
+  { id: "token-3b", value: 3 },
+  { id: "token-4", value: 4 },
+  { id: "token-5", value: 5 },
+] as const;
+
+interface PlacedStandardBet {
+  tokenId: string;
+  tokenValue: number;
+  laneLabel: (typeof LANE_LABELS)[number];
+  betType: StandardBetType;
+  spotIndex: StandardBetSpotIndex;
+  multiplier: number;
+  loss: number;
+}
+
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
   key: "ReadySetBet",
@@ -154,6 +214,13 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [raceSlots, setRaceSlots] = useState<Array<{ lane: number; racer: ReadySetBetRacer }>>(() =>
     createRaceSlots(RACERS_BY_MODE.horse)
   );
+  const [bankroll, setBankroll] = useState(30);
+  const [investmentInput, setInvestmentInput] = useState("30");
+  const [hasSetInvestment, setHasSetInvestment] = useState(false);
+  const [placedBets, setPlacedBets] = useState<PlacedStandardBet[]>([]);
+  const [settlementSummary, setSettlementSummary] = useState<string | null>(null);
+  const betsRef = useRef<PlacedStandardBet[]>([]);
+  const hasSettledRef = useRef(false);
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -182,8 +249,70 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPositions(Array(9).fill(0));
     setWinnerLane(null);
     setLastRoll(null);
+    setPlacedBets([]);
+    setSettlementSummary(null);
     streakRef.current = { laneIndex: null, count: 0 };
+    hasSettledRef.current = false;
   }, [stopRace]);
+
+  useEffect(() => {
+    betsRef.current = placedBets;
+  }, [placedBets]);
+
+  const settleRace = useCallback((finalPositions: number[]) => {
+    if (hasSettledRef.current) {
+      return;
+    }
+    hasSettledRef.current = true;
+    const laneByRank = finalPositions
+      .map((position, index) => ({ laneLabel: LANE_LABELS[index], position }))
+      .sort((a, b) => b.position - a.position);
+
+    const rankGroups: Array<Array<(typeof LANE_LABELS)[number]>> = [];
+    laneByRank.forEach((entry) => {
+      const lastGroup = rankGroups[rankGroups.length - 1];
+      if (!lastGroup) {
+        rankGroups.push([entry.laneLabel]);
+        return;
+      }
+      const representative = laneByRank.find((item) => item.laneLabel === lastGroup[0]);
+      if (representative?.position === entry.position) {
+        lastGroup.push(entry.laneLabel);
+      } else {
+        rankGroups.push([entry.laneLabel]);
+      }
+    });
+
+    const winSet = new Set(rankGroups[0] ?? []);
+    const placeSet = new Set([...(rankGroups[0] ?? []), ...(rankGroups[1] ?? [])]);
+    const showSet = new Set(
+      rankGroups[1] && rankGroups[1].length >= 2
+        ? [...(rankGroups[0] ?? []), ...(rankGroups[1] ?? [])]
+        : [...(rankGroups[0] ?? []), ...(rankGroups[1] ?? []), ...(rankGroups[2] ?? [])]
+    );
+
+    const isWinningBet = (bet: PlacedStandardBet) => {
+      if (bet.betType === "win") return winSet.has(bet.laneLabel);
+      if (bet.betType === "place") return placeSet.has(bet.laneLabel);
+      return showSet.has(bet.laneLabel);
+    };
+
+    let winnings = 0;
+    let losses = 0;
+    betsRef.current.forEach((bet) => {
+      if (isWinningBet(bet)) {
+        winnings += bet.tokenValue * bet.multiplier;
+      } else {
+        losses += bet.loss;
+      }
+    });
+    const net = winnings - losses;
+    setBankroll((current) => Math.max(0, current + net));
+    setSettlementSummary(
+      `Settled ${betsRef.current.length} bet${betsRef.current.length === 1 ? "" : "s"}: +$${winnings} / -$${losses} (net ${net >= 0 ? "+" : ""}$${net}).`
+    );
+    setPlacedBets([]);
+  }, []);
 
   // PSEUDOCODE: On interval, roll dice -> choose lane -> apply streak bonus -> move racer -> stop if someone finishes.
   const startRace = (intervalMs = 650) => {
@@ -191,7 +320,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       return;
     }
 
-    resetRace();
+    stopRace();
+    setPositions(Array(9).fill(0));
+    setWinnerLane(null);
+    setLastRoll(null);
+    setSettlementSummary(null);
+    hasSettledRef.current = false;
     setIsRacing(true);
 
     intervalRef.current = window.setInterval(() => {
@@ -222,6 +356,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
         if (finishIndex !== -1) {
           setWinnerLane(finishIndex + 1);
+          settleRace(nextPositions);
           stopRace();
         }
 
@@ -234,6 +369,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   useEffect(() => () => stopRace(), [stopRace]);
   useEffect(() => {
     resetRace();
+    setPlacedBets([]);
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
   }, [createRaceSlots, mode, racers, resetRace]);
 
@@ -256,6 +392,63 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       });
       return next;
     });
+  };
+
+  const applyInvestment = () => {
+    const parsed = Number(investmentInput);
+    if (!Number.isFinite(parsed) || parsed < 1) {
+      setSettlementSummary("Enter a valid starting bankroll (minimum $1).");
+      return;
+    }
+    setBankroll(Math.floor(parsed));
+    setHasSetInvestment(true);
+    setSettlementSummary(null);
+  };
+
+  const toggleGridBet = (laneLabel: (typeof LANE_LABELS)[number], spotIndex: StandardBetSpotIndex) => {
+    if (isRacing) {
+      return;
+    }
+    const existing = placedBets.find(
+      (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
+    );
+    if (existing) {
+      setPlacedBets((current) =>
+        current.filter(
+          (bet) => !(bet.laneLabel === laneLabel && bet.spotIndex === spotIndex)
+        )
+      );
+      setSettlementSummary(null);
+      return;
+    }
+
+    if (placedBets.length >= PLAYER_TOKENS.length) {
+      setSettlementSummary("You can only lock in 5 bets total.");
+      return;
+    }
+
+    const nextToken = PLAYER_TOKENS.find(
+      (token) => !placedBets.some((bet) => bet.tokenId === token.id)
+    );
+    if (!nextToken) {
+      setSettlementSummary("No tokens available.");
+      return;
+    }
+
+    const [multiplier, loss] = STANDARD_MATRIX[laneLabel][spotIndex];
+    setPlacedBets((current) => [
+      ...current,
+      {
+        tokenId: nextToken.id,
+        tokenValue: nextToken.value,
+        laneLabel,
+        betType: BET_TYPE_BY_SPOT_INDEX[spotIndex],
+        spotIndex,
+        multiplier,
+        loss,
+      },
+    ]);
+    setSettlementSummary(null);
   };
 
   return (
@@ -425,15 +618,19 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(650)}
-              disabled={isRacing || !hasRacersAvailable}
+              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(100, 116, 139, 0.6)" : "#22c55e",
+                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "rgba(100, 116, 139, 0.6)"
+                  : "#22c55e",
                 color: isRacing ? "#e2e8f0" : "#052e16",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
                 fontWeight: 700,
-                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
+                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "not-allowed"
+                  : "pointer",
               }}
             >
               {isRacing ? "Race in progress..." : "Start Race"}
@@ -441,14 +638,18 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(950)}
-              disabled={isRacing || !hasRacersAvailable}
+              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(148, 163, 184, 0.45)" : "#60a5fa",
+                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "rgba(148, 163, 184, 0.45)"
+                  : "#60a5fa",
                 color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#082f49",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
-                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
+                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "not-allowed"
+                  : "pointer",
                 fontWeight: 700,
               }}
             >
@@ -457,14 +658,18 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <button
               type="button"
               onClick={() => startRace(350)}
-              disabled={isRacing || !hasRacersAvailable}
+              disabled={isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(148, 163, 184, 0.45)" : "#f97316",
+                backgroundColor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "rgba(148, 163, 184, 0.45)"
+                  : "#f97316",
                 color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#431407",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
-                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
+                cursor: isRacing || !hasRacersAvailable || placedBets.length === 0 || !hasSetInvestment
+                  ? "not-allowed"
+                  : "pointer",
                 fontWeight: 700,
               }}
             >
@@ -503,10 +708,139 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             >
               Reset
             </button>
+            <small style={{ opacity: 0.9 }}>
+              {!hasSetInvestment
+                ? "Set bankroll first."
+                : placedBets.length === 0
+                  ? "Pick up to 5 bets on the board, then start."
+                  : `${placedBets.length}/5 bets locked in.`}
+            </small>
             {winnerLane && (
               <strong>
                 Winner: Lane {winnerLane} ({raceSlots[winnerLane - 1]?.racer.name ?? "Unknown"})
               </strong>
+            )}
+          </div>
+
+          <div
+            style={{
+              marginBottom: "0.85rem",
+              padding: "0.75rem",
+              borderRadius: "12px",
+              backgroundColor: "rgba(15, 23, 42, 0.68)",
+              border: "1px solid rgba(255,255,255,0.24)",
+            }}
+          >
+            <h2 style={{ marginTop: 0, marginBottom: "0.45rem", fontSize: "1rem" }}>Betting Board</h2>
+            <p style={{ marginTop: 0, marginBottom: "0.5rem" }}>
+              Bankroll: <strong>${bankroll}</strong> · Betting status:{" "}
+              <strong style={{ color: isRacing ? "#fca5a5" : "#86efac" }}>
+                {isRacing ? "LOCKED (race running)" : "OPEN (pre-race)"}
+              </strong>
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center", marginBottom: "0.65rem" }}>
+              <label>
+                Starting bankroll{" "}
+                <input
+                  type="number"
+                  min={1}
+                  value={investmentInput}
+                  disabled={isRacing}
+                  onChange={(event) => setInvestmentInput(event.target.value)}
+                  style={{ width: "100px" }}
+                />
+              </label>
+              <button
+                type="button"
+                onClick={applyInvestment}
+                disabled={isRacing}
+                style={{
+                  border: "1px solid #fff",
+                  backgroundColor: isRacing ? "rgba(148,163,184,0.45)" : "#60a5fa",
+                  color: "#111827",
+                  borderRadius: "999px",
+                  padding: "0.4rem 0.85rem",
+                  fontWeight: 700,
+                  cursor: isRacing ? "not-allowed" : "pointer",
+                }}
+              >
+                Set Bankroll
+              </button>
+              <span style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+                Click squares on the board image to toggle bets ({placedBets.length}/5 selected).
+              </span>
+            </div>
+
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                maxWidth: "900px",
+                margin: "0 auto",
+              }}
+            >
+              <img
+                src={bettingBoardImage}
+                alt="Ready Set Bet betting board"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  borderRadius: "10px",
+                }}
+              />
+              {LANE_LABELS.map((laneLabel, rowIndex) => (
+                SPOT_INDEXES_BY_BET_TYPE.show.concat(SPOT_INDEXES_BY_BET_TYPE.place, SPOT_INDEXES_BY_BET_TYPE.win)
+                  .map((spotIndex, columnIndex) => {
+                    const [multiplier, loss] = STANDARD_MATRIX[laneLabel][spotIndex];
+                    const top = 13.3 + rowIndex * 7.8;
+                    const left = 22 + columnIndex * 8.55;
+                    const placedBet = placedBets.find(
+                      (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
+                    );
+                    return (
+                      <button
+                        key={`${laneLabel}-${spotIndex}`}
+                        type="button"
+                        aria-label={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} ${multiplier}x minus ${loss}`}
+                        title={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} (${multiplier}x / -${loss})`}
+                        onClick={() => toggleGridBet(laneLabel, spotIndex)}
+                        disabled={isRacing}
+                        style={{
+                          position: "absolute",
+                          top: `${top}%`,
+                          left: `${left}%`,
+                          transform: "translate(-50%, -50%)",
+                          width: "7.4%",
+                          aspectRatio: "1 / 1",
+                          borderRadius: "6px",
+                          border: placedBet ? "2px solid #22c55e" : "1px solid rgba(255,255,255,0.65)",
+                          backgroundColor: placedBet ? "rgba(34, 197, 94, 0.5)" : "rgba(15, 23, 42, 0.35)",
+                          color: "#fff",
+                          fontSize: "0.65rem",
+                          fontWeight: 700,
+                          cursor: isRacing ? "not-allowed" : "pointer",
+                          padding: 0,
+                        }}
+                      >
+                        {placedBet ? `$${placedBet.tokenValue}` : ""}
+                      </button>
+                    );
+                  })
+              ))}
+            </div>
+
+            {settlementSummary && (
+              <p style={{ marginBottom: 0.15, color: "#fde68a", fontWeight: 700 }}>{settlementSummary}</p>
+            )}
+            {placedBets.length > 0 && (
+              <ul style={{ marginBottom: 0, paddingLeft: "1.1rem" }}>
+                {placedBets.map((bet) => (
+                  <li key={`${bet.tokenId}-${bet.laneLabel}-${bet.betType}-${bet.spotIndex}`}>
+                    ${bet.tokenValue} on {bet.betType.toUpperCase()} {bet.laneLabel} ({bet.multiplier}x / -{bet.loss})
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
 
