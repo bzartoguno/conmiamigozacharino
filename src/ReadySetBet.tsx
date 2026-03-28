@@ -3,12 +3,14 @@ import { BackButton } from "./BackButton";
 import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
 
+// PSEUDOCODE: Define race modes and map each mode to the corresponding asset list.
 type RacerMode = "horse" | "people" | "unique";
 const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
   horse: readySetBetAssets.horses,
   people: readySetBetAssets.people,
   unique: readySetBetAssets.unique,
 };
+// PSEUDOCODE: Store all fixed race rules/track coordinates in constants for reuse.
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
@@ -17,7 +19,17 @@ const TRACK_COLUMN_POSITIONS = [
 ] as const;
 const TRACK_LANE_TOP_POSITIONS = [13, 21.5, 30, 38.5, 47, 55.5, 64, 72.5, 81] as const;
 
+// PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
+export const readySetBetMapButton = {
+  key: "ReadySetBet",
+  label: "Horse Racing",
+  delay: "50s",
+  backgroundColor: "rgba(250, 204, 21, 0.9)",
+  imageSrc: raceTrackImage,
+} as const;
+
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
+  // PSEUDOCODE: Track UI/game state (selected racer mode, lane positions, race status, winner, and last roll).
   const [mode, setMode] = useState<RacerMode>("horse");
 
   const racers = useMemo(() => RACERS_BY_MODE[mode], [mode]);
@@ -37,6 +49,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     laneIndex: null,
     count: 0,
   });
+  // PSEUDOCODE: Build a 9-lane lineup from chosen racer list, then rotate by lineupSeed for shuffle behavior.
   const raceSlots = useMemo(() => {
     if (racers.length === 0) {
       return [];
@@ -50,6 +63,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       racer,
     }));
   }, [lineupSeed, racers]);
+  // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
     if (sum === 4) return 1;
@@ -62,6 +76,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     return 8;
   };
 
+  // PSEUDOCODE: Stop race loop timer and mark race as idle.
   const stopRace = useCallback(() => {
     if (intervalRef.current !== null) {
       window.clearInterval(intervalRef.current);
@@ -70,6 +85,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setIsRacing(false);
   }, []);
 
+  // PSEUDOCODE: Reset all race progress back to starting state.
   const resetRace = useCallback(() => {
     stopRace();
     setPositions(Array(9).fill(0));
@@ -78,6 +94,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     streakRef.current = { laneIndex: null, count: 0 };
   }, [stopRace]);
 
+  // PSEUDOCODE: On interval, roll dice -> choose lane -> apply streak bonus -> move racer -> stop if someone finishes.
   const startRace = () => {
     resetRace();
     setIsRacing(true);
@@ -118,6 +135,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     }, 650);
   };
 
+  // PSEUDOCODE: Cleanup timer on unmount; whenever mode/lineup changes, restart to clean state.
   useEffect(() => () => stopRace(), [stopRace]);
   useEffect(() => {
     resetRace();

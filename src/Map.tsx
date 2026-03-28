@@ -116,8 +116,7 @@ import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { Graveborn } from "./Graveborn";
 import { StrenuousPortal } from "./StrenuousPortal";
 import strenuousPortalButtonImage from "./StrenuousTrue.webp";
-import { ReadySetBet } from "./ReadySetBet";
-import readySetBetTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
+import { ReadySetBet, readySetBetMapButton } from "./ReadySetBet";
 import { SettlementProvider } from "./SettlementContext";
 import { SettlementType } from "./inventoryAvailability";
 
@@ -662,13 +661,7 @@ export function Map() {
       backgroundColor: "rgba(255, 255, 255, 0.9)",
       imageSrc: yeOldHomeDepotImage,
     },
-    {
-      key: "ReadySetBet",
-      label: "Horse Racing",
-      delay: "50s",
-      backgroundColor: "rgba(250, 204, 21, 0.9)",
-      imageSrc: readySetBetTrackImage,
-    },
+    readySetBetMapButton,
   ];
 
   const sortedEveryShopButtons = sortShopButtons(everyShopButtons);
