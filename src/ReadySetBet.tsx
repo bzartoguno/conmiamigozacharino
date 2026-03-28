@@ -36,28 +36,23 @@ const MIRRORED_RACER_IDS = new Set([
   "H-Horse 4",
   "H-Horse 5",
   "H-Horse 9",
+  "H-Cinnamon",
+  "H-Grace",
+  "H-Midnight",
+  "H-Prince",
   "P-Alex",
   "P-Hornet",
+  "P-Kinger",
+  "P-MasterChief",
+  "P-Monoco",
+  "P-PikminTrio",
   "P-Soldier",
   "P-Surge",
-]);
-const MIRRORED_RACER_NAMES = new Set([
-  "Alex",
-  "Hornet",
-  "Soldier",
-  "Surge",
-  "Cinnamon Grace",
-  "Midnight Prince",
-  "Kingger",
-  "Master Chief",
-  "Mike Monoco",
-  "Pikmin Trio",
-  "Teto",
-  "Vicent Van gogh",
+  "P-Teto",
+  "P-VincentvanGogh",
 ]);
 
-const shouldMirrorRacer = (racer: ReadySetBetRacer) =>
-  MIRRORED_RACER_IDS.has(racer.id) || MIRRORED_RACER_NAMES.has(racer.name);
+const shouldMirrorRacer = (racer: ReadySetBetRacer) => MIRRORED_RACER_IDS.has(racer.id);
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
