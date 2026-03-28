@@ -34,13 +34,13 @@ export const readySetBetAssets: {
   unique: ReadySetBetRacer[];
 } = {
   horses: [
-    { id: "H-Horse 1", name: "Horse 1", image: horse1 },
-    { id: "H-Horse 2", name: "Horse 2", image: horse2 },
-    { id: "H-Horse 3", name: "Horse 3", image: horse3 },
-    { id: "H-Horse 4", name: "Horse 4", image: horse4 },
-    { id: "H-Horse 5", name: "Horse 5", image: horse5 },
-    { id: "H-Horse 6", name: "Horse 6", image: horse6 },
-    { id: "H-Horse 9", name: "Horse 9", image: horse9 },
+    { id: "H-Horse 1", name: "Jack Jounier", image: horse1 },
+    { id: "H-Horse 2", name: "Buttercup", image: horse2 },
+    { id: "H-Horse 3", name: "Jet", image: horse3 },
+    { id: "H-Horse 4", name: "Tjock Häst", image: horse4 },
+    { id: "H-Horse 5", name: "Mustang", image: horse5 },
+    { id: "H-Horse 6", name: "Stripes", image: horse6 },
+    { id: "H-Horse 9", name: "Chico grande", image: horse9 },
   ],
   people: [
     { id: "P-Alex", name: "Alex", image: peopleAlex },
@@ -54,7 +54,7 @@ export const readySetBetAssets: {
     { id: "P-Surge", name: "Surge", image: peopleSurge },
   ],
   unique: [
-    { id: "U-Horse 8", name: "Horse 8", image: uniqueHorse8 },
-    { id: "U-Unicorn 7", name: "Unicorn 7", image: uniqueUnicorn7 },
+    { id: "U-Horse 8", name: "Rainbow Dash", image: uniqueHorse8 },
+    { id: "U-Unicorn 7", name: "Rarity", image: uniqueUnicorn7 },
   ],
 };
