@@ -29,6 +29,35 @@ const NAME_TAG_COLOR_BY_LANE_LABEL: Record<(typeof LANE_LABELS)[number], string>
   "10": "#2563eb",
   "11/12": "#2563eb",
 };
+const MIRRORED_RACER_IDS = new Set([
+  "H-Horse 1",
+  "H-Horse 2",
+  "H-Horse 3",
+  "H-Horse 4",
+  "H-Horse 5",
+  "H-Horse 9",
+  "P-Alex",
+  "P-Hornet",
+  "P-Soldier",
+  "P-Surge",
+]);
+const MIRRORED_RACER_NAMES = new Set([
+  "Alex",
+  "Hornet",
+  "Soldier",
+  "Surge",
+  "Cinnamon Grace",
+  "Midnight Prince",
+  "Kingger",
+  "Master Chief",
+  "Mike Monoco",
+  "Pikmin Trio",
+  "Teto",
+  "Vicent Van gogh",
+]);
+
+const shouldMirrorRacer = (racer: ReadySetBetRacer) =>
+  MIRRORED_RACER_IDS.has(racer.id) || MIRRORED_RACER_NAMES.has(racer.name);
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
@@ -342,6 +371,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               const laneLabel = LANE_LABELS[index];
               const nameTagColor = NAME_TAG_COLOR_BY_LANE_LABEL[laneLabel] ?? "#1e293b";
               const hasDarkTag = nameTagColor === "#111827";
+              const isMirrored = shouldMirrorRacer(racer);
 
               return (
                 <div
@@ -365,6 +395,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                       width: "52px",
                       height: "52px",
                       objectFit: "contain",
+                      transform: isMirrored ? "scaleX(-1)" : "none",
                       filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.65))",
                       imageRendering: "auto",
                       backgroundColor: "transparent",
@@ -405,21 +436,24 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             gap: "0.75rem",
           }}
         >
-          {racers.map((racer) => (
-            <article
-              key={racer.id}
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.95)",
-                color: "#111827",
-                borderRadius: "12px",
-                padding: "0.75rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "0.5rem",
-                minHeight: "220px",
-              }}
-            >
+          {racers.map((racer) => {
+            const isMirrored = shouldMirrorRacer(racer);
+
+            return (
+              <article
+                key={racer.id}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  color: "#111827",
+                  borderRadius: "12px",
+                  padding: "0.75rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  minHeight: "220px",
+                }}
+              >
               <img
                 src={racer.image}
                 alt={racer.name}
@@ -427,14 +461,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   width: "100%",
                   height: "140px",
                   objectFit: "contain",
+                  transform: isMirrored ? "scaleX(-1)" : "none",
                   imageRendering: "auto",
                   borderRadius: "8px",
                   backgroundColor: "transparent",
                 }}
               />
               <strong style={{ textAlign: "center", fontSize: "0.95rem" }}>{racer.name}</strong>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </section>
       </main>
     </div>
