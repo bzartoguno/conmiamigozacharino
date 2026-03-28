@@ -4,11 +4,20 @@ import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
 
 // PSEUDOCODE: Define race modes and map each mode to the corresponding asset list.
-type RacerMode = "horse" | "people" | "unique";
+type RacerMode = "horse" | "people" | "unique" | "all" | "choose";
 const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
   horse: readySetBetAssets.horses,
   people: readySetBetAssets.people,
   unique: readySetBetAssets.unique,
+  all: [...readySetBetAssets.horses, ...readySetBetAssets.people, ...readySetBetAssets.unique],
+  choose: [...readySetBetAssets.horses, ...readySetBetAssets.people, ...readySetBetAssets.unique],
+};
+const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
+  horse: "Horses",
+  people: "People",
+  unique: "Unique",
+  all: "All",
+  choose: "Choose",
 };
 // PSEUDOCODE: Store all fixed race rules/track coordinates in constants for reuse.
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
@@ -66,9 +75,18 @@ export const readySetBetMapButton = {
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   // PSEUDOCODE: Track UI/game state (selected racer mode, lane positions, race status, winner, and last roll).
   const [mode, setMode] = useState<RacerMode>("horse");
+  const [selectedRacerIds, setSelectedRacerIds] = useState<Set<string>>(
+    () => new Set(RACERS_BY_MODE.all.map((racer) => racer.id))
+  );
 
-  const racers = useMemo(() => RACERS_BY_MODE[mode], [mode]);
-  const [lineupSeed, setLineupSeed] = useState(0);
+  const racers = useMemo(() => {
+    if (mode !== "choose") {
+      return RACERS_BY_MODE[mode];
+    }
+
+    const selectedIds = selectedRacerIds;
+    return RACERS_BY_MODE.choose.filter((racer) => selectedIds.has(racer.id));
+  }, [mode, selectedRacerIds]);
   const [positions, setPositions] = useState<number[]>(() => Array(9).fill(0));
   const [isRacing, setIsRacing] = useState(false);
   const [winnerLane, setWinnerLane] = useState<number | null>(null);
@@ -84,20 +102,31 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     laneIndex: null,
     count: 0,
   });
-  // PSEUDOCODE: Build a 9-lane lineup from chosen racer list, then rotate by lineupSeed for shuffle behavior.
-  const raceSlots = useMemo(() => {
-    if (racers.length === 0) {
-      return [];
+  const createRandomRaceSlots = useCallback((pool: ReadySetBetRacer[]) => {
+    if (pool.length === 0) {
+      return [] as Array<{ lane: number; racer: ReadySetBetRacer }>;
     }
 
-    const slots = Array.from({ length: 9 }, (_, index) => racers[index % racers.length]);
-    const rotated = slots.map((_, index) => slots[(index + lineupSeed) % slots.length]);
+    const shuffled = [...pool];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    }
 
-    return rotated.map((racer, index) => ({
+    const selectedForRace = shuffled.slice(0, 9);
+    while (selectedForRace.length < 9) {
+      const randomRacer = pool[Math.floor(Math.random() * pool.length)];
+      selectedForRace.push(randomRacer);
+    }
+
+    return selectedForRace.map((racer, index) => ({
       lane: index + 1,
       racer,
     }));
-  }, [lineupSeed, racers]);
+  }, []);
+  const [raceSlots, setRaceSlots] = useState<Array<{ lane: number; racer: ReadySetBetRacer }>>(
+    () => createRandomRaceSlots(RACERS_BY_MODE.horse)
+  );
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -130,7 +159,11 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   }, [stopRace]);
 
   // PSEUDOCODE: On interval, roll dice -> choose lane -> apply streak bonus -> move racer -> stop if someone finishes.
-  const startRace = () => {
+  const startRace = (intervalMs = 650) => {
+    if (raceSlots.length === 0) {
+      return;
+    }
+
     resetRace();
     setIsRacing(true);
 
@@ -167,14 +200,29 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
 
         return nextPositions;
       });
-    }, 650);
+    }, intervalMs);
   };
 
   // PSEUDOCODE: Cleanup timer on unmount; whenever mode/lineup changes, restart to clean state.
   useEffect(() => () => stopRace(), [stopRace]);
   useEffect(() => {
     resetRace();
-  }, [mode, lineupSeed, resetRace]);
+    setRaceSlots(createRandomRaceSlots(racers));
+  }, [createRandomRaceSlots, racers, resetRace]);
+
+  const hasRacersAvailable = raceSlots.length > 0;
+
+  const toggleChooseRacer = (racerId: string) => {
+    setSelectedRacerIds((previous) => {
+      const next = new Set(previous);
+      if (next.has(racerId)) {
+        next.delete(racerId);
+      } else {
+        next.add(racerId);
+      }
+      return next;
+    });
+  };
 
   return (
     <div
@@ -218,7 +266,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             marginBottom: "1rem",
           }}
         >
-          {(["horse", "people", "unique"] as RacerMode[]).map((nextMode) => {
+          {(Object.keys(MODE_LABEL_BY_VALUE) as RacerMode[]).map((nextMode) => {
             const selected = mode === nextMode;
 
             return (
@@ -234,16 +282,87 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   color: selected ? "#1f2937" : "#fff",
                   borderRadius: "999px",
                   padding: "0.45rem 0.9rem",
-                  textTransform: "capitalize",
                   cursor: "pointer",
                   fontWeight: 700,
                 }}
               >
-                {nextMode}
+                {MODE_LABEL_BY_VALUE[nextMode]}
               </button>
             );
           })}
         </div>
+
+        {mode === "choose" && (
+          <section
+            aria-label="choose racers"
+            style={{
+              backgroundColor: "rgba(15, 23, 42, 0.58)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+              borderRadius: "12px",
+              padding: "0.75rem",
+              marginBottom: "1rem",
+            }}
+          >
+            <p style={{ marginTop: 0, marginBottom: "0.6rem" }}>
+              Pick exactly who can be in the race. Shuffle will randomize from this list.
+            </p>
+            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.75rem" }}>
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectedRacerIds(new Set(RACERS_BY_MODE.all.map((racer) => racer.id)))
+                }
+                style={{
+                  border: "1px solid #fff",
+                  backgroundColor: "rgba(255,255,255,0.2)",
+                  color: "#fff",
+                  borderRadius: "999px",
+                  padding: "0.35rem 0.8rem",
+                  cursor: "pointer",
+                  fontWeight: 700,
+                }}
+              >
+                Select all
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedRacerIds(new Set())}
+                style={{
+                  border: "1px solid #fff",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  color: "#fff",
+                  borderRadius: "999px",
+                  padding: "0.35rem 0.8rem",
+                  cursor: "pointer",
+                  fontWeight: 700,
+                }}
+              >
+                Clear all
+              </button>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+                gap: "0.5rem 0.75rem",
+                maxHeight: "220px",
+                overflowY: "auto",
+                paddingRight: "0.25rem",
+              }}
+            >
+              {RACERS_BY_MODE.all.map((racer) => (
+                <label key={`choose-${racer.id}`} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                  <input
+                    type="checkbox"
+                    checked={selectedRacerIds.has(racer.id)}
+                    onChange={() => toggleChooseRacer(racer.id)}
+                  />
+                  <span>{racer.name}</span>
+                </label>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section
           aria-label="race controls and progress"
@@ -265,33 +384,65 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
           >
             <button
               type="button"
-              onClick={startRace}
-              disabled={isRacing}
+              onClick={() => startRace(650)}
+              disabled={isRacing || !hasRacersAvailable}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing ? "rgba(100, 116, 139, 0.6)" : "#22c55e",
+                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(100, 116, 139, 0.6)" : "#22c55e",
                 color: isRacing ? "#e2e8f0" : "#052e16",
                 borderRadius: "999px",
                 padding: "0.45rem 0.9rem",
                 fontWeight: 700,
-                cursor: isRacing ? "not-allowed" : "pointer",
+                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
               }}
             >
               {isRacing ? "Race in progress..." : "Start Race"}
             </button>
             <button
               type="button"
-              onClick={() => setLineupSeed((seed) => seed + 1)}
-              disabled={isRacing}
+              onClick={() => startRace(950)}
+              disabled={isRacing || !hasRacersAvailable}
               style={{
                 border: "1px solid #fff",
-                backgroundColor: isRacing
+                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(148, 163, 184, 0.45)" : "#60a5fa",
+                color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#082f49",
+                borderRadius: "999px",
+                padding: "0.45rem 0.9rem",
+                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
+                fontWeight: 700,
+              }}
+            >
+              Slow Race
+            </button>
+            <button
+              type="button"
+              onClick={() => startRace(350)}
+              disabled={isRacing || !hasRacersAvailable}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing || !hasRacersAvailable ? "rgba(148, 163, 184, 0.45)" : "#f97316",
+                color: isRacing || !hasRacersAvailable ? "#e2e8f0" : "#431407",
+                borderRadius: "999px",
+                padding: "0.45rem 0.9rem",
+                cursor: isRacing || !hasRacersAvailable ? "not-allowed" : "pointer",
+                fontWeight: 700,
+              }}
+            >
+              Fast Race
+            </button>
+            <button
+              type="button"
+              onClick={() => setRaceSlots(createRandomRaceSlots(racers))}
+              disabled={isRacing || racers.length === 0}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing || racers.length === 0
                   ? "rgba(148, 163, 184, 0.45)"
                   : "rgba(255, 255, 255, 0.2)",
                 color: isRacing ? "#e2e8f0" : "#fff",
                 borderRadius: "999px",
                 padding: "0.4rem 0.8rem",
-                cursor: isRacing ? "not-allowed" : "pointer",
+                cursor: isRacing || racers.length === 0 ? "not-allowed" : "pointer",
                 fontWeight: 700,
               }}
             >
@@ -324,6 +475,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               Roll: {lastRoll.die1} + {lastRoll.die2} = {lastRoll.sum} → Lane{" "}
               {lastRoll.laneLabel} moved {lastRoll.move} space
               {lastRoll.move > 1 ? "s" : ""}.
+            </p>
+          )}
+
+          {!hasRacersAvailable && (
+            <p style={{ marginTop: 0, marginBottom: "0.6rem", color: "#fde68a", fontWeight: 700 }}>
+              No racers selected. Use Choose mode and pick at least one racer.
             </p>
           )}
 
