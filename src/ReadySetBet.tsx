@@ -536,6 +536,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                     transform: "translate(-50%, -50%)",
                     transition: "left 0.45s ease-out",
                     zIndex: 2,
+                    width: "52px",
+                    height: "52px",
                   }}
                 >
                   <img
