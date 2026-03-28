@@ -1,20 +1,33 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BackButton } from "./BackButton";
+import confettiGif from "./ReadySetBet/Confetti.gif";
 import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
 
 // PSEUDOCODE: Define race modes and map each mode to the corresponding asset list.
-type RacerMode = "horse" | "people" | "unique" | "all" | "choose";
+type RacerMode = "horse" | "people" | "dnd" | "unique" | "all" | "choose";
 const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
   horse: readySetBetAssets.horses,
   people: readySetBetAssets.people,
+  dnd: readySetBetAssets.dnd,
   unique: readySetBetAssets.unique,
-  all: [...readySetBetAssets.horses, ...readySetBetAssets.people, ...readySetBetAssets.unique],
-  choose: [...readySetBetAssets.horses, ...readySetBetAssets.people, ...readySetBetAssets.unique],
+  all: [
+    ...readySetBetAssets.horses,
+    ...readySetBetAssets.people,
+    ...readySetBetAssets.dnd,
+    ...readySetBetAssets.unique,
+  ],
+  choose: [
+    ...readySetBetAssets.horses,
+    ...readySetBetAssets.people,
+    ...readySetBetAssets.dnd,
+    ...readySetBetAssets.unique,
+  ],
 };
 const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
   horse: "Horses",
   people: "People",
+  dnd: "D&D",
   unique: "Unique",
   all: "All",
   choose: "Choose",
@@ -59,6 +72,11 @@ const MIRRORED_RACER_IDS = new Set([
   "P-Surge",
   "P-Teto",
   "P-VincentvanGogh",
+  "D-Alyssa",
+  "D-Caleb",
+  "D-Eel",
+  "D-Howard",
+  "D-Melanie",
 ]);
 
 const shouldMirrorRacer = (racer: ReadySetBetRacer) => MIRRORED_RACER_IDS.has(racer.id);
@@ -78,6 +96,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [selectedRacerIds, setSelectedRacerIds] = useState<Set<string>>(
     () => new Set(RACERS_BY_MODE.all.map((racer) => racer.id))
   );
+  const [chosenRacerOrder, setChosenRacerOrder] = useState<string[]>(
+    () => RACERS_BY_MODE.all.map((racer) => racer.id)
+  );
 
   const racers = useMemo(() => {
     if (mode !== "choose") {
@@ -85,8 +106,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     }
 
     const selectedIds = selectedRacerIds;
-    return RACERS_BY_MODE.choose.filter((racer) => selectedIds.has(racer.id));
-  }, [mode, selectedRacerIds]);
+    const byId = new Map(RACERS_BY_MODE.choose.map((racer) => [racer.id, racer]));
+    return chosenRacerOrder
+      .filter((racerId) => selectedIds.has(racerId))
+      .map((racerId) => byId.get(racerId))
+      .filter((racer): racer is ReadySetBetRacer => racer !== undefined);
+  }, [chosenRacerOrder, mode, selectedRacerIds]);
   const [positions, setPositions] = useState<number[]>(() => Array(9).fill(0));
   const [isRacing, setIsRacing] = useState(false);
   const [winnerLane, setWinnerLane] = useState<number | null>(null);
@@ -102,21 +127,23 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     laneIndex: null,
     count: 0,
   });
-  const createRandomRaceSlots = useCallback((pool: ReadySetBetRacer[]) => {
+  const createRaceSlots = useCallback((pool: ReadySetBetRacer[], preserveOrder = false) => {
     if (pool.length === 0) {
       return [] as Array<{ lane: number; racer: ReadySetBetRacer }>;
     }
 
-    const shuffled = [...pool];
-    for (let index = shuffled.length - 1; index > 0; index -= 1) {
-      const randomIndex = Math.floor(Math.random() * (index + 1));
-      [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    const laneRacers = preserveOrder ? [...pool] : [...pool];
+    if (!preserveOrder) {
+      for (let index = laneRacers.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [laneRacers[index], laneRacers[randomIndex]] = [laneRacers[randomIndex], laneRacers[index]];
+      }
     }
 
-    const selectedForRace = shuffled.slice(0, 9);
+    const selectedForRace = laneRacers.slice(0, 9);
     while (selectedForRace.length < 9) {
-      const randomRacer = pool[Math.floor(Math.random() * pool.length)];
-      selectedForRace.push(randomRacer);
+      const nextIndex = selectedForRace.length % laneRacers.length;
+      selectedForRace.push(laneRacers[nextIndex]);
     }
 
     return selectedForRace.map((racer, index) => ({
@@ -124,8 +151,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       racer,
     }));
   }, []);
-  const [raceSlots, setRaceSlots] = useState<Array<{ lane: number; racer: ReadySetBetRacer }>>(
-    () => createRandomRaceSlots(RACERS_BY_MODE.horse)
+  const [raceSlots, setRaceSlots] = useState<Array<{ lane: number; racer: ReadySetBetRacer }>>(() =>
+    createRaceSlots(RACERS_BY_MODE.horse)
   );
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
@@ -207,19 +234,26 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   useEffect(() => () => stopRace(), [stopRace]);
   useEffect(() => {
     resetRace();
-    setRaceSlots(createRandomRaceSlots(racers));
-  }, [createRandomRaceSlots, racers, resetRace]);
+    setRaceSlots(createRaceSlots(racers, mode === "choose"));
+  }, [createRaceSlots, mode, racers, resetRace]);
 
   const hasRacersAvailable = raceSlots.length > 0;
 
   const toggleChooseRacer = (racerId: string) => {
     setSelectedRacerIds((previous) => {
+      const wasSelected = previous.has(racerId);
       const next = new Set(previous);
-      if (next.has(racerId)) {
+      if (wasSelected) {
         next.delete(racerId);
       } else {
         next.add(racerId);
       }
+      setChosenRacerOrder((currentOrder) => {
+        if (wasSelected) {
+          return currentOrder.filter((id) => id !== racerId);
+        }
+        return [...currentOrder.filter((id) => id !== racerId), racerId];
+      });
       return next;
     });
   };
@@ -253,7 +287,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         <h1 style={{ marginTop: 0, marginBottom: "0.75rem" }}>Ready Set Bet</h1>
         <p style={{ marginTop: 0, marginBottom: "0.75rem", lineHeight: 1.4 }}>
           Pick who races this round: <strong>H-</strong> images for horses, <strong>P-</strong>
-          {" "}images for people, and <strong>U-</strong> images for unique racers.
+          {" "}images for people, <strong>D-</strong> images for D&amp;D racers, and{" "}
+          <strong>U-</strong> images for unique racers.
         </p>
 
         <div
@@ -304,14 +339,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             }}
           >
             <p style={{ marginTop: 0, marginBottom: "0.6rem" }}>
-              Pick exactly who can be in the race. Shuffle will randomize from this list.
+              Pick exactly who can be in the race. In Choose mode, selection order sets lane order:
+              first selected goes to lane 1, second to lane 2, and so on.
             </p>
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.75rem" }}>
               <button
                 type="button"
-                onClick={() =>
-                  setSelectedRacerIds(new Set(RACERS_BY_MODE.all.map((racer) => racer.id)))
-                }
+                onClick={() => {
+                  setSelectedRacerIds(new Set(RACERS_BY_MODE.all.map((racer) => racer.id)));
+                  setChosenRacerOrder(RACERS_BY_MODE.all.map((racer) => racer.id));
+                }}
                 style={{
                   border: "1px solid #fff",
                   backgroundColor: "rgba(255,255,255,0.2)",
@@ -326,7 +363,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               </button>
               <button
                 type="button"
-                onClick={() => setSelectedRacerIds(new Set())}
+                onClick={() => {
+                  setSelectedRacerIds(new Set());
+                  setChosenRacerOrder([]);
+                }}
                 style={{
                   border: "1px solid #fff",
                   backgroundColor: "rgba(255,255,255,0.1)",
@@ -432,7 +472,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             </button>
             <button
               type="button"
-              onClick={() => setRaceSlots(createRandomRaceSlots(racers))}
+              onClick={() => setRaceSlots(createRaceSlots(racers, mode === "choose"))}
               disabled={isRacing || racers.length === 0}
               style={{
                 border: "1px solid #fff",
@@ -583,6 +623,54 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 </div>
               );
             })}
+            {winnerLane && raceSlots[winnerLane - 1] && (
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 5,
+                  pointerEvents: "none",
+                }}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    width: "min(38vw, 280px)",
+                    maxWidth: "280px",
+                    aspectRatio: "1 / 1",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img
+                    src={raceSlots[winnerLane - 1].racer.image}
+                    alt={`${raceSlots[winnerLane - 1].racer.name} winner`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.75))",
+                    }}
+                  />
+                  <img
+                    src={confettiGif}
+                    alt="Winner confetti"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      mixBlendMode: "screen",
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
