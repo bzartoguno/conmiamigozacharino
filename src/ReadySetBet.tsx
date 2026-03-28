@@ -664,7 +664,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                       inset: 0,
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       mixBlendMode: "screen",
                       opacity: 0.25,
                     }}
