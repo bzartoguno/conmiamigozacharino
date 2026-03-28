@@ -23,8 +23,8 @@ const NAME_TAG_COLOR_BY_LANE_LABEL: Record<(typeof LANE_LABELS)[number], string>
   "4": "#2563eb",
   "5": "#facc15",
   "6": "#ec4899",
-  "7": "#ec4899",
-  "8": "#111827",
+  "7": "#111827",
+  "8": "#ec4899",
   "9": "#facc15",
   "10": "#2563eb",
   "11/12": "#2563eb",
@@ -224,9 +224,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         <section
           aria-label="race controls and progress"
           style={{
-            backgroundColor: "rgba(2, 6, 23, 0.65)",
+            backgroundColor: "transparent",
             borderRadius: "14px",
-            padding: "0.75rem",
+            padding: "0",
             marginBottom: "1rem",
           }}
         >
@@ -312,7 +312,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               aspectRatio: "1 / 1",
               borderRadius: "12px",
               overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.35)",
+              border: "none",
               backgroundImage: `url(${raceTrackImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
