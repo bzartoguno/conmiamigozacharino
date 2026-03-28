@@ -12,6 +12,10 @@ const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
+const TRACK_COLUMN_POSITIONS = [
+  10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
+] as const;
+const TRACK_LANE_TOP_POSITIONS = [13, 21.5, 30, 38.5, 47, 55.5, 64, 72.5, 81] as const;
 
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [mode, setMode] = useState<RacerMode>("horse");
@@ -189,87 +193,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         </div>
 
         <section
-          aria-label={`${mode} race lineup`}
-          style={{
-            backgroundColor: "rgba(15, 23, 42, 0.55)",
-            borderRadius: "14px",
-            padding: "0.75rem",
-            marginBottom: "1rem",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "0.5rem",
-              marginBottom: "0.5rem",
-              flexWrap: "wrap",
-            }}
-          >
-            <h2 style={{ margin: 0, fontSize: "1rem" }}>Race line-up (9 lanes)</h2>
-            <button
-              type="button"
-              onClick={() => setLineupSeed((seed) => seed + 1)}
-              disabled={isRacing}
-              style={{
-                border: "1px solid #fff",
-                backgroundColor: isRacing
-                  ? "rgba(148, 163, 184, 0.45)"
-                  : "rgba(255, 255, 255, 0.2)",
-                color: isRacing ? "#e2e8f0" : "#fff",
-                borderRadius: "999px",
-                padding: "0.4rem 0.8rem",
-                cursor: isRacing ? "not-allowed" : "pointer",
-                fontWeight: 700,
-              }}
-            >
-              Shuffle racers
-            </button>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-              gap: "0.5rem",
-            }}
-          >
-            {raceSlots.map(({ lane, racer }) => (
-              <article
-                key={`${lane}-${racer.id}`}
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.95)",
-                  color: "#111827",
-                  borderRadius: "10px",
-                  padding: "0.45rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  minHeight: "68px",
-                }}
-              >
-                <img
-                  src={racer.image}
-                  alt={racer.name}
-                  style={{
-                    width: "46px",
-                    height: "46px",
-                    objectFit: "contain",
-                    flexShrink: 0,
-                  }}
-                />
-                <div>
-                  <div style={{ fontSize: "0.75rem", fontWeight: 700, opacity: 0.7 }}>
-                    Lane {lane}
-                  </div>
-                  <strong style={{ fontSize: "0.9rem" }}>{racer.name}</strong>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section
           aria-label="race controls and progress"
           style={{
             backgroundColor: "rgba(2, 6, 23, 0.65)",
@@ -305,6 +228,24 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             </button>
             <button
               type="button"
+              onClick={() => setLineupSeed((seed) => seed + 1)}
+              disabled={isRacing}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: isRacing
+                  ? "rgba(148, 163, 184, 0.45)"
+                  : "rgba(255, 255, 255, 0.2)",
+                color: isRacing ? "#e2e8f0" : "#fff",
+                borderRadius: "999px",
+                padding: "0.4rem 0.8rem",
+                cursor: isRacing ? "not-allowed" : "pointer",
+                fontWeight: 700,
+              }}
+            >
+              Shuffle racers
+            </button>
+            <button
+              type="button"
               onClick={resetRace}
               style={{
                 border: "1px solid #fff",
@@ -333,47 +274,85 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             </p>
           )}
 
-          <div style={{ display: "grid", gap: "0.5rem" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "900px",
+              margin: "0 auto",
+              aspectRatio: "1 / 1",
+              borderRadius: "12px",
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.35)",
+              backgroundImage: `url(${raceTrackImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 100%)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: `${TRACK_COLUMN_POSITIONS[TRACK_COLUMN_POSITIONS.length - 1]}%`,
+                top: "8%",
+                bottom: "14%",
+                borderLeft: "3px dashed rgba(248, 250, 252, 0.95)",
+              }}
+            />
             {raceSlots.map(({ lane, racer }, index) => {
-              const progress = positions[index] / FINISH_SPACE;
+              const safePosition = Math.max(0, Math.min(FINISH_SPACE, positions[index]));
+              const topOffset = TRACK_LANE_TOP_POSITIONS[index] ?? 50;
+              const markerLeft = TRACK_COLUMN_POSITIONS[safePosition] ?? TRACK_COLUMN_POSITIONS[0];
 
               return (
-                <div key={`progress-${lane}-${racer.id}`}>
+                <div
+                  key={`progress-${lane}-${racer.id}`}
+                  style={{
+                    position: "absolute",
+                    top: `${topOffset}%`,
+                    left: `${markerLeft}%`,
+                    transform: "translate(-50%, -50%)",
+                    transition: "left 0.45s ease-out",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                    zIndex: 2,
+                  }}
+                >
+                  <img
+                    src={racer.image}
+                    alt={racer.name}
+                    style={{
+                      width: "52px",
+                      height: "52px",
+                      objectFit: "contain",
+                      filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.65))",
+                    }}
+                  />
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "0.5rem",
-                      marginBottom: "0.2rem",
-                      fontSize: "0.85rem",
+                      backgroundColor: "rgba(15, 23, 42, 0.85)",
+                      border: "1px solid rgba(255,255,255,0.55)",
+                      borderRadius: "10px",
+                      padding: "0.2rem 0.45rem",
+                      lineHeight: 1.2,
+                      maxWidth: "180px",
                     }}
                   >
-                    <span>
-                      Lane {lane} ({LANE_LABELS[index]}): {racer.name}
-                    </span>
-                    <strong>
+                    <div style={{ fontSize: "0.74rem", opacity: 0.85 }}>
+                      Lane {lane} ({LANE_LABELS[index]})
+                    </div>
+                    <div style={{ fontSize: "0.78rem", fontWeight: 700 }}>{racer.name}</div>
+                    <div style={{ fontSize: "0.72rem", opacity: 0.85 }}>
                       {positions[index]}/{FINISH_SPACE}
-                    </strong>
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "16px",
-                      borderRadius: "999px",
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: `${Math.max(6, progress * 100)}%`,
-                        height: "100%",
-                        background:
-                          "linear-gradient(90deg, rgba(250,204,21,0.95) 0%, rgba(245,158,11,0.95) 100%)",
-                        transition: "width 0.45s ease-out",
-                      }}
-                    />
+                    </div>
                   </div>
                 </div>
               );
