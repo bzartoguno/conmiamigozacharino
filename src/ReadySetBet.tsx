@@ -15,6 +15,20 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [mode, setMode] = useState<RacerMode>("horse");
 
   const racers = useMemo(() => RACERS_BY_MODE[mode], [mode]);
+  const [lineupSeed, setLineupSeed] = useState(0);
+  const raceSlots = useMemo(() => {
+    if (racers.length === 0) {
+      return [];
+    }
+
+    const slots = Array.from({ length: 9 }, (_, index) => racers[index % racers.length]);
+    const rotated = slots.map((_, index) => slots[(index + lineupSeed) % slots.length]);
+
+    return rotated.map((racer, index) => ({
+      lane: index + 1,
+      racer,
+    }));
+  }, [lineupSeed, racers]);
 
   return (
     <div
@@ -43,6 +57,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         }}
       >
         <h1 style={{ marginTop: 0, marginBottom: "0.75rem" }}>Ready Set Bet</h1>
+        <p style={{ marginTop: 0, marginBottom: "0.75rem", lineHeight: 1.4 }}>
+          Pick who races this round: <strong>H-</strong> images for horses, <strong>P-</strong>
+          {" "}images for people, and <strong>U-</strong> images for unique racers.
+        </p>
 
         <div
           role="tablist"
@@ -80,6 +98,84 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             );
           })}
         </div>
+
+        <section
+          aria-label={`${mode} race lineup`}
+          style={{
+            backgroundColor: "rgba(15, 23, 42, 0.55)",
+            borderRadius: "14px",
+            padding: "0.75rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "0.5rem",
+              marginBottom: "0.5rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <h2 style={{ margin: 0, fontSize: "1rem" }}>Race line-up (9 lanes)</h2>
+            <button
+              type="button"
+              onClick={() => setLineupSeed((seed) => seed + 1)}
+              style={{
+                border: "1px solid #fff",
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                color: "#fff",
+                borderRadius: "999px",
+                padding: "0.4rem 0.8rem",
+                cursor: "pointer",
+                fontWeight: 700,
+              }}
+            >
+              Shuffle racers
+            </button>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+              gap: "0.5rem",
+            }}
+          >
+            {raceSlots.map(({ lane, racer }) => (
+              <article
+                key={`${lane}-${racer.id}`}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  color: "#111827",
+                  borderRadius: "10px",
+                  padding: "0.45rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  minHeight: "68px",
+                }}
+              >
+                <img
+                  src={racer.image}
+                  alt={racer.name}
+                  style={{
+                    width: "46px",
+                    height: "46px",
+                    objectFit: "contain",
+                    flexShrink: 0,
+                  }}
+                />
+                <div>
+                  <div style={{ fontSize: "0.75rem", fontWeight: 700, opacity: 0.7 }}>
+                    Lane {lane}
+                  </div>
+                  <strong style={{ fontSize: "0.9rem" }}>{racer.name}</strong>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section
           aria-label={`${mode} racers`}
