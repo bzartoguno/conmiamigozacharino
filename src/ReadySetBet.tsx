@@ -102,6 +102,18 @@ const SPOT_INDEXES_BY_BET_TYPE: Record<StandardBetType, StandardBetSpotIndex[]> 
   place: [2, 3],
   win: [4, 5, 6],
 };
+const BOARD_SPOT_INDEXES: StandardBetSpotIndex[] = [
+  ...SPOT_INDEXES_BY_BET_TYPE.show,
+  ...SPOT_INDEXES_BY_BET_TYPE.place,
+  ...SPOT_INDEXES_BY_BET_TYPE.win,
+];
+const BETTING_BOARD_OVERLAY = {
+  rowTopStart: 13.45,
+  columnLeftStart: 21.8,
+  rowGap: 7.78,
+  columnGap: 8.56,
+  squareSize: 7.1,
+} as const;
 
 const COLUMN_LABEL_BY_SPOT_INDEX: Record<StandardBetSpotIndex, string> = {
   0: "Show L",
@@ -406,9 +418,6 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   };
 
   const toggleGridBet = (laneLabel: (typeof LANE_LABELS)[number], spotIndex: StandardBetSpotIndex) => {
-    if (isRacing) {
-      return;
-    }
     const existing = placedBets.find(
       (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
     );
@@ -734,8 +743,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             <h2 style={{ marginTop: 0, marginBottom: "0.45rem", fontSize: "1rem" }}>Betting Board</h2>
             <p style={{ marginTop: 0, marginBottom: "0.5rem" }}>
               Bankroll: <strong>${bankroll}</strong> · Betting status:{" "}
-              <strong style={{ color: isRacing ? "#fca5a5" : "#86efac" }}>
-                {isRacing ? "LOCKED (race running)" : "OPEN (pre-race)"}
+              <strong style={{ color: "#86efac" }}>
+                OPEN (before and during race)
               </strong>
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center", marginBottom: "0.65rem" }}>
@@ -767,14 +776,14 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 Set Bankroll
               </button>
               <span style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-                Click squares on the board image to toggle bets ({placedBets.length}/5 selected).
+                Click squares on the board image to toggle bets any time ({placedBets.length}/5 selected).
               </span>
             </div>
 
             <div
               style={{
                 position: "relative",
-                width: "100%",
+                width: "80%",
                 maxWidth: "900px",
                 margin: "0 auto",
               }}
@@ -790,11 +799,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 }}
               />
               {LANE_LABELS.map((laneLabel, rowIndex) => (
-                SPOT_INDEXES_BY_BET_TYPE.show.concat(SPOT_INDEXES_BY_BET_TYPE.place, SPOT_INDEXES_BY_BET_TYPE.win)
-                  .map((spotIndex, columnIndex) => {
+                BOARD_SPOT_INDEXES.map((spotIndex, columnIndex) => {
                     const [multiplier, loss] = STANDARD_MATRIX[laneLabel][spotIndex];
-                    const top = 13.3 + rowIndex * 7.8;
-                    const left = 22 + columnIndex * 8.55;
+                    const top = BETTING_BOARD_OVERLAY.rowTopStart + rowIndex * BETTING_BOARD_OVERLAY.rowGap;
+                    const left = BETTING_BOARD_OVERLAY.columnLeftStart + columnIndex * BETTING_BOARD_OVERLAY.columnGap;
                     const placedBet = placedBets.find(
                       (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
                     );
@@ -805,13 +813,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                         aria-label={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} ${multiplier}x minus ${loss}`}
                         title={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} (${multiplier}x / -${loss})`}
                         onClick={() => toggleGridBet(laneLabel, spotIndex)}
-                        disabled={isRacing}
                         style={{
                           position: "absolute",
                           top: `${top}%`,
                           left: `${left}%`,
                           transform: "translate(-50%, -50%)",
-                          width: "7.4%",
+                          width: `${BETTING_BOARD_OVERLAY.squareSize}%`,
                           aspectRatio: "1 / 1",
                           borderRadius: "6px",
                           border: placedBet ? "2px solid #22c55e" : "1px solid rgba(255,255,255,0.65)",
@@ -819,7 +826,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                           color: "#fff",
                           fontSize: "0.65rem",
                           fontWeight: 700,
-                          cursor: isRacing ? "not-allowed" : "pointer",
+                          cursor: "pointer",
                           padding: 0,
                         }}
                       >
