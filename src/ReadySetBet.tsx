@@ -364,8 +364,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                     style={{
                       width: "52px",
                       height: "52px",
-                      objectFit: "contain",
+                      objectFit: "cover",
                       filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.65))",
+                      borderRadius: "999px",
+                      backgroundColor: "transparent",
                     }}
                   />
                   <div
@@ -424,7 +426,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 style={{
                   width: "100%",
                   height: "140px",
-                  objectFit: "contain",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                  backgroundColor: "transparent",
                 }}
               />
               <strong style={{ textAlign: "center", fontSize: "0.95rem" }}>{racer.name}</strong>
