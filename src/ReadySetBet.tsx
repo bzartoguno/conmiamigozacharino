@@ -364,9 +364,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                     style={{
                       width: "52px",
                       height: "52px",
-                      objectFit: "cover",
+                      objectFit: "contain",
                       filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.65))",
-                      borderRadius: "999px",
+                      imageRendering: "auto",
                       backgroundColor: "transparent",
                     }}
                   />
@@ -426,7 +426,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 style={{
                   width: "100%",
                   height: "140px",
-                  objectFit: "cover",
+                  objectFit: "contain",
+                  imageRendering: "auto",
                   borderRadius: "8px",
                   backgroundColor: "transparent",
                 }}
