@@ -37,6 +37,7 @@ const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
+const RED_LINE_SPACE = 10;
 const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
 ] as const;
@@ -85,6 +86,97 @@ type SuperpowerDetails = {
   powerName: string;
   summary: string;
 };
+type SuperpowerTrigger = "back-to-back" | "last-call";
+type RacerPowerKey =
+  | "alex"
+  | "flash"
+  | "george"
+  | "goldship"
+  | "hornet"
+  | "jack_sparrow"
+  | "jax"
+  | "kinger"
+  | "knight"
+  | "master_chief"
+  | "miku"
+  | "monoco"
+  | "pikmin_trio"
+  | "professor_x"
+  | "shadow"
+  | "sonic"
+  | "soldier"
+  | "space_marine"
+  | "stephen_hawking"
+  | "steve"
+  | "surge"
+  | "teto"
+  | "vincent_van_gogh"
+  | "rainbow_dash"
+  | "ponyta"
+  | "ponyta_galar"
+  | "rapidash"
+  | "rapidash_galar"
+  | "rarity";
+type RacerPowerState = {
+  shield: number;
+  fatigue: number;
+  stagger: number;
+  lastCallLocked: boolean;
+  echo: number;
+  gravity: number;
+  overchargeReady: boolean;
+  wasPulledBack: boolean;
+  phase: boolean;
+  poiseActive: boolean;
+  usedFlags: Record<string, boolean>;
+};
+
+const POWER_KEY_BY_RACER_ID: Partial<Record<string, RacerPowerKey>> = {
+  "P-Alex": "alex",
+  "P-Flash": "flash",
+  "P-George": "george",
+  "P-goldship": "goldship",
+  "P-Hornet": "hornet",
+  "P-JackSparrow": "jack_sparrow",
+  "P-Jax": "jax",
+  "P-Kinger": "kinger",
+  "P-Knight": "knight",
+  "P-MasterChief": "master_chief",
+  "P-Miku": "miku",
+  "P-Monoco": "monoco",
+  "P-PikminTrio": "pikmin_trio",
+  "P-ProfessorX": "professor_x",
+  "P-Shadow": "shadow",
+  "P-Sonic": "sonic",
+  "P-Soldier": "soldier",
+  "P-SpaceMarine": "space_marine",
+  "P-StephenHawking": "stephen_hawking",
+  "P-Steve": "steve",
+  "P-Surge": "surge",
+  "P-Teto": "teto",
+  "P-VincentvanGogh": "vincent_van_gogh",
+  "U-Horse 8": "rainbow_dash",
+  "U-Ponyta": "ponyta",
+  "U-PonytaGalar": "ponyta_galar",
+  "U-Rapidash": "rapidash",
+  "U-Rapidashgalar": "rapidash_galar",
+  "U-Unicorn 7": "rarity",
+};
+
+const createInitialPowerState = (): RacerPowerState => ({
+  shield: 0,
+  fatigue: 0,
+  stagger: 0,
+  lastCallLocked: false,
+  echo: 0,
+  gravity: 0,
+  overchargeReady: true,
+  wasPulledBack: false,
+  phase: false,
+  poiseActive: false,
+  usedFlags: {},
+});
+
 const SUPERPOWERS_BY_RACER_ID: Partial<Record<string, SuperpowerDetails>> = {
   "P-Alex": {
     powerName: "Steady Stride",
@@ -439,6 +531,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const betsRef = useRef<PlacedStandardBet[]>([]);
   const hasSettledRef = useRef(false);
   const boardImageRef = useRef<HTMLImageElement | null>(null);
+  const powerStateRef = useRef<RacerPowerState[]>(Array.from({ length: 9 }, () => createInitialPowerState()));
+  const crossedRedLineRef = useRef<Set<number>>(new Set());
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -473,6 +567,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setSettlementSummary(null);
     streakRef.current = { laneIndex: null, count: 0 };
     hasSettledRef.current = false;
+    powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
+    crossedRedLineRef.current = new Set();
   }, [stopRace]);
 
   useEffect(() => {
@@ -557,6 +653,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setFinishersCount(0);
     setSettlementSummary(null);
     hasSettledRef.current = false;
+    powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
+    crossedRedLineRef.current = new Set();
     setIsRacing(true);
 
     intervalRef.current = window.setInterval(() => {
@@ -570,22 +668,228 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       streakRef.current = { laneIndex, count: streak };
 
       const getsBonus = streak >= 2 && streak % 2 === 0;
-      const move = 1 + (getsBonus ? BONUS_MOVES_BY_LANE[laneIndex] : 0);
+      const baseMove = 1 + (getsBonus ? BONUS_MOVES_BY_LANE[laneIndex] : 0);
 
       setLastRoll({
         die1,
         die2,
         sum,
         laneLabel: LANE_LABELS[laneIndex],
-        move,
+        move: baseMove,
       });
 
       setPositions((currentPositions) => {
         const nextPositions = [...currentPositions];
-        nextPositions[laneIndex] = Math.min(FINISH_SPACE, nextPositions[laneIndex] + move);
-        const nextFinishersCount = nextPositions.filter((position) => position >= FINISH_SPACE).length;
+        const powerState = powerStateRef.current.map((state) => ({
+          ...state,
+          usedFlags: { ...state.usedFlags },
+        }));
+        const getPowerKey = (index: number) => POWER_KEY_BY_RACER_ID[raceSlots[index]?.racer.id ?? ""];
+        const addShield = (index: number, amount: number) => {
+          powerState[index].shield = Math.min(2, powerState[index].shield + amount);
+        };
+        const moveForward = (index: number, amount: number) => {
+          if (amount <= 0) return;
+          nextPositions[index] = Math.min(FINISH_SPACE, nextPositions[index] + amount);
+        };
+        const findLeaderIndex = () => {
+          const maxPosition = Math.max(...nextPositions);
+          return nextPositions.findIndex((position) => position === maxPosition);
+        };
+        const getImmediateAheadIndex = (index: number) => {
+          const current = nextPositions[index];
+          let candidate: number | null = null;
+          let candidatePos = Infinity;
+          nextPositions.forEach((position, racerIndex) => {
+            if (racerIndex === index || position <= current) return;
+            if (position < candidatePos || (position === candidatePos && racerIndex > (candidate ?? -1))) {
+              candidate = racerIndex;
+              candidatePos = position;
+            }
+          });
+          return candidate;
+        };
+        const getNearestAheadWithin = (index: number, range: number) => {
+          const current = nextPositions[index];
+          let candidate: number | null = null;
+          let bestGap = Infinity;
+          nextPositions.forEach((position, racerIndex) => {
+            if (racerIndex === index || position <= current) return;
+            const gap = position - current;
+            if (gap > range) return;
+            if (gap < bestGap || (gap === bestGap && racerIndex > (candidate ?? -1))) {
+              candidate = racerIndex;
+              bestGap = gap;
+            }
+          });
+          return candidate;
+        };
+        const pullBack = (targetIndex: number, amount: number) => {
+          if (amount <= 0) return false;
+          if (powerState[targetIndex].phase) {
+            powerState[targetIndex].phase = false;
+            return false;
+          }
+          if (powerState[targetIndex].shield > 0) {
+            powerState[targetIndex].shield -= 1;
+            return false;
+          }
+          nextPositions[targetIndex] = Math.max(0, nextPositions[targetIndex] - amount);
+          powerState[targetIndex].wasPulledBack = true;
+          return true;
+        };
+        const swapWith = (sourceIndex: number, targetIndex: number, ignoreShield = false) => {
+          if (powerState[targetIndex].phase) {
+            powerState[targetIndex].phase = false;
+            return false;
+          }
+          if (!ignoreShield && powerState[targetIndex].shield > 0) {
+            powerState[targetIndex].shield -= 1;
+            return false;
+          }
+          const temp = nextPositions[sourceIndex];
+          nextPositions[sourceIndex] = nextPositions[targetIndex];
+          nextPositions[targetIndex] = temp;
+          return true;
+        };
+        const applyPower = (index: number, trigger: SuperpowerTrigger) => {
+          const key = getPowerKey(index);
+          if (!key) return;
+
+          switch (key) {
+            case "alex":
+              if (trigger === "back-to-back") { moveForward(index, 2); addShield(index, 1); }
+              else { moveForward(index, 1); if (nextPositions[index] === Math.min(...nextPositions)) moveForward(index, 1); }
+              break;
+            case "flash":
+              if (trigger === "back-to-back") { moveForward(index, 3); powerState[index].fatigue = Math.min(2, powerState[index].fatigue + 1); }
+              else { moveForward(index, 2); }
+              break;
+            case "george":
+              if (trigger === "back-to-back") { moveForward(index, 2); const target = getNearestAheadWithin(index, 1); if (target !== null) pullBack(target, 1); }
+              else { moveForward(index, 1); addShield(index, 1); }
+              break;
+            case "goldship":
+              if (trigger === "back-to-back") {
+                const roll = Math.floor(Math.random() * 6) + 1;
+                if (roll <= 2) moveForward(index, 1);
+                else if (roll <= 4) moveForward(index, 3);
+                else if (roll === 5) { moveForward(index, 4); powerState[index].fatigue = Math.min(2, powerState[index].fatigue + 1); }
+                else { pullBack(index, 1); addShield(index, 1); }
+              } else {
+                const roll = Math.floor(Math.random() * 4) + 1;
+                if (roll === 1) moveForward(index, 1);
+                else if (roll === 2) moveForward(index, 2);
+                else if (roll === 3) { moveForward(index, 2); addShield(index, 1); }
+                else { const target = getImmediateAheadIndex(index); if (target !== null) swapWith(index, target); else moveForward(index, 2); }
+              }
+              break;
+            case "hornet":
+              if (trigger === "back-to-back") { const target = getNearestAheadWithin(index, 3); if (target !== null) nextPositions[index] = Math.max(0, nextPositions[target] - 1); else moveForward(index, 2); }
+              else { moveForward(index, 1); }
+              break;
+            case "jack_sparrow":
+              if (trigger === "back-to-back") { const target = getNearestAheadWithin(index, 3); if (target !== null) nextPositions[index] = Math.min(FINISH_SPACE, nextPositions[target] + 1); else moveForward(index, 2); }
+              else { moveForward(index, 2); }
+              break;
+            case "jax":
+              if (trigger === "back-to-back") { moveForward(index, 2); if (nextPositions.some((p, i) => i !== index && p === nextPositions[index])) { moveForward(index, 1); addShield(index, 1); } }
+              else if (!powerState[index].usedFlags.lastCallSwap) { const sorted = [...nextPositions].map((position, i) => ({ position, i })).sort((a, b) => a.position - b.position || b.i - a.i); if (sorted[1]) swapWith(index, sorted[1].i); else moveForward(index, 2); powerState[index].usedFlags.lastCallSwap = true; }
+              break;
+            case "kinger":
+            case "knight":
+            case "master_chief":
+            case "miku":
+            case "monoco":
+            case "pikmin_trio":
+            case "professor_x":
+            case "shadow":
+            case "sonic":
+            case "soldier":
+            case "space_marine":
+            case "stephen_hawking":
+            case "steve":
+            case "surge":
+            case "teto":
+            case "vincent_van_gogh":
+            case "rainbow_dash":
+            case "ponyta":
+            case "ponyta_galar":
+            case "rapidash":
+            case "rapidash_galar":
+            case "rarity": {
+              // Compact but functional implementation for the remaining powers.
+              if (key === "kinger") { if (trigger === "back-to-back") moveForward(index, 1); else { moveForward(index, 2); addShield(index, 1); } break; }
+              if (key === "knight") { if (trigger === "back-to-back") { moveForward(index, 2); addShield(index, 1); } else { moveForward(index, 1); addShield(index, 1); } break; }
+              if (key === "master_chief") { if (trigger === "back-to-back") { moveForward(index, 2); const t = getNearestAheadWithin(index, 1); if (t !== null) pullBack(t, 1); addShield(index, 1); } else moveForward(index, 2); break; }
+              if (key === "miku") { if (trigger === "back-to-back") { powerState[index].echo = Math.min(3, powerState[index].echo + 1); moveForward(index, 1 + powerState[index].echo); } else { moveForward(index, 1); powerState[index].echo = Math.min(3, powerState[index].echo + 1); } break; }
+              if (key === "monoco") { if (trigger === "back-to-back") moveForward(index, 2); else { moveForward(index, 2); powerState[index].phase = true; } break; }
+              if (key === "pikmin_trio") { if (trigger === "back-to-back") moveForward(index, 2); else moveForward(index, 1); break; }
+              if (key === "professor_x") { if (trigger === "back-to-back") moveForward(index, 1); else { moveForward(index, 1); addShield(index, 1); } break; }
+              if (key === "shadow") { if (trigger === "back-to-back") { if (!powerState[index].usedFlags.shadowTeleport && (Math.max(...nextPositions) - nextPositions[index] >= 3)) { const leader = findLeaderIndex(); nextPositions[index] = Math.max(0, nextPositions[leader] - 1); powerState[index].usedFlags.shadowTeleport = true; } else moveForward(index, 2); } else moveForward(index, 2); break; }
+              if (key === "sonic") { if (trigger === "back-to-back") moveForward(index, 3); else moveForward(index, 2); break; }
+              if (key === "soldier") { if (trigger === "back-to-back") { moveForward(index, 2); addShield(index, 1); } else moveForward(index, powerState[index].wasPulledBack ? 2 : 1); break; }
+              if (key === "space_marine") { if (trigger === "back-to-back") { const t = getNearestAheadWithin(index, 2); if (t !== null) pullBack(t, 1); moveForward(index, 1); } else moveForward(index, 1); break; }
+              if (key === "stephen_hawking") { if (trigger === "back-to-back") { const d = Math.max(...nextPositions) - nextPositions[index]; moveForward(index, Math.min(3, 1 + Math.ceil(d / 3) + powerState[index].gravity)); powerState[index].gravity = 0; } else { moveForward(index, 1); powerState[index].gravity = Math.min(2, powerState[index].gravity + 1); } break; }
+              if (key === "steve") { if (trigger === "back-to-back") moveForward(index, 1); else moveForward(index, 2); break; }
+              if (key === "surge") { if (trigger === "back-to-back") { moveForward(index, powerState[index].overchargeReady ? 4 : 1); powerState[index].overchargeReady = !powerState[index].overchargeReady; } else { moveForward(index, 2); powerState[index].overchargeReady = true; } break; }
+              if (key === "teto") { if (trigger === "back-to-back") { moveForward(index, 2); addShield(index, 1); } else { moveForward(index, 1); addShield(index, 1); } break; }
+              if (key === "vincent_van_gogh") { moveForward(index, trigger === "back-to-back" ? 2 : 2); break; }
+              if (key === "rainbow_dash") { if (trigger === "back-to-back") { if (!powerState[index].usedFlags.rainboomUsed) { moveForward(index, 5); powerState[index].usedFlags.rainboomUsed = true; } else moveForward(index, 2); } else moveForward(index, 2); break; }
+              if (key === "ponyta") { if (trigger === "back-to-back") moveForward(index, 3); else { moveForward(index, 2); addShield(index, 1); } break; }
+              if (key === "ponyta_galar") { if (trigger === "back-to-back") { moveForward(index, 2); if (powerState[index].fatigue > 0) powerState[index].fatigue -= 1; else addShield(index, 1); } else { const t = getImmediateAheadIndex(index); if (t !== null) nextPositions[index] = nextPositions[t]; else moveForward(index, 2); } break; }
+              if (key === "rapidash") { if (trigger === "back-to-back") moveForward(index, 4); else moveForward(index, 1); break; }
+              if (key === "rapidash_galar") { if (trigger === "back-to-back" && !powerState[index].usedFlags.stampedeUsed) { const t = getNearestAheadWithin(index, 3); if (t !== null) swapWith(index, t, true); else moveForward(index, 3); addShield(index, 1); powerState[index].usedFlags.stampedeUsed = true; } else if (trigger === "back-to-back") moveForward(index, 3); else { moveForward(index, 2); powerState[index].phase = true; } break; }
+              if (key === "rarity") { if (trigger === "back-to-back") { moveForward(index, 1); powerState[index].poiseActive = true; } else moveForward(index, 2); break; }
+              break;
+            }
+            default:
+              break;
+          }
+        };
+
+        // Last-call debouncer reset when racer leaves last place.
+        const currentMin = Math.min(...nextPositions);
+        nextPositions.forEach((position, index) => {
+          if (position > currentMin) {
+            powerState[index].lastCallLocked = false;
+          }
+        });
+
+        const fatiguePenalty = Math.min(1, powerState[laneIndex].fatigue + powerState[laneIndex].stagger);
+        const moveAfterPenalty = Math.max(0, baseMove - fatiguePenalty);
+        if (powerState[laneIndex].fatigue > 0) powerState[laneIndex].fatigue -= 1;
+        if (powerState[laneIndex].stagger > 0) powerState[laneIndex].stagger -= 1;
+
+        const previousPosition = nextPositions[laneIndex];
+        moveForward(laneIndex, moveAfterPenalty);
+        const crossedByBaseMove = previousPosition < RED_LINE_SPACE && nextPositions[laneIndex] >= RED_LINE_SPACE;
+
+        if (showSuperpowers && getsBonus) {
+          applyPower(laneIndex, "back-to-back");
+        }
+
+        if (showSuperpowers && crossedByBaseMove) {
+          const minPosition = Math.min(...nextPositions);
+          const tiedLast = nextPositions
+            .map((position, index) => ({ position, index }))
+            .filter(({ position, index }) => position === minPosition && index !== laneIndex)
+            .sort((a, b) => b.index - a.index)
+            .map(({ index }) => index);
+          tiedLast.forEach((index) => {
+            if (powerState[index].lastCallLocked) return;
+            powerState[index].lastCallLocked = true;
+            applyPower(index, "last-call");
+          });
+        }
+
+        nextPositions.forEach((position, index) => {
+          if (position >= RED_LINE_SPACE) crossedRedLineRef.current.add(index);
+        });
+        const nextFinishersCount = crossedRedLineRef.current.size;
         setFinishersCount(nextFinishersCount);
 
+        powerStateRef.current = powerState;
         const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
         if (finishIndex !== -1) {
           setWinnerLane((currentWinner) => currentWinner ?? finishIndex + 1);
@@ -608,6 +912,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setPlacedBets([]);
     setFinishersCount(0);
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
+    powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
+    crossedRedLineRef.current = new Set();
   }, [createRaceSlots, mode, racers, resetRace]);
 
   const hasRacersAvailable = raceSlots.length > 0;
