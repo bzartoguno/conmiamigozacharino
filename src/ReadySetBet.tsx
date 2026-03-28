@@ -81,6 +81,128 @@ const MIRRORED_RACER_IDS = new Set([
 ]);
 
 const shouldMirrorRacer = (racer: ReadySetBetRacer) => MIRRORED_RACER_IDS.has(racer.id);
+type SuperpowerDetails = {
+  powerName: string;
+  summary: string;
+};
+const SUPERPOWERS_BY_RACER_ID: Partial<Record<string, SuperpowerDetails>> = {
+  "P-Alex": {
+    powerName: "Steady Stride",
+    summary: "Reliable burst movement with small defensive shielding when pressure rises.",
+  },
+  "P-Flash": {
+    powerName: "Speed Force Burn",
+    summary: "Huge speed bursts that can add fatigue to future dice movement.",
+  },
+  "P-George": {
+    powerName: "Good Neighbor Nudge",
+    summary: "Moves forward while lightly nudging nearby leaders backward.",
+  },
+  "P-goldship": {
+    powerName: "Captain's Whim",
+    summary: "Chaotic dice-driven outcomes that swing between big gains and setbacks.",
+  },
+  "P-Hornet": {
+    powerName: "Silkline Grapple",
+    summary: "Can grapple closer to rivals and leave a one-time snare trap behind.",
+  },
+  "P-JackSparrow": {
+    powerName: "Cursed Coin Shortcut",
+    summary: "Trickster teleporting plus a cursed coin that taxes an enemy trigger.",
+  },
+  "P-Jax": {
+    powerName: "Mischief Step",
+    summary: "Breaks ties for extra tempo and has a dramatic once-per-race escape swap.",
+  },
+  "P-Kinger": {
+    powerName: "King's Gambit",
+    summary: "Pressures the leader by checking and delaying their next Back-to-Back power.",
+  },
+  "P-Knight": {
+    powerName: "Shade Cloak",
+    summary: "Steady movement backed by repeatable shield-based defense.",
+  },
+  "P-MasterChief": {
+    powerName: "Spartan Charge",
+    summary: "Strong forward push with close-range control and comeback upside.",
+  },
+  "P-Miku": {
+    powerName: "Encore Echo",
+    summary: "Builds echo stacks that ramp her future Back-to-Back movement.",
+  },
+  "P-Monoco": {
+    powerName: "Moonlit Mirror",
+    summary: "Position-swapping mobility with a one-hit phase-style safety net.",
+  },
+  "P-PikminTrio": {
+    powerName: "Carry Chain",
+    summary: "Pack synergy boosts movement when allies are clustered nearby.",
+  },
+  "P-ProfessorX": {
+    powerName: "Telepathic Detour",
+    summary: "Taxes the leader's next dice move while maintaining safe progress.",
+  },
+  "P-Shadow": {
+    powerName: "Chaos Control",
+    summary: "Comeback teleport potential with added protection if still trailing.",
+  },
+  "P-Sonic": {
+    powerName: "Spin Dash",
+    summary: "High-speed surges with anti-runaway fatigue and clutch comeback boost.",
+  },
+  "P-Soldier": {
+    powerName: "Marching Orders",
+    summary: "Disciplined pace that converts prior pullbacks into extra recovery speed.",
+  },
+  "P-SpaceMarine": {
+    powerName: "Suppressive Fire",
+    summary: "Slows rivals through short pullbacks and leader trigger suppression.",
+  },
+  "P-StephenHawking": {
+    powerName: "Curved Spacetime",
+    summary: "Stores comeback potential while behind, then cashes it in on a burst.",
+  },
+  "P-Steve": {
+    powerName: "Place Block",
+    summary: "Builds a one-time lane block trap that punishes pass-through movement.",
+  },
+  "P-Surge": {
+    powerName: "Overcharge Cycle",
+    summary: "Alternates between explosive and low-output turns in a power cycle.",
+  },
+  "P-Teto": {
+    powerName: "UTAU Glitch Step",
+    summary: "Precision movement with conditional swaps and self-cleanse utility.",
+  },
+  "P-VincentvanGogh": {
+    powerName: "Starry Wake",
+    summary: "Leaves a wake effect that grants a draft then applies delayed stagger.",
+  },
+  "U-Horse 8": {
+    powerName: "Sonic Rainboom",
+    summary: "One massive once-per-race burst plus a small shockwave pullback.",
+  },
+  "U-Ponyta": {
+    powerName: "Flame Charge",
+    summary: "Fast burst movement that leaves a one-use scorch trap behind.",
+  },
+  "U-PonytaGalar": {
+    powerName: "Pastel Veil",
+    summary: "Consistent forward tempo with status cleansing and catch-up teleport.",
+  },
+  "U-Rapidash": {
+    powerName: "Blazing Sprint",
+    summary: "Very high speed that gains extra value when lanes are crowded.",
+  },
+  "U-Rapidashgalar": {
+    powerName: "Mystic Stampede",
+    summary: "Once-per-race shield-piercing swap with defensive phase follow-up.",
+  },
+  "U-Unicorn 7": {
+    powerName: "Perfect Poise",
+    summary: "Elegant tie-breaking movement that avoids messy crowded finishes.",
+  },
+};
 
 type StandardBetType = "show" | "place" | "win";
 type StandardBetSpotIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6;
@@ -245,6 +367,7 @@ export const readySetBetMapButton = {
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   // PSEUDOCODE: Track UI/game state (selected racer mode, lane positions, race status, winner, and last roll).
   const [mode, setMode] = useState<RacerMode>("horse");
+  const [showSuperpowers, setShowSuperpowers] = useState(false);
   const [selectedRacerIds, setSelectedRacerIds] = useState<Set<string>>(
     () => new Set(RACERS_BY_MODE.all.map((racer) => racer.id))
   );
@@ -672,6 +795,26 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               </button>
             );
           })}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+          <button
+            type="button"
+            onClick={() => setShowSuperpowers((previous) => !previous)}
+            style={{
+              border: "1px solid #fff",
+              backgroundColor: showSuperpowers ? "#a855f7" : "rgba(255, 255, 255, 0.12)",
+              color: "#fff",
+              borderRadius: "999px",
+              padding: "0.4rem 0.9rem",
+              cursor: "pointer",
+              fontWeight: 700,
+            }}
+          >
+            {showSuperpowers ? "Superpowers: On" : "Superpowers: Off"}
+          </button>
+          <small style={{ opacity: 0.9 }}>
+            Optional mode: show power names and quick summaries under racer portraits.
+          </small>
         </div>
 
         {mode === "choose" && (
@@ -1234,6 +1377,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 }}
               />
               <strong style={{ textAlign: "center", fontSize: "0.95rem" }}>{racer.name}</strong>
+              {showSuperpowers && SUPERPOWERS_BY_RACER_ID[racer.id] && (
+                <div style={{ textAlign: "center", fontSize: "0.78rem", lineHeight: 1.35 }}>
+                  <div style={{ fontWeight: 700, color: "#6d28d9" }}>
+                    {SUPERPOWERS_BY_RACER_ID[racer.id]?.powerName}
+                  </div>
+                  <div style={{ color: "#334155" }}>
+                    {SUPERPOWERS_BY_RACER_ID[racer.id]?.summary}
+                  </div>
+                </div>
+              )}
               </article>
             );
           })}
