@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { BackButton } from "./BackButton";
 import confettiGif from "./ReadySetBet/Confetti.gif";
 import bettingBoardImage from "./ReadySetBet/ReadySetBetBettingBoard.png";
@@ -97,33 +97,54 @@ const STANDARD_MATRIX: Record<(typeof LANE_LABELS)[number], ReadonlyArray<readon
   "11/12": [[4, 4], [4, 3], [5, 4], [5, 3], [7, 2], [8, 2], [9, 2]],
 };
 
-const SPOT_INDEXES_BY_BET_TYPE: Record<StandardBetType, StandardBetSpotIndex[]> = {
-  show: [0, 1],
-  place: [2, 3],
-  win: [4, 5, 6],
-};
-const BOARD_SPOT_INDEXES: StandardBetSpotIndex[] = [
-  ...SPOT_INDEXES_BY_BET_TYPE.show,
-  ...SPOT_INDEXES_BY_BET_TYPE.place,
-  ...SPOT_INDEXES_BY_BET_TYPE.win,
-];
-const BETTING_BOARD_OVERLAY = {
-  rowTopStart: 13.45,
-  columnLeftStart: 21.8,
-  rowGap: 7.78,
-  columnGap: 8.56,
-  squareSize: 7.1,
+const BOARD_SOURCE_SIZE = {
+  width: 900,
+  height: 1354,
 } as const;
-
-const COLUMN_LABEL_BY_SPOT_INDEX: Record<StandardBetSpotIndex, string> = {
-  0: "Show L",
-  1: "Show R",
-  2: "Place L",
-  3: "Place R",
-  4: "Win L",
-  5: "Win M",
-  6: "Win R",
+type BoardRect = {
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
 };
+type BoardNormalizedRect = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+const BOARD_ROWS = [
+  { key: "23", laneLabel: "2/3", y1: 272, y2: 359 },
+  { key: "4", laneLabel: "4", y1: 359, y2: 447 },
+  { key: "5", laneLabel: "5", y1: 455, y2: 544 },
+  { key: "6", laneLabel: "6", y1: 544, y2: 632 },
+  { key: "7", laneLabel: "7", y1: 632, y2: 720 },
+  { key: "8", laneLabel: "8", y1: 720, y2: 807 },
+  { key: "9", laneLabel: "9", y1: 807, y2: 895 },
+  { key: "10", laneLabel: "10", y1: 905, y2: 992 },
+  { key: "1112", laneLabel: "11/12", y1: 992, y2: 1080 },
+] as const;
+const BOARD_COLUMNS = {
+  show: [
+    { suffix: "l", x1: 83, x2: 169, spotIndex: 0 },
+    { suffix: "r", x1: 169, x2: 254, spotIndex: 1 },
+  ],
+  place: [
+    { suffix: "l", x1: 270, x2: 355, spotIndex: 2 },
+    { suffix: "r", x1: 355, x2: 441, spotIndex: 3 },
+  ],
+  win: [
+    { suffix: "l", x1: 459, x2: 544, spotIndex: 4 },
+    { suffix: "m", x1: 544, x2: 630, spotIndex: 5 },
+    { suffix: "r", x1: 630, x2: 716, spotIndex: 6 },
+  ],
+} as const;
+const SIDE_BET_RECTS = [
+  { id: "blue_wins", label: "Blue Wins", x1: 95, x2: 247, y1: 118, y2: 199 },
+  { id: "orange_wins", label: "Orange Wins", x1: 288, x2: 441, y1: 118, y2: 198 },
+  { id: "red_wins", label: "Red Wins", x1: 471, x2: 617, y1: 121, y2: 201 },
+  { id: "seven_5th_or_worse", label: "7 Finishes 5th or Worse", x1: 656, x2: 806, y1: 118, y2: 198 },
+] as const;
 
 const BET_TYPE_BY_SPOT_INDEX: Record<StandardBetSpotIndex, StandardBetType> = {
   0: "show",
@@ -134,6 +155,62 @@ const BET_TYPE_BY_SPOT_INDEX: Record<StandardBetSpotIndex, StandardBetType> = {
   5: "win",
   6: "win",
 };
+
+type BoardStaticBetSpot = {
+  id: string;
+  label: string;
+  kind: "standard" | "side";
+  rect: BoardRect;
+  laneLabel?: (typeof LANE_LABELS)[number];
+  betType?: StandardBetType;
+  spotIndex?: StandardBetSpotIndex;
+};
+
+const normalizeBoardRect = (rect: BoardRect): BoardNormalizedRect => ({
+  left: (rect.x1 / BOARD_SOURCE_SIZE.width) * 100,
+  top: (rect.y1 / BOARD_SOURCE_SIZE.height) * 100,
+  width: ((rect.x2 - rect.x1) / BOARD_SOURCE_SIZE.width) * 100,
+  height: ((rect.y2 - rect.y1) / BOARD_SOURCE_SIZE.height) * 100,
+});
+
+const BOARD_STATIC_SPOTS: BoardStaticBetSpot[] = [
+  ...BOARD_ROWS.flatMap((row) => {
+    const showSpots = BOARD_COLUMNS.show.map((column) => ({
+      id: `show_${row.key}_${column.suffix}`,
+      label: `${row.laneLabel} Show ${column.suffix.toUpperCase()}`,
+      kind: "standard" as const,
+      laneLabel: row.laneLabel,
+      betType: "show" as const,
+      spotIndex: column.spotIndex as StandardBetSpotIndex,
+      rect: { x1: column.x1, x2: column.x2, y1: row.y1, y2: row.y2 },
+    }));
+    const placeSpots = BOARD_COLUMNS.place.map((column) => ({
+      id: `place_${row.key}_${column.suffix}`,
+      label: `${row.laneLabel} Place ${column.suffix.toUpperCase()}`,
+      kind: "standard" as const,
+      laneLabel: row.laneLabel,
+      betType: "place" as const,
+      spotIndex: column.spotIndex as StandardBetSpotIndex,
+      rect: { x1: column.x1, x2: column.x2, y1: row.y1, y2: row.y2 },
+    }));
+    const winSpots = BOARD_COLUMNS.win.map((column) => ({
+      id: `win_${row.key}_${column.suffix}`,
+      label: `${row.laneLabel} Win ${column.suffix.toUpperCase()}`,
+      kind: "standard" as const,
+      laneLabel: row.laneLabel,
+      betType: "win" as const,
+      spotIndex: column.spotIndex as StandardBetSpotIndex,
+      rect: { x1: column.x1, x2: column.x2, y1: row.y1, y2: row.y2 },
+    }));
+    return [...showSpots, ...placeSpots, ...winSpots];
+  }),
+  ...SIDE_BET_RECTS.map((sideBet) => ({
+    id: sideBet.id,
+    label: sideBet.label,
+    kind: "side" as const,
+    rect: { x1: sideBet.x1, x2: sideBet.x2, y1: sideBet.y1, y2: sideBet.y2 },
+  })),
+];
 
 const PLAYER_TOKENS = [
   { id: "token-2", value: 2 },
@@ -146,11 +223,14 @@ const PLAYER_TOKENS = [
 interface PlacedStandardBet {
   tokenId: string;
   tokenValue: number;
-  laneLabel: (typeof LANE_LABELS)[number];
-  betType: StandardBetType;
-  spotIndex: StandardBetSpotIndex;
-  multiplier: number;
-  loss: number;
+  betId: string;
+  displayLabel: string;
+  kind: "standard" | "side";
+  laneLabel?: (typeof LANE_LABELS)[number];
+  betType?: StandardBetType;
+  spotIndex?: StandardBetSpotIndex;
+  multiplier?: number;
+  loss?: number;
 }
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
@@ -233,6 +313,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [settlementSummary, setSettlementSummary] = useState<string | null>(null);
   const betsRef = useRef<PlacedStandardBet[]>([]);
   const hasSettledRef = useRef(false);
+  const boardImageRef = useRef<HTMLImageElement | null>(null);
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -271,6 +352,11 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     betsRef.current = placedBets;
   }, [placedBets]);
 
+  const boardSpotById = useMemo(
+    () => new Map(BOARD_STATIC_SPOTS.map((spot) => [spot.id, spot])),
+    []
+  );
+
   const settleRace = useCallback((finalPositions: number[]) => {
     if (hasSettledRef.current) {
       return;
@@ -304,6 +390,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     );
 
     const isWinningBet = (bet: PlacedStandardBet) => {
+      if (bet.kind !== "standard" || !bet.betType || !bet.laneLabel) return false;
       if (bet.betType === "win") return winSet.has(bet.laneLabel);
       if (bet.betType === "place") return placeSet.has(bet.laneLabel);
       return showSet.has(bet.laneLabel);
@@ -312,6 +399,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     let winnings = 0;
     let losses = 0;
     betsRef.current.forEach((bet) => {
+      if (bet.kind !== "standard" || bet.multiplier === undefined || bet.loss === undefined) {
+        return;
+      }
       if (isWinningBet(bet)) {
         winnings += bet.tokenValue * bet.multiplier;
       } else {
@@ -417,15 +507,16 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setSettlementSummary(null);
   };
 
-  const toggleGridBet = (laneLabel: (typeof LANE_LABELS)[number], spotIndex: StandardBetSpotIndex) => {
-    const existing = placedBets.find(
-      (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
-    );
+  const toggleBoardBet = (betId: string) => {
+    const spot = boardSpotById.get(betId);
+    if (!spot) {
+      return;
+    }
+
+    const existing = placedBets.find((bet) => bet.betId === betId);
     if (existing) {
       setPlacedBets((current) =>
-        current.filter(
-          (bet) => !(bet.laneLabel === laneLabel && bet.spotIndex === spotIndex)
-        )
+        current.filter((bet) => bet.betId !== betId)
       );
       setSettlementSummary(null);
       return;
@@ -444,20 +535,46 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
       return;
     }
 
-    const [multiplier, loss] = STANDARD_MATRIX[laneLabel][spotIndex];
-    setPlacedBets((current) => [
-      ...current,
-      {
-        tokenId: nextToken.id,
-        tokenValue: nextToken.value,
-        laneLabel,
-        betType: BET_TYPE_BY_SPOT_INDEX[spotIndex],
-        spotIndex,
-        multiplier,
-        loss,
-      },
-    ]);
+    const baseBet: PlacedStandardBet = {
+      tokenId: nextToken.id,
+      tokenValue: nextToken.value,
+      betId: spot.id,
+      displayLabel: spot.label,
+      kind: spot.kind,
+    };
+    if (
+      spot.kind === "standard" &&
+      spot.laneLabel !== undefined &&
+      spot.spotIndex !== undefined
+    ) {
+      const [multiplier, loss] = STANDARD_MATRIX[spot.laneLabel][spot.spotIndex];
+      baseBet.laneLabel = spot.laneLabel;
+      baseBet.betType = BET_TYPE_BY_SPOT_INDEX[spot.spotIndex];
+      baseBet.spotIndex = spot.spotIndex;
+      baseBet.multiplier = multiplier;
+      baseBet.loss = loss;
+    }
+    setPlacedBets((current) => [...current, baseBet]);
     setSettlementSummary(null);
+  };
+
+  const handleBoardClick = (event: MouseEvent<HTMLDivElement>) => {
+    const boardBounds = boardImageRef.current?.getBoundingClientRect();
+    if (!boardBounds) {
+      return;
+    }
+    const localX = ((event.clientX - boardBounds.left) / boardBounds.width) * BOARD_SOURCE_SIZE.width;
+    const localY = ((event.clientY - boardBounds.top) / boardBounds.height) * BOARD_SOURCE_SIZE.height;
+    const hitSpot = BOARD_STATIC_SPOTS.find(
+      (spot) =>
+        localX >= spot.rect.x1 &&
+        localX <= spot.rect.x2 &&
+        localY >= spot.rect.y1 &&
+        localY <= spot.rect.y2
+    );
+    if (hitSpot) {
+      toggleBoardBet(hitSpot.id);
+    }
   };
 
   return (
@@ -786,9 +903,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                 width: "80%",
                 maxWidth: "900px",
                 margin: "0 auto",
+                cursor: "pointer",
               }}
+              onClick={handleBoardClick}
             >
               <img
+                ref={boardImageRef}
                 src={bettingBoardImage}
                 alt="Ready Set Bet betting board"
                 style={{
@@ -798,43 +918,43 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   borderRadius: "10px",
                 }}
               />
-              {LANE_LABELS.map((laneLabel, rowIndex) => (
-                BOARD_SPOT_INDEXES.map((spotIndex, columnIndex) => {
-                    const [multiplier, loss] = STANDARD_MATRIX[laneLabel][spotIndex];
-                    const top = BETTING_BOARD_OVERLAY.rowTopStart + rowIndex * BETTING_BOARD_OVERLAY.rowGap;
-                    const left = BETTING_BOARD_OVERLAY.columnLeftStart + columnIndex * BETTING_BOARD_OVERLAY.columnGap;
-                    const placedBet = placedBets.find(
-                      (bet) => bet.laneLabel === laneLabel && bet.spotIndex === spotIndex
-                    );
-                    return (
-                      <button
-                        key={`${laneLabel}-${spotIndex}`}
-                        type="button"
-                        aria-label={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} ${multiplier}x minus ${loss}`}
-                        title={`${laneLabel} ${COLUMN_LABEL_BY_SPOT_INDEX[spotIndex]} (${multiplier}x / -${loss})`}
-                        onClick={() => toggleGridBet(laneLabel, spotIndex)}
-                        style={{
-                          position: "absolute",
-                          top: `${top}%`,
-                          left: `${left}%`,
-                          transform: "translate(-50%, -50%)",
-                          width: `${BETTING_BOARD_OVERLAY.squareSize}%`,
-                          aspectRatio: "1 / 1",
-                          borderRadius: "6px",
-                          border: placedBet ? "2px solid #22c55e" : "1px solid rgba(255,255,255,0.65)",
-                          backgroundColor: placedBet ? "rgba(34, 197, 94, 0.5)" : "rgba(15, 23, 42, 0.35)",
-                          color: "#fff",
-                          fontSize: "0.65rem",
-                          fontWeight: 700,
-                          cursor: "pointer",
-                          padding: 0,
-                        }}
-                      >
-                        {placedBet ? `$${placedBet.tokenValue}` : ""}
-                      </button>
-                    );
-                  })
-              ))}
+              {BOARD_STATIC_SPOTS.map((spot) => {
+                const normalizedRect = normalizeBoardRect(spot.rect);
+                const placedBet = placedBets.find((bet) => bet.betId === spot.id);
+                const standardDetails =
+                  spot.kind === "standard" && spot.spotIndex !== undefined && spot.laneLabel !== undefined
+                    ? (() => {
+                        const [multiplier, loss] = STANDARD_MATRIX[spot.laneLabel][spot.spotIndex];
+                        return `${spot.label} (${multiplier}x / -${loss})`;
+                      })()
+                    : `${spot.label} (side bet)`;
+                return (
+                  <div
+                    key={spot.id}
+                    aria-hidden="true"
+                    title={standardDetails}
+                    style={{
+                      position: "absolute",
+                      left: `${normalizedRect.left}%`,
+                      top: `${normalizedRect.top}%`,
+                      width: `${normalizedRect.width}%`,
+                      height: `${normalizedRect.height}%`,
+                      borderRadius: "6px",
+                      border: placedBet ? "2px solid #22c55e" : "1px solid rgba(255,255,255,0.45)",
+                      backgroundColor: placedBet ? "rgba(34, 197, 94, 0.5)" : "rgba(15, 23, 42, 0.18)",
+                      pointerEvents: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                      fontSize: "0.65rem",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {placedBet ? `$${placedBet.tokenValue}` : ""}
+                  </div>
+                );
+              })}
             </div>
 
             {settlementSummary && (
@@ -843,8 +963,11 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             {placedBets.length > 0 && (
               <ul style={{ marginBottom: 0, paddingLeft: "1.1rem" }}>
                 {placedBets.map((bet) => (
-                  <li key={`${bet.tokenId}-${bet.laneLabel}-${bet.betType}-${bet.spotIndex}`}>
-                    ${bet.tokenValue} on {bet.betType.toUpperCase()} {bet.laneLabel} ({bet.multiplier}x / -{bet.loss})
+                  <li key={`${bet.tokenId}-${bet.betId}`}>
+                    ${bet.tokenValue} on {bet.displayLabel}
+                    {bet.kind === "standard" && bet.betType && bet.multiplier !== undefined && bet.loss !== undefined
+                      ? ` (${bet.betType.toUpperCase()} ${bet.laneLabel} ${bet.multiplier}x / -${bet.loss})`
+                      : " (side bet)"}
                   </li>
                 ))}
               </ul>
