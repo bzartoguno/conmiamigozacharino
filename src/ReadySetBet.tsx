@@ -12,6 +12,8 @@ const RACERS_BY_MODE: Record<RacerMode, ReadySetBetRacer[]> = {
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
 const FINISH_SPACE = 15;
+const TRACK_START_PERCENT = 9;
+const TRACK_FINISH_PERCENT = 92;
 
 export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [mode, setMode] = useState<RacerMode>("horse");
@@ -333,47 +335,84 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
             </p>
           )}
 
-          <div style={{ display: "grid", gap: "0.5rem" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              minHeight: "460px",
+              borderRadius: "12px",
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.35)",
+              backgroundImage: `url(${raceTrackImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 100%)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: `${TRACK_FINISH_PERCENT}%`,
+                top: "5%",
+                bottom: "5%",
+                borderLeft: "3px dashed rgba(248, 250, 252, 0.95)",
+              }}
+            />
             {raceSlots.map(({ lane, racer }, index) => {
               const progress = positions[index] / FINISH_SPACE;
+              const topOffset = ((index + 1) / (raceSlots.length + 1)) * 100;
+              const markerLeft =
+                TRACK_START_PERCENT + progress * (TRACK_FINISH_PERCENT - TRACK_START_PERCENT);
 
               return (
-                <div key={`progress-${lane}-${racer.id}`}>
+                <div
+                  key={`progress-${lane}-${racer.id}`}
+                  style={{
+                    position: "absolute",
+                    top: `${topOffset}%`,
+                    left: `${markerLeft}%`,
+                    transform: "translate(-50%, -50%)",
+                    transition: "left 0.45s ease-out",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                    zIndex: 2,
+                  }}
+                >
+                  <img
+                    src={racer.image}
+                    alt={racer.name}
+                    style={{
+                      width: "52px",
+                      height: "52px",
+                      objectFit: "contain",
+                      filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.65))",
+                    }}
+                  />
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "0.5rem",
-                      marginBottom: "0.2rem",
-                      fontSize: "0.85rem",
+                      backgroundColor: "rgba(15, 23, 42, 0.85)",
+                      border: "1px solid rgba(255,255,255,0.55)",
+                      borderRadius: "10px",
+                      padding: "0.2rem 0.45rem",
+                      lineHeight: 1.2,
+                      maxWidth: "180px",
                     }}
                   >
-                    <span>
-                      Lane {lane} ({LANE_LABELS[index]}): {racer.name}
-                    </span>
-                    <strong>
+                    <div style={{ fontSize: "0.74rem", opacity: 0.85 }}>
+                      Lane {lane} ({LANE_LABELS[index]})
+                    </div>
+                    <div style={{ fontSize: "0.78rem", fontWeight: 700 }}>{racer.name}</div>
+                    <div style={{ fontSize: "0.72rem", opacity: 0.85 }}>
                       {positions[index]}/{FINISH_SPACE}
-                    </strong>
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "16px",
-                      borderRadius: "999px",
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: `${Math.max(6, progress * 100)}%`,
-                        height: "100%",
-                        background:
-                          "linear-gradient(90deg, rgba(250,204,21,0.95) 0%, rgba(245,158,11,0.95) 100%)",
-                        transition: "width 0.45s ease-out",
-                      }}
-                    />
+                    </div>
                   </div>
                 </div>
               );
