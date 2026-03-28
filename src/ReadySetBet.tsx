@@ -18,6 +18,17 @@ const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
 ] as const;
 const TRACK_LANE_TOP_POSITIONS = [21.5, 29, 35.8, 43, 50, 57, 64, 71, 78] as const;
+const NAME_TAG_COLOR_BY_LANE_LABEL: Record<(typeof LANE_LABELS)[number], string> = {
+  "2/3": "#2563eb",
+  "4": "#2563eb",
+  "5": "#facc15",
+  "6": "#ec4899",
+  "7": "#111827",
+  "8": "#ec4899",
+  "9": "#facc15",
+  "10": "#2563eb",
+  "11/12": "#2563eb",
+};
 
 // PSEUDOCODE: Keep map-button metadata here so Map.tsx only consumes exported config.
 export const readySetBetMapButton = {
@@ -213,9 +224,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         <section
           aria-label="race controls and progress"
           style={{
-            backgroundColor: "rgba(2, 6, 23, 0.65)",
+            backgroundColor: "transparent",
             borderRadius: "14px",
-            padding: "0.75rem",
+            padding: "0",
             marginBottom: "1rem",
           }}
         >
@@ -301,7 +312,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               aspectRatio: "1 / 1",
               borderRadius: "12px",
               overflow: "hidden",
-              border: "1px solid rgba(255,255,255,0.35)",
+              border: "none",
               backgroundImage: `url(${raceTrackImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -328,6 +339,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               const safePosition = Math.max(0, Math.min(FINISH_SPACE, positions[index]));
               const topOffset = TRACK_LANE_TOP_POSITIONS[index] ?? 50;
               const markerLeft = TRACK_COLUMN_POSITIONS[safePosition] ?? TRACK_COLUMN_POSITIONS[0];
+              const laneLabel = LANE_LABELS[index];
+              const nameTagColor = NAME_TAG_COLOR_BY_LANE_LABEL[laneLabel] ?? "#1e293b";
+              const hasDarkTag = nameTagColor === "#111827";
 
               return (
                 <div
@@ -356,16 +370,19 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   />
                   <div
                     style={{
-                      backgroundColor: "rgba(15, 23, 42, 0.85)",
-                      border: "1px solid rgba(255,255,255,0.55)",
+                      backgroundColor: nameTagColor,
+                      border: hasDarkTag
+                        ? "1px solid rgba(148, 163, 184, 0.8)"
+                        : "1px solid rgba(255,255,255,0.6)",
                       borderRadius: "10px",
                       padding: "0.2rem 0.45rem",
                       lineHeight: 1.2,
                       maxWidth: "180px",
+                      color: hasDarkTag || nameTagColor === "#2563eb" ? "#f8fafc" : "#111827",
                     }}
                   >
                     <div style={{ fontSize: "0.74rem", opacity: 0.85 }}>
-                      Lane {lane} ({LANE_LABELS[index]})
+                      Lane {lane} ({laneLabel})
                     </div>
                     <div style={{ fontSize: "0.78rem", fontWeight: 700 }}>{racer.name}</div>
                     <div style={{ fontSize: "0.72rem", opacity: 0.85 }}>
