@@ -1088,7 +1088,7 @@ const styles: Record<string, React.CSSProperties> = {
     width: "100%",
   },
   subtitle: {
-    margin: "0 0 2rem",
+    margin: "0 auto 2rem",
     maxWidth: "760px",
     fontSize: "1.05rem",
     lineHeight: 1.5,
