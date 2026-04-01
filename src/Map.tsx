@@ -1113,6 +1113,8 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
     gap: "0.85rem",
     width: "100%",
     maxWidth: "100%",
