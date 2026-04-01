@@ -939,7 +939,7 @@ function SandboxMenu({
       <div style={styles.sandboxContent}>
         <div style={styles.sandboxHero}>
           <p style={styles.sandboxEyebrow}>Welcome to</p>
-          <h1 style={styles.title}>Sandbox</h1>
+          <h1 style={{ ...styles.title, textAlign: "center" }}>Sandbox</h1>
           <p style={styles.subtitle}>
             Choose a destination below to preview the settlement, then enter it.
           </p>
@@ -957,7 +957,7 @@ function SandboxMenu({
               key={town.key}
               label={town.name}
               description={undefined}
-              imageSrc={undefined}
+              imageSrc={town.image}
               backgroundColor="rgba(30, 41, 59, 0.88)"
               color="#e2e8f0"
               delay="0s"
