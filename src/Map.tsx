@@ -924,6 +924,9 @@ function SandboxMenu({
   onNavigate: (key: string, options?: { settlementType?: SettlementType }) => void;
 }) {
   const orderedSandboxTowns = sandboxTowns;
+  const [selectedTownKey, setSelectedTownKey] = useState<string>(orderedSandboxTowns[0].key);
+  const selectedTown =
+    orderedSandboxTowns.find((town) => town.key === selectedTownKey) ?? orderedSandboxTowns[0];
 
   return (
     <div style={styles.wrapper}>
@@ -950,14 +953,12 @@ function SandboxMenu({
             <FloatingButton
               key={town.key}
               label={town.name}
-              description={town.description}
-              imageSrc={town.image}
+              description={undefined}
+              imageSrc={undefined}
               backgroundColor="rgba(30, 41, 59, 0.88)"
               color="#e2e8f0"
               delay="0s"
-              onClick={() =>
-                onNavigate(town.routeKey, { settlementType: town.settlementType })
-              }
+              onClick={() => setSelectedTownKey(town.key)}
             />
           ))}
         </div>
