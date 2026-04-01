@@ -956,8 +956,8 @@ function SandboxMenu({
             <FloatingButton
               key={town.key}
               label={town.name}
-              description={town.description}
-              imageSrc={town.image}
+              description={undefined}
+              imageSrc={undefined}
               backgroundColor="rgba(30, 41, 59, 0.88)"
               color="#e2e8f0"
               delay="0s"
