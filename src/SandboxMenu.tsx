@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { BackButton } from "./BackButton";
 import styles from "./SandboxMenu.module.css";
 import sandboxWorldMapImage from "./SandboxWorldMap.webp";
 import sandboxAnalepticHoltImage from "./SandboxAnalepticHolt.webp";
@@ -167,8 +168,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "pop-n-faith",
     name: "Pop-n Faith (Eli)",
     image: sandboxPopNFaithImage,
-    description:
-      "Sorry but there is no more Pop-n Faith.",
+    description: "Sorry but there is no more Pop-n Faith.",
     shops: [
       "Jazz's Portable Potions",
       "Blossom Hotel",
@@ -308,72 +308,55 @@ const sandboxTowns: SandboxTown[] = [
 ];
 
 export function SandboxMenu({ onBack }: { onBack: () => void }) {
-  const [openTown, setOpenTown] = useState<string | null>(null);
+  const [openTown, setOpenTown] = useState<string>(sandboxTowns[0].key);
+
+  const selectedTown = useMemo(
+    () => sandboxTowns.find((town) => town.key === openTown) ?? sandboxTowns[0],
+    [openTown]
+  );
 
   return (
     <div className={styles.wrapper}>
-      <button type="button" className={styles.backButton} onClick={onBack}>
-        ← Back to main menu
-      </button>
+      <BackButton onClick={onBack} />
 
-      <header className={styles.header}>
-        <img
-          src={sandboxWorldMapImage}
-          alt="Sandbox world map"
-          className={styles.heroImage}
-        />
-        <div>
-          <p className={styles.kicker}>Sandbox Destinations</p>
-          <h1 className={styles.title}>Pick a town to view its shops</h1>
+      <div className={styles.content}>
+        <header className={styles.hero}>
+          <p className={styles.eyebrow}>Welcome to</p>
+          <h1 className={styles.title}>Sandbox</h1>
           <p className={styles.subtitle}>
-            Tap a destination to read its story, then see which shops you can dive into.
-            Each card uses its own world art as the backdrop.
+            Pick a destination below to view the town story and all associated shops.
           </p>
-        </div>
-      </header>
+        </header>
 
-      <div className={styles.grid}>
-        {sandboxTowns.map((town) => {
-          const isOpen = openTown === town.key;
-          return (
+        <img src={sandboxWorldMapImage} alt="Sandbox world map" className={styles.featureImage} />
+
+        <div className={styles.buttonGrid}>
+          {sandboxTowns.map((town) => (
             <button
               key={town.key}
               type="button"
-              className={`${styles.card} ${isOpen ? styles.cardOpen : ""}`}
-              style={{
-                backgroundImage: `linear-gradient(180deg, rgba(15,23,42,0.65) 0%, rgba(15,23,42,0.8) 35%, rgba(15,23,42,0.95) 100%), url(${town.image})`,
-              }}
-              onClick={() => setOpenTown(isOpen ? null : town.key)}
-              aria-expanded={isOpen}
+              onClick={() => setOpenTown(town.key)}
+              className={`${styles.townButton} ${selectedTown.key === town.key ? styles.townButtonActive : ""}`}
+              aria-pressed={selectedTown.key === town.key}
             >
-              <div className={styles.cardTop}>
-                <span className={styles.cardTitle}>{town.name}</span>
-                <span aria-hidden className={styles.chevron}>
-                  {isOpen ? "▲" : "▼"}
-                </span>
-              </div>
-              {isOpen ? (
-                <div className={styles.cardBody}>
-                  <p className={styles.description}>{town.description}</p>
-                  <div className={styles.shopList}>
-                    <h3>Associated shops</h3>
-                    {town.shops.length > 0 ? (
-                      <ul>
-                        {town.shops.map((shop) => (
-                          <li key={shop}>{shop}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className={styles.emptyState}>No associated shops listed yet.</p>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <p className={styles.preview}>Tap to view description and shops</p>
-              )}
+              {town.name}
             </button>
-          );
-        })}
+          ))}
+        </div>
+
+        <section className={styles.detailsCard}>
+          <img src={selectedTown.image} alt={selectedTown.name} className={styles.detailsImage} />
+          <div className={styles.detailsContent}>
+            <h2>{selectedTown.name}</h2>
+            <p>{selectedTown.description}</p>
+            <h3>Associated shops</h3>
+            <ul>
+              {selectedTown.shops.map((shop) => (
+                <li key={shop}>{shop}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
