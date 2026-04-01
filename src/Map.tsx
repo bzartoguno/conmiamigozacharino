@@ -1083,7 +1083,9 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "2.5rem",
     fontWeight: "bold",
     color: "#ffffffff",
-    marginBottom: "1rem",
+    margin: "0 0 1rem",
+    textAlign: "center",
+    width: "100%",
   },
   subtitle: {
     margin: "0 0 2rem",
