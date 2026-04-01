@@ -924,43 +924,66 @@ function SandboxMenu({
   onNavigate: (key: string, options?: { settlementType?: SettlementType }) => void;
 }) {
   const orderedSandboxTowns = sandboxTowns;
+  const [selectedTownKey, setSelectedTownKey] = useState<string>(orderedSandboxTowns[0].key);
+  const selectedTown =
+    orderedSandboxTowns.find((town) => town.key === selectedTownKey) ?? orderedSandboxTowns[0];
 
   return (
     <div style={styles.wrapper}>
       <button type="button" onClick={onBack} style={styles.backButton}>
         ← Back to main menu
       </button>
-      <div style={styles.sandboxIntro}>
+      <div style={styles.sandboxContent}>
+        <div style={styles.sandboxHero}>
+          <p style={styles.sandboxEyebrow}>Welcome to</p>
+          <h1 style={styles.title}>Sandbox</h1>
+          <p style={styles.subtitle}>
+            Choose a destination below to preview the settlement, then enter it.
+          </p>
+        </div>
+
         <img
           src={sandboxWorldMapImage}
           alt="Sandbox world map"
-          style={styles.sandboxIntroImage}
+          style={styles.sandboxFeatureImage}
         />
-        <div style={styles.sandboxIntroText}>
-          <h1 style={styles.title}>Sandbox Destinations</h1>
-          <p>
-            Choose a settlement to learn its story, meet its people, and jump to
-            the shops available there. Each stop includes a quick overview to help
-            you decide where to explore next.
-          </p>
-        </div>
-      </div>
-      <div style={styles.sandboxGrid}>
-        {orderedSandboxTowns.map((town) => (
+
+        <div style={styles.sandboxButtonGrid}>
+          {orderedSandboxTowns.map((town) => (
             <FloatingButton
               key={town.key}
               label={town.name}
-              description={town.description}
-              imageSrc={town.image}
+              description={undefined}
+              imageSrc={undefined}
               backgroundColor="rgba(30, 41, 59, 0.88)"
               color="#e2e8f0"
               delay="0s"
-              onClick={() =>
-                onNavigate(town.routeKey, { settlementType: town.settlementType })
-              }
+              onClick={() => setSelectedTownKey(town.key)}
             />
           ))}
         </div>
+
+        <section style={styles.sandboxDetailsCard}>
+          <img
+            src={selectedTown.image}
+            alt={selectedTown.name}
+            style={styles.sandboxDetailsImage}
+          />
+          <div style={styles.sandboxDetailsContent}>
+            <h2 style={styles.sandboxDetailsTitle}>{selectedTown.name}</h2>
+            <p style={styles.sandboxDetailsText}>{selectedTown.description}</p>
+            <button
+              type="button"
+              style={styles.sandboxEnterButton}
+              onClick={() =>
+                onNavigate(selectedTown.routeKey, { settlementType: selectedTown.settlementType })
+              }
+            >
+              Enter {selectedTown.name}
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
@@ -1154,34 +1177,83 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: "center",
     maxWidth: "720px",
   },
-  sandboxIntro: {
+  sandboxContent: {
     marginTop: "4.5rem",
-    display: "flex",
-    alignItems: "center",
-    gap: "1.5rem",
-    backgroundColor: "rgba(0, 0, 0, 0.65)",
-    padding: "1.5rem",
-    borderRadius: "18px",
     width: "min(1100px, 95vw)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "1.25rem",
+    paddingBottom: "3rem",
   },
-  sandboxIntroImage: {
-    width: "220px",
-    height: "auto",
-    borderRadius: "16px",
-    border: "2px solid rgba(255, 255, 255, 0.7)",
-    boxShadow: "4px 6px 12px rgba(0,0,0,0.4)",
+  sandboxHero: {
+    backgroundColor: "rgba(15, 23, 42, 0.82)",
+    border: "1px solid rgba(255,255,255,0.16)",
+    borderRadius: "20px",
+    padding: "1.75rem",
+    textAlign: "center",
   },
-  sandboxIntroText: {
-    color: "#ffffff",
-    lineHeight: 1.5,
+  sandboxEyebrow: {
+    margin: "0 0 0.35rem",
+    textTransform: "uppercase",
+    letterSpacing: "0.18rem",
+    color: "#cbd5e1",
   },
-  sandboxGrid: {
+  sandboxFeatureImage: {
+    width: "100%",
+    maxWidth: "900px",
+    alignSelf: "center",
+    borderRadius: "20px",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    boxShadow: "0 14px 30px rgba(0, 0, 0, 0.35)",
+  },
+  sandboxButtonGrid: {
     marginTop: "1.25rem",
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "1.25rem",
-    width: "min(1100px, 95vw)",
-    paddingBottom: "3rem",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "0.9rem",
+    width: "100%",
+  },
+  sandboxDetailsCard: {
+    marginTop: "0.5rem",
+    width: "100%",
+    backgroundColor: "rgba(15, 23, 42, 0.8)",
+    borderRadius: "22px",
+    border: "1px solid rgba(255, 255, 255, 0.14)",
+    boxShadow: "0 18px 45px rgba(0, 0, 0, 0.35)",
+    padding: "1.25rem",
+    display: "grid",
+    gridTemplateColumns: "minmax(260px, 360px) 1fr",
+    gap: "1.2rem",
+    alignItems: "start",
+  },
+  sandboxDetailsImage: {
+    width: "100%",
+    borderRadius: "16px",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.3)",
+  },
+  sandboxDetailsContent: {
+    color: "#f8fafc",
+    lineHeight: 1.5,
+  },
+  sandboxDetailsTitle: {
+    marginTop: 0,
+    marginBottom: "0.65rem",
+    color: "#f8fafc",
+  },
+  sandboxDetailsText: {
+    marginTop: 0,
+    color: "#dbe6f5",
+  },
+  sandboxEnterButton: {
+    marginTop: "0.65rem",
+    padding: "0.8rem 1.15rem",
+    borderRadius: "12px",
+    border: "1px solid rgba(191, 219, 254, 0.8)",
+    backgroundColor: "rgba(37, 99, 235, 0.45)",
+    color: "#f8fafc",
+    cursor: "pointer",
+    fontWeight: 700,
   },
   everyShopGrid: {
     marginTop: "1.25rem",
