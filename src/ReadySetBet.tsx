@@ -451,7 +451,7 @@ export const readySetBetMapButton = {
   key: "ReadySetBet",
   label: "Horse Racing",
   delay: "50s",
-  backgroundColor: "rgba(250, 204, 21, 0.9)",
+  backgroundColor: "rgba(45, 212, 191, 0.9)",
   imageSrc: raceTrackImage,
 } as const;
 

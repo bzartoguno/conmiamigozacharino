@@ -24,6 +24,7 @@ const colorRules: ColorRule[] = [
 const styleMap: Record<string, ShopButtonStyle> = {
   "auction house": { backgroundColor: "rgba(138, 253, 244, 0.712)" },
   "black market": { backgroundColor: "rgba(0, 0, 0, 0.712)", color: "white" },
+  "horse racing": { backgroundColor: "rgba(45, 212, 191, 0.9)", color: "#052e2b" },
   "goblin market": { backgroundColor: "rgba(250, 204, 21, 0.9)" },
   goblins: { backgroundColor: "rgba(250, 204, 21, 0.9)" },
   "applegarth guild": { backgroundColor: "rgba(250, 204, 21, 0.9)" },
@@ -135,6 +136,18 @@ export function sortShopButtons<T extends { label: string; backgroundColor?: str
   buttons: T[]
 ): T[] {
   return [...buttons].sort((a, b) => {
+    const labelA = normalizeLabel(a.label);
+    const labelB = normalizeLabel(b.label);
+    const horseLabel = "horse racing";
+    const blackMarketLabel = "black market";
+
+    if (labelA === horseLabel && labelB === blackMarketLabel) {
+      return 1;
+    }
+    if (labelA === blackMarketLabel && labelB === horseLabel) {
+      return -1;
+    }
+
     const colorRankA = getColorRank(
       a.backgroundColor ?? getShopButtonStyle(a.label).backgroundColor
     );
@@ -144,6 +157,6 @@ export function sortShopButtons<T extends { label: string; backgroundColor?: str
     if (colorRankA !== colorRankB) {
       return colorRankA - colorRankB;
     }
-    return normalizeLabel(a.label).localeCompare(normalizeLabel(b.label));
+    return labelA.localeCompare(labelB);
   });
 }
