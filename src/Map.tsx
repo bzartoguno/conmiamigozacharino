@@ -962,6 +962,27 @@ function SandboxMenu({
             />
           ))}
         </div>
+
+        <section style={styles.sandboxDetailsCard}>
+          <img
+            src={selectedTown.image}
+            alt={selectedTown.name}
+            style={styles.sandboxDetailsImage}
+          />
+          <div style={styles.sandboxDetailsContent}>
+            <h2 style={styles.sandboxDetailsTitle}>{selectedTown.name}</h2>
+            <p style={styles.sandboxDetailsText}>{selectedTown.description}</p>
+            <button
+              type="button"
+              style={styles.sandboxEnterButton}
+              onClick={() =>
+                onNavigate(selectedTown.routeKey, { settlementType: selectedTown.settlementType })
+              }
+            >
+              Enter {selectedTown.name}
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -1188,9 +1209,51 @@ const styles: Record<string, React.CSSProperties> = {
   sandboxButtonGrid: {
     marginTop: "1.25rem",
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "1.25rem",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "0.9rem",
     width: "100%",
+  },
+  sandboxDetailsCard: {
+    marginTop: "0.5rem",
+    width: "100%",
+    backgroundColor: "rgba(15, 23, 42, 0.8)",
+    borderRadius: "22px",
+    border: "1px solid rgba(255, 255, 255, 0.14)",
+    boxShadow: "0 18px 45px rgba(0, 0, 0, 0.35)",
+    padding: "1.25rem",
+    display: "grid",
+    gridTemplateColumns: "minmax(260px, 360px) 1fr",
+    gap: "1.2rem",
+    alignItems: "start",
+  },
+  sandboxDetailsImage: {
+    width: "100%",
+    borderRadius: "16px",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.3)",
+  },
+  sandboxDetailsContent: {
+    color: "#f8fafc",
+    lineHeight: 1.5,
+  },
+  sandboxDetailsTitle: {
+    marginTop: 0,
+    marginBottom: "0.65rem",
+    color: "#f8fafc",
+  },
+  sandboxDetailsText: {
+    marginTop: 0,
+    color: "#dbe6f5",
+  },
+  sandboxEnterButton: {
+    marginTop: "0.65rem",
+    padding: "0.8rem 1.15rem",
+    borderRadius: "12px",
+    border: "1px solid rgba(191, 219, 254, 0.8)",
+    backgroundColor: "rgba(37, 99, 235, 0.45)",
+    color: "#f8fafc",
+    cursor: "pointer",
+    fontWeight: 700,
   },
   everyShopGrid: {
     marginTop: "1.25rem",
