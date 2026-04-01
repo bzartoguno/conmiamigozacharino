@@ -4,8 +4,6 @@ import subprocess          # Lets Python launch another program, like VLC
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
-import tkinter as tk       # Lets Python show a small window for show selection
-from tkinter import messagebox
 
 # to start use this
 #.  /usr/bin/python3 "/Volumes/Bag O Holdn/Videos (Project Nonsense)/project_nonsense_player.py"
@@ -183,71 +181,6 @@ def choose_tv_shows():
         return [SHOW_OPTIONS[i] for i in unique_indexes]
 
 
-def choose_tv_shows_with_window():
-    """
-    Show a small window with checkboxes for each TV show.
-    Return the selected show names.
-    """
-    selected_shows = []
-
-    root = tk.Tk()
-    root.title("Project Nonsense - Show Selector")
-    root.resizable(False, False)
-
-    frame = tk.Frame(root, padx=12, pady=12)
-    frame.pack(fill="both", expand=True)
-
-    tk.Label(frame, text="Choose TV shows to include:").pack(anchor="w")
-
-    all_var = tk.BooleanVar(value=False)
-    show_vars = {}
-
-    def toggle_all():
-        should_check = all_var.get()
-        for variable in show_vars.values():
-            variable.set(should_check)
-
-    def submit_selection():
-        nonlocal selected_shows
-        selected_shows = [
-            show_name for show_name, variable in show_vars.items() if variable.get()
-        ]
-
-        if not selected_shows:
-            messagebox.showwarning("No selection", "Please pick at least one show.")
-            return
-
-        root.destroy()
-
-    tk.Checkbutton(
-        frame,
-        text="All shows",
-        variable=all_var,
-        command=toggle_all,
-    ).pack(anchor="w", pady=(6, 6))
-
-    list_frame = tk.Frame(frame)
-    list_frame.pack(fill="both", expand=True)
-
-    for show_name in SHOW_OPTIONS:
-        variable = tk.BooleanVar(value=False)
-        show_vars[show_name] = variable
-        tk.Checkbutton(
-            list_frame,
-            text=show_name,
-            variable=variable,
-        ).pack(anchor="w")
-
-    button_row = tk.Frame(frame)
-    button_row.pack(fill="x", pady=(10, 0))
-
-    tk.Button(button_row, text="Start", command=submit_selection).pack(side="left")
-    tk.Button(button_row, text="Quit", command=root.destroy).pack(side="left", padx=(8, 0))
-
-    root.mainloop()
-    return selected_shows
-
-
 def get_tv_videos_from_selected_shows(selected_shows):
     """
     Load TV videos from only the show folders selected by the user.
@@ -270,17 +203,7 @@ def get_tv_videos_from_selected_shows(selected_shows):
     return videos
 
 
-try:
-    selected_tv_shows = choose_tv_shows_with_window()
-except Exception as gui_error:
-    print("Could not open show-selection window:", gui_error)
-    print("Falling back to terminal prompt.")
-    selected_tv_shows = choose_tv_shows()
-
-if not selected_tv_shows:
-    print("No shows selected. Exiting.")
-    exit()
-
+selected_tv_shows = choose_tv_shows()
 print("\nSelected shows:")
 for show in selected_tv_shows:
     print("-", show)
