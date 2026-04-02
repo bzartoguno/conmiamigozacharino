@@ -9,6 +9,7 @@ import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
 import supremeSmithyImage from "./Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import nmeImage from "./N.M.E.png";
+import calidrisRoomingRoombaImage from "./Calidris_Rooming_Roomba.webp";
 import { BackButton } from "./BackButton";
 import styles from "./CalidrisFisk.module.css";
 import { ShopButton } from "./ShopButton";
@@ -104,6 +105,11 @@ export function CalidrisFisk({
         <div className={styles.hero}>
           <p className={styles.eyebrow}>Sandbox</p>
           <h1 className={styles.title}>New Calidris</h1>
+          <img
+            className={styles.roomingRoombaImage}
+            src={calidrisRoomingRoombaImage}
+            alt="Calidris Rooming Roomba"
+          />
           <p className={styles.subtitle}>
             A new frontier, lead by an unusual bunch, will this up and coming place survive and thrive? or implode from internal conflict? Only time will tell.
           </p>

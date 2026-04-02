@@ -59,6 +59,16 @@
   color: #f8fafc;
 }
 
+.roomingRoombaImage {
+  width: min(340px, 100%);
+  height: auto;
+  margin: 0 auto 0.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(15, 23, 42, 0.5);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
 .subtitle {
   margin: 0;
   color: #cbd5e1;
