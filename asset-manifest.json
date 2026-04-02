@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.04390218.css",
-    "main.js": "/conmiamigozacharino/static/js/main.b0ff929a.js",
+    "main.css": "/conmiamigozacharino/static/css/main.4bb74cce.css",
+    "main.js": "/conmiamigozacharino/static/js/main.9dc0c299.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
+    "static/media/Calidris_Rooming_Roomba.webp": "/conmiamigozacharino/static/media/Calidris_Rooming_Roomba.75d0d3c40301ad7617aa.webp",
     "static/media/StrenuousNews.png": "/conmiamigozacharino/static/media/StrenuousNews.e619477f887a2191c832.png",
     "static/media/P-StephenHawking.png": "/conmiamigozacharino/static/media/P-StephenHawking.4ec8f9befca041519ca1.png",
     "static/media/P-PikminTrio.png": "/conmiamigozacharino/static/media/P-PikminTrio.d848bc1f3a36a0027cfb.png",
@@ -144,12 +145,12 @@
     "static/media/Objective survive.webp": "/conmiamigozacharino/static/media/Objective survive.6eb472af327f3b03c52d.webp",
     "static/media/P-Alex.webp": "/conmiamigozacharino/static/media/P-Alex.806e2c7ef4358ef0d008.webp",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.04390218.css.map": "/conmiamigozacharino/static/css/main.04390218.css.map",
-    "main.b0ff929a.js.map": "/conmiamigozacharino/static/js/main.b0ff929a.js.map",
+    "main.4bb74cce.css.map": "/conmiamigozacharino/static/css/main.4bb74cce.css.map",
+    "main.9dc0c299.js.map": "/conmiamigozacharino/static/js/main.9dc0c299.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04390218.css",
-    "static/js/main.b0ff929a.js"
+    "static/css/main.4bb74cce.css",
+    "static/js/main.9dc0c299.js"
   ]
 }
