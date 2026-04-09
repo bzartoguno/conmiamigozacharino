@@ -54,6 +54,37 @@ SHOW_OPTIONS = [
     "Zombie Land Saga",
 ]
 
+# Anime-only preset built from SHOW_OPTIONS names.
+ANIME_SHOWS = [
+    "Azumanga Daioh",
+    "Delicious in Dungeon",
+    "Kirby: Right Back At Ya!",
+    "Konosuba",
+    "Ranma",
+    "Ranma 2024",
+    "The Apothecary Diaries",
+    "Zombie Land Saga",
+]
+
+# Cartoon-only preset built from SHOW_OPTIONS names.
+CARTOON_SHOWS = [
+    "Arcane",
+    "Batman Brave n Bold",
+    "Bluey",
+    "Epithet Erased",
+    "Gwain Saga Episodes",
+    "Huanted Hotel",
+    "Justice League",
+    "Justice League Unlimited",
+    "Kid Cosmic",
+    "Murder Drones",
+    "Owl House",
+    "Phineas and Ferb",
+    "The Amazing Digital Circus",
+    "Win or Lose",
+    "Youtube",
+]
+
 
 # =====================
 # VLC FINDER
@@ -140,11 +171,13 @@ def get_videos(folder):
 def choose_tv_shows():
     """
     Ask the user which show folders should be included.
-    Return only the chosen show names from SHOW_OPTIONS.
+    Return chosen show names from SHOW_OPTIONS or a preset group.
     """
     print("\nChoose which TV shows to include before playback starts.")
     print("Type one or more numbers separated by commas (example: 1,4,9).")
     print("Type 'all' to include every show option.\n")
+    print("Type 'cartoon' to run only cartoon shows.")
+    print("Type 'anime' to run only anime shows.\n")
 
     for index, show_name in enumerate(SHOW_OPTIONS, start=1):
         print(f"{index}. {show_name}")
@@ -155,6 +188,10 @@ def choose_tv_shows():
 
         if lowered == "all":
             return SHOW_OPTIONS[:]
+        if lowered == "cartoon":
+            return CARTOON_SHOWS[:]
+        if lowered == "anime":
+            return ANIME_SHOWS[:]
 
         selected_indexes = []
         valid = True
@@ -173,7 +210,7 @@ def choose_tv_shows():
             selected_indexes.append(number - 1)
 
         if not valid or not selected_indexes:
-            print("Invalid choice. Enter numbers like 1,3,5 or type 'all'.")
+            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', or 'anime'.")
             continue
 
         # Preserve order while removing duplicates
