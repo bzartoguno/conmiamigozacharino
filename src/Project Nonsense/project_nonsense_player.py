@@ -148,7 +148,7 @@ print("Movie exists:", os.path.exists(MOVIE_FOLDER))
 print("VLC_PATH:", VLC_PATH)
 print("VLC exists:", os.path.exists(VLC_PATH) if VLC_PATH else False)
 print("Player plan:", "Use VLC first, fall back to QuickTime Player if VLC is missing")
-print("Hotkeys:", "backtick stops the program")
+print("Hotkeys:", "backtick: stop program | |: skip clip | _: toggle fullscreen")
 
 # =====================
 # LOAD VIDEO LISTS
@@ -305,6 +305,45 @@ def close_quicktime_documents(close_all=True):
         pass
 
 
+def toggle_quicktime_fullscreen():
+    """
+    Toggle QuickTime Player fullscreen/presentation mode for document 1.
+    If presentation mode scripting is unavailable, fall back to the
+    standard fullscreen keystroke (Control + Command + F) via System Events.
+    """
+    script = '''
+    tell application "QuickTime Player"
+        if (count of documents) = 0 then
+            return "NO_DOCUMENTS"
+        end if
+
+        try
+            set isPresenting to presenting of document 1
+            set presenting of document 1 to (not isPresenting)
+            return "TOGGLED_PRESENTATION"
+        on error
+            -- Fallback: send the common fullscreen toggle shortcut.
+        end try
+    end tell
+
+    tell application "System Events"
+        keystroke "f" using {command down, control down}
+    end tell
+    return "TOGGLED_KEYSTROKE"
+    '''
+
+    try:
+        result = subprocess.run(
+            ["osascript", "-e", script],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return result.stdout.strip()
+    except Exception:
+        return ""
+
+
 def on_press(key):
     """
     This function runs whenever a key is pressed.
@@ -330,6 +369,10 @@ def on_press(key):
                 close_quicktime_documents(close_all=False)
             elif current_player == "vlc" and current_process:
                 current_process.terminate()
+        if key.char == '_' and current_player == "quicktime":
+            toggle_result = toggle_quicktime_fullscreen()
+            if toggle_result == "NO_DOCUMENTS":
+                print("No QuickTime document is open to toggle fullscreen.")
 
     except AttributeError:
         pass
