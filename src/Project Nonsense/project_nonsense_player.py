@@ -4,6 +4,8 @@ import subprocess          # Lets Python launch another program, like VLC
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
+import tkinter as tk
+from tkinter import ttk
 
 # to start use this
 #.  /usr/bin/python3 "/Volumes/Bag O Holdn/Videos (Project Nonsense)/project_nonsense_player.py"
@@ -174,55 +176,70 @@ def get_videos(folder):
 
 def choose_tv_shows():
     """
-    Ask the user which show folders should be included.
-    Return chosen show names from SHOW_OPTIONS or a preset group.
+    Ask the user which show folders should be included using a popup window.
+    If no boxes are checked, return an empty list so playback uses movies only.
     """
-    print("\nChoose which TV shows to include before playback starts.")
-    print("Type one or more numbers separated by commas (example: 1,4,9).")
-    print("Type 'all' to include every show option.\n")
-    print("Type 'cartoon' to run only cartoon shows.")
-    print("Type 'anime' to run only anime shows.")
-    print("Type 'indie' to run only indie shows.\n")
+    selected_shows = []
 
-    for index, show_name in enumerate(SHOW_OPTIONS, start=1):
-        print(f"{index}. {show_name}")
+    def apply_preset(target_names):
+        target_set = set(target_names)
+        for show_name, bool_var in checkbox_vars.items():
+            bool_var.set(show_name in target_set)
 
-    while True:
-        raw_choice = input("\nWhich shows should run? ").strip()
-        lowered = raw_choice.lower()
+    def submit_selection():
+        nonlocal selected_shows
+        selected_shows = [
+            show_name for show_name in SHOW_OPTIONS if checkbox_vars[show_name].get()
+        ]
+        root.destroy()
 
-        if lowered == "all":
-            return SHOW_OPTIONS[:]
-        if lowered == "cartoon":
-            return CARTOON_SHOWS[:]
-        if lowered == "anime":
-            return ANIME_SHOWS[:]
-        if lowered == "indie":
-            return INDIE_SHOWS[:]
+    root = tk.Tk()
+    root.title("Project Nonsense Player Setup")
+    root.geometry("420x620")
+    root.resizable(False, True)
 
-        selected_indexes = []
-        valid = True
+    ttk.Label(
+        root,
+        text="Choose TV shows to include.\nLeave everything unchecked to play only movies.",
+        justify="left",
+    ).pack(anchor="w", padx=12, pady=(12, 8))
 
-        for piece in raw_choice.split(","):
-            item = piece.strip()
-            if not item.isdigit():
-                valid = False
-                break
+    preset_frame = ttk.Frame(root)
+    preset_frame.pack(fill="x", padx=12, pady=(0, 8))
+    ttk.Button(preset_frame, text="All", command=lambda: apply_preset(SHOW_OPTIONS)).pack(side="left", padx=(0, 6))
+    ttk.Button(preset_frame, text="Cartoon", command=lambda: apply_preset(CARTOON_SHOWS)).pack(side="left", padx=(0, 6))
+    ttk.Button(preset_frame, text="Anime", command=lambda: apply_preset(ANIME_SHOWS)).pack(side="left", padx=(0, 6))
+    ttk.Button(preset_frame, text="Indie", command=lambda: apply_preset(INDIE_SHOWS)).pack(side="left", padx=(0, 6))
+    ttk.Button(preset_frame, text="Clear", command=lambda: apply_preset([])).pack(side="left")
 
-            number = int(item)
-            if number < 1 or number > len(SHOW_OPTIONS):
-                valid = False
-                break
+    canvas = tk.Canvas(root, borderwidth=0, highlightthickness=0)
+    scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
+    checkbox_frame = ttk.Frame(canvas)
+    canvas.configure(yscrollcommand=scrollbar.set)
 
-            selected_indexes.append(number - 1)
+    canvas.pack(side="left", fill="both", expand=True, padx=(12, 0), pady=(0, 8))
+    scrollbar.pack(side="right", fill="y", padx=(0, 12), pady=(0, 8))
+    canvas_window = canvas.create_window((0, 0), window=checkbox_frame, anchor="nw")
 
-        if not valid or not selected_indexes:
-            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', 'anime', or 'indie'.")
-            continue
+    def on_frame_configure(_event):
+        canvas.configure(scrollregion=canvas.bbox("all"))
 
-        # Preserve order while removing duplicates
-        unique_indexes = list(dict.fromkeys(selected_indexes))
-        return [SHOW_OPTIONS[i] for i in unique_indexes]
+    def on_canvas_configure(event):
+        canvas.itemconfigure(canvas_window, width=event.width)
+
+    checkbox_frame.bind("<Configure>", on_frame_configure)
+    canvas.bind("<Configure>", on_canvas_configure)
+
+    checkbox_vars = {}
+    for show_name in SHOW_OPTIONS:
+        bool_var = tk.BooleanVar(value=False)
+        checkbox_vars[show_name] = bool_var
+        ttk.Checkbutton(checkbox_frame, text=show_name, variable=bool_var).pack(anchor="w", padx=6, pady=2)
+
+    ttk.Button(root, text="Start Playback", command=submit_selection).pack(anchor="e", padx=12, pady=(0, 12))
+    root.protocol("WM_DELETE_WINDOW", submit_selection)
+    root.mainloop()
+    return selected_shows
 
 
 def get_tv_videos_from_selected_shows(selected_shows):
@@ -251,6 +268,8 @@ selected_tv_shows = choose_tv_shows()
 print("\nSelected shows:")
 for show in selected_tv_shows:
     print("-", show)
+if not selected_tv_shows:
+    print("- none (movies only mode)")
 
 tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
 movie_videos = get_videos(MOVIE_FOLDER)
@@ -259,15 +278,29 @@ movie_videos = get_videos(MOVIE_FOLDER)
 print("TV videos found:", len(tv_videos))
 print("Movie videos found:", len(movie_videos))
 
-# Stop immediately if one of the folders has no usable videos
-if not tv_videos or not movie_videos:
-    print("Check your folder paths and ensure there are video files.")
+# Stop immediately if there are no movie clips, or no clips at all.
+if not movie_videos:
+    print("No movie clips were found. Check your movie folder path and files.")
     exit()
 
-# Make TV-vs-movie playback proportional to the number of files found.
-# Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
-TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
-print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
+if not tv_videos and selected_tv_shows:
+    print("No TV clips were found for selected shows. Playback will use movies only.")
+
+if not tv_videos and not selected_tv_shows:
+    print("No TV shows selected. Playback will use movies only.")
+
+if not tv_videos and not movie_videos:
+    print("No playable videos were found. Check your folder paths and video files.")
+    exit()
+
+if tv_videos:
+    # Make TV-vs-movie playback proportional to the number of files found.
+    # Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
+    TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
+    print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
+else:
+    TV_TO_MOVIE_RATIO = 0
+    print("Dynamic TV-to-movie ratio: 0 (movies only mode)")
 
 # =====================
 # GLOBAL STOP FLAG
@@ -629,11 +662,12 @@ movie_history = []
 
 while not stop_program:
     # Play TV clips according to ratio
-    for _ in range(TV_TO_MOVIE_RATIO):
-        if stop_program:
-            break
-        video = choose_video(tv_videos, tv_history)
-        play_video(video)
+    if tv_videos and TV_TO_MOVIE_RATIO > 0:
+        for _ in range(TV_TO_MOVIE_RATIO):
+            if stop_program:
+                break
+            video = choose_video(tv_videos, tv_history)
+            play_video(video)
 
     if stop_program:
         break
