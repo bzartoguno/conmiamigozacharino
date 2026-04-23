@@ -273,21 +273,29 @@ print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip"
 # GLOBAL STOP FLAG
 # =====================
 stop_program = False
+skip_current_video = False
 current_process = None
 current_player = None
 
 
-def close_quicktime_documents():
+def close_quicktime_documents(close_all=True):
     """
-    Ask QuickTime Player to stop and close any open documents.
-    This is used when the user stops the script while QuickTime is playing.
+    Ask QuickTime Player to stop and close documents.
+    - close_all=True: close every open document (used when ending the script).
+    - close_all=False: close only the front/current document (used to skip clip).
     """
+    close_command = (
+        'if (count of documents) > 0 then close every document saving no'
+        if close_all
+        else 'if (count of documents) > 0 then close document 1 saving no'
+    )
+
     try:
         subprocess.run(
             [
                 "osascript",
                 "-e",
-                'tell application "QuickTime Player" to if (count of documents) > 0 then close every document saving no',
+                f'tell application "QuickTime Player" to {close_command}',
             ],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
@@ -305,7 +313,7 @@ def on_press(key):
     - kill the current VLC video
     - stop listening for more keys
     """
-    global stop_program, current_process, current_player
+    global stop_program, skip_current_video, current_process, current_player
     try:
         if key.char == '`':  # backtick pressed
             print("Backtick pressed! Stopping program...")
@@ -315,6 +323,13 @@ def on_press(key):
             if current_player == "quicktime":
                 close_quicktime_documents()
             return False  # stop listener
+        if key.char == '|':
+            print("Pipe pressed! Skipping current clip...")
+            skip_current_video = True
+            if current_player == "quicktime":
+                close_quicktime_documents(close_all=False)
+            elif current_player == "vlc" and current_process:
+                current_process.terminate()
 
     except AttributeError:
         pass
@@ -380,9 +395,10 @@ def play_with_vlc(video):
     """
     Launch VLC directly and wait until the chosen video finishes.
     """
-    global current_process, current_player
+    global current_process, current_player, skip_current_video
 
     current_player = "vlc"
+    skip_current_video = False
     vlc_args = [
         VLC_PATH,
         "--play-and-exit",
@@ -397,7 +413,15 @@ def play_with_vlc(video):
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    current_process.wait()
+    while True:
+        if skip_current_video:
+            current_process.terminate()
+            break
+
+        if current_process.poll() is not None:
+            break
+
+        time.sleep(0.2)
 
 
 def play_with_quicktime(video):
@@ -406,7 +430,7 @@ def play_with_quicktime(video):
     Open the video, start playback, and then poll QuickTime until the clip
     really finishes. This avoids treating a manual pause like the end.
     """
-    global current_process, current_player, stop_program
+    global current_process, current_player, stop_program, skip_current_video
 
     escaped_video = video.replace("\\", "\\\\").replace('"', '\\"')
     quicktime_script = f'''
@@ -418,6 +442,7 @@ def play_with_quicktime(video):
     '''
 
     current_player = "quicktime"
+    skip_current_video = False
     current_process = subprocess.Popen(
         ["osascript", "-e", quicktime_script],
         stdout=subprocess.DEVNULL,
@@ -428,6 +453,10 @@ def play_with_quicktime(video):
     near_end_counter = 0
 
     while not stop_program:
+        if skip_current_video:
+            close_quicktime_documents(close_all=False)
+            break
+
         status = get_quicktime_status()
 
         if status is None:
