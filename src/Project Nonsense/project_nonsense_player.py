@@ -4,7 +4,6 @@ import subprocess          # Lets Python launch another program, like VLC
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
-import tkinter as tk       # Lets Python show a simple checkbox window
 
 # to start use this
 #.  /usr/bin/python3 "/Volumes/Bag O Holdn/Videos (Project Nonsense)/project_nonsense_player.py"
@@ -57,9 +56,10 @@ SHOW_OPTIONS = [
 
 # Anime-only preset built from SHOW_OPTIONS names.
 ANIME_SHOWS = [
+    "Arcane",
     "Azumanga Daioh",
     "Delicious in Dungeon",
-    "Kirby: Right Back At Ya!",
+    "Huanted Hotel",
     "Konosuba",
     "Ranma",
     "Ranma 2024",
@@ -69,23 +69,26 @@ ANIME_SHOWS = [
 
 # Cartoon-only preset built from SHOW_OPTIONS names.
 CARTOON_SHOWS = [
-    "Arcane",
     "Batman Brave n Bold",
     "Bluey",
     "Epithet Erased",
-    "Gwain Saga Episodes",
-    "Huanted Hotel",
     "Justice League",
     "Justice League Unlimited",
     "Kid Cosmic",
-    "Murder Drones",
+    "Kirby: Right Back At Ya!",
     "Owl House",
     "Phineas and Ferb",
-    "The Amazing Digital Circus",
     "Win or Lose",
-    "Youtube",
 ]
 
+# Indie-only preset built from SHOW_OPTIONS names.
+INDIE_SHOWS = [
+    "Epithet Erased",
+    "Gwain Saga Episodes",
+    "Murder Drones",
+    "The Amazing Digital Circus",
+    "Youtube",
+]
 
 # =====================
 # VLC FINDER
@@ -169,7 +172,7 @@ def get_videos(folder):
     return videos
 
 
-def choose_tv_shows_cli():
+def choose_tv_shows():
     """
     Ask the user which show folders should be included.
     Return chosen show names from SHOW_OPTIONS or a preset group.
@@ -178,7 +181,8 @@ def choose_tv_shows_cli():
     print("Type one or more numbers separated by commas (example: 1,4,9).")
     print("Type 'all' to include every show option.\n")
     print("Type 'cartoon' to run only cartoon shows.")
-    print("Type 'anime' to run only anime shows.\n")
+    print("Type 'anime' to run only anime shows.")
+    print("Type 'indie' to run only indie shows.\n")
 
     for index, show_name in enumerate(SHOW_OPTIONS, start=1):
         print(f"{index}. {show_name}")
@@ -193,6 +197,8 @@ def choose_tv_shows_cli():
             return CARTOON_SHOWS[:]
         if lowered == "anime":
             return ANIME_SHOWS[:]
+        if lowered == "indie":
+            return INDIE_SHOWS[:]
 
         selected_indexes = []
         valid = True
@@ -211,102 +217,12 @@ def choose_tv_shows_cli():
             selected_indexes.append(number - 1)
 
         if not valid or not selected_indexes:
-            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', or 'anime'.")
+            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', 'anime', or 'indie'.")
             continue
 
         # Preserve order while removing duplicates
         unique_indexes = list(dict.fromkeys(selected_indexes))
         return [SHOW_OPTIONS[i] for i in unique_indexes]
-
-
-def choose_tv_shows_popup():
-    """
-    Show a checkbox window for show selection.
-    Returns selected show names from SHOW_OPTIONS.
-
-    Preset checkboxes:
-    - All TV Shows
-    - Cartoon Preset
-    - Anime Preset
-
-    If no checkbox is selected, return an empty list so playback runs movies only.
-    """
-    root = tk.Tk()
-    root.title("Project Nonsense - Show Selection")
-    root.geometry("450x760")
-
-    instruction = tk.Label(
-        root,
-        text=(
-            "Pick the TV shows to include.\n"
-            "You can use presets and/or individual show checkboxes.\n"
-            "If nothing is checked, the program will play movies only."
-        ),
-        justify="left",
-        anchor="w",
-    )
-    instruction.pack(fill="x", padx=12, pady=(12, 8))
-
-    presets_frame = tk.LabelFrame(root, text="Presets", padx=8, pady=6)
-    presets_frame.pack(fill="x", padx=12, pady=(0, 8))
-
-    include_all_var = tk.BooleanVar(value=False)
-    include_cartoon_var = tk.BooleanVar(value=False)
-    include_anime_var = tk.BooleanVar(value=False)
-
-    tk.Checkbutton(presets_frame, text="All TV Shows", variable=include_all_var).pack(anchor="w")
-    tk.Checkbutton(presets_frame, text="Cartoon Preset", variable=include_cartoon_var).pack(anchor="w")
-    tk.Checkbutton(presets_frame, text="Anime Preset", variable=include_anime_var).pack(anchor="w")
-
-    shows_frame = tk.LabelFrame(root, text="Individual Shows", padx=8, pady=6)
-    shows_frame.pack(fill="both", expand=True, padx=12, pady=(0, 8))
-
-    show_vars = {}
-    for show_name in SHOW_OPTIONS:
-        var = tk.BooleanVar(value=False)
-        show_vars[show_name] = var
-        tk.Checkbutton(shows_frame, text=show_name, variable=var).pack(anchor="w")
-
-    selected_shows = []
-
-    def finish_selection():
-        selected = set()
-
-        if include_all_var.get():
-            selected.update(SHOW_OPTIONS)
-        if include_cartoon_var.get():
-            selected.update(CARTOON_SHOWS)
-        if include_anime_var.get():
-            selected.update(ANIME_SHOWS)
-
-        for show_name, var in show_vars.items():
-            if var.get():
-                selected.add(show_name)
-
-        # Preserve original SHOW_OPTIONS order in final return list.
-        selected_shows.extend([show for show in SHOW_OPTIONS if show in selected])
-        root.destroy()
-
-    button_frame = tk.Frame(root)
-    button_frame.pack(fill="x", padx=12, pady=(0, 12))
-
-    tk.Button(button_frame, text="Start Playback", command=finish_selection).pack(side="right")
-
-    root.mainloop()
-    return selected_shows
-
-
-def choose_tv_shows():
-    """
-    Prefer popup checkbox selection.
-    Fall back to CLI prompt if Tk cannot start in the current environment.
-    """
-    try:
-        return choose_tv_shows_popup()
-    except Exception as popup_error:
-        print("Popup selector unavailable, falling back to terminal input.")
-        print("Popup error:", popup_error)
-        return choose_tv_shows_cli()
 
 
 def get_tv_videos_from_selected_shows(selected_shows):
@@ -333,11 +249,8 @@ def get_tv_videos_from_selected_shows(selected_shows):
 
 selected_tv_shows = choose_tv_shows()
 print("\nSelected shows:")
-if selected_tv_shows:
-    for show in selected_tv_shows:
-        print("-", show)
-else:
-    print("- None (movies only)")
+for show in selected_tv_shows:
+    print("-", show)
 
 tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
 movie_videos = get_videos(MOVIE_FOLDER)
@@ -346,23 +259,15 @@ movie_videos = get_videos(MOVIE_FOLDER)
 print("TV videos found:", len(tv_videos))
 print("Movie videos found:", len(movie_videos))
 
-# Stop immediately only if both sources have no usable videos
-if not tv_videos and not movie_videos:
+# Stop immediately if one of the folders has no usable videos
+if not tv_videos or not movie_videos:
     print("Check your folder paths and ensure there are video files.")
     exit()
 
-# Make TV-vs-movie playback proportional to the number of files found,
-# but only if both lists have clips.
-if tv_videos and movie_videos:
-    # Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
-    TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
-    print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
-else:
-    TV_TO_MOVIE_RATIO = 0
-    if movie_videos and not tv_videos:
-        print("TV selection empty or unavailable, running movies only.")
-    elif tv_videos and not movie_videos:
-        print("Movie folder empty or unavailable, running TV only.")
+# Make TV-vs-movie playback proportional to the number of files found.
+# Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
+TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
+print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
 
 # =====================
 # GLOBAL STOP FLAG
@@ -605,18 +510,7 @@ tv_history = []
 movie_history = []
 
 while not stop_program:
-    # If only one source exists, play from that source continuously.
-    if tv_videos and not movie_videos:
-        video = choose_video(tv_videos, tv_history)
-        play_video(video)
-        continue
-
-    if movie_videos and not tv_videos:
-        video = choose_video(movie_videos, movie_history)
-        play_video(video)
-        continue
-
-    # Play TV clips according to ratio when both sources are available.
+    # Play TV clips according to ratio
     for _ in range(TV_TO_MOVIE_RATIO):
         if stop_program:
             break
