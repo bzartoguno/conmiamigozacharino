@@ -1,11 +1,10 @@
 import os                  # Lets Python work with folders and file paths
 import random              # Lets Python pick a random video
 import subprocess          # Lets Python launch another program, like VLC
+import sys
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
-import tkinter as tk
-from tkinter import ttk
 
 # to start use this
 #.  /usr/bin/python3 "/Volumes/Bag O Holdn/Videos (Project Nonsense)/project_nonsense_player.py"
@@ -174,11 +173,39 @@ def get_videos(folder):
     return videos
 
 
-def choose_tv_shows():
+def tkinter_gui_supported():
+    """
+    Check Tkinter GUI support in a subprocess so crashes do not kill this process.
+    Returns True when Tk can open and close a root window successfully.
+    """
+    check_code = (
+        "import tkinter as tk;"
+        "root=tk.Tk();"
+        "root.withdraw();"
+        "root.update_idletasks();"
+        "root.destroy();"
+        "print('OK')"
+    )
+    try:
+        result = subprocess.run(
+            [sys.executable, "-c", check_code],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return result.returncode == 0 and "OK" in result.stdout
+    except Exception:
+        return False
+
+
+def choose_tv_shows_gui():
     """
     Ask the user which show folders should be included using a popup window.
     If no boxes are checked, return an empty list so playback uses movies only.
     """
+    import tkinter as tk
+    from tkinter import ttk
+
     selected_shows = []
 
     def apply_preset(target_names):
@@ -240,6 +267,77 @@ def choose_tv_shows():
     root.protocol("WM_DELETE_WINDOW", submit_selection)
     root.mainloop()
     return selected_shows
+
+
+def choose_tv_shows_cli():
+    """
+    Text-mode fallback for choosing show folders.
+    Returns an empty list if user wants movies only.
+    """
+    print("\nTkinter GUI is unavailable. Falling back to text mode selection.")
+    print("Enter one of these commands:")
+    print("  all      -> include every show")
+    print("  cartoon  -> include cartoon preset")
+    print("  anime    -> include anime preset")
+    print("  indie    -> include indie preset")
+    print("  none     -> movies only")
+    print("  custom   -> choose specific shows by number")
+
+    while True:
+        choice = input("\nSelection [all/cartoon/anime/indie/none/custom]: ").strip().lower()
+        if choice == "all":
+            return SHOW_OPTIONS.copy()
+        if choice == "cartoon":
+            return [show for show in SHOW_OPTIONS if show in CARTOON_SHOWS]
+        if choice == "anime":
+            return [show for show in SHOW_OPTIONS if show in ANIME_SHOWS]
+        if choice == "indie":
+            return [show for show in SHOW_OPTIONS if show in INDIE_SHOWS]
+        if choice == "none":
+            return []
+        if choice == "custom":
+            break
+        print("Invalid selection. Please type one of: all, cartoon, anime, indie, none, custom.")
+
+    print("\nAvailable shows:")
+    for index, show_name in enumerate(SHOW_OPTIONS, start=1):
+        print(f"{index:>2}. {show_name}")
+    print("Enter show numbers separated by commas (example: 1,4,9).")
+    print("Press Enter with no numbers for movies-only mode.")
+
+    while True:
+        typed = input("Show numbers: ").strip()
+        if typed == "":
+            return []
+        parts = [piece.strip() for piece in typed.split(",") if piece.strip()]
+        valid = True
+        selected_indexes = []
+        for part in parts:
+            if not part.isdigit():
+                valid = False
+                break
+            value = int(part)
+            if value < 1 or value > len(SHOW_OPTIONS):
+                valid = False
+                break
+            selected_indexes.append(value - 1)
+        if not valid:
+            print("Invalid list. Please enter comma-separated numbers from the list.")
+            continue
+
+        unique_indexes = sorted(set(selected_indexes))
+        return [SHOW_OPTIONS[i] for i in unique_indexes]
+
+
+def choose_tv_shows():
+    """
+    Use GUI selection when Tkinter is safe on this machine; otherwise use CLI.
+    """
+    if tkinter_gui_supported():
+        return choose_tv_shows_gui()
+
+    print("\nTkinter GUI check failed (likely unsupported on this Python/macOS setup).")
+    return choose_tv_shows_cli()
 
 
 def get_tv_videos_from_selected_shows(selected_shows):
