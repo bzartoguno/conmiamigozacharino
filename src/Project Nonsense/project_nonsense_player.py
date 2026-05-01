@@ -4,6 +4,7 @@ import subprocess          # Lets Python launch another program, like VLC
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
+from datetime import datetime  # Lets Python read the computer's current local time
 
 # to start use this
 #.  /usr/bin/python3 "/Volumes/Bag O Holdn/Videos (Project Nonsense)/project_nonsense_player.py"
@@ -182,7 +183,8 @@ def choose_tv_shows():
     print("Type 'all' to include every show option.\n")
     print("Type 'cartoon' to run only cartoon shows.")
     print("Type 'anime' to run only anime shows.")
-    print("Type 'indie' to run only indie shows.\n")
+    print("Type 'indie' to run only indie shows.")
+    print("Type 'tv time' to auto-pick by current time: cartoon after 5 AM, indie after 1 PM, anime after 7 PM.\n")
 
     for index, show_name in enumerate(SHOW_OPTIONS, start=1):
         print(f"{index}. {show_name}")
@@ -199,6 +201,10 @@ def choose_tv_shows():
             return ANIME_SHOWS[:]
         if lowered == "indie":
             return INDIE_SHOWS[:]
+        if lowered == "tv time":
+            preset_name, preset_shows = choose_tv_time_preset()
+            print(f"\nTV Time selected {preset_name} preset based on your current local time.")
+            return preset_shows
 
         selected_indexes = []
         valid = True
@@ -217,13 +223,27 @@ def choose_tv_shows():
             selected_indexes.append(number - 1)
 
         if not valid or not selected_indexes:
-            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', 'anime', or 'indie'.")
+            print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', 'anime', 'indie', or 'tv time'.")
             continue
 
         # Preserve order while removing duplicates
         unique_indexes = list(dict.fromkeys(selected_indexes))
         return [SHOW_OPTIONS[i] for i in unique_indexes]
 
+
+
+
+def choose_tv_time_preset():
+    """
+    Decide which preset should run for "tv time" based on local clock time.
+    """
+    current_hour = datetime.now().hour
+
+    if current_hour >= 19 or current_hour < 5:
+        return "anime", ANIME_SHOWS[:]
+    if current_hour >= 13:
+        return "indie", INDIE_SHOWS[:]
+    return "cartoon", CARTOON_SHOWS[:]
 
 def get_tv_videos_from_selected_shows(selected_shows):
     """
