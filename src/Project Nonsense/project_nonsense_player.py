@@ -4,6 +4,8 @@ import subprocess          # Lets Python launch another program, like VLC
 from pynput import keyboard  # Lets Python listen for keyboard presses
 import time                # Lets Python pause between clips
 import shutil              # Lets Python look for programs in common locations
+import tkinter as tk       # Lets Python show a tiny startup window for show selection
+from tkinter import messagebox  # Lets Python show helpful popup messages in the startup window
 from datetime import datetime  # Lets Python read the computer's current local time
 
 # to start use this
@@ -173,10 +175,9 @@ def get_videos(folder):
     return videos
 
 
-def choose_tv_shows():
+def choose_tv_shows_from_prompt():
     """
-    Ask the user which show folders should be included.
-    Return chosen show names from SHOW_OPTIONS or a preset group.
+    Fallback text prompt if the startup window cannot be opened.
     """
     print("\nChoose which TV shows to include before playback starts.")
     print("Type one or more numbers separated by commas (example: 1,4,9).")
@@ -226,9 +227,88 @@ def choose_tv_shows():
             print("Invalid choice. Enter numbers like 1,3,5 or type 'all', 'cartoon', 'anime', 'indie', or 'tv time'.")
             continue
 
-        # Preserve order while removing duplicates
         unique_indexes = list(dict.fromkeys(selected_indexes))
         return [SHOW_OPTIONS[i] for i in unique_indexes]
+
+
+def choose_tv_shows():
+    """
+    Open a small startup window so the user can pick shows before playback.
+    Falls back to the text prompt if the GUI cannot start.
+    """
+    try:
+        root = tk.Tk()
+    except Exception as error:
+        print("Could not open startup window. Falling back to text prompt:", error)
+        return choose_tv_shows_from_prompt()
+
+    root.title("Project Nonsense Startup")
+    root.geometry("420x540")
+
+    chosen_shows = {"value": None}
+
+    heading = tk.Label(root, text="Choose what you'd like to watch", font=("Helvetica", 14, "bold"))
+    heading.pack(pady=(12, 6))
+
+    hint = tk.Label(root, text="Pick one or more shows, or use a preset button.")
+    hint.pack(pady=(0, 8))
+
+    list_frame = tk.Frame(root)
+    list_frame.pack(fill=tk.BOTH, expand=True, padx=12)
+
+    scrollbar = tk.Scrollbar(list_frame)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+    listbox = tk.Listbox(list_frame, selectmode=tk.MULTIPLE, yscrollcommand=scrollbar.set)
+    listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+    scrollbar.config(command=listbox.yview)
+
+    for show_name in SHOW_OPTIONS:
+        listbox.insert(tk.END, show_name)
+
+    def set_selection(shows):
+        chosen_shows["value"] = shows[:]
+        root.destroy()
+
+    def select_all():
+        listbox.selection_set(0, tk.END)
+
+    def use_selected():
+        indexes = listbox.curselection()
+        if not indexes:
+            messagebox.showinfo("Pick a show", "Select at least one show, or use a preset button.")
+            return
+        set_selection([SHOW_OPTIONS[i] for i in indexes])
+
+    button_row_1 = tk.Frame(root)
+    button_row_1.pack(fill=tk.X, padx=12, pady=(8, 4))
+
+    tk.Button(button_row_1, text="Use Selected", command=use_selected).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_1, text="Select All", command=select_all).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+
+    button_row_2 = tk.Frame(root)
+    button_row_2.pack(fill=tk.X, padx=12, pady=(0, 12))
+
+    tk.Button(button_row_2, text="Cartoon", command=lambda: set_selection(CARTOON_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_2, text="Anime", command=lambda: set_selection(ANIME_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_2, text="Indie", command=lambda: set_selection(INDIE_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+
+    def use_tv_time():
+        preset_name, preset_shows = choose_tv_time_preset()
+        print(f"\nTV Time selected {preset_name} preset based on your current local time.")
+        set_selection(preset_shows)
+
+    button_row_3 = tk.Frame(root)
+    button_row_3.pack(fill=tk.X, padx=12, pady=(0, 12))
+    tk.Button(button_row_3, text="TV Time", command=use_tv_time).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+
+    root.mainloop()
+
+    if chosen_shows["value"]:
+        return chosen_shows["value"]
+
+    print("No startup selection was made. Falling back to text prompt.")
+    return choose_tv_shows_from_prompt()
 
 
 
