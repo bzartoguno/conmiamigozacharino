@@ -93,6 +93,10 @@ INDIE_SHOWS = [
     "Youtube",
 ]
 
+
+TV_TIME_MODE = False
+CURRENT_TV_TIME_PRESET = None
+
 # =====================
 # VLC FINDER
 # =====================
@@ -176,6 +180,8 @@ def get_videos(folder):
 
 
 def choose_tv_shows_from_prompt():
+def choose_tv_shows():
+    global TV_TIME_MODE
     """
     Fallback text prompt if the startup window cannot be opened.
     """
@@ -195,14 +201,19 @@ def choose_tv_shows_from_prompt():
         lowered = raw_choice.lower()
 
         if lowered == "all":
+            TV_TIME_MODE = False
             return SHOW_OPTIONS[:]
         if lowered == "cartoon":
+            TV_TIME_MODE = False
             return CARTOON_SHOWS[:]
         if lowered == "anime":
+            TV_TIME_MODE = False
             return ANIME_SHOWS[:]
         if lowered == "indie":
+            TV_TIME_MODE = False
             return INDIE_SHOWS[:]
         if lowered == "tv time":
+            TV_TIME_MODE = True
             preset_name, preset_shows = choose_tv_time_preset()
             print(f"\nTV Time selected {preset_name} preset based on your current local time.")
             return preset_shows
@@ -325,6 +336,26 @@ def choose_tv_time_preset():
         return "indie", INDIE_SHOWS[:]
     return "cartoon", CARTOON_SHOWS[:]
 
+def refresh_tv_time_selection_if_needed(tv_history):
+    """
+    Re-check local time after each clip and refresh TV presets when in TV Time mode.
+    """
+    global selected_tv_shows, tv_videos, TV_TO_MOVIE_RATIO, CURRENT_TV_TIME_PRESET
+
+    if not TV_TIME_MODE:
+        return
+
+    preset_name, preset_shows = choose_tv_time_preset()
+    if preset_name != CURRENT_TV_TIME_PRESET:
+        CURRENT_TV_TIME_PRESET = preset_name
+        selected_tv_shows = preset_shows
+        tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
+        tv_history.clear()
+        TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
+        print(f"\nTV Time switched to {preset_name} preset based on current local time.")
+        print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
+
+
 def get_tv_videos_from_selected_shows(selected_shows):
     """
     Load TV videos from only the show folders selected by the user.
@@ -348,6 +379,9 @@ def get_tv_videos_from_selected_shows(selected_shows):
 
 
 selected_tv_shows = choose_tv_shows()
+if TV_TIME_MODE:
+    CURRENT_TV_TIME_PRESET, _ = choose_tv_time_preset()
+
 print("\nSelected shows:")
 for show in selected_tv_shows:
     print("-", show)
@@ -734,6 +768,7 @@ while not stop_program:
             break
         video = choose_video(tv_videos, tv_history)
         play_video(video)
+        refresh_tv_time_selection_if_needed(tv_history)
 
     if stop_program:
         break
@@ -741,5 +776,6 @@ while not stop_program:
     # Play 1 Movie clip
     video = choose_video(movie_videos, movie_history)
     play_video(video)
+    refresh_tv_time_selection_if_needed(tv_history)
 
 print("Program stopped safely.")
