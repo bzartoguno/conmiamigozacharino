@@ -93,9 +93,8 @@ INDIE_SHOWS = [
     "Youtube",
 ]
 
-
+# Tracks whether the user selected the TV Time preset at startup
 TV_TIME_MODE = False
-CURRENT_TV_TIME_PRESET = None
 
 # =====================
 # VLC FINDER
@@ -180,11 +179,10 @@ def get_videos(folder):
 
 
 def choose_tv_shows_from_prompt():
-def choose_tv_shows():
-    global TV_TIME_MODE
     """
     Fallback text prompt if the startup window cannot be opened.
     """
+    global TV_TIME_MODE
     print("\nChoose which TV shows to include before playback starts.")
     print("Type one or more numbers separated by commas (example: 1,4,9).")
     print("Type 'all' to include every show option.\n")
@@ -239,6 +237,7 @@ def choose_tv_shows():
             continue
 
         unique_indexes = list(dict.fromkeys(selected_indexes))
+        TV_TIME_MODE = False
         return [SHOW_OPTIONS[i] for i in unique_indexes]
 
 
@@ -247,6 +246,7 @@ def choose_tv_shows():
     Open a small startup window so the user can pick shows before playback.
     Falls back to the text prompt if the GUI cannot start.
     """
+    global TV_TIME_MODE
     try:
         root = tk.Tk()
     except Exception as error:
@@ -277,7 +277,9 @@ def choose_tv_shows():
     for show_name in SHOW_OPTIONS:
         listbox.insert(tk.END, show_name)
 
-    def set_selection(shows):
+    def set_selection(shows, tv_time_mode=False):
+        global TV_TIME_MODE
+        TV_TIME_MODE = tv_time_mode
         chosen_shows["value"] = shows[:]
         root.destroy()
 
@@ -300,14 +302,14 @@ def choose_tv_shows():
     button_row_2 = tk.Frame(root)
     button_row_2.pack(fill=tk.X, padx=12, pady=(0, 12))
 
-    tk.Button(button_row_2, text="Cartoon", command=lambda: set_selection(CARTOON_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
-    tk.Button(button_row_2, text="Anime", command=lambda: set_selection(ANIME_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
-    tk.Button(button_row_2, text="Indie", command=lambda: set_selection(INDIE_SHOWS)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_2, text="Cartoon", command=lambda: set_selection(CARTOON_SHOWS, tv_time_mode=False)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_2, text="Anime", command=lambda: set_selection(ANIME_SHOWS, tv_time_mode=False)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
+    tk.Button(button_row_2, text="Indie", command=lambda: set_selection(INDIE_SHOWS, tv_time_mode=False)).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=2)
 
     def use_tv_time():
         preset_name, preset_shows = choose_tv_time_preset()
         print(f"\nTV Time selected {preset_name} preset based on your current local time.")
-        set_selection(preset_shows)
+        set_selection(preset_shows, tv_time_mode=True)
 
     button_row_3 = tk.Frame(root)
     button_row_3.pack(fill=tk.X, padx=12, pady=(0, 12))
