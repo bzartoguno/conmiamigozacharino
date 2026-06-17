@@ -23,10 +23,18 @@ MOVIE_FOLDER = "/Volumes/Bag O Holdn/Videos (Project Nonsense)/Movies"
 VIDEO_EXTENSIONS = (".mp4", ".mkv", ".avi", ".mov", ".m4v")
 
 # Remember the last few clips so the same clip is not chosen again too soon
-REPEAT_HISTORY = 294
+REPEAT_HISTORY = 892
 
 # Wait this many seconds after a clip ends before starting the next one
 DELAY_BETWEEN_CLIPS = .5
+
+# On macOS, QuickTime Player supports Picture-in-Picture through its View menu.
+# Keep this True so the } hotkey can control Picture-in-Picture.
+# Set this to False if you want to go back to using VLC first.
+PREFER_QUICKTIME_PLAYER = True
+
+# Special value used when the user chooses dynamic TV Time mode
+TV_TIME_CHOICE = "__TV_TIME__"
 
 # Show folders that can be included in TV playback
 SHOW_OPTIONS = [
@@ -34,25 +42,28 @@ SHOW_OPTIONS = [
     "Azumanga Daioh",
     "Batman Brave n Bold",
     "Bluey",
-    "Delicious in Dungeon",
+    "Delicious In Dungeon",
     "Epithet Erased",
+    "Gravity falls",
     "Gwain Saga Episodes",
-    "Huanted Hotel",
+    "Haunted Hotel",
     "Justice League",
     "Justice League Unlimited",
     "Kid Cosmic",
-    "Kirby: Right Back At Ya!",
+    "Kirby Right Back At Ya!",
     "Konosuba",
     "Murder Drones",
+    "My Adventures with Superman",
     "Owl House",
     "Phineas and Ferb",
     "Ranma",
     "Ranma 2024",
+    "Sailor Moon",
     "The Amazing Digital Circus",
     "The Apothecary Diaries",
     "Win or Lose",
     "Youtube",
-    "Zombie Land Saga",
+    "Zombie Land",
 ]
 
 # Anime-only preset built from SHOW_OPTIONS names.
@@ -64,6 +75,7 @@ ANIME_SHOWS = [
     "Konosuba",
     "Ranma",
     "Ranma 2024",
+    "Sailor Moon",
     "The Apothecary Diaries",
     "Zombie Land Saga",
 ]
@@ -72,11 +84,12 @@ ANIME_SHOWS = [
 CARTOON_SHOWS = [
     "Batman Brave n Bold",
     "Bluey",
-    "Epithet Erased",
+    "Gravity falls",
     "Justice League",
     "Justice League Unlimited",
     "Kid Cosmic",
-    "Kirby: Right Back At Ya!",
+    "Kirby Right Back At Ya!",
+    "My Adventures with Superman",
     "Owl House",
     "Phineas and Ferb",
     "Win or Lose",
@@ -148,8 +161,9 @@ print("TV exists:", os.path.exists(TV_FOLDER))
 print("Movie exists:", os.path.exists(MOVIE_FOLDER))
 print("VLC_PATH:", VLC_PATH)
 print("VLC exists:", os.path.exists(VLC_PATH) if VLC_PATH else False)
-print("Player plan:", "Use VLC first, fall back to QuickTime Player if VLC is missing")
-print("Hotkeys:", "backtick: stop program | |: skip clip | _: toggle fullscreen")
+print("Player plan:", "Use QuickTime Player first, fall back to VLC if QuickTime fails" if PREFER_QUICKTIME_PLAYER else "Use VLC first, fall back to QuickTime Player if VLC is missing")
+print(" ")
+print("Hotkeys:", "backtick: stop program | |: skip clip | _: toggle fullscreen in QuickTime | }: toggle QuickTime Picture-in-Picture")
 
 # =====================
 # LOAD VIDEO LISTS
@@ -202,9 +216,8 @@ def choose_tv_shows():
         if lowered == "indie":
             return INDIE_SHOWS[:]
         if lowered == "tv time":
-            preset_name, preset_shows = choose_tv_time_preset()
-            print(f"\nTV Time selected {preset_name} preset based on your current local time.")
-            return preset_shows
+            print("\nTV Time mode selected. The clock will be checked before each TV clip.")
+            return TV_TIME_CHOICE
 
         selected_indexes = []
         valid = True
@@ -268,11 +281,53 @@ def get_tv_videos_from_selected_shows(selected_shows):
 
 
 selected_tv_shows = choose_tv_shows()
-print("\nSelected shows:")
-for show in selected_tv_shows:
-    print("-", show)
+tv_time_enabled = selected_tv_shows == TV_TIME_CHOICE
+current_tv_time_preset = None
+tv_videos = []
 
-tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
+
+def refresh_tv_time_videos_if_needed(force=False):
+    """
+    In TV Time mode, check the system clock and switch presets when needed.
+    This runs before every TV clip, so crossing 1 PM or 7 PM changes the next clip.
+    """
+    global selected_tv_shows, tv_videos, current_tv_time_preset
+
+    if not tv_time_enabled:
+        return
+
+    preset_name, preset_shows = choose_tv_time_preset()
+
+    # The clock is checked every time, but the folders are only rescanned
+    # when the preset actually changes. This keeps it fast.
+    if force or preset_name != current_tv_time_preset:
+        current_tv_time_preset = preset_name
+        selected_tv_shows = preset_shows
+        tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
+
+        print(f"\nTV Time clock check: now using {preset_name} shows.")
+        print("Selected shows:")
+        for show in selected_tv_shows:
+            print("-", show)
+        print("TV videos found:", len(tv_videos))
+
+
+def get_tv_to_movie_ratio():
+    """
+    Make TV-vs-movie playback proportional to the current TV preset.
+    Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
+    """
+    return max(1, round(len(tv_videos) / len(movie_videos)))
+
+
+if tv_time_enabled:
+    refresh_tv_time_videos_if_needed(force=True)
+else:
+    tv_videos = get_tv_videos_from_selected_shows(selected_tv_shows)
+    print("\nSelected shows:")
+    for show in selected_tv_shows:
+        print("-", show)
+
 movie_videos = get_videos(MOVIE_FOLDER)
 
 # Show how many videos were found
@@ -284,10 +339,7 @@ if not tv_videos or not movie_videos:
     print("Check your folder paths and ensure there are video files.")
     exit()
 
-# Make TV-vs-movie playback proportional to the number of files found.
-# Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
-TV_TO_MOVIE_RATIO = max(1, round(len(tv_videos) / len(movie_videos)))
-print("Dynamic TV-to-movie ratio:", TV_TO_MOVIE_RATIO, "TV clips per movie clip")
+print("Dynamic TV-to-movie ratio:", get_tv_to_movie_ratio(), "TV clips per movie clip")
 
 # =====================
 # GLOBAL STOP FLAG
@@ -297,6 +349,7 @@ skip_current_video = False
 current_process = None
 current_player = None
 quicktime_should_be_fullscreen = False
+quicktime_should_be_picture_in_picture = False
 
 
 def close_quicktime_documents(close_all=True):
@@ -406,6 +459,267 @@ def apply_quicktime_fullscreen_preference():
     except Exception:
         return ""
 
+def set_quicktime_picture_in_picture(should_enable):
+    """
+    Toggle QuickTime Picture-in-Picture on macOS.
+
+    This tries three things, in this order:
+    1. Use a real QuickTime Picture-in-Picture menu item if macOS exposes one.
+    2. Click a real Picture-in-Picture button in the QuickTime controls if Accessibility can see it.
+    3. Fall back to a "fake PiP" mode: Float on Top + small bottom-right window.
+
+    The fallback is useful because some QuickTime versions expose the PiP control as
+    an on-screen playback button instead of a normal AppleScript menu item.
+    """
+
+    enable_text = "true" if should_enable else "false"
+
+    script = f"""
+    on lowerText(theText)
+        set oldDelims to AppleScript's text item delimiters
+        set upperChars to "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        set lowerChars to "abcdefghijklmnopqrstuvwxyz"
+
+        repeat with i from 1 to length of upperChars
+            set AppleScript's text item delimiters to character i of upperChars
+            set textParts to text items of theText
+            set AppleScript's text item delimiters to character i of lowerChars
+            set theText to textParts as text
+        end repeat
+
+        set AppleScript's text item delimiters to oldDelims
+        return theText
+    end lowerText
+
+    on clickMenuItemNamed(possibleNames)
+        tell application "System Events"
+            tell process "QuickTime Player"
+                repeat with menuBarItem in menu bar items of menu bar 1
+                    repeat with possibleName in possibleNames
+                        try
+                            set foundItem to menu item (possibleName as text) of menu 1 of menuBarItem
+                            if exists foundItem then
+                                click foundItem
+                                return true
+                            end if
+                        end try
+                    end repeat
+                end repeat
+            end tell
+        end tell
+
+        return false
+    end clickMenuItemNamed
+
+    on setFloatOnTop(wantedState)
+        tell application "System Events"
+            tell process "QuickTime Player"
+                repeat with menuBarItem in menu bar items of menu bar 1
+                    try
+                        set floatItem to menu item "Float on Top" of menu 1 of menuBarItem
+                        if exists floatItem then
+                            set isChecked to false
+
+                            try
+                                set markValue to value of attribute "AXMenuItemMarkChar" of floatItem
+                                if markValue is not missing value and markValue is not "" then
+                                    set isChecked to true
+                                end if
+                            end try
+
+                            if wantedState is true and isChecked is false then
+                                click floatItem
+                            else if wantedState is false and isChecked is true then
+                                click floatItem
+                            end if
+
+                            return true
+                        end if
+                    end try
+                end repeat
+            end tell
+        end tell
+
+        return false
+    end setFloatOnTop
+
+    on clickPictureInPictureButton(theElement)
+        tell application "System Events"
+            try
+                repeat with b in buttons of theElement
+                    set buttonText to ""
+
+                    try
+                        set buttonText to buttonText & " " & (name of b as text)
+                    end try
+                    try
+                        set buttonText to buttonText & " " & (description of b as text)
+                    end try
+                    try
+                        set buttonText to buttonText & " " & ((value of attribute "AXTitle" of b) as text)
+                    end try
+                    try
+                        set buttonText to buttonText & " " & ((value of attribute "AXDescription" of b) as text)
+                    end try
+                    try
+                        set buttonText to buttonText & " " & ((value of attribute "AXHelp" of b) as text)
+                    end try
+
+                    set buttonText to my lowerText(buttonText)
+
+                    if buttonText contains "picture" or buttonText contains "pip" then
+                        click b
+                        return true
+                    end if
+                end repeat
+
+                repeat with childElement in UI elements of theElement
+                    if my clickPictureInPictureButton(childElement) then
+                        return true
+                    end if
+                end repeat
+            end try
+        end tell
+
+        return false
+    end clickPictureInPictureButton
+
+    tell application "QuickTime Player"
+        if (count of documents) = 0 then
+            return "NO_DOCUMENTS"
+        end if
+        activate
+    end tell
+
+    delay 0.5
+
+    tell application "System Events"
+        tell process "QuickTime Player"
+            set frontmost to true
+        end tell
+    end tell
+
+    delay 0.2
+
+    if {enable_text} is true then
+        -- Try true native PiP first.
+        set menuWorked to my clickMenuItemNamed({{"Enter Picture in Picture", "Enter Picture-in-Picture", "Picture in Picture", "Picture-in-Picture"}})
+        if menuWorked is true then
+            return "TRUE_PIP_ON_MENU"
+        end if
+
+        -- Try clicking the real playback-control PiP button.
+        tell application "System Events"
+            tell process "QuickTime Player"
+                try
+                    if my clickPictureInPictureButton(window 1) then
+                        return "TRUE_PIP_ON_BUTTON"
+                    end if
+                end try
+            end tell
+        end tell
+
+        -- Fallback: fake PiP using Float on Top and a small window.
+        try
+            set desktopBounds to {{0, 0, 1440, 900}}
+            try
+                tell application "Finder"
+                    set desktopBounds to bounds of window of desktop
+                end tell
+            end try
+
+            set screenLeft to item 1 of desktopBounds
+            set screenTop to item 2 of desktopBounds
+            set screenRight to item 3 of desktopBounds
+            set screenBottom to item 4 of desktopBounds
+
+            my setFloatOnTop(true)
+
+            tell application "System Events"
+                tell process "QuickTime Player"
+                    set pipWidth to 480
+                    set pipHeight to 270
+                    set marginRight to 30
+                    set marginBottom to 90
+
+                    set size of window 1 to {{pipWidth, pipHeight}}
+                    set position of window 1 to {{screenRight - pipWidth - marginRight, screenBottom - pipHeight - marginBottom}}
+                end tell
+            end tell
+
+            return "FAKE_PIP_ON"
+        on error errMsg
+            return "PIP_ON_ERROR: " & errMsg
+        end try
+
+    else
+        -- Try native exit PiP first.
+        set menuWorked to my clickMenuItemNamed({{"Exit Picture in Picture", "Exit Picture-in-Picture", "Leave Picture in Picture", "Leave Picture-in-Picture"}})
+        if menuWorked is true then
+            return "TRUE_PIP_OFF_MENU"
+        end if
+
+        -- Fallback: turn Float on Top off and restore a normal window.
+        try
+            my setFloatOnTop(false)
+
+            tell application "System Events"
+                tell process "QuickTime Player"
+                    set normalWidth to 960
+                    set normalHeight to 540
+
+                    set size of window 1 to {{normalWidth, normalHeight}}
+                    set position of window 1 to {{100, 100}}
+                end tell
+            end tell
+
+            return "FAKE_PIP_OFF"
+        on error errMsg
+            return "PIP_OFF_ERROR: " & errMsg
+        end try
+    end if
+    """
+
+    try:
+        result = subprocess.run(
+            ["osascript", "-e", script],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        output = result.stdout.strip()
+        error_output = result.stderr.strip()
+
+        if output:
+            return output
+        if error_output:
+            return f"PIP_SCRIPT_ERROR: {error_output}"
+        return "PIP_SCRIPT_NO_OUTPUT"
+    except Exception as error:
+        return f"PIP_EXCEPTION: {error}"
+
+
+def apply_quicktime_picture_in_picture_preference():
+    """
+    If Picture-in-Picture preference is enabled, apply it to the newly opened
+    QuickTime document. This makes the setting carry over to the next clip.
+    """
+    if not quicktime_should_be_picture_in_picture:
+        return ""
+
+    # Give QuickTime a moment to finish creating the movie window.
+    # The PiP controls often do not exist immediately after opening the file.
+    time.sleep(0.75)
+
+    last_result = ""
+    for _ in range(3):
+        last_result = set_quicktime_picture_in_picture(True)
+        if last_result and last_result != "NO_DOCUMENTS" and "ERROR" not in last_result:
+            return last_result
+        time.sleep(0.5)
+
+    return last_result
 
 def on_press(key):
     """
@@ -415,7 +729,7 @@ def on_press(key):
     - kill the current VLC video
     - stop listening for more keys
     """
-    global stop_program, skip_current_video, current_process, current_player, quicktime_should_be_fullscreen
+    global stop_program, skip_current_video, current_process, current_player, quicktime_should_be_fullscreen, quicktime_should_be_picture_in_picture
     try:
         if key.char == '`':  # backtick pressed
             print("Backtick pressed! Stopping program...")
@@ -439,9 +753,23 @@ def on_press(key):
             elif toggle_result in ("TOGGLED_PRESENTATION", "TOGGLED_KEYSTROKE"):
                 quicktime_should_be_fullscreen = not quicktime_should_be_fullscreen
 
+        if key.char == '}':
+            quicktime_should_be_picture_in_picture = not quicktime_should_be_picture_in_picture
+            mode_text = "ON" if quicktime_should_be_picture_in_picture else "OFF"
+            print(f"Picture-in-Picture preference is now {mode_text}.")
+
+            if current_player == "quicktime":
+                pip_result = set_quicktime_picture_in_picture(quicktime_should_be_picture_in_picture)
+                print("QuickTime PiP result:", pip_result)
+                if pip_result == "NO_DOCUMENTS":
+                    print("No QuickTime document is open. The setting will apply to the next QuickTime clip.")
+                elif pip_result == "PIP_MENU_ITEM_NOT_FOUND":
+                    print("QuickTime Picture-in-Picture menu item was not found. Make sure the video window is active and your Terminal/Python app has Accessibility permission.")
+            else:
+                print("This will apply to the next QuickTime clip.")
+
     except AttributeError:
         pass
-
 
 # Start keyboard listener in background
 try:
@@ -559,6 +887,7 @@ def play_with_quicktime(video):
     current_process.wait()
     current_process = None
     apply_quicktime_fullscreen_preference()
+    apply_quicktime_picture_in_picture_preference()
     near_end_counter = 0
 
     while not stop_program:
@@ -595,24 +924,36 @@ def play_with_quicktime(video):
 
 def play_video(video):
     """
-    Try VLC first.
-    If VLC is missing or fails, use QuickTime Player instead.
+    Play the selected video.
+    On macOS this prefers QuickTime Player so the Picture-in-Picture hotkey
+    can work. If QuickTime fails, VLC is used as a fallback when available.
     """
     global current_process, current_player
 
     print("Playing:", video)
 
     try:
-        if VLC_PATH:
+        if PREFER_QUICKTIME_PLAYER:
             try:
-                play_with_vlc(video)
-            except Exception as vlc_error:
-                print(f"VLC failed for {video}: {vlc_error}")
-                print("Trying QuickTime Player instead...")
                 play_with_quicktime(video)
+            except Exception as quicktime_error:
+                print(f"QuickTime Player failed for {video}: {quicktime_error}")
+                if VLC_PATH:
+                    print("Trying VLC instead...")
+                    play_with_vlc(video)
+                else:
+                    print("VLC was not found, so there is no fallback player available.")
         else:
-            print("VLC not found. Trying QuickTime Player instead...")
-            play_with_quicktime(video)
+            if VLC_PATH:
+                try:
+                    play_with_vlc(video)
+                except Exception as vlc_error:
+                    print(f"VLC failed for {video}: {vlc_error}")
+                    print("Trying QuickTime Player instead...")
+                    play_with_quicktime(video)
+            else:
+                print("VLC not found. Trying QuickTime Player instead...")
+                play_with_quicktime(video)
 
     except Exception as e:
         print(f"Failed to play {video}: {e}")
@@ -648,17 +989,31 @@ tv_history = []
 movie_history = []
 
 while not stop_program:
-    # Play TV clips according to ratio
-    for _ in range(TV_TO_MOVIE_RATIO):
+    # Recalculate the ratio each loop because TV Time may change the active preset.
+    tv_to_movie_ratio = get_tv_to_movie_ratio()
+
+    # Play TV clips according to the current ratio.
+    for _ in range(tv_to_movie_ratio):
         if stop_program:
             break
+
+        # This is the important part: after each completed clip, the loop comes
+        # back here and checks the system clock before choosing the next TV clip.
+        if tv_time_enabled:
+            refresh_tv_time_videos_if_needed()
+
+        if not tv_videos:
+            print("No TV videos were found for the current TV Time preset.")
+            stop_program = True
+            break
+
         video = choose_video(tv_videos, tv_history)
         play_video(video)
 
     if stop_program:
         break
 
-    # Play 1 Movie clip
+    # Play 1 Movie clip. After the movie finishes, the next loop checks TV Time again.
     video = choose_video(movie_videos, movie_history)
     play_video(video)
 
