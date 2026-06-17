@@ -163,7 +163,7 @@ print("VLC_PATH:", VLC_PATH)
 print("VLC exists:", os.path.exists(VLC_PATH) if VLC_PATH else False)
 print("Player plan:", "Use QuickTime Player first, fall back to VLC if QuickTime fails" if PREFER_QUICKTIME_PLAYER else "Use VLC first, fall back to QuickTime Player if VLC is missing")
 print(" ")
-print("Hotkeys:", "backtick: stop program | |: skip clip | _: toggle fullscreen in QuickTime | }: toggle QuickTime Picture-in-Picture")
+print("Hotkeys:", "backtick: stop program | |: skip clip | _: toggle fullscreen in QuickTime | }: toggle QuickTime Picture-in-Picture | {: toggle double speed")
 
 # =====================
 # LOAD VIDEO LISTS
@@ -258,6 +258,39 @@ def choose_tv_time_preset():
         return "indie", INDIE_SHOWS[:]
     return "cartoon", CARTOON_SHOWS[:]
 
+def choose_single_show_playback_options(selected_shows):
+    """
+    If one specific show was selected, ask how that show should play.
+    Return whether TV clips should stay randomized and whether movies should play.
+    """
+    if tv_time_enabled or len(selected_shows) != 1:
+        return True, True
+
+    print(f"\nOnly one show was selected: {selected_shows[0]}")
+
+    while True:
+        order_choice = input("Play this show in order or keep it randomized? Type 'order' or 'random': ").strip().lower()
+        if order_choice in ("order", "ordered", "in order", "o"):
+            should_randomize_tv = False
+            break
+        if order_choice in ("random", "randomized", "randomise", "r"):
+            should_randomize_tv = True
+            break
+        print("Invalid choice. Type 'order' or 'random'.")
+
+    while True:
+        movie_choice = input("Should movies play too? Type 'yes' or 'no': ").strip().lower()
+        if movie_choice in ("yes", "y"):
+            should_play_movies = True
+            break
+        if movie_choice in ("no", "n"):
+            should_play_movies = False
+            break
+        print("Invalid choice. Type 'yes' or 'no'.")
+
+    return should_randomize_tv, should_play_movies
+
+
 def get_tv_videos_from_selected_shows(selected_shows):
     """
     Load TV videos from only the show folders selected by the user.
@@ -284,6 +317,7 @@ selected_tv_shows = choose_tv_shows()
 tv_time_enabled = selected_tv_shows == TV_TIME_CHOICE
 current_tv_time_preset = None
 tv_videos = []
+randomize_tv_videos, play_movies = choose_single_show_playback_options(selected_tv_shows if not tv_time_enabled else [])
 
 
 def refresh_tv_time_videos_if_needed(force=False):
@@ -328,18 +362,28 @@ else:
     for show in selected_tv_shows:
         print("-", show)
 
-movie_videos = get_videos(MOVIE_FOLDER)
+movie_videos = get_videos(MOVIE_FOLDER) if play_movies else []
+
+# Keep single-show ordered playback predictable from one run to the next.
+if not randomize_tv_videos:
+    tv_videos.sort()
 
 # Show how many videos were found
 print("TV videos found:", len(tv_videos))
 print("Movie videos found:", len(movie_videos))
+print("TV playback order:", "randomized" if randomize_tv_videos else "in order")
+print("Movies enabled:", "yes" if play_movies else "no")
 
-# Stop immediately if one of the folders has no usable videos
-if not tv_videos or not movie_videos:
+# Stop immediately if the selected TV folders have no usable videos.
+# Movies are optional when a single show is selected.
+if not tv_videos or (play_movies and not movie_videos):
     print("Check your folder paths and ensure there are video files.")
     exit()
 
-print("Dynamic TV-to-movie ratio:", get_tv_to_movie_ratio(), "TV clips per movie clip")
+if play_movies:
+    print("Dynamic TV-to-movie ratio:", get_tv_to_movie_ratio(), "TV clips per movie clip")
+else:
+    print("Movies disabled for this single-show run.")
 
 # =====================
 # GLOBAL STOP FLAG
@@ -350,6 +394,46 @@ current_process = None
 current_player = None
 quicktime_should_be_fullscreen = False
 quicktime_should_be_picture_in_picture = False
+playback_speed_double = False
+
+
+def get_current_playback_rate():
+    """Return the playback speed that should be used for the current and next clips."""
+    return 2.0 if playback_speed_double else 1.0
+
+
+def set_quicktime_playback_rate(rate):
+    """Set QuickTime document 1 playback speed when a document is open."""
+    script = f'''
+    tell application "QuickTime Player"
+        if (count of documents) = 0 then
+            return "NO_DOCUMENTS"
+        end if
+        set rate of document 1 to {rate}
+        return "RATE_SET"
+    end tell
+    '''
+
+    try:
+        result = subprocess.run(
+            ["osascript", "-e", script],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        output = result.stdout.strip()
+        if output:
+            return output
+        if result.stderr.strip():
+            return f"RATE_SCRIPT_ERROR: {result.stderr.strip()}"
+        return "RATE_SCRIPT_NO_OUTPUT"
+    except Exception as error:
+        return f"RATE_EXCEPTION: {error}"
+
+
+def apply_quicktime_playback_rate_preference():
+    """Apply the remembered playback speed to a newly opened QuickTime clip."""
+    return set_quicktime_playback_rate(get_current_playback_rate())
 
 
 def close_quicktime_documents(close_all=True):
@@ -729,7 +813,7 @@ def on_press(key):
     - kill the current VLC video
     - stop listening for more keys
     """
-    global stop_program, skip_current_video, current_process, current_player, quicktime_should_be_fullscreen, quicktime_should_be_picture_in_picture
+    global stop_program, skip_current_video, current_process, current_player, quicktime_should_be_fullscreen, quicktime_should_be_picture_in_picture, playback_speed_double
     try:
         if key.char == '`':  # backtick pressed
             print("Backtick pressed! Stopping program...")
@@ -767,6 +851,19 @@ def on_press(key):
                     print("QuickTime Picture-in-Picture menu item was not found. Make sure the video window is active and your Terminal/Python app has Accessibility permission.")
             else:
                 print("This will apply to the next QuickTime clip.")
+
+        if key.char == '{':
+            playback_speed_double = not playback_speed_double
+            speed_text = "2x" if playback_speed_double else "normal speed"
+            print(f"Playback speed preference is now {speed_text}.")
+
+            if current_player == "quicktime":
+                rate_result = set_quicktime_playback_rate(get_current_playback_rate())
+                print("QuickTime speed result:", rate_result)
+            elif current_player == "vlc" and current_process:
+                print("VLC speed will apply on the next clip. Skip the current clip if you want it immediately.")
+            else:
+                print("This will apply to the next clip.")
 
     except AttributeError:
         pass
@@ -838,6 +935,7 @@ def play_with_vlc(video):
     vlc_args = [
         VLC_PATH,
         "--play-and-exit",
+        f"--rate={get_current_playback_rate()}",
     ]
 
     vlc_args.append("--fullscreen")
@@ -886,6 +984,7 @@ def play_with_quicktime(video):
     )
     current_process.wait()
     current_process = None
+    apply_quicktime_playback_rate_preference()
     apply_quicktime_fullscreen_preference()
     apply_quicktime_picture_in_picture_preference()
     near_end_counter = 0
@@ -964,6 +1063,21 @@ def play_video(video):
         time.sleep(DELAY_BETWEEN_CLIPS)
 
 
+ordered_tv_index = 0
+
+
+def choose_ordered_tv_video():
+    """Return the next TV video in sorted order, looping back to the start."""
+    global ordered_tv_index
+
+    if ordered_tv_index >= len(tv_videos):
+        ordered_tv_index = 0
+
+    video = tv_videos[ordered_tv_index]
+    ordered_tv_index += 1
+    return video
+
+
 def choose_video(videos, history):
     """
     Pick a random video that is not in the recent-history list.
@@ -1007,11 +1121,17 @@ while not stop_program:
             stop_program = True
             break
 
-        video = choose_video(tv_videos, tv_history)
+        if randomize_tv_videos:
+            video = choose_video(tv_videos, tv_history)
+        else:
+            video = choose_ordered_tv_video()
         play_video(video)
 
     if stop_program:
         break
+
+    if not play_movies:
+        continue
 
     # Play 1 Movie clip. After the movie finishes, the next loop checks TV Time again.
     video = choose_video(movie_videos, movie_history)
