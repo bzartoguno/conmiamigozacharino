@@ -350,7 +350,14 @@ def get_tv_to_movie_ratio():
     """
     Make TV-vs-movie playback proportional to the current TV preset.
     Example: 220 TV clips and 10 movie clips => 22 TV clips per 1 movie clip.
+
+    When movies are disabled, the main loop still needs a TV batch size.
+    Return 1 so it plays the next TV clip without dividing by an empty
+    movie list.
     """
+    if not play_movies or not movie_videos:
+        return 1
+
     return max(1, round(len(tv_videos) / len(movie_videos)))
 
 
@@ -1104,6 +1111,7 @@ movie_history = []
 
 while not stop_program:
     # Recalculate the ratio each loop because TV Time may change the active preset.
+    # If movies are disabled, this intentionally becomes one TV clip per loop.
     tv_to_movie_ratio = get_tv_to_movie_ratio()
 
     # Play TV clips according to the current ratio.
