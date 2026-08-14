@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
-import { BackButton } from "./BackButton";
-import bettingBoardImage from "./ReadySetBet/ReadySetBetBettingBoard.png";
-import raceTrackImage from "./ReadySetBet/ReadySetBetRaceTrack.jpg";
-import { readySetBetAssets, type ReadySetBetRacer } from "./ReadySetBet/assets";
+import { BackButton } from "../BackButton";
+import bettingBoardImage from "./assets/ReadySetBetBettingBoard.png";
+import raceTrackImage from "./assets/ReadySetBetRaceTrack.jpg";
+import { readySetBetAssets, type ReadySetBetRacer } from "./assets";
+import styles from "./ReadySetBet.module.css";
+import { FINISH_SPACE, getWinningLaneIndex } from "./raceRules";
 
 // PSEUDOCODE: Define race modes and map each mode to the corresponding asset list.
 type RacerMode = "horse" | "people" | "dnd" | "unique" | "all" | "choose";
@@ -35,7 +37,6 @@ const MODE_LABEL_BY_VALUE: Record<RacerMode, string> = {
 // PSEUDOCODE: Store all fixed race rules/track coordinates in constants for reuse.
 const LANE_LABELS = ["2/3", "4", "5", "6", "7", "8", "9", "10", "11/12"] as const;
 const BONUS_MOVES_BY_LANE = [3, 3, 2, 1, 0, 1, 2, 3, 3] as const;
-const FINISH_SPACE = 15;
 const RED_LINE_SPACE = 10;
 const TRACK_COLUMN_POSITIONS = [
   10, 15.5, 21, 26.5, 32, 37.5, 43, 48.5, 54, 59.5, 65, 70.5, 76, 81.5, 87, 92.5,
@@ -524,14 +525,13 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   const [investmentInput, setInvestmentInput] = useState("30");
   const [hasSetInvestment, setHasSetInvestment] = useState(false);
   const [hasRaceStarted, setHasRaceStarted] = useState(false);
-  const [finishersCount, setFinishersCount] = useState(0);
+  const [raceFinished, setRaceFinished] = useState(false);
   const [placedBets, setPlacedBets] = useState<PlacedStandardBet[]>([]);
   const [settlementSummary, setSettlementSummary] = useState<string | null>(null);
   const betsRef = useRef<PlacedStandardBet[]>([]);
   const hasSettledRef = useRef(false);
   const boardImageRef = useRef<HTMLImageElement | null>(null);
   const powerStateRef = useRef<RacerPowerState[]>(Array.from({ length: 9 }, () => createInitialPowerState()));
-  const crossedRedLineRef = useRef<Set<number>>(new Set());
   // PSEUDOCODE: Convert two-dice total into lane index based on ready-set-bet odds layout.
   const horseIndexByDiceSum = (sum: number) => {
     if (sum <= 3) return 0;
@@ -561,13 +561,12 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setWinnerLane(null);
     setLastRoll(null);
     setHasRaceStarted(false);
-    setFinishersCount(0);
+    setRaceFinished(false);
     setPlacedBets([]);
     setSettlementSummary(null);
     streakRef.current = { laneIndex: null, count: 0 };
     hasSettledRef.current = false;
     powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
-    crossedRedLineRef.current = new Set();
   }, [stopRace]);
 
   useEffect(() => {
@@ -649,11 +648,10 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setWinnerLane(null);
     setLastRoll(null);
     setHasRaceStarted(true);
-    setFinishersCount(0);
+    setRaceFinished(false);
     setSettlementSummary(null);
     hasSettledRef.current = false;
     powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
-    crossedRedLineRef.current = new Set();
     setIsRacing(true);
 
     intervalRef.current = window.setInterval(() => {
@@ -884,19 +882,11 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
           });
         }
 
-        nextPositions.forEach((position, index) => {
-          if (position >= FINISH_SPACE) crossedRedLineRef.current.add(index);
-        });
-        const nextFinishersCount = crossedRedLineRef.current.size;
-        setFinishersCount(nextFinishersCount);
-
         powerStateRef.current = powerState;
-        const finishIndex = nextPositions.findIndex((position) => position >= FINISH_SPACE);
-        if (finishIndex !== -1) {
+        const finishIndex = getWinningLaneIndex(nextPositions);
+        if (finishIndex !== null) {
           setWinnerLane((currentWinner) => currentWinner ?? finishIndex + 1);
-        }
-
-        if (nextFinishersCount >= 3) {
+          setRaceFinished(true);
           settleRace(nextPositions);
           stopRace();
         }
@@ -911,10 +901,9 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
   useEffect(() => {
     resetRace();
     setPlacedBets([]);
-    setFinishersCount(0);
+    setRaceFinished(false);
     setRaceSlots(createRaceSlots(racers, mode === "choose"));
     powerStateRef.current = Array.from({ length: 9 }, () => createInitialPowerState());
-    crossedRedLineRef.current = new Set();
   }, [createRaceSlots, mode, racers, resetRace]);
 
   const hasRacersAvailable = raceSlots.length > 0;
@@ -949,7 +938,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     setSettlementSummary(null);
   };
 
-  const isBettingOpen = hasSetInvestment && isRacing && finishersCount < 3;
+  const isBettingOpen = hasSetInvestment && isRacing && !raceFinished;
   const canShowBettingBoard = hasSetInvestment && hasRaceStarted;
 
   const toggleBoardBet = (betId: string) => {
@@ -959,8 +948,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
           ? "Set your bankroll first."
           : !hasRaceStarted
             ? "Start the race to unlock betting."
-            : finishersCount >= 3
-              ? "Betting is closed: three racers have crossed the red line."
+            : raceFinished
+              ? "Betting is closed: the race has a winner."
               : "Betting is only open while the race is running."
       );
       return;
@@ -1037,32 +1026,18 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
 
   return (
     <div
+      className={styles.page}
       style={{
-        minHeight: "100vh",
-        position: "relative",
         backgroundImage: `url(${raceTrackImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        padding: "1rem",
       }}
     >
       <BackButton onClick={onBack} />
 
       <main
-        style={{
-          margin: "4.5rem auto 0",
-          maxWidth: "1100px",
-          backgroundColor: "rgba(0, 0, 0, 0.62)",
-          border: "1px solid rgba(255, 255, 255, 0.22)",
-          borderRadius: "16px",
-          padding: "1rem",
-          color: "#fff",
-          backdropFilter: "blur(2px)",
-        }}
+        className={styles.gamePanel}
       >
-        <h1 style={{ marginTop: 0, marginBottom: "0.75rem" }}>Ready Set Bet</h1>
-        <p style={{ marginTop: 0, marginBottom: "0.75rem", lineHeight: 1.4 }}>
+        <h1 className={styles.title}>Ready Set Bet</h1>
+        <p className={styles.intro}>
           Pick who races this round: <strong>H-</strong> images for horses, <strong>P-</strong>
           {" "}images for people, <strong>D-</strong> images for D&amp;D racers, and{" "}
           <strong>U-</strong> images for unique racers.
@@ -1071,12 +1046,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
         <div
           role="tablist"
           aria-label="Racer mode"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-            marginBottom: "1rem",
-          }}
+          className={styles.modeTabs}
         >
           {(Object.keys(MODE_LABEL_BY_VALUE) as RacerMode[]).map((nextMode) => {
             const selected = mode === nextMode;
@@ -1346,8 +1316,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
                   ? "Start a race to unlock betting."
                   : isBettingOpen
                     ? `Betting open (${placedBets.length}/5 selected).`
-                    : finishersCount >= 3
-                      ? "Betting closed: three racers crossed the red line."
+                    : raceFinished
+                      ? "Betting closed: the race has a winner."
                       : "Betting closed."}
             </small>
             {winnerLane && (
@@ -1373,8 +1343,8 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
               <strong style={{ color: "#86efac" }}>
                 {isBettingOpen
                   ? "OPEN (race in progress)"
-                  : finishersCount >= 3
-                    ? "CLOSED (three racers crossed the red line)"
+                  : raceFinished
+                    ? "CLOSED (the race has a winner)"
                     : "CLOSED"}
               </strong>
             </p>
