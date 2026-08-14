@@ -4,7 +4,7 @@ import { tribeBulletsBuffsBeyond } from "./tribeBulletsBuffsBeyond";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import bulletsBuffsBeyondBackground from "./Images/Bullets Buffs and Beyond.webp";
+import bulletsBuffsBeyondBackground from "./images/Bullets Buffs and Beyond.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

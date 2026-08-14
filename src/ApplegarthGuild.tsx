@@ -4,7 +4,7 @@ import { tribeApplegarthGuild } from "./tribeApplegarthGuild";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import applegarthBackground from "./Images/Applegarth.webp";
+import applegarthBackground from "./images/Applegarth.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

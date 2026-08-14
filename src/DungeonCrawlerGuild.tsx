@@ -4,7 +4,7 @@ import { tribeDungeonCrawlerGuild } from "./tribeDungeonCrawlerGuild";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import dungeonCrawlerGuildBackground from "./Images/Dungeon Crawler's Guild.png";
+import dungeonCrawlerGuildBackground from "./images/Dungeon Crawler's Guild.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

@@ -4,7 +4,7 @@ import { tribeAuntiePattysPies } from "./tribeAuntiePattysPies";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import auntPattiePieBackground from "./Images/Aunt Pattie Pie.png";
+import auntPattiePieBackground from "./images/Aunt Pattie Pie.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

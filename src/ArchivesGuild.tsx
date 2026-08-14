@@ -4,7 +4,7 @@ import { tribeArchivesGuild } from "./tribeArchivesGuild";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import archivesGuildBackground from "./Images/Archives Guild.png";
+import archivesGuildBackground from "./images/Archives Guild.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

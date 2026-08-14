@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { JewelryGuildItem, tribeJewelryGuild } from "./tribeJewelryGuild";
-import jewelryGuildBackground from "./Images/Jewelry Guild.png";
+import jewelryGuildBackground from "./images/Jewelry Guild.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

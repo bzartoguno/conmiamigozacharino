@@ -1,5 +1,5 @@
 import { ShopTemplate } from "./ShopTemplate";
-import provisionsParadiseBackground from "./Images/Provisions Paradise.png";
+import provisionsParadiseBackground from "./images/Provisions Paradise.png";
 import styles from "./ProvisionsParadise.module.css";
 import { tribeProvisionsParadise } from "./tribeProvisionsParadise";
 

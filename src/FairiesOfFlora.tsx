@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./tribeFairiesOfFlora";
-import floralBackground from "./Images/Floral.webp";
+import floralBackground from "./images/Floral.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

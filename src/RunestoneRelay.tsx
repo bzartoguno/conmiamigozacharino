@@ -4,7 +4,7 @@ import { tribeRunestoneRelay } from "./tribeRunestoneRelay";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import runestoneRelayBackground from "./Images/Runestone Relay.png";
+import runestoneRelayBackground from "./images/Runestone Relay.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

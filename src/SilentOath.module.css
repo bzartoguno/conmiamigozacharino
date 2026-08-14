@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Images/Silent Oath.png') no-repeat center center fixed;
+  background: url('./images/Silent Oath.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.8;

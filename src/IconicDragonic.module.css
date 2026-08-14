@@ -9,7 +9,7 @@
 }
 
 .backgroundImage {
-  background: url('./Images/Iconic Dragonic.png') center / cover no-repeat fixed;
+  background: url('./images/Iconic Dragonic.png') center / cover no-repeat fixed;
   display: flex;
   opacity: 0.22;
   margin: 0;

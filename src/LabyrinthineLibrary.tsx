@@ -7,7 +7,7 @@ import {
   LabyrinthineLibraryItem,
   tribeLabyrinthineLibrary,
 } from "./tribeLabyrinthineLibrary";
-import labyrinthineLibraryBackground from "./Images/Labyrinthine Labrary.png";
+import labyrinthineLibraryBackground from "./images/Labyrinthine Labrary.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 
