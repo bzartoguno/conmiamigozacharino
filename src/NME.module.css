@@ -7,7 +7,7 @@
 }
 
 .backgroundImage {
-  background: url('./N.M.E.png') no-repeat center center fixed;
+  background: url('./Images/N.M.E.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.75;

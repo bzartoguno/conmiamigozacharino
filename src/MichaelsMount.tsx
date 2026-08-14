@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MichaelsMountItem, tribeMichaelsMount } from "./tribeMichaelsMount";
-import mountsBackground from "./Mounts.webp";
+import mountsBackground from "./Images/Mounts.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

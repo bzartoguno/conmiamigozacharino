@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { FizzyTalesItem, tribeFizzyTales } from "./tribeFizzyTales";
-import fizzyTalesBackground from "./FizzyTale.png";
+import fizzyTalesBackground from "./Images/FizzyTale.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

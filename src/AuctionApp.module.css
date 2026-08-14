@@ -6,17 +6,17 @@
 }
 
 .backgroundImage {
-  background: url('./Auction House.png') no-repeat center center fixed; 
-  /* background-size: cover;  
+  background: url('./Images/Auction House.png') no-repeat center center fixed;
+  /* background-size: cover;
   opacity: 0.75;
   margin: 25px;
   z-index: -1;  */
   display: flex;
-  background-size: cover; 
+  background-size: cover;
   height: Fill;
   opacity: 0.75;
   margin: px;
-  z-index: -1; 
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +25,7 @@
 }
 
 h1 {
-  font-family: 'Times New Roman', serif; 
+  font-family: 'Times New Roman', serif;
   color: rgb(0, 0, 0);
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
@@ -37,11 +37,11 @@ h1 {
 
 .textBox {
   margin: 30px;
-  background-color: rgba(138, 253, 244, 0.712); 
+  background-color: rgba(138, 253, 244, 0.712);
   padding: 2%;
   display: inline-block;
   color: #000000;
-  font-family: monospace; 
+  font-family: monospace;
   font-size: 24px;
   font-weight: bolder;
   width: fit-content;
@@ -55,11 +55,11 @@ h1 {
 }
 .textBoxWhite {
   margin: 30px;
-  background-color: rgba(255, 255, 255, 0.712); 
+  background-color: rgba(255, 255, 255, 0.712);
   padding: 2%;
   display: inline-block;
   color: #000000;
-  font-family: monospace; 
+  font-family: monospace;
   font-size: 24px;
   font-weight: bolder;
   width: fit-content;
@@ -77,20 +77,20 @@ h1 {
   font-weight: normal;
   font-style: italic;
   font-size: 75%;
-  font-family: 'Times New Roman', serif; 
+  font-family: 'Times New Roman', serif;
   color: #050505;
   text-shadow: none;
 }
 
 .button {
-  font-family: 'Times New Roman', serif; 
+  font-family: 'Times New Roman', serif;
   padding: 10px 20px;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #5de7ff; 
+  background-color: #5de7ff;
   border: none;
   border-radius: 5px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.67);
@@ -98,7 +98,7 @@ h1 {
 }
 
 .button:hover {
-  background-color: #49b7ca; 
+  background-color: #49b7ca;
 }
 
 .button:active {

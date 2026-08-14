@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url("./Evan's Enchanting Emporium.png") no-repeat center center fixed;
+  background: url("./Images/Evan's Enchanting Emporium.png") no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.75;

@@ -9,7 +9,7 @@
 }
 
 .backgroundImage {
-  background: url('./Jell.webp') center / cover no-repeat fixed;
+  background: url('./Images/Jell.webp') center / cover no-repeat fixed;
   display: flex;
   opacity: 0.22;
   margin: 0;

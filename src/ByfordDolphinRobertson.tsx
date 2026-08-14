@@ -1,10 +1,10 @@
-import byfordBackground from "./SandboxByfordDolphin.webp";
-import auntiePattysPiesImage from "./Aunt Pattie Pie.png";
-import blossomHotelImage from "./Blossom Hotel.png";
-import labyrinthineLibraryImage from "./Labyrinthine Labrary.png";
-import sleuthUniversityImage from "./Sleuth.webp";
-import changingChurchImage from "./Changing Church.png";
-import oPapiesOracleReadingsImage from "./O Papies Oracle Readings.png";
+import byfordBackground from "./Images/SandboxByfordDolphin.webp";
+import auntiePattysPiesImage from "./Images/Aunt Pattie Pie.png";
+import blossomHotelImage from "./Images/Blossom Hotel.png";
+import labyrinthineLibraryImage from "./Images/Labyrinthine Labrary.png";
+import sleuthUniversityImage from "./Images/Sleuth.webp";
+import changingChurchImage from "./Images/Changing Church.png";
+import oPapiesOracleReadingsImage from "./Images/O Papies Oracle Readings.png";
 import { BackButton } from "./BackButton";
 import styles from "./ByfordDolphinRobertson.module.css";
 import { ShopButton } from "./ShopButton";

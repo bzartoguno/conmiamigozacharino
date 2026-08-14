@@ -1,6 +1,6 @@
 import { ShopTemplate } from "./ShopTemplate";
 import { tribeSilentOath } from "./tribeSilentOath";
-import silentOathBackground from "./Silent Oath.png";
+import silentOathBackground from "./Images/Silent Oath.png";
 import styles from "./SilentOath.module.css";
 
 export function SilentOath({ onBack }: { onBack?: () => void }) {

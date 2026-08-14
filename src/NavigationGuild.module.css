@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./NavigationGuild-ezgif.com-webp-to-png-converter.png') no-repeat center center fixed;
+  background: url('./Images/NavigationGuild-ezgif.com-webp-to-png-converter.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.75;

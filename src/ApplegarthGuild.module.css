@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Applegarth.webp') no-repeat center center fixed;
+  background: url('./Images/Applegarth.webp') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   height: Fill;

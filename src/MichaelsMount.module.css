@@ -9,7 +9,7 @@
 }
 
 .backgroundImage {
-  background: url('./Mounts.webp') center / cover no-repeat fixed;
+  background: url('./Images/Mounts.webp') center / cover no-repeat fixed;
   display: flex;
   opacity: 0.28;
   margin: 0;
