@@ -4,7 +4,7 @@ import { tribeChangingChurch } from "./tribeChangingChurch";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import changingChurchBackground from "./Changing Church.png";
+import changingChurchBackground from "./Images/Changing Church.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

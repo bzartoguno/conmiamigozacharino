@@ -1,6 +1,6 @@
 import { ShopTemplate } from "./ShopTemplate";
 import { tribeOPapiesOracleReadings } from "./tribeOPapiesOracleReadings";
-import oPapiesBackground from "./O Papies Oracle Readings.png";
+import oPapiesBackground from "./Images/O Papies Oracle Readings.png";
 import styles from "./OPapiesOracleReadings.module.css";
 
 export function OPapiesOracleReadings({ onBack }: { onBack?: () => void }) {

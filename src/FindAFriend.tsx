@@ -3,7 +3,7 @@ import styles from "./FindAFriend.module.css";
 import { tribeFindAFriend } from "./tribeFindAFriend";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
-import findAFriendBackground from "./Find a Friend.png";
+import findAFriendBackground from "./Images/Find a Friend.png";
 import { Item } from "./types";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

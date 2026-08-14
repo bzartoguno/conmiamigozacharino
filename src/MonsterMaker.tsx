@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { MonsterMakerItem, tribeMonsterMaker } from "./tribeMonsterMaker";
-import monsterBackground from "./Monster.webp";
+import monsterBackground from "./Images/Monster.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

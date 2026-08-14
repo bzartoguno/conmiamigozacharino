@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Sleuth.webp') no-repeat center center fixed;
+  background: url('./Images/Sleuth.webp') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.78;

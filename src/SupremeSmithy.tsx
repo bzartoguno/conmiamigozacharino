@@ -1,6 +1,6 @@
 import { ShopTemplate } from "./ShopTemplate";
 import { tribeSupremeSmithy } from "./tribeSupremeSmithy";
-import supremeSmithyBackground from "./Supreme Smithy.png";
+import supremeSmithyBackground from "./Images/Supreme Smithy.png";
 import styles from "./SupremeSmithy.module.css";
 
 export function SupremeSmithy({ onBack }: { onBack?: () => void }) {

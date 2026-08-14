@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Pearls Potions.png') no-repeat center center fixed;
+  background: url('./Images/Pearls Potions.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.75;

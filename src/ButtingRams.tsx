@@ -1,9 +1,9 @@
-import buttingRamsBackground from "./SandboxButtingRams.webp";
-import goblinMarketImage from "./GoblinMarket.png";
-import blackMarketImage from "./Black Market.jpg";
-import bulletsBuffsBeyondImage from "./Bullets Buffs and Beyond.webp";
-import runestoneRelayImage from "./Runestone Relay.png";
-import supremeSmithyImage from "./Supreme Smithy.png";
+import buttingRamsBackground from "./Images/SandboxButtingRams.webp";
+import goblinMarketImage from "./Images/GoblinMarket.png";
+import blackMarketImage from "./Images/Black Market.jpg";
+import bulletsBuffsBeyondImage from "./Images/Bullets Buffs and Beyond.webp";
+import runestoneRelayImage from "./Images/Runestone Relay.png";
+import supremeSmithyImage from "./Images/Supreme Smithy.png";
 import willsWeaponsImage from "./Wills Weapons.png";
 import { BackButton } from "./BackButton";
 import styles from "./ButtingRams.module.css";

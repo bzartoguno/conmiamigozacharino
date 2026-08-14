@@ -4,7 +4,7 @@ import { tribeBookBombs } from "./tribeBookBombs";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import bookBombBackground from "./Book Bomb.png";
+import bookBombBackground from "./Images/Book Bomb.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

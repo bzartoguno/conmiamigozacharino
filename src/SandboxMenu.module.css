@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  background: url("./Loading screen closer.gif") center / cover no-repeat;
+  background: url("./Images/Loading screen closer.gif") center / cover no-repeat;
   overflow: hidden;
   color: #e2e8f0;
 }

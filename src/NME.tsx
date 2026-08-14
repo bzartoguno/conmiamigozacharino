@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { NMEItem, tribeNME } from "./tribeNME";
-import nmeBackground from "./N.M.E.png";
+import nmeBackground from "./Images/N.M.E.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

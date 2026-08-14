@@ -6,13 +6,13 @@
 }
 
 .backgroundImage {
-  background: url('./NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png') no-repeat center center fixed; 
+  background: url('./Images/NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png') no-repeat center center fixed;
   display: flex;
-  background-size: cover; 
+  background-size: cover;
   height: Fill;
   opacity: 0.75;
   margin: px;
-  z-index: -1; 
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -90,7 +90,7 @@
   border-radius: 18px;
   padding: 1.5rem 1.25rem;
   color: #1f4046;
-  font-family: monospace; 
+  font-family: monospace;
   font-size: 24px;
   font-weight: bolder;
   width: fit-content;
