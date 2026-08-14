@@ -881,7 +881,8 @@ export function Map() {
       return (
         <BlankWorldTemplate
           onBack={handleBack}
-          allShopNames={sortedEveryShopButtons.map((button) => button.label)}
+          onNavigate={handleNavigate}
+          allShops={sortedEveryShopButtons}
         />
       );
     default:
