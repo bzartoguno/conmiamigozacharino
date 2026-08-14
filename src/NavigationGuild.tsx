@@ -1,6 +1,6 @@
 import { ShopTemplate } from "./ShopTemplate";
 import styles from "./NavigationGuild.module.css";
-import navigationGuildBackground from "./Images/NavigationGuild-ezgif.com-webp-to-png-converter.png";
+import navigationGuildBackground from "./images/NavigationGuild-ezgif.com-webp-to-png-converter.png";
 import { tribeNavigationGuild } from "./tribeNavigationGuild";
 
 export function NavigationGuild({ onBack }: { onBack?: () => void }) {

@@ -1,11 +1,11 @@
-import seymoursDriftBackground from "./Images/SandboxSeymoursDrift.webp";
-import blossomHotelImage from "./Images/Blossom Hotel.png";
-import floralImage from "./Images/Floral.webp";
-import sleuthUniversityImage from "./Images/Sleuth.webp";
-import evansEnchantingEmporiumImage from "./Images/Evan's Enchanting Emporium.png";
-import labyrinthineLibraryImage from "./Images/Labyrinthine Labrary.png";
+import seymoursDriftBackground from "./images/SandboxSeymoursDrift.webp";
+import blossomHotelImage from "./images/Blossom Hotel.png";
+import floralImage from "./images/Floral.webp";
+import sleuthUniversityImage from "./images/Sleuth.webp";
+import evansEnchantingEmporiumImage from "./images/Evan's Enchanting Emporium.png";
+import labyrinthineLibraryImage from "./images/Labyrinthine Labrary.png";
 import willsWeaponsImage from "./Wills Weapons.png";
-import supremeSmithyImage from "./Images/Supreme Smithy.png";
+import supremeSmithyImage from "./images/Supreme Smithy.png";
 import { BackButton } from "./BackButton";
 import styles from "./SeymoursDriftMelanie.module.css";
 import { ShopButton } from "./ShopButton";

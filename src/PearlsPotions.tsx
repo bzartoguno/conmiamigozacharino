@@ -4,7 +4,7 @@ import { tribePearlsPotions } from "./tribePearlsPotions";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import pearlsPotionsBackground from "./Images/Pearls Potions.png";
+import pearlsPotionsBackground from "./images/Pearls Potions.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

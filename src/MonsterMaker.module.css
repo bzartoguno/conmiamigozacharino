@@ -9,7 +9,7 @@
 }
 
 .backgroundImage {
-  background: url('./Images/Monster.webp') center / cover no-repeat fixed;
+  background: url('./images/Monster.webp') center / cover no-repeat fixed;
   display: flex;
   opacity: 0.2;
   margin: 0;

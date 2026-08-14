@@ -1,8 +1,8 @@
-import jellyCityBackground from "./Images/SandboxJellyCity.webp";
-import goblinMarketImage from "./Images/GoblinMarket.png";
-import bookBombsImage from "./Images/Book Bomb.png";
-import robinsRopesImage from "./Images/Robins Ropes.png";
-import changingChurchImage from "./Images/Changing Church.png";
+import jellyCityBackground from "./images/SandboxJellyCity.webp";
+import goblinMarketImage from "./images/GoblinMarket.png";
+import bookBombsImage from "./images/Book Bomb.png";
+import robinsRopesImage from "./images/Robins Ropes.png";
+import changingChurchImage from "./images/Changing Church.png";
 import { BackButton } from "./BackButton";
 import styles from "./JellyCity.module.css";
 import { ShopButton } from "./ShopButton";

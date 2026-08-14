@@ -4,7 +4,7 @@ import { tribeComedyGold } from "./tribeComedyGold";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import comedyGoldBackground from "./Images/Comedy Gold.png";
+import comedyGoldBackground from "./images/Comedy Gold.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

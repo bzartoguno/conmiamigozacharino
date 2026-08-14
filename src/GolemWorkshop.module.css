@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url('./Images/Golem Work Shop.png') no-repeat center center fixed;
+  background: url('./images/Golem Work Shop.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.82;

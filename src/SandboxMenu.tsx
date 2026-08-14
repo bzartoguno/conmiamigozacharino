@@ -1,22 +1,22 @@
 import { useMemo, useState } from "react";
 import { BackButton } from "./BackButton";
 import styles from "./SandboxMenu.module.css";
-import sandboxWorldMapImage from "./Images/SandboxWorldMap.webp";
-import sandboxAnalepticHoltImage from "./Images/SandboxAnalepticHolt.webp";
-import sandboxBallisticBellowsImage from "./Images/SandboxBallisticBellows.webp";
-import sandboxBigHomeImage from "./Images/SandboxBigHome.webp";
-import sandboxButtingRamsImage from "./Images/SandboxButtingRams.webp";
-import sandboxByfordDolphinImage from "./Images/SandboxByfordDolphin.webp";
-import sandboxCalidrisImage from "./Images/SandboxCalidris.webp";
-import sandboxGraveBornImage from "./Images/SandboxGraveBorn.webp";
-import sandboxHebronImage from "./Images/SandboxHebron.webp";
-import sandboxJellyCityImage from "./Images/SandboxJellyCity.webp";
-import sandboxMeanderImage from "./Images/SandboxMeander.webp";
-import sandboxMerricksGroveImage from "./Images/SandboxMerricksGrove.webp";
-import sandboxOrbitingCityImage from "./Images/SandboxOrbitingCity.webp";
-import sandboxPopNFaithImage from "./Images/SandboxPop-nFaith.webp";
-import sandboxSeymoursDriftImage from "./Images/SandboxSeymoursDrift.webp";
-import sandboxWytheholdeImage from "./Images/SandboxWytheholde.webp";
+import sandboxWorldMapImage from "./images/SandboxWorldMap.webp";
+import sandboxAnalepticHoltImage from "./images/SandboxAnalepticHolt.webp";
+import sandboxBallisticBellowsImage from "./images/SandboxBallisticBellows.webp";
+import sandboxBigHomeImage from "./images/SandboxBigHome.webp";
+import sandboxButtingRamsImage from "./images/SandboxButtingRams.webp";
+import sandboxByfordDolphinImage from "./images/SandboxByfordDolphin.webp";
+import sandboxCalidrisImage from "./images/SandboxCalidris.webp";
+import sandboxGraveBornImage from "./images/SandboxGraveBorn.webp";
+import sandboxHebronImage from "./images/SandboxHebron.webp";
+import sandboxJellyCityImage from "./images/SandboxJellyCity.webp";
+import sandboxMeanderImage from "./images/SandboxMeander.webp";
+import sandboxMerricksGroveImage from "./images/SandboxMerricksGrove.webp";
+import sandboxOrbitingCityImage from "./images/SandboxOrbitingCity.webp";
+import sandboxPopNFaithImage from "./images/SandboxPop-nFaith.webp";
+import sandboxSeymoursDriftImage from "./images/SandboxSeymoursDrift.webp";
+import sandboxWytheholdeImage from "./images/SandboxWytheholde.webp";
 
 type SandboxTown = {
   key: string;

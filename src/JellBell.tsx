@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { JellBellItem, tribeJellBell } from "./tribeJellBell";
-import dragonicBackground from "./Images/Iconic Dragonic.png";
+import dragonicBackground from "./images/Iconic Dragonic.png";
 import {
   GeneratedSlime,
   generateSlime,

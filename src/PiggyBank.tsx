@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import styles from "./PiggyBank.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
-import piggyBankBackground from "./Images/Piggy Bank.png";
+import piggyBankBackground from "./images/Piggy Bank.png";
 import { PiggyBankItem, tribePiggyBank } from "./tribePiggyBank";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

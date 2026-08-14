@@ -1,10 +1,10 @@
-import withholdBackground from "./Images/SandboxWytheholde.webp";
-import applegarthImage from "./Images/Applegarth.webp";
-import robinsRopesImage from "./Images/Robins Ropes.png";
-import oPapiesOracleReadingsImage from "./Images/O Papies Oracle Readings.png";
-import supremeSmithyImage from "./Images/Supreme Smithy.png";
-import floralImage from "./Images/Floral.webp";
-import silentOathImage from "./Images/Silent Oath.png";
+import withholdBackground from "./images/SandboxWytheholde.webp";
+import applegarthImage from "./images/Applegarth.webp";
+import robinsRopesImage from "./images/Robins Ropes.png";
+import oPapiesOracleReadingsImage from "./images/O Papies Oracle Readings.png";
+import supremeSmithyImage from "./images/Supreme Smithy.png";
+import floralImage from "./images/Floral.webp";
+import silentOathImage from "./images/Silent Oath.png";
 import { BackButton } from "./BackButton";
 import styles from "./WithholdParker.module.css";
 import { ShopButton } from "./ShopButton";

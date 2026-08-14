@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { PawsClawsMawsItem, tribePawsClawsMaws } from "./tribePawsClawsMaws";
-import pawsClawsMawsBackground from "./Images/Paws, Claws, & Maws.png";
+import pawsClawsMawsBackground from "./images/Paws, Claws, & Maws.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

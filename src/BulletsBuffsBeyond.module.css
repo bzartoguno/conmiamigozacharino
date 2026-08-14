@@ -6,7 +6,7 @@
 }
 
 .backgroundImage {
-  background: url("./Images/Bullets Buffs and Beyond.webp") no-repeat center center fixed;
+  background: url("./images/Bullets Buffs and Beyond.webp") no-repeat center center fixed;
   display: flex;
   background-size: cover;
   height: 100%;

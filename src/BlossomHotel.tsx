@@ -4,7 +4,7 @@ import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { BlossomHotelItem, tribeBlossomHotel } from "./tribeBlossomHotel";
-import blossomHotelBackground from "./Images/Blossom Hotel.png";
+import blossomHotelBackground from "./images/Blossom Hotel.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

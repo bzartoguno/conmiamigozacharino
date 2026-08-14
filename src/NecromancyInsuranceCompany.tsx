@@ -4,7 +4,7 @@ import { tribeNecromancyInsuranceCompany } from "./tribeNecromancyInsuranceCompa
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import necromancyInsuranceBackground from "./Images/NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
+import necromancyInsuranceBackground from "./images/NecromanyInsuranceCo-ezgif.com-webp-to-png-converter.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 

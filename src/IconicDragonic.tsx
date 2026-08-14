@@ -4,7 +4,7 @@ import { tribeIconicDragonic } from "./tribeIconicDragonic";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import dragonicBackground from "./Images/Iconic Dragonic.png";
+import dragonicBackground from "./images/Iconic Dragonic.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
 
