@@ -8,6 +8,14 @@ type SettlementTemplate = {
   shopCount: number | "all";
 };
 
+export type BlankTemplateShop = {
+  key: string;
+  label: string;
+  backgroundColor: string;
+  color?: string;
+  imageSrc?: string;
+};
+
 const settlements: SettlementTemplate[] = [
   { key: "isolated-dwelling", label: "Isolated Dwelling name here", shopCount: 5 },
   { key: "thorpe", label: "Thorpe name here", shopCount: 6 },
@@ -20,18 +28,61 @@ const settlements: SettlementTemplate[] = [
 
 export function BlankWorldTemplate({
   onBack,
-  allShopNames,
+  onNavigate,
+  allShops,
 }: {
   onBack: () => void;
-  allShopNames: string[];
+  onNavigate: (key: string) => void;
+  allShops: BlankTemplateShop[];
 }) {
   const [selectedSettlement, setSelectedSettlement] = useState<SettlementTemplate | null>(null);
-  const shopNames = selectedSettlement?.shopCount === "all"
-    ? allShopNames
+  const shops: BlankTemplateShop[] = selectedSettlement?.shopCount === "all"
+    ? allShops
     : Array.from(
         { length: selectedSettlement?.shopCount ?? 0 },
-        (_, index) => `Shop name here ${index + 1}`
+        (_, index) => ({
+          key: `placeholder-shop-${index + 1}`,
+          label: `Shop name here ${index + 1}`,
+          backgroundColor: "#334155",
+          imageSrc: placeholderImage,
+        })
       );
+
+  if (selectedSettlement) {
+    return (
+      <main className={styles.wrapper}>
+        <button
+          type="button"
+          onClick={() => setSelectedSettlement(null)}
+          className={styles.backButton}
+        >
+          ← Back to settlements
+        </button>
+
+        <section className={styles.settlementView}>
+          <h1>{selectedSettlement.label}</h1>
+          <div className={styles.shopGrid} aria-label={`${selectedSettlement.label} shops`}>
+            {shops.map((shop) => (
+              <button
+                type="button"
+                key={shop.key}
+                className={styles.shopButton}
+                onClick={
+                  selectedSettlement.shopCount === "all"
+                    ? () => onNavigate(shop.key)
+                    : undefined
+                }
+                style={{ backgroundColor: shop.backgroundColor, color: shop.color ?? "#000" }}
+              >
+                {shop.imageSrc ? <img src={shop.imageSrc} alt={`${shop.label} logo`} /> : null}
+                <span>{shop.label}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className={styles.wrapper}>
@@ -62,24 +113,6 @@ export function BlankWorldTemplate({
           ))}
         </nav>
 
-        {selectedSettlement ? (
-          <section className={styles.settlement} aria-live="polite">
-            <img src={placeholderImage} alt={`${selectedSettlement.label} placeholder`} />
-            <div>
-              <p className={styles.eyebrow}>Settlement template</p>
-              <h2>{selectedSettlement.label}</h2>
-              <p>Settlement description here.</p>
-            </div>
-            <div className={styles.shopGrid}>
-              {shopNames.map((shopName, index) => (
-                <button type="button" key={`${shopName}-${index}`} className={styles.shopButton}>
-                  <img src={placeholderImage} alt="" />
-                  <span>{shopName}</span>
-                </button>
-              ))}
-            </div>
-          </section>
-        ) : null}
       </section>
     </main>
   );
