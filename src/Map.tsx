@@ -119,6 +119,8 @@ import strenuousPortalButtonImage from "./images/StrenuousTrue.webp";
 import { ReadySetBet, readySetBetMapButton } from "./ReadySetBet";
 import { SettlementProvider } from "./SettlementContext";
 import { SettlementType } from "./inventoryAvailability";
+import { BlankWorldTemplate } from "./BlankWorldTemplate";
+import placeholderImage from "./images/Placeholder.jpg";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -875,6 +877,13 @@ export function Map() {
           buttons={sortedEveryShopButtons}
         />
       );
+    case "BlankWorldTemplate":
+      return (
+        <BlankWorldTemplate
+          onBack={handleBack}
+          allShopNames={sortedEveryShopButtons.map((button) => button.label)}
+        />
+      );
     default:
       return (
         <div style={styles.wrapper}>
@@ -887,6 +896,14 @@ export function Map() {
               backgroundColor="rgba(15, 23, 42, 0.85)"
               color="#e2e8f0"
               imageSrc={sandboxWorldMapImage}
+            />
+            <FloatingButton
+              label="Blank world template"
+              onClick={() => handleNavigate("BlankWorldTemplate", { settlementType: undefined })}
+              delay="2s"
+              backgroundColor="rgba(51, 65, 85, 0.95)"
+              color="#f8fafc"
+              imageSrc={placeholderImage}
             />
             <FloatingButton
               label="Strenuous Portal"
