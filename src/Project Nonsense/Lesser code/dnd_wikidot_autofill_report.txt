@@ -1,0 +1,13 @@
+D&D Wikidot Autofill Report
+========================================================================
+Workbook: /Volumes/Bag O Holdn/Videos (Project Nonsense)/DND info.xlsx
+Sheet: DBCannonDndItems for programing
+Missing rows considered: 50
+Descriptions filled: 50
+Exact matches: 50
+Fuzzy matches: 0
+Unmatched: 0
+Failed downloads/extractions: 0
+Gentle delay range: 5.0-10.0 seconds
+Default max items per run: 50
+Cache folder: /Volumes/Bag O Holdn/Videos (Project Nonsense)/dnd_wikidot_cache

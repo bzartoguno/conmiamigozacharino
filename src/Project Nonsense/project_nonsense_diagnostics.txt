@@ -1,0 +1,809 @@
+==============================================================================
+PROJECT NONSENSE - RASPBERRY PI DIAGNOSTIC REPORT
+==============================================================================
+
+Created: 2026-08-11T21:37:59
+User: darkwizard
+Home: /home/darkwizard
+Python: 3.13.5 (main, Jun 25 2025, 18:55:22) [GCC 14.2.0]
+
+READ-ONLY REPORT: no settings or videos were changed.
+
+==============================================================================
+RASPBERRY PI MODEL
+==============================================================================
+Raspberry Pi 3 Model B Rev 1.2
+
+==============================================================================
+OPERATING SYSTEM
+==============================================================================
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.4
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+==============================================================================
+KERNEL
+==============================================================================
+$ uname -a
+
+Linux DarkWizardsTV 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux
+
+==============================================================================
+PYTHON PLATFORM
+==============================================================================
+platform: Linux-6.12.75+rpt-rpi-v8-aarch64-with-glibc2.41
+machine: aarch64
+processor: 
+logical CPUs: 4
+
+==============================================================================
+PI TEMPERATURE
+==============================================================================
+$ vcgencmd measure_temp
+
+temp=51.5'C
+
+==============================================================================
+PI THROTTLING / UNDERVOLTAGE FLAGS
+==============================================================================
+$ vcgencmd get_throttled
+
+throttled=0x0
+
+==============================================================================
+ARM CLOCK
+==============================================================================
+$ vcgencmd measure_clock arm
+
+frequency(48)=1200126000
+
+==============================================================================
+CORE CLOCK
+==============================================================================
+$ vcgencmd measure_clock core
+
+frequency(1)=400000000
+
+==============================================================================
+CORE VOLTAGE
+==============================================================================
+$ vcgencmd measure_volts core
+
+volt=1.3188V
+
+==============================================================================
+ARM / GPU MEMORY SPLIT
+==============================================================================
+$ vcgencmd get_mem arm
+
+arm=948M
+
+==============================================================================
+GPU MEMORY
+==============================================================================
+$ vcgencmd get_mem gpu
+
+gpu=76M
+
+==============================================================================
+CPU FREQUENCY / GOVERNOR
+==============================================================================
+cpu0: governor=ondemand current_kHz=1200000 max_kHz=1200000
+cpu1: governor=ondemand current_kHz=1200000 max_kHz=1200000
+cpu2: governor=ondemand current_kHz=1200000 max_kHz=1200000
+cpu3: governor=ondemand current_kHz=1200000 max_kHz=1200000
+
+==============================================================================
+CURRENT MEMORY
+==============================================================================
+$ free -h
+
+total        used        free      shared  buff/cache   available
+Mem:           905Mi       669Mi        28Mi        74Mi       344Mi       236Mi
+Swap:          904Mi       298Mi       606Mi
+
+==============================================================================
+SYSTEM UPTIME / LOAD
+==============================================================================
+$ uptime
+
+21:37:59 up 53 min,  2 users,  load average: 1.61, 1.95, 2.73
+
+==============================================================================
+TOP CPU / MEMORY PROCESSES
+==============================================================================
+$ ps -eo pid,comm,%cpu,%mem,etime --sort=-%cpu
+
+PID COMMAND         %CPU %MEM     ELAPSED
+   2427 ps               100  0.3       00:00
+   2273 chromium        52.0 31.8       05:26
+   2414 python          36.8  1.4       00:01
+   2119 chromium        14.2 12.3       05:59
+   1323 pcmanfm         12.6  4.6       53:06
+   2290 geany           10.0  4.8       04:53
+   2263 chromium         7.5  7.2       05:33
+   1104 labwc            2.9  3.1       53:11
+     64 kswapd0          2.9  0.0       53:45
+   2403 sh               2.8  0.1       00:01
+    179 usb-storage      2.2  0.0       53:42
+   2201 chromium         2.2  3.9       05:41
+     49 kcompactd0       1.7  0.0       53:46
+   2373 chromium         1.6  7.6       00:28
+   1324 wf-panel-pi      0.9  1.7       53:06
+   2125 x-terminal-emul  0.6  2.2       05:55
+   2315 chromium         0.5  9.3       04:15
+    170 kworker/u19:1-e  0.3  0.0       53:42
+     38 kworker/u17:0-e  0.3  0.0       53:46
+    770 kworker/u20:3-e  0.2  0.0       53:22
+    119 kworker/2:1H-mm  0.2  0.0       53:44
+     58 kworker/1:1H-mm  0.2  0.0       53:46
+      1 systemd          0.2  0.3       53:46
+     82 kworker/3:1H-kb  0.2  0.0       53:44
+   2325 chromium         0.2  7.4       04:09
+   2326 chromium         0.1  7.6       04:09
+    524 kworker/u18:3-e  0.1  0.0       53:32
+   2010 kworker/0:0H-mm  0.1  0.0       48:16
+     53 kworker/u20:1-e  0.1  0.0       53:46
+   2055 kworker/u19:0-e  0.1  0.0       31:07
+     89 irq/98-mmc0      0.1  0.0       53:44
+     18 rcu_preempt      0.1  0.0       53:46
+   1106 rpi-connectd     0.1  0.1       53:11
+    642 udisksd          0.1  0.6       53:26
+   2035 kworker/u17:3+e  0.0  0.0       41:06
+    628 avahi-daemon     0.0  0.2       53:26
+     83 kworker/u21:0-b  0.0  0.0       53:44
+   2122 kworker/u18:0-e  0.0  0.0       05:56
+     62 kworker/u18:1-e  0.0  0.0       53:46
+   2285 kworker/0:0-eve  0.0  0.0       05:19
+    634 dbus-daemon      0.0  0.3       53:26
+   2157 chromium         0.0  1.5       05:45
+   2210 chromium         0.0  2.7       05:39
+   2158 chromium         0.0  1.8       05:45
+   2301 bash             0.0  0.5       04:42
+   2083 kworker/0:2-eve  0.0  0.0       19:20
+   2049 kworker/2:3-eve  0.0  0.0       35:10
+   1107 wireplumber      0.0  0.8       53:11
+   2347 kworker/3:3-eve  0.0  0.0       03:57
+   2071 kworker/1:0-eve  0.0  0.0       21:51
+    707 NetworkManager   0.0  0.5       53:25
+   2350 kworker/1:1-eve  0.0  0.0       02:34
+   1079 systemd          0.0  0.1       53:13
+   2089 kworker/1:3-eve  0.0  0.0       15:17
+   2091 kworker/3:0-eve  0.0  0.0       14:38
+   1101 dbus-daemon      0.0  0.2       53:11
+   2174 bash             0.0  0.1       05:42
+    358 systemd-udevd    0.0  0.2       53:35
+   1314 wayvnc           0.0  0.3       53:06
+   1465 gvfsd-metadata   0.0  0.3       52:59
+    301 systemd-journal  0.0  0.2       53:36
+    723 polkitd          0.0  0.4       53:25
+   2057 kworker/3:1-eve  0.0  0.0       30:22
+   2104 kworker/2:2-mm_  0.0  0.0       07:18
+   2115 kworker/3:2H-mm  0.0  0.0       06:02
+    641 systemd-logind   0.0  0.2       53:26
+   1399 xdg-desktop-por  0.0  0.7       53:03
+   1102 pipewire         0.0  0.4       53:11
+   1287 polkit-mate-aut  0.0  0.6       53:06
+    550 brcmf_wdog/mmc1  0.0  0.0       53:32
+   1108 pipewire-pulse   0.0  0.5       53:11
+    171 jbd2/mmcblk0p2-  0.0  0.0       53:42
+   1383 xdg-desktop-por  0.0  0.7       53:04
+   2162 chromium         0.0  0.7       05:44
+   1811 upowerd          0.0  0.3       52:12
+   2098 kworker/3:2-eve  0.0  0.0       11:44
+    347 systemd-timesyn  0.0  0.2       53:36
+   1435 xdg-desktop-por  0.0  0.3       53:02
+   1447 gvfsd-trash      0.0  0.3       53:02
+    626 accounts-daemon  0.0  0.3       53:26
+   1434 gvfs-afc-volume  0.0  0.3       53:02
+   1831 gnome-keyring-d  0.0  0.3       52:10
+   1401 gvfs-udisks2-vo  0.0  0.6       53:03
+    709 wpa_supplicant   0.0  0.1       53:25
+    629 bluetoothd       0.0  0.2       53:26
+   1244 bash             0.0  0.1       53:07
+   2117 kworker/2:2H-kb  0.0  0.0       06:01
+     17 ksoftirqd/0      0.0  0.0       53:46
+     25 ksoftirqd/1      0.0  0.0       53:46
+   1355 gvfsd            0.0  0.4       53:05
+     35 ksoftirqd/3      0.0  0.0       53:46
+   1388 xdg-document-po  0.0  0.3       53:04
+     30 ksoftirqd/2      0.0  0.0       53:46
+   1103 pipewire         0.0  0.1       53:11
+   1048 lightdm          0.0  0.3       53:13
+   1123 mpris-proxy      0.0  0.2       53:11
+   2141 kworker/0:2H-kb  0.0  0.0       05:48
+   2116 kworker/1:0H-kb  0.0  0.0       06:01
+   1427 gvfs-gphoto2-vo  0.0  0.3       53:03
+   1240 xdg-permission-  0.0  0.4       53:07
+   1067 login            0.0  0.1       53:13
+    633 cron             0.0  0.1       53:26
+    561 rpcbind          0.0  0.1       53:32
+   1415 gvfs-mtp-volume  0.0  0.3       53:03
+   1421 gvfs-goa-volume  0.0  0.3       53:03
+   1818 gnome-keyring-d  0.0  0.3       52:11
+   1070 lightdm          0.0  0.3       53:13
+      2 kthreadd         0.0  0.0       53:46
+   1362 gvfsd-fuse       0.0  0.3       53:04
+   1301 systemd-inhibit  0.0  0.1       53:06
+   1069 agetty           0.0  0.1       53:13
+   1171 ssh-agent        0.0  0.0       53:10
+   1472 menu-cached      0.0  0.3       52:58
+     79 vchiq-slot/0     0.0  0.0       53:44
+    559 kworker/u21:3-h  0.0  0.0       53:32
+    197 kworker/u16:1-i  0.0  0.0       53:41
+     55 watchdogd        0.0  0.0       53:46
+     20 rcu_exp_gp_kthr  0.0  0.0       53:46
+      3 pool_workqueue_  0.0  0.0       53:46
+      4 kworker/R-kvfre  0.0  0.0       53:46
+      5 kworker/R-rcu_g  0.0  0.0       53:46
+      6 kworker/R-sync_  0.0  0.0       53:46
+      7 kworker/R-slub_  0.0  0.0       53:46
+      8 kworker/R-netns  0.0  0.0       53:46
+     11 kworker/u16:0-i  0.0  0.0       53:46
+     13 kworker/R-mm_pe  0.0  0.0       53:46
+     14 rcu_tasks_kthre  0.0  0.0       53:46
+     15 rcu_tasks_rude_  0.0  0.0       53:46
+     16 rcu_tasks_trace  0.0  0.0       53:46
+     19 rcu_exp_par_gp_  0.0  0.0       53:46
+     21 migration/0      0.0  0.0       53:46
+     22 cpuhp/0          0.0  0.0       53:46
+     23 cpuhp/1          0.0  0.0       53:46
+     24 migration/1      0.0  0.0       53:46
+     28 cpuhp/2          0.0  0.0       53:46
+     29 migration/2      0.0  0.0       53:46
+     33 cpuhp/3          0.0  0.0       53:46
+     34 migration/3      0.0  0.0       53:46
+     42 kdevtmpfs        0.0  0.0       53:46
+     43 kworker/R-inet_  0.0  0.0       53:46
+     44 kauditd          0.0  0.0       53:46
+     45 khungtaskd       0.0  0.0       53:46
+     46 oom_reaper       0.0  0.0       53:46
+     48 kworker/R-write  0.0  0.0       53:46
+     50 kworker/R-kinte  0.0  0.0       53:46
+     51 kworker/R-kbloc  0.0  0.0       53:46
+     52 kworker/R-blkcg  0.0  0.0       53:46
+     56 kworker/R-quota  0.0  0.0       53:46
+     60 kworker/R-rpcio  0.0  0.0       53:46
+     61 kworker/R-xprti  0.0  0.0       53:46
+     65 kworker/R-nfsio  0.0  0.0       53:45
+     66 kworker/R-kthro  0.0  0.0       53:45
+     71 hwrng            0.0  0.0       53:45
+     72 kworker/R-iscsi  0.0  0.0       53:45
+     73 kworker/R-nvme-  0.0  0.0       53:45
+     74 kworker/R-nvme-  0.0  0.0       53:45
+     75 kworker/R-nvme-  0.0  0.0       53:45
+     76 kworker/R-dwc_o  0.0  0.0       53:44
+     77 kworker/R-DWC N  0.0  0.0       53:44
+     78 kworker/R-uas    0.0  0.0       53:44
+     80 vchiq-recy/0     0.0  0.0       53:44
+     81 vchiq-sync/0     0.0  0.0       53:44
+     84 kworker/u22:0    0.0  0.0       53:44
+     85 kworker/u23:0    0.0  0.0       53:44
+     86 kworker/u24:0    0.0  0.0       53:44
+     87 kworker/u25:0    0.0  0.0       53:44
+    116 kworker/R-mmc_c  0.0  0.0       53:44
+    134 irq/184-usb-001  0.0  0.0       53:43
+    135 cec-vc4-hdmi     0.0  0.0       53:43
+    136 irq/82-vc4 hdmi  0.0  0.0       53:43
+    137 card0-crtc0      0.0  0.0       53:43
+    138 card0-crtc1      0.0  0.0       53:43
+    139 card0-crtc2      0.0  0.0       53:43
+    140 card0-crtc3      0.0  0.0       53:43
+    172 kworker/R-ext4-  0.0  0.0       53:42
+    177 scsi_eh_0        0.0  0.0       53:42
+    178 kworker/R-scsi_  0.0  0.0       53:42
+    195 kworker/R-mld    0.0  0.0       53:41
+    196 kworker/R-ipv6_  0.0  0.0       53:41
+    447 vchiq-keep/0     0.0  0.0       53:33
+    467 SMIO             0.0  0.0       53:33
+    491 kworker/R-mmal-  0.0  0.0       53:33
+    494 kworker/R-mmal-  0.0  0.0       53:33
+    495 kworker/R-mmal-  0.0  0.0       53:33
+    501 kworker/R-mmal-  0.0  0.0       53:33
+    504 kworker/R-mmal-  0.0  0.0       53:33
+    505 kworker/R-mmal-  0.0  0.0       53:33
+    506 kworker/R-mmal-  0.0  0.0       53:33
+    530 kworker/R-cfg80  0.0  0.0       53:32
+    548 kworker/R-brcmf  0.0  0.0       53:32
+    587 blkmapd          0.0  0.1       53:31
+    636 avahi-daemon     0.0  0.1       53:26
+    736 krfcommd         0.0  0.0       53:24
+   1081 (sd-pam)         0.0  0.1       53:12
+   1277 lwrespawn        0.0  0.1       53:06
+   1278 lwrespawn        0.0  0.1       53:06
+   1279 kanshi           0.0  0.1       53:06
+   1322 pcmanfm-pi       0.0  0.1       53:06
+   1333 rpi-gui-nop      0.0  0.1       53:06
+   1394 fusermount3      0.0  0.1       53:03
+   2109 kworker/u17:1    0.0  0.0       06:47
+   2112 kworker/u20:0    0.0  0.0       06:04
+   2113 kworker/u20:2-e  0.0  0.0       06:04
+   2114 kworker/u19:2-w  0.0  0.0       06:03
+   2148 chrome_crashpad  0.0  0.1       05:45
+   2150 chrome_crashpad  0.0  0.1       05:45
+   2266 chromium         0.0  0.4       05:33
+   2369 kworker/3:0H-mm  0.0  0.0       00:45
+   2371 kworker/0:1H     0.0  0.0       00:42
+   2383 kworker/1:2H     0.0  0.0       00:24
+   2385 kworker/2:0H     0.0  0.0       00:15
+   2386 kworker/2:0-eve  0.0  0.0       00:12
+   2402 kworker/0:1      0.0  0.0       00:01
+
+==============================================================================
+FILESYSTEM SPACE
+==============================================================================
+$ df -hT
+
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs  314M     0  314M   0% /dev
+tmpfs          tmpfs     182M  4.1M  178M   3% /run
+/dev/mmcblk0p2 ext4      230G  174G   47G  79% /
+tmpfs          tmpfs     453M  560K  453M   1% /dev/shm
+tmpfs          tmpfs     5.0M   12K  5.0M   1% /run/lock
+tmpfs          tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs          tmpfs     453M   85M  369M  19% /tmp
+/dev/mmcblk0p1 vfat      505M   86M  419M  17% /boot/firmware
+tmpfs          tmpfs      91M   68K   91M   1% /run/user/1000
+tmpfs          tmpfs     1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs          tmpfs     1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+/dev/sda1      exfat     932G  328G  605G  36% /media/darkwizard/Bag O Holdn
+
+==============================================================================
+BLOCK DEVICES
+==============================================================================
+$ lsblk -o NAME,TYPE,SIZE,FSTYPE,FSVER,MOUNTPOINTS,MODEL,TRAN
+
+NAME        TYPE   SIZE FSTYPE FSVER MOUNTPOINTS                   MODEL              TRAN
+loop0       loop   905M swap   1                                                      
+sda         disk 931.5G                                            ST1000LM035-1RK172 usb
+`-sda1      part 931.5G exfat  1.0   /media/darkwizard/Bag O Holdn                    
+mmcblk0     disk 233.2G                                                               mmc
+|-mmcblk0p1 part   512M vfat   FAT32 /boot/firmware                                   mmc
+`-mmcblk0p2 part 232.7G ext4   1.0   /                                                mmc
+zram0       disk   905M swap   1     [SWAP]
+
+==============================================================================
+MOUNTS
+==============================================================================
+$ findmnt
+
+TARGET                                          SOURCE         FSTYPE          OPTIONS
+/                                               /dev/mmcblk0p2 ext4            rw,noatime
+|-/sys                                          sysfs          sysfs           rw,nosuid,nodev,noexec,relatime
+| |-/sys/kernel/security                        securityfs     securityfs      rw,nosuid,nodev,noexec,relatime
+| |-/sys/fs/cgroup                              cgroup2        cgroup2         rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot
+| |-/sys/fs/pstore                              pstore         pstore          rw,nosuid,nodev,noexec,relatime
+| |-/sys/fs/bpf                                 bpf            bpf             rw,nosuid,nodev,noexec,relatime,mode=700
+| |-/sys/kernel/tracing                         tracefs        tracefs         rw,nosuid,nodev,noexec,relatime
+| |-/sys/kernel/debug                           debugfs        debugfs         rw,nosuid,nodev,noexec,relatime
+| |-/sys/kernel/config                          configfs       configfs        rw,nosuid,nodev,noexec,relatime
+| `-/sys/fs/fuse/connections                    fusectl        fusectl         rw,nosuid,nodev,noexec,relatime
+|-/proc                                         proc           proc            rw,relatime
+| `-/proc/sys/fs/binfmt_misc                    systemd-1      autofs          rw,relatime,fd=36,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=2932
+|   `-/proc/sys/fs/binfmt_misc                  binfmt_misc    binfmt_misc     rw,nosuid,nodev,noexec,relatime
+|-/dev                                          udev           devtmpfs        rw,nosuid,relatime,size=320768k,nr_inodes=80192,mode=755
+| |-/dev/pts                                    devpts         devpts          rw,nosuid,noexec,relatime,gid=5,mode=600,ptmxmode=000
+| |-/dev/shm                                    tmpfs          tmpfs           rw,nosuid,nodev
+| `-/dev/mqueue                                 mqueue         mqueue          rw,nosuid,nodev,noexec,relatime
+|-/run                                          tmpfs          tmpfs           rw,nosuid,nodev,noexec,relatime,size=185548k,mode=755
+| |-/run/lock                                   tmpfs          tmpfs           rw,nosuid,nodev,noexec,relatime,size=5120k
+| |-/run/rpc_pipefs                             sunrpc         rpc_pipefs      rw,relatime
+| |-/run/credentials/systemd-journald.service   tmpfs          tmpfs           ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+| |-/run/user/1000                              tmpfs          tmpfs           rw,nosuid,nodev,relatime,size=92772k,nr_inodes=23193,mode=700,uid=1000,gid=1000
+| | |-/run/user/1000/gvfs                       gvfsd-fuse     fuse.gvfsd-fuse rw,nosuid,nodev,relatime,user_id=1000,group_id=1000
+| | `-/run/user/1000/doc                        portal         fuse.portal     rw,nosuid,nodev,relatime,user_id=1000,group_id=1000
+| |-/run/credentials/getty@tty1.service         tmpfs          tmpfs           ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+| `-/run/credentials/serial-getty@ttyS0.service tmpfs          tmpfs           ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+|-/tmp                                          tmpfs          tmpfs           rw,nosuid,nodev,size=463864k,nr_inodes=1048576
+|-/boot/firmware                                /dev/mmcblk0p1 vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro
+`-/media/darkwizard/Bag O Holdn                 /dev/sda1      exfat           rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,iocharset=utf8,errors=remount-ro
+
+==============================================================================
+USB DEVICE TREE
+==============================================================================
+$ lsusb -t
+
+/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=dwc_otg/1p, 480M
+    |__ Port 001: Dev 002, If 0, Class=Hub, Driver=hub/5p, 480M
+        |__ Port 001: Dev 003, If 0, Class=Vendor Specific Class, Driver=smsc95xx, 480M
+        |__ Port 002: Dev 004, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M
+        |__ Port 003: Dev 005, If 0, Class=Human Interface Device, Driver=usbhid, 1.5M
+        |__ Port 003: Dev 005, If 1, Class=Human Interface Device, Driver=usbhid, 1.5M
+        |__ Port 005: Dev 006, If 0, Class=Mass Storage, Driver=usb-storage, 480M
+
+==============================================================================
+VLC VERSION
+==============================================================================
+$ vlc --version
+
+VLC version 3.0.23 Vetinari (3.0.23-2-0-g79128878dd)
+Compiled by Debian buildd for trixie on Debian arm64 buildd (Mar 23 2026 15:04:35)
+Compiler: gcc version 14.2.0 (Debian 14.2.0-19)
+This program comes with NO WARRANTY, to the extent permitted by law.
+You may redistribute it under the terms of the GNU General Public License;
+see the file named COPYING for details.
+Written by the VideoLAN team; see the AUTHORS file.
+
+==============================================================================
+FFMPEG VERSION
+==============================================================================
+$ ffmpeg -version
+
+ffmpeg version 7.1.5-0+deb13u1+rpt1 Copyright (c) 2000-2026 the FFmpeg developers
+built with gcc 14 (Debian 14.2.0-19)
+configuration: --prefix=/usr --extra-version=0+deb13u1+rpt1 --toolchain=hardened --incdir=/usr/include/aarch64-linux-gnu --enable-gpl --disable-stripping --disable-libmfx --disable-mmal --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --disable-libvpl --libdir=/usr/lib/aarch64-linux-gnu --arch=arm64 --enable-neon --enable-v4l2-request --enable-libudev --enable-epoxy --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-vout-drm --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sand --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+libavutil      59. 39.100 / 59. 39.100
+libavcodec     61. 19.101 / 61. 19.101
+libavformat    61.  7.103 / 61.  7.103
+libavdevice    61.  3.100 / 61.  3.100
+libavfilter    10.  5.100 / 10.  5.100
+libswscale      8.  3.100 /  8.  3.100
+libswresample   5.  3.100 /  5.  3.100
+libpostproc    58.  3.100 / 58.  3.100
+
+==============================================================================
+FFPROBE VERSION
+==============================================================================
+$ ffprobe -version
+
+ffprobe version 7.1.5-0+deb13u1+rpt1 Copyright (c) 2007-2026 the FFmpeg developers
+built with gcc 14 (Debian 14.2.0-19)
+configuration: --prefix=/usr --extra-version=0+deb13u1+rpt1 --toolchain=hardened --incdir=/usr/include/aarch64-linux-gnu --enable-gpl --disable-stripping --disable-libmfx --disable-mmal --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --disable-libvpl --libdir=/usr/lib/aarch64-linux-gnu --arch=arm64 --enable-neon --enable-v4l2-request --enable-libudev --enable-epoxy --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-vout-drm --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sand --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+libavutil      59. 39.100 / 59. 39.100
+libavcodec     61. 19.101 / 61. 19.101
+libavformat    61.  7.103 / 61.  7.103
+libavdevice    61.  3.100 / 61.  3.100
+libavfilter    10.  5.100 / 10.  5.100
+libswscale      8.  3.100 /  8.  3.100
+libswresample   5.  3.100 /  5.  3.100
+libpostproc    58.  3.100 / 58.  3.100
+
+==============================================================================
+FFMPEG HARDWARE ACCELERATION METHODS
+==============================================================================
+$ ffmpeg -hide_banner -hwaccels
+
+Hardware acceleration methods:
+vdpau
+cuda
+vaapi
+drm
+opencl
+vulkan
+
+==============================================================================
+VIDEO4LINUX DEVICES
+==============================================================================
+$ v4l2-ctl --list-devices
+
+bcm2835-codec-decode (platform:bcm2835-codec):
+	/dev/video10
+	/dev/video11
+	/dev/video12
+	/dev/video18
+	/dev/video31
+
+bcm2835-isp (platform:bcm2835-isp):
+	/dev/video13
+	/dev/video14
+	/dev/video15
+	/dev/video16
+	/dev/video20
+	/dev/video21
+	/dev/video22
+	/dev/video23
+	/dev/media0
+	/dev/media1
+
+bcm2835-codec (vchiq:bcm2835-codec):
+	/dev/media2
+
+==============================================================================
+VIDEO DEVICE NODES
+==============================================================================
+$ bash -lc ls -l /dev/video* /dev/media* 2>/dev/null || true
+
+crw-rw----+ 1 root video 238,  0 Aug 11 20:44 /dev/media0
+crw-rw----+ 1 root video 238,  1 Aug 11 20:44 /dev/media1
+crw-rw----+ 1 root video 238,  2 Aug 11 20:44 /dev/media2
+crw-rw----+ 1 root video  81,  8 Aug 11 20:44 /dev/video10
+crw-rw----+ 1 root video  81,  9 Aug 11 20:44 /dev/video11
+crw-rw----+ 1 root video  81, 10 Aug 11 20:44 /dev/video12
+crw-rw----+ 1 root video  81,  0 Aug 11 20:44 /dev/video13
+crw-rw----+ 1 root video  81,  1 Aug 11 20:44 /dev/video14
+crw-rw----+ 1 root video  81,  2 Aug 11 20:44 /dev/video15
+crw-rw----+ 1 root video  81,  3 Aug 11 20:44 /dev/video16
+crw-rw----+ 1 root video  81, 11 Aug 11 20:44 /dev/video18
+crw-rw----+ 1 root video  81,  4 Aug 11 20:44 /dev/video20
+crw-rw----+ 1 root video  81,  5 Aug 11 20:44 /dev/video21
+crw-rw----+ 1 root video  81,  6 Aug 11 20:44 /dev/video22
+crw-rw----+ 1 root video  81,  7 Aug 11 20:44 /dev/video23
+crw-rw----+ 1 root video  81, 12 Aug 11 20:44 /dev/video31
+
+==============================================================================
+HDMI CONNECTOR STATUS
+==============================================================================
+$ bash -lc for f in /sys/class/drm/*HDMI*/status; do echo "$f: $(cat "$f" 2>/dev/null)"; done
+
+/sys/class/drm/card0-HDMI-A-1/status: connected
+
+==============================================================================
+HDMI EDID SIZE
+==============================================================================
+$ bash -lc for f in /sys/class/drm/*HDMI*/edid; do echo "$f: $(stat -c%s "$f" 2>/dev/null || echo unreadable) bytes"; done
+
+/sys/class/drm/card0-HDMI-A-1/edid: 0 bytes
+
+==============================================================================
+ALSA PLAYBACK DEVICES
+==============================================================================
+$ aplay -l
+
+**** List of PLAYBACK Hardware Devices ****
+card 0: vc4hdmi [vc4-hdmi], device 0: MAI PCM i2s-hifi-0 [MAI PCM i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+
+==============================================================================
+PIPEWIRE / WIREPLUMBER STATUS
+==============================================================================
+$ wpctl status
+
+PipeWire 'pipewire-0' [1.4.2, darkwizard@DarkWizardsTV, cookie:760731673]
+ ââ Clients:
+        33. WirePlumber                         [1.4.2, darkwizard@DarkWizardsTV, pid:1107]
+        34. pipewire                            [1.4.2, darkwizard@DarkWizardsTV, pid:1108]
+        47. WirePlumber [export]                [1.4.2, darkwizard@DarkWizardsTV, pid:1107]
+        94. xdg-desktop-portal                  [1.4.2, darkwizard@DarkWizardsTV, pid:1383]
+        95. xdg-desktop-portal-wlr              [1.4.2, darkwizard@DarkWizardsTV, pid:1435]
+        96. unknown                             [1.4.2, darkwizard@DarkWizardsTV, pid:1324]
+        97. Chromium input                      [1.4.2, darkwizard@DarkWizardsTV, pid:2325]
+        98. wpctl                               [1.4.2, darkwizard@DarkWizardsTV, pid:2473]
+
+Audio
+ ââ Devices:
+ â      48. Built-in Audio                      [alsa]
+ â      49. Built-in Audio                      [alsa]
+ â  
+ ââ Sinks:
+ â  *   35. Built-in Audio Digital Stereo (HDMI) [vol: 1.00]
+ â      53. Built-in Audio Pro                  [vol: 1.00]
+ â  
+ ââ Sources:
+ â  
+ ââ Filters:
+ â  
+ ââ Streams:
+
+Video
+ ââ Devices:
+ â      43. bcm2835-codec-image_fx              [v4l2]
+ â      44. bcm2835-codec-encode                [v4l2]
+ â      45. bcm2835-codec-isp                   [v4l2]
+ â      46. bcm2835-codec-decode                [v4l2]
+ â      57. bcm2835-codec-encode_image          [v4l2]
+ â      58. bcm2835-isp                         [v4l2]
+ â      59. bcm2835-isp                         [v4l2]
+ â      60. bcm2835-isp                         [v4l2]
+ â      61. bcm2835-isp                         [v4l2]
+ â      62. bcm2835-isp                         [v4l2]
+ â      63. bcm2835-isp                         [v4l2]
+ â      64. bcm2835-isp                         [v4l2]
+ â      65. bcm2835-isp                         [v4l2]
+ â  
+ ââ Sinks:
+ â  
+ ââ Sources:
+ â  *   86. bcm2835-isp (V4L2)                 
+ â      88. bcm2835-isp (V4L2)                 
+ â      90. bcm2835-isp (V4L2)                 
+ â      92. bcm2835-isp (V4L2)                 
+ â  
+ ââ Filters:
+ â  
+ ââ Streams:
+
+Settings
+ ââ Default Configured Devices:
+         0. Audio/Sink    alsa_output.platform-3f00b840.mailbox.stereo-fallback
+
+==============================================================================
+ACTIVE BOOT CONFIG AUDIO / VIDEO LINES
+==============================================================================
+$ bash -lc grep -nE 'vc4-kms|fkms|dtoverlay|dtparam=audio|hdmi_|gpu_mem|arm_freq|over_voltage' /boot/firmware/config.txt /boot/config.txt 2>/dev/null || true
+
+/boot/firmware/config.txt:11:dtparam=audio=on
+/boot/firmware/config.txt:26:dtoverlay=vc4-kms-v3d
+/boot/firmware/config.txt:49:dtoverlay=dwc2,dr_mode=host
+/boot/config.txt:2:hdmi_drive=2
+
+==============================================================================
+CURRENT-BOOT KERNEL WARNINGS RELEVANT TO VIDEO / AUDIO / POWER / STORAGE
+==============================================================================
+$ bash -lc journalctl -k -b --no-pager 2>/dev/null | grep -Ei 'under.?voltage|thrott|thermal|vc4|v3d|hdmi|drm|audio|snd|alsa|usb|uas|reset|I/O error|mmc|ext4' | tail -n 250 || true
+
+Aug 11 20:44:10 DarkWizardsTV kernel: Kernel command line: coherent_pool=1M 8250.nr_uarts=1 snd_bcm2835.enable_headphones=0 cgroup_disable=memory snd_bcm2835.enable_headphones=1 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_hdmi=0  vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  console=ttyS0,115200 console=tty1 root=PARTUUID=497d0c88-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles cfg80211.ieee80211_regdom=US
+Aug 11 20:44:10 DarkWizardsTV kernel: thermal_sys: Registered thermal governor 'step_wise'
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver usbfs
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver hub
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new device driver usb
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver lan78xx
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver smsc95xx
+Aug 11 20:44:10 DarkWizardsTV kernel: dwc_otg 3f980000.usb: DWC OTG Controller
+Aug 11 20:44:10 DarkWizardsTV kernel: dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+Aug 11 20:44:10 DarkWizardsTV kernel: dwc_otg 3f980000.usb: irq 74, io mem 0x00000000
+Aug 11 20:44:10 DarkWizardsTV kernel: usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.12
+Aug 11 20:44:10 DarkWizardsTV kernel: usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Aug 11 20:44:10 DarkWizardsTV kernel: usb usb1: Product: DWC OTG Controller
+Aug 11 20:44:10 DarkWizardsTV kernel: usb usb1: Manufacturer: Linux 6.12.75+rpt-rpi-v8 dwc_otg_hcd
+Aug 11 20:44:10 DarkWizardsTV kernel: usb usb1: SerialNumber: 3f980000.usb
+Aug 11 20:44:10 DarkWizardsTV kernel: hub 1-0:1.0: USB hub found
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver uas
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver usb-storage
+Aug 11 20:44:10 DarkWizardsTV kernel: usbcore: registered new interface driver usbhid
+Aug 11 20:44:10 DarkWizardsTV kernel: usbhid: USB HID core driver
+Aug 11 20:44:10 DarkWizardsTV kernel: mmc-bcm2835 3f300000.mmcnr: mmc_debug:0 mmc_debug2:0
+Aug 11 20:44:10 DarkWizardsTV kernel: mmc-bcm2835 3f300000.mmcnr: DMA channel allocated
+Aug 11 20:44:10 DarkWizardsTV kernel: sdhost-bcm2835 3f202000.mmc: loaded - DMA enabled (>1)
+Aug 11 20:44:10 DarkWizardsTV kernel: mmc1: new high speed SDIO card at address 0001
+Aug 11 20:44:10 DarkWizardsTV kernel: mmc0: host does not support reading read-only switch, assuming write-enable
+Aug 11 20:44:10 DarkWizardsTV kernel: mmc0: new high speed SDXC card at address 59b4
+Aug 11 20:44:10 DarkWizardsTV kernel: mmcblk0: mmc0:59b4 USD00 233 GiB
+Aug 11 20:44:10 DarkWizardsTV kernel:  mmcblk0: p1 p2
+Aug 11 20:44:10 DarkWizardsTV kernel: mmcblk0: mmc0:59b4 USD00 233 GiB (quirks 0x40000000)
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1: new high-speed USB device number 2 using dwc_otg
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1: New USB device found, idVendor=0424, idProduct=9514, bcdDevice= 2.00
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Aug 11 20:44:10 DarkWizardsTV kernel: hub 1-1:1.0: USB hub found
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.1: New USB device found, idVendor=0424, idProduct=ec00, bcdDevice= 2.00
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Aug 11 20:44:10 DarkWizardsTV kernel: SMSC LAN8700 usb-001:003:01: attached PHY driver (mii_bus:phy_addr=usb-001:003:01, irq=184)
+Aug 11 20:44:10 DarkWizardsTV kernel: smsc95xx 1-1.1:1.0 eth0: register 'smsc95xx' at usb-3f980000.usb-1.1, smsc95xx USB 2.0 Ethernet, b8:27:eb:f2:36:1f
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: rc rc0: vc4-hdmi as /devices/platform/soc/3f902000.hdmi/rc/rc0
+Aug 11 20:44:10 DarkWizardsTV kernel: input: vc4-hdmi as /devices/platform/soc/3f902000.hdmi/rc/rc0/input0
+Aug 11 20:44:10 DarkWizardsTV kernel: input: vc4-hdmi HDMI Jack as /devices/platform/soc/3f902000.hdmi/sound/card0/input1
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops vc4_crtc_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops vc4_crtc_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops vc4_crtc_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: bound 3fc00000.v3d (ops vc4_v3d_ops [vc4])
+Aug 11 20:44:10 DarkWizardsTV kernel: [drm] Initialized vc4 0.0.0 for soc:gpu on minor 0
+Aug 11 20:44:10 DarkWizardsTV kernel: vc4-drm soc:gpu: [drm] fb0: vc4drmfb frame buffer device
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.2: new low-speed USB device number 4 using dwc_otg
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.2: New USB device found, idVendor=1bcf, idProduct=08a0, bcdDevice= 1.04
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.2: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Aug 11 20:44:10 DarkWizardsTV kernel: input: HID 1bcf:08a0 Mouse as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/0003:1BCF:08A0.0001/input/input2
+Aug 11 20:44:10 DarkWizardsTV kernel: input: HID 1bcf:08a0 Keyboard as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/0003:1BCF:08A0.0001/input/input3
+Aug 11 20:44:10 DarkWizardsTV kernel: input: HID 1bcf:08a0 as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/0003:1BCF:08A0.0001/input/input4
+Aug 11 20:44:10 DarkWizardsTV kernel: hid-generic 0003:1BCF:08A0.0001: input,hiddev96,hidraw0: USB HID v1.10 Mouse [HID 1bcf:08a0] on usb-3f980000.usb-1.2/input0
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.3: new low-speed USB device number 5 using dwc_otg
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.3: New USB device found, idVendor=04d9, idProduct=1836, bcdDevice= 0.01
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.3: Product: Mechanical Keyboard
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.3: Manufacturer: LogoTech
+Aug 11 20:44:10 DarkWizardsTV kernel: input: LogoTech Mechanical Keyboard as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/0003:04D9:1836.0002/input/input5
+Aug 11 20:44:10 DarkWizardsTV kernel: hid-generic 0003:04D9:1836.0002: input,hidraw1: USB HID v1.11 Keyboard [LogoTech Mechanical Keyboard] on usb-3f980000.usb-1.3/input0
+Aug 11 20:44:10 DarkWizardsTV kernel: input: LogoTech Mechanical Keyboard Consumer Control as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.1/0003:04D9:1836.0003/input/input6
+Aug 11 20:44:10 DarkWizardsTV kernel: input: LogoTech Mechanical Keyboard System Control as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.1/0003:04D9:1836.0003/input/input7
+Aug 11 20:44:10 DarkWizardsTV kernel: input: LogoTech Mechanical Keyboard as /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.1/0003:04D9:1836.0003/input/input8
+Aug 11 20:44:10 DarkWizardsTV kernel: hid-generic 0003:04D9:1836.0003: input,hidraw2: USB HID v1.11 Keyboard [LogoTech Mechanical Keyboard] on usb-3f980000.usb-1.3/input1
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: new high-speed USB device number 6 using dwc_otg
+Aug 11 20:44:10 DarkWizardsTV kernel: EXT4-fs (mmcblk0p2): orphan cleanup on readonly fs
+Aug 11 20:44:10 DarkWizardsTV kernel: EXT4-fs (mmcblk0p2): mounted filesystem ed6c7f1b-238b-41a1-b4b6-7bcdef3270fe ro with ordered data mode. Quota mode: none.
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: New USB device found, idVendor=0bc2, idProduct=2344, bcdDevice= 7.12
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: Product: Portable
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: Manufacturer: Seagate
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: SerialNumber: NT3FCMEZ
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: The driver for the USB controller dwc_otg_hcd does not support scatter-gather which is
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: required by the UAS driver. Please try an other USB controller if you wish to use UAS.
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: The driver for the USB controller dwc_otg_hcd does not support scatter-gather which is
+Aug 11 20:44:10 DarkWizardsTV kernel: usb 1-1.5: required by the UAS driver. Please try an other USB controller if you wish to use UAS.
+Aug 11 20:44:10 DarkWizardsTV kernel: usb-storage 1-1.5:1.0: USB Mass Storage device detected
+Aug 11 20:44:10 DarkWizardsTV kernel: scsi host0: usb-storage 1-1.5:1.0
+Aug 11 20:44:10 DarkWizardsTV systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+Aug 11 20:44:10 DarkWizardsTV systemd[1]: modprobe@drm.service: Deactivated successfully.
+Aug 11 20:44:10 DarkWizardsTV systemd[1]: Finished modprobe@drm.service - Load Kernel Module drm.
+Aug 11 20:44:10 DarkWizardsTV kernel: EXT4-fs (mmcblk0p2): re-mounted ed6c7f1b-238b-41a1-b4b6-7bcdef3270fe r/w.
+Aug 11 20:44:12 DarkWizardsTV kernel: snd_bcm2835: module is from the staging directory, the quality is unknown, you have been warned.
+Aug 11 20:44:13 DarkWizardsTV kernel: bcm2835-audio bcm2835-audio: card created with 8 channels
+Aug 11 20:44:14 DarkWizardsTV kernel: usbcore: registered new interface driver brcmfmac
+
+==============================================================================
+PROJECT NONSENSE MEDIA LIBRARY
+==============================================================================
+Base folder: /home/darkwizard/Videos
+TV folder: /home/darkwizard/Videos/TV
+Movies folder: /home/darkwizard/Videos/Movies
+
+TV video count: 1021
+TV total size: 124.64 GB
+TV extensions: {'.mp4': 1021}
+
+Movie video count: 44
+Movie total size: 42.48 GB
+Movie extensions: {'.mp4': 44}
+
+TV videos per top-level show folder:
+  Among Us: 10
+  Arcane: 18
+  Azumanga Daioh: 27
+  Bluey: 154
+  Delicious In Dungeon: 24
+  Epithet Erased: 7
+  Gravity falls: 40
+  Gwain Saga Episodes: 9
+  Haunted Hotel: 10
+  Justice League: 52
+  Justice League Unlimited: 39
+  Kid Cosmic: 24
+  Konosuba: 34
+  Miss Kobayashi: 25
+  Murder Drones: 10
+  My Adventures with Superman: 20
+  Owl House: 42
+  Phineas and Ferb: 200
+  Ranma: 54
+  Ranma 2024: 24
+  Sailor Moon: 40
+  The Amazing Digital Circus: 8
+  The Apothecary Diaries: 24
+  Win or Lose: 8
+  Witch Hat Atelier: 13
+  X-Men Evolution: 48
+  Youtube: 33
+  Zombie Land: 24
+
+==============================================================================
+FILESYSTEM USED BY PROJECT NONSENSE
+==============================================================================
+$ findmnt -T /home/darkwizard/Videos
+
+TARGET SOURCE         FSTYPE OPTIONS
+/      /dev/mmcblk0p2 ext4   rw,noatime
+
+==============================================================================
+DISK SPACE FOR PROJECT NONSENSE
+==============================================================================
+$ df -hT /home/darkwizard/Videos
+
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/mmcblk0p2 ext4  230G  174G   47G  79% /
+
+==============================================================================
+PROJECT NONSENSE SELF-MONITORING STATE
+==============================================================================
+Safety cache: /home/darkwizard/.project_nonsense_video_safety_cache.json
+Safety cache exists: False
+
+Skipped list candidate: /home/darkwizard/Desktop/project_nonsense_skipped_videos.txt
+Exists: False
+
+Skipped list candidate: /home/darkwizard/project_nonsense_skipped_videos.txt
+Exists: False
+
+==============================================================================
+END OF REPORT
+==============================================================================
+
+Upload this project_nonsense_diagnostics.txt file to ChatGPT for Project Nonsense tuning.
