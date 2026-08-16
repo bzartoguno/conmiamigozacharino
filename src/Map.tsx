@@ -119,7 +119,7 @@ import strenuousPortalButtonImage from "./images/StrenuousTrue.webp";
 import { ReadySetBet, readySetBetMapButton } from "./ReadySetBet";
 import { SettlementProvider } from "./SettlementContext";
 import { SettlementType } from "./inventoryAvailability";
-import { BlankWorldTemplate } from "./BlankWorldTemplate";
+import { BlankWorldTemplate } from "./Blank world template/BlankWorldTemplate";
 import placeholderImage from "./images/Placeholder.jpg";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
