@@ -118,7 +118,7 @@ import { StrenuousPortal } from "./StrenuousPortal";
 import strenuousPortalButtonImage from "./images/StrenuousTrue.webp";
 import { ReadySetBet, readySetBetMapButton } from "./ReadySetBet";
 import { SettlementProvider } from "./SettlementContext";
-import { SettlementType } from "./inventoryAvailability";
+import { SettlementType, sortBySettlementType } from "./inventoryAvailability";
 import { BlankWorldTemplate } from "./Blank world template/BlankWorldTemplate";
 import placeholderImage from "./images/Placeholder.jpg";
 
@@ -165,7 +165,7 @@ type SandboxTown = {
   key: string;
   routeKey: string;
   name: string;
-  settlementType: SettlementType;
+  settlementType: Exclude<SettlementType, "Travel">;
   description: string;
   image: string;
 };
@@ -940,7 +940,7 @@ function SandboxMenu({
   onBack: () => void;
   onNavigate: (key: string, options?: { settlementType?: SettlementType }) => void;
 }) {
-  const orderedSandboxTowns = sandboxTowns;
+  const orderedSandboxTowns = sortBySettlementType(sandboxTowns);
   const handleTownClick = (town: SandboxTown) => {
     onNavigate(town.routeKey, { settlementType: town.settlementType });
   };

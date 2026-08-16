@@ -40,3 +40,45 @@ test("shows each location's inventory settlement tag on its button", async () =>
     /Big Home\s*Metropolis/
   );
 });
+
+test("sorts Sandbox destinations from the smallest settlement type to the largest", () => {
+  render(<App />);
+
+  fireEvent.click(screen.getByRole("button", { name: "Sandbox, Travel" }));
+
+  const settlementTypes = screen
+    .getAllByRole("button")
+    .map((button) => button.getAttribute("aria-label"))
+    .filter((label): label is string => Boolean(label?.includes(", ")))
+    .map((label) => label.split(", ").at(-1));
+
+  expect(settlementTypes).toEqual([
+    "Thorpe",
+    "Thorpe",
+    "Hamlet",
+    "Village",
+    "Village",
+    "Village",
+    "Town",
+    "Town",
+    "Town",
+    "City",
+    "City",
+    "City",
+    "City",
+    "City",
+    "Metropolis",
+  ]);
+});
+
+test("sorts blank-world placeholders from isolated dwelling to metropolis", () => {
+  render(<App />);
+
+  fireEvent.click(screen.getByRole("button", { name: "Blank world template, Travel" }));
+
+  expect(
+    screen.getByRole("navigation", { name: "Blank world settlements" }).textContent
+  ).toMatch(
+    /Isolated Dwelling name here.*Thorpe name here.*Hamlet name here.*Village name here.*Town name here.*City name here.*Metropolis name here/
+  );
+});

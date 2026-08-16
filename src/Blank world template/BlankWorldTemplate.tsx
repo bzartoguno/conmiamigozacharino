@@ -1,7 +1,7 @@
 import { useState } from "react";
 import placeholderImage from "../images/Placeholder.jpg";
 import styles from "./BlankWorldTemplate.module.css";
-import { SettlementType } from "../inventoryAvailability";
+import { SettlementType, sortBySettlementType } from "../inventoryAvailability";
 
 type SettlementTemplate = {
   key: string;
@@ -104,7 +104,7 @@ export function BlankWorldTemplate({
         <img className={styles.worldImage} src={placeholderImage} alt="World placeholder" />
 
         <nav className={styles.grid} aria-label="Blank world settlements">
-          {settlements.map((settlement) => (
+          {sortBySettlementType(settlements).map((settlement) => (
             <button
               type="button"
               key={settlement.key}
