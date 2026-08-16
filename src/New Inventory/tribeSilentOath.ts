@@ -1,4 +1,4 @@
-import { Tribe } from "./types";
+import { Tribe } from "../types";
 
 export const tribeSilentOath: Tribe = {
   name: "Silent Oath",

@@ -1,5 +1,5 @@
 import { ShopTemplate } from "./ShopTemplate";
-import { tribeSilentOath } from "./tribeSilentOath";
+import { tribeSilentOath } from "./New Inventory/tribeSilentOath";
 import silentOathBackground from "./images/Silent Oath.png";
 import styles from "./SilentOath.module.css";
 

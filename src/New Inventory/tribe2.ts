@@ -1,5 +1,5 @@
-import { Tribe } from "./types";
-import { createGoblinExcuses } from "./tribeInsults";
+import { Tribe } from "../types";
+import { createGoblinExcuses } from "../tribeInsults";
 
 export const tribe2: Tribe = {
   name: "Grubcar Clan",

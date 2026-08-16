@@ -1,7 +1,7 @@
 import { ShopTemplate } from "./ShopTemplate";
 import provisionsParadiseBackground from "./images/Provisions Paradise.png";
 import styles from "./ProvisionsParadise.module.css";
-import { tribeProvisionsParadise } from "./tribeProvisionsParadise";
+import { tribeProvisionsParadise } from "./New Inventory/tribeProvisionsParadise";
 
 export function ProvisionsParadise({ onBack }: { onBack?: () => void }) {
   return (

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./RunestoneRelay.module.css";
-import { tribeRunestoneRelay } from "./tribeRunestoneRelay";
+import { tribeRunestoneRelay } from "./New Inventory/tribeRunestoneRelay";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

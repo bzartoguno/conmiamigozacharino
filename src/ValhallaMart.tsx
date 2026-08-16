@@ -3,7 +3,7 @@ import styles from "./ValhallaMart.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { ValhallaMartItem, tribeValhallaMart } from "./tribeValhallaMart";
+import { ValhallaMartItem, tribeValhallaMart } from "./New Inventory/tribeValhallaMart";
 import valhallaBackground from "./Valhalla Mart.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

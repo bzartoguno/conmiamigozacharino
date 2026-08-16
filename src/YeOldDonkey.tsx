@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./YeOldDonkey.module.css";
-import { tribeYeOldDonkey } from "./tribeYeOldDonkey";
+import { tribeYeOldDonkey } from "./New Inventory/tribeYeOldDonkey";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

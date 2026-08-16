@@ -3,7 +3,7 @@ import styles from "./JewelryGuild.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { JewelryGuildItem, tribeJewelryGuild } from "./tribeJewelryGuild";
+import { JewelryGuildItem, tribeJewelryGuild } from "./New Inventory/tribeJewelryGuild";
 import jewelryGuildBackground from "./images/Jewelry Guild.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./ApplegarthGuild.module.css";
-import { tribeApplegarthGuild } from "./tribeApplegarthGuild";
+import { tribeApplegarthGuild } from "./New Inventory/tribeApplegarthGuild";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

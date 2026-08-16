@@ -3,7 +3,7 @@ import styles from "./GolemWorkshop.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { GolemWorkshopItem, tribeGolemWorkshop } from "./tribeGolemWorkshop";
+import { GolemWorkshopItem, tribeGolemWorkshop } from "./New Inventory/tribeGolemWorkshop";
 import golemWorkshopBackground from "./images/Golem Work Shop.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

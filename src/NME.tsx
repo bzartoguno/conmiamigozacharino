@@ -3,7 +3,7 @@ import styles from "./NME.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { NMEItem, tribeNME } from "./tribeNME";
+import { NMEItem, tribeNME } from "./New Inventory/tribeNME";
 import nmeBackground from "./images/N.M.E.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

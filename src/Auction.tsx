@@ -3,7 +3,7 @@ import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
 import styles from "./AuctionApp.module.css";
-import { tribeAuctionHouse } from "./tribeAuctionHouse";
+import { tribeAuctionHouse } from "./New Inventory/tribeAuctionHouse";
 import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
 import { tribeAuctionHouse3 } from "./tribeAuctionHouse3";
 import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";

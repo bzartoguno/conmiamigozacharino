@@ -3,7 +3,7 @@ import styles from "./MichaelsMount.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { MichaelsMountItem, tribeMichaelsMount } from "./tribeMichaelsMount";
+import { MichaelsMountItem, tribeMichaelsMount } from "./New Inventory/tribeMichaelsMount";
 import mountsBackground from "./images/Mounts.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

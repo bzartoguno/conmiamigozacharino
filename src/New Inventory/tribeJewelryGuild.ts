@@ -1,4 +1,4 @@
-import { Item, Tribe } from "./types";
+import { Item, Tribe } from "../types";
 
 export interface JewelryGuildItem extends Item {
   priceText?: string;

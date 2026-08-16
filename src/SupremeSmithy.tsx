@@ -1,5 +1,5 @@
 import { ShopTemplate } from "./ShopTemplate";
-import { tribeSupremeSmithy } from "./tribeSupremeSmithy";
+import { tribeSupremeSmithy } from "./New Inventory/tribeSupremeSmithy";
 import supremeSmithyBackground from "./images/Supreme Smithy.png";
 import styles from "./SupremeSmithy.module.css";
 

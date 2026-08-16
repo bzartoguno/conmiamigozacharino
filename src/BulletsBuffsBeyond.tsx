@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./BulletsBuffsBeyond.module.css";
-import { tribeBulletsBuffsBeyond } from "./tribeBulletsBuffsBeyond";
+import { tribeBulletsBuffsBeyond } from "./New Inventory/tribeBulletsBuffsBeyond";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

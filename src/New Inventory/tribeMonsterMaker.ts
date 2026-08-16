@@ -1,8 +1,8 @@
-import { Item, Tribe } from "./types";
+import { Item, Tribe } from "../types";
 
 export interface MonsterMakerItem extends Item {
   priceText?: string;
-  category: string;
+  category?: string;
 }
 
 export const tribeMonsterMaker: Tribe & { items: MonsterMakerItem[] } = {

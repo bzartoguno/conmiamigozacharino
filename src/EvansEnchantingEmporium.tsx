@@ -6,7 +6,7 @@ import { Item } from "./types";
 import {
   EvansEnchantingItem,
   tribeEvansEnchantingEmporium,
-} from "./tribeEvansEnchantingEmporium";
+} from "./New Inventory/tribeEvansEnchantingEmporium";
 import evansEnchantingBackground from "./images/Evan's Enchanting Emporium.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
