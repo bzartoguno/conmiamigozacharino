@@ -1,3 +1,4 @@
+import { sortItemsForDisplay } from "./itemDisplay";
 import { useMemo } from "react";
 import styles from "./ComedyGold.module.css";
 import { tribeComedyGold } from "./New Inventory/tribeComedyGold";
@@ -59,12 +60,15 @@ export function ComedyGold({ onBack }: { onBack?: () => void }) {
           shopName={tribeComedyGold.name}
         />
         <section className={styles.grid} aria-label="Available items">
-          {displayItems.map((item) => {
+          {sortItemsForDisplay(displayItems).map((item) => {
             const priceText = item.priceLabel ?? `${(item.finalPrice ?? item.price).toLocaleString()} Gold`;
 
             return (
-              <article key={item.name} className={styles.card}>
+              <article key={item.name} className={styles.card} data-item-rarity={item.rarity ?? "Common"}>
                 <h2 className={styles.cardTitle}>{item.name}</h2>
+              <p className="item-card-detail"><strong>Rarity:</strong> {item.rarity ?? "Common"}</p>
+              <p className="item-card-detail"><strong>Item Type:</strong> {item.itemType ?? "Item"}</p>
+              {item.attunment === true && <p className="item-card-detail"><strong>Attunement:</strong> Required</p>}
                 <p className={styles.description}>{item.description}</p>
                 <p className={styles.price}>{priceText}</p>
               </article>
