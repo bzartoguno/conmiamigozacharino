@@ -3,7 +3,7 @@ import monsterImage from "./images/Monster.webp";
 import mountsImage from "./images/Mounts.webp";
 import iconicDragonicImage from "./images/Iconic Dragonic.png";
 import pawsClawsMawsImage from "./images/Paws, Claws, & Maws.png";
-import valhallaMartImage from "./Valhalla Mart.png";
+import valhallaMartImage from "./images/Valhalla Mart.png";
 import jewelryGuildImage from "./images/Jewelry Guild.png";
 import applegarthImage from "./images/Applegarth.webp";
 import archivesGuildImage from "./images/Archives Guild.png";

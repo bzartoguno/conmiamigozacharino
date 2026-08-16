@@ -3,7 +3,7 @@ import iconicDragonicImage from "./images/Iconic Dragonic.png";
 import evansEnchantingEmporiumImage from "./images/Evan's Enchanting Emporium.png";
 import supremeSmithyImage from "./images/Supreme Smithy.png";
 import sleuthUniversityImage from "./images/Sleuth.webp";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import runestoneRelayImage from "./images/Runestone Relay.png";
 import piggyBankImage from "./images/Piggy Bank.png";
 import mountsImage from "./images/Mounts.webp";

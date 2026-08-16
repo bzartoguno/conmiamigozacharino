@@ -7,7 +7,7 @@ import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";
-import yeOldDonkeyBackground from "./Ye Old Donkey.png";
+import yeOldDonkeyBackground from "./images/Ye Old Donkey.png";
 
 type DisplayItem = Item & { finalPrice: number };
 

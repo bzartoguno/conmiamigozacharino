@@ -4,7 +4,7 @@ import blackMarketImage from "./images/Black Market.jpg";
 import bulletsBuffsBeyondImage from "./images/Bullets Buffs and Beyond.webp";
 import runestoneRelayImage from "./images/Runestone Relay.png";
 import supremeSmithyImage from "./images/Supreme Smithy.png";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import { BackButton } from "./BackButton";
 import styles from "./ButtingRams.module.css";
 import { ShopButton } from "./ShopButton";

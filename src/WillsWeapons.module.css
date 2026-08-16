@@ -7,7 +7,7 @@
 }
 
 .backgroundImage {
-  background: url('./Wills Weapons.png') no-repeat center center fixed;
+  background: url('./images/Wills Weapons.png') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.8;

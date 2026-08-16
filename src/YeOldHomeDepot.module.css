@@ -7,7 +7,7 @@
 }
 
 .backgroundImage {
-  background: url('./Ye Old Home Depot.webp') no-repeat center center fixed;
+  background: url('./images/Ye Old Home Depot.webp') no-repeat center center fixed;
   display: flex;
   background-size: cover;
   opacity: 0.72;

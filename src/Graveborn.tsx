@@ -3,7 +3,7 @@ import iconicDragonicImage from "./images/Iconic Dragonic.png";
 import monsterImage from "./images/Monster.webp";
 import mountsImage from "./images/Mounts.webp";
 import pawsClawsMawsImage from "./images/Paws, Claws, & Maws.png";
-import valhallaMartImage from "./Valhalla Mart.png";
+import valhallaMartImage from "./images/Valhalla Mart.png";
 import sleuthUniversityImage from "./images/Sleuth.webp";
 import evansEnchantingEmporiumImage from "./images/Evan's Enchanting Emporium.png";
 import labyrinthineLibraryImage from "./images/Labyrinthine Labrary.png";

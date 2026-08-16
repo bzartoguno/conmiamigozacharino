@@ -4,7 +4,7 @@ import floralImage from "./images/Floral.webp";
 import sleuthUniversityImage from "./images/Sleuth.webp";
 import evansEnchantingEmporiumImage from "./images/Evan's Enchanting Emporium.png";
 import labyrinthineLibraryImage from "./images/Labyrinthine Labrary.png";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import supremeSmithyImage from "./images/Supreme Smithy.png";
 import { BackButton } from "./BackButton";
 import styles from "./SeymoursDriftMelanie.module.css";

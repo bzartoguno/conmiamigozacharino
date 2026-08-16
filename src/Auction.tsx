@@ -4,10 +4,6 @@ import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
 import styles from "./AuctionApp.module.css";
 import { tribeAuctionHouse } from "./New Inventory/tribeAuctionHouse";
-import { tribeAuctionHouse2 } from "./tribeAuctionHouse2";
-import { tribeAuctionHouse3 } from "./tribeAuctionHouse3";
-import { tribeAuctionHouse4 } from "./tribeAuctionHouse4";
-import { tribeAuctionHouse5 } from "./tribeAuctionHouse5";
 import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 import { BackButton } from "./BackButton";
@@ -41,7 +37,7 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Auctions({ onBack }: { onBack?: () => void }) {
-  const tribes = getFilteredTribes([tribeAuctionHouse, tribeAuctionHouse2, tribeAuctionHouse3, tribeAuctionHouse4, tribeAuctionHouse5 ]);
+  const tribes = getFilteredTribes([tribeAuctionHouse]);
   const [clicks, setClicks] = useState(getInitialClicks());
   const [indices, setIndices] = useState(getInitialIndices(tribes));
   const scrollToTop = () => {
