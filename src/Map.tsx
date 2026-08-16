@@ -211,7 +211,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "calidris",
     routeKey: "Calidris",
     name: "Calidris (Fisk)",
-    settlementType: "Hamlet",
+    settlementType: "Town",
     image: sandboxCalidrisImage,
     description:
       "Created as an artisans' paradise with no creative limits, Calidris thrived—until every living resident vanished overnight. Only the golems and robots remain, tirelessly working while ignoring their missing masters.",
