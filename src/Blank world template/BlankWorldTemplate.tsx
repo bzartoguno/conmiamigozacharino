@@ -1,11 +1,13 @@
 import { useState } from "react";
 import placeholderImage from "../images/Placeholder.jpg";
 import styles from "./BlankWorldTemplate.module.css";
+import { SettlementType } from "../inventoryAvailability";
 
 type SettlementTemplate = {
   key: string;
   label: string;
   shopCount: number | "all";
+  settlementType: Exclude<SettlementType, "Travel">;
 };
 
 export type BlankTemplateShop = {
@@ -17,23 +19,25 @@ export type BlankTemplateShop = {
 };
 
 const settlements: SettlementTemplate[] = [
-  { key: "isolated-dwelling", label: "Isolated Dwelling name here", shopCount: 5 },
-  { key: "thorpe", label: "Thorpe name here", shopCount: 6 },
-  { key: "hamlet", label: "Hamlet name here", shopCount: 7 },
-  { key: "village", label: "Village name here", shopCount: 8 },
-  { key: "town", label: "Town name here", shopCount: 9 },
-  { key: "city", label: "City name here", shopCount: 10 },
-  { key: "metropolis", label: "Metropolis name here", shopCount: "all" },
+  { key: "isolated-dwelling", label: "Isolated Dwelling name here", settlementType: "Isolated Dwelling", shopCount: 5 },
+  { key: "thorpe", label: "Thorpe name here", settlementType: "Thorpe", shopCount: 6 },
+  { key: "hamlet", label: "Hamlet name here", settlementType: "Hamlet", shopCount: 7 },
+  { key: "village", label: "Village name here", settlementType: "Village", shopCount: 8 },
+  { key: "town", label: "Town name here", settlementType: "Town", shopCount: 9 },
+  { key: "city", label: "City name here", settlementType: "City", shopCount: 10 },
+  { key: "metropolis", label: "Metropolis name here", settlementType: "Metropolis", shopCount: "all" },
 ];
 
 export function BlankWorldTemplate({
   onBack,
   onNavigate,
   allShops,
+  onSettlementChange,
 }: {
   onBack: () => void;
   onNavigate: (key: string) => void;
   allShops: BlankTemplateShop[];
+  onSettlementChange: (settlementType: Exclude<SettlementType, "Travel">) => void;
 }) {
   const [selectedSettlement, setSelectedSettlement] = useState<SettlementTemplate | null>(null);
   const shops: BlankTemplateShop[] = selectedSettlement?.shopCount === "all"
@@ -105,7 +109,10 @@ export function BlankWorldTemplate({
               type="button"
               key={settlement.key}
               className={styles.cardButton}
-              onClick={() => setSelectedSettlement(settlement)}
+              onClick={() => {
+                setSelectedSettlement(settlement);
+                onSettlementChange(settlement.settlementType);
+              }}
             >
               <img src={placeholderImage} alt="" />
               <span>{settlement.label}</span>

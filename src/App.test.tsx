@@ -6,11 +6,11 @@ test("renders hub map with shop buttons", () => {
   render(<App />);
 
   expect(
-    screen.getByRole("heading", { name: /where would you like to go\?/i })
+    screen.getByRole("heading", { name: /which world would you like to go to\?/i })
   ).toBeInTheDocument();
 
-  expect(screen.getByRole("button", { name: /goblin stuff/i })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /auction house/i })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /black market/i })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /book bombs/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /sandbox/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /blank world template/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /strenuous portal/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /every shop/i })).toBeInTheDocument();
 });

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { BlackIsClosed } from "./BlackIsClosed";
 import { BlackIsOpen } from "./BlackIsOpen";
 import { Tribe } from "./types";
@@ -8,13 +8,14 @@ import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 import { BackButton } from "./BackButton";
 import { getAvailableItems } from "./inventoryAvailability";
+import { useSettlementType } from "./SettlementContext";
 
 const MAX_CLICKS = 2;
 
-function getFilteredTribes(tribes: Tribe[]): Tribe[] {
+function getFilteredTribes(tribes: Tribe[], settlementType?: import("./inventoryAvailability").SettlementType): Tribe[] {
   return tribes.map((tribe) => ({
     ...tribe,
-    items: getAvailableItems(tribe.items),
+    items: getAvailableItems(tribe.items, settlementType),
   }));
 }
 
@@ -37,7 +38,8 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Blacks({ onBack }: { onBack?: () => void }) {
-  const tribes = getFilteredTribes([tribeBlackMarket]);
+  const settlementType = useSettlementType();
+  const tribes = useMemo(() => getFilteredTribes([tribeBlackMarket], settlementType), [settlementType]);
 
   const [clicks, setClicks] = useState(getInitialClicks());
 

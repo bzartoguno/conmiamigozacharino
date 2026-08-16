@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AuctionIsClosed } from "./AuctionIsClosed";
 import { AuctionIsOpen } from "./AuctionIsOpen";
 import { Tribe } from "./types";
@@ -8,13 +8,14 @@ import { getNextItem } from "./getNextItem";
 import { getCookie } from "./cookies";
 import { BackButton } from "./BackButton";
 import { getAvailableItems } from "./inventoryAvailability";
+import { useSettlementType } from "./SettlementContext";
 
 const MAX_CLICKS = 3;
 
-function getFilteredTribes(tribes: Tribe[]): Tribe[] {
+function getFilteredTribes(tribes: Tribe[], settlementType?: import("./inventoryAvailability").SettlementType): Tribe[] {
   return tribes.map((tribe) => ({
     ...tribe,
-    items: getAvailableItems(tribe.items),
+    items: getAvailableItems(tribe.items, settlementType),
   }));
 }
 
@@ -37,7 +38,8 @@ function getInitialIndices(tribes: Tribe[]): number[] {
 }
 
 export function Auctions({ onBack }: { onBack?: () => void }) {
-  const tribes = getFilteredTribes([tribeAuctionHouse]);
+  const settlementType = useSettlementType();
+  const tribes = useMemo(() => getFilteredTribes([tribeAuctionHouse], settlementType), [settlementType]);
   const [clicks, setClicks] = useState(getInitialClicks());
   const [indices, setIndices] = useState(getInitialIndices(tribes));
   const scrollToTop = () => {
