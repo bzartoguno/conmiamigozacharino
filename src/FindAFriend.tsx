@@ -1,3 +1,4 @@
+import { sortItemsForDisplay } from "./itemDisplay";
 import { useMemo } from "react";
 import styles from "./FindAFriend.module.css";
 import { tribeFindAFriend } from "./New Inventory/tribeFindAFriend";
@@ -56,9 +57,12 @@ export function FindAFriend({ onBack }: { onBack?: () => void }) {
           shopName={tribeFindAFriend.name}
         />
         <section className={styles.grid} aria-label="Available items">
-          {displayItems.map((item) => (
-            <article key={item.name} className={styles.card}>
+          {sortItemsForDisplay(displayItems).map((item) => (
+            <article key={item.name} className={styles.card} data-item-rarity={item.rarity ?? "Common"}>
               <h2 className={styles.cardTitle}>{item.name}</h2>
+              <p className="item-card-detail"><strong>Rarity:</strong> {item.rarity ?? "Common"}</p>
+              <p className="item-card-detail"><strong>Item Type:</strong> {item.itemType ?? "Item"}</p>
+              {item.attunment === true && <p className="item-card-detail"><strong>Attunement:</strong> Required</p>}
               <p className={styles.description}>{item.description}</p>
               <p className={styles.price}>
                 {formatPrice(item.finalPrice)}

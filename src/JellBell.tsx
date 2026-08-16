@@ -1,3 +1,4 @@
+import { sortItemsForDisplay } from "./itemDisplay";
 import { useMemo, useState } from "react";
 import styles from "./JellBell.module.css";
 import { BackButton } from "./BackButton";
@@ -213,15 +214,18 @@ export function JellBell({ onBack }: { onBack?: () => void }) {
         {renderResultPanel()}
 
         <section className={styles.grid} aria-label="Available items">
-          {displayItems.map((item, index) => {
+          {sortItemsForDisplay(displayItems).map((item, index) => {
             const itemIsBellTier = isBellTier(item.name);
 
             return (
               <article
                 key={item.name}
                 className={`${styles.card} ${styles[`cardVariant${(index % 4) + 1}`]}`}
-              >
+               data-item-rarity={item.rarity ?? "Common"}>
                 <h2 className={styles.cardTitle}>{item.name}</h2>
+              <p className="item-card-detail"><strong>Rarity:</strong> {item.rarity ?? "Common"}</p>
+              <p className="item-card-detail"><strong>Item Type:</strong> {item.itemType ?? "Item"}</p>
+              {item.attunment === true && <p className="item-card-detail"><strong>Attunement:</strong> Required</p>}
                 <p className={styles.description}>{item.description}</p>
                 <p className={styles.price}>{formatPrice(item)}</p>
                 {itemIsBellTier && (

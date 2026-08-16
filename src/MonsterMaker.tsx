@@ -1,3 +1,4 @@
+import { sortItemsForDisplay } from "./itemDisplay";
 import { useMemo } from "react";
 import styles from "./MonsterMaker.module.css";
 import { BackButton } from "./BackButton";
@@ -111,14 +112,17 @@ export function MonsterMaker({ onBack }: { onBack?: () => void }) {
             <section key={category} className={styles.categoryBlock} aria-label={category}>
               <h2 className={styles.categoryTitle}>{category}</h2>
               <div className={styles.grid}>
-                {items.map((item, index) => (
+                {sortItemsForDisplay(items).map((item, index) => (
                   <article
                     key={item.name}
                     className={`${styles.card} ${
                       cardPalettes[index % cardPalettes.length]
                     }`}
-                  >
+                   data-item-rarity={item.rarity ?? "Common"}>
                     <h3 className={styles.cardTitle}>{item.name}</h3>
+              <p className="item-card-detail"><strong>Rarity:</strong> {item.rarity ?? "Common"}</p>
+              <p className="item-card-detail"><strong>Item Type:</strong> {item.itemType ?? "Item"}</p>
+              {item.attunment === true && <p className="item-card-detail"><strong>Attunement:</strong> Required</p>}
                     <p className={styles.description}>{item.description}</p>
                     <p className={styles.price}>{formatPrice(item)}</p>
                   </article>
