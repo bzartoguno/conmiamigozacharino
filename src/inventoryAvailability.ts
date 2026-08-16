@@ -4,6 +4,27 @@ import { Item } from "./types";
 export type SettlementType = "Travel" | "Isolated Dwelling" | "Thorpe" | "Hamlet" | "Village" | "Town" | "City" | "Metropolis";
 export type ItemRarity = (typeof rarityOrder)[number];
 
+/** Settlement types ordered from the smallest community to the largest. */
+export const settlementTypesBySize: Exclude<SettlementType, "Travel">[] = [
+  "Isolated Dwelling",
+  "Thorpe",
+  "Hamlet",
+  "Village",
+  "Town",
+  "City",
+  "Metropolis",
+];
+
+export function sortBySettlementType<T extends { settlementType: Exclude<SettlementType, "Travel"> }>(
+  settlements: T[]
+): T[] {
+  return [...settlements].sort(
+    (left, right) =>
+      settlementTypesBySize.indexOf(left.settlementType) -
+      settlementTypesBySize.indexOf(right.settlementType)
+  );
+}
+
 /** The single source of truth for settlement inventory availability percentages. */
 export const settlementRarityAvailability: Record<Exclude<SettlementType, "Travel">, Record<ItemRarity, number>> = {
   "Isolated Dwelling": { Common: 25, Uncommon: 0, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
