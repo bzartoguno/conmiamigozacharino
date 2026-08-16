@@ -1,6 +1,17 @@
 import { Item } from "./types";
 
-export type SettlementType =
+export const rarityOrder = [
+  "Common",
+  "Uncommon",
+  "Rare",
+  "Very Rare",
+  "Legendary",
+  "Artifact",
+] as const;
+
+export type ItemRarity = typeof rarityOrder[number];
+export type TownTag =
+  | "Travel"
   | "Isolated Dwelling"
   | "Thorpe"
   | "Hamlet"
@@ -9,36 +20,33 @@ export type SettlementType =
   | "City"
   | "Metropolis";
 
-export const settlementInventoryPercent: Record<SettlementType, number> = {
-  "Isolated Dwelling": 10,
-  Thorpe: 25,
-  Hamlet: 40,
-  Village: 55,
-  Town: 70,
-  City: 85,
-  Metropolis: 100,
+// One shared source of truth for settlement inventory availability. Values are
+// probabilities from 0 to 1 and are evaluated independently for every item.
+export const settlementRarityAvailability: Record<Exclude<TownTag, "Travel">, Record<ItemRarity, number>> = {
+  "Isolated Dwelling": { Common: 0.25, Uncommon: 0, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Thorpe: { Common: 0.5, Uncommon: 0, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Hamlet: { Common: 1, Uncommon: 0.5, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Village: { Common: 1, Uncommon: 1, Rare: 0.5, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Town: { Common: 1, Uncommon: 1, Rare: 1, "Very Rare": 0.5, Legendary: 0, Artifact: 0 },
+  City: { Common: 1, Uncommon: 1, Rare: 1, "Very Rare": 1, Legendary: 0.5, Artifact: 0.25 },
+  Metropolis: { Common: 1, Uncommon: 1, Rare: 1, "Very Rare": 1, Legendary: 1, Artifact: 1 },
 };
 
-export function getVisibleItemCount(totalItems: number, settlementType?: SettlementType): number {
-  if (totalItems <= 0) {
-    return 0;
-  }
-
-  if (!settlementType) {
-    return totalItems;
-  }
-
-  const percent = settlementInventoryPercent[settlementType];
-  const count = Math.floor((totalItems * percent) / 100);
-  return Math.max(1, count);
+function itemRarity(item: Item): ItemRarity {
+  const rarity = item.rarity ?? "Common";
+  return rarityOrder.includes(rarity as ItemRarity) ? rarity as ItemRarity : "Common";
 }
 
-export function getAvailableItems<T extends Item>(items: T[], settlementType?: SettlementType): T[] {
-  const sortedByPrice = [...items].sort((a, b) => a.price - b.price);
-  const count = getVisibleItemCount(items.length, settlementType);
-  if (count >= sortedByPrice.length) {
-    return sortedByPrice;
-  }
+export function getAvailableItems<T extends Item>(
+  items: T[],
+  townTag?: TownTag,
+  random: () => number = Math.random
+): T[] {
+  if (!townTag || townTag === "Travel") return [...items];
 
-  return sortedByPrice.slice(0, count);
+  const chances = settlementRarityAvailability[townTag];
+  return items.filter((item) => {
+    const chance = chances[itemRarity(item)];
+    return chance === 1 || (chance > 0 && random() < chance);
+  });
 }

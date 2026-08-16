@@ -1,13 +1,5 @@
 import { Item } from "./types";
-
-export const rarityOrder = [
-  "Common",
-  "Uncommon",
-  "Rare",
-  "Very Rare",
-  "Legendary",
-  "Artifact",
-] as const;
+import { rarityOrder } from "./inventoryAvailability";
 
 type PricedItem = Item & { finalPrice?: number };
 

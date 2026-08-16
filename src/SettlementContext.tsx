@@ -1,14 +1,14 @@
 import { createContext, useContext } from "react";
 import type { ReactNode } from "react";
-import { SettlementType } from "./inventoryAvailability";
+import { TownTag } from "./inventoryAvailability";
 
-const SettlementContext = createContext<SettlementType | undefined>(undefined);
+const SettlementContext = createContext<TownTag | undefined>(undefined);
 
 export function SettlementProvider({
   settlementType,
   children,
 }: {
-  settlementType?: SettlementType;
+  settlementType?: TownTag;
   children: ReactNode;
 }) {
   return (

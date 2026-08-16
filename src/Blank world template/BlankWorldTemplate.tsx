@@ -1,11 +1,13 @@
 import { useState } from "react";
 import placeholderImage from "../images/Placeholder.jpg";
 import styles from "./BlankWorldTemplate.module.css";
+import { TownTag } from "../inventoryAvailability";
 
 type SettlementTemplate = {
   key: string;
   label: string;
   shopCount: number | "all";
+  townTag: TownTag;
 };
 
 export type BlankTemplateShop = {
@@ -17,22 +19,24 @@ export type BlankTemplateShop = {
 };
 
 const settlements: SettlementTemplate[] = [
-  { key: "isolated-dwelling", label: "Isolated Dwelling name here", shopCount: 5 },
-  { key: "thorpe", label: "Thorpe name here", shopCount: 6 },
-  { key: "hamlet", label: "Hamlet name here", shopCount: 7 },
-  { key: "village", label: "Village name here", shopCount: 8 },
-  { key: "town", label: "Town name here", shopCount: 9 },
-  { key: "city", label: "City name here", shopCount: 10 },
-  { key: "metropolis", label: "Metropolis name here", shopCount: "all" },
+  { key: "isolated-dwelling", label: "Isolated Dwelling name here", shopCount: 5, townTag: "Isolated Dwelling" },
+  { key: "thorpe", label: "Thorpe name here", shopCount: 6, townTag: "Thorpe" },
+  { key: "hamlet", label: "Hamlet name here", shopCount: 7, townTag: "Hamlet" },
+  { key: "village", label: "Village name here", shopCount: 8, townTag: "Village" },
+  { key: "town", label: "Town name here", shopCount: 9, townTag: "Town" },
+  { key: "city", label: "City name here", shopCount: 10, townTag: "City" },
+  { key: "metropolis", label: "Metropolis name here", shopCount: "all", townTag: "Metropolis" },
 ];
 
 export function BlankWorldTemplate({
   onBack,
   onNavigate,
+  onSelectTownTag,
   allShops,
 }: {
   onBack: () => void;
-  onNavigate: (key: string) => void;
+  onNavigate: (key: string, options?: { settlementType?: TownTag }) => void;
+  onSelectTownTag: (townTag: TownTag) => void;
   allShops: BlankTemplateShop[];
 }) {
   const [selectedSettlement, setSelectedSettlement] = useState<SettlementTemplate | null>(null);
@@ -69,7 +73,7 @@ export function BlankWorldTemplate({
                 className={styles.shopButton}
                 onClick={
                   selectedSettlement.shopCount === "all"
-                    ? () => onNavigate(shop.key)
+                    ? () => onNavigate(shop.key, { settlementType: selectedSettlement.townTag })
                     : undefined
                 }
                 style={{ backgroundColor: shop.backgroundColor, color: shop.color ?? "#000" }}
@@ -105,7 +109,10 @@ export function BlankWorldTemplate({
               type="button"
               key={settlement.key}
               className={styles.cardButton}
-              onClick={() => setSelectedSettlement(settlement)}
+              onClick={() => {
+                setSelectedSettlement(settlement);
+                onSelectTownTag(settlement.townTag);
+              }}
             >
               <img src={placeholderImage} alt="" />
               <span>{settlement.label}</span>
