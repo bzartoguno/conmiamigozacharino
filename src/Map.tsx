@@ -317,6 +317,21 @@ const sandboxTowns: SandboxTown[] = [
   },
 ];
 
+const hubDestinations = [
+  { routeKey: "Sandbox", name: "Sandbox", townType: "Travel", delay: "1.5s", backgroundColor: "rgba(15, 23, 42, 0.85)", color: "#e2e8f0", imageSrc: sandboxWorldMapImage },
+  { routeKey: "BlankWorldTemplate", name: "Blank world template", townType: "Travel", delay: "2s", backgroundColor: "rgba(51, 65, 85, 0.95)", color: "#f8fafc", imageSrc: placeholderImage },
+  { routeKey: "StrenuousPortal", name: "Strenuous Portal", townType: "Town", delay: "2.5s", backgroundColor: "rgba(88, 28, 135, 0.9)", color: "#f1f5f9", imageSrc: strenuousPortalButtonImage },
+  { routeKey: "EveryShop", name: "Every Shop", townType: "Metropolis", delay: "3s", backgroundColor: "rgba(30, 64, 175, 0.9)", color: "#e2e8f0" },
+] satisfies Array<{
+  routeKey: string;
+  name: string;
+  townType: SettlementType;
+  delay: string;
+  backgroundColor: string;
+  color: string;
+  imageSrc?: string;
+}>;
+
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
   const [, setNavigationStack] = useState<string[]>([]);
@@ -893,37 +908,18 @@ export function Map() {
         <div style={styles.wrapper}>
           <h1 style={styles.title}>Which world would you like to go to?</h1>
           <div style={styles.buttonContainer}>
-            <FloatingButton
-              label="Sandbox"
-              onClick={() => handleNavigate("Sandbox", { settlementType: "Travel" })}
-              delay="1.5s"
-              backgroundColor="rgba(15, 23, 42, 0.85)"
-              color="#e2e8f0"
-              imageSrc={sandboxWorldMapImage}
-            />
-            <FloatingButton
-              label="Blank world template"
-              onClick={() => handleNavigate("BlankWorldTemplate", { settlementType: "Travel" })}
-              delay="2s"
-              backgroundColor="rgba(51, 65, 85, 0.95)"
-              color="#f8fafc"
-              imageSrc={placeholderImage}
-            />
-            <FloatingButton
-              label="Strenuous Portal"
-              onClick={() => handleNavigate("StrenuousPortal", { settlementType: "Town" })}
-              delay="2.5s"
-              backgroundColor="rgba(88, 28, 135, 0.9)"
-              color="#f1f5f9"
-              imageSrc={strenuousPortalButtonImage}
-            />
-            <FloatingButton
-              label="Every Shop"
-              onClick={() => handleNavigate("EveryShop", { settlementType: "Metropolis" })}
-              delay="3s"
-              backgroundColor="rgba(30, 64, 175, 0.9)"
-              color="#e2e8f0"
-            />
+            {hubDestinations.map((destination) => (
+              <FloatingButton
+                key={destination.routeKey}
+                label={destination.name}
+                secondaryLabel={destination.townType}
+                onClick={() => handleNavigate(destination.routeKey, { settlementType: destination.townType })}
+                delay={destination.delay}
+                backgroundColor={destination.backgroundColor}
+                color={destination.color}
+                imageSrc={destination.imageSrc}
+              />
+            ))}
           </div>
         </div>
       );
@@ -974,6 +970,7 @@ function SandboxMenu({
             <FloatingButton
               key={town.key}
               label={town.name}
+              secondaryLabel={town.settlementType}
               description={undefined}
               imageSrc={town.image}
               backgroundColor="rgba(30, 41, 59, 0.88)"
@@ -1029,6 +1026,7 @@ function EveryShopMenu({
 
 function FloatingButton({
   label,
+  secondaryLabel,
   onClick,
   delay,
   backgroundColor,
@@ -1037,6 +1035,7 @@ function FloatingButton({
   description,
 }: {
   label: string;
+  secondaryLabel?: SettlementType;
   onClick: () => void;
   delay: string;
   backgroundColor: string;
@@ -1048,7 +1047,7 @@ function FloatingButton({
   return (
     <button
       type="button"
-      aria-label={label}
+      aria-label={secondaryLabel ? `${label}, ${secondaryLabel}` : label}
       onClick={onClick}
       onMouseEnter={() => setIsHighlighted(true)}
       onMouseLeave={() => setIsHighlighted(false)}
@@ -1073,10 +1072,18 @@ function FloatingButton({
         <div style={styles.buttonContent}>
           <img src={imageSrc} alt={`${label} logo`} style={styles.buttonImage} />
           <span style={styles.buttonLabel}>{label}</span>
+          {secondaryLabel ? (
+            <span style={styles.buttonSecondaryLabel}>{secondaryLabel}</span>
+          ) : null}
           {description ? <p style={styles.buttonDescription}>{description}</p> : null}
         </div>
       ) : (
-        label
+        <span style={styles.buttonContent}>
+          <span style={styles.buttonLabel}>{label}</span>
+          {secondaryLabel ? (
+            <span style={styles.buttonSecondaryLabel}>{secondaryLabel}</span>
+          ) : null}
+        </span>
       )}
     </button>
   );
@@ -1172,6 +1179,15 @@ const styles: Record<string, React.CSSProperties> = {
   buttonLabel: {
     display: "block",
     fontWeight: 700,
+    textAlign: "center",
+  },
+  buttonSecondaryLabel: {
+    display: "block",
+    fontSize: "0.75em",
+    fontWeight: 500,
+    lineHeight: 1.2,
+    letterSpacing: "0.04em",
+    opacity: 0.78,
     textAlign: "center",
   },
   buttonDescription: {
