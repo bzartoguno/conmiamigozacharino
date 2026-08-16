@@ -1,5 +1,5 @@
-import { Tribe } from "./types";
-import { blackMarketInsults } from "./tribeInsults";
+import { Tribe } from "../types";
+import { blackMarketInsults } from "../tribeInsults";
 
 export const tribeBlackMarket: Tribe = {
   name: "One of the white shops",

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./ComedyGold.module.css";
-import { tribeComedyGold } from "./tribeComedyGold";
+import { tribeComedyGold } from "./New Inventory/tribeComedyGold";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

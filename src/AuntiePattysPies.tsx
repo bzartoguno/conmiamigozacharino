@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./AuntiePattysPies.module.css";
-import { tribeAuntiePattysPies } from "./tribeAuntiePattysPies";
+import { tribeAuntiePattysPies } from "./New Inventory/tribeAuntiePattysPies";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

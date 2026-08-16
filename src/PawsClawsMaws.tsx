@@ -3,7 +3,7 @@ import styles from "./PawsClawsMaws.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { PawsClawsMawsItem, tribePawsClawsMaws } from "./tribePawsClawsMaws";
+import { PawsClawsMawsItem, tribePawsClawsMaws } from "./New Inventory/tribePawsClawsMaws";
 import pawsClawsMawsBackground from "./images/Paws, Claws, & Maws.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

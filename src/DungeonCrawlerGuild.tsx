@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./DungeonCrawlerGuild.module.css";
-import { tribeDungeonCrawlerGuild } from "./tribeDungeonCrawlerGuild";
+import { tribeDungeonCrawlerGuild } from "./New Inventory/tribeDungeonCrawlerGuild";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

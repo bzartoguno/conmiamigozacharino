@@ -3,7 +3,7 @@ import styles from "./FairiesOfFlora.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./tribeFairiesOfFlora";
+import { FairiesOfFloraItem, tribeFairiesOfFlora } from "./New Inventory/tribeFairiesOfFlora";
 import floralBackground from "./images/Floral.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

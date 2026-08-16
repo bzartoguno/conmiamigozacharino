@@ -6,7 +6,7 @@ import { Item } from "./types";
 import {
   LabyrinthineLibraryItem,
   tribeLabyrinthineLibrary,
-} from "./tribeLabyrinthineLibrary";
+} from "./New Inventory/tribeLabyrinthineLibrary";
 import labyrinthineLibraryBackground from "./images/Labyrinthine Labrary.png";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

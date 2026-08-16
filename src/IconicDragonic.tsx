@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./IconicDragonic.module.css";
-import { tribeIconicDragonic } from "./tribeIconicDragonic";
+import { tribeIconicDragonic } from "./New Inventory/tribeIconicDragonic";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

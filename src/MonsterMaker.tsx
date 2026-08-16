@@ -3,7 +3,7 @@ import styles from "./MonsterMaker.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { MonsterMakerItem, tribeMonsterMaker } from "./tribeMonsterMaker";
+import { MonsterMakerItem, tribeMonsterMaker } from "./New Inventory/tribeMonsterMaker";
 import monsterBackground from "./images/Monster.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

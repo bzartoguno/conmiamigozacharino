@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./ChangingChurch.module.css";
-import { tribeChangingChurch } from "./tribeChangingChurch";
+import { tribeChangingChurch } from "./New Inventory/tribeChangingChurch";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

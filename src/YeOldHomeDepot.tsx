@@ -3,7 +3,7 @@ import styles from "./YeOldHomeDepot.module.css";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
-import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./tribeYeOldHomeDepot";
+import { YeOldHomeDepotItem, tribeYeOldHomeDepot } from "./New Inventory/tribeYeOldHomeDepot";
 import sleuthBackground from "./Ye Old Home Depot.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

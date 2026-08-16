@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./NecromancyInsuranceCompany.module.css";
-import { tribeNecromancyInsuranceCompany } from "./tribeNecromancyInsuranceCompany";
+import { tribeNecromancyInsuranceCompany } from "./New Inventory/tribeNecromancyInsuranceCompany";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

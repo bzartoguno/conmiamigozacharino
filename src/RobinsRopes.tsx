@@ -1,5 +1,5 @@
 import { ShopTemplate } from "./ShopTemplate";
-import { tribeRobinsRopes } from "./tribeRobinsRopes";
+import { tribeRobinsRopes } from "./New Inventory/tribeRobinsRopes";
 import robinsRopesBackground from "./images/Robins Ropes.png";
 import robinsRopesStyles from "./RobinsRopes.module.css";
 

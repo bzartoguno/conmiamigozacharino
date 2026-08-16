@@ -6,7 +6,7 @@ import { Item } from "./types";
 import {
   SleuthUniversityItem,
   tribeSleuthUniversity,
-} from "./tribeSleuthUniversity";
+} from "./New Inventory/tribeSleuthUniversity";
 import sleuthBackground from "./images/Sleuth.webp";
 import { useSettlementType } from "./SettlementContext";
 import { getAvailableItems } from "./inventoryAvailability";

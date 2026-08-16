@@ -3,7 +3,7 @@ import { BlackIsClosed } from "./BlackIsClosed";
 import { BlackIsOpen } from "./BlackIsOpen";
 import { Tribe } from "./types";
 import styles from "./BlackApp.module.css"; // Updated to use CSS Modules
-import { tribeBlackMarket } from "./tribeBlackMarket";
+import { tribeBlackMarket } from "./New Inventory/tribeBlackMarket1";
 import { tribeBlackMarket2 } from "./tribeBlackMarket2";
 import { tribeBlackMarket3 } from "./tribeBlackMarket3";
 import { tribeBlackMarket4 } from "./tribeBlackMarket4";

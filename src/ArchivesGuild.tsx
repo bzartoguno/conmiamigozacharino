@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./ArchivesGuild.module.css";
-import { tribeArchivesGuild } from "./tribeArchivesGuild";
+import { tribeArchivesGuild } from "./New Inventory/tribeArchivesGuild1";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";

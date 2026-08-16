@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import styles from "./PearlsPotions.module.css";
-import { tribePearlsPotions } from "./tribePearlsPotions";
+import { tribePearlsPotions } from "./New Inventory/tribePearlsPotions";
 import { BackButton } from "./BackButton";
 import { InsultBox } from "./InsultBox";
 import { Item } from "./types";
