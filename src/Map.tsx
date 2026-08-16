@@ -184,7 +184,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "withhold",
     routeKey: "Withhold",
     name: "Withhold (Parker)",
-    settlementType: "Metropolis",
+    settlementType: "Thorpe",
     image: sandboxWytheholdeImage,
     description:
       "Nestled between warm rolling hills and jagged, freezing mountains, Withhold grows famous home-grown food but struggles for medicine once winter comes. As they live in Wandering Titan territory, nearly everyone knows how to flee into the tight valley caves when danger looms, preserving the town's dwindling stories.",
@@ -193,7 +193,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "butting-rams",
     routeKey: "ButtingRams",
     name: "Butting Rams",
-    settlementType: "Metropolis",
+    settlementType: "Hamlet",
     image: sandboxButtingRamsImage,
     description:
       "Barbarians here love fighting, feasting, and boasting about both. Their town is literally split between two enormous rams that butt heads, catapulting residents back and forth—thankfully the rams are fluffy enough to make the landings survivable before the traditional 15-minute free-for-all.",
@@ -202,7 +202,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "meander",
     routeKey: "Meander",
     name: "Meander (Michael)",
-    settlementType: "Metropolis",
+    settlementType: "Thorpe",
     image: sandboxMeanderImage,
     description:
       "A cowboy's dream that never settles, Meander roams Wandering Titan territory after draining every Magitek Oil spot. Constant desert travel keeps crops from thriving, so the townsfolk trade for food while clinging to a strong moral compass they defend fiercely.",
@@ -211,7 +211,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "calidris",
     routeKey: "Calidris",
     name: "Calidris (Fisk)",
-    settlementType: "Metropolis",
+    settlementType: "Hamlet",
     image: sandboxCalidrisImage,
     description:
       "Created as an artisans' paradise with no creative limits, Calidris thrived—until every living resident vanished overnight. Only the golems and robots remain, tirelessly working while ignoring their missing masters.",
@@ -220,7 +220,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "merricks-meadow",
     routeKey: "MerricksMeadow",
     name: "Merrick's Meadow (Howard)",
-    settlementType: "Metropolis",
+    settlementType: "Village",
     image: sandboxMerricksGroveImage,
     description:
       "This humble village boomed after discovering rare herbs. Newcomers flock to Merrick's Meadow for its newfound fame, while longtime residents grumble about the crowds disturbing their once-tranquil home.",
@@ -229,7 +229,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "ballistic-bellows",
     routeKey: "BallisticBellows",
     name: "Ballistic Bellows (Caleb)",
-    settlementType: "Metropolis",
+    settlementType: "Village",
     image: sandboxBallisticBellowsImage,
     description:
       "Punctual and industrious, every citizen can run a forge or clockwork device. Their advanced weapons self-destruct if reverse engineered, protecting the secrets behind their booming craft.",
@@ -238,7 +238,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "byford-dolphin",
     routeKey: "ByfordDolphin",
     name: "Byford Dolphin (Robertson)",
-    settlementType: "Metropolis",
+    settlementType: "Village",
     image: sandboxByfordDolphinImage,
     description:
       "Wealth dictates status in Byford Dolphin. Legendary metals pulled from the sea fund the Clockwork King's construction projects, while the richest citizen holds the House of Blades contract—and the bill that comes with it.",
@@ -247,7 +247,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "hebron",
     routeKey: "Hebron",
     name: "Hebron (Joshua)",
-    settlementType: "Metropolis",
+    settlementType: "Town",
     image: sandboxHebronImage,
     description:
       "After the Missing Millennium, Hebron secured a monopoly on Thunder Cores by salvaging and purchasing every relic they could find. Now it's a hub for minds devoted to unlocking the power behind these remnants.",
@@ -256,7 +256,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "jelly-city",
     routeKey: "JellyCity",
     name: "Jelly City",
-    settlementType: "Metropolis",
+    settlementType: "Town",
     image: sandboxJellyCityImage,
     description:
       "Built vertically inside a Wandering Titan jellyfish, this flexible city produces medicine that keeps the Disciples of Mother battle-ready. Its secrets are hard to see, but unforgettable once witnessed.",
@@ -265,7 +265,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "pop-n-faith",
     routeKey: "Sandbox",
     name: "Pop-n Faith (Eli)",
-    settlementType: "Metropolis",
+    settlementType: "City",
     image: sandboxPopNFaithImage,
     description:
       "Sorry, but there is no more Pop-n Faith. Your world deities are gone; now your planet is stuck between death and unlife.",
@@ -274,7 +274,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "analeptic-holt",
     routeKey: "AnalepticHolt",
     name: "Analeptic Holt (Teag)",
-    settlementType: "Metropolis",
+    settlementType: "City",
     image: sandboxAnalepticHoltImage,
     description:
       "Hidden beneath an ancient jungle canopy, Hadozee gliders live among massive roots and high branches. They cherish harmony with their environment but stay guarded with outsiders to protect their traditions.",
@@ -283,7 +283,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "seymours-drift",
     routeKey: "SeymoursDrift",
     name: "Seymour's Drift (Melanie)",
-    settlementType: "Metropolis",
+    settlementType: "City",
     image: sandboxSeymoursDriftImage,
     description:
       "A sprawling city on a giant drifting lily pad, Seymour's Drift follows the tides while serving its enigmatic leader, Audrey the Second. Residents bond over devotion, firearms, and an unyielding love of meat.",
@@ -292,7 +292,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "graveborn",
     routeKey: "Graveborn",
     name: "Graveborn",
-    settlementType: "Metropolis",
+    settlementType: "City",
     image: sandboxGraveBornImage,
     description:
       "A sanctuary for the undead, founded before the 75-year war so vampires, zombies, skeletons, and even dream visages could live free. Left alone, the undead eventually wander toward this vibrant necropolis.",
@@ -301,7 +301,7 @@ const sandboxTowns: SandboxTown[] = [
     key: "orbiting-city",
     routeKey: "OrbitingCity",
     name: "Orbiting City",
-    settlementType: "Metropolis",
+    settlementType: "City",
     image: sandboxOrbitingCityImage,
     description:
       "Humanity pushed the impossible to reality, building a city that sails the sky thanks to alliances and generosity toward the Clockwork King. Its flight marks a new era of exploration and diplomacy.",
@@ -328,7 +328,7 @@ export function Map() {
     options?: { settlementType?: SettlementType }
   ) => {
     setNavigationStack((stack) => [...stack, navigatedTo]);
-    if (options && Object.prototype.hasOwnProperty.call(options, "settlementType")) {
+    if (options?.settlementType && options.settlementType !== "Travel") {
       setSelectedSettlementType(options.settlementType);
     }
     setNavigatedTo(next);
@@ -883,6 +883,9 @@ export function Map() {
           onBack={handleBack}
           onNavigate={handleNavigate}
           allShops={sortedEveryShopButtons}
+          onSettlementChange={(settlementType) =>
+            setSelectedSettlementType(settlementType)
+          }
         />
       );
     default:
@@ -892,7 +895,7 @@ export function Map() {
           <div style={styles.buttonContainer}>
             <FloatingButton
               label="Sandbox"
-              onClick={() => handleNavigate("Sandbox", { settlementType: undefined })}
+              onClick={() => handleNavigate("Sandbox", { settlementType: "Travel" })}
               delay="1.5s"
               backgroundColor="rgba(15, 23, 42, 0.85)"
               color="#e2e8f0"
@@ -900,7 +903,7 @@ export function Map() {
             />
             <FloatingButton
               label="Blank world template"
-              onClick={() => handleNavigate("BlankWorldTemplate", { settlementType: undefined })}
+              onClick={() => handleNavigate("BlankWorldTemplate", { settlementType: "Travel" })}
               delay="2s"
               backgroundColor="rgba(51, 65, 85, 0.95)"
               color="#f8fafc"
@@ -916,7 +919,7 @@ export function Map() {
             />
             <FloatingButton
               label="Every Shop"
-              onClick={() => handleNavigate("EveryShop", { settlementType: undefined })}
+              onClick={() => handleNavigate("EveryShop", { settlementType: "Metropolis" })}
               delay="3s"
               backgroundColor="rgba(30, 64, 175, 0.9)"
               color="#e2e8f0"
@@ -943,9 +946,6 @@ function SandboxMenu({
 }) {
   const orderedSandboxTowns = sandboxTowns;
   const handleTownClick = (town: SandboxTown) => {
-    if (town.key === "pop-n-faith") {
-      return;
-    }
     onNavigate(town.routeKey, { settlementType: town.settlementType });
   };
 

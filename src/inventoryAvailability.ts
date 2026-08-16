@@ -1,44 +1,33 @@
+import { rarityOrder } from "./itemDisplay";
 import { Item } from "./types";
 
-export type SettlementType =
-  | "Isolated Dwelling"
-  | "Thorpe"
-  | "Hamlet"
-  | "Village"
-  | "Town"
-  | "City"
-  | "Metropolis";
+export type SettlementType = "Travel" | "Isolated Dwelling" | "Thorpe" | "Hamlet" | "Village" | "Town" | "City" | "Metropolis";
+export type ItemRarity = (typeof rarityOrder)[number];
 
-export const settlementInventoryPercent: Record<SettlementType, number> = {
-  "Isolated Dwelling": 10,
-  Thorpe: 25,
-  Hamlet: 40,
-  Village: 55,
-  Town: 70,
-  City: 85,
-  Metropolis: 100,
+/** The single source of truth for settlement inventory availability percentages. */
+export const settlementRarityAvailability: Record<Exclude<SettlementType, "Travel">, Record<ItemRarity, number>> = {
+  "Isolated Dwelling": { Common: 25, Uncommon: 0, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Thorpe: { Common: 50, Uncommon: 0, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Hamlet: { Common: 100, Uncommon: 50, Rare: 0, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Village: { Common: 100, Uncommon: 100, Rare: 50, "Very Rare": 0, Legendary: 0, Artifact: 0 },
+  Town: { Common: 100, Uncommon: 100, Rare: 100, "Very Rare": 50, Legendary: 0, Artifact: 0 },
+  City: { Common: 100, Uncommon: 100, Rare: 100, "Very Rare": 100, Legendary: 50, Artifact: 25 },
+  Metropolis: { Common: 100, Uncommon: 100, Rare: 100, "Very Rare": 100, Legendary: 100, Artifact: 100 },
 };
 
-export function getVisibleItemCount(totalItems: number, settlementType?: SettlementType): number {
-  if (totalItems <= 0) {
-    return 0;
-  }
-
-  if (!settlementType) {
-    return totalItems;
-  }
-
-  const percent = settlementInventoryPercent[settlementType];
-  const count = Math.floor((totalItems * percent) / 100);
-  return Math.max(1, count);
+function getKnownRarity(rarity?: string): ItemRarity | undefined {
+  const normalized = (rarity ?? "Common").toLowerCase();
+  return rarityOrder.find((candidate) => candidate.toLowerCase() === normalized);
 }
 
-export function getAvailableItems<T extends Item>(items: T[], settlementType?: SettlementType): T[] {
-  const sortedByPrice = [...items].sort((a, b) => a.price - b.price);
-  const count = getVisibleItemCount(items.length, settlementType);
-  if (count >= sortedByPrice.length) {
-    return sortedByPrice;
-  }
+export function getAvailableItems<T extends Item>(items: T[], settlementType?: SettlementType, random: () => number = Math.random): T[] {
+  if (!settlementType || settlementType === "Travel") return [...items];
 
-  return sortedByPrice.slice(0, count);
+  const availability = settlementRarityAvailability[settlementType];
+  return items.filter((item) => {
+    const rarity = getKnownRarity(item.rarity);
+    if (!rarity) return true;
+    const percent = availability[rarity];
+    return percent === 100 || (percent > 0 && random() * 100 < percent);
+  });
 }
