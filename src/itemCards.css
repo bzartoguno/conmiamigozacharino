@@ -1,5 +1,6 @@
 /* Shared safeguards and rarity treatments for every shop's existing card design. */
 article[data-item-rarity] {
+  --rarity-text-brightness: 1;
   box-sizing: border-box;
   position: relative;
   height: auto;
@@ -25,19 +26,43 @@ article[data-item-rarity] > * {
   z-index: 1;
 }
 
-article[data-item-rarity="Uncommon"] { --rarity-tint: hsla(187, 30%, 8%, 0.15); }
-article[data-item-rarity="Rare"] { --rarity-tint: hsla(194, 32%, 7%, 0.30); }
-article[data-item-rarity="Very Rare"] { --rarity-tint: hsla(201, 34%, 6%, 0.45); }
-article[data-item-rarity="Legendary"] { --rarity-tint: hsla(208, 36%, 5%, 0.60); }
-article[data-item-rarity="Artifact"] { --rarity-tint: hsla(215, 38%, 4%, 0.75); }
+article[data-item-rarity="Uncommon"] {
+  --rarity-tint: hsla(187, 30%, 8%, 0.15);
+  --rarity-text-brightness: 1.15;
+}
+article[data-item-rarity="Rare"] {
+  --rarity-tint: hsla(194, 32%, 7%, 0.30);
+  --rarity-text-brightness: 1.3;
+}
+article[data-item-rarity="Very Rare"] {
+  --rarity-tint: hsla(201, 34%, 6%, 0.45);
+  --rarity-text-brightness: 1.45;
+}
+article[data-item-rarity="Legendary"] {
+  --rarity-tint: hsla(208, 36%, 5%, 0.60);
+  --rarity-text-brightness: 1.6;
+}
+article[data-item-rarity="Artifact"] {
+  --rarity-tint: hsla(215, 38%, 4%, 0.75);
+  --rarity-text-brightness: 1.75;
+}
 
-article[data-item-rarity]:not([data-item-rarity="Common"]) :is(h2, h3, p) {
-  color: #f4f7ff !important;
+article[data-item-rarity] :is(h2, h3, p) {
+  filter: brightness(var(--rarity-text-brightness));
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
 }
 
 .item-card-detail {
-  margin: 0.2rem 0;
-  line-height: 1.35;
+  margin: 0.25rem 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
   white-space: normal;
+}
+
+/* Description class names are scoped by CSS modules, so match their stable suffix. */
+article[data-item-rarity] > [class*="_description_"] {
+  margin-block: 0.85rem 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
 }
