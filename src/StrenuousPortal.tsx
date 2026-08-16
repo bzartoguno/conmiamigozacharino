@@ -11,13 +11,13 @@ import robinsRopesImage from "./images/Robins Ropes.png";
 import runestoneRelayImage from "./images/Runestone Relay.png";
 import silentOathImage from "./images/Silent Oath.png";
 import supremeSmithyImage from "./images/Supreme Smithy.png";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import piggyBankImage from "./images/Piggy Bank.png"
 import jellBellImage from "./images/Jell.webp";
 import monsterImage from "./images/Monster.webp";
 import mountsImage from "./images/Mounts.webp";
 import pawsClawsMawsImage from "./images/Paws, Claws, & Maws.png";
-import valhallaMartImage from "./Valhalla Mart.png";
+import valhallaMartImage from "./images/Valhalla Mart.png";
 import evansEnchantingEmporiumImage from "./images/Evan's Enchanting Emporium.png";
 import floralImage from "./images/Floral.webp";
 import golemWorkshopImage from "./images/Golem Work Shop.png";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import placeholderImage from "./images/Placeholder.jpg";
+import placeholderImage from "../images/Placeholder.jpg";
 import styles from "./BlankWorldTemplate.module.css";
 
 type SettlementTemplate = {

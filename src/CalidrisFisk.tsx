@@ -7,7 +7,7 @@ import silentOathImage from "./images/Silent Oath.png";
 import robinsRopesImage from "./images/Robins Ropes.png";
 import bulletsBuffsBeyondImage from "./images/Bullets Buffs and Beyond.webp";
 import supremeSmithyImage from "./images/Supreme Smithy.png";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import nmeImage from "./images/N.M.E.png";
 import calidrisRoomingRoombaImage from "./images/Calidris_Rooming_Roomba.webp";
 import { BackButton } from "./BackButton";

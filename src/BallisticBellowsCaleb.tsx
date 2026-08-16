@@ -1,11 +1,11 @@
 import ballisticBellowsBackground from "./images/SandboxBallisticBellows.webp";
-import willsWeaponsImage from "./Wills Weapons.png";
+import willsWeaponsImage from "./images/Wills Weapons.png";
 import comedyGoldImage from "./images/Comedy Gold.png";
 import navigationGuildImage from "./images/NavigationGuild-ezgif.com-webp-to-png-converter.png";
 import dungeonCrawlerGuildImage from "./images/Dungeon Crawler's Guild.png";
 import pearlsPotionsImage from "./images/Pearls Potions.png";
 import provisionsParadiseImage from "./images/Provisions Paradise.png";
-import yeOldDonkeyImage from "./Ye Old Donkey.png";
+import yeOldDonkeyImage from "./images/Ye Old Donkey.png";
 import piggyBankImage from "./images/Piggy Bank.png";
 import { BackButton } from "./BackButton";
 import styles from "./BallisticBellowsCaleb.module.css";

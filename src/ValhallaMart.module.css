@@ -10,7 +10,7 @@
 }
 
 .backgroundImage {
-  background: url('./Valhalla Mart.png') center / cover no-repeat fixed;
+  background: url('./images/Valhalla Mart.png') center / cover no-repeat fixed;
   display: flex;
   opacity: 0.24;
   margin: 0;
