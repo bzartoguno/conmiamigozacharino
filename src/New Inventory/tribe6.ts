@@ -1,0 +1,100 @@
+import { Tribe } from "./types";
+import { createGoblinExcuses } from "./tribeInsults";
+
+export const tribe6: Tribe = {
+  name: "Loco Lux Motors",
+  percentAngry: 95,
+  priceVariability: 16,
+  insults: createGoblinExcuses("Loco Lux Motors"),
+  items: [
+    {
+      name: "Juddering Juggernaut",
+      rarity: "Uncommon",
+      itemType: "Ring",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based tank that flies backward after every shot. More information is provided upon purchase.)",
+    },
+    {
+      name: "Wiggly piece of paper!",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(Adel’s copy or clone coupon",
+    },
+    {
+      name: "Bumbling Buggy",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(An extremely loud, steampunk-based Jeep. More information is provided upon purchase.)",
+    },
+    {
+      name: "Killdozer",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based bulldozer with one too many metal spikes. More information is provided upon purchase.)",
+    },
+    {
+      name: "War Chug Chug MARK-001",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based, all-terrain battle train—possibly the very same train the goblins use. More information is provided upon purchase.)",
+    },
+    {
+      name: "Rough Rough ta ta",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based motorcycle with a sidecar. More information is provided upon purchase.)",
+    },
+    {
+      name: "Toot Toot",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A small steampunk-based fishing boat held together with beeswax, love, and over 40,000 nails. More information provided upon purchase.)",
+    },
+    {
+      name: "Fweeeeeeeeee MARK-058",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based blimp that leaks helium. More information is provided upon purchase.)",
+    },
+    {
+      name: "Claptrap Chopper MARK-777",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(A steampunk-based helicopter that sounds like a classroom of children clapping and cheering. More information is provided upon purchase.)",
+    },
+    {
+      name: "Shop Stock",
+      rarity: "Uncommon",
+      itemType: "Wondrous Item",
+      attunment: false,
+      price: 250,
+      description: "(Own a little bit of stock in a shop of your choice. More information is provided upon purchase.)",
+    },
+    {
+      name: "Tasha's Creeping Keepboat",
+      rarity: "Very Rare",
+      itemType: "Wondrous Item",
+      attunment: true,
+      price: 2500,
+      description: `This magic vehicle is a boat 10 feet wide and 30 feet long. It has four legs that propel it across land and water. It has a walking and swimming speed of 20 feet, but it can’t travel underwater. The boat moves according to your spoken directions while you are riding it, and creatures of your choice gain a +1 bonus to their Armor Class while on the boat.
+The boat can transport up to 1,000 pounds without hindrance. It can carry up to twice this weight, but it moves at half speed if it carries more than its normal capacity.`,
+    }
+  ],
+};
