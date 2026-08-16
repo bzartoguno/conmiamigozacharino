@@ -107,14 +107,6 @@ export const tribeBlossomHotel: Tribe & { items: BlossomHotelItem[] } = {
       description: "Hands-on focus training with the Black Candle tradition. Taking any proficent skill to expertices.",
     },
     {
-      name: "Black Candle Training",
-      rarity: "Uncommon",
-      itemType: "Wondrous Item",
-      attunment: false,
-      price: 250,
-      description: "",
-    },
-    {
       name: "Blossom Hotel Season Pass",
       rarity: "Rare",
       itemType: "Wondrous Item",
