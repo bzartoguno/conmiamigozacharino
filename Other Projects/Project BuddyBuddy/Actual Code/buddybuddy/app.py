@@ -9,7 +9,7 @@ from pathlib import Path
 import random
 import sys
 import tkinter as tk
-from tkinter import simpledialog
+from tkinter import scrolledtext, simpledialog
 from typing import Callable, TypeVar
 import warnings
 
@@ -270,6 +270,46 @@ def generate_chat_response(chatbot: CynBot, message: str) -> str:
     return chatbot.respond(message)
 
 
+def format_chat_entry(speaker: str, message: str) -> str:
+    """Format one transcript entry without depending on a presentation toolkit."""
+    return f"{speaker}: {message.strip()}\n\n"
+
+
+@dataclass(frozen=True)
+class ChatExchange:
+    """The outcome of submitting one message to a chat responder."""
+
+    response: str | None = None
+    error: str | None = None
+
+
+class ChatHistoryController:
+    """Send chat messages while publishing every outcome to a transcript sink."""
+
+    def __init__(
+        self,
+        append: Callable[[str], object],
+        respond: Callable[[str], str],
+        *,
+        bot_name: str = "CYN",
+    ):
+        self.append = append
+        self.respond = respond
+        self.bot_name = bot_name
+
+    def send(self, message: str) -> ChatExchange:
+        """Append the user entry before generating and then append the outcome."""
+        self.append(format_chat_entry("You", message))
+        try:
+            response = self.respond(message)
+        except Exception as error:
+            readable_error = f"I couldn't respond: {error}"
+            self.append(format_chat_entry(self.bot_name, readable_error))
+            return ChatExchange(error=readable_error)
+        self.append(format_chat_entry(self.bot_name, response))
+        return ChatExchange(response=response)
+
+
 class CompanionApp:
     def __init__(
         self,
@@ -501,9 +541,26 @@ class CompanionApp:
             return
         chat = self.chat = tk.Toplevel(self.root)
         chat.title(f"Talk to {self.memory.name}")
-        chat.geometry("360x130")
+        chat.geometry("520x420")
         tk.Label(chat, text="Say something to cyn_bot (all replies stay local):").pack(
             padx=12, pady=(12, 4), anchor="w"
+        )
+        history = scrolledtext.ScrolledText(
+            chat, wrap="word", height=16, state="disabled", takefocus=False
+        )
+        history.pack(fill="both", expand=True, padx=12, pady=(0, 8))
+
+        def append_history(text: str) -> None:
+            history.configure(state="normal")
+            history.insert("end", text)
+            history.configure(state="disabled")
+            history.see("end")
+            # Make the user's entry visible before a potentially slow response.
+            history.update_idletasks()
+
+        history_controller = ChatHistoryController(
+            append_history,
+            lambda message: generate_chat_response(self.chatbot, message),
         )
         entry = tk.Entry(chat)
         entry.pack(fill="x", padx=12)
@@ -516,22 +573,20 @@ class CompanionApp:
             self.memory.remember("you", message)
             self.store.save(self.memory)
             lowered = message.lower()
-            try:
-                response = generate_chat_response(self.chatbot, message)
-            except Exception as error:
-                # Tkinter otherwise reports the exception only on stderr and aborts
-                # this callback. Show it, but do not treat it as a bot response.
-                self.say(f"I couldn't respond: {error}")
-                entry.delete(0, "end")
+            exchange = history_controller.send(message)
+            entry.delete(0, "end")
+            if exchange.error is not None:
                 return
+            response = exchange.response
+            assert response is not None
             if "sleep" in lowered:
                 self.controller.set(Behavior.SLEEP)
             else:
                 self.controller.set(Behavior.TALK)
             self.memory.remember(self.memory.name, response)
             self.store.save(self.memory)
+            # The bubble remains a secondary, temporary presentation.
             self.say(response)
-            entry.delete(0, "end")
 
         entry.bind("<Return>", send)
         tk.Button(chat, text="Send", command=send).pack(pady=10)
