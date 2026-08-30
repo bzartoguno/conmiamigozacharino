@@ -508,6 +508,38 @@ class DragTests(unittest.TestCase):
         self.assertEqual((app.root.x, app.facing), (80, -1))
 
 
+class ContextMenuBindingTests(unittest.TestCase):
+    class FakeMenu:
+        def __init__(self):
+            self.popups = []
+
+        def tk_popup(self, x, y):
+            self.popups.append((x, y))
+
+    class FakeEvent:
+        def __init__(self, num, state=0):
+            self.num = num
+            self.state = state
+            self.x_root = 24
+            self.y_root = 36
+
+    def test_each_contextual_click_reports_its_binding_and_stops_drag_dispatch(self):
+        app = CompanionApp.__new__(CompanionApp)
+        app.menu = self.FakeMenu()
+
+        events = (
+            ("<Button-3>", self.FakeEvent(num=3)),
+            ("<Control-Button-1>", self.FakeEvent(num=1, state=0x4)),
+        )
+        for sequence, event in events:
+            result = app._show_menu(event)
+
+            self.assertEqual(result, "break")
+            self.assertEqual(app.last_contextual_click, sequence)
+
+        self.assertEqual(app.menu.popups, [(24, 36), (24, 36)])
+
+
 class SpeechBubbleTests(unittest.TestCase):
     class FakeRoot:
         def winfo_x(self):
