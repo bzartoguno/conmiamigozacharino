@@ -336,15 +336,40 @@ class CompanionApp:
         self.menu.tk_popup(event.x_root, event.y_root)
 
     def say(self, message: str) -> None:
-        if self.bubble:
-            self.bubble.destroy()
+        previous_bubble = self.bubble
+        if previous_bubble is not None:
+            try:
+                previous_exists = bool(previous_bubble.winfo_exists())
+            except tk.TclError:
+                previous_exists = False
+            if previous_exists:
+                try:
+                    previous_bubble.destroy()
+                except tk.TclError:
+                    pass
         bubble = self.bubble = tk.Toplevel(self.root)
         bubble.overrideredirect(True)
         bubble.attributes("-topmost", True)
         tk.Label(bubble, text=message, bg="#fff8dc", fg="#24202b", padx=12, pady=8,
                  wraplength=240, relief="solid", bd=1).pack()
         bubble.geometry(f"+{self.root.winfo_x()}+{max(0, self.root.winfo_y() - 70)}")
-        bubble.after(4000, lambda: bubble.destroy() if bubble.winfo_exists() else None)
+
+        def close_bubble() -> None:
+            # A callback belonging to an older bubble must not close its replacement.
+            if self.bubble is not bubble:
+                return
+            try:
+                bubble_exists = bool(bubble.winfo_exists())
+            except tk.TclError:
+                bubble_exists = False
+            if bubble_exists:
+                try:
+                    bubble.destroy()
+                except tk.TclError:
+                    pass
+            self.bubble = None
+
+        bubble.after(4000, close_bubble)
 
     def open_chat(self) -> None:
         if self.chat and self.chat.winfo_exists():
@@ -365,8 +390,16 @@ class CompanionApp:
             if not message:
                 return
             self.memory.remember("you", message)
+            self.store.save(self.memory)
             lowered = message.lower()
-            response = generate_chat_response(self.chatbot, message)
+            try:
+                response = generate_chat_response(self.chatbot, message)
+            except Exception as error:
+                # Tkinter otherwise reports the exception only on stderr and aborts
+                # this callback. Show it, but do not treat it as a bot response.
+                self.say(f"I couldn't respond: {error}")
+                entry.delete(0, "end")
+                return
             if "sleep" in lowered:
                 self.controller.set(Behavior.SLEEP)
             else:
