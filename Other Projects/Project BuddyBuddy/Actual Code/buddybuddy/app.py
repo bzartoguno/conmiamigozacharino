@@ -87,7 +87,7 @@ def clamp_overlay_position(
 def _configure_overlay_window(
     window: tk.Tk,
     *,
-    platform: str | None = None,
+    backend: str | None = None,
     warn: Callable[[str], object] = warnings.warn,
     character_factory: Callable[..., tk.Widget] = tk.Label,
     report: Callable[[str, str], object] | None = None,
@@ -106,8 +106,9 @@ def _configure_overlay_window(
 
     window.overrideredirect(True)
     window.attributes("-topmost", True)
-    selected_platform = platform or sys.platform
-    if selected_platform == "darwin":
+    selected_backend = backend or str(window.tk.call("tk", "windowingsystem"))
+    tk_patch_level = str(window.tk.call("info", "patchlevel"))
+    if selected_backend == "aqua":
         probe: tk.Widget | None = None
         operation = (
             "window.configure(bg='systemTransparent', bd=0, "
@@ -157,7 +158,7 @@ def _configure_overlay_window(
     )
     transparency_error = None
     transparent = False
-    if selected_platform.startswith("win"):
+    if selected_backend == "win32":
         try:
             configured(
                 "window.wm_attributes('-transparentcolor', '#ff00ff')",
@@ -168,7 +169,10 @@ def _configure_overlay_window(
             transparency_error = str(error)
             warn(f"Character transparency is unavailable: {error}")
     else:
-        warn("Character transparency is unavailable on this Tk windowing system.")
+        warn(
+            "Character transparency is unavailable on this Tk windowing system: "
+            f"backend={selected_backend}; Tk patch level={tk_patch_level}."
+        )
     return OverlayConfiguration(OVERLAY_COLOR, transparent, transparency_error)
 
 

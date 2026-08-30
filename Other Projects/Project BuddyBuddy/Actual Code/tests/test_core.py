@@ -148,14 +148,19 @@ class AnimationTests(unittest.TestCase):
 class OverlayConfigurationTests(unittest.TestCase):
     class FakeWindow:
         class Tcl:
-            def call(self, *values):
-                return "aqua" if values == ("tk", "windowingsystem") else "8.6.15"
+            def __init__(self, backend):
+                self.backend = backend
 
-        def __init__(self, transparency_error=None, background_error=None):
+            def call(self, *values):
+                return self.backend if values == ("tk", "windowingsystem") else "8.6.15"
+
+        def __init__(
+            self, transparency_error=None, background_error=None, backend="aqua"
+        ):
             self.calls = []
             self.transparency_error = transparency_error
             self.background_error = background_error
-            self.tk = self.Tcl()
+            self.tk = self.Tcl(backend)
 
         def overrideredirect(self, value):
             self.calls.append(("overrideredirect", value))
@@ -187,7 +192,7 @@ class OverlayConfigurationTests(unittest.TestCase):
 
     def test_windows_uses_color_key(self):
         window = self.FakeWindow()
-        result = _configure_overlay_window(window, platform="win32")
+        result = _configure_overlay_window(window, backend="win32")
         self.assertEqual(result.background, OVERLAY_COLOR)
         self.assertTrue(result.transparent)
         self.assertIn(("wm_attributes", "-transparentcolor", OVERLAY_COLOR), window.calls)
@@ -195,7 +200,7 @@ class OverlayConfigurationTests(unittest.TestCase):
     def test_darwin_uses_aqua_transparency_without_a_fake_title_bar(self):
         window = self.FakeWindow()
         result = _configure_overlay_window(
-            window, platform="darwin", character_factory=self.FakeCharacter
+            window, backend="aqua", character_factory=self.FakeCharacter
         )
         self.assertEqual(result.background, MACOS_TRANSPARENT_BACKGROUND)
         self.assertTrue(result.transparent)
@@ -225,7 +230,7 @@ class OverlayConfigurationTests(unittest.TestCase):
         messages = []
         result = _configure_overlay_window(
             window,
-            platform="darwin",
+            backend="aqua",
             warn=messages.append,
             character_factory=self.FakeCharacter,
         )
@@ -240,13 +245,15 @@ class OverlayConfigurationTests(unittest.TestCase):
         )
 
     def test_unsupported_platform_warns_without_configuring_color_key(self):
-        window, messages = self.FakeWindow(), []
+        window, messages = self.FakeWindow(backend="x11"), []
         result = _configure_overlay_window(
-            window, platform="linux", warn=messages.append
+            window, warn=messages.append
         )
         self.assertEqual(result.background, OVERLAY_COLOR)
         self.assertFalse(result.transparent)
         self.assertEqual(len(messages), 1)
+        self.assertIn("backend=x11", messages[0])
+        self.assertIn("Tk patch level=8.6.15", messages[0])
         self.assertFalse(any(call[0] == "wm_attributes" for call in window.calls))
 
     def test_windows_tcl_failure_warns(self):
@@ -254,7 +261,7 @@ class OverlayConfigurationTests(unittest.TestCase):
 
         window, messages = self.FakeWindow(tk.TclError("not supported")), []
         result = _configure_overlay_window(
-            window, platform="win32", warn=messages.append
+            window, backend="win32", warn=messages.append
         )
         self.assertEqual(result.background, OVERLAY_COLOR)
         self.assertFalse(result.transparent)
@@ -268,7 +275,7 @@ class OverlayConfigurationTests(unittest.TestCase):
         messages = []
         result = _configure_overlay_window(
             window,
-            platform="darwin",
+            backend="aqua",
             warn=messages.append,
             character_factory=self.FakeCharacter,
         )
@@ -287,7 +294,7 @@ class OverlayConfigurationTests(unittest.TestCase):
         window, messages = self.FakeWindow(), []
         result = _configure_overlay_window(
             window,
-            platform="darwin",
+            backend="aqua",
             warn=messages.append,
             character_factory=rejecting_character,
         )
