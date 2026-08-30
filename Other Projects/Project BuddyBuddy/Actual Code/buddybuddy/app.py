@@ -85,6 +85,20 @@ def clamp_overlay_position(
     return max(0, min(max_x, x)), max(0, min(max_y, y))
 
 
+def next_horizontal_position(
+    x: int, sprite_width: int, screen_width: int, direction: int
+) -> tuple[int, int]:
+    """Return the next bounded x position and facing for one walking step."""
+    right_edge = max(0, screen_width - sprite_width)
+    facing = -1 if direction < 0 else 1
+    if x <= 0 and facing < 0:
+        facing = 1
+    elif x >= right_edge and facing > 0:
+        facing = -1
+    next_x = max(0, min(right_edge, x + 4 * facing))
+    return next_x, facing
+
+
 def _configure_overlay_window(
     window: tk.Tk,
     *,
@@ -306,7 +320,7 @@ class CompanionApp:
 
         self.menu = tk.Menu(root, tearoff=False)
         self.menu.add_command(label="Talk...", command=self.open_chat)
-        self.menu.add_command(label="Walk", command=lambda: self.controller.set(Behavior.WALK))
+        self.menu.add_command(label="Walk", command=self._start_walking)
         self.menu.add_command(label="Sleep", command=lambda: self.controller.set(Behavior.SLEEP))
         self.menu.add_separator()
         self.menu.add_command(label="Rename...", command=self.rename)
@@ -361,6 +375,12 @@ class CompanionApp:
         self.frame_index = 0
         self._size_overlay(selected.original)
 
+    def _start_walking(self) -> None:
+        """Start an explicitly requested walk toward the left when possible."""
+        self.direction = 1 if self.root.winfo_x() <= 0 else -1
+        self.facing = self.direction
+        self.controller.set(Behavior.WALK)
+
     def _size_overlay(self, animation: list[tk.PhotoImage]) -> None:
         """Resize for an animation without moving the overlay unnecessarily."""
         size = animation_dimensions(animation)
@@ -379,13 +399,12 @@ class CompanionApp:
         walking = self.controller.current == Behavior.WALK and not self.drag_origin
         if walking:
             x = self.root.winfo_x()
-            screen_limit = max(
-                0, self.root.winfo_screenwidth() - self._overlay_size[0]
+            next_x, self.direction = next_horizontal_position(
+                x,
+                self._overlay_size[0],
+                self.root.winfo_screenwidth(),
+                self.direction,
             )
-            if x <= 0:
-                self.direction = 1
-            elif x >= screen_limit:
-                self.direction = -1
             self.facing = self.direction
 
         dragging = bool(self.drag_origin and self.drag_animation.original)
@@ -400,14 +419,13 @@ class CompanionApp:
         self.character.configure(image=image)
         self.character.image = image
         if walking:
-            x, y = self.root.winfo_x(), self.root.winfo_y()
-            x, y = clamp_overlay_position(
-                x + 4 * self.direction,
-                y,
+            _, y = clamp_overlay_position(
+                next_x,
+                self.root.winfo_y(),
                 self._overlay_size,
                 (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
             )
-            self.root.geometry(f"+{x}+{y}")
+            self.root.geometry(f"+{next_x}+{y}")
         self.root.after(frame_duration(image), self._animate)
 
     def _schedule_behavior(self) -> None:
@@ -561,6 +579,16 @@ def run_diagnostic(image_dir: Path) -> bool:
         root.update_idletasks()
         root.update()
         print(f"BuddyBuddy diagnostic: loaded GIF frame={gif_path}")
+        old_x = root.winfo_x()
+        new_x, facing = next_horizontal_position(
+            old_x, frame.width(), root.winfo_screenwidth(), -1
+        )
+        selected_frames = "mirrored" if facing > 0 else "original"
+        print(
+            "BuddyBuddy diagnostic: "
+            f"behavior={Behavior.WALK.value} old_x={old_x} new_x={new_x} "
+            f"direction={facing} facing={facing} frames={selected_frames}"
+        )
         completed = True
         # Let a person inspect the genuine Aqua overlay before it self-closes.
         if sys.platform == "darwin":
