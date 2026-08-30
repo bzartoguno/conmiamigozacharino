@@ -5,6 +5,7 @@ import unittest
 
 from buddybuddy.behavior import Behavior, BehaviorController
 from buddybuddy.app import (
+    DirectionalAnimation,
     GIF_CANDIDATES,
     MACOS_TRANSPARENT_BACKGROUND,
     OVERLAY_COLOR,
@@ -13,6 +14,7 @@ from buddybuddy.app import (
     clamp_overlay_position,
     choose_animation,
     generate_chat_response,
+    frames_for_direction,
     load_animation_library,
     sequence_frame,
 )
@@ -62,10 +64,27 @@ class AnimationTests(unittest.TestCase):
     def test_unreadable_action_safely_uses_idle_fallback(self):
         candidates = {Behavior.IDLE: ["idle.gif"], Behavior.TALK: ["missing.gif"]}
         library = load_animation_library(
-            candidates, lambda name: [["idle-frame"]] if name == "idle.gif" else []
+            candidates,
+            lambda name: DirectionalAnimation(["idle-frame"], ["idle-mirror"])
+            if name == "idle.gif"
+            else DirectionalAnimation([], []),
         )
         self.assertIs(library[Behavior.TALK], library[Behavior.IDLE])
         self.assertIs(library[Behavior.REACT], library[Behavior.IDLE])
+
+    def test_left_movement_selects_original_frames(self):
+        animation = DirectionalAnimation(["left-1", "left-2"], ["right-1", "right-2"])
+        self.assertIs(frames_for_direction(animation, -1), animation.original)
+
+    def test_right_movement_selects_mirrored_frames(self):
+        animation = DirectionalAnimation(["left-1", "left-2"], ["right-1", "right-2"])
+        self.assertIs(frames_for_direction(animation, 1), animation.mirrored)
+
+    def test_nondirectional_animation_ignores_facing(self):
+        animation = DirectionalAnimation(["idle"], ["mirrored-idle"])
+        self.assertIs(
+            frames_for_direction(animation, 1, directional=False), animation.original
+        )
         
     def test_animation_dimensions_cover_every_frame(self):
         frames = [self.FakeImage(80, 120), self.FakeImage(128, 96)]
