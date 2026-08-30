@@ -4,6 +4,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from PIL import Image
+
 from buddybuddy.behavior import Behavior, BehaviorController
 from buddybuddy.app import (
     DirectionalAnimation,
@@ -12,12 +14,14 @@ from buddybuddy.app import (
     MACOS_TRANSPARENT_BACKGROUND,
     OVERLAY_COLOR,
     _configure_overlay_window,
+    _read_gif_frames,
     animation_dimensions,
     clamp_overlay_position,
     choose_animation,
     generate_chat_response,
     frames_for_direction,
     load_animation_library,
+    mirror_rgba_frames,
     sequence_frame,
 )
 from buddybuddy.memory import CompanionMemory, MemoryStore
@@ -91,6 +95,55 @@ class AnimationTests(unittest.TestCase):
     def test_animation_dimensions_cover_every_frame(self):
         frames = [self.FakeImage(80, 120), self.FakeImage(128, 96)]
         self.assertEqual(animation_dimensions(frames), (128, 120))
+
+    def test_real_transparent_image_is_mirrored_with_alpha_intact(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "transparent.png"
+            source = Image.new("RGBA", (3, 1), (0, 0, 0, 0))
+            source.putpixel((0, 0), (255, 0, 0, 255))
+            source.putpixel((1, 0), (0, 255, 0, 128))
+            source.save(path)
+
+            with Image.open(path) as actual_image:
+                mirrored = mirror_rgba_frames([actual_image])[0]
+
+            self.assertEqual(mirrored.getpixel((2, 0)), (255, 0, 0, 255))
+            self.assertEqual(mirrored.getpixel((1, 0)), (0, 255, 0, 128))
+            self.assertEqual(mirrored.getpixel((0, 0))[3], 0)
+
+    def test_gif_reader_preserves_each_frame_duration(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "timed.gif"
+            frames = [
+                Image.new("RGBA", (2, 1), (255, 0, 0, 255)),
+                Image.new("RGBA", (2, 1), (0, 0, 0, 0)),
+            ]
+            frames[0].save(
+                path,
+                save_all=True,
+                append_images=frames[1:],
+                duration=[40, 90],
+                loop=0,
+                disposal=2,
+            )
+
+            loaded, durations = _read_gif_frames(path)
+
+            self.assertEqual(len(loaded), 2)
+            self.assertEqual(durations, [40, 90])
+            self.assertEqual(loaded[1].getpixel((0, 0))[3], 0)
+
+    def test_mirror_failure_keeps_original_photo_frames(self):
+        rgba = [Image.new("RGBA", (1, 1), (255, 0, 0, 255))]
+        with (
+            patch("buddybuddy.app._read_gif_frames", return_value=(rgba, [75])),
+            patch("buddybuddy.app.ImageTk.PhotoImage", side_effect=lambda image: image.copy()),
+            patch("buddybuddy.app.mirror_rgba_frames", side_effect=ValueError("bad mirror")),
+            self.assertWarnsRegex(RuntimeWarning, "bad mirror.*using original frames"),
+        ):
+            animation = CompanionApp._load_gif(Path("sample.gif"))
+
+        self.assertIs(animation.mirrored, animation.original)
 
     def test_overlay_position_uses_dynamic_bounds(self):
         self.assertEqual(

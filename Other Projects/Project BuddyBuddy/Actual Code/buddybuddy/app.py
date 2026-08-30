@@ -14,6 +14,7 @@ from typing import Callable, TypeVar
 import warnings
 
 from cyn_bot import CynBot
+from PIL import Image, ImageOps, ImageTk
 
 from .behavior import Behavior, BehaviorController
 from .memory import MemoryStore
@@ -202,6 +203,34 @@ def sequence_frame(animation: list[Frame], frame_index: int) -> tuple[Frame, int
     return animation[index], (index + 1) % len(animation)
 
 
+def mirror_rgba_frames(frames: list[Image.Image]) -> list[Image.Image]:
+    """Return horizontal copies of RGBA frames, including their alpha channels."""
+    return [ImageOps.mirror(frame.convert("RGBA")) for frame in frames]
+
+
+def _read_gif_frames(path: Path) -> tuple[list[Image.Image], list[int]]:
+    """Read GIF frames independently of mirroring and retain frame durations."""
+    frames: list[Image.Image] = []
+    durations: list[int] = []
+    with Image.open(path) as image:
+        for index in range(getattr(image, "n_frames", 1)):
+            image.seek(index)
+            frames.append(image.convert("RGBA").copy())
+            durations.append(max(1, int(image.info.get("duration", ANIMATION_INTERVAL_MS))))
+    return frames, durations
+
+
+def _set_frame_duration(frame: Frame, duration: int) -> Frame:
+    """Attach source timing to a Tk image without wrapping the Tk object."""
+    setattr(frame, "buddybuddy_duration_ms", duration)
+    return frame
+
+
+def frame_duration(frame: Frame) -> int:
+    """Return a loaded frame's GIF duration, with a safe legacy default."""
+    return int(getattr(frame, "buddybuddy_duration_ms", ANIMATION_INTERVAL_MS))
+
+
 def load_animation_library(
     candidates: dict[Behavior, list[str]],
     loader: Callable[[str], DirectionalAnimation],
@@ -288,19 +317,31 @@ class CompanionApp:
 
     @staticmethod
     def _load_gif(path: Path) -> DirectionalAnimation:
-        frames = []
-        index = 0
-        while True:
-            try:
-                frames.append(tk.PhotoImage(file=str(path), format=f"gif -index {index}"))
-            except tk.TclError:
-                # PhotoImage.subsample performs the reflection inside Tk and
-                # retains each pixel's alpha/transparency information.
-                return DirectionalAnimation(
-                    original=frames,
-                    mirrored=[frame.subsample(-1, 1) for frame in frames],
-                )
-            index += 1
+        """Load an animation, then mirror it as a separate, recoverable step."""
+        try:
+            rgba_frames, durations = _read_gif_frames(path)
+        except (OSError, ValueError):
+            return DirectionalAnimation([], [])
+
+        original = [
+            _set_frame_duration(ImageTk.PhotoImage(frame), duration)
+            for frame, duration in zip(rgba_frames, durations)
+        ]
+        try:
+            mirrored_rgba = mirror_rgba_frames(rgba_frames)
+            mirrored = [
+                _set_frame_duration(ImageTk.PhotoImage(frame), duration)
+                for frame, duration in zip(mirrored_rgba, durations)
+            ]
+        except Exception as error:
+            # A broken mirror must not make otherwise readable artwork prevent
+            # the companion from launching. Both facings use the originals.
+            warnings.warn(
+                f"Could not mirror animation {path}: {error}; using original frames",
+                RuntimeWarning,
+            )
+            mirrored = original
+        return DirectionalAnimation(original, mirrored)
 
     def _load_frames(self) -> dict[Behavior, list[DirectionalAnimation]]:
         loaded = load_animation_library(
@@ -367,7 +408,7 @@ class CompanionApp:
                 (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
             )
             self.root.geometry(f"+{x}+{y}")
-        self.root.after(ANIMATION_INTERVAL_MS, self._animate)
+        self.root.after(frame_duration(image), self._animate)
 
     def _schedule_behavior(self) -> None:
         self.controller.choose_next()
