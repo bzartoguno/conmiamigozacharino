@@ -104,7 +104,7 @@ def _configure_overlay_window(
     *,
     backend: str | None = None,
     warn: Callable[[str], object] = warnings.warn,
-    character_factory: Callable[..., tk.Widget] = tk.Label,
+    character_factory: Callable[..., tk.Widget] = tk.Canvas,
     report: Callable[[str, str], object] | None = None,
 ) -> OverlayConfiguration:
     """Configure the borderless overlay and report what is actually usable."""
@@ -136,7 +136,7 @@ def _configure_overlay_window(
                     bg=MACOS_TRANSPARENT_BACKGROUND, bd=0, highlightthickness=0
                 ),
             )
-            operation = "tk.Label(window, bg='systemTransparent')"
+            operation = "tk.Canvas(window, bg='systemTransparent')"
             probe = configured(
                 operation,
                 lambda: character_factory(window, bg=MACOS_TRANSPARENT_BACKGROUND),
@@ -191,11 +191,15 @@ def _configure_overlay_window(
     return OverlayConfiguration(OVERLAY_COLOR, transparent, transparency_error)
 
 
-def _create_character_label(root: tk.Tk, background: str) -> tk.Label:
-    """Build the real character widget used by both the app and diagnostic."""
-    return tk.Label(
+def _create_character_label(root: tk.Tk, background: str) -> tk.Canvas:
+    """Build the single drawing surface used by the app and diagnostic.
+
+    The historical name is retained for callers, but a Canvas lets animation
+    ticks explicitly remove the old pixels before presenting the replacement.
+    """
+    return tk.Canvas(
         root, bg=background, bd=0, borderwidth=0, highlightthickness=0,
-        padx=0, pady=0, width=0, height=0, relief=tk.FLAT, cursor="hand2",
+        width=0, height=0, relief=tk.FLAT, cursor="hand2",
     )
 
 
@@ -223,13 +227,23 @@ def mirror_rgba_frames(frames: list[Image.Image]) -> list[Image.Image]:
 
 
 def _read_gif_frames(path: Path) -> tuple[list[Image.Image], list[int]]:
-    """Read GIF frames independently of mirroring and retain frame durations."""
+    """Read fully composited GIF frames and retain timing/disposal metadata.
+
+    Pillow's sequential ``seek`` applies the preceding frame's disposal before
+    exposing the next frame.  Converting at each step therefore snapshots the
+    complete logical GIF canvas (including optimized/delta frames), rather than
+    treating a frame's update rectangle as standalone artwork.
+    """
     frames: list[Image.Image] = []
     durations: list[int] = []
     with Image.open(path) as image:
         for index in range(getattr(image, "n_frames", 1)):
             image.seek(index)
-            frames.append(image.convert("RGBA").copy())
+            frame = image.convert("RGBA").copy()
+            frame.info["buddybuddy_disposal"] = int(
+                getattr(image, "disposal_method", 0)
+            )
+            frames.append(frame)
             durations.append(max(1, int(image.info.get("duration", ANIMATION_INTERVAL_MS))))
     return frames, durations
 
@@ -240,9 +254,27 @@ def _set_frame_duration(frame: Frame, duration: int) -> Frame:
     return frame
 
 
+def _set_frame_debug_info(
+    frame: Frame, *, source: str, number: int, count: int, disposal: int
+) -> Frame:
+    """Attach lightweight source information to a Tk frame for diagnostics."""
+    setattr(frame, "buddybuddy_source", source)
+    setattr(frame, "buddybuddy_frame_number", number)
+    setattr(frame, "buddybuddy_frame_count", count)
+    setattr(frame, "buddybuddy_disposal", disposal)
+    return frame
+
+
 def frame_duration(frame: Frame) -> int:
     """Return a loaded frame's GIF duration, with a safe legacy default."""
     return int(getattr(frame, "buddybuddy_duration_ms", ANIMATION_INTERVAL_MS))
+
+
+def replace_canvas_image(canvas: tk.Canvas, item: int, image: Frame) -> None:
+    """Flush an empty Canvas item before drawing exactly one replacement frame."""
+    canvas.itemconfigure(item, image="")
+    canvas.update_idletasks()
+    canvas.itemconfigure(item, image=image)
 
 
 def load_animation_library(
@@ -317,6 +349,7 @@ class CompanionApp:
         image_dir: Path,
         store: MemoryStore,
         chatbot: CynBot | None = None,
+        debug_gif: Path | None = None,
     ):
         self.root, self.image_dir, self.store = root, image_dir, store
         self.memory = store.load()
@@ -327,9 +360,14 @@ class CompanionApp:
         self.drag_animation = self._load_gif(self.image_dir / DRAG_GIF)
         self.animation_rng = random.Random()
         self.previous_animations: dict[Behavior, DirectionalAnimation] = {}
-        self.selected_animation = choose_animation(
-            self.frames[Behavior.IDLE], None, self.animation_rng
+        self.debug_animation = debug_gif is not None
+        self.selected_animation = (
+            self._load_gif(debug_gif)
+            if debug_gif is not None
+            else choose_animation(self.frames[Behavior.IDLE], None, self.animation_rng)
         )
+        if not self.selected_animation.original:
+            raise FileNotFoundError(f"No readable GIF animation found at {debug_gif}")
         self.previous_animations[Behavior.IDLE] = self.selected_animation
         self.frame_index = 0
         self.drag_origin: tuple[int, int] | None = None
@@ -351,6 +389,9 @@ class CompanionApp:
 
         self.character = _create_character_label(root, overlay_background)
         self.character.pack(fill="both", expand=True)
+        # One persistent Canvas item is reused forever; frames never accumulate
+        # image items, widgets, or windows.
+        self.character_image = self.character.create_image(0, 0, anchor="nw")
         self.character.bind("<ButtonPress-1>", self._start_drag)
         self.character.bind("<B1-Motion>", self._drag)
         self.character.bind("<ButtonRelease-1>", self._finish_drag)
@@ -367,7 +408,8 @@ class CompanionApp:
         self.menu.add_command(label="Rename...", command=self.rename)
         self.menu.add_command(label="Quit", command=self.close)
         self._animate()
-        self._schedule_behavior()
+        if not self.debug_animation:
+            self._schedule_behavior()
         root.protocol("WM_DELETE_WINDOW", self.close)
 
     @staticmethod
@@ -378,16 +420,29 @@ class CompanionApp:
         except (OSError, ValueError):
             return DirectionalAnimation([], [])
 
-        original = [
-            _set_frame_duration(ImageTk.PhotoImage(frame), duration)
-            for frame, duration in zip(rgba_frames, durations)
-        ]
+        def make_photo_frames(images: list[Image.Image]) -> list[tk.PhotoImage]:
+            count = len(images)
+            return [
+                _set_frame_debug_info(
+                    _set_frame_duration(ImageTk.PhotoImage(frame), duration),
+                    source=path.name,
+                    number=index + 1,
+                    count=count,
+                    disposal=int(frame.info.get("buddybuddy_disposal", 0)),
+                )
+                for index, (frame, duration) in enumerate(zip(images, durations))
+            ]
+
+        original = make_photo_frames(rgba_frames)
         try:
             mirrored_rgba = mirror_rgba_frames(rgba_frames)
-            mirrored = [
-                _set_frame_duration(ImageTk.PhotoImage(frame), duration)
-                for frame, duration in zip(mirrored_rgba, durations)
-            ]
+            # ImageOps preserves pixels but not custom info, so copy disposal
+            # metadata from the corresponding fully composited source frame.
+            for source, mirrored_frame in zip(rgba_frames, mirrored_rgba):
+                mirrored_frame.info["buddybuddy_disposal"] = source.info.get(
+                    "buddybuddy_disposal", 0
+                )
+            mirrored = make_photo_frames(mirrored_rgba)
         except Exception as error:
             # A broken mirror must not make otherwise readable artwork prevent
             # the companion from launching. Both facings use the originals.
@@ -457,8 +512,19 @@ class CompanionApp:
         )
         self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
-        self.character.configure(image=image)
+        # Aqua's transparent toplevel can retain opaque pixels when a Label's
+        # PhotoImage is merely replaced.  Submit an actual empty draw first,
+        # then reuse the same Canvas item for the new complete RGBA frame.
+        replace_canvas_image(self.character, self.character_image, image)
         self.character.image = image
+        if self.debug_animation:
+            print(
+                f"Animation: {getattr(image, 'buddybuddy_source', 'unknown')}\n"
+                f"Frame: {getattr(image, 'buddybuddy_frame_number', 0)}/"
+                f"{getattr(image, 'buddybuddy_frame_count', len(animation))}\n"
+                f"Disposal: {getattr(image, 'buddybuddy_disposal', 0)}\n"
+                f"Size: {image.width()}x{image.height()}"
+            )
         if walking:
             _, y = clamp_overlay_position(
                 next_x,
@@ -467,7 +533,8 @@ class CompanionApp:
                 (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
             )
             self.root.geometry(f"+{next_x}+{y}")
-        self.root.after(frame_duration(image), self._animate)
+        delay = 500 if self.debug_animation else frame_duration(image)
+        self.root.after(delay, self._animate)
 
     def _schedule_behavior(self) -> None:
         self.controller.choose_next()
@@ -640,7 +707,7 @@ def run_diagnostic(image_dir: Path) -> bool:
             report(label_operation, f"ERROR: {error}")
             raise
         report(label_operation, "OK")
-        character.configure(image=frame)
+        character_image = character.create_image(0, 0, anchor="nw", image=frame)
         character.image = frame
         character.pack(fill="both", expand=True)
         root.geometry(f"{frame.width()}x{frame.height()}+80+80")
@@ -685,11 +752,18 @@ def main() -> None:
         "--diagnose", action="store_true",
         help="open a real temporary overlay and report Tk transparency support",
     )
+    parser.add_argument(
+        "--debug-gif", type=Path, metavar="GIF",
+        help="play one GIF at 500 ms per frame and print frame/disposal details",
+    )
     args = parser.parse_args()
     if args.diagnose:
         raise SystemExit(0 if run_diagnostic(args.images) else 1)
     root = tk.Tk()
-    CompanionApp(root, args.images, MemoryStore(args.memory))
+    debug_gif = args.debug_gif
+    if debug_gif is not None and not debug_gif.is_absolute():
+        debug_gif = args.images / debug_gif
+    CompanionApp(root, args.images, MemoryStore(args.memory), debug_gif=debug_gif)
     root.mainloop()
 
 

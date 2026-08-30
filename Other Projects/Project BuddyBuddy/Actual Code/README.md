@@ -30,6 +30,14 @@ The default memory file is `~/.buddybuddy/memory.json`. Override either path:
 python3 -m buddybuddy.app --images ../CYN-images --memory ./my-memory.json
 ```
 
+To inspect frame replacement slowly, pass one GIF name. BuddyBuddy plays only
+that animation at 500 ms per frame and prints its frame number, disposal mode,
+and dimensions while retaining the real transparent overlay:
+
+```bash
+python3 -m buddybuddy.app --debug-gif Walking2-CYN.gif
+```
+
 ## Controls and features
 
 - **Drag** Cyn with the left mouse button; **double-click** to talk.
@@ -89,6 +97,11 @@ operation, and whether initialization completed. Confirm that it reports Aqua,
 completes initialization, and that the character's transparent area is visually
 clear during the two-second test. This real-window check is the required macOS
 verification; the display-independent unit tests are not a substitute.
+
+For the animation-specific check, additionally run `--debug-gif` on the target
+Mac and watch several slow frames. The renderer keeps one Canvas and one image
+item, explicitly empties it before each complete RGBA frame, and prints the GIF
+disposal metadata so stale opaque pixels are easy to spot.
 
 ## Test the non-graphical core
 

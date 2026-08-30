@@ -25,6 +25,7 @@ from buddybuddy.app import (
     load_animation_library,
     mirror_rgba_frames,
     next_horizontal_position,
+    replace_canvas_image,
     sequence_frame,
 )
 from buddybuddy.memory import CompanionMemory, MemoryStore
@@ -69,6 +70,28 @@ class AnimationTests(unittest.TestCase):
         self.assertEqual(GIF_CANDIDATES[Behavior.SLEEP][-1], "Sitting3-CYN.gif")
         self.assertEqual(sequence_frame(["a", "b"], 0), ("a", 1))
         self.assertEqual(sequence_frame(["a", "b"], 1), ("b", 0))
+
+    def test_canvas_frame_replacement_flushes_empty_item_before_new_image(self):
+        class Canvas:
+            def __init__(self):
+                self.events = []
+
+            def itemconfigure(self, item, **values):
+                self.events.append(("configure", item, values["image"]))
+
+            def update_idletasks(self):
+                self.events.append(("flush",))
+
+        canvas = Canvas()
+        replace_canvas_image(canvas, 17, "next-frame")
+        self.assertEqual(
+            canvas.events,
+            [
+                ("configure", 17, ""),
+                ("flush",),
+                ("configure", 17, "next-frame"),
+            ],
+        )
 
     def test_unreadable_action_safely_uses_idle_fallback(self):
         candidates = {Behavior.IDLE: ["idle.gif"], Behavior.TALK: ["missing.gif"]}
@@ -135,6 +158,31 @@ class AnimationTests(unittest.TestCase):
             self.assertEqual(len(loaded), 2)
             self.assertEqual(durations, [40, 90])
             self.assertEqual(loaded[1].getpixel((0, 0))[3], 0)
+            self.assertEqual(loaded[1].info["buddybuddy_disposal"], 2)
+
+    def test_gif_reader_expands_optimized_frames_to_complete_rgba_canvas(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "delta.gif"
+            frames = [
+                Image.new("RGBA", (4, 2), (255, 0, 0, 255)),
+                Image.new("RGBA", (4, 2), (0, 0, 0, 0)),
+            ]
+            frames[1].putpixel((3, 1), (0, 0, 255, 255))
+            frames[0].save(
+                path,
+                save_all=True,
+                append_images=frames[1:],
+                duration=[30, 70],
+                disposal=[1, 1],
+                loop=0,
+                optimize=True,
+            )
+
+            loaded, _durations = _read_gif_frames(path)
+
+            self.assertEqual([frame.size for frame in loaded], [(4, 2), (4, 2)])
+            self.assertEqual(loaded[1].getpixel((0, 0)), (255, 0, 0, 255))
+            self.assertEqual(loaded[1].getpixel((3, 1)), (0, 0, 255, 255))
 
     def test_mirror_failure_keeps_original_photo_frames(self):
         rgba = [Image.new("RGBA", (1, 1), (255, 0, 0, 255))]
@@ -368,7 +416,7 @@ class OverlayConfigurationTests(unittest.TestCase):
         )
         self.assertEqual(result.background, OVERLAY_COLOR)
         self.assertFalse(result.transparent)
-        self.assertIn("tk.Label", result.error)
+        self.assertIn("tk.Canvas", result.error)
         self.assertNotIn(("attributes", "-transparent", True), window.calls)
 
 
