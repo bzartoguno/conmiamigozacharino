@@ -2,10 +2,12 @@ import random
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from buddybuddy.behavior import Behavior, BehaviorController
 from buddybuddy.app import (
     DirectionalAnimation,
+    CompanionApp,
     GIF_CANDIDATES,
     MACOS_TRANSPARENT_BACKGROUND,
     OVERLAY_COLOR,
@@ -273,6 +275,72 @@ class ChatIntegrationTests(unittest.TestCase):
             bot = CynBot(Path(folder) / "cyn_memory.json", seed=3)
             self.assertIn("Name stored. Hello, Ada.", bot.respond("My name is Ada."))
             self.assertIn("Ada", bot.respond("What is my name?"))
+
+
+class SpeechBubbleTests(unittest.TestCase):
+    class FakeRoot:
+        def winfo_x(self):
+            return 80
+
+        def winfo_y(self):
+            return 80
+
+    class FakeToplevel:
+        instances = []
+
+        def __init__(self, _root):
+            self.exists = True
+            self.destroyed = False
+            self.callback = None
+            self.__class__.instances.append(self)
+
+        def overrideredirect(self, _value):
+            pass
+
+        def attributes(self, *_values):
+            pass
+
+        def geometry(self, _value):
+            pass
+
+        def after(self, _delay, callback):
+            self.callback = callback
+
+        def winfo_exists(self):
+            return self.exists
+
+        def destroy(self):
+            self.destroyed = True
+            self.exists = False
+
+    class FakeLabel:
+        def __init__(self, *_args, **_kwargs):
+            pass
+
+        def pack(self):
+            pass
+
+    def test_expired_bubble_does_not_prevent_or_close_its_replacement(self):
+        app = CompanionApp.__new__(CompanionApp)
+        app.root = self.FakeRoot()
+        app.bubble = None
+        self.FakeToplevel.instances = []
+
+        with patch("buddybuddy.app.tk.Toplevel", self.FakeToplevel), patch(
+            "buddybuddy.app.tk.Label", self.FakeLabel
+        ):
+            app.say("first")
+            first = app.bubble
+            first.exists = False
+
+            app.say("second")
+            second = app.bubble
+
+            self.assertIsNot(first, second)
+            self.assertTrue(second.winfo_exists())
+            first.callback()
+            self.assertIs(app.bubble, second)
+            self.assertFalse(second.destroyed)
 
 
 if __name__ == "__main__":
