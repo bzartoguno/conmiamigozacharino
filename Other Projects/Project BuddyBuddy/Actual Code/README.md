@@ -63,6 +63,23 @@ be visible instead of transparent. On unsupported platforms it likewise warns
 and uses the visible magenta fallback. Test the overlay with the exact Python/Tk
 build intended for distribution.
 
+### Required manual macOS verification
+
+Fake or mocked Tk windows in the unit suite do **not** establish macOS support.
+Before distributing BuddyBuddy for macOS, run this command on the target Mac
+with the exact Python/Tk build being shipped:
+
+```bash
+python3 -m buddybuddy.app --diagnose
+```
+
+The diagnostic opens a real, temporary CYN overlay, loads a real GIF frame, and
+prints the Tk windowing system, Tk patch level, the result of each transparency
+operation, and whether initialization completed. Confirm that it reports Aqua,
+completes initialization, and that the character's transparent area is visually
+clear during the two-second test. This real-window check is the required macOS
+verification; the display-independent unit tests are not a substitute.
+
 ## Test the non-graphical core
 
 ```bash

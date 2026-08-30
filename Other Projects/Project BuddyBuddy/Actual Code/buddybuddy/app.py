@@ -90,8 +90,20 @@ def _configure_overlay_window(
     platform: str | None = None,
     warn: Callable[[str], object] = warnings.warn,
     character_factory: Callable[..., tk.Widget] = tk.Label,
+    report: Callable[[str, str], object] | None = None,
 ) -> OverlayConfiguration:
     """Configure the borderless overlay and report what is actually usable."""
+    def configured(operation: str, action: Callable[[], object]) -> object:
+        try:
+            result = action()
+        except tk.TclError as error:
+            if report is not None:
+                report(operation, f"ERROR: {error}")
+            raise
+        if report is not None:
+            report(operation, "OK")
+        return result
+
     window.overrideredirect(True)
     window.attributes("-topmost", True)
     selected_platform = platform or sys.platform
@@ -102,13 +114,19 @@ def _configure_overlay_window(
             "highlightthickness=0)"
         )
         try:
-            window.configure(
-                bg=MACOS_TRANSPARENT_BACKGROUND, bd=0, highlightthickness=0
+            configured(
+                operation,
+                lambda: window.configure(
+                    bg=MACOS_TRANSPARENT_BACKGROUND, bd=0, highlightthickness=0
+                ),
             )
             operation = "tk.Label(window, bg='systemTransparent')"
-            probe = character_factory(window, bg=MACOS_TRANSPARENT_BACKGROUND)
+            probe = configured(
+                operation,
+                lambda: character_factory(window, bg=MACOS_TRANSPARENT_BACKGROUND),
+            )
             operation = "window.attributes('-transparent', True)"
-            window.attributes("-transparent", True)
+            configured(operation, lambda: window.attributes("-transparent", True))
         except tk.TclError as error:
             failure = f"{operation}: {error}"
             warning = (
@@ -123,19 +141,28 @@ def _configure_overlay_window(
                 f"Python executable={sys.executable}; transparency error={failure}",
                 file=sys.stderr,
             )
-            window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
+            configured(
+                "window.configure(bg='#ff00ff', bd=0, highlightthickness=0)",
+                lambda: window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0),
+            )
             return OverlayConfiguration(OVERLAY_COLOR, False, failure)
         finally:
             if probe is not None:
                 probe.destroy()
         return OverlayConfiguration(MACOS_TRANSPARENT_BACKGROUND, True)
 
-    window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
+    configured(
+        "window.configure(bg='#ff00ff', bd=0, highlightthickness=0)",
+        lambda: window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0),
+    )
     transparency_error = None
     transparent = False
     if selected_platform.startswith("win"):
         try:
-            window.wm_attributes("-transparentcolor", OVERLAY_COLOR)
+            configured(
+                "window.wm_attributes('-transparentcolor', '#ff00ff')",
+                lambda: window.wm_attributes("-transparentcolor", OVERLAY_COLOR),
+            )
             transparent = True
         except tk.TclError as error:
             transparency_error = str(error)
@@ -143,6 +170,14 @@ def _configure_overlay_window(
     else:
         warn("Character transparency is unavailable on this Tk windowing system.")
     return OverlayConfiguration(OVERLAY_COLOR, transparent, transparency_error)
+
+
+def _create_character_label(root: tk.Tk, background: str) -> tk.Label:
+    """Build the real character widget used by both the app and diagnostic."""
+    return tk.Label(
+        root, bg=background, bd=0, borderwidth=0, highlightthickness=0,
+        padx=0, pady=0, width=0, height=0, relief=tk.FLAT, cursor="hand2",
+    )
 
 
 def choose_animation(
@@ -227,19 +262,7 @@ class CompanionApp:
         self._overlay_size = animation_dimensions(self.selected_animation.original)
         root.geometry(f"{self._overlay_size[0]}x{self._overlay_size[1]}+80+80")
 
-        self.character = tk.Label(
-            root,
-            bg=overlay_background,
-            bd=0,
-            borderwidth=0,
-            highlightthickness=0,
-            padx=0,
-            pady=0,
-            width=0,
-            height=0,
-            relief=tk.FLAT,
-            cursor="hand2",
-        )
+        self.character = _create_character_label(root, overlay_background)
         self.character.pack(fill="both", expand=True)
         self.character.bind("<ButtonPress-1>", self._start_drag)
         self.character.bind("<B1-Motion>", self._drag)
@@ -463,12 +486,67 @@ class CompanionApp:
         self.root.destroy()
 
 
+def run_diagnostic(image_dir: Path) -> bool:
+    """Exercise the real Tk overlay and a real artwork frame on this machine."""
+    root: tk.Tk | None = None
+    completed = False
+    try:
+        root = tk.Tk()
+        print(f"BuddyBuddy diagnostic: tk windowingsystem={root.tk.call('tk', 'windowingsystem')}")
+        print(f"BuddyBuddy diagnostic: Tk patch level={root.tk.call('info', 'patchlevel')}")
+
+        def report(operation: str, result: str) -> None:
+            print(f"BuddyBuddy diagnostic: transparency {operation}: {result}")
+
+        overlay = _configure_overlay_window(root, report=report)
+        background = overlay.background if overlay.transparent else OVERLAY_COLOR
+        gif_path = image_dir / GIF_CANDIDATES[Behavior.IDLE][0]
+        frame = tk.PhotoImage(file=str(gif_path), format="gif -index 0")
+        label_operation = f"character label background={background!r}"
+        try:
+            character = _create_character_label(root, background)
+        except tk.TclError as error:
+            report(label_operation, f"ERROR: {error}")
+            raise
+        report(label_operation, "OK")
+        character.configure(image=frame)
+        character.image = frame
+        character.pack(fill="both", expand=True)
+        root.geometry(f"{frame.width()}x{frame.height()}+80+80")
+        root.update_idletasks()
+        root.update()
+        print(f"BuddyBuddy diagnostic: loaded GIF frame={gif_path}")
+        completed = True
+        # Let a person inspect the genuine Aqua overlay before it self-closes.
+        if sys.platform == "darwin":
+            root.after(2000, root.destroy)
+            root.mainloop()
+        return True
+    except Exception as error:
+        print(f"BuddyBuddy diagnostic: initialization error={error}", file=sys.stderr)
+        return False
+    finally:
+        print(f"BuddyBuddy diagnostic: initialization completed={str(completed).lower()}")
+        if root is not None:
+            try:
+                if root.winfo_exists():
+                    root.destroy()
+            except tk.TclError:
+                pass
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the local BuddyBuddy desktop companion")
     default_images = Path(__file__).resolve().parents[2] / "CYN-images"
     parser.add_argument("--images", type=Path, default=default_images)
     parser.add_argument("--memory", type=Path, default=Path.home() / ".buddybuddy" / "memory.json")
+    parser.add_argument(
+        "--diagnose", action="store_true",
+        help="open a real temporary overlay and report Tk transparency support",
+    )
     args = parser.parse_args()
+    if args.diagnose:
+        raise SystemExit(0 if run_diagnostic(args.images) else 1)
     root = tk.Tk()
     CompanionApp(root, args.images, MemoryStore(args.memory))
     root.mainloop()
