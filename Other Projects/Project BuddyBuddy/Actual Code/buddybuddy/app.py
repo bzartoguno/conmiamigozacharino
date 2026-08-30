@@ -6,9 +6,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import random
+import sys
 import tkinter as tk
 from tkinter import simpledialog
 from typing import Callable, TypeVar
+import warnings
 
 from .behavior import Behavior, BehaviorController
 from .memory import MemoryStore
@@ -25,8 +27,48 @@ GIF_CANDIDATES = {
 }
 DRAG_GIF = "DragAround-CYN.gif"
 ANIMATION_INTERVAL_MS = 100
+OVERLAY_COLOR = "#ff00ff"
 
 Frame = TypeVar("Frame")
+
+def animation_dimensions(animation: list[Frame]) -> tuple[int, int]:
+    """Return bounds large enough for every image in an animation."""
+    if not animation:
+        raise ValueError("An animation must contain at least one frame")
+    return max(frame.width() for frame in animation), max(
+        frame.height() for frame in animation
+    )
+
+
+def clamp_overlay_position(
+    x: int, y: int, overlay_size: tuple[int, int], screen_size: tuple[int, int]
+) -> tuple[int, int]:
+    """Keep the complete overlay on screen, including oversized overlays."""
+    max_x = max(0, screen_size[0] - overlay_size[0])
+    max_y = max(0, screen_size[1] - overlay_size[1])
+    return max(0, min(max_x, x)), max(0, min(max_y, y))
+
+
+def _configure_overlay_window(
+    window: tk.Tk,
+    *,
+    platform: str | None = None,
+    warn: Callable[[str], object] = warnings.warn,
+) -> bool:
+    """Configure the character window and report color-key availability."""
+    window.overrideredirect(True)
+    window.attributes("-topmost", True)
+    window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
+    if (platform or sys.platform).startswith("win"):
+        try:
+            window.wm_attributes("-transparentcolor", OVERLAY_COLOR)
+            return True
+        except tk.TclError as error:
+            warn(f"Character transparency is unavailable: {error}")
+            return False
+    warn("Character transparency is unavailable on this Tk windowing system.")
+    return False
+
 
 
 def choose_animation(
@@ -90,15 +132,23 @@ class CompanionApp:
         self.controller = BehaviorController(self._behavior_changed)
 
         root.title(self.memory.name)
-        root.overrideredirect(True)
-        root.attributes("-topmost", True)
-        root.configure(bg="#ff00ff")
-        try:
-            root.wm_attributes("-transparentcolor", "#ff00ff")
-        except tk.TclError:
-            pass
-        root.geometry("240x240+80+80")
+        _configure_overlay_window(root)
+        self._overlay_size = animation_dimensions(self.selected_animation)
+        root.geometry(f"{self._overlay_size[0]}x{self._overlay_size[1]}+80+80")
 
+        self.character = tk.Label(
+            root,
+            bg=OVERLAY_COLOR,
+            bd=0,
+            borderwidth=0,
+            highlightthickness=0,
+            padx=0,
+            pady=0,
+            width=0,
+            height=0,
+            relief="flat",
+            cursor="hand2",
+        )        
         self.character = tk.Label(root, bg="#ff00ff", bd=0, cursor="hand2")
         self.character.pack(fill="both", expand=True)
         self.character.bind("<ButtonPress-1>", self._start_drag)
@@ -146,6 +196,21 @@ class CompanionApp:
         self.selected_animation = selected
         self.previous_animations[behavior] = selected
         self.frame_index = 0
+        self._size_overlay(selected)
+
+    def _size_overlay(self, animation: list[tk.PhotoImage]) -> None:
+        """Resize for an animation without moving the overlay unnecessarily."""
+        size = animation_dimensions(animation)
+        if size == self._overlay_size:
+            return
+        x, y = clamp_overlay_position(
+            self.root.winfo_x(),
+            self.root.winfo_y(),
+            size,
+            (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
+        )
+        self._overlay_size = size
+        self.root.geometry(f"{size[0]}x{size[1]}+{x}+{y}")
 
     def _animate(self) -> None:
         animation = (
@@ -153,14 +218,22 @@ class CompanionApp:
             if self.drag_origin and self.drag_animation
             else self.selected_animation
         )
+        self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
         self.character.configure(image=image)
+        self.character.image = image
         if self.controller.current == Behavior.WALK and not self.drag_origin:
             x, y = self.root.winfo_x(), self.root.winfo_y()
-            screen_limit = self.root.winfo_screenwidth() - self.root.winfo_width()
+            screen_limit = max(0, self.root.winfo_screenwidth() - self._overlay_size[0])
             if x <= 0 or x >= screen_limit:
                 self.direction *= -1
-            self.root.geometry(f"+{max(0, min(screen_limit, x + 4 * self.direction))}+{y}")
+            x, y = clamp_overlay_position(
+                x + 4 * self.direction,
+                y,
+                self._overlay_size,
+                (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
+            )
+            self.root.geometry(f"+{x}+{y}")
         self.root.after(ANIMATION_INTERVAL_MS, self._animate)
 
     def _schedule_behavior(self) -> None:
@@ -173,7 +246,13 @@ class CompanionApp:
 
     def _drag(self, event: tk.Event) -> None:
         if self.drag_origin:
-            self.root.geometry(f"+{event.x_root - self.drag_origin[0]}+{event.y_root - self.drag_origin[1]}")
+            x, y = clamp_overlay_position(
+                event.x_root - self.drag_origin[0],
+                event.y_root - self.drag_origin[1],
+                self._overlay_size,
+                (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
+            )
+            self.root.geometry(f"+{x}+{y}")
 
     def _finish_drag(self, _event: tk.Event) -> None:
         if self.drag_origin:
