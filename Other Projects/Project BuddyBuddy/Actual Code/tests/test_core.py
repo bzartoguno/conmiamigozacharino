@@ -71,25 +71,32 @@ class AnimationTests(unittest.TestCase):
         self.assertEqual(sequence_frame(["a", "b"], 0), ("a", 1))
         self.assertEqual(sequence_frame(["a", "b"], 1), ("b", 0))
 
-    def test_canvas_frame_replacement_flushes_empty_item_before_new_image(self):
+    def test_canvas_frame_replacement_deletes_old_item_before_creating_new_one(self):
         class Canvas:
             def __init__(self):
                 self.events = []
 
-            def itemconfigure(self, item, **values):
-                self.events.append(("configure", item, values["image"]))
+            def delete(self, item):
+                self.events.append(("delete", item))
 
             def update_idletasks(self):
                 self.events.append(("flush",))
 
+            def create_image(self, x, y, **values):
+                self.events.append(
+                    ("create", x, y, values["anchor"], values["image"])
+                )
+                return 23
+
         canvas = Canvas()
-        replace_canvas_image(canvas, 17, "next-frame")
+        replacement = replace_canvas_image(canvas, 17, "next-frame")
+        self.assertEqual(replacement, 23)
         self.assertEqual(
             canvas.events,
             [
-                ("configure", 17, ""),
+                ("delete", 17),
                 ("flush",),
-                ("configure", 17, "next-frame"),
+                ("create", 0, 0, "nw", "next-frame"),
             ],
         )
 
