@@ -12,6 +12,8 @@ from tkinter import simpledialog
 from typing import Callable, TypeVar
 import warnings
 
+from cyn_bot import CynBot
+
 from .behavior import Behavior, BehaviorController
 from .memory import MemoryStore
 
@@ -103,19 +105,25 @@ def load_animation_library(
     fallback = loaded.get(Behavior.IDLE, next(iter(loaded.values())))
     return {behavior: loaded.get(behavior, fallback) for behavior in Behavior}
 
-RESPONSES = {
-    "hello": ["Hello!", "Hi there!", "I was hoping you would stop by."],
-    "how are you": ["Doing wonderfully pixelated, thanks!", "Ready for an adventure."],
-    "help": ["Right-click me for commands. You can also press Ctrl+Shift+B."],
-    "sleep": ["All right. Wake me with a click."],
-    "thank": ["You're welcome!", "Any time, friend."],
-}
+
+def generate_chat_response(chatbot: CynBot, message: str) -> str:
+    """Route BuddyBuddy chat input through the shared cyn_bot engine."""
+    return chatbot.respond(message)
 
 
 class CompanionApp:
-    def __init__(self, root: tk.Tk, image_dir: Path, store: MemoryStore):
+    def __init__(
+        self,
+        root: tk.Tk,
+        image_dir: Path,
+        store: MemoryStore,
+        chatbot: CynBot | None = None,
+    ):
         self.root, self.image_dir, self.store = root, image_dir, store
         self.memory = store.load()
+        self.chatbot = chatbot or CynBot(
+            memory_path=store.path.with_name("cyn_memory.json")
+        )
         self.frames = self._load_frames()
         self.drag_animation = self._load_gif(self.image_dir / DRAG_GIF)
         self.animation_rng = random.Random()
@@ -281,7 +289,9 @@ class CompanionApp:
         chat = self.chat = tk.Toplevel(self.root)
         chat.title(f"Talk to {self.memory.name}")
         chat.geometry("360x130")
-        tk.Label(chat, text="Say something (all replies are local rules):").pack(padx=12, pady=(12, 4), anchor="w")
+        tk.Label(chat, text="Say something to cyn_bot (all replies stay local):").pack(
+            padx=12, pady=(12, 4), anchor="w"
+        )
         entry = tk.Entry(chat)
         entry.pack(fill="x", padx=12)
         entry.focus_set()
@@ -292,8 +302,7 @@ class CompanionApp:
                 return
             self.memory.remember("you", message)
             lowered = message.lower()
-            response = next((random.choice(lines) for key, lines in RESPONSES.items() if key in lowered),
-                            random.choice(["Tell me more!", "That sounds interesting.", "I'm listening."]))
+            response = generate_chat_response(self.chatbot, message)
             if "sleep" in lowered:
                 self.controller.set(Behavior.SLEEP)
             else:

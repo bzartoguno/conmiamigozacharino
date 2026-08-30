@@ -11,10 +11,12 @@ from buddybuddy.app import (
     animation_dimensions,
     clamp_overlay_position,
     choose_animation,
+    generate_chat_response,
     load_animation_library,
     sequence_frame,
 )
 from buddybuddy.memory import CompanionMemory, MemoryStore
+from cyn_bot import CynBot
 
 
 class BehaviorTests(unittest.TestCase):
@@ -179,6 +181,27 @@ class MemoryTests(unittest.TestCase):
             path = Path(folder) / "memory.json"
             path.write_text("not json", encoding="utf-8")
             self.assertEqual(MemoryStore(path).load().name, "Cyn")
+
+
+class ChatIntegrationTests(unittest.TestCase):
+    class FakeCynBot:
+        def __init__(self):
+            self.messages = []
+
+        def respond(self, message):
+            self.messages.append(message)
+            return "cyn_bot response"
+
+    def test_buddybuddy_routes_chat_messages_to_cyn_bot(self):
+        bot = self.FakeCynBot()
+        self.assertEqual(generate_chat_response(bot, "Hello Cyn"), "cyn_bot response")
+        self.assertEqual(bot.messages, ["Hello Cyn"])
+
+    def test_cyn_bot_drives_buddybuddy_replies_and_memory(self):
+        with tempfile.TemporaryDirectory() as folder:
+            bot = CynBot(Path(folder) / "cyn_memory.json", seed=3)
+            self.assertIn("Name stored. Hello, Ada.", bot.respond("My name is Ada."))
+            self.assertIn("Ada", bot.respond("What is my name?"))
 
 
 if __name__ == "__main__":
