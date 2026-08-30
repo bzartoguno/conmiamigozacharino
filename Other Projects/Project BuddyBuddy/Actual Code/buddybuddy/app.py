@@ -1,5 +1,6 @@
 """Tkinter character window and local interactions."""
-
+#cd "/Volumes/Bag O Holdn/Project BuddyBuddy/Actual Code"
+# python3 -m buddybuddy.app
 from __future__ import annotations
 
 import argparse
