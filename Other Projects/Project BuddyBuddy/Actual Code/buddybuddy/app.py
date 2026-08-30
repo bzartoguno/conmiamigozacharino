@@ -271,11 +271,19 @@ def frame_duration(frame: Frame) -> int:
     return int(getattr(frame, "buddybuddy_duration_ms", ANIMATION_INTERVAL_MS))
 
 
-def replace_canvas_image(canvas: tk.Canvas, item: int, image: Frame) -> None:
-    """Flush an empty Canvas item before drawing exactly one replacement frame."""
-    canvas.itemconfigure(item, image="")
+def replace_canvas_image(canvas: tk.Canvas, item: int, image: Frame) -> int:
+    """Remove the old drawing before creating the sole replacement image item.
+
+    Configuring an existing image item to an empty image does not reliably mark
+    its former bounding box as damaged on Aqua.  Consequently the transparent
+    pixels in a smaller/new frame can leave pixels from the prior frame in the
+    window backing store.  Deleting the item preserves its old bounds long
+    enough for Canvas to invalidate and clear that entire region.  The idle
+    flush completes that clear before the replacement is submitted.
+    """
+    canvas.delete(item)
     canvas.update_idletasks()
-    canvas.itemconfigure(item, image=image)
+    return canvas.create_image(0, 0, anchor="nw", image=image)
 
 
 def load_animation_library(
@@ -390,8 +398,8 @@ class CompanionApp:
 
         self.character = _create_character_label(root, overlay_background)
         self.character.pack(fill="both", expand=True)
-        # One persistent Canvas item is reused forever; frames never accumulate
-        # image items, widgets, or windows.
+        # Every tick deletes this item before its replacement is created, so a
+        # previous frame can neither remain in the backing store nor accumulate.
         self.character_image = self.character.create_image(0, 0, anchor="nw")
         self.character.bind("<ButtonPress-1>", self._start_drag)
         self.character.bind("<B1-Motion>", self._drag)
@@ -513,10 +521,13 @@ class CompanionApp:
         )
         self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
-        # Aqua's transparent toplevel can retain opaque pixels when a Label's
-        # PhotoImage is merely replaced.  Submit an actual empty draw first,
-        # then reuse the same Canvas item for the new complete RGBA frame.
-        replace_canvas_image(self.character, self.character_image, image)
+        # Aqua can retain opaque pixels when an existing Canvas item's image is
+        # merely reconfigured (even via an intermediate empty image). Delete it
+        # so Canvas invalidates the old bounds, flush that clear, and only then
+        # create the one replacement item.
+        self.character_image = replace_canvas_image(
+            self.character, self.character_image, image
+        )
         self.character.image = image
         if self.debug_animation:
             print(
