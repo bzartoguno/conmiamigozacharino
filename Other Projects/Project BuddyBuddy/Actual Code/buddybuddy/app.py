@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from pathlib import Path
 import random
 import sys
@@ -33,6 +34,28 @@ OVERLAY_COLOR = "#ff00ff"
 MACOS_TRANSPARENT_BACKGROUND = "systemTransparent"
 
 Frame = TypeVar("Frame")
+Animation = TypeVar("Animation")
+
+
+@dataclass(frozen=True)
+class DirectionalAnimation:
+    """The source artwork and its transparency-preserving horizontal mirror."""
+
+    original: list[Frame]
+    mirrored: list[Frame]
+
+
+def frames_for_direction(
+    animation: DirectionalAnimation,
+    facing: int,
+    *,
+    directional: bool = True,
+) -> list[Frame]:
+    """Select a facing without coupling it to animation frame progression."""
+    if directional and facing > 0:
+        return animation.mirrored
+    return animation.original
+
 
 def animation_dimensions(animation: list[Frame]) -> tuple[int, int]:
     """Return bounds large enough for every image in an animation."""
@@ -88,8 +111,8 @@ def _configure_overlay_window(
 
 
 def choose_animation(
-    animations: list[list[Frame]], previous: list[Frame] | None, rng: random.Random
-) -> list[Frame]:
+    animations: list[Animation], previous: Animation | None, rng: random.Random
+) -> Animation:
     """Choose an animation, excluding the previous object when possible."""
     if not animations:
         raise ValueError("At least one animation is required")
@@ -106,13 +129,18 @@ def sequence_frame(animation: list[Frame], frame_index: int) -> tuple[Frame, int
 
 
 def load_animation_library(
-    candidates: dict[Behavior, list[str]], loader: Callable[[str], list[Frame]]
-) -> dict[Behavior, list[list[Frame]]]:
+    candidates: dict[Behavior, list[str]],
+    loader: Callable[[str], DirectionalAnimation],
+) -> dict[Behavior, list[DirectionalAnimation]]:
     """Load readable candidates and fill missing actions with a safe animation."""
     loaded = {
         behavior: animations
         for behavior, names in candidates.items()
-        if (animations := [frames for name in names if (frames := loader(name))])
+        if (
+            animations := [
+                frames for name in names if (frames := loader(name)).original
+            ]
+        )
     }
     if not loaded:
         return {}
@@ -141,7 +169,7 @@ class CompanionApp:
         self.frames = self._load_frames()
         self.drag_animation = self._load_gif(self.image_dir / DRAG_GIF)
         self.animation_rng = random.Random()
-        self.previous_animations: dict[Behavior, list[tk.PhotoImage]] = {}
+        self.previous_animations: dict[Behavior, DirectionalAnimation] = {}
         self.selected_animation = choose_animation(
             self.frames[Behavior.IDLE], None, self.animation_rng
         )
@@ -150,12 +178,15 @@ class CompanionApp:
         self.drag_origin: tuple[int, int] | None = None
         self.bubble: tk.Toplevel | None = None
         self.chat: tk.Toplevel | None = None
-        self.direction = 1
+        # The supplied walking artwork faces left. Movement and facing are kept
+        # separate so advancing a GIF never implicitly changes orientation.
+        self.direction = -1
+        self.facing = -1
         self.controller = BehaviorController(self._behavior_changed)
 
         root.title(self.memory.name)
         overlay_background = _configure_overlay_window(root)
-        self._overlay_size = animation_dimensions(self.selected_animation)
+        self._overlay_size = animation_dimensions(self.selected_animation.original)
         root.geometry(f"{self._overlay_size[0]}x{self._overlay_size[1]}+80+80")
 
         self.character = tk.Label(
@@ -191,17 +222,22 @@ class CompanionApp:
         root.protocol("WM_DELETE_WINDOW", self.close)
 
     @staticmethod
-    def _load_gif(path: Path) -> list[tk.PhotoImage]:
+    def _load_gif(path: Path) -> DirectionalAnimation:
         frames = []
         index = 0
         while True:
             try:
                 frames.append(tk.PhotoImage(file=str(path), format=f"gif -index {index}"))
             except tk.TclError:
-                return frames
+                # PhotoImage.subsample performs the reflection inside Tk and
+                # retains each pixel's alpha/transparency information.
+                return DirectionalAnimation(
+                    original=frames,
+                    mirrored=[frame.subsample(-1, 1) for frame in frames],
+                )
             index += 1
 
-    def _load_frames(self) -> dict[Behavior, list[list[tk.PhotoImage]]]:
+    def _load_frames(self) -> dict[Behavior, list[DirectionalAnimation]]:
         loaded = load_animation_library(
             GIF_CANDIDATES, lambda name: self._load_gif(self.image_dir / name)
         )
@@ -217,7 +253,7 @@ class CompanionApp:
         self.selected_animation = selected
         self.previous_animations[behavior] = selected
         self.frame_index = 0
-        self._size_overlay(selected)
+        self._size_overlay(selected.original)
 
     def _size_overlay(self, animation: list[tk.PhotoImage]) -> None:
         """Resize for an animation without moving the overlay unnecessarily."""
@@ -234,20 +270,31 @@ class CompanionApp:
         self.root.geometry(f"{size[0]}x{size[1]}+{x}+{y}")
 
     def _animate(self) -> None:
-        animation = (
-            self.drag_animation
-            if self.drag_origin and self.drag_animation
-            else self.selected_animation
+        walking = self.controller.current == Behavior.WALK and not self.drag_origin
+        if walking:
+            x = self.root.winfo_x()
+            screen_limit = max(
+                0, self.root.winfo_screenwidth() - self._overlay_size[0]
+            )
+            if x <= 0:
+                self.direction = 1
+            elif x >= screen_limit:
+                self.direction = -1
+            self.facing = self.direction
+
+        dragging = bool(self.drag_origin and self.drag_animation.original)
+        selected = self.drag_animation if dragging else self.selected_animation
+        animation = frames_for_direction(
+            selected,
+            self.facing,
+            directional=dragging or self.controller.current == Behavior.WALK,
         )
         self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
         self.character.configure(image=image)
         self.character.image = image
-        if self.controller.current == Behavior.WALK and not self.drag_origin:
+        if walking:
             x, y = self.root.winfo_x(), self.root.winfo_y()
-            screen_limit = max(0, self.root.winfo_screenwidth() - self._overlay_size[0])
-            if x <= 0 or x >= screen_limit:
-                self.direction *= -1
             x, y = clamp_overlay_position(
                 x + 4 * self.direction,
                 y,
@@ -267,12 +314,16 @@ class CompanionApp:
 
     def _drag(self, event: tk.Event) -> None:
         if self.drag_origin:
+            previous_x = self.root.winfo_x()
+            requested_x = event.x_root - self.drag_origin[0]
             x, y = clamp_overlay_position(
-                event.x_root - self.drag_origin[0],
+                requested_x,
                 event.y_root - self.drag_origin[1],
                 self._overlay_size,
                 (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
             )
+            if requested_x != previous_x:
+                self.facing = 1 if requested_x > previous_x else -1
             self.root.geometry(f"+{x}+{y}")
 
     def _finish_drag(self, _event: tk.Event) -> None:
