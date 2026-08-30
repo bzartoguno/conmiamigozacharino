@@ -8,18 +8,58 @@ from pathlib import Path
 import random
 import tkinter as tk
 from tkinter import simpledialog
+from typing import Callable, TypeVar
 
 from .behavior import Behavior, BehaviorController
 from .memory import MemoryStore
 
 
-FRAME_NAMES = {
-    Behavior.IDLE: ["shime1.png", "shime1_1.png", "shime1_2.png", "shime1_1.png"],
-    Behavior.WALK: ["shime25a1.png", "shime25a2.png", "shime25a3.png", "shime25a4.png"],
-    Behavior.SLEEP: ["shime41.png", "shime41a.png", "shime41b.png", "shime41c.png"],
-    Behavior.TALK: ["shime33a.png", "shime33b.png", "shime33c.png", "shime33d.png"],
-    Behavior.REACT: ["shime10.png", "shime10a.png", "shime11.png", "shime10.png"],
+GIF_CANDIDATES = {
+    Behavior.IDLE: [f"Waiting{number}-CYN.gif" for number in range(1, 10)],
+    Behavior.WALK: [f"Walking{number}-CYN.gif" for number in range(1, 7)],
+    Behavior.SLEEP: [f"Sitting{number}-CYN.gif" for number in range(1, 4)],
+    # There are no dedicated talk/react GIFs yet. Empty candidate lists make
+    # load_animation_library deliberately fall back to the idle animations.
+    Behavior.TALK: [],
+    Behavior.REACT: [],
 }
+DRAG_GIF = "DragAround-CYN.gif"
+ANIMATION_INTERVAL_MS = 100
+
+Frame = TypeVar("Frame")
+
+
+def choose_animation(
+    animations: list[list[Frame]], previous: list[Frame] | None, rng: random.Random
+) -> list[Frame]:
+    """Choose an animation, excluding the previous object when possible."""
+    if not animations:
+        raise ValueError("At least one animation is required")
+    choices = [animation for animation in animations if animation is not previous]
+    return rng.choice(choices or animations)
+
+
+def sequence_frame(animation: list[Frame], frame_index: int) -> tuple[Frame, int]:
+    """Return the current frame and the wrapped index of the following frame."""
+    if not animation:
+        raise ValueError("An animation must contain at least one frame")
+    index = frame_index % len(animation)
+    return animation[index], (index + 1) % len(animation)
+
+
+def load_animation_library(
+    candidates: dict[Behavior, list[str]], loader: Callable[[str], list[Frame]]
+) -> dict[Behavior, list[list[Frame]]]:
+    """Load readable candidates and fill missing actions with a safe animation."""
+    loaded = {
+        behavior: animations
+        for behavior, names in candidates.items()
+        if (animations := [frames for name in names if (frames := loader(name))])
+    }
+    if not loaded:
+        return {}
+    fallback = loaded.get(Behavior.IDLE, next(iter(loaded.values())))
+    return {behavior: loaded.get(behavior, fallback) for behavior in Behavior}
 
 RESPONSES = {
     "hello": ["Hello!", "Hi there!", "I was hoping you would stop by."],
@@ -35,6 +75,13 @@ class CompanionApp:
         self.root, self.image_dir, self.store = root, image_dir, store
         self.memory = store.load()
         self.frames = self._load_frames()
+        self.drag_animation = self._load_gif(self.image_dir / DRAG_GIF)
+        self.animation_rng = random.Random()
+        self.previous_animations: dict[Behavior, list[tk.PhotoImage]] = {}
+        self.selected_animation = choose_animation(
+            self.frames[Behavior.IDLE], None, self.animation_rng
+        )
+        self.previous_animations[Behavior.IDLE] = self.selected_animation
         self.frame_index = 0
         self.drag_origin: tuple[int, int] | None = None
         self.bubble: tk.Toplevel | None = None
@@ -72,39 +119,49 @@ class CompanionApp:
         self._schedule_behavior()
         root.protocol("WM_DELETE_WINDOW", self.close)
 
-    def _load_frames(self) -> dict[Behavior, list[tk.PhotoImage]]:
-        loaded: dict[Behavior, list[tk.PhotoImage]] = {}
-        for behavior, names in FRAME_NAMES.items():
-            images = []
-            for name in names:
-                try:
-                    images.append(tk.PhotoImage(file=str(self.image_dir / name)))
-                except tk.TclError:
-                    continue
-            if images:
-                loaded[behavior] = images
+    @staticmethod
+    def _load_gif(path: Path) -> list[tk.PhotoImage]:
+        frames = []
+        index = 0
+        while True:
+            try:
+                frames.append(tk.PhotoImage(file=str(path), format=f"gif -index {index}"))
+            except tk.TclError:
+                return frames
+            index += 1
+
+    def _load_frames(self) -> dict[Behavior, list[list[tk.PhotoImage]]]:
+        loaded = load_animation_library(
+            GIF_CANDIDATES, lambda name: self._load_gif(self.image_dir / name)
+        )
         if not loaded:
-            raise FileNotFoundError(f"No readable PNG sprites found in {self.image_dir}")
-        fallback = next(iter(loaded.values()))
-        for behavior in Behavior:
-            loaded.setdefault(behavior, fallback)
+            raise FileNotFoundError(f"No readable GIF animations found in {self.image_dir}")
         return loaded
 
-    def _behavior_changed(self, _behavior: Behavior) -> None:
+    def _behavior_changed(self, behavior: Behavior) -> None:
+        animations = self.frames[behavior]
+        selected = choose_animation(
+            animations, self.previous_animations.get(behavior), self.animation_rng
+        )
+        self.selected_animation = selected
+        self.previous_animations[behavior] = selected
         self.frame_index = 0
 
     def _animate(self) -> None:
-        frames = self.frames[self.controller.current]
-        image = frames[self.frame_index % len(frames)]
+        animation = (
+            self.drag_animation
+            if self.drag_origin and self.drag_animation
+            else self.selected_animation
+        )
+        image, self.frame_index = sequence_frame(animation, self.frame_index)
         self.character.configure(image=image)
-        self.frame_index += 1
         if self.controller.current == Behavior.WALK and not self.drag_origin:
             x, y = self.root.winfo_x(), self.root.winfo_y()
             screen_limit = self.root.winfo_screenwidth() - self.root.winfo_width()
             if x <= 0 or x >= screen_limit:
                 self.direction *= -1
             self.root.geometry(f"+{max(0, min(screen_limit, x + 4 * self.direction))}+{y}")
-        self.root.after(180, self._animate)
+        self.root.after(ANIMATION_INTERVAL_MS, self._animate)
 
     def _schedule_behavior(self) -> None:
         self.controller.choose_next()
@@ -112,6 +169,7 @@ class CompanionApp:
 
     def _start_drag(self, event: tk.Event) -> None:
         self.drag_origin = (event.x_root - self.root.winfo_x(), event.y_root - self.root.winfo_y())
+        self.frame_index = 0
 
     def _drag(self, event: tk.Event) -> None:
         if self.drag_origin:

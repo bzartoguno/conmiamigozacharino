@@ -1,7 +1,7 @@
 # BuddyBuddy desktop companion
 
 BuddyBuddy is a **non-AI, fully local** desktop companion built with Python and
-Tkinter. It uses the existing PNG art in `../CYN-images`; it does not call a
+Tkinter. It uses the animated GIF art in `../CYN-images`; it does not call a
 model, API, network service, or analytics service.
 
 ## Run it
@@ -25,8 +25,8 @@ python3 -m buddybuddy.app --images ../CYN-images --memory ./my-memory.json
 - **Drag** Cyn with the left mouse button; **double-click** to talk.
 - **Right-click** for Talk, Walk, Sleep, Rename, and Quit.
 - **Ctrl+Shift+B** opens the message window while BuddyBuddy has focus.
-- The transparent, always-on-top character cycles through idle, walking,
-  sleeping, talking, and reacting sprite frames.
+- The transparent, always-on-top character plays idle, walking, sleeping,
+  talking, reacting, and dragging GIF animations.
 - Conversations use a small keyword/response table in `buddybuddy/app.py`.
   Edit `RESPONSES` to give the companion more non-AI dialogue.
 - Name, personality, preferences, and the latest 50 messages are kept in a
