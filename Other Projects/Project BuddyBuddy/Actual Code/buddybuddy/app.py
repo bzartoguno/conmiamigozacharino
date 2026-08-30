@@ -356,6 +356,7 @@ class CompanionApp:
         self.character.bind("<ButtonRelease-1>", self._finish_drag)
         self.character.bind("<Double-Button-1>", lambda _event: self.open_chat())
         self.character.bind("<Button-3>", self._show_menu)
+        self.character.bind("<Control-Button-1>", self._show_menu)
         root.bind_all("<Control-Shift-B>", lambda _event: self.open_chat())
 
         self.menu = tk.Menu(root, tearoff=False)
@@ -496,8 +497,15 @@ class CompanionApp:
             self.controller.interact()
             self.say(random.choice(["Wheee!", "New spot!", "Thanks for the lift."]))
 
-    def _show_menu(self, event: tk.Event) -> None:
+    def _show_menu(self, event: tk.Event) -> str:
+        # Retain the triggering sequence as a lightweight interaction diagnostic.
+        control_click = event.num == 1 and bool(event.state & 0x4)
+        self.last_contextual_click = (
+            "<Control-Button-1>" if control_click else "<Button-3>"
+        )
         self.menu.tk_popup(event.x_root, event.y_root)
+        # In particular, prevent Control-Button-1 from continuing into drag handling.
+        return "break"
 
     def say(self, message: str) -> None:
         previous_bubble = self.bubble
