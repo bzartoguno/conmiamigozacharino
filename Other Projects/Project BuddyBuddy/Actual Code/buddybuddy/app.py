@@ -30,6 +30,7 @@ GIF_CANDIDATES = {
 DRAG_GIF = "DragAround-CYN.gif"
 ANIMATION_INTERVAL_MS = 100
 OVERLAY_COLOR = "#ff00ff"
+MACOS_TRANSPARENT_BACKGROUND = "systemTransparent"
 
 Frame = TypeVar("Frame")
 
@@ -56,20 +57,33 @@ def _configure_overlay_window(
     *,
     platform: str | None = None,
     warn: Callable[[str], object] = warnings.warn,
-) -> bool:
-    """Configure the character window and report color-key availability."""
+) -> str:
+    """Configure the borderless overlay and return its widget background."""
     window.overrideredirect(True)
     window.attributes("-topmost", True)
+    selected_platform = platform or sys.platform
+    if selected_platform == "darwin":
+        try:
+            window.attributes("-transparent", True)
+            window.configure(
+                bg=MACOS_TRANSPARENT_BACKGROUND, bd=0, highlightthickness=0
+            )
+        except tk.TclError as error:
+            warn(
+                "macOS character transparency requires an Aqua Tk build that "
+                f"supports -transparent and systemTransparent: {error}"
+            )
+        return MACOS_TRANSPARENT_BACKGROUND
+
     window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
-    if (platform or sys.platform).startswith("win"):
+    if selected_platform.startswith("win"):
         try:
             window.wm_attributes("-transparentcolor", OVERLAY_COLOR)
-            return True
         except tk.TclError as error:
             warn(f"Character transparency is unavailable: {error}")
-            return False
-    warn("Character transparency is unavailable on this Tk windowing system.")
-    return False
+    else:
+        warn("Character transparency is unavailable on this Tk windowing system.")
+    return OVERLAY_COLOR
 
 
 
@@ -140,13 +154,13 @@ class CompanionApp:
         self.controller = BehaviorController(self._behavior_changed)
 
         root.title(self.memory.name)
-        _configure_overlay_window(root)
+        overlay_background = _configure_overlay_window(root)
         self._overlay_size = animation_dimensions(self.selected_animation)
         root.geometry(f"{self._overlay_size[0]}x{self._overlay_size[1]}+80+80")
 
         self.character = tk.Label(
             root,
-            bg=OVERLAY_COLOR,
+            bg=overlay_background,
             bd=0,
             borderwidth=0,
             highlightthickness=0,
@@ -156,8 +170,7 @@ class CompanionApp:
             height=0,
             relief="flat",
             cursor="hand2",
-        )        
-        self.character = tk.Label(root, bg="#ff00ff", bd=0, cursor="hand2")
+        )
         self.character.pack(fill="both", expand=True)
         self.character.bind("<ButtonPress-1>", self._start_drag)
         self.character.bind("<B1-Motion>", self._drag)
