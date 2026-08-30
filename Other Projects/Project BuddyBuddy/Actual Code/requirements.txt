@@ -1,1 +1,2 @@
-# BuddyBuddy uses only the Python standard library (Python 3.10+ and Tk required).
+# Python 3.10+ and Tk are required.
+Pillow>=9.0
