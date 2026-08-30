@@ -4,6 +4,16 @@ BuddyBuddy is a **non-AI, fully local** desktop companion built with Python and
 Tkinter. It uses the animated GIF art in `../CYN-images`; it does not call a
 model, API, network service, or analytics service.
 
+## Chatbot decision
+
+CYN remains a local, rule-based bot. Its small talk, character roleplay, and
+local fact recall are already served by explicit patterns, and this keeps the
+companion private, offline, predictable, and free of credential management.
+Adding a generative model would introduce latency, network failures, cost, and
+privacy tradeoffs without a requirement for open-ended knowledge or prose.
+The chat windows therefore identify the implementation as rule-based, and
+unrecognized input receives an explicit fallback asking the user to rephrase.
+
 ## Run it
 
 1. Install Python 3.10 or newer with Tk support.

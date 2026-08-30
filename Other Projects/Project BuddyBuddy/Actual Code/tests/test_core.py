@@ -441,6 +441,14 @@ class ChatIntegrationTests(unittest.TestCase):
             self.assertIn("Name stored. Hello, Ada.", bot.respond("My name is Ada."))
             self.assertIn("Ada", bot.respond("What is my name?"))
 
+    def test_unrecognized_input_always_returns_an_explicit_fallback(self):
+        with tempfile.TemporaryDirectory() as folder:
+            bot = CynBot(Path(folder) / "cyn_memory.json", seed=3)
+            message = "qzxwvu plmokn"
+
+            self.assertEqual(bot.detect_intent(message, None, None)[0], "UNKNOWN")
+            self.assertIn(bot.respond(message), CynBot.FALLBACK_RESPONSES)
+
 
 class DragTests(unittest.TestCase):
     class FakeRoot:
