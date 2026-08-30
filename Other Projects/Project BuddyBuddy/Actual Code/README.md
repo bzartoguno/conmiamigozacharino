@@ -100,8 +100,8 @@ verification; the display-independent unit tests are not a substitute.
 
 For the animation-specific check, additionally run `--debug-gif` on the target
 Mac and watch several slow frames. The renderer keeps one Canvas, deletes its
-old image item, flushes the resulting full-bounds clear, and only then creates
-the single replacement item for the next complete RGBA frame. It also prints
+old image item, returns to Tk for a full blank paint pass, and creates the
+single replacement item during the following idle pass. It also prints
 the GIF disposal metadata so stale opaque pixels are easy to spot.
 
 ## Test the non-graphical core
