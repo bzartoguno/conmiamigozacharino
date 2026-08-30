@@ -27,10 +27,12 @@ python3 -m buddybuddy.app --images ../CYN-images --memory ./my-memory.json
 - **Ctrl+Shift+B** opens the message window while BuddyBuddy has focus.
 - The transparent, always-on-top character plays idle, walking, sleeping,
   talking, reacting, and dragging GIF animations.
-- Conversations use a small keyword/response table in `buddybuddy/app.py`.
-  Edit `RESPONSES` to give the companion more non-AI dialogue.
+- Conversations are powered by the full local `CynBot` engine in `cyn_bot.py`,
+  including its intent detection, personality, conversation state, and fact
+  recall. There is no separate simplified chat table in the companion window.
 - Name, personality, preferences, and the latest 50 messages are kept in a
   human-readable JSON file.
+- Facts learned by `CynBot` are stored beside that file as `cyn_memory.json`.
 
 ## Test the non-graphical core
 
