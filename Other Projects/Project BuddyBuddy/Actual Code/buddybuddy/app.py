@@ -286,6 +286,28 @@ def replace_canvas_image(canvas: tk.Canvas, item: int, image: Frame) -> int:
     return canvas.create_image(0, 0, anchor="nw", image=image)
 
 
+def queue_canvas_image_replacement(
+    canvas: tk.Canvas,
+    item: int,
+    image: Frame,
+    completed: Callable[[int], object],
+) -> None:
+    """Clear now and install the replacement on the next Tk idle pass.
+
+    Aqua can coalesce a delete and create performed in the same event callback,
+    even when ``update_idletasks`` is called between them. In that case the
+    transparent pixels in the new image do not clear the old opaque pixels.
+    Returning to Tk's event loop creates a real blank paint pass first.
+    """
+    canvas.delete(item)
+
+    def present() -> None:
+        replacement = canvas.create_image(0, 0, anchor="nw", image=image)
+        completed(replacement)
+
+    canvas.after_idle(present)
+
+
 def load_animation_library(
     candidates: dict[Behavior, list[str]],
     loader: Callable[[str], DirectionalAnimation],
@@ -502,10 +524,10 @@ class CompanionApp:
 
     def _animate(self) -> None:
         walking = self.controller.current == Behavior.WALK and not self.drag_origin
+        next_x = self.root.winfo_x()
         if walking:
-            x = self.root.winfo_x()
             next_x, self.direction = next_horizontal_position(
-                x,
+                next_x,
                 self._overlay_size[0],
                 self.root.winfo_screenwidth(),
                 self.direction,
@@ -521,13 +543,25 @@ class CompanionApp:
         )
         self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
-        # Aqua can retain opaque pixels when an existing Canvas item's image is
-        # merely reconfigured (even via an intermediate empty image). Delete it
-        # so Canvas invalidates the old bounds, flush that clear, and only then
-        # create the one replacement item.
-        self.character_image = replace_canvas_image(
-            self.character, self.character_image, image
+        # A distinct event-loop pass prevents Aqua from coalescing the clear and
+        # replacement paints and retaining old opaque pixels.
+        queue_canvas_image_replacement(
+            self.character,
+            self.character_image,
+            image,
+            lambda item: self._frame_presented(item, image, animation, walking, next_x),
         )
+
+    def _frame_presented(
+        self,
+        item: int,
+        image: Frame,
+        animation: list[Frame],
+        walking: bool,
+        next_x: int,
+    ) -> None:
+        """Finish an animation tick after Tk has painted the cleared canvas."""
+        self.character_image = item
         self.character.image = image
         if self.debug_animation:
             print(
