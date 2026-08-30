@@ -167,6 +167,12 @@ class CynPersonality:
 class CynBot:
     """Pattern-matching conversation engine and state machine."""
 
+    FALLBACK_RESPONSES = (
+        "I do not recognize that yet. Try rephrasing it or give me a little more context.",
+        "That did not match one of my local rules. What would you like me to focus on?",
+        "I only know a limited set of patterns. Please tell me more about that.",
+    )
+
     TOPIC_WORDS = {
         "ABSOLUTE_SOLVER": ("absolute solver", "solver"), "MURDER_DRONES": ("murder drones",),
         "TESSA": ("tessa",), "UZI": ("uzi",), "CYN": ("cyn",),
@@ -343,13 +349,9 @@ class CynBot:
         return self.random.choice(available).format(**values)
 
     def _fallback(self, keyword: str) -> str:
-        options = [
-            f"{keyword.capitalize()} appears important to you.", f"Why is {keyword} important?",
-            f"What do you want from {keyword}?", "Filed under: interesting.",
-            "That has been noted.", "What would that accomplish?",
-            "What outcome are you expecting?", "Brief stillness. Continue.",
-            "I am listening.", "Processing. Please continue.",
-        ]
+        # UNKNOWN input must always produce an explicit, user-visible response;
+        # never imply that an open-ended model is generating an answer.
+        options = list(self.FALLBACK_RESPONSES)
         available = [x for x in options if x not in self.state["last_responses"]] or options
         return self.random.choice(available)
 
@@ -424,9 +426,16 @@ class CynGUI:
         self.tk, self.filedialog, self.messagebox = tk, filedialog, messagebox
         self.bot = bot
         self.root = tk.Tk()
-        self.root.title("CYN")
+        self.root.title("CYN — Local rule-based bot")
         self.root.geometry("760x560")
         self.root.minsize(520, 360)
+        tk.Label(
+            self.root,
+            text="CYN · LOCAL RULE-BASED BOT · NO GENERATIVE MODEL",
+            anchor="w",
+            padx=12,
+            pady=8,
+        ).pack(fill=tk.X)
         self.history = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, state=tk.DISABLED, padx=12, pady=12, font=("TkDefaultFont", 11))
         self.history.pack(fill=tk.BOTH, expand=True, padx=10, pady=(10, 5))
         row = tk.Frame(self.root)

@@ -540,9 +540,14 @@ class CompanionApp:
             self.chat.lift()
             return
         chat = self.chat = tk.Toplevel(self.root)
-        chat.title(f"Talk to {self.memory.name}")
+        chat.title(f"Talk to {self.memory.name} — Local rule-based bot")
         chat.geometry("520x420")
-        tk.Label(chat, text="Say something to cyn_bot (all replies stay local):").pack(
+        tk.Label(
+            chat,
+            text="LOCAL RULE-BASED BOT · NO GENERATIVE MODEL\n"
+            "Replies use built-in patterns and stay on this device.",
+            justify="left",
+        ).pack(
             padx=12, pady=(12, 4), anchor="w"
         )
         history = scrolledtext.ScrolledText(
