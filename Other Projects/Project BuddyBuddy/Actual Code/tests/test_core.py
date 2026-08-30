@@ -6,6 +6,7 @@ import unittest
 from buddybuddy.behavior import Behavior, BehaviorController
 from buddybuddy.app import (
     GIF_CANDIDATES,
+    MACOS_TRANSPARENT_BACKGROUND,
     OVERLAY_COLOR,
     _configure_overlay_window,
     animation_dimensions,
@@ -134,6 +135,8 @@ class OverlayConfigurationTests(unittest.TestCase):
 
         def attributes(self, *values):
             self.calls.append(("attributes",) + values)
+            if values and values[0] == "-transparent" and self.transparency_error:
+                raise self.transparency_error
 
         def configure(self, **values):
             self.calls.append(("configure", values))
@@ -145,12 +148,58 @@ class OverlayConfigurationTests(unittest.TestCase):
 
     def test_windows_uses_color_key(self):
         window = self.FakeWindow()
-        self.assertTrue(_configure_overlay_window(window, platform="win32"))
+        self.assertEqual(
+            _configure_overlay_window(window, platform="win32"), OVERLAY_COLOR
+        )
         self.assertIn(("wm_attributes", "-transparentcolor", OVERLAY_COLOR), window.calls)
+
+    def test_darwin_uses_aqua_transparency_without_a_fake_title_bar(self):
+        window = self.FakeWindow()
+        self.assertEqual(
+            _configure_overlay_window(window, platform="darwin"),
+            MACOS_TRANSPARENT_BACKGROUND,
+        )
+        self.assertEqual(window.calls[0], ("overrideredirect", True))
+        self.assertIn(("attributes", "-topmost", True), window.calls)
+        self.assertIn(("attributes", "-transparent", True), window.calls)
+        self.assertIn(
+            (
+                "configure",
+                {
+                    "bg": MACOS_TRANSPARENT_BACKGROUND,
+                    "bd": 0,
+                    "highlightthickness": 0,
+                },
+            ),
+            window.calls,
+        )
+        self.assertFalse(
+            any("-transparentcolor" in call for call in window.calls), window.calls
+        )
+        self.assertFalse(any(call[0] == "title" for call in window.calls))
+
+    def test_darwin_tcl_failure_warns(self):
+        import tkinter as tk
+
+        window = self.FakeWindow(tk.TclError("Aqua transparency unavailable"))
+        messages = []
+        self.assertEqual(
+            _configure_overlay_window(window, platform="darwin", warn=messages.append),
+            MACOS_TRANSPARENT_BACKGROUND,
+        )
+        self.assertEqual(len(messages), 1)
+        self.assertIn("Aqua Tk", messages[0])
+        self.assertIn("Aqua transparency unavailable", messages[0])
+        self.assertFalse(
+            any("-transparentcolor" in call for call in window.calls), window.calls
+        )
 
     def test_unsupported_platform_warns_without_configuring_color_key(self):
         window, messages = self.FakeWindow(), []
-        self.assertFalse(_configure_overlay_window(window, platform="linux", warn=messages.append))
+        self.assertEqual(
+            _configure_overlay_window(window, platform="linux", warn=messages.append),
+            OVERLAY_COLOR,
+        )
         self.assertEqual(len(messages), 1)
         self.assertFalse(any(call[0] == "wm_attributes" for call in window.calls))
 
@@ -158,7 +207,10 @@ class OverlayConfigurationTests(unittest.TestCase):
         import tkinter as tk
 
         window, messages = self.FakeWindow(tk.TclError("not supported")), []
-        self.assertFalse(_configure_overlay_window(window, platform="win32", warn=messages.append))
+        self.assertEqual(
+            _configure_overlay_window(window, platform="win32", warn=messages.append),
+            OVERLAY_COLOR,
+        )
         self.assertIn("not supported", messages[0])
 
 
