@@ -168,7 +168,7 @@ class CompanionApp:
             pady=0,
             width=0,
             height=0,
-            relief="flat",
+            relief=tk.FLAT,
             cursor="hand2",
         )
         self.character.pack(fill="both", expand=True)
