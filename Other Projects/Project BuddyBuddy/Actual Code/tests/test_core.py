@@ -8,6 +8,7 @@ from PIL import Image
 
 from buddybuddy.behavior import Behavior, BehaviorController
 from buddybuddy.app import (
+    ChatHistoryController,
     DirectionalAnimation,
     CompanionApp,
     GIF_CANDIDATES,
@@ -20,6 +21,7 @@ from buddybuddy.app import (
     choose_animation,
     generate_chat_response,
     frames_for_direction,
+    format_chat_entry,
     load_animation_library,
     mirror_rgba_frames,
     next_horizontal_position,
@@ -404,6 +406,34 @@ class ChatIntegrationTests(unittest.TestCase):
         bot = self.FakeCynBot()
         self.assertEqual(generate_chat_response(bot, "Hello Cyn"), "cyn_bot response")
         self.assertEqual(bot.messages, ["Hello Cyn"])
+
+    def test_sending_one_message_appends_user_and_cyn_entries_in_order(self):
+        transcript = []
+        events = []
+
+        def respond(message):
+            events.append(("respond", message, list(transcript)))
+            return "Hello back"
+
+        exchange = ChatHistoryController(transcript.append, respond).send("Hello")
+
+        self.assertEqual(exchange.response, "Hello back")
+        self.assertEqual(
+            transcript,
+            [format_chat_entry("You", "Hello"), format_chat_entry("CYN", "Hello back")],
+        )
+        self.assertEqual(events, [("respond", "Hello", ["You: Hello\n\n"])])
+
+    def test_chat_error_is_appended_as_a_cyn_entry(self):
+        transcript = []
+
+        def fail(_message):
+            raise RuntimeError("model unavailable")
+
+        exchange = ChatHistoryController(transcript.append, fail).send("Hello")
+
+        self.assertEqual(exchange.error, "I couldn't respond: model unavailable")
+        self.assertEqual(transcript[-1], "CYN: I couldn't respond: model unavailable\n\n")
 
     def test_cyn_bot_drives_buddybuddy_replies_and_memory(self):
         with tempfile.TemporaryDirectory() as folder:
