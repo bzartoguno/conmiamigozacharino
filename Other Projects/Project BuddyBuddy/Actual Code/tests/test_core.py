@@ -147,9 +147,15 @@ class AnimationTests(unittest.TestCase):
 
 class OverlayConfigurationTests(unittest.TestCase):
     class FakeWindow:
-        def __init__(self, transparency_error=None):
+        class Tcl:
+            def call(self, *values):
+                return "aqua" if values == ("tk", "windowingsystem") else "8.6.15"
+
+        def __init__(self, transparency_error=None, background_error=None):
             self.calls = []
             self.transparency_error = transparency_error
+            self.background_error = background_error
+            self.tk = self.Tcl()
 
         def overrideredirect(self, value):
             self.calls.append(("overrideredirect", value))
@@ -161,25 +167,38 @@ class OverlayConfigurationTests(unittest.TestCase):
 
         def configure(self, **values):
             self.calls.append(("configure", values))
+            if (
+                values.get("bg") == MACOS_TRANSPARENT_BACKGROUND
+                and self.background_error
+            ):
+                raise self.background_error
 
         def wm_attributes(self, *values):
             self.calls.append(("wm_attributes",) + values)
             if self.transparency_error:
                 raise self.transparency_error
 
+    class FakeCharacter:
+        def __init__(self, window, **values):
+            window.calls.append(("character", values))
+
+        def destroy(self):
+            pass
+
     def test_windows_uses_color_key(self):
         window = self.FakeWindow()
-        self.assertEqual(
-            _configure_overlay_window(window, platform="win32"), OVERLAY_COLOR
-        )
+        result = _configure_overlay_window(window, platform="win32")
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertTrue(result.transparent)
         self.assertIn(("wm_attributes", "-transparentcolor", OVERLAY_COLOR), window.calls)
 
     def test_darwin_uses_aqua_transparency_without_a_fake_title_bar(self):
         window = self.FakeWindow()
-        self.assertEqual(
-            _configure_overlay_window(window, platform="darwin"),
-            MACOS_TRANSPARENT_BACKGROUND,
+        result = _configure_overlay_window(
+            window, platform="darwin", character_factory=self.FakeCharacter
         )
+        self.assertEqual(result.background, MACOS_TRANSPARENT_BACKGROUND)
+        self.assertTrue(result.transparent)
         self.assertEqual(window.calls[0], ("overrideredirect", True))
         self.assertIn(("attributes", "-topmost", True), window.calls)
         self.assertIn(("attributes", "-transparent", True), window.calls)
@@ -204,10 +223,15 @@ class OverlayConfigurationTests(unittest.TestCase):
 
         window = self.FakeWindow(tk.TclError("Aqua transparency unavailable"))
         messages = []
-        self.assertEqual(
-            _configure_overlay_window(window, platform="darwin", warn=messages.append),
-            MACOS_TRANSPARENT_BACKGROUND,
+        result = _configure_overlay_window(
+            window,
+            platform="darwin",
+            warn=messages.append,
+            character_factory=self.FakeCharacter,
         )
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertFalse(result.transparent)
+        self.assertIn("window.attributes('-transparent', True)", result.error)
         self.assertEqual(len(messages), 1)
         self.assertIn("Aqua Tk", messages[0])
         self.assertIn("Aqua transparency unavailable", messages[0])
@@ -217,10 +241,11 @@ class OverlayConfigurationTests(unittest.TestCase):
 
     def test_unsupported_platform_warns_without_configuring_color_key(self):
         window, messages = self.FakeWindow(), []
-        self.assertEqual(
-            _configure_overlay_window(window, platform="linux", warn=messages.append),
-            OVERLAY_COLOR,
+        result = _configure_overlay_window(
+            window, platform="linux", warn=messages.append
         )
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertFalse(result.transparent)
         self.assertEqual(len(messages), 1)
         self.assertFalse(any(call[0] == "wm_attributes" for call in window.calls))
 
@@ -228,11 +253,48 @@ class OverlayConfigurationTests(unittest.TestCase):
         import tkinter as tk
 
         window, messages = self.FakeWindow(tk.TclError("not supported")), []
-        self.assertEqual(
-            _configure_overlay_window(window, platform="win32", warn=messages.append),
-            OVERLAY_COLOR,
+        result = _configure_overlay_window(
+            window, platform="win32", warn=messages.append
         )
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertFalse(result.transparent)
+        self.assertEqual(result.error, "not supported")
         self.assertIn("not supported", messages[0])
+
+    def test_darwin_root_background_failure_never_returns_system_transparent(self):
+        import tkinter as tk
+
+        window = self.FakeWindow(background_error=tk.TclError("unknown color name"))
+        messages = []
+        result = _configure_overlay_window(
+            window,
+            platform="darwin",
+            warn=messages.append,
+            character_factory=self.FakeCharacter,
+        )
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertFalse(result.transparent)
+        self.assertIn("window.configure", result.error)
+        self.assertNotIn(("attributes", "-transparent", True), window.calls)
+
+    def test_darwin_character_background_is_probed_before_transparency(self):
+        import tkinter as tk
+
+        def rejecting_character(window, **values):
+            window.calls.append(("character", values))
+            raise tk.TclError("label rejects systemTransparent")
+
+        window, messages = self.FakeWindow(), []
+        result = _configure_overlay_window(
+            window,
+            platform="darwin",
+            warn=messages.append,
+            character_factory=rejecting_character,
+        )
+        self.assertEqual(result.background, OVERLAY_COLOR)
+        self.assertFalse(result.transparent)
+        self.assertIn("tk.Label", result.error)
+        self.assertNotIn(("attributes", "-transparent", True), window.calls)
 
 
 class MemoryTests(unittest.TestCase):

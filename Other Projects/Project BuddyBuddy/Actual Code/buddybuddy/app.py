@@ -45,6 +45,15 @@ class DirectionalAnimation:
     mirrored: list[Frame]
 
 
+@dataclass(frozen=True)
+class OverlayConfiguration:
+    """The usable overlay background and its transparency state."""
+
+    background: str
+    transparent: bool
+    error: str | None = None
+
+
 def frames_for_direction(
     animation: DirectionalAnimation,
     facing: int,
@@ -80,34 +89,60 @@ def _configure_overlay_window(
     *,
     platform: str | None = None,
     warn: Callable[[str], object] = warnings.warn,
-) -> str:
-    """Configure the borderless overlay and return its widget background."""
+    character_factory: Callable[..., tk.Widget] = tk.Label,
+) -> OverlayConfiguration:
+    """Configure the borderless overlay and report what is actually usable."""
     window.overrideredirect(True)
     window.attributes("-topmost", True)
     selected_platform = platform or sys.platform
     if selected_platform == "darwin":
+        probe: tk.Widget | None = None
+        operation = (
+            "window.configure(bg='systemTransparent', bd=0, "
+            "highlightthickness=0)"
+        )
         try:
-            window.attributes("-transparent", True)
             window.configure(
                 bg=MACOS_TRANSPARENT_BACKGROUND, bd=0, highlightthickness=0
             )
+            operation = "tk.Label(window, bg='systemTransparent')"
+            probe = character_factory(window, bg=MACOS_TRANSPARENT_BACKGROUND)
+            operation = "window.attributes('-transparent', True)"
+            window.attributes("-transparent", True)
         except tk.TclError as error:
-            warn(
-                "macOS character transparency requires an Aqua Tk build that "
-                f"supports -transparent and systemTransparent: {error}"
+            failure = f"{operation}: {error}"
+            warning = (
+                "macOS character transparency requires an Aqua Tk build; "
+                f"failed operation {failure}"
             )
-        return MACOS_TRANSPARENT_BACKGROUND
+            warn(warning)
+            print(
+                "BuddyBuddy transparency diagnostic: "
+                f"tk windowingsystem={window.tk.call('tk', 'windowingsystem')}; "
+                f"Tk patch level={window.tk.call('info', 'patchlevel')}; "
+                f"Python executable={sys.executable}; transparency error={failure}",
+                file=sys.stderr,
+            )
+            window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
+            return OverlayConfiguration(OVERLAY_COLOR, False, failure)
+        finally:
+            if probe is not None:
+                probe.destroy()
+        return OverlayConfiguration(MACOS_TRANSPARENT_BACKGROUND, True)
 
     window.configure(bg=OVERLAY_COLOR, bd=0, highlightthickness=0)
+    transparency_error = None
+    transparent = False
     if selected_platform.startswith("win"):
         try:
             window.wm_attributes("-transparentcolor", OVERLAY_COLOR)
+            transparent = True
         except tk.TclError as error:
+            transparency_error = str(error)
             warn(f"Character transparency is unavailable: {error}")
     else:
         warn("Character transparency is unavailable on this Tk windowing system.")
-    return OVERLAY_COLOR
-
+    return OverlayConfiguration(OVERLAY_COLOR, transparent, transparency_error)
 
 
 def choose_animation(
@@ -185,7 +220,10 @@ class CompanionApp:
         self.controller = BehaviorController(self._behavior_changed)
 
         root.title(self.memory.name)
-        overlay_background = _configure_overlay_window(root)
+        overlay = _configure_overlay_window(root)
+        overlay_background = (
+            overlay.background if overlay.transparent else OVERLAY_COLOR
+        )
         self._overlay_size = animation_dimensions(self.selected_animation.original)
         root.geometry(f"{self._overlay_size[0]}x{self._overlay_size[1]}+80+80")
 
