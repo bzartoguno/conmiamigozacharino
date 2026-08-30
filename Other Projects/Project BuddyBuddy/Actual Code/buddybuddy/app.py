@@ -446,8 +446,8 @@ class CompanionApp:
                 self._overlay_size,
                 (self.root.winfo_screenwidth(), self.root.winfo_screenheight()),
             )
-            if requested_x != previous_x:
-                self.facing = 1 if requested_x > previous_x else -1
+            if x != previous_x:
+                self.facing = 1 if x > previous_x else -1
             self.root.geometry(f"+{x}+{y}")
 
     def _finish_drag(self, _event: tk.Event) -> None:

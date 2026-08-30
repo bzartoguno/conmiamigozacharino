@@ -412,6 +412,64 @@ class ChatIntegrationTests(unittest.TestCase):
             self.assertIn("Ada", bot.respond("What is my name?"))
 
 
+class DragTests(unittest.TestCase):
+    class FakeRoot:
+        def __init__(self, x=40, y=30):
+            self.x = x
+            self.y = y
+
+        def winfo_x(self):
+            return self.x
+
+        def winfo_screenwidth(self):
+            return 100
+
+        def winfo_screenheight(self):
+            return 80
+
+        def geometry(self, value):
+            x, y = value.removeprefix("+").split("+")
+            self.x, self.y = int(x), int(y)
+
+    class FakeEvent:
+        def __init__(self, x_root, y_root=30):
+            self.x_root = x_root
+            self.y_root = y_root
+
+    def make_app(self, x=40, facing=1):
+        app = CompanionApp.__new__(CompanionApp)
+        app.root = self.FakeRoot(x=x)
+        app.drag_origin = (0, 0)
+        app._overlay_size = (20, 20)
+        app.facing = facing
+        return app
+
+    def test_dragging_left_faces_left(self):
+        app = self.make_app(facing=1)
+
+        app._drag(self.FakeEvent(20))
+
+        self.assertEqual(app.root.x, 20)
+        self.assertEqual(app.facing, -1)
+
+    def test_dragging_right_faces_right(self):
+        app = self.make_app(facing=-1)
+
+        app._drag(self.FakeEvent(60))
+
+        self.assertEqual(app.root.x, 60)
+        self.assertEqual(app.facing, 1)
+
+    def test_continuing_beyond_either_screen_edge_keeps_facing(self):
+        app = self.make_app(x=0, facing=1)
+        app._drag(self.FakeEvent(-20))
+        self.assertEqual((app.root.x, app.facing), (0, 1))
+
+        app = self.make_app(x=80, facing=-1)
+        app._drag(self.FakeEvent(120))
+        self.assertEqual((app.root.x, app.facing), (80, -1))
+
+
 class SpeechBubbleTests(unittest.TestCase):
     class FakeRoot:
         def winfo_x(self):
