@@ -22,6 +22,7 @@ from buddybuddy.app import (
     frames_for_direction,
     load_animation_library,
     mirror_rgba_frames,
+    next_horizontal_position,
     sequence_frame,
 )
 from buddybuddy.memory import CompanionMemory, MemoryStore
@@ -150,6 +151,18 @@ class AnimationTests(unittest.TestCase):
             clamp_overlay_position(950, 760, (128, 96), (1024, 768)), (896, 672)
         )
         self.assertEqual(clamp_overlay_position(-20, -4, (128, 96), (1024, 768)), (0, 0))
+
+    def test_movement_left(self):
+        self.assertEqual(next_horizontal_position(40, 20, 100, -1), (36, -1))
+
+    def test_movement_right(self):
+        self.assertEqual(next_horizontal_position(40, 20, 100, 1), (44, 1))
+
+    def test_movement_reverses_at_left_edge(self):
+        self.assertEqual(next_horizontal_position(0, 20, 100, -1), (4, 1))
+
+    def test_movement_reverses_at_right_edge(self):
+        self.assertEqual(next_horizontal_position(80, 20, 100, 1), (76, -1))
 
     def test_every_gif_frame_has_the_dedicated_transparency_color(self):
         image_dir = Path(__file__).resolve().parents[2] / "CYN-images"
