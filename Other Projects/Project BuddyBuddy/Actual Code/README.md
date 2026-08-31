@@ -63,10 +63,11 @@ and speech bubble remain ordinary opaque windows. Support depends on the Tk
 windowing-system features included with Python; installing Python 3.10 or newer
 does not by itself guarantee that the required transparency attributes exist.
 
-- **macOS (Aqua):** BuddyBuddy requests Aqua's `-transparent` window attribute
-  and uses `systemTransparent` for the window and character-widget background.
-  This requires an Aqua Tk build that implements both features. It does not use
-  the Windows color-key option on macOS.
+- **macOS (Aqua):** BuddyBuddy deliberately uses an ordinary opaque canvas.
+  Aqua transparent top-levels can retain backing-store pixels when an animated
+  image changes from opaque to transparent, causing previous frames to remain
+  visible regardless of Canvas deletion. The visible `#ff00ff` background is
+  retained so each tick reliably erases the complete previous frame.
 - **Windows:** BuddyBuddy retains the `-transparentcolor` color-key path on Tk
   builds that provide it. The character window and character widget use the
   matching `#ff00ff` key color, which shows through the GIF's transparent areas.
@@ -74,12 +75,11 @@ does not by itself guarantee that the required transparency attributes exist.
   is configured. X11, Wayland, and similar environments therefore use the
   visible `#ff00ff` character-window background.
 
-If the Aqua attributes or the Windows color-key attribute are rejected by the
-installed Tk version, BuddyBuddy emits a runtime warning on standard error and
-continues running. The character remains usable, but its window background may
-be visible instead of transparent. On unsupported platforms it likewise warns
-and uses the visible magenta fallback. Test the overlay with the exact Python/Tk
-build intended for distribution.
+On Aqua, BuddyBuddy emits a runtime warning explaining that transparency is
+disabled to guarantee correct animation. If the Windows color-key attribute is
+rejected, BuddyBuddy warns and continues with the same visible magenta canvas.
+Unsupported platforms also warn and use this reliable opaque fallback. Test the
+overlay with the exact Python/Tk build intended for distribution.
 
 ### Required manual macOS verification
 
@@ -92,16 +92,16 @@ python3 -m buddybuddy.app --diagnose
 ```
 
 The diagnostic opens a real, temporary CYN overlay, loads a real GIF frame, and
-prints the Tk windowing system, Tk patch level, the result of each transparency
-operation, and whether initialization completed. Confirm that it reports Aqua,
-completes initialization, and that the character's transparent area is visually
-clear during the two-second test. This real-window check is the required macOS
-verification; the display-independent unit tests are not a substitute.
+prints the Tk windowing system, Tk patch level, configuration operations, and
+whether initialization completed. Confirm that it reports Aqua, completes
+initialization, and shows no pixels from an earlier frame. This real-window
+check is the required macOS verification; display-independent tests are not a
+substitute.
 
 For the animation-specific check, additionally run `--debug-gif` on the target
-Mac and watch several slow frames. The renderer keeps one Canvas, deletes its
-old image item, flushes the resulting full-bounds clear, and only then creates
-the single replacement item for the next complete RGBA frame. It also prints
+Mac and watch several slow frames. The renderer keeps one Canvas, deletes every
+old canvas item, forces a complete Tk update to present the blank surface, and
+only then creates the single replacement image. It also prints
 the GIF disposal metadata so stale opaque pixels are easy to spot.
 
 ## Test the non-graphical core

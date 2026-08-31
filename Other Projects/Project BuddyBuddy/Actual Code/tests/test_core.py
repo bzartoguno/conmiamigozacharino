@@ -25,6 +25,7 @@ from buddybuddy.app import (
     load_animation_library,
     mirror_rgba_frames,
     next_horizontal_position,
+    force_canvas_image_replacement,
     replace_canvas_image,
     sequence_frame,
 )
@@ -99,6 +100,35 @@ class AnimationTests(unittest.TestCase):
                 ("create", 0, 0, "nw", "next-frame"),
             ],
         )
+
+    def test_forced_replacement_clears_every_item_before_new_frame(self):
+        class Canvas:
+            def __init__(self):
+                self.events = []
+
+            def delete(self, item):
+                self.events.append(("delete", item))
+
+            def update(self):
+                self.events.append(("update",))
+
+            def create_image(self, x, y, **values):
+                self.events.append(("create", x, y, values["image"]))
+                return 31
+
+        canvas = Canvas()
+        completed = []
+        force_canvas_image_replacement(canvas, 17, "next-frame", completed.append)
+
+        self.assertEqual(
+            canvas.events,
+            [
+                ("delete", "all"),
+                ("update",),
+                ("create", 0, 0, "next-frame"),
+            ],
+        )
+        self.assertEqual(completed, [31])
 
     def test_unreadable_action_safely_uses_idle_fallback(self):
         candidates = {Behavior.IDLE: ["idle.gif"], Behavior.TALK: ["missing.gif"]}
@@ -320,37 +350,8 @@ class OverlayConfigurationTests(unittest.TestCase):
         self.assertTrue(result.transparent)
         self.assertIn(("wm_attributes", "-transparentcolor", OVERLAY_COLOR), window.calls)
 
-    def test_darwin_uses_aqua_transparency_without_a_fake_title_bar(self):
-        window = self.FakeWindow()
-        result = _configure_overlay_window(
-            window, backend="aqua", character_factory=self.FakeCharacter
-        )
-        self.assertEqual(result.background, MACOS_TRANSPARENT_BACKGROUND)
-        self.assertTrue(result.transparent)
-        self.assertEqual(window.calls[0], ("overrideredirect", True))
-        self.assertIn(("attributes", "-topmost", True), window.calls)
-        self.assertIn(("attributes", "-transparent", True), window.calls)
-        self.assertIn(
-            (
-                "configure",
-                {
-                    "bg": MACOS_TRANSPARENT_BACKGROUND,
-                    "bd": 0,
-                    "highlightthickness": 0,
-                },
-            ),
-            window.calls,
-        )
-        self.assertFalse(
-            any("-transparentcolor" in call for call in window.calls), window.calls
-        )
-        self.assertFalse(any(call[0] == "title" for call in window.calls))
-
-    def test_darwin_tcl_failure_warns(self):
-        import tkinter as tk
-
-        window = self.FakeWindow(tk.TclError("Aqua transparency unavailable"))
-        messages = []
+    def test_darwin_uses_opaque_canvas_to_prevent_frame_trails(self):
+        window, messages = self.FakeWindow(), []
         result = _configure_overlay_window(
             window,
             backend="aqua",
@@ -359,13 +360,28 @@ class OverlayConfigurationTests(unittest.TestCase):
         )
         self.assertEqual(result.background, OVERLAY_COLOR)
         self.assertFalse(result.transparent)
-        self.assertIn("window.attributes('-transparent', True)", result.error)
+        self.assertIn("stale frame pixels", result.error)
+        self.assertEqual(window.calls[0], ("overrideredirect", True))
+        self.assertIn(("attributes", "-topmost", True), window.calls)
+        self.assertIn(
+            (
+                "configure",
+                {
+                    "bg": OVERLAY_COLOR,
+                    "bd": 0,
+                    "highlightthickness": 0,
+                },
+            ),
+            window.calls,
+        )
         self.assertEqual(len(messages), 1)
-        self.assertIn("Aqua Tk", messages[0])
-        self.assertIn("Aqua transparency unavailable", messages[0])
+        self.assertIn("disabled", messages[0])
+        self.assertFalse(any(call[0] == "character" for call in window.calls))
+        self.assertFalse(any("-transparent" in call for call in window.calls))
         self.assertFalse(
             any("-transparentcolor" in call for call in window.calls), window.calls
         )
+        self.assertFalse(any(call[0] == "title" for call in window.calls))
 
     def test_unsupported_platform_warns_without_configuring_color_key(self):
         window, messages = self.FakeWindow(backend="x11"), []
@@ -391,40 +407,6 @@ class OverlayConfigurationTests(unittest.TestCase):
         self.assertEqual(result.error, "not supported")
         self.assertIn("not supported", messages[0])
 
-    def test_darwin_root_background_failure_never_returns_system_transparent(self):
-        import tkinter as tk
-
-        window = self.FakeWindow(background_error=tk.TclError("unknown color name"))
-        messages = []
-        result = _configure_overlay_window(
-            window,
-            backend="aqua",
-            warn=messages.append,
-            character_factory=self.FakeCharacter,
-        )
-        self.assertEqual(result.background, OVERLAY_COLOR)
-        self.assertFalse(result.transparent)
-        self.assertIn("window.configure", result.error)
-        self.assertNotIn(("attributes", "-transparent", True), window.calls)
-
-    def test_darwin_character_background_is_probed_before_transparency(self):
-        import tkinter as tk
-
-        def rejecting_character(window, **values):
-            window.calls.append(("character", values))
-            raise tk.TclError("label rejects systemTransparent")
-
-        window, messages = self.FakeWindow(), []
-        result = _configure_overlay_window(
-            window,
-            backend="aqua",
-            warn=messages.append,
-            character_factory=rejecting_character,
-        )
-        self.assertEqual(result.background, OVERLAY_COLOR)
-        self.assertFalse(result.transparent)
-        self.assertIn("tk.Canvas", result.error)
-        self.assertNotIn(("attributes", "-transparent", True), window.calls)
 
 
 class MemoryTests(unittest.TestCase):
