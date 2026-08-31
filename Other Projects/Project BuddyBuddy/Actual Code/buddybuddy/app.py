@@ -286,6 +286,27 @@ def replace_canvas_image(canvas: tk.Canvas, item: int, image: Frame) -> int:
     return canvas.create_image(0, 0, anchor="nw", image=image)
 
 
+def force_canvas_image_replacement(
+    canvas: tk.Canvas,
+    item: int,
+    image: Frame,
+    completed: Callable[[int], object],
+) -> None:
+    """Force a complete blank paint before installing the next frame.
+
+    ``update_idletasks`` and ``after_idle`` are not sufficient on Aqua: Tk may
+    still coalesce the canvas damage and the next draw into one window-server
+    update.  Delete *all* canvas items (not only the remembered image ID), then
+    run a complete Tk update so the transparent canvas is actually presented
+    before creating the replacement.  Only one image item can survive a tick.
+    """
+    del item  # The full-canvas clear intentionally supersedes this legacy ID.
+    canvas.delete("all")
+    canvas.update()
+    replacement = canvas.create_image(0, 0, anchor="nw", image=image)
+    completed(replacement)
+
+
 def load_animation_library(
     candidates: dict[Behavior, list[str]],
     loader: Callable[[str], DirectionalAnimation],
@@ -502,10 +523,10 @@ class CompanionApp:
 
     def _animate(self) -> None:
         walking = self.controller.current == Behavior.WALK and not self.drag_origin
+        next_x = self.root.winfo_x()
         if walking:
-            x = self.root.winfo_x()
             next_x, self.direction = next_horizontal_position(
-                x,
+                next_x,
                 self._overlay_size[0],
                 self.root.winfo_screenwidth(),
                 self.direction,
@@ -521,13 +542,25 @@ class CompanionApp:
         )
         self._size_overlay(animation)
         image, self.frame_index = sequence_frame(animation, self.frame_index)
-        # Aqua can retain opaque pixels when an existing Canvas item's image is
-        # merely reconfigured (even via an intermediate empty image). Delete it
-        # so Canvas invalidates the old bounds, flush that clear, and only then
-        # create the one replacement item.
-        self.character_image = replace_canvas_image(
-            self.character, self.character_image, image
+        # Force the cleared canvas all the way through Tk before drawing again;
+        # an idle callback alone can still be coalesced by Aqua.
+        force_canvas_image_replacement(
+            self.character,
+            self.character_image,
+            image,
+            lambda item: self._frame_presented(item, image, animation, walking, next_x),
         )
+
+    def _frame_presented(
+        self,
+        item: int,
+        image: Frame,
+        animation: list[Frame],
+        walking: bool,
+        next_x: int,
+    ) -> None:
+        """Finish an animation tick after Tk has painted the cleared canvas."""
+        self.character_image = item
         self.character.image = image
         if self.debug_animation:
             print(

@@ -99,9 +99,9 @@ clear during the two-second test. This real-window check is the required macOS
 verification; the display-independent unit tests are not a substitute.
 
 For the animation-specific check, additionally run `--debug-gif` on the target
-Mac and watch several slow frames. The renderer keeps one Canvas, deletes its
-old image item, flushes the resulting full-bounds clear, and only then creates
-the single replacement item for the next complete RGBA frame. It also prints
+Mac and watch several slow frames. The renderer keeps one Canvas, deletes every
+old canvas item, forces a complete Tk update to present the blank surface, and
+only then creates the single replacement image. It also prints
 the GIF disposal metadata so stale opaque pixels are easy to spot.
 
 ## Test the non-graphical core
