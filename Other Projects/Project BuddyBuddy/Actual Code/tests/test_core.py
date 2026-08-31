@@ -25,7 +25,7 @@ from buddybuddy.app import (
     load_animation_library,
     mirror_rgba_frames,
     next_horizontal_position,
-    queue_canvas_image_replacement,
+    force_canvas_image_replacement,
     replace_canvas_image,
     sequence_frame,
 )
@@ -101,18 +101,16 @@ class AnimationTests(unittest.TestCase):
             ],
         )
 
-    def test_queued_replacement_gives_tk_a_blank_event_loop_pass(self):
+    def test_forced_replacement_clears_every_item_before_new_frame(self):
         class Canvas:
             def __init__(self):
                 self.events = []
-                self.idle_callback = None
 
             def delete(self, item):
                 self.events.append(("delete", item))
 
-            def after_idle(self, callback):
-                self.events.append(("idle",))
-                self.idle_callback = callback
+            def update(self):
+                self.events.append(("update",))
 
             def create_image(self, x, y, **values):
                 self.events.append(("create", x, y, values["image"]))
@@ -120,12 +118,16 @@ class AnimationTests(unittest.TestCase):
 
         canvas = Canvas()
         completed = []
-        queue_canvas_image_replacement(canvas, 17, "next-frame", completed.append)
+        force_canvas_image_replacement(canvas, 17, "next-frame", completed.append)
 
-        self.assertEqual(canvas.events, [("delete", 17), ("idle",)])
-        self.assertEqual(completed, [])
-        canvas.idle_callback()
-        self.assertEqual(canvas.events[-1], ("create", 0, 0, "next-frame"))
+        self.assertEqual(
+            canvas.events,
+            [
+                ("delete", "all"),
+                ("update",),
+                ("create", 0, 0, "next-frame"),
+            ],
+        )
         self.assertEqual(completed, [31])
 
     def test_unreadable_action_safely_uses_idle_fallback(self):
