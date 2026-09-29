@@ -1,0 +1,23 @@
+body{
+    margin: 20px 20px 20px 20px;
+    float:none;
+ }
+ #title_image{
+    float: left;
+    margin: 0px 20px 0px 0px;
+ }
+ h1#title{
+    padding: 5px 0px 0px 25px;
+ }
+ #data_entry {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    width:600px;
+    padding: 10px 10px 10px 10px;
+ }
+ .errors{
+    color:red;
+ }
+ #header {  border-bottom: 2px solid black;  padding: .5em 0; }
+ 

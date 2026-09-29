@@ -1,0 +1,20 @@
+#waiver{
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    width:600px;
+    padding: 10px 10px 10px 10px;
+}
+#head_waiver{
+    float: left;
+}
+#result{
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    width:600px;
+    padding: 10px 10px 10px 10px;
+}
+.errors{
+    color:red;
+}
