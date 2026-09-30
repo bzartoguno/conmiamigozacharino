@@ -1,0 +1,18 @@
+body{
+    margin: 20px 20px 20px 20px;
+ }
+ /*  A # selector styles the HTML element whose id= matches this name. */
+ #page_content {
+    border-style: solid;
+    border-color: black;
+    /*  Rounds the corners of the element's border. */
+    border-radius: 10px;
+    width:500px;
+    /*  Padding adds space inside the border, between the content and the edge. */
+    padding: 10px 10px 10px 10px;
+ }
+ /*  A # selector styles the HTML element whose id= matches this name. */
+ #result{
+    color:red;
+    font-weight: bold;
+ }

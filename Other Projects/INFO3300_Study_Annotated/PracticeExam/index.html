@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Connects this page to the CSS file that controls its appearance. -->
+    <link rel="stylesheet" href="style.css">
+    <title>Eight Ball</title>
+</head>
+<body>
+    <h1>Ask the Magic Eight Ball a Question</h1>
+    <!--  Starts the form. action= says which file receives the data; method= sends it using POST. -->
+    <form id="page_content" action="eightball.php" method="post">
+        <!--  The name= value is the key PHP uses later with filter_input(). -->
+        <input type="text" name="question" id="question" size="50">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

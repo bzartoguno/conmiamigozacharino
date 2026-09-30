@@ -1,0 +1,28 @@
+/* TIP: A # selector styles the HTML element whose id= matches this name. */
+#waiver{
+    border-style: solid;
+    border-color: blue;
+    /* TIP: Rounds the corners of the element's border. */
+    border-radius: 10px;
+    width:600px;
+    /* TIP: Padding adds space inside the border, between the content and the edge. */
+    padding: 10px 10px 10px 10px;
+}
+/* TIP: A # selector styles the HTML element whose id= matches this name. */
+#head_waiver{
+    float: left;
+}
+/* TIP: A # selector styles the HTML element whose id= matches this name. */
+#result{
+    border-style: solid;
+    border-color: blue;
+    /* TIP: Rounds the corners of the element's border. */
+    border-radius: 10px;
+    width:600px;
+    /* TIP: Padding adds space inside the border, between the content and the edge. */
+    padding: 10px 10px 10px 10px;
+}
+/* TIP: A . selector styles every HTML element using this class name. */
+.errors{
+    color:red;
+}

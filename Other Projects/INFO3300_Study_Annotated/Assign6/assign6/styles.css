@@ -1,0 +1,30 @@
+body{
+    margin: 20px 20px 20px 20px;
+    float:none;
+ }
+ /* TIP: A # selector styles the HTML element whose id= matches this name. */
+ #title_image{
+    float: left;
+    margin: 0px 20px 0px 0px;
+ }
+ h1#title{
+    /* TIP: Padding adds space inside the border, between the content and the edge. */
+    padding: 5px 0px 0px 25px;
+ }
+ /* TIP: A # selector styles the HTML element whose id= matches this name. */
+ #data_entry {
+    border-style: solid;
+    border-color: black;
+    /* TIP: Rounds the corners of the element's border. */
+    border-radius: 10px;
+    width:600px;
+    /* TIP: Padding adds space inside the border, between the content and the edge. */
+    padding: 10px 10px 10px 10px;
+ }
+ /* TIP: A . selector styles every HTML element using this class name. */
+ .errors{
+    color:red;
+ }
+ /* TIP: A # selector styles the HTML element whose id= matches this name. */
+ #header {  border-bottom: 2px solid black;  padding: .5em 0; }
+ 
