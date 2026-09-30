@@ -1,10 +1,8 @@
 <?php
-
 //  Creates an array, which stores a group of related values.
 $professions = ["dentist"=>0, "doctor"=>0, "pharmacist"=>0];
 
 #Question 1
-
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $workout_location = filter_input(INPUT_GET, "workout_location");
 
@@ -18,16 +16,12 @@ else{
     $professions["pharmacist"]++;
 }
 
-
 #Question 2
-
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 //  Tells filter_input() to expect multiple values, such as checkboxes or a multi-select.
 $activities = filter_input(INPUT_GET, "activities", FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-
 //  Checks whether no value was received.
 if(!is_null($activities)){
-
     //  Counts how many items are in the array.
     $activity_count = count($activities);
     if($activity_count >= 3){
@@ -41,9 +35,7 @@ if(!is_null($activities)){
     }
 }
 
-
 #Question 3
-
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $boys_name = filter_input(INPUT_GET, "boys_name");
 $boys_vowel_count = vowel_count($boys_name);
@@ -57,12 +49,9 @@ else{
     $professions["doctor"]++;
 }
 
-
 #Question 4
-
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $girls_name = filter_input(INPUT_GET, "girls_name");
-
 $girls_vowel_count = vowel_count($girls_name);
 if($girls_vowel_count >= 4){
     $professions["pharmacist"]++;
@@ -73,7 +62,6 @@ elseif($girls_vowel_count >= 2){
 else{
     $professions["doctor"]++;
 }
-
 
 #Question 5
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
@@ -91,7 +79,6 @@ else{
 }
 
 #Question 6
-
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $likely_task = filter_input(INPUT_GET, "likely_task");
 if($likely_task == "tanning"){
