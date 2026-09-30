@@ -5,7 +5,6 @@ $professions = ["dentist"=>0, "doctor"=>0, "pharmacist"=>0];
 #Question 1
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $workout_location = filter_input(INPUT_GET, "workout_location");
-
 if($workout_location == "country_club"){
     $professions["dentist"]++;
 }
