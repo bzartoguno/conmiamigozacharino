@@ -1,0 +1,11 @@
+body{
+    margin: 20px 20px 20px 20px;
+    float:none;
+}
+#page_content{
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    width:600px;
+    padding: 10px 10px 10px 10px;
+}

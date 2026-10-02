@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Random Adventure Generator</h1>
+
+    <div id="page_content">
+
+        <form action="adventure.php" method="post">
+
+            Your Name:
+            <input type="text" name="name">
+            <br><br>
+
+            Adventure Type:
+            <br>
+
+            <input type="radio" name="adventure_type" value="fantasy">
+            Fantasy
+            <br>
+
+            <input type="radio" name="adventure_type" value="space">
+            Space
+            <br>
+
+            <input type="radio" name="adventure_type" value="mystery">
+            Mystery
+            <br><br>
+
+            <input type="submit" value="Begin Adventure">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
