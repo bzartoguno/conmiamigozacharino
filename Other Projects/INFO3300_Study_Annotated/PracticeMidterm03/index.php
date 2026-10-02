@@ -1,15 +1,12 @@
-`<?php
-//  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
-$first_name = filter_input(INPUT_GET, 'first_name');
+<?php
+//  These read values from the URL after process.php sends us back because of an error.
+// We use them to show the error and refill the form so the user does not lose everything.
+$user_name = filter_input(INPUT_GET, 'user_name');
 $environment = filter_input(INPUT_GET, 'environment');
-$interests = filter_input(INPUT_GET, 'interests', FILTER_DEFAULT | FILTER_REQUIRE_ARRAY);
+$interests = filter_input(INPUT_GET, 'interests', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 $energy_level = filter_input(INPUT_GET, 'energy');
 
-$first_name_error = filter_input(INPUT_GET, 'first_name_error');
-$environment_error = filter_input(INPUT_GET, 'environment_error');
-$interests_error = filter_input(INPUT_GET, 'interests_error');
-$energy_level_error = filter_input(INPUT_GET, 'energy_level_error');
-
+$user_name_error = filter_input(INPUT_GET, 'user_name_error');
 ?>
 
 <!DOCTYPE html>
@@ -17,49 +14,68 @@ $energy_level_error = filter_input(INPUT_GET, 'energy_level_error');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weekend Activity Picker</title>
+    <!--  This connects the page to the CSS file. -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <h1>Weekend Activity Picker</h1>
-    <?php
-    $user_name = filter_input(INPUT_POST, 'user_name');
-    $environment = filter_input(INPUT_POST, 'environment');
-    $interests = filter_input(INPUT_POST, 'interests', FILTER_DEFAULT | FILTER_REQUIRE_ARRAY);
-    $energy_level = filter_input(INPUT_POST, 'energy');
-    ?>
-        <label for="user_name">Your Name:</label>
-        <input type="text" id="user_name" name="user_name" required>
 
-    <li>Where would you rather spend the day?</li>
-                        <!--  Radio buttons sharing the same name belong to one group; the selected button sends its value. -->
-                        <input type="radio" name="environment" value="outdoors">Outdoors
-                        <input type="radio" name="environment" value="indoors">Indoors
-                        <input type="radio" name="environment" value="either">Either<br/><br/>
-                        <span class="errors"><?php echo $environment_error; ?></span>
+    <div id="page_content">
 
-    <li>Select all activities you enjoy:</li>
-                    <!--  The [] in the name lets multiple checked values arrive in PHP as an array. -->
-                    <input type="checkbox" name="interests[]" value="hiking">Hiking<br/>
-                    <input type="checkbox" name="interests[]" value="movies">Movies<br/>
-                    <input type="checkbox" name="interests[]" value="games">Games<br/>
-                    <input type="checkbox" name="interests[]" value="food">Food<br/>
-                    <input type="checkbox" name="interests[]" value="sports">Sports<br/>
-                    <input type="checkbox" name="interests[]" value="reading">Reading<br/>
-                    <span class="errors"><?php echo $interests_error; ?></span>
+        <!--  POST sends the form values to process.php without putting them in the URL. -->
+        <form method="post" action="process.php">
 
-    <li>Energy Level:</li>
-                <select name="energy">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select><br/><br/>
-                <span class="errors"><?php echo $energy_level_error; ?></span>
+            <label for="user_name">Your Name:</label>
+            <!--  name="user_name" must match filter_input(..., 'user_name') in process.php. -->
+            <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                value="<?php echo $user_name; ?>"
+            >
 
-    <li>Describe one of your talents.</li>
-                    <!--  A textarea collects longer text; its name= is the key PHP uses to retrieve it. -->
-                    <textarea name="talents" cols="30" rows="8"></textarea><br/><br/>
+            <!--  If process.php finds a problem with the name, the message appears here. -->
+            <span class="errors"><?php echo $user_name_error; ?></span>
+            <br><br>
+            <p>Where would you rather spend the day?</p>
 
-        <button type="submit">Submit</button>
-    </form>
+            <!--  Radio buttons use the same name so only one choice can be selected. -->
+            <input type="radio" name="environment" value="outdoors"
+                <?php if($environment == 'outdoors'){ echo 'checked'; } ?>>Outdoors
+            <input type="radio" name="environment" value="indoors"
+                <?php if($environment == 'indoors'){ echo 'checked'; } ?>>Indoors
+            <input type="radio" name="environment" value="either"
+                <?php if($environment == 'either'){ echo 'checked'; } ?>>Either
+            <br><br>
+            <p>Select all activities you enjoy:</p>
+
+            <!--  The [] after interests tells PHP that more than one checkbox value can be sent. -->
+            <input type="checkbox" name="interests[]" value="hiking"
+                <?php if(!is_null($interests) && in_array('hiking', $interests)){ echo 'checked'; } ?>>Hiking<br>
+            <input type="checkbox" name="interests[]" value="movies"
+                <?php if(!is_null($interests) && in_array('movies', $interests)){ echo 'checked'; } ?>>Movies<br>
+            <input type="checkbox" name="interests[]" value="games"
+                <?php if(!is_null($interests) && in_array('games', $interests)){ echo 'checked'; } ?>>Games<br>
+            <input type="checkbox" name="interests[]" value="food"
+                <?php if(!is_null($interests) && in_array('food', $interests)){ echo 'checked'; } ?>>Food<br>
+            <input type="checkbox" name="interests[]" value="sports"
+                <?php if(!is_null($interests) && in_array('sports', $interests)){ echo 'checked'; } ?>>Sports<br>
+            <input type="checkbox" name="interests[]" value="reading"
+                <?php if(!is_null($interests) && in_array('reading', $interests)){ echo 'checked'; } ?>>Reading<br>
+            <br>
+
+            <label for="energy">Energy Level:</label>
+            <select name="energy" id="energy">
+                <option value="low" <?php if($energy_level == 'low'){ echo 'selected'; } ?>>Low</option>
+                <option value="medium" <?php if($energy_level == 'medium'){ echo 'selected'; } ?>>Medium</option>
+                <option value="high" <?php if($energy_level == 'high'){ echo 'selected'; } ?>>High</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Find My Activity</button>
+        </form>
+    </div>
 </body>
-</html>`
+</html>
