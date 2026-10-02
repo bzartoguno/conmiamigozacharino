@@ -12,27 +12,27 @@ $_SESSION['energy_level'] = $energy_level;
 
 $activity_scores = [ "adventure"=>0, "relaxing"=>0, "social"=>0 ];
 
-if($environment == "Outdoors"){
+if($environment == "outdoors"){
     $activity_scores["adventure"]++;
 }
-elseif($environment == "Indoors"){
+elseif($environment == "indoors"){
     $activity_scores["relaxing"]++;
 }
 else{
     $activity_scores["social"]++;
 }
-
-$activities = filter_input(INPUT_GET, "activities", FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+    
+$activities = filter_input(INPUT_POST, "activities", FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 if(!is_null($activities)){
     $activity_count = count($activities);
     if($activity_count >= 3){
-        $activity_scores["adventure"]++;
+        $activity_scores["social"]++;
     }
     elseif($activity_count == 2){
-        $activity_scores["relaxing"]++;
+        $activity_scores["adventure"]++;
     }
     else{
-        $activity_scores["social"]++;
+        $activity_scores["relaxing"]++;
     }
 }
 ?>

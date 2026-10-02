@@ -1,4 +1,4 @@
-<?php
+`<?php
 //  Reads a value sent using GET (usually from the URL/form). The quoted field name must match the form field.
 $first_name = filter_input(INPUT_GET, 'first_name');
 $environment = filter_input(INPUT_GET, 'environment');
@@ -21,7 +21,12 @@ $energy_level_error = filter_input(INPUT_GET, 'energy_level_error');
 </head>
 <body>
     <h1>Weekend Activity Picker</h1>
-    <form method="get" action="process.php">
+    <?php
+    $user_name = filter_input(INPUT_POST, 'user_name');
+    $environment = filter_input(INPUT_POST, 'environment');
+    $interests = filter_input(INPUT_POST, 'interests', FILTER_DEFAULT | FILTER_REQUIRE_ARRAY);
+    $energy_level = filter_input(INPUT_POST, 'energy');
+    ?>
         <label for="user_name">Your Name:</label>
         <input type="text" id="user_name" name="user_name" required>
 
@@ -42,16 +47,19 @@ $energy_level_error = filter_input(INPUT_GET, 'energy_level_error');
                     <input type="checkbox" name="interests[]" value="reading">Reading<br/>
                     <span class="errors"><?php echo $interests_error; ?></span>
 
-        <li>Energy Level:</li>
-                    <select name="energy">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select><br/><br/>
-                    <span class="errors"><?php echo $energy_level_error; ?></span>
+    <li>Energy Level:</li>
+                <select name="energy">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select><br/><br/>
+                <span class="errors"><?php echo $energy_level_error; ?></span>
 
+    <li>Describe one of your talents.</li>
+                    <!--  A textarea collects longer text; its name= is the key PHP uses to retrieve it. -->
+                    <textarea name="talents" cols="30" rows="8"></textarea><br/><br/>
 
         <button type="submit">Submit</button>
     </form>
 </body>
-</html>
+</html>`
