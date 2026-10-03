@@ -4,7 +4,6 @@ session_start();
 
 //  Sets the cookie expiration in the past, which tells the browser to delete that cookie.
 setcookie('username', 'first', time() - 3600, '/');
-//  Sets the cookie expiration in the past, which tells the browser to delete that cookie.
 setcookie('password', 'player', time() - 3600, '/');
 
 //  Ends the current session, which is useful when logging the user out.
