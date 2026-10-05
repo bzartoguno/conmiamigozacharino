@@ -1,0 +1,15 @@
+body{
+    margin:20px;
+}
+
+#page_content{
+    border-style:solid;
+    border-color:black;
+    border-radius:10px;
+    width:600px;
+    padding:10px;
+}
+
+.errors{
+    color:red;
+}
