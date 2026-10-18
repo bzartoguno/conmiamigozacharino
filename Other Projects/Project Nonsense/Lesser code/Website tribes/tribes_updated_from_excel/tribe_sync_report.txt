@@ -1,0 +1,1794 @@
+D&D Tribe Excel -> TypeScript Sync Report
+================================================================================
+Workbook: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/Put into website as tribes.xlsx
+Sheet: Combination
+Tribes directory: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes
+Excel items: 1418
+Excel tribe groups: 39
+tribe*.ts files found: 55
+
+FILE DISCOVERY WARNINGS
+--------------------------------------------------------------------------------
+Could not determine tribe name in tribeInsults.ts
+
+TRIBE: Applegarth Guild
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeApplegarthGuild.ts
+Resolved by: explicit filename map
+Excel rows: 21
+Matches: exact=14, normalized=2, prefix=1, fuzzy=0, new=4, TS-only=0
+Descriptions: format preserved=16, updated from Excel=5
+--------------------------------------------------------------------------------
+NEW from Excel row 2: "Mighty Servant of Leuk-o"
+EXACT 1.000: Excel row 3 "Contact a Herald to Stay in Your Town for One Year" -> TS "Contact a Herald to Stay in Your Town for One Year" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 4: "Feather Token"
+NEW from Excel row 5: "Medal of Muscle"
+PARENTHETICAL-NORMALIZED 0.985: Excel row 6 "Hire a Professional Line-Stand for One Day" -> TS "Hire a Professional Line-Stand for One Day (This is a real job people do I was surprised too)" | kept existing TS formatting (description similarity 0.863)
+EXACT 1.000: Excel row 7 "Hire a Muscle Crew for One Job" -> TS "Hire a Muscle Crew for One Job" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 8: "Witchlight Watch"
+EXACT 1.000: Excel row 9 "Contact a Master Craftsperson to Stay in Your Town for One Year" -> TS "Contact a Master Craftsperson to Stay in Your Town for One Year" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 10 "Hire a Bounty Hunter for a Job" -> TS "Hire a Bounty Hunter for a Job" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 11 "Charon's Token" -> TS "Charon's Token" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 12 "Hire a Butler, Maid, or Servant for a Month" -> TS "Hire a Butler, Maid, or Servant for a Month" | kept existing TS formatting (description similarity 1.000)
+PREFIX 0.940: Excel row 13 "Hire an Apology Courier" -> TS "Hire an Apology Courier (Local) for One Job" | kept existing TS formatting (description similarity 0.954)
+EXACT 1.000: Excel row 14 "Hire an Intern for One Week" -> TS "Hire an Intern for One Week" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 15 "Hire a Seamstress for One Week" -> TS "Hire a Seamstress for One Week" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 16 "Hire a Stable Hand for One Month" -> TS "Hire a Stable Hand for One Month" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 17 "Hire a Nanny for One Month" -> TS "Hire a Nanny for One Month" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 18 "Hire a Scribe for One Month" -> TS "Hire a Scribe for One Month" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 19 "Hire a Lawyer for One Month" -> TS "Hire a Lawyer for One Month" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 20 "Hire a Biohazard Cleaner for One Job" -> TS "Hire a Biohazard Cleaner for One Job" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 21 "Guild Contract hire Applegarth, Archivist, Dungeon Crawler, Navigation, or Jewelry Guild for a reasonable long-term job" -> TS "Guild Contract hire Applegarth, Archivist, Dungeon Crawler, Navigation, or Jewelry Guild for a reasonable long-term job (please message me about what you would like so we can hash out the details)" | updated from Excel (description similarity 0.540)
+EXACT 1.000: Excel row 22 "Contact a Sage to Stay in Your Town for One Year" -> TS "Contact a Sage to Stay in Your Town for One Year" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Archives Guild
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeArchivesGuild.ts
+Resolved by: explicit filename map
+Excel rows: 8
+Matches: exact=7, normalized=0, prefix=0, fuzzy=0, new=1, TS-only=0
+Descriptions: format preserved=7, updated from Excel=1
+--------------------------------------------------------------------------------
+EXACT 1.000: Excel row 23 "Sell an Artifact Item" -> TS "Sell an Artifact Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 24 "Sell a Trash Item" -> TS "Sell a Trash Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 25 "Sell a Common Item" -> TS "Sell a Common Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 26 "Sell a Legendary Item" -> TS "Sell a Legendary Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 27 "Sell a Rare Item" -> TS "Sell a Rare Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 28 "Sell an Uncommon Item" -> TS "Sell an Uncommon Item" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 29: "Wraps Of Unarmed Prowess"
+EXACT 1.000: Excel row 30 "Sell a Very Rare Item" -> TS "Sell a Very Rare Item" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Auntie Patty's Pies
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuntiePattysPies.ts
+Resolved by: explicit filename map
+Excel rows: 24
+Matches: exact=17, normalized=0, prefix=0, fuzzy=0, new=7, TS-only=0
+Descriptions: format preserved=17, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 31: "Bead of Nourishment"
+NEW from Excel row 32: "Chest of Preserving"
+NEW from Excel row 33: "Heward's Handy Spice Pouch"
+NEW from Excel row 34: "Medal of the Meat Pie"
+EXACT 1.000: Excel row 35 "Salted Honey Chess Pie" -> TS "Salted Honey Chess Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 36 "Sour-Face Lemon Cream Pie" -> TS "Sour-Face Lemon Cream Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 37 "Spiced Carrot & Ginger Pie" -> TS "Spiced Carrot & Ginger Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 38 "Roadwarden Hand Pie" -> TS "Roadwarden Hand Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 39 "Market Sweep Berry Pie" -> TS "Market Sweep Berry Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 40 "Cinnamon-Pear Crumble Pie" -> TS "Cinnamon-Pear Crumble Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 41 "Smoked Apple & Cheddar Pie" -> TS "Smoked Apple & Cheddar Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 42 "Maple Pecan Slab Pie" -> TS "Maple Pecan Slab Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 43 "Cherry-Almond Lattice Pie" -> TS "Cherry-Almond Lattice Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 44 "Campfire Chicken Pot Pie" -> TS "Campfire Chicken Pot Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 45 "Don't Tell the Cleric Chocolate Silk Pie" -> TS "Don't Tell the Cleric Chocolate Silk Pie" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 46 "Pumpkin Pie of Warmth" -> TS "Pumpkin Pie of Warmth" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 47 "Pear Pie" -> TS "Pear Pie" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 48: "Bag Of Bounty"
+NEW from Excel row 49: "Dust of Deliciousness"
+NEW from Excel row 50: "Goggles of Night"
+EXACT 1.000: Excel row 51 "Goblin Berry Tart" -> TS "Goblin Berry Tart" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 52 "Blueberry Pie of Night Vision" -> TS "Blueberry Pie of Night Vision" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 53 "Mushroom & Leek Galette" -> TS "Mushroom & Leek Galette" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 54 "Strawberry Pie of Friendship" -> TS "Strawberry Pie of Friendship" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Blossom Hotel
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlossomHotel.ts
+Resolved by: explicit filename map
+Excel rows: 24
+Matches: exact=9, normalized=0, prefix=0, fuzzy=0, new=15, TS-only=0
+Descriptions: format preserved=9, updated from Excel=15
+--------------------------------------------------------------------------------
+EXACT 1.000: Excel row 55 "Mini Game: Riddles for Rewards" -> TS "Mini Game: Riddles for Rewards" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 56 "Mini Game: Monster Trivia Night" -> TS "Mini Game: Monster Trivia Night" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 57 "Mini Game: Guess the Guest" -> TS "Mini Game: Guess the Guest" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 58: "Banner of the Krig Rune"
+NEW from Excel row 59: "Dodecahedron of Doom"
+NEW from Excel row 60: "Gavel of the Venn Rune"
+NEW from Excel row 61: "Orb of the Stein Rune"
+NEW from Excel row 62: "Ring of X-Ray Vision"
+NEW from Excel row 63: "Rod of the Pact Keeper, +2"
+EXACT 1.000: Excel row 64 "Blossom Hotel Season Pass" -> TS "Blossom Hotel Season Pass" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 65: "Lorehold Primer"
+NEW from Excel row 66: "Pyroconverger"
+NEW from Excel row 67: "Quandrix Primer"
+NEW from Excel row 68: "Rod of the Pact Keeper, +1"
+NEW from Excel row 69: "Silverquill Primer"
+NEW from Excel row 70: "Witherbloom Primer"
+EXACT 1.000: Excel row 71 "Room, Board, & Repair Gear" -> TS "Room, Board, & Repair Gear" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 72 "Room, Board, Repair Gear, & Spa" -> TS "Room, Board, Repair Gear, & Spa" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 73 "Room, Board, Repair Gear, Spa, & Time Dilation Chamber" -> TS "Room, Board, Repair Gear, Spa, & Time Dilation Chamber" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 74 "Room, Board, Repair Gear, Spa, Time Dilation Chamber, & Temp Buff" -> TS "Room, Board, Repair Gear, Spa, Time Dilation Chamber, & Temp Buff" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 75 "Black Candle Training" -> TS "Black Candle Training" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 76: "Black Candle Training"
+NEW from Excel row 77: "Cape of Enlargement"
+NEW from Excel row 78: "Rod of the Pact Keeper, +3"
+
+TRIBE: Book Bombs
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBookBombs.ts
+Resolved by: explicit filename map
+Excel rows: 29
+Matches: exact=9, normalized=0, prefix=0, fuzzy=0, new=20, TS-only=0
+Descriptions: format preserved=9, updated from Excel=20
+--------------------------------------------------------------------------------
+NEW from Excel row 79: "Book of Exalted Deeds"
+NEW from Excel row 80: "Book of Vile Darkness"
+NEW from Excel row 81: "Book of Vile Darkness (Variant)"
+NEW from Excel row 82: "Enduring Spellbook"
+NEW from Excel row 83: "Grimoire Infinitus"
+NEW from Excel row 84: "Nether Scroll of Azumar"
+NEW from Excel row 85: "Scroll of Tarrasque Summoning"
+NEW from Excel row 86: "Scroll of the Comet"
+NEW from Excel row 87: "Tome of the Stilled Tongue"
+NEW from Excel row 88: "Arcane Grimoire"
+NEW from Excel row 89: "Planecaller's Codex"
+NEW from Excel row 90: "Arcane Grimoire"
+EXACT 1.000: Excel row 91 "[It's your favorite manga/graphic novel]" -> TS "[It's your favorite manga/graphic novel]" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 92 "The Very Hungry Tarrasque" -> TS "The Very Hungry Tarrasque" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 93 "Fifty Shades of Fey" -> TS "Fifty Shades of Fey" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 94 "How to Win Friends & Influence Kobolds" -> TS "How to Win Friends & Influence Kobolds" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 95 "Traps and Treasures: Explosive Edition" -> TS "Traps and Treasures: Explosive Edition" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 96 "Art of Fireworks" -> TS "Art of Fireworks" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 97 "Alchemy of Explosives" -> TS "Alchemy of Explosives" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 98 "Explosive Runes for Dummies" -> TS "Explosive Runes for Dummies" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 99 "Cool people don't look at EXPLOSIONS" -> TS "Cool people don't look at EXPLOSIONS" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 100: "Arcane Grimoire"
+NEW from Excel row 101: "Manual of Bodily Health"
+NEW from Excel row 102: "Manual of Gainful Exercise"
+NEW from Excel row 103: "Manual of Golems"
+NEW from Excel row 104: "Manual of Quickness of Action"
+NEW from Excel row 105: "Tome of Clear Thought"
+NEW from Excel row 106: "Tome of Leadership and Influence"
+NEW from Excel row 107: "Tome of Understanding"
+
+TRIBE: Bullets, Buffs, & Beyond
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBulletsBuffsBeyond.ts
+Resolved by: explicit filename map
+Excel rows: 37
+Matches: exact=11, normalized=0, prefix=0, fuzzy=0, new=26, TS-only=0
+Descriptions: format preserved=11, updated from Excel=26
+--------------------------------------------------------------------------------
+NEW from Excel row 108: "Unbreakable Arrow"
+NEW from Excel row 109: "Walloping Ammunition"
+EXACT 1.000: Excel row 110 "Get Down Armor Wax" -> TS "Get Down Armor Wax" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 111: "Ammunition, +2"
+NEW from Excel row 112: "Bow Of Conflagration"
+NEW from Excel row 113: "Daern's Instant Fortress"
+NEW from Excel row 114: "Dragon Wing Bow"
+NEW from Excel row 115: "Glimmering Moonbow"
+NEW from Excel row 116: "Helm of the Gods"
+NEW from Excel row 117: "Starshot Crossbow"
+NEW from Excel row 118: "Two-Birds Sling"
+NEW from Excel row 119: "Wand of Lightning Bolts"
+NEW from Excel row 120: "Wand of Wonder"
+NEW from Excel row 121: "Ammunition, +1"
+NEW from Excel row 122: "Deck Of Miscellany"
+NEW from Excel row 123: "Dried Leech"
+NEW from Excel row 124: "Guild Signet"
+NEW from Excel row 125: "Mizzium Apparatus"
+NEW from Excel row 126: "Quiver of Ehlonna"
+NEW from Excel row 127: "Smokepowder"
+NEW from Excel row 128: "Winged Ammunition"
+EXACT 1.000: Excel row 129 "Hardened Stance Shield Wax" -> TS "Hardened Stance Shield Wax" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 130 "Got anything... out back" -> TS "Got anything... out back" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 131 "Earplugs" -> TS "Earplugs" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 132 "Practice Rounds" -> TS "Practice Rounds" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 133 "Brass & Brush Cleaning Kit" -> TS "Brass & Brush Cleaning Kit" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 134 "Killer's Ammo" -> TS "Killer's Ammo" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 135 "Hunter's Ammo" -> TS "Hunter's Ammo" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 136 "Protective Father's Ammo" -> TS "Protective Father's Ammo" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 137 "Mother's Revenge Ammo" -> TS "Mother's Revenge Ammo" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 138 "Medical Wax" -> TS "Medical Wax" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 139: "Ammunition, +3"
+NEW from Excel row 140: "Arcane Cannon"
+NEW from Excel row 141: "Arrow of Slaying"
+NEW from Excel row 142: "Bloodseeker Ammunition"
+NEW from Excel row 143: "Crown Of Whirling Comets"
+NEW from Excel row 144: "Sling Bullets of Althemone"
+
+TRIBE: Changing Church
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeChangingChurch.ts
+Resolved by: explicit filename map
+Excel rows: 18
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=10, TS-only=0
+Descriptions: format preserved=8, updated from Excel=10
+--------------------------------------------------------------------------------
+NEW from Excel row 145: "Prosthetic Limb"
+NEW from Excel row 146: "Strixhaven Pennant"
+NEW from Excel row 147: "Holy Avenger"
+NEW from Excel row 148: "Holy Symbol of Ravenkind"
+NEW from Excel row 149: "Belt of Dwarvenkind"
+NEW from Excel row 150: "Devotee's Censer"
+NEW from Excel row 151: "Necklace of Prayer Beads"
+EXACT 1.000: Excel row 152 "Alright Blessing" -> TS "Alright Blessing" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 153: "Balance of Harmony"
+EXACT 1.000: Excel row 154 "Pocket Hymnal & Common Prayers" -> TS "Pocket Hymnal & Common Prayers" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 155 "Travel Altar Kit" -> TS "Travel Altar Kit" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 156 "Minor Blessing" -> TS "Minor Blessing" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 157 "Healing" -> TS "Healing" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 158 "Ceremony Supply Satchel" -> TS "Ceremony Supply Satchel" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 159 "Curse/Hex Removal" -> TS "Curse/Hex Removal" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 160: "Candle of Invocation"
+NEW from Excel row 161: "Far Gear"
+EXACT 1.000: Excel row 162 "Omega Blessing" -> TS "Omega Blessing" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Comedy Gold
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeComedyGold.ts
+Resolved by: explicit filename map
+Excel rows: 32
+Matches: exact=9, normalized=0, prefix=0, fuzzy=0, new=23, TS-only=0
+Descriptions: format preserved=9, updated from Excel=23
+--------------------------------------------------------------------------------
+NEW from Excel row 163: "Glamerweave"
+NEW from Excel row 164: "Instrument of Illusions"
+NEW from Excel row 165: "Instrument of Scribing"
+NEW from Excel row 166: "Pipe of Remembrance"
+NEW from Excel row 167: "Wand of Conducting"
+NEW from Excel row 168: "Dragon Mask"
+NEW from Excel row 169: "Instrument of the Bards"
+NEW from Excel row 170: "Jester's Mask"
+NEW from Excel row 171: "Instrument of the Bards"
+NEW from Excel row 172: "Reveler's Concertina"
+NEW from Excel row 173: "Rhythm Maker's Drum"
+NEW from Excel row 174: "Siren Song Lyre"
+EXACT 1.000: Excel row 175 "Dancing with Dragons" -> TS "Dancing with Dragons" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 176: "Glamerweave"
+NEW from Excel row 177: "Instrument of the Bards"
+NEW from Excel row 178: "Mask of the Beast"
+NEW from Excel row 179: "Medallion of Thoughts"
+NEW from Excel row 180: "Pipes of the Sewers"
+NEW from Excel row 181: "Prismari Primer"
+NEW from Excel row 182: "Rhythm Maker's Drum"
+EXACT 1.000: Excel row 183 "Goblins in the Pantry" -> TS "Goblins in the Pantry" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 184 "The Fool's Quest" -> TS "The Fool's Quest" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 185 "Bard's Blunder" -> TS "Bard's Blunder" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 186 "Wizard’s Wardrobe Woes" -> TS "Wizard’s Wardrobe Woes" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 187 "Improve Classes" -> TS "Improve Classes" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 188 "Old Props and Costumes" -> TS "Old Props and Costumes" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 189 "Witch's Wardrobe" -> TS "Witch's Wardrobe" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 190 "Year round Tickets" -> TS "Year round Tickets" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 191: "Mask of the Dragon Queen"
+NEW from Excel row 192: "Instrument of the Bards"
+NEW from Excel row 193: "Peregrine Mask"
+NEW from Excel row 194: "Rhythm Maker's Drum"
+
+TRIBE: Dungeon Crawler Guild
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeDungeonCrawlerGuild.ts
+Resolved by: explicit filename map
+Excel rows: 14
+Matches: exact=5, normalized=3, prefix=0, fuzzy=0, new=6, TS-only=0
+Descriptions: format preserved=7, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 195: "Coin of Delving"
+NEW from Excel row 196: "Pressure Capsule"
+EXACT 1.000: Excel row 197 "Sack of Sand" -> TS "Sack of Sand" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 198: "Black Crystal Tablet"
+NEW from Excel row 199: "Mimir"
+NEW from Excel row 200: "Wand of Secrets"
+EXACT 1.000: Excel row 201 "Greeting Adventurers!" -> TS "Greeting Adventurers!" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 202 "Cooking Kit" -> TS "Cooking Kit" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 203 "Basic Information about a Dungeon" -> TS "Basic Information about a Dungeon" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 204 "Retrieval Team" -> TS "Retrieval Team" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 205 "Premium Membership" -> TS "Premium Membership (10% less tax)" | kept existing TS formatting (description similarity 0.969)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 206 "Tutor guide" -> TS "Tutor guide (50% less tax)" | updated from Excel (description similarity 0.045)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 207 "Ultra Membership" -> TS "Ultra Membership (Tax-free)" | kept existing TS formatting (description similarity 0.796)
+NEW from Excel row 208: "Rotor of Return"
+
+TRIBE: Evan's Enchanting Emporium
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeEvansEnchantingEmporium.ts
+Resolved by: explicit filename map
+Excel rows: 72
+Matches: exact=11, normalized=0, prefix=0, fuzzy=0, new=61, TS-only=0
+Descriptions: format preserved=10, updated from Excel=62
+--------------------------------------------------------------------------------
+NEW from Excel row 209: "Radiance"
+NEW from Excel row 210: "Rod of Seven Parts"
+NEW from Excel row 211: "Staff of the Forgotten One"
+NEW from Excel row 212: "Wand of Orcus"
+EXACT 1.000: Excel row 213 "Spell Scroll" -> TS "Spell Scroll" | updated from Excel (description similarity 0.105)
+NEW from Excel row 214: "Staff of Birdcalls"
+NEW from Excel row 215: "Wand of Pyrotechnics"
+NEW from Excel row 216: "Wand of Scowls"
+NEW from Excel row 217: "Wand of Smiles"
+EXACT 1.000: Excel row 218 "Custom enchanting job" -> TS "Custom enchanting job" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 219 "Custom enchanting job" -> TS "Custom enchanting job" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 220: "Dragonstaff of Ahghairon"
+NEW from Excel row 221: "Hither-Thither Staff"
+NEW from Excel row 222: "Rod of Lordly Might"
+NEW from Excel row 223: "Spell Scroll"
+NEW from Excel row 224: "Staff of the Magi"
+NEW from Excel row 225: "Rod of Rulership"
+NEW from Excel row 226: "Shrieking Greaves"
+NEW from Excel row 227: "Spell Scroll"
+NEW from Excel row 228: "Spider Staff"
+NEW from Excel row 229: "Staff of Charming"
+NEW from Excel row 230: "Staff of Defense"
+NEW from Excel row 231: "Staff of Healing"
+NEW from Excel row 232: "Staff of Ruling"
+NEW from Excel row 233: "Staff of the Ivory Claw"
+NEW from Excel row 234: "Staff of the Rooted Hills"
+NEW from Excel row 235: "Staff of Withering"
+NEW from Excel row 236: "Sun Staff"
+NEW from Excel row 237: "Tentacle Rod"
+NEW from Excel row 238: "Wand of Binding"
+NEW from Excel row 239: "Wand of Enemy Detection"
+NEW from Excel row 240: "Wand of Fear"
+NEW from Excel row 241: "Wand of Fireballs"
+NEW from Excel row 242: "Wand of Paralysis"
+NEW from Excel row 243: "Wand of Viscid Globs"
+NEW from Excel row 244: "Wand of Winter"
+EXACT 1.000: Excel row 245 "Common Enchantment" -> TS "Common Enchantment" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 246 "Uncommon Enchantment" -> TS "Uncommon Enchantment" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 247 "Rare Enchantment" -> TS "Rare Enchantment" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 248 "Legendary Enchantment" -> TS "Legendary Enchantment" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 249: "Blasted Goggles"
+NEW from Excel row 250: "Cursed Luckstone"
+NEW from Excel row 251: "Harkon's Bite"
+NEW from Excel row 252: "Immovable Rod"
+NEW from Excel row 253: "Rod of Retribution"
+NEW from Excel row 254: "Spell Scroll"
+NEW from Excel row 255: "Staff of the Adder"
+NEW from Excel row 256: "Staff of the Python"
+NEW from Excel row 257: "Wand of Entangle"
+NEW from Excel row 258: "Wand of Magic Missiles"
+NEW from Excel row 259: "Wand of the War Mage"
+NEW from Excel row 260: "Wand of Web"
+NEW from Excel row 261: "Spell Scroll"
+EXACT 1.000: Excel row 262 "Inspect Magical Item" -> TS "Inspect Magical Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 263 "Enchantmenter grimoire" -> TS "Enchantmenter grimoire" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 264 "Remove Enchantment" -> TS "Remove Enchantment" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 265: "Arcane Propulsion Arm"
+NEW from Excel row 266: "Blast Scepter"
+NEW from Excel row 267: "Rod of Absorption"
+NEW from Excel row 268: "Rod of Alertness"
+NEW from Excel row 269: "Rod Of Hellish Flames"
+NEW from Excel row 270: "Rod of Security"
+NEW from Excel row 271: "Spell Scroll"
+NEW from Excel row 272: "Staff of Dunamancy"
+NEW from Excel row 273: "Staff of Fire"
+NEW from Excel row 274: "Staff of Frost"
+NEW from Excel row 275: "Staff of Power"
+NEW from Excel row 276: "Staff of Striking"
+NEW from Excel row 277: "Staff of Thunder and Lightning"
+NEW from Excel row 278: "Voyager Staff"
+NEW from Excel row 279: "Wand of Polymorph"
+EXACT 1.000: Excel row 280 "Very Rare Enchantment" -> TS "Very Rare Enchantment" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Fairies of Flora
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeFairiesOfFlora.ts
+Resolved by: explicit filename map
+Excel rows: 18
+Matches: exact=9, normalized=0, prefix=0, fuzzy=0, new=9, TS-only=0
+Descriptions: format preserved=9, updated from Excel=9
+--------------------------------------------------------------------------------
+NEW from Excel row 281: "Imbued Wood Focus"
+NEW from Excel row 282: "Medal of the Maze"
+NEW from Excel row 283: "Pot of Awakening"
+NEW from Excel row 284: "Staff of Flowers"
+EXACT 1.000: Excel row 285 "Flowers" -> TS "Flowers" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 286: "Charm of Plant Command"
+NEW from Excel row 287: "Gulthias Staff"
+NEW from Excel row 288: "Kagonesti Forest Shroud"
+NEW from Excel row 289: "Staff of the Woodlands"
+NEW from Excel row 290: "Nature's Mantle"
+EXACT 1.000: Excel row 291 "I've been meaning to ask" -> TS "I've been meaning to ask" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 292 "I know a guy who needs to take a break and smell a flower" -> TS "I know a guy who needs to take a break and smell a flower" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 293 "Mush youm be askin so many questions?" -> TS "Mush youm be askin so many questions?" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 294 "I think I found someone to be my vine-ntine, and I need help asking them out." -> TS "I think I found someone to be my vine-ntine, and I need help asking them out." | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 295 "I need a gift that grows." -> TS "I need a gift that grows." | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 296 "Woodn't you like to know." -> TS "Woodn't you like to know." | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 297 "I want a new house for my other spouse." -> TS "I want a new house for my other spouse." | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 298 "I need a plumber who can work around the clock." -> TS "I need a plumber who can work around the clock." | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: Find a Friend
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeFindAFriend.ts
+Resolved by: explicit filename map
+Excel rows: 16
+Matches: exact=0, normalized=12, prefix=0, fuzzy=0, new=4, TS-only=0
+Descriptions: format preserved=12, updated from Excel=4
+--------------------------------------------------------------------------------
+NEW from Excel row 299: "The Infernal Machine Of Lum The Mad"
+NEW from Excel row 300: "Medal of Wit"
+NEW from Excel row 301: "Deck of Several Things"
+NEW from Excel row 302: "Opal of the Ild Rune"
+PARENTHETICAL-NORMALIZED 0.985: Excel row 303 "Amber" -> TS "Amber (Kalashtar, Psychic human)" | kept existing TS formatting (description similarity 0.985)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 304 "Jade" -> TS "Jade (Teoran, Skilled Superhuman)" | kept existing TS formatting (description similarity 0.984)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 305 "Johnny boi" -> TS "Johnny boi (Dwarf)" | kept existing TS formatting (description similarity 0.996)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 306 "Kip, Mapach" -> TS "Kip, Mapach (Humanoid Racoon)" | kept existing TS formatting (description similarity 0.991)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 307 "Phil & Bill" -> TS "Phil & Bill (Fairies)" | kept existing TS formatting (description similarity 0.995)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 308 "Warlock Homes" -> TS "Warlock Homes (Human)" | kept existing TS formatting (description similarity 0.996)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 309 "Wilford, Tortle" -> TS "Wilford, Tortle (Humanoid turtle)" | kept existing TS formatting (description similarity 0.991)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 310 "Sancho, Cyclop" -> TS "Sancho, Cyclop (One eyed giant)" | kept existing TS formatting (description similarity 0.991)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 311 "Destry," -> TS "Destry, (Half wood elf)" | kept existing TS formatting (description similarity 0.992)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 312 "Rick Shades," -> TS "Rick Shades, (Changling)" | kept existing TS formatting (description similarity 0.994)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 313 "A. Joe [Average Joe]," -> TS "A. Joe [Average Joe], (Goliath)" | kept existing TS formatting (description similarity 0.996)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 314 "Murphy," -> TS "Murphy, (Jinx, extremely unluck human)" | kept existing TS formatting (description similarity 0.984)
+
+TRIBE: Fizzy Tales
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeFizzyTales.ts
+Resolved by: explicit filename map
+Excel rows: 19
+Matches: exact=11, normalized=0, prefix=0, fuzzy=0, new=8, TS-only=0
+Descriptions: format preserved=11, updated from Excel=8
+--------------------------------------------------------------------------------
+NEW from Excel row 315: "Breathing Bubble"
+NEW from Excel row 316: "Talking Doll"
+NEW from Excel row 317: "Thermal Cube"
+NEW from Excel row 318: "Mirror of the Past"
+EXACT 1.000: Excel row 319 "Caramel Shell" -> TS "Caramel Shell" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 320: "Dust of Dryness"
+EXACT 1.000: Excel row 321 "Moon Rocks" -> TS "Moon Rocks" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 322 "Bubble Barrier" -> TS "Bubble Barrier" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 323 "Mirror Mints" -> TS "Mirror Mints" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 324 "Proxy Dust" -> TS "Proxy Dust" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 325 "Beast-Speech Bubblegum" -> TS "Beast-Speech Bubblegum" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 326 "Cotton-Candy Cumulus" -> TS "Cotton-Candy Cumulus" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 327 "Marshmallow Parachute" -> TS "Marshmallow Parachute" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 328 "Sour Shock Chews" -> TS "Sour Shock Chews" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 329 "Gerald-d dry" -> TS "Gerald-d dry" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 330 "Winter Wafers" -> TS "Winter Wafers" | kept existing TS formatting (description similarity 0.994)
+NEW from Excel row 331: "Mirror of Life Trapping"
+NEW from Excel row 332: "Mirror of Reflected Pasts"
+NEW from Excel row 333: "Reincarnation Dust"
+
+TRIBE SKIPPED: Goblin Market
+--------------------------------------------------------------------------------
+Reason: no explicit filename mapping and no existing tribe*.ts with a matching internal name
+No new tribe file was created. Add/fix the filename mapping if needed.
+
+TRIBE: Golem Workshop
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeGolemWorkshop.ts
+Resolved by: explicit filename map
+Excel rows: 18
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=10, TS-only=0
+Descriptions: format preserved=8, updated from Excel=10
+--------------------------------------------------------------------------------
+NEW from Excel row 523: "Stone of Golorr"
+NEW from Excel row 524: "Scribe's Pen"
+NEW from Excel row 525: "Vox Seeker"
+NEW from Excel row 526: "Crystal Ball"
+NEW from Excel row 527: "Lyre of Building"
+NEW from Excel row 528: "Rod of the Vonindod"
+NEW from Excel row 529: "Sensory Stone"
+EXACT 1.000: Excel row 530 "Siege Golem" -> TS "Siege Golem" | kept existing TS formatting (description similarity 0.991)
+EXACT 1.000: Excel row 531 "Build a Base" -> TS "Build a Base" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 532 "Landscaping or Clay Golem" -> TS "Landscaping or Clay Golem" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 533 "Vehicle Operator or Crystal Golem" -> TS "Vehicle Operator or Crystal Golem" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 534 "Carpenter or Wood Golem" -> TS "Carpenter or Wood Golem" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 535 "Mason or Stone Golem" -> TS "Mason or Stone Golem" | kept existing TS formatting (description similarity 0.987)
+EXACT 1.000: Excel row 536 "Smith or Iron Golem" -> TS "Smith or Iron Golem" | kept existing TS formatting (description similarity 0.989)
+EXACT 1.000: Excel row 537 "Builder or Steel Golem" -> TS "Builder or Steel Golem" | kept existing TS formatting (description similarity 0.968)
+NEW from Excel row 538: "Unprocessed Supplies"
+NEW from Excel row 539: "Custom Golem Construction"
+NEW from Excel row 540: "Speaking Stone"
+
+TRIBE: Iconic Dragonic
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeIconicDragonic.ts
+Resolved by: explicit filename map
+Excel rows: 73
+Matches: exact=7, normalized=0, prefix=0, fuzzy=0, new=66, TS-only=0
+Descriptions: format preserved=7, updated from Excel=66
+--------------------------------------------------------------------------------
+NEW from Excel row 541: "Crown of Lies"
+NEW from Excel row 542: "Boots of False Tracks"
+NEW from Excel row 543: "Cloak of Billowing"
+NEW from Excel row 544: "Cloak of Many Fashions"
+NEW from Excel row 545: "Clothes of Mending"
+NEW from Excel row 546: "Hat of Vermin"
+NEW from Excel row 547: "Hat of Wizardry"
+NEW from Excel row 548: "Medal of the Horizonback"
+NEW from Excel row 549: "Pole of Collapsing"
+NEW from Excel row 550: "Shiftweave"
+NEW from Excel row 551: "Belashyrra's Beholder Crown"
+NEW from Excel row 552: "Cloak of Invisibility"
+NEW from Excel row 553: "Gloves of Soul Catching"
+NEW from Excel row 554: "Lost Crown of Besilmer"
+NEW from Excel row 555: "Robe of the Archmagi"
+NEW from Excel row 556: "Shard Solitaire"
+NEW from Excel row 557: "Boots of Levitation"
+NEW from Excel row 558: "Boots of Speed"
+NEW from Excel row 559: "Bridle of Capturing"
+NEW from Excel row 560: "Chromatic Rose"
+NEW from Excel row 561: "Cloak of Displacement"
+NEW from Excel row 562: "Cloak of the Bat"
+NEW from Excel row 563: "Crown of the Wrath Bringer"
+NEW from Excel row 564: "Dragonhide Belt"
+NEW from Excel row 565: "Galder's Bubble Pipe"
+NEW from Excel row 566: "Hell Hound Cloak"
+NEW from Excel row 567: "Iron Bands of Bilarro"
+NEW from Excel row 568: "Mantle of Spell Resistance"
+NEW from Excel row 569: "Mind Crystal"
+NEW from Excel row 570: "Mizzium Mortar"
+NEW from Excel row 571: "Piwafwi of Fire Resistance"
+NEW from Excel row 572: "Robe of Eyes"
+NEW from Excel row 573: "Robe of Summer"
+NEW from Excel row 574: "Scaled Ornament"
+NEW from Excel row 575: "Shadowfell Shard"
+NEW from Excel row 576: "Wayfarer's Boots"
+EXACT 1.000: Excel row 577 "Five-Pointed Chromatic Dragonic Crown" -> TS "Five-Pointed Chromatic Dragonic Crown" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 578 "Metallic Dragon Anvil and Hammer" -> TS "Metallic Dragon Anvil and Hammer" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 579: "Boots of Elvenkind"
+NEW from Excel row 580: "Boots of Striding and Springing"
+NEW from Excel row 581: "Boots of the Winterlands"
+NEW from Excel row 582: "Cloak of Elvenkind"
+NEW from Excel row 583: "Cloak of Protection"
+NEW from Excel row 584: "Cloak of the Manta Ray"
+NEW from Excel row 585: "Coiling Grasp Tattoo"
+NEW from Excel row 586: "Dragonhide Belt"
+NEW from Excel row 587: "Dragon-Touched Focus"
+NEW from Excel row 588: "Driftglobe"
+NEW from Excel row 589: "Eldritch Claw Tattoo"
+NEW from Excel row 590: "Gloves of Missile Snaring"
+NEW from Excel row 591: "Gloves of Swimming and Climbing"
+NEW from Excel row 592: "Gloves of Thievery"
+NEW from Excel row 593: "Hat of Disguise"
+NEW from Excel row 594: "Living Gloves"
+NEW from Excel row 595: "Mind Crystal"
+NEW from Excel row 596: "Pipes of Haunting"
+NEW from Excel row 597: "Robe of Serpents"
+NEW from Excel row 598: "Robe of Useful Items"
+NEW from Excel row 599: "Scaled Ornament"
+NEW from Excel row 600: "Slippers of Spider Climbing"
+NEW from Excel row 601: "Winged Boots"
+EXACT 1.000: Excel row 602 "Synapse-Silk Robes of the Elder Brain Dragon" -> TS "Synapse-Silk Robes of the Elder Brain Dragon" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 603 "Lunar Dragon Wand" -> TS "Lunar Dragon Wand" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 604 "Solar Dragon Hourglass Necklace" -> TS "Solar Dragon Hourglass Necklace" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 605 "Talisman of the Gemstone Dragon" -> TS "Talisman of the Gemstone Dragon" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 606: "Cloak of Arachnida"
+NEW from Excel row 607: "Deck Of Wild Cards"
+NEW from Excel row 608: "Dragonhide Belt"
+NEW from Excel row 609: "Mindguard Crown"
+NEW from Excel row 610: "Robe of Scintillating Colors"
+NEW from Excel row 611: "Robe of Stars"
+NEW from Excel row 612: "Shard of the Ise Rune"
+EXACT 1.000: Excel row 613 "Bedlam Earrings of the Floral Dragon" -> TS "Bedlam Earrings of the Floral Dragon" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE SKIPPED: Jazz's Portable Potions
+--------------------------------------------------------------------------------
+Reason: no explicit filename mapping and no existing tribe*.ts with a matching internal name
+No new tribe file was created. Add/fix the filename mapping if needed.
+
+TRIBE: Jell Bell
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeJellBell.ts
+Resolved by: explicit filename map
+Excel rows: 8
+Matches: exact=1, normalized=0, prefix=0, fuzzy=0, new=7, TS-only=3
+Descriptions: format preserved=0, updated from Excel=8
+--------------------------------------------------------------------------------
+NEW from Excel row 615: "Perfume of Bewitching"
+NEW from Excel row 616: "1 - Slappy, +1 STR"
+EXACT 1.000: Excel row 617 "3 Star Bell" -> TS "3 Star Bell" | updated from Excel (description similarity 0.255)
+NEW from Excel row 618: "1 - Tiny, AC: 13, HP: x1"
+NEW from Excel row 619: "1 - Liquidy, 5 HP, 10 ft Walk, 40 ft Swim"
+NEW from Excel row 620: "1 - Cute Bow: Can telepathically communicate"
+NEW from Excel row 621: "1 - Pineapple Slime, Acid Resistance"
+NEW from Excel row 622: "Kyrzin's Ooze"
+TS-ONLY PRESERVED: "4 Star Bell"
+TS-ONLY PRESERVED: "5 Star Bell"
+TS-ONLY PRESERVED: "Fuse two Slimes"
+
+TRIBE: Jewelry Guild
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeJewelryGuild.ts
+Resolved by: explicit filename map
+Excel rows: 78
+Matches: exact=8, normalized=4, prefix=0, fuzzy=0, new=66, TS-only=0
+Descriptions: format preserved=12, updated from Excel=66
+--------------------------------------------------------------------------------
+NEW from Excel row 623: "Stonky's Ring"
+NEW from Excel row 624: "Luba's Tarokka of Souls"
+NEW from Excel row 625: "Ring of Winter"
+NEW from Excel row 626: "Band of Loyalty"
+NEW from Excel row 627: "Cleansing Stone"
+NEW from Excel row 628: "Clockwork Amulet"
+NEW from Excel row 629: "Dark Shard Amulet"
+NEW from Excel row 630: "Jewel of Three Prayers"
+NEW from Excel row 631: "Nightfall Pearl"
+NEW from Excel row 632: "Ring of Djinni Summoning"
+NEW from Excel row 633: "Ring of Elemental Command"
+NEW from Excel row 634: "Ring of Spell Turning"
+NEW from Excel row 635: "Ring of Three Wishes"
+NEW from Excel row 636: "Ruby Weave Gem"
+NEW from Excel row 637: "Spell Gem"
+NEW from Excel row 638: "Talisman of Pure Good"
+NEW from Excel row 639: "Talisman of the Sphere"
+NEW from Excel row 640: "Talisman of Ultimate Evil"
+NEW from Excel row 641: "Amulet of Health"
+NEW from Excel row 642: "Amulet of Protection from Turning"
+NEW from Excel row 643: "Amulet of the Devout"
+NEW from Excel row 644: "Gem of Seeing"
+NEW from Excel row 645: "Necklace of Fireballs"
+NEW from Excel row 646: "Ring of Animal Influence"
+NEW from Excel row 647: "Ring of Evasion"
+NEW from Excel row 648: "Ring of Feather Falling"
+NEW from Excel row 649: "Ring of Free Action"
+NEW from Excel row 650: "Ring of Protection"
+NEW from Excel row 651: "Ring of Resistance"
+NEW from Excel row 652: "Ring of Spell Storing"
+NEW from Excel row 653: "Ring of Temporal Salvation"
+NEW from Excel row 654: "Ring of the Ram"
+NEW from Excel row 655: "Spell Gem (Fix this)"
+NEW from Excel row 656: "Amulet of Proof Against Detection and Location"
+NEW from Excel row 657: "Amulet of the Devout"
+NEW from Excel row 658: "Brooch of Living Essence"
+NEW from Excel row 659: "Brooch of Shielding"
+NEW from Excel row 660: "Circlet of Blasting"
+NEW from Excel row 661: "Circlet of Human Perfection"
+NEW from Excel row 662: "Elemental Gem"
+NEW from Excel row 663: "Emerald Pen"
+NEW from Excel row 664: "Fabulist Gem"
+NEW from Excel row 665: "Gem of Brightness"
+NEW from Excel row 666: "Necklace of Adaptation"
+NEW from Excel row 667: "Pearl of Power"
+NEW from Excel row 668: "Ring of Jumping"
+NEW from Excel row 669: "Ring of Obscuring"
+NEW from Excel row 670: "Ring Of Puzzler's Wit"
+NEW from Excel row 671: "Ring of Swimming"
+NEW from Excel row 672: "Ring of the Orator"
+NEW from Excel row 673: "Ring of Warmth"
+NEW from Excel row 674: "Ring of Water Walking"
+NEW from Excel row 675: "Rings of Shared Suffering"
+NEW from Excel row 676: "Spell Gem"
+EXACT 1.000: Excel row 677 "Chipped Gemstone" -> TS "Chipped Gemstone" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 678 "Degrading Diamond Dust" -> TS "Degrading Diamond Dust" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 679 "Emerald Entrancement" -> TS "Emerald Entrancement (This item can be socketed into any weapon)" | kept existing TS formatting (description similarity 0.867)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 680 "Obsidian Oath" -> TS "Obsidian Oath (This item can be socketed into any armor)" | kept existing TS formatting (description similarity 0.952)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 681 "Petrifying Pyrite Pebbles" -> TS "Petrifying Pyrite Pebbles (This item can be socketed into any weapon)" | kept existing TS formatting (description similarity 0.898)
+EXACT 1.000: Excel row 682 "Phantom Pearl Powder" -> TS "Phantom Pearl Powder" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 683 "Reaper Ruby" -> TS "Reaper Ruby (This item can be socketed into any weapon)" | kept existing TS formatting (description similarity 0.838)
+EXACT 1.000: Excel row 684 "Soul Swapping Sapphire" -> TS "Soul Swapping Sapphire" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 685 "Flawed Gemstone" -> TS "Flawed Gemstone" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 686 "Empty Memory Stone" -> TS "Empty Memory Stone" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 687 "Flawless Gemstone" -> TS "Flawless Gemstone" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 688 "Radiant Gemstone" -> TS "Radiant Gemstone" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 689: "Amulet of the Black Skull"
+NEW from Excel row 690: "Amulet of the Devout"
+NEW from Excel row 691: "Amulet of the Planes"
+NEW from Excel row 692: "Horned Ring"
+NEW from Excel row 693: "Ring of Amity"
+NEW from Excel row 694: "Ring of Red Fury"
+NEW from Excel row 695: "Ring of Regeneration"
+NEW from Excel row 696: "Ring of Shooting Stars"
+NEW from Excel row 697: "Ring of Telekinesis"
+NEW from Excel row 698: "Sage's Signet"
+NEW from Excel row 699: "Sanctum Amulet"
+NEW from Excel row 700: "Spell Gem"
+
+TRIBE: Labyrinthine Library
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeLabyrinthineLibrary.ts
+Resolved by: explicit filename map
+Excel rows: 7
+Matches: exact=0, normalized=0, prefix=1, fuzzy=0, new=6, TS-only=0
+Descriptions: format preserved=0, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 701: "Heart Weaver's Primer"
+NEW from Excel row 702: "Teleportation Tablet"
+NEW from Excel row 703: "Feywild Shard"
+PREFIX 0.940: Excel row 704 "Are you looking for knowledge? The Labyrinth Library might be just the thing for you. It's not your typical dungeon—it's a mobile pocket dimension. It's not run by the Dungeon Crawlers Guild, which likes brawn over brains." -> TS "Are you looking for knowledge?" | updated from Excel (description similarity 0.000)
+NEW from Excel row 705: "When you're ready to explore, let me know what interests you. You can choose a specific topic or go for a general overview. But be warned - each level you explore will require a greater toll. You might lose health, spell slots, or even unique abilities. However, the deeper you go, the more knowledge you'll gain."
+NEW from Excel row 706: "The Labyrinth Library is definitely worth the risk. You'll uncover a wealth of information about your chosen topic. So, if you're ready for the challenge, prepare for an adventure full of rewards!"
+NEW from Excel row 707: "Draakhorn"
+
+TRIBE: Make a Monster
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeMonsterMaker.ts
+Resolved by: explicit filename map
+Excel rows: 11
+Matches: exact=0, normalized=0, prefix=0, fuzzy=0, new=11, TS-only=25
+Descriptions: format preserved=0, updated from Excel=11
+--------------------------------------------------------------------------------
+NEW from Excel row 708: "Bigby's Beneficent Bracelet"
+NEW from Excel row 709: "Bowl of Commanding Water Elementals"
+NEW from Excel row 710: "Brazier of Commanding Fire Elementals"
+NEW from Excel row 711: "Censer of Controlling Air Elementals"
+NEW from Excel row 712: "Stone of Controlling Earth Elementals"
+NEW from Excel row 713: "Balloon Pack"
+NEW from Excel row 714: "Type of Elemental"
+NEW from Excel row 715: "Size Options"
+NEW from Excel row 716: "Age Category"
+NEW from Excel row 717: "Personality Customization"
+NEW from Excel row 718: "Additional Accessories"
+TS-ONLY PRESERVED: "Water Elemental"
+TS-ONLY PRESERVED: "Air Elemental"
+TS-ONLY PRESERVED: "Earth Elemental"
+TS-ONLY PRESERVED: "Ice Elemental"
+TS-ONLY PRESERVED: "Fire Elemental"
+TS-ONLY PRESERVED: "Metal Elemental"
+TS-ONLY PRESERVED: "Lightning Elemental"
+TS-ONLY PRESERVED: "Cosmic (Arcane) Elemental"
+TS-ONLY PRESERVED: "Tiny"
+TS-ONLY PRESERVED: "Small"
+TS-ONLY PRESERVED: "Medium"
+TS-ONLY PRESERVED: "Young"
+TS-ONLY PRESERVED: "Adult"
+TS-ONLY PRESERVED: "Elder"
+TS-ONLY PRESERVED: "Fierce"
+TS-ONLY PRESERVED: "Nimble"
+TS-ONLY PRESERVED: "Resilient"
+TS-ONLY PRESERVED: "Keen"
+TS-ONLY PRESERVED: "Wise"
+TS-ONLY PRESERVED: "Charming"
+TS-ONLY PRESERVED: "Make it glow!"
+TS-ONLY PRESERVED: "Friendship Bracelet"
+TS-ONLY PRESERVED: "Any Color Bow"
+TS-ONLY PRESERVED: "Power Snack"
+TS-ONLY PRESERVED: "Toasts Besties Scarf"
+
+TRIBE: Michael's Mount
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeMichaelsMount.ts
+Resolved by: explicit filename map
+Excel rows: 18
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=10, TS-only=0
+Descriptions: format preserved=8, updated from Excel=10
+--------------------------------------------------------------------------------
+NEW from Excel row 719: "Charlatan's Die"
+NEW from Excel row 720: "Medal of the Wetlands"
+NEW from Excel row 721: "Figurine of Wondrous Power"
+NEW from Excel row 722: "Feather of Diatryma Summoning"
+NEW from Excel row 723: "Figurine of Wondrous Power"
+NEW from Excel row 724: "Prehistoric Figurines of Wondrous Power"
+EXACT 1.000: Excel row 725 "Woolly Mammoth" -> TS "Woolly Mammoth" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 726 "Plesiosaurus" -> TS "Plesiosaurus" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 727 "Hippogriff" -> TS "Hippogriff" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 728 "Pegasus" -> TS "Pegasus" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 729: "Prehistoric Figurines of Wondrous Power"
+NEW from Excel row 730: "Saddle of the Cavalier"
+EXACT 1.000: Excel row 731 "Dolphin Delighter" -> TS "Dolphin Delighter" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 732 "War horse" -> TS "War horse" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 733 "Velociraptor" -> TS "Velociraptor" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 734 "Baby Purple Worm" -> TS "Baby Purple Worm" | kept existing TS formatting (description similarity 0.997)
+NEW from Excel row 735: "Figurine of Wondrous Power"
+NEW from Excel row 736: "Prehistoric Figurines of Wondrous Power"
+
+TRIBE: N.M.E.
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeNME.ts
+Resolved by: explicit filename map
+Excel rows: 28
+Matches: exact=6, normalized=0, prefix=0, fuzzy=1, new=21, TS-only=0
+Descriptions: format preserved=6, updated from Excel=22
+--------------------------------------------------------------------------------
+NEW from Excel row 737: "Blood Fury Tattoo"
+NEW from Excel row 738: "Prehistoric Figurines of Wondrous Power"
+EXACT 1.000: Excel row 739 "Scroll of True Resurrection" -> TS "Scroll of True Resurrection" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 740: "Bloodwell Vial"
+NEW from Excel row 741: "Butcher's Bib"
+NEW from Excel row 742: "Delver's Claws"
+NEW from Excel row 743: "Horn of the Endless Maze"
+NEW from Excel row 744: "Outer Essence Shard"
+NEW from Excel row 745: "Protective Verses"
+NEW from Excel row 746: "Weird Tank"
+NEW from Excel row 747: "Bloodwell Vial"
+NEW from Excel row 748: "Figurine of Wondrous Power"
+NEW from Excel row 749: "Gauntlets of Ogre Power"
+NEW from Excel row 750: "Guild Keyrune"
+NEW from Excel row 751: "House Of Cards"
+NEW from Excel row 752: "Keoghtom's Ointment"
+NEW from Excel row 753: "Periapt of Wound Closure"
+EXACT 1.000: Excel row 754 "Blood for Blackmail" -> TS "Blood for Blackmail" | updated from Excel (description similarity 0.481)
+EXACT 1.000: Excel row 755 "Blood for An Endless Elixir" -> TS "Blood for An Endless Elixir" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 756 "Blood for Power" -> TS "Blood for Power" | kept existing TS formatting (description similarity 1.000)
+FUZZY 0.897: Excel row 757 "Blood for Spectral Servant" -> TS "Blood for Loyal Spectral Servant" | kept existing TS formatting (description similarity 0.948)
+EXACT 1.000: Excel row 758 "Blood for Coffin-Safe" -> TS "Blood for Coffin-Safe" | kept existing TS formatting (description similarity 0.932)
+EXACT 1.000: Excel row 759 "Become a Vampire" -> TS "Become a Vampire" | kept existing TS formatting (description similarity 0.829)
+NEW from Excel row 760: "Absorbing Tattoo"
+NEW from Excel row 761: "Battle Standard of Infernal Power"
+NEW from Excel row 762: "Bloodwell Vial"
+NEW from Excel row 763: "Chime of Exile"
+NEW from Excel row 764: "Scaled Ornament"
+
+TRIBE: Navigation Guild
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeNavigationGuild.ts
+Resolved by: explicit filename map
+Excel rows: 46
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=38, TS-only=0
+Descriptions: format preserved=8, updated from Excel=38
+--------------------------------------------------------------------------------
+NEW from Excel row 765: "Medal of the Conch"
+EXACT 1.000: Excel row 766 "One town over" -> TS "One town over" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 767: "Dragon-Touched Focus"
+NEW from Excel row 768: "Scaled Ornament"
+NEW from Excel row 769: "Astral Shard"
+NEW from Excel row 770: "Atlas of Endless Horizons"
+NEW from Excel row 771: "Bracer of Flying Daggers"
+NEW from Excel row 772: "Claw of the Wyrm Rune"
+NEW from Excel row 773: "Dimensional Shackles"
+NEW from Excel row 774: "Dragon-Touched Focus"
+NEW from Excel row 775: "Eagle Whistle"
+NEW from Excel row 776: "Elemental Essence Shard"
+NEW from Excel row 777: "Flying Chariot"
+NEW from Excel row 778: "Folding Boat"
+NEW from Excel row 779: "Helm of Teleportation"
+NEW from Excel row 780: "Hook of Fisher's Delight"
+NEW from Excel row 781: "Quaal's Feather Token"
+NEW from Excel row 782: "Rogue's Mantle"
+NEW from Excel row 783: "Spelljamming Helm"
+NEW from Excel row 784: "Staff of Swarming Insects"
+NEW from Excel row 785: "Wings of Flying"
+NEW from Excel row 786: "Broom of Flying"
+NEW from Excel row 787: "Paper Bird"
+NEW from Excel row 788: "Pixie Dust"
+NEW from Excel row 789: "Portal Compass"
+NEW from Excel row 790: "Skyblinder Staff"
+NEW from Excel row 791: "Wheel of Wind and Water"
+NEW from Excel row 792: "Wingwear"
+EXACT 1.000: Excel row 793 "Letter of Recommendation" -> TS "Letter of Recommendation" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 794 "Emergency survival kit" -> TS "Emergency survival kit" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 795 "Suvenirs" -> TS "Suvenirs" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 796 "Two towns over" -> TS "Two towns over" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 797 "Three towns over" -> TS "Three towns over" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 798 "Four towns over" -> TS "Four towns over" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 799 "Five towns over" -> TS "Five towns over" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 800: "Amethyst Lodestone"
+NEW from Excel row 801: "Bobbing Lily Pad"
+NEW from Excel row 802: "Carpet of Flying"
+NEW from Excel row 803: "Conch of Teleportation"
+NEW from Excel row 804: "Deck Of Dimensions"
+NEW from Excel row 805: "Dragon-Touched Focus"
+NEW from Excel row 806: "Eldritch Staff"
+NEW from Excel row 807: "Flying Citadel Helm"
+NEW from Excel row 808: "Navigation Orb"
+NEW from Excel row 809: "Ornithopter of Flying"
+NEW from Excel row 810: "Timepiece of Travel"
+
+TRIBE: Necromancy Insurance Company
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeNecromancyInsuranceCompany.ts
+Resolved by: explicit filename map
+Excel rows: 33
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=25, TS-only=0
+Descriptions: format preserved=8, updated from Excel=25
+--------------------------------------------------------------------------------
+NEW from Excel row 811: "Orcus Figurine"
+NEW from Excel row 812: "Staff of Adornment"
+NEW from Excel row 813: "Wand Sheath"
+NEW from Excel row 814: "Azuredge"
+NEW from Excel row 815: "Blackrazor"
+NEW from Excel row 816: "Blackstaff"
+NEW from Excel row 817: "Scarab of Protection"
+NEW from Excel row 818: "Bell Branch"
+NEW from Excel row 819: "Blod Stone"
+NEW from Excel row 820: "Bonecounter"
+NEW from Excel row 821: "Cauldron of Plenty"
+NEW from Excel row 822: "Corpse Slayer"
+NEW from Excel row 823: "Cube of Force"
+NEW from Excel row 824: "Guild Keyrune"
+NEW from Excel row 825: "Libram of Souls and Flesh"
+NEW from Excel row 826: "Saint Markovia's Thighbone"
+NEW from Excel row 827: "Scissors of Shadow Snipping"
+NEW from Excel row 828: "Scroll of Protection"
+NEW from Excel row 829: "Warrior's Passkey"
+NEW from Excel row 830: "Deck of Illusions"
+NEW from Excel row 831: "Eversmoking Bottle"
+NEW from Excel row 832: "Night Caller"
+EXACT 1.000: Excel row 833 "Corpse Collection Fee, Child" -> TS "Corpse Collection Fee, Child" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 834 "Oh how we miss you already Plan" -> TS "Oh how we miss you already Plan" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 835 "Undead Protection Plan" -> TS "Undead Protection Plan" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 836 "Corpse Collection Fee, Teen" -> TS "Corpse Collection Fee, Teen" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 837 "Corpse Collection Fee , Adult" -> TS "Corpse Collection Fee , Adult" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 838 "Second Chance Plan" -> TS "Second Chance Plan" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 839 "Corpse Collection Fee, Boss" -> TS "Corpse Collection Fee, Boss" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 840: "Bloodaxe"
+NEW from Excel row 841: "Cauldron of Rebirth"
+NEW from Excel row 842: "Constantori's Portrait"
+EXACT 1.000: Excel row 843 "Sealed Coffin Plan" -> TS "Sealed Coffin Plan" | kept existing TS formatting (description similarity 1.000)
+
+TRIBE: O-Papies Oracle Readings
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeOPapiesOracleReadings.ts
+Resolved by: explicit filename map
+Excel rows: 25
+Matches: exact=8, normalized=0, prefix=0, fuzzy=0, new=17, TS-only=0
+Descriptions: format preserved=8, updated from Excel=17
+--------------------------------------------------------------------------------
+NEW from Excel row 844: "Fate Dealer's Deck"
+NEW from Excel row 845: "Ioun Stone"
+NEW from Excel row 846: "Spindle Of Fate"
+NEW from Excel row 847: "Astromancy Archive"
+NEW from Excel row 848: "Deck Of Oracles"
+NEW from Excel row 849: "Far Realm Shard"
+NEW from Excel row 850: "Fate Dealer's Deck"
+NEW from Excel row 851: "Ioun Stone (Fix this)"
+NEW from Excel row 852: "Sage's Signet (Fix this)"
+NEW from Excel row 853: "Stonespeaker Crystal"
+NEW from Excel row 854: "Deck Of Wonder"
+EXACT 1.000: Excel row 855 "Fancy themed 52 play cards" -> TS "Fancy themed 52 play cards" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 856 "Homemade Incense & Candles to set the mood" -> TS "Homemade Incense & Candles to set the mood" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 857 "Near Future Reading" -> TS "Near Future Reading" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 858 "Compatible Reading" -> TS "Compatible Reading" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 859 "Far Future Reading" -> TS "Far Future Reading" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 860 "Near Future Blessing" -> TS "Near Future Blessing" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 861 "Far Future Blessing" -> TS "Far Future Blessing" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 862 "Luside dream in a bottle" -> TS "Luside dream in a bottle" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 863: "Chronolometer"
+NEW from Excel row 864: "Devastation Orb"
+NEW from Excel row 865: "Fate Cutter Shears"
+NEW from Excel row 866: "Fate Dealer's Deck"
+NEW from Excel row 867: "Ioun Stone"
+NEW from Excel row 868: "Staff of Fate"
+
+TRIBE: Paws, Claws, & Maws
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribePawsClawsMaws.ts
+Resolved by: explicit filename map
+Excel rows: 17
+Matches: exact=10, normalized=0, prefix=0, fuzzy=0, new=7, TS-only=0
+Descriptions: format preserved=10, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 869: "Cuddly Strixhaven Mascot"
+NEW from Excel row 870: "Cubic Gate"
+NEW from Excel row 871: "Claws of the Umber Hulk"
+EXACT 1.000: Excel row 872 "Griffon Egg" -> TS "Griffon Egg" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 873 "Owlbear Cub" -> TS "Owlbear Cub" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 874: "Owlbear Cub"
+EXACT 1.000: Excel row 875 "Displacer Kitten" -> TS "Displacer Kitten" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 876 "Phantom Mouse" -> TS "Phantom Mouse" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 877: "Dust of Corrosion"
+NEW from Excel row 878: "Insignia of Claws"
+EXACT 1.000: Excel row 879 "Baby Basilisk" -> TS "Baby Basilisk" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 880 "Chimera Chick" -> TS "Chimera Chick" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 881 "Shadow Pup" -> TS "Shadow Pup" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 882 "Faerie Chest Weasel" -> TS "Faerie Chest Weasel" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 883 "Mimic Spawn" -> TS "Mimic Spawn" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 884 "Pseudodragon Tyke" -> TS "Pseudodragon Tyke" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 885: "Dispelling Stone"
+
+TRIBE: Pearl's Potions
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribePearlsPotions.ts
+Resolved by: explicit filename map
+Excel rows: 66
+Matches: exact=15, normalized=0, prefix=0, fuzzy=0, new=51, TS-only=0
+Descriptions: format preserved=14, updated from Excel=52
+--------------------------------------------------------------------------------
+NEW from Excel row 886: "Potion of Climbing"
+NEW from Excel row 887: "Potion of Healing"
+NEW from Excel row 888: "Potion of Watchful Rest"
+NEW from Excel row 889: "Belt of Giant Strength"
+NEW from Excel row 890: "Potion of Dragon's Majesty"
+NEW from Excel row 891: "Potion of Giant Size"
+NEW from Excel row 892: "Potion of Giant Strength"
+NEW from Excel row 893: "Belt of Giant Strength"
+NEW from Excel row 894: "Elixir of Health"
+NEW from Excel row 895: "Oil of Etherealness"
+NEW from Excel row 896: "Periapt of Proof against Poison"
+NEW from Excel row 897: "Potion of Aqueous Form"
+NEW from Excel row 898: "Potion of Clairvoyance"
+NEW from Excel row 899: "Potion of Diminution"
+NEW from Excel row 900: "Potion of Gaseous Form"
+NEW from Excel row 901: "Potion of Giant Strength"
+NEW from Excel row 902: "Potion of Superior Healing"
+NEW from Excel row 903: "Potion of Heroism"
+NEW from Excel row 904: "Potion of Invulnerability"
+NEW from Excel row 905: "Potion of Maximum Power"
+NEW from Excel row 906: "Potion of Mind Control"
+NEW from Excel row 907: "Potion of Mind Reading"
+EXACT 1.000: Excel row 908 "Invisible" -> TS "Invisible" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 909: "Blood of the Lycanthrope Antidote"
+NEW from Excel row 910: "Bottled Breath"
+NEW from Excel row 911: "Mummy Rot Antidote"
+NEW from Excel row 912: "Oil of Slipperiness"
+NEW from Excel row 913: "Periapt of Health"
+NEW from Excel row 914: "Philter of Love"
+NEW from Excel row 915: "Potion of Advantage"
+NEW from Excel row 916: "Potion of Animal Friendship"
+NEW from Excel row 917: "Potion of Fire Breath"
+NEW from Excel row 918: "Potion of Giant Strength"
+EXACT 1.000: Excel row 919 "Potion of Growth" -> TS "Potion of Growth" | updated from Excel (description similarity 0.282)
+NEW from Excel row 920: "Potion of Greater Healing"
+NEW from Excel row 921: "Potion of Poison"
+NEW from Excel row 922: "Potion Of Polychromy"
+NEW from Excel row 923: "Potion of Psionic Fortitude"
+NEW from Excel row 924: "Potion of Resistance"
+NEW from Excel row 925: "Potion of Water Breathing"
+NEW from Excel row 926: "Thessaltoxin Antidote"
+EXACT 1.000: Excel row 927 "Healing Potion" -> TS "Healing Potion" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 928 "Greater Health Potion" -> TS "Greater Health Potion" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 929 "Antidote" -> TS "Antidote" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 930 "Poison" -> TS "Poison" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 931 "Superior Healing Potion" -> TS "Superior Healing Potion" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 932: "Potion of Growth"
+EXACT 1.000: Excel row 933 "Potion of Diminishing" -> TS "Potion of Diminishing" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 934 "Supreme Healing Potion" -> TS "Supreme Healing Potion" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 935 "Sleep" -> TS "Sleep" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 936 "Hill Giant's Strength" -> TS "Hill Giant's Strength" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 937 "Shadow Dancer's Nimbleness" -> TS "Shadow Dancer's Nimbleness" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 938 "Deva's Enlightenment" -> TS "Deva's Enlightenment" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 939 "Unicorn's Empathy" -> TS "Unicorn's Empathy" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 940 "Potion of Sphinx's Grace" -> TS "Potion of Sphinx's Grace" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 941: "Belt of Giant Strength"
+NEW from Excel row 942: "Oil of Sharpness"
+NEW from Excel row 943: "Potion of Flying"
+NEW from Excel row 944: "Potion of Giant Strength"
+NEW from Excel row 945: "Potion of Supreme Healing"
+NEW from Excel row 946: "Potion of Invisibility"
+NEW from Excel row 947: "Potion of Longevity"
+NEW from Excel row 948: "Potion of Mind Control"
+NEW from Excel row 949: "Potion of Possibility"
+NEW from Excel row 950: "Potion of Speed"
+NEW from Excel row 951: "Potion of Vitality"
+
+TRIBE: Provision's Paradise
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeProvisionsParadise.ts
+Resolved by: explicit filename map
+Excel rows: 43
+Matches: exact=30, normalized=0, prefix=0, fuzzy=0, new=13, TS-only=0
+Descriptions: format preserved=12, updated from Excel=31
+--------------------------------------------------------------------------------
+NEW from Excel row 952: "Daoud's Wondrous Lantern"
+NEW from Excel row 953: "Candle of the Deep"
+NEW from Excel row 954: "Everbright Lantern"
+NEW from Excel row 955: "Mind Crystal"
+NEW from Excel row 956: "Spellwrought Tattoo"
+NEW from Excel row 957: "Spell Bottle"
+NEW from Excel row 958: "Spellwrought Tattoo"
+EXACT 1.000: Excel row 959 "Bag of Holding" -> TS "Bag of Holding" | updated from Excel (description similarity 0.050)
+NEW from Excel row 960: "Bag of Tricks"
+NEW from Excel row 961: "Lantern of Revealing"
+NEW from Excel row 962: "Spellwrought Tattoo"
+EXACT 1.000: Excel row 963 "Leatherworker’s tools" -> TS "Leatherworker’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 964 "Scratch-off Lottery Card" -> TS "Scratch-off Lottery Card" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 965 "Ye Old Slushy" -> TS "Ye Old Slushy" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 966 "Candy bar" -> TS "Candy bar" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 967 "Sticker Sheet" -> TS "Sticker Sheet" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 968 "Flavored Sunflower Seeds" -> TS "Flavored Sunflower Seeds" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 969 "Slice of pizza" -> TS "Slice of pizza" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 970 "Rotisserie 'Bird'" -> TS "Rotisserie 'Bird'" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 971 "8-pack of Cup of Noodles" -> TS "8-pack of Cup of Noodles" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 972 "Jerky Strips" -> TS "Jerky Strips" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 973 "Alchemist’s supplies" -> TS "Alchemist’s supplies" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 974 "Brewer's Supplies" -> TS "Brewer's Supplies" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 975 "Calligrapher's supplies" -> TS "Calligrapher's supplies" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 976 "Carpenter’s tools" -> TS "Carpenter’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 977 "Cartographer’s tools" -> TS "Cartographer’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 978 "Cobbler’s tools" -> TS "Cobbler’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 979 "Cook’s utensils" -> TS "Cook’s utensils" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 980 "Glassblower’s tools" -> TS "Glassblower’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 981 "Jeweler’s tools" -> TS "Jeweler’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 982 "Mason’s tools" -> TS "Mason’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 983 "Painter’s supplies" -> TS "Painter’s supplies" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 984 "Potter’s tools" -> TS "Potter’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 985 "Smith’s tools" -> TS "Smith’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 986 "Tinker’s tools" -> TS "Tinker’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 987 "Weaver’s tools" -> TS "Weaver’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 988 "Woodcarver’s tools" -> TS "Woodcarver’s tools" | updated from Excel (description similarity 0.000)
+EXACT 1.000: Excel row 989 "Small Components Bag" -> TS "Small Components Bag" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 990 "Medium Components Bag" -> TS "Medium Components Bag" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 991: "Bag of Holding"
+EXACT 1.000: Excel row 992 "Large Components Bag" -> TS "Large Components Bag" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 993: "Bag of Devouring"
+NEW from Excel row 994: "Efreeti Bottle"
+
+TRIBE: Robin's Ropes
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeRobinsRopes.ts
+Resolved by: explicit filename map
+Excel rows: 22
+Matches: exact=0, normalized=16, prefix=1, fuzzy=0, new=5, TS-only=0
+Descriptions: format preserved=0, updated from Excel=22
+--------------------------------------------------------------------------------
+NEW from Excel row 995: "Rope of Mending"
+NEW from Excel row 996: "Efreeti Chain"
+NEW from Excel row 997: "Elven Chain"
+NEW from Excel row 998: "Rope of Entanglement"
+NEW from Excel row 999: "Rope of Climbing"
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1000 "Normal Rope" -> TS "Normal Rope (50 feet)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1001 "Carabiners" -> TS "Carabiners (Pair, Steel Screw-lock)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1002 "Clothesline & Camp Lines Kit" -> TS "Clothesline & Camp Lines Kit (Pegs + cord + tensioners)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1003 "Waterproof Knot-Book" -> TS "Waterproof Knot-Book (Handbook of Practical Knots)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1004 "Grappling Hook" -> TS "Grappling Hook (Iron, 3-prong)" | updated from Excel (description similarity 0.000)
+PREFIX 0.940: Excel row 1005 "Pitons" -> TS "Pitons (Set of 10) + Wedge Hammer" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1006 "Quick-Deploy Rope Bag" -> TS "Quick-Deploy Rope Bag (Anti-tangle, fits 50 ft)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1007 "Knotted Throw Line" -> TS "Knotted Throw Line (50 ft, weighted end)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1008 "Splicing Kit" -> TS "Splicing Kit (Fids + waxed twine + needle)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1009 "Rope Ladder" -> TS "Rope Ladder (25 ft, wooden rungs)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1010 "Block & Tackle" -> TS "Block & Tackle (Haul Kit: 2 pulleys + hooks)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1011 "Silk Rope" -> TS "Silk Rope (25 feet per)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1012 "Cargo Net" -> TS "Cargo Net (Folding, 10 ft x 10 ft)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1013 "Folding Grapnel" -> TS "Folding Grapnel (Pocket-sized, 4-prong)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1014 "Net" -> TS "Net (100 feet)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1015 "Enchanted Climbing Rope" -> TS "Enchanted Climbing Rope (50 feet with hook)" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1016 "Enchanted Entanglement Rope" -> TS "Enchanted Entanglement Rope (25 feet)" | updated from Excel (description similarity 0.000)
+
+TRIBE: Runestone Relay
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeRunestoneRelay.ts
+Resolved by: explicit filename map
+Excel rows: 19
+Matches: exact=6, normalized=2, prefix=0, fuzzy=0, new=11, TS-only=0
+Descriptions: format preserved=6, updated from Excel=13
+--------------------------------------------------------------------------------
+NEW from Excel row 1017: "Earring of Message"
+NEW from Excel row 1018: "Moodmark Paint"
+EXACT 1.000: Excel row 1019 "Message Delivery" -> TS "Message Delivery" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1020 "Urgent Message" -> TS "Urgent Message" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1021: "Knave's Eye Patch"
+NEW from Excel row 1022: "Helm of Telepathy"
+NEW from Excel row 1023: "Psi Crystal"
+NEW from Excel row 1024: "Ring of Mind Shielding"
+NEW from Excel row 1025: "Sending Stones"
+NEW from Excel row 1026: "Spies' Murmur"
+EXACT 1.000: Excel row 1027 "Waterproof Mail Pouch" -> TS "Waterproof Mail Pouch" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1028 "Courier’s Guide" -> TS "Courier’s  Guide (pocket booklet)" | kept existing TS formatting (description similarity 0.960)
+EXACT 1.000: Excel row 1029 "Package Delivery" -> TS "Package Delivery" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1030 "A year-long subscription to the Daily Newspaper" -> TS "A year-long subscription to the Daily Newspaper" | updated from Excel (description similarity 0.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1031 "Document Tube" -> TS "Document Tube (map/scroll carrier)" | kept existing TS formatting (description similarity 0.915)
+EXACT 1.000: Excel row 1032 "Singing Telegram" -> TS "Singing Telegram" | updated from Excel (description similarity 0.000)
+NEW from Excel row 1033: "Crystal Ball"
+NEW from Excel row 1034: "Crystalline Chronicle"
+NEW from Excel row 1035: "Guild Keyrune"
+
+TRIBE: Silent Oath
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeSilentOath.ts
+Resolved by: explicit filename map
+Excel rows: 17
+Matches: exact=9, normalized=0, prefix=0, fuzzy=0, new=8, TS-only=0
+Descriptions: format preserved=9, updated from Excel=8
+--------------------------------------------------------------------------------
+NEW from Excel row 1036: "Illuminator's Tattoo"
+NEW from Excel row 1037: "Masque Charm"
+NEW from Excel row 1038: "Masquerade Tattoo"
+NEW from Excel row 1039: "Ring of Invisibility"
+NEW from Excel row 1040: "Shadowfell Brand Tattoo"
+NEW from Excel row 1041: "Dust of Disappearance"
+NEW from Excel row 1042: "Piwafwi"
+EXACT 1.000: Excel row 1043 "Blackmail Neutralization Contract" -> TS "Blackmail Neutralization Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1044 "Intel Gathering Contract" -> TS "Intel Gathering Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1045 "Surveillance Contract" -> TS "Surveillance Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1046 "Alibi Contract" -> TS "Alibi Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1047 "Safe Passage Contract" -> TS "Safe Passage Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1048 "Curse & Hex Contract" -> TS "Curse & Hex Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1049 "Identity Scrub Contract" -> TS "Identity Scrub Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1050 "Disposal Contract" -> TS "Disposal Contract" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1051 "Assassination Contract" -> TS "Assassination Contract" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1052: "Dimensional Loop"
+
+TRIBE: Sleuth University
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeSleuthUniversity.ts
+Resolved by: explicit filename map
+Excel rows: 21
+Matches: exact=6, normalized=1, prefix=0, fuzzy=0, new=14, TS-only=0
+Descriptions: format preserved=7, updated from Excel=14
+--------------------------------------------------------------------------------
+NEW from Excel row 1053: "Lantern of Tracking"
+NEW from Excel row 1054: "Docent"
+NEW from Excel row 1055: "Duplicitous Manuscript"
+NEW from Excel row 1056: "Loadstone"
+NEW from Excel row 1057: "Dust of Sneezing and Choking"
+NEW from Excel row 1058: "Earworm"
+NEW from Excel row 1059: "Eyes of Minute Seeing"
+NEW from Excel row 1060: "Finder's Goggles"
+NEW from Excel row 1061: "Goggles of Object Reading"
+NEW from Excel row 1062: "Infernal Puzzle Box"
+NEW from Excel row 1063: "Inquisitive's Goggles"
+NEW from Excel row 1064: "Ring of Truth Telling"
+NEW from Excel row 1065: "Stone of Ill Luck"
+NEW from Excel row 1066: "Wand of Magic Detection"
+EXACT 1.000: Excel row 1067 "Lost & Found" -> TS "Lost & Found" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1068 "Rent Capstone Experimental Spell / Magic Item" -> TS "Rent Capstone Experimental Spell / Magic Item" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1069 "Forensics Lab Analysis" -> TS "Forensics Lab Analysis" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1070 "Case Intake" -> TS "Case Intake (Hire a PI / Spy / Intern)" | kept existing TS formatting (description similarity 0.908)
+EXACT 1.000: Excel row 1071 "Find the Leak" -> TS "Find the Leak" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1072 "Public Records Pull" -> TS "Public Records Pull" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1073 "Rent: Whisper-Quill Recorder" -> TS "Rent: Whisper-Quill Recorder" | kept existing TS formatting (description similarity 0.867)
+
+TRIBE: Supreme Smithy
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeSupremeSmithy.ts
+Resolved by: explicit filename map
+Excel rows: 105
+Matches: exact=15, normalized=2, prefix=4, fuzzy=0, new=84, TS-only=0
+Descriptions: format preserved=17, updated from Excel=88
+--------------------------------------------------------------------------------
+NEW from Excel row 1074: "Shield of the Silver Dragon"
+NEW from Excel row 1075: "Helm of Perfect Potential"
+NEW from Excel row 1076: "Armor of Gleaming"
+NEW from Excel row 1077: "Cast-Off Armor"
+NEW from Excel row 1078: "Dread Helm"
+NEW from Excel row 1079: "Shield of Expression"
+NEW from Excel row 1080: "Smoldering Armor"
+NEW from Excel row 1081: "Armor, +3"
+NEW from Excel row 1082: "Armor of Invulnerability"
+NEW from Excel row 1083: "Euryale's Aegis"
+NEW from Excel row 1084: "Helm of Disjunction"
+NEW from Excel row 1085: "Helm of the Scavenger"
+PREFIX 0.940: Excel row 1086 "Hide of the Feral Guardian" -> TS "Hide" | updated from Excel (description similarity 0.047)
+NEW from Excel row 1087: "Obsidian Flint Dragon Plate"
+PREFIX 0.940: Excel row 1088 "Plate Armor of Etherealness" -> TS "Plate" | updated from Excel (description similarity 0.186)
+NEW from Excel row 1089: "Powered Armor"
+NEW from Excel row 1090: "Shield of the Blazing Dreadnought"
+NEW from Excel row 1091: "Shield of the Hidden Lord"
+NEW from Excel row 1092: "Stonebreaker's Breastplate"
+NEW from Excel row 1093: "Armor, +1"
+NEW from Excel row 1094: "Armor of Resistance"
+NEW from Excel row 1095: "Armor of Vulnerability"
+NEW from Excel row 1096: "Arrow-Catching Shield"
+NEW from Excel row 1097: "Barrier Tattoo"
+NEW from Excel row 1098: "Battering Shield"
+NEW from Excel row 1099: "Bracers of Defense"
+PREFIX 0.940: Excel row 1100 "Breastplate Of Balance" -> TS "Breastplate" | updated from Excel (description similarity 0.053)
+NEW from Excel row 1101: "Demon Skin"
+NEW from Excel row 1102: "Feywrought Armor"
+NEW from Excel row 1103: "Glamoured Studded Leather"
+NEW from Excel row 1104: "Gloomwrought Armor"
+PREFIX 0.940: Excel row 1105 "Leather Golem Armor" -> TS "Leather" | updated from Excel (description similarity 0.043)
+NEW from Excel row 1106: "Mizzium Armor"
+NEW from Excel row 1107: "Molten Bronze Skin"
+NEW from Excel row 1108: "Pariah's Shield"
+NEW from Excel row 1109: "Scorpion Armor"
+NEW from Excel row 1110: "Shield, +2"
+NEW from Excel row 1111: "Shield of Far Sight"
+NEW from Excel row 1112: "Shield of Missile Attraction"
+NEW from Excel row 1113: "Voidwalker Armor"
+NEW from Excel row 1114: "Zephyr Armor"
+EXACT 1.000: Excel row 1115 "Tower Shield" -> TS "Tower Shield" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1116 "Padded" -> TS "Padded" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1117 "Half Plate" -> TS "Half Plate" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1118 "Scale Mail" -> TS "Scale Mail" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1119 "Chain Mail" -> TS "Chain Mail" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1120 "Knight's Plate" -> TS "Knight's Plate" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1121: "Plate"
+EXACT 1.000: Excel row 1122 "Splint" -> TS "Splint" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1123 "Ring Mail" -> TS "Ring Mail" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1124: "Adamantine Armor"
+NEW from Excel row 1125: "Armor Of Fungal Spores"
+NEW from Excel row 1126: "Armor Of The Fallen"
+NEW from Excel row 1127: "Armor Of Weightlessness"
+NEW from Excel row 1128: "Barrier Tattoo"
+NEW from Excel row 1129: "Boomerang Shield"
+NEW from Excel row 1130: "Guardian Emblem"
+NEW from Excel row 1131: "Headband of Intellect"
+NEW from Excel row 1132: "Helm of Comprehending Languages"
+NEW from Excel row 1133: "Helm of Underwater Action"
+NEW from Excel row 1134: "Mariner's Armor"
+NEW from Excel row 1135: "Mind Carapace Armor"
+NEW from Excel row 1136: "Mithral Armor"
+NEW from Excel row 1137: "Plate Of Knight's Fellowship"
+NEW from Excel row 1138: "Propeller Helm"
+NEW from Excel row 1139: "Sentinel Shield"
+NEW from Excel row 1140: "Serpent Scale Armor"
+NEW from Excel row 1141: "Shield, +1"
+NEW from Excel row 1142: "Shield Of The Tortoise"
+EXACT 1.000: Excel row 1143 "Fire Resistance Mitt, Oven Mitts" -> TS "Fire Resistance Mitt, Oven Mitts" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1144 "Full range of motion body maniquin" -> TS "Full range of motion body maniquin" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1145 "Theif Resistant Armor Stand" -> TS "Theif Resistant Armor Stand (Collapsible)" | kept existing TS formatting (description similarity 0.949)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1146 "Rust Resitant Oil bottle" -> TS "Rust Resitant Oil bottle (small)" | kept existing TS formatting (description similarity 0.984)
+EXACT 1.000: Excel row 1147 "Sam's Buckler" -> TS "Sam's Buckler" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1148: "Leather"
+EXACT 1.000: Excel row 1149 "Studded Leather" -> TS "Studded Leather" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1150 "Wizard's Robes" -> TS "Wizard's Robes" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1151 "Barbarian's Fur" -> TS "Barbarian's Fur" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1152: "Breastplate"
+EXACT 1.000: Excel row 1153 "Chain Shirt" -> TS "Chain Shirt" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1154: "Hide"
+NEW from Excel row 1155: "Animated Shield"
+NEW from Excel row 1156: "Antimagic Armor"
+NEW from Excel row 1157: "Armor, +2"
+NEW from Excel row 1158: "Armor of Safeguarding"
+NEW from Excel row 1159: "Barrier Tattoo"
+NEW from Excel row 1160: "Clockwork Armor"
+NEW from Excel row 1161: "Demon Armor"
+NEW from Excel row 1162: "Dragon Scale Mail"
+NEW from Excel row 1163: "Dwarven Plate"
+NEW from Excel row 1164: "Helm of Brilliance"
+NEW from Excel row 1165: "Helm of Devil Command"
+NEW from Excel row 1166: "Heward's Hireling Armor"
+NEW from Excel row 1167: "Hunter's Coat"
+NEW from Excel row 1168: "Last Stand Armor"
+NEW from Excel row 1169: "Living Armor"
+NEW from Excel row 1170: "Mudslick Tower"
+NEW from Excel row 1171: "Ruidium Armor"
+NEW from Excel row 1172: "Ruidium Shield"
+NEW from Excel row 1173: "Sapphire Buckler"
+NEW from Excel row 1174: "Shield, +3"
+NEW from Excel row 1175: "Shield of the Uven Rune"
+NEW from Excel row 1176: "Skull Helm"
+NEW from Excel row 1177: "Spellguard Shield"
+NEW from Excel row 1178: "Watchful Helm"
+
+TRIBE: The Piggy Bank, no hammers inside.
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribePiggyBank.ts
+Resolved by: explicit filename map
+Excel rows: 10
+Matches: exact=5, normalized=0, prefix=0, fuzzy=0, new=5, TS-only=0
+Descriptions: format preserved=5, updated from Excel=5
+--------------------------------------------------------------------------------
+NEW from Excel row 1179: "Spellshard"
+NEW from Excel row 1180: "Alchemical Compendium"
+NEW from Excel row 1181: "Shard of Xeluan"
+NEW from Excel row 1182: "Soul Coin"
+EXACT 1.000: Excel row 1183 "Set up an account" -> TS "Set up an account" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1184 "Turn in Stamps" -> TS "Turn in Stamps" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1185 "Local Quests" -> TS "Local Quests" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1186 "Guild Quest" -> TS "Guild Quest" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1187 "Town Quest" -> TS "Town Quest" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1188: "Bracelet of Rock Magic"
+
+TRIBE: Valhalla Mart
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeValhallaMart.ts
+Resolved by: explicit filename map
+Excel rows: 15
+Matches: exact=6, normalized=2, prefix=0, fuzzy=0, new=7, TS-only=0
+Descriptions: format preserved=8, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 1189: "Horn of Beckoning Death"
+NEW from Excel row 1190: "Rod of Resurrection"
+NEW from Excel row 1191: "Ghost Lantern"
+NEW from Excel row 1192: "Glowrune Pigment"
+NEW from Excel row 1193: "Horn of Blasting"
+NEW from Excel row 1194: "Iggwylv's Horn"
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1195 "Einherjar Nameplate" -> TS "Einherjar Nameplate (Inheritance Item)" | kept existing TS formatting (description similarity 0.937)
+EXACT 1.000: Excel row 1196 "Valkyrie’s Ring of Redemption" -> TS "Valkyrie’s Ring of Redemption" | kept existing TS formatting (description similarity 0.966)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1197 "Last Will Scroll" -> TS "Last Will Scroll (Inheritance Item)" | kept existing TS formatting (description similarity 0.961)
+NEW from Excel row 1198: "Last Will Scroll"
+EXACT 1.000: Excel row 1199 "Soul-bound Compass" -> TS "Soul-bound Compass" | kept existing TS formatting (description similarity 0.971)
+EXACT 1.000: Excel row 1200 "Blast from the Past" -> TS "Blast from the Past" | kept existing TS formatting (description similarity 0.998)
+EXACT 1.000: Excel row 1201 "Gjallarhorn Replica" -> TS "Gjallarhorn Replica" | kept existing TS formatting (description similarity 0.975)
+EXACT 1.000: Excel row 1202 "Langskip Whistle" -> TS "Langskip Whistle" | kept existing TS formatting (description similarity 0.971)
+EXACT 1.000: Excel row 1203 "Harald Pendant" -> TS "Harald Pendant" | kept existing TS formatting (description similarity 0.975)
+
+TRIBE: Will's Weapons
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeWillsWeapons.ts
+Resolved by: explicit filename map
+Excel rows: 178
+Matches: exact=32, normalized=6, prefix=7, fuzzy=0, new=133, TS-only=0
+Descriptions: format preserved=36, updated from Excel=142
+--------------------------------------------------------------------------------
+NEW from Excel row 1204: "Crusader's Shortsword"
+NEW from Excel row 1205: "Tearulai"
+NEW from Excel row 1206: "Yester Hill Axe"
+NEW from Excel row 1207: "Adze of Annam"
+NEW from Excel row 1208: "Akmon, Hammer of Purphoros"
+NEW from Excel row 1209: "Axe of the Dwarvish Lords"
+NEW from Excel row 1210: "Blade of Avernus"
+NEW from Excel row 1211: "Blade of Broken Mirrors"
+NEW from Excel row 1212: "Dekella, Bident of Thassa"
+NEW from Excel row 1213: "Ephixis, Bow of Nyela"
+NEW from Excel row 1214: "Grovelthrash"
+NEW from Excel row 1215: "Khrusor, Spear of Heliod"
+NEW from Excel row 1216: "Lash of Shadows"
+PREFIX 0.940: Excel row 1217 "Mace of the Black Crown" -> TS "Mace" | updated from Excel (description similarity 0.048)
+NEW from Excel row 1218: "Mastix, Whip of Erebos"
+NEW from Excel row 1219: "Ruin's Wake"
+NEW from Excel row 1220: "Silken Spite"
+NEW from Excel row 1221: "Sword of Kas"
+NEW from Excel row 1222: "Sword of Zariel"
+NEW from Excel row 1223: "The Bloody End"
+NEW from Excel row 1224: "Will of the Talon"
+NEW from Excel row 1225: "Armblade"
+NEW from Excel row 1226: "Moon-Touched Sword"
+NEW from Excel row 1227: "Ruby of the War Mage"
+NEW from Excel row 1228: "Bookmark"
+NEW from Excel row 1229: "Dawnbringer"
+NEW from Excel row 1230: "Defender"
+NEW from Excel row 1231: "Dragonlance"
+NEW from Excel row 1232: "Dragon's Wrath Weapon"
+NEW from Excel row 1233: "Drown"
+NEW from Excel row 1234: "Fane-Eater"
+PREFIX 0.940: Excel row 1235 "Flail of Tiamat" -> TS "Flail" | updated from Excel (description similarity 0.125)
+NEW from Excel row 1236: "Gurt's Greataxe"
+NEW from Excel row 1237: "Hammer of Thunderbolts"
+NEW from Excel row 1238: "Hazirawn"
+NEW from Excel row 1239: "Heretic"
+NEW from Excel row 1240: "Ironfang"
+PREFIX 0.940: Excel row 1241 "Longbow of the Healing Hearth" -> TS "Longbow" | updated from Excel (description similarity 0.100)
+NEW from Excel row 1242: "Luck Blade"
+NEW from Excel row 1243: "Matalotok"
+NEW from Excel row 1244: "Moonblade"
+NEW from Excel row 1245: "Nepenthe"
+NEW from Excel row 1246: "Nightbringer"
+NEW from Excel row 1247: "Orcsplitter"
+NEW from Excel row 1248: "Rakdos Riteknife"
+NEW from Excel row 1249: "Reaper's Scream"
+NEW from Excel row 1250: "Red Wizard Blade"
+NEW from Excel row 1251: "Ruinblade"
+NEW from Excel row 1252: "Snicker-Snack"
+NEW from Excel row 1253: "Sunsword"
+NEW from Excel row 1254: "Sword of Answering"
+NEW from Excel row 1255: "Sword of the Planes"
+NEW from Excel row 1256: "Tinderstrike"
+NEW from Excel row 1257: "Topaz Annihilator"
+NEW from Excel row 1258: "Vorpal Sword"
+NEW from Excel row 1259: "Wave"
+NEW from Excel row 1260: "Waythe"
+NEW from Excel row 1261: "Whelm"
+NEW from Excel row 1262: "Windvane"
+NEW from Excel row 1263: "Acheron Blade"
+NEW from Excel row 1264: "Berserker Axe"
+NEW from Excel row 1265: "Crystal Blade"
+PREFIX 0.940: Excel row 1266 "Dagger of Blindsight" -> TS "Dagger" | updated from Excel (description similarity 0.178)
+NEW from Excel row 1267: "Dagger of Venom"
+NEW from Excel row 1268: "Dragon Slayer"
+NEW from Excel row 1269: "Dragon's Wrath Weapon"
+NEW from Excel row 1270: "Dragontooth Dagger"
+NEW from Excel row 1271: "Flame Tongue"
+NEW from Excel row 1272: "Flayer Slayer"
+NEW from Excel row 1273: "Gambler's Blade"
+NEW from Excel row 1274: "Giant Slayer"
+NEW from Excel row 1275: "Grasping Whip"
+NEW from Excel row 1276: "Lash of Immolation"
+NEW from Excel row 1277: "Luminous War Pick"
+NEW from Excel row 1278: "Mace of Disruption"
+NEW from Excel row 1279: "Mace of Smiting"
+NEW from Excel row 1280: "Mace of Terror"
+NEW from Excel row 1281: "Mind Blade"
+NEW from Excel row 1282: "Mind Lash"
+NEW from Excel row 1283: "Moon Sickle"
+NEW from Excel row 1284: "Needle of Mending"
+NEW from Excel row 1285: "Ruinous Flail"
+NEW from Excel row 1286: "Serpent's Fang"
+NEW from Excel row 1287: "Sun Blade"
+NEW from Excel row 1288: "Sunforger"
+NEW from Excel row 1289: "Sword of Life Stealing"
+NEW from Excel row 1290: "Sword of Wounding"
+NEW from Excel row 1291: "Vicious Weapon"
+NEW from Excel row 1292: "Weapon of Certain Death"
+NEW from Excel row 1293: "Woodcutter's Axe"
+NEW from Excel row 1294: "Blood Spear"
+NEW from Excel row 1295: "Bloodrage Greataxe"
+NEW from Excel row 1296: "Bracers of Archery"
+NEW from Excel row 1297: "Dragon's Wrath Weapon"
+NEW from Excel row 1298: "Hellfire Weapon"
+PREFIX 0.940: Excel row 1299 "Javelin of Lightning" -> TS "Javelin" | updated from Excel (description similarity 0.115)
+NEW from Excel row 1300: "Moon Sickle"
+NEW from Excel row 1301: "Seeker Dart"
+NEW from Excel row 1302: "Shatterspike"
+PREFIX 0.940: Excel row 1303 "Sling Of Giant Felling" -> TS "Sling" | updated from Excel (description similarity 0.279)
+NEW from Excel row 1304: "Storm Boomerang"
+NEW from Excel row 1305: "Sword of Vengeance"
+PREFIX 0.940: Excel row 1306 "Trident of Fish Command" -> TS "Trident" | updated from Excel (description similarity 0.143)
+NEW from Excel row 1307: "Weapon, +1, +2, or +3"
+NEW from Excel row 1308: "Weapon of Warning"
+EXACT 1.000: Excel row 1309 "Quarterstaff" -> TS "Quarterstaff" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1310 "Battleaxe" -> TS "Battleaxe" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1311 "Blow Dart" -> TS "Blow Dart" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1312 "Club" -> TS "Club" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1313: "Dagger"
+NEW from Excel row 1314: "Flail"
+EXACT 1.000: Excel row 1315 "Glaive" -> TS "Glaive" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1316 "Greataxe" -> TS "Greataxe" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1317 "Greatclub" -> TS "Greatclub" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1318 "Greatsword" -> TS "Greatsword" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1319 "Halberd" -> TS "Halberd" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1320 "Hand Axe" -> TS "Hand Axe" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1321 "Hand Crossbow" -> TS "Hand Crossbow" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1322 "Heavy Crossbow" -> TS "Heavy Crossbow" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1323: "Javelin"
+EXACT 1.000: Excel row 1324 "Lance" -> TS "Lance" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1325 "Light Crossbow" -> TS "Light Crossbow" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1326 "Light Hammer" -> TS "Light Hammer" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1327: "Longbow"
+EXACT 1.000: Excel row 1328 "Longsword" -> TS "Longsword" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1329: "Mace"
+EXACT 1.000: Excel row 1330 "Maul" -> TS "Maul" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1331 "Morningstar" -> TS "Morningstar" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1332 "Pike" -> TS "Pike" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1333 "Rapier" -> TS "Rapier" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1334 "Scimitar" -> TS "Scimitar" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1335 "Shortbow" -> TS "Shortbow" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1336 "Shortsword" -> TS "Shortsword" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1337 "Sickle" -> TS "Sickle" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1338: "Sling"
+EXACT 1.000: Excel row 1339 "Spear" -> TS "Spear" | kept existing TS formatting (description similarity 1.000)
+NEW from Excel row 1340: "Trident"
+EXACT 1.000: Excel row 1341 "War Pick" -> TS "War Pick" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1342 "Warhammer" -> TS "Warhammer" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1343 "Whip" -> TS "Whip" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1344 "Will's Chakram" -> TS "Will's Chakram (Blade Disc)" | kept existing TS formatting (description similarity 0.977)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1345 "Will's Khopesh" -> TS "Will's Khopesh (Scimitar-Sickle)" | kept existing TS formatting (description similarity 0.975)
+EXACT 1.000: Excel row 1346 "Will's Knuckle Duster" -> TS "Will's Knuckle Duster" | kept existing TS formatting (description similarity 0.883)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1347 "Will's Macuahuitl" -> TS "Will's Macuahuitl (Obsidian Spiked)" | updated from Excel (description similarity 0.022)
+EXACT 1.000: Excel row 1348 "Will's Musket" -> TS "Will's Musket" | kept existing TS formatting (description similarity 0.940)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1349 "Will's Naginata" -> TS "Will's Naginata (Glaive-Spear)" | updated from Excel (description similarity 0.486)
+EXACT 1.000: Excel row 1350 "Will's Pistol" -> TS "Will's Pistol" | kept existing TS formatting (description similarity 0.940)
+EXACT 1.000: Excel row 1351 "Will's Taser" -> TS "Will's Taser" | kept existing TS formatting (description similarity 0.905)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1352 "Will's Tessen" -> TS "Will's Tessen (War Fan)" | kept existing TS formatting (description similarity 0.962)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1353 "Will's Urumi" -> TS "Will's Urumi (Whip-Sword)" | kept existing TS formatting (description similarity 0.980)
+NEW from Excel row 1354: "Baleful Talon"
+NEW from Excel row 1355: "Blade of the Medusa"
+NEW from Excel row 1356: "Bloodshed Blade"
+NEW from Excel row 1357: "Bow Of Melodies"
+NEW from Excel row 1358: "Dancing Sword"
+NEW from Excel row 1359: "Dragon's Wrath Weapon"
+NEW from Excel row 1360: "Duskcrusher"
+NEW from Excel row 1361: "Dwarven Thrower"
+NEW from Excel row 1362: "Dyrrn's Tentacle Whip"
+NEW from Excel row 1363: "Fool's Blade"
+NEW from Excel row 1364: "Forcebreaker Weapon"
+NEW from Excel row 1365: "Frost Brand"
+NEW from Excel row 1366: "Hammer of Runic Focus"
+NEW from Excel row 1367: "Lucent Destroyer"
+NEW from Excel row 1368: "Moon Sickle"
+NEW from Excel row 1369: "Nine Lives Stealer"
+NEW from Excel row 1370: "Oathbow"
+NEW from Excel row 1371: "Polymorph Blade"
+NEW from Excel row 1372: "Ruidium Weapon"
+NEW from Excel row 1373: "Scimitar of Speed"
+NEW from Excel row 1374: "Spear of Backbiting"
+NEW from Excel row 1375: "Steel"
+NEW from Excel row 1376: "Stonemaker War Pick"
+NEW from Excel row 1377: "Sword of Sharpness"
+NEW from Excel row 1378: "Sword of the Paruns"
+NEW from Excel row 1379: "Thunderbuss"
+NEW from Excel row 1380: "Tidecaller Trident"
+NEW from Excel row 1381: "Weapon of Throne's Command"
+
+TRIBE: Ye Old Donkey
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeYeOldDonkey.ts
+Resolved by: explicit filename map
+Excel rows: 21
+Matches: exact=5, normalized=1, prefix=0, fuzzy=0, new=15, TS-only=0
+Descriptions: format preserved=5, updated from Excel=16
+--------------------------------------------------------------------------------
+NEW from Excel row 1382: "Bead of Refreshment"
+NEW from Excel row 1383: "Bottle of Boundless Coffee"
+NEW from Excel row 1384: "Tankard of Plenty"
+NEW from Excel row 1385: "Tankard of Sobriety"
+NEW from Excel row 1386: "Dragon Vessel"
+NEW from Excel row 1387: "Bag of Beans"
+NEW from Excel row 1388: "Dragon Vessel"
+NEW from Excel row 1389: "Professor Orb"
+NEW from Excel row 1390: "Alchemy Jug"
+NEW from Excel row 1391: "Alchemy Jug (Blue)"
+NEW from Excel row 1392: "Alchemy Jug (Orange)"
+NEW from Excel row 1393: "Amulet of the Drunkard"
+NEW from Excel row 1394: "Dragon Vessel"
+EXACT 1.000: Excel row 1395 "Secret illegal crab fighting ring" -> TS "Secret illegal crab fighting ring" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1396 "Fortified Room & Board" -> TS "Fortified Room & Board" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1397 "Hot Rock Bed Warmer" -> TS "Hot Rock Bed Warmer (Yes this is an actual thing)" | updated from Excel (description similarity 0.194)
+EXACT 1.000: Excel row 1398 "Room & Board" -> TS "Room & Board" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1399 "Ye Old Donkey's junior merry go round" -> TS "Ye Old Donkey's junior merry go round" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1400 "Ye Old Donkey's Lost & Found Mystery Bag" -> TS "Ye Old Donkey's Lost & Found Mystery Bag" | kept existing TS formatting (description similarity 0.851)
+NEW from Excel row 1401: "Abracadabrus"
+NEW from Excel row 1402: "Dragon Vessel"
+
+TRIBE: Ye Old Home Depot
+File: /Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeYeOldHomeDepot.ts
+Resolved by: explicit filename map
+Excel rows: 17
+Matches: exact=6, normalized=4, prefix=0, fuzzy=0, new=7, TS-only=177
+Descriptions: format preserved=10, updated from Excel=7
+--------------------------------------------------------------------------------
+NEW from Excel row 1403: "Lock of Trickery"
+NEW from Excel row 1404: "Mystery Key"
+EXACT 1.000: Excel row 1405 "Custom Lumber Cutting" -> TS "Custom Lumber Cutting" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1406 "Plank of Wood" -> TS "Plank of Wood (it’s a freshly cut 2x4)" | kept existing TS formatting (description similarity 0.827)
+NEW from Excel row 1407: "Infiltrator's Key"
+NEW from Excel row 1408: "Iron Flask"
+NEW from Excel row 1409: "All-Purpose Tool"
+NEW from Excel row 1410: "All-Purpose Tool"
+EXACT 1.000: Excel row 1411 "Wheelbarrow Rental" -> TS "Wheelbarrow Rental" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1412 "Bag of Quick-Set Concrete" -> TS "Bag of Quick-Set Concrete" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1413 "Box of Iron Nails" -> TS "Box of Iron Nails (100 count)" | kept existing TS formatting (description similarity 0.922)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1414 "Coiled Hemp Rope" -> TS "Coiled Hemp Rope (50 ft)" | kept existing TS formatting (description similarity 0.946)
+EXACT 1.000: Excel row 1415 "Door Hinges & Screws Kit" -> TS "Door Hinges & Screws Kit" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1416 "Pair of Reinforced Work Gloves" -> TS "Pair of Reinforced Work Gloves" | kept existing TS formatting (description similarity 1.000)
+EXACT 1.000: Excel row 1417 "Sturdy Claw Hammer" -> TS "Sturdy Claw Hammer" | kept existing TS formatting (description similarity 1.000)
+PARENTHETICAL-NORMALIZED 0.985: Excel row 1418 "Weatherproof Paint" -> TS "Weatherproof Paint (gallon)" | kept existing TS formatting (description similarity 0.937)
+NEW from Excel row 1419: "All-Purpose Tool"
+TS-ONLY PRESERVED: "Plank of Wood (2x6)"
+TS-ONLY PRESERVED: "Treated Timber Post (8 ft)"
+TS-ONLY PRESERVED: "Sheet of Plywood (4x8)"
+TS-ONLY PRESERVED: "Bundle of Shingles (roof patch)"
+TS-ONLY PRESERVED: "Bag of Gravel (50 lb)"
+TS-ONLY PRESERVED: "Bag of Sand (50 lb)"
+TS-ONLY PRESERVED: "Sack of Mortar Mix"
+TS-ONLY PRESERVED: "Stack of Bricks (20 count)"
+TS-ONLY PRESERVED: "Stone Paver Slabs (4 count)"
+TS-ONLY PRESERVED: "Bundle of Wooden Stakes (12 count)"
+TS-ONLY PRESERVED: "Box of Steel Nails (200 count)"
+TS-ONLY PRESERVED: "Box of Wood Screws (100 count)"
+TS-ONLY PRESERVED: "Assorted Bolts & Nuts (50 count)"
+TS-ONLY PRESERVED: "Door Latch Bar (Heavy)"
+TS-ONLY PRESERVED: "Padlock (Stout)"
+TS-ONLY PRESERVED: "Chain (10 ft)"
+TS-ONLY PRESERVED: "Hasps & Staples Kit"
+TS-ONLY PRESERVED: "Corner Braces (4 pack)"
+TS-ONLY PRESERVED: "Metal Hook Set (6 count)"
+TS-ONLY PRESERVED: "Door Wedges (2 pack)"
+TS-ONLY PRESERVED: "Sturdy Handsaw"
+TS-ONLY PRESERVED: "Wood Chisel Set (3 pieces)"
+TS-ONLY PRESERVED: "Carpenter’s Square"
+TS-ONLY PRESERVED: "Measuring Line & Chalk"
+TS-ONLY PRESERVED: "Spirit Level Vial"
+TS-ONLY PRESERVED: "Hand Drill (Brace & Bit)"
+TS-ONLY PRESERVED: "Screwdriver Set (4 pieces)"
+TS-ONLY PRESERVED: "Pry Bar (Medium)"
+TS-ONLY PRESERVED: "Mason’s Trowel"
+TS-ONLY PRESERVED: "Whetstone"
+TS-ONLY PRESERVED: "Wind-Up Rotary Drill (Gnomish)"
+TS-ONLY PRESERVED: "Foot-Treadle Scroll Saw"
+TS-ONLY PRESERVED: "Belt Sander (Hand-crank)"
+TS-ONLY PRESERVED: "Stone Cutter’s Chipper (Heavy)"
+TS-ONLY PRESERVED: "Portable Workbench (Folds)"
+TS-ONLY PRESERVED: "Barrel of Wood Glue (Quart)"
+TS-ONLY PRESERVED: "Pitch & Tar Jar"
+TS-ONLY PRESERVED: "Caulking Paste"
+TS-ONLY PRESERVED: "Epoxy Putty"
+TS-ONLY PRESERVED: "Leather Patching Kit"
+TS-ONLY PRESERVED: "Canvas Patch Roll"
+TS-ONLY PRESERVED: "Rope Splice Kit"
+TS-ONLY PRESERVED: "Wood Stain (Quart)"
+TS-ONLY PRESERVED: "Oil Sealant (Quart)"
+TS-ONLY PRESERVED: "Whitewash Bucket"
+TS-ONLY PRESERVED: "Brush Set (3 pack)"
+TS-ONLY PRESERVED: "Roller & Tray Kit"
+TS-ONLY PRESERVED: "Painter’s Drop Cloth (Canvas)"
+TS-ONLY PRESERVED: "Copper Pipe (5 ft)"
+TS-ONLY PRESERVED: "Iron Pipe (5 ft)"
+TS-ONLY PRESERVED: "Pipe Couplers (6 pack)"
+TS-ONLY PRESERVED: "Valve Spigot (Brass)"
+TS-ONLY PRESERVED: "Bucket (Sturdy)"
+TS-ONLY PRESERVED: "Washbasin Tub (Portable)"
+TS-ONLY PRESERVED: "Plunger"
+TS-ONLY PRESERVED: "Wax Ring Seal"
+TS-ONLY PRESERVED: "Lantern (Hooded)"
+TS-ONLY PRESERVED: "Lantern Oil (Flask, 4 hours)"
+TS-ONLY PRESERVED: "Candle Bundle (20 count)"
+TS-ONLY PRESERVED: "Firestarter Kit (Flint, steel, tinder)"
+TS-ONLY PRESERVED: "Chimney Soot Brush"
+TS-ONLY PRESERVED: "Shovel (Solid)"
+TS-ONLY PRESERVED: "Pickaxe (Standard)"
+TS-ONLY PRESERVED: "Rake (Wide)"
+TS-ONLY PRESERVED: "Hand Trowel (Small digs)"
+TS-ONLY PRESERVED: "Bag of Seeds (Common veggies)"
+TS-ONLY PRESERVED: "Watering Can (Metal)"
+TS-ONLY PRESERVED: "Fence Wire Roll (50 ft)"
+TS-ONLY PRESERVED: "Ladder Rental"
+TS-ONLY PRESERVED: "Handcart Rental"
+TS-ONLY PRESERVED: "Tool Sharpening Service"
+TS-ONLY PRESERVED: "Key Cutting"
+TS-ONLY PRESERVED: "Paint Mixing"
+TS-ONLY PRESERVED: "Bulk Order / Special Timber"
+TS-ONLY PRESERVED: "Box of Ceramic Floor Tile (12 sq ft)"
+TS-ONLY PRESERVED: "Bag of Grout (Stone-Fill Blend)"
+TS-ONLY PRESERVED: "Tile Spacers (100 count)"
+TS-ONLY PRESERVED: "Notched Trowel (Tile-Set)"
+TS-ONLY PRESERVED: "Floor Underlayment Roll (10x20 ft)"
+TS-ONLY PRESERVED: "Plank Flooring (Bundle, 20 sq ft)"
+TS-ONLY PRESERVED: "Rug (Stout-Woven, 5x7)"
+TS-ONLY PRESERVED: "Stone Threshold Slab"
+TS-ONLY PRESERVED: "Wool Insulation Batts (Bundle)"
+TS-ONLY PRESERVED: "Fiberglass Insulation Batts (Bundle)"
+TS-ONLY PRESERVED: "Foam Board Insulation (2 panels)"
+TS-ONLY PRESERVED: "Draft-Seal Strips (Door & Window)"
+TS-ONLY PRESERVED: "Weatherproofing Tape (Heavy Roll)"
+TS-ONLY PRESERVED: "Insulation Support Rods (10 count)"
+TS-ONLY PRESERVED: "Chimney Cap (Sootguard)"
+TS-ONLY PRESERVED: "Copper Wire Spool (50 ft)"
+TS-ONLY PRESERVED: "Iron Conduit Tube (5 ft)"
+TS-ONLY PRESERVED: "Switch Lever (Wall-Mount)"
+TS-ONLY PRESERVED: "Fuse Link Set (5 count)"
+TS-ONLY PRESERVED: "Bell & Pull-Cord Kit"
+TS-ONLY PRESERVED: "Lantern Sconce (Iron, Wall-Mount)"
+TS-ONLY PRESERVED: "Storage Crate (Stacking, Large)"
+TS-ONLY PRESERVED: "Oilcloth Tarp (10x10)"
+TS-ONLY PRESERVED: "Shelf Bracket Set (2 pack)"
+TS-ONLY PRESERVED: "Wall Peg Board (Tool-Hanging Panel)"
+TS-ONLY PRESERVED: "Peg Hooks (12 count)"
+TS-ONLY PRESERVED: "Work Apron (Pockets Galore)"
+TS-ONLY PRESERVED: "Toolbox (Iron-Clasp, Medium)"
+TS-ONLY PRESERVED: "Broom (Stiff Bristle)"
+TS-ONLY PRESERVED: "Mop & Bucket Set"
+TS-ONLY PRESERVED: "Scrub Brush (Handheld)"
+TS-ONLY PRESERVED: "Lye Soap Bar (Heavy Duty)"
+TS-ONLY PRESERVED: "Rag Bundle (10 count)"
+TS-ONLY PRESERVED: "Protective Goggles"
+TS-ONLY PRESERVED: "Dust Mask (5 pack)"
+TS-ONLY PRESERVED: "Earplugs (10 pack)"
+TS-ONLY PRESERVED: "Hard Hat (Leather & Rivet)"
+TS-ONLY PRESERVED: "Door Knob Set (Iron, Simple)"
+TS-ONLY PRESERVED: "Door Sweep Strip"
+TS-ONLY PRESERVED: "Window Latch (2 pack)"
+TS-ONLY PRESERVED: "Glass Pane (2x3 ft)"
+TS-ONLY PRESERVED: "Screen Mesh Roll"
+TS-ONLY PRESERVED: "Wood Trim Molding (8 ft)"
+TS-ONLY PRESERVED: "Sandpaper Pack (Assorted Grit)"
+TS-ONLY PRESERVED: "Putty Knife (Flexible)"
+TS-ONLY PRESERVED: "Paint Scraper (Blade Tool)"
+TS-ONLY PRESERVED: "Wood Filler (Small Tub)"
+TS-ONLY PRESERVED: "Primer (Quart)"
+TS-ONLY PRESERVED: "Bag of Compost (40 lb)"
+TS-ONLY PRESERVED: "Bag of Mulch (40 lb)"
+TS-ONLY PRESERVED: "Fertilizer Mix (All-Purpose)"
+TS-ONLY PRESERVED: "Clay Plant Pots (3 count)"
+TS-ONLY PRESERVED: "Garden Hose (25 ft)"
+TS-ONLY PRESERVED: "Nozzle Sprayer Head (Adjustable)"
+TS-ONLY PRESERVED: "Hand Pruners"
+TS-ONLY PRESERVED: "Mouse Trap Set (4 count)"
+TS-ONLY PRESERVED: "Rat Cage Trap (Humane)"
+TS-ONLY PRESERVED: "Insect Repellent Sachets (10 pack)"
+TS-ONLY PRESERVED: "Flea Powder (Small Tin)"
+TS-ONLY PRESERVED: "Rug Scrubber Rental"
+TS-ONLY PRESERVED: "High-Pressure Water Sprayer Rental"
+TS-ONLY PRESERVED: "Insulation Blower Rental"
+TS-ONLY PRESERVED: "Floor Sander Rental"
+TS-ONLY PRESERVED: "Interior Wall Paint (gallon, matte)"
+TS-ONLY PRESERVED: "Interior Wall Paint (gallon, eggshell)"
+TS-ONLY PRESERVED: "Trim & Door Enamel (quart, semi-gloss)"
+TS-ONLY PRESERVED: "Exterior Siding Paint (gallon)"
+TS-ONLY PRESERVED: "Fence & Barn Paint (gallon, classic red)"
+TS-ONLY PRESERVED: "Masonry Paint (gallon)"
+TS-ONLY PRESERVED: "All-Purpose Primer (gallon)"
+TS-ONLY PRESERVED: "Stain-Blocking Primer (quart)"
+TS-ONLY PRESERVED: "Metal Primer (rust-guard, quart)"
+TS-ONLY PRESERVED: "Wood Knot-Seal Primer (quart)"
+TS-ONLY PRESERVED: "Wood Stain (gallon)"
+TS-ONLY PRESERVED: "Deck & Dock Sealant (gallon)"
+TS-ONLY PRESERVED: "Masonry Sealer (gallon)"
+TS-ONLY PRESERVED: "Varnish (quart, clear coat)"
+TS-ONLY PRESERVED: "Shellac (quart)"
+TS-ONLY PRESERVED: "Linseed Oil (quart)"
+TS-ONLY PRESERVED: "Wax Finish (tin)"
+TS-ONLY PRESERVED: "Chalk Paint (quart)"
+TS-ONLY PRESERVED: "Limewash Paint (bucket)"
+TS-ONLY PRESERVED: "Heat-Resistant Stove Paint (quart)"
+TS-ONLY PRESERVED: "Anti-Mildew Wash Additive (vial)"
+TS-ONLY PRESERVED: "Reflective Road-Marker Paint (quart)"
+TS-ONLY PRESERVED: "Pigment Pouch (basic colors)"
+TS-ONLY PRESERVED: "Pigment Pouch (rare metallic)"
+TS-ONLY PRESERVED: "Gold Leaf Kit (small)"
+TS-ONLY PRESERVED: "Stencil Set (letters & borders)"
+TS-ONLY PRESERVED: "Paint Stripper Gel (jar)"
+TS-ONLY PRESERVED: "Turpentine / Brush Thinner (quart)"
+TS-ONLY PRESERVED: "Soap & Brush Cleaner (bottle)"
+TS-ONLY PRESERVED: "Painter’s Tape (2 rolls)"
+TS-ONLY PRESERVED: "Roller Frame & Cover (set)"
+TS-ONLY PRESERVED: "Roller Covers (2 pack)"
+TS-ONLY PRESERVED: "Extension Pole (roller handle)"
+TS-ONLY PRESERVED: "Paint Tray & Liners (set)"
+TS-ONLY PRESERVED: "Mixing Sticks (10 count)"
+TS-ONLY PRESERVED: "Paint Can Pour Spout"
+TS-ONLY PRESERVED: "Paint Can Opener Key"
+TS-ONLY PRESERVED: "Edge Brush (angled)"
+TS-ONLY PRESERVED: "Color Matching & Tinting"
+TS-ONLY PRESERVED: "Paint Shaking Service"
+
+SPREADSHEET TRIBES SKIPPED - NO EXISTING MATCHING tribe*.ts FILE
+--------------------------------------------------------------------------------
+Goblin Market | no explicit filename mapping and no existing tribe*.ts with a matching internal name
+Jazz's Portable Potions | no explicit filename mapping and no existing tribe*.ts with a matching internal name
+
+tribe*.ts FILES WITH NO SPREADSHEET TRIBE GROUP
+--------------------------------------------------------------------------------
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe1.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe2.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe3.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe4.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe5.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe6.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribe7.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuctionHouse.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuctionHouse2.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuctionHouse3.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuctionHouse4.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeAuctionHouse5.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlackMarket.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlackMarket2.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlackMarket3.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlackMarket4.ts
+/Volumes/Bag O Holdn/Videos (Project Nonsense)/Website tribes/tribeBlackMarket5.ts
+
+TYPES.TS
+--------------------------------------------------------------------------------
+types.ts not found
+patch requested: NO
+
+OVERALL
+--------------------------------------------------------------------------------
+Tribe files processed: 37
+Exact matches: 327
+Parenthetical-normalized matches: 55
+Prefix matches: 14
+Fuzzy matches: 1
+New Excel items added: 831
+TS-only items: 205
+Descriptions retaining TS formatting: 339
+Descriptions replaced from Excel: 889
+Spreadsheet tribes without TS files: 2
