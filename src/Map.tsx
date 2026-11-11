@@ -1,3 +1,4 @@
+import { Other, DiceRolling, CardDraw } from "./Other";
 import { Goblins } from "./Goblins";
 import { Auctions } from "./Auction";
 import { Blacks } from "./Black";
@@ -114,6 +115,8 @@ import sandboxWytheholdeImage from "./images/SandboxWytheholde.webp";
 import { JellyCity } from "./JellyCity";
 import { ByfordDolphinRobertson } from "./ByfordDolphinRobertson";
 import { Graveborn } from "./Graveborn";
+import { NeonLights } from "./NeonLights";
+import neonLightsButtonImage from "./images/NeonLights Icon.jpeg";
 import { StrenuousPortal } from "./StrenuousPortal";
 import strenuousPortalButtonImage from "./images/StrenuousTrue.webp";
 import { ReadySetBet, readySetBetMapButton } from "./ReadySetBet";
@@ -321,7 +324,9 @@ const hubDestinations = [
   { routeKey: "Sandbox", name: "Sandbox", townType: "Travel", delay: "1.5s", backgroundColor: "rgba(15, 23, 42, 0.85)", color: "#e2e8f0", imageSrc: sandboxWorldMapImage },
   { routeKey: "BlankWorldTemplate", name: "Blank world template", townType: "Travel", delay: "2s", backgroundColor: "rgba(51, 65, 85, 0.95)", color: "#f8fafc", imageSrc: placeholderImage },
   { routeKey: "StrenuousPortal", name: "Strenuous Portal", townType: "Town", delay: "2.5s", backgroundColor: "rgba(88, 28, 135, 0.9)", color: "#f1f5f9", imageSrc: strenuousPortalButtonImage },
+  { routeKey: "NeonLights", name: "Neon Lights", townType: "Town", delay: "2.5s", backgroundColor: "rgba(88, 28, 135, 0.9)", color: "#f1f5f9", imageSrc: neonLightsButtonImage },
   { routeKey: "EveryShop", name: "Every Shop", townType: "Metropolis", delay: "3s", backgroundColor: "rgba(30, 64, 175, 0.9)", color: "#e2e8f0" },
+  { routeKey: "Other", name: "Other", townType: "Travel", delay: "0s", backgroundColor: "rgba(75, 45, 130, 0.9)", color: "#f8fafc" },
 ] satisfies Array<{
   routeKey: string;
   name: string;
@@ -726,6 +731,14 @@ export function Map() {
       return <FizzyTales onBack={handleBack} />;
     case "YeOldHomeDepot":
       return <YeOldHomeDepot onBack={handleBack} />;
+    case "Other":
+      return <Other onBack={handleBack} onNavigate={handleNavigate} />;
+    case "DiceRolling":
+      return <DiceRolling onBack={handleBack} />;
+    case "TarotDraw":
+      return <CardDraw key="tarot" kind="tarot" onBack={handleBack} />;
+    case "CahFamilyDraw":
+      return <CardDraw key="cah" kind="cah" onBack={handleBack} />;
     case "ReadySetBet":
       return <ReadySetBet onBack={handleBack} />;
     case "PiggyBank":
@@ -802,6 +815,8 @@ export function Map() {
           onNavigate={handleNavigate}
         />
       );
+    case "NeonLights":
+      return <NeonLights onBack={handleBack} onNavigate={handleNavigate} />;
     case "StrenuousPortal":
       return (
         <StrenuousPortal
@@ -908,11 +923,11 @@ export function Map() {
         <div style={styles.wrapper}>
           <h1 style={styles.title}>Which world would you like to go to?</h1>
           <div style={styles.buttonContainer}>
-            {hubDestinations.map((destination) => (
+            {[...hubDestinations].sort((a, b) => a.name.localeCompare(b.name)).map((destination) => (
               <FloatingButton
                 key={destination.routeKey}
                 label={destination.name}
-                secondaryLabel={destination.townType}
+                secondaryLabel={destination.routeKey === "BlankWorldTemplate" || destination.routeKey === "Other" ? "Work in progress" : destination.townType}
                 onClick={() => handleNavigate(destination.routeKey, { settlementType: destination.townType })}
                 delay={destination.delay}
                 backgroundColor={destination.backgroundColor}
@@ -1035,7 +1050,7 @@ function FloatingButton({
   description,
 }: {
   label: string;
-  secondaryLabel?: SettlementType;
+  secondaryLabel?: string;
   onClick: () => void;
   delay: string;
   backgroundColor: string;
@@ -1121,12 +1136,13 @@ const styles: Record<string, React.CSSProperties> = {
     color: "#f8fafc",
   },
   buttonContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+    alignItems: "stretch",
     gap: "1.25rem",
     padding: "2rem 1rem 3rem",
-    width: "auto",
+    width: "min(1100px, 100%)",
+    boxSizing: "border-box",
   },
   button: {
     fontSize: "1.5rem",

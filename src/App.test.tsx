@@ -74,7 +74,7 @@ test("sorts Sandbox destinations from the smallest settlement type to the larges
 test("sorts blank-world placeholders from isolated dwelling to metropolis", () => {
   render(<App />);
 
-  fireEvent.click(screen.getByRole("button", { name: "Blank world template, Travel" }));
+  fireEvent.click(screen.getByRole("button", { name: "Blank world template, Work in progress" }));
 
   expect(
     screen.getByRole("navigation", { name: "Blank world settlements" }).textContent

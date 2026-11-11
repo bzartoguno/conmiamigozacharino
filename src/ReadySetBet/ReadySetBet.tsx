@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { BackButton } from "../BackButton";
+import donkeyBackground from "../images/donkey.gif";
 import bettingBoardImage from "./assets/ReadySetBetBettingBoard.png";
 import raceTrackImage from "./assets/ReadySetBetRaceTrack.jpg";
 import { readySetBetAssets, type ReadySetBetRacer } from "./assets";
@@ -1028,7 +1029,7 @@ export function ReadySetBet({ onBack }: { onBack?: () => void }) {
     <div
       className={styles.page}
       style={{
-        backgroundImage: `url(${raceTrackImage})`,
+        backgroundImage: `url("${donkeyBackground}")`,
       }}
     >
       <BackButton onClick={onBack} />
