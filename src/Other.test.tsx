@@ -26,6 +26,20 @@ test("dice form animates before revealing the modified total", () => {
   expect(screen.getByText("Roll 1: 1 + 1 → 5 (kept)")).toBeInTheDocument();
 });
 
+test("Fate Dice uses one d6 with six customizable face values", () => {
+  jest.useFakeTimers();
+  jest.spyOn(Math, "random").mockReturnValue(.99);
+  render(<DiceRolling onBack={() => {}} />);
+  fireEvent.change(screen.getByLabelText("Dice"), { target: { value: "fate" } });
+  expect(screen.getByLabelText("Number of dice")).toBeDisabled();
+  expect(screen.getByLabelText("Number of dice")).toHaveValue(1);
+  fireEvent.change(screen.getByLabelText("Face 6"), { target: { value: "7" } });
+  fireEvent.click(screen.getByRole("button", { name: "Roll dice" }));
+  act(() => { jest.advanceTimersByTime(900); });
+  expect(screen.getByText("Roll 1: 7 → 7 (kept)")).toBeInTheDocument();
+  expect(screen.getByText("Fate Dice [-1, 0, 1, -1, 0, 7] + 0 (normal)")).toBeInTheDocument();
+});
+
 test("tarot animates, excludes previous draws after returning, and stops at exhaustion", () => {
   jest.useFakeTimers();
   jest.spyOn(Math, "random").mockReturnValue(0);

@@ -30,6 +30,8 @@
 .quickDice button { padding: .5rem .6rem; border-radius: 8px; border: 1px solid #48516c; background: transparent; color: #cbd5e1; font: inherit; font-size: .8rem; cursor: pointer; }
 .quickDice button[aria-pressed="true"] { background: #bca5ff; border-color: #bca5ff; color: #17112a; }
 .inputPair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.faceGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+.faceGrid label { font-size: .75rem; }
 .hint { font-size: .85rem; color: #a6b1c8; line-height: 1.5; margin: 0; }
 .rollButton { width: 100%; margin-top: auto; font-size: 1.1rem; box-shadow: 0 8px 24px #7053be30; }
 .rollButton span { font-size: 1.5rem; vertical-align: middle; margin-right: .4rem; }

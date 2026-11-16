@@ -19,6 +19,14 @@ export function rollDice(sides: number, count: number, modifier: number, mode: M
   return { sets, totals, chosen };
 }
 
+function rollCustomDie(faces: number[], modifier: number, mode: Mode) {
+  const sets = Array.from({ length: mode === "normal" ? 1 : 2 }, () =>
+    [faces[Math.floor(Math.random() * faces.length)]]);
+  const totals = sets.map((set) => set[0] + modifier);
+  const chosen = mode === "advantage" ? totals.indexOf(Math.max(...totals)) : mode === "disadvantage" ? totals.indexOf(Math.min(...totals)) : 0;
+  return { sets, totals, chosen };
+}
+
 type IconKind = "horse" | "dice" | "tarot" | "cards";
 const activityImages: Record<IconKind, string> = { dice: krumpImage, horse: donkeyImage, tarot: tarotCatImage, cards: jpegImage };
 
@@ -32,7 +40,7 @@ function DieShape({ sides, value = 100 }: { sides: number; value?: number }) {
     20: "M32 4 57 18v28L32 60 7 46V18Z M7 18h50L32 48Z M32 4 7 18l0 28 25 2 25-2 M32 4l25 14 M7 46l25 14 25-14 M32 48v12",
   };
   return <svg viewBox={sides === 100 ? "0 0 108 64" : "0 0 64 64"} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d={paths[sides === 100 ? 10 : sides]} fill="rgba(20, 15, 45, .8)" />
+    <path d={paths[sides === 100 ? 10 : sides] || paths[6]} fill="rgba(20, 15, 45, .8)" />
     {sides === 100 && <><path d={paths[10]} transform="translate(45 0)" fill="rgba(20, 15, 45, .8)" /><text x="32" y="41" fill="currentColor" stroke="none" fontSize="12" textAnchor="middle">{String(Math.floor((value % 100) / 10) * 10).padStart(2, "0")}</text><text x="77" y="41" fill="currentColor" stroke="none" fontSize="12" textAnchor="middle">{value % 10}</text></>}
   </svg>;
 }
@@ -55,7 +63,8 @@ export function Other({ onBack, onNavigate }: { onBack: () => void; onNavigate: 
 }
 
 export function DiceRolling({ onBack }: { onBack: () => void }) {
-  const [sides, setSides] = useState(20);
+  const [die, setDie] = useState("20");
+  const [fateFaces, setFateFaces] = useState(["-1", "0", "1", "-1", "0", "1"]);
   const [count, setCount] = useState("1");
   const [modifier, setModifier] = useState("0");
   const [mode, setMode] = useState<Mode>("normal");
@@ -65,16 +74,26 @@ export function DiceRolling({ onBack }: { onBack: () => void }) {
   const busy = useRef(false);
   const timers = useRef<{ interval?: number; timeout?: number }>({});
   useEffect(() => () => { window.clearInterval(timers.current.interval); window.clearTimeout(timers.current.timeout); }, []);
-  const valid = Number.isInteger(Number(count)) && Number(count) >= 1 && Number(count) <= 100 && modifier.trim() !== "" && Number.isSafeInteger(Number(modifier));
-  const notation = `${count || "1"}d${sides} ${Number(modifier) >= 0 ? "+" : "−"} ${Math.abs(Number(modifier))}`;
+  const isFateDice = die === "fate";
+  const sides = isFateDice ? 6 : Number(die);
+  const faceValues = fateFaces.map(Number);
+  const diceCount = isFateDice ? 1 : Number(count);
+  const validCount = isFateDice || (Number.isInteger(diceCount) && diceCount >= 1 && diceCount <= 100);
+  const validFaces = !isFateDice || fateFaces.every((face) => face.trim() !== "" && Number.isSafeInteger(Number(face)));
+  const valid = validCount && validFaces && modifier.trim() !== "" && Number.isSafeInteger(Number(modifier));
+  const modifierNotation = `${Number(modifier) >= 0 ? "+" : "−"} ${Math.abs(Number(modifier))}`;
+  const notation = isFateDice ? `Fate Dice [${faceValues.join(", ")}] ${modifierNotation}` : `${diceCount || "1"}d${sides} ${modifierNotation}`;
   const roll = () => {
     if (!valid || busy.current) return;
     busy.current = true;
-    const next = { ...rollDice(sides, Number(count), Number(modifier), mode), notation: `${notation} (${mode})` };
+    const outcome = isFateDice ? rollCustomDie(faceValues, Number(modifier), mode) : rollDice(sides, diceCount, Number(modifier), mode);
+    const next = { ...outcome, notation: `${notation} (${mode})` };
     setRolling(true);
     setResult(undefined);
-    setPreview(sides);
-    timers.current.interval = window.setInterval(() => setPreview(Math.floor(Math.random() * sides) + 1), 70);
+    setPreview(isFateDice ? faceValues[0] : sides);
+    timers.current.interval = window.setInterval(() => setPreview(isFateDice
+      ? faceValues[Math.floor(Math.random() * faceValues.length)]
+      : Math.floor(Math.random() * sides) + 1), 70);
     timers.current.timeout = window.setTimeout(() => {
       window.clearInterval(timers.current.interval);
       setResult(next);
@@ -87,9 +106,10 @@ export function DiceRolling({ onBack }: { onBack: () => void }) {
     <div className={styles.diceLayout}>
       <form className={styles.form} onSubmit={(event) => { event.preventDefault(); roll(); }}>
         <fieldset disabled={rolling} className={styles.controls}><legend>Your dice bag</legend>
-          <label>Dice<select value={sides} onChange={(e) => setSides(Number(e.target.value))}>{[4, 6, 8, 10, 12, 20, 100].map((n) => <option key={n} value={n}>d{n}</option>)}</select></label>
-          <div className={styles.quickDice} aria-label="Quick dice selection">{[4, 6, 8, 10, 12, 20, 100].map((n) => <button type="button" key={n} aria-pressed={sides === n} onClick={() => setSides(n)}>d{n}</button>)}</div>
-          <div className={styles.inputPair}><label>Number of dice<input type="number" min="1" max="100" required value={count} onChange={(e) => setCount(e.target.value)} /></label>
+          <label>Dice<select value={die} onChange={(e) => setDie(e.target.value)}>{[4, 6, 8, 10, 12, 20, 100].map((n) => <option key={n} value={n}>d{n}</option>)}<option value="fate">Fate Dice</option></select></label>
+          <div className={styles.quickDice} aria-label="Quick dice selection">{[4, 6, 8, 10, 12, 20, 100].map((n) => <button type="button" key={n} aria-pressed={die === String(n)} onClick={() => setDie(String(n))}>d{n}</button>)}<button type="button" aria-pressed={isFateDice} onClick={() => setDie("fate")}>Fate Dice</button></div>
+          {isFateDice && <div className={styles.faceGrid} aria-label="Fate Dice face values">{fateFaces.map((face, index) => <label key={index}>Face {index + 1}<input type="number" step="1" required value={face} onChange={(e) => setFateFaces((current) => current.map((value, i) => i === index ? e.target.value : value))} /></label>)}</div>}
+          <div className={styles.inputPair}><label>Number of dice<input type="number" min="1" max="100" required disabled={isFateDice} value={diceCount} onChange={(e) => setCount(e.target.value)} /></label>
           <label>Modifier<input type="number" step="1" required value={modifier} onChange={(e) => setModifier(e.target.value)} /></label></div>
           <label>Roll mode<select value={mode} onChange={(e) => setMode(e.target.value as Mode)}><option value="normal">Normal</option><option value="advantage">Advantage</option><option value="disadvantage">Disadvantage</option></select></label>
           <p className={styles.hint}>{mode === "normal" ? "One roll. Whatever fate has in store." : mode === "advantage" ? "Roll twice. Keep the higher total." : "Roll twice. Keep the lower total."}</p>
