@@ -1,0 +1,19 @@
+.rainbow {
+  animation: rainbowColors 30s linear infinite;
+}
+
+@keyframes rainbowColors {
+  0%, 100% { background-color: #8c203b; }
+  16.67% { background-color: #914414; }
+  33.33% { background-color: #75600c; }
+  50% { background-color: #176449; }
+  66.67% { background-color: #234c9b; }
+  83.33% { background-color: #71309b; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rainbow {
+    animation: none;
+    background-image: linear-gradient(135deg, #8c203b, #914414, #75600c, #176449, #234c9b, #71309b);
+  }
+}

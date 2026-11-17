@@ -124,6 +124,13 @@ import { SettlementProvider } from "./SettlementContext";
 import { SettlementType, sortBySettlementType } from "./inventoryAvailability";
 import { BlankWorldTemplate } from "./Blank world template/BlankWorldTemplate";
 import placeholderImage from "./images/Placeholder.jpg";
+import worldButtonStyles from "./WorldButtons.module.css";
+import offToSlayTheDragonImage from "./images/Off to Slay the Dragon.jpg";
+import resetImage from "./images/Reset.jpg";
+import escapeThePitImage from "./images/Excape the pit.webp";
+import onslaughtImage from "./images/Onsluaght.jpg";
+import dungeonWorldImage from "./images/Dungeon World.PNG";
+import rockNRollTombstoneImage from "./images/Rock n Roll Tomestone.jpg";
 
 // Remove stray whitespace/newlines from data URIs (defensive)
 function cleanDataUrl(s?: string) {
@@ -336,6 +343,27 @@ const hubDestinations = [
   color: string;
   imageSrc?: string;
 }>;
+
+const upcomingWorlds = [
+  { key: "off-to-slay-the-dragon", name: "Off to Slay the Dragon", imageSrc: offToSlayTheDragonImage },
+  { key: "reset", name: "Reset", imageSrc: resetImage },
+  { key: "escape-the-pit", name: "Escape the Pit", imageSrc: escapeThePitImage },
+  { key: "onslaught", name: "Onslaught", imageSrc: onslaughtImage },
+  { key: "dungeon-world", name: "Dungeon World", imageSrc: dungeonWorldImage },
+  { key: "rock-n-roll-tombstone", name: "Rock n Roll Tombstone", imageSrc: rockNRollTombstoneImage },
+];
+
+const bottomHubButtons = ["BlankWorldTemplate", "EveryShop", "Other"];
+const orderedHubButtons = [...hubDestinations, ...upcomingWorlds].sort((a, b) => {
+  const bottomIndexA = "routeKey" in a ? bottomHubButtons.indexOf(a.routeKey) : -1;
+  const bottomIndexB = "routeKey" in b ? bottomHubButtons.indexOf(b.routeKey) : -1;
+  if (bottomIndexA !== bottomIndexB) {
+    if (bottomIndexA === -1) return -1;
+    if (bottomIndexB === -1) return 1;
+    return bottomIndexA - bottomIndexB;
+  }
+  return a.name.localeCompare(b.name);
+});
 
 export function Map() {
   const [navigatedTo, setNavigatedTo] = useState<string>("");
@@ -923,7 +951,7 @@ export function Map() {
         <div style={styles.wrapper}>
           <h1 style={styles.title}>Which world would you like to go to?</h1>
           <div style={styles.buttonContainer}>
-            {[...hubDestinations].sort((a, b) => a.name.localeCompare(b.name)).map((destination) => (
+            {orderedHubButtons.map((destination) => "routeKey" in destination ? (
               <FloatingButton
                 key={destination.routeKey}
                 label={destination.name}
@@ -932,6 +960,17 @@ export function Map() {
                 delay={destination.delay}
                 backgroundColor={destination.backgroundColor}
                 color={destination.color}
+                imageSrc={destination.imageSrc}
+              />
+            ) : (
+              <FloatingButton
+                key={destination.key}
+                label={destination.name}
+                secondaryLabel="Work in progress"
+                onClick={() => {}}
+                delay="0s"
+                backgroundColor="rgba(51, 65, 85, 0.95)"
+                color="#f8fafc"
                 imageSrc={destination.imageSrc}
               />
             ))}
@@ -1039,6 +1078,19 @@ function EveryShopMenu({
   );
 }
 
+const worldButtonColors: Record<string, React.CSSProperties> = {
+  "Dungeon World": { backgroundColor: "#d9ac7c", color: "#382416" },
+  "Off to Slay the Dragon": { backgroundColor: "#102747", color: "#f8fafc" },
+  "Onslaught": { backgroundColor: "#800e18", color: "#fff1f2" },
+  "Reset": {
+    backgroundColor: "#382378",
+    backgroundImage: "radial-gradient(ellipse at 30% 25%, #60a5fa99, transparent 55%), repeating-conic-gradient(from 35deg at 50% 45%, #172554 0deg, #2563eb 65deg, #7c3aed 130deg, #c084fc 180deg, #4c1d95 245deg, #172554 360deg)",
+    color: "#ffffff",
+    textShadow: "0 1px 4px #172554",
+  },
+  "Rock n Roll Tombstone": { backgroundColor: "#000000", color: "#f8fafc" },
+};
+
 function FloatingButton({
   label,
   secondaryLabel,
@@ -1063,6 +1115,7 @@ function FloatingButton({
     <button
       type="button"
       aria-label={secondaryLabel ? `${label}, ${secondaryLabel}` : label}
+      className={label === "Neon Lights" ? worldButtonStyles.rainbow : undefined}
       onClick={onClick}
       onMouseEnter={() => setIsHighlighted(true)}
       onMouseLeave={() => setIsHighlighted(false)}
@@ -1073,6 +1126,7 @@ function FloatingButton({
         animationDelay: delay,
         backgroundColor,
         color,
+        ...worldButtonColors[label],
         transform: isHighlighted ? "translateY(-4px) scale(1.02)" : "translateY(0)",
         boxShadow: isHighlighted
           ? "0 10px 18px rgba(0, 0, 0, 0.45)"

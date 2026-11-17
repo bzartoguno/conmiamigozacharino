@@ -117,7 +117,7 @@ export function DiceRolling({ onBack }: { onBack: () => void }) {
         <button className={`${styles.button} ${styles.rollButton}`} disabled={!valid || rolling}><span className={styles.rollButtonIcon}><DieShape sides={sides} /></span> {rolling ? "Rolling…" : "Roll dice"}</button>
       </form>
       <section className={styles.rollStage} aria-busy={rolling}>
-        <p className={styles.eyebrow}>{rolling ? "A little suspense…" : result ? "The dice have spoken" : "Ready when you are"}</p>
+        <p className={styles.eyebrow}>{rolling ? "Drum roll..." : result ? "Ta Da!" : "Ready when you are"}</p>
         <div key={rolling ? "rolling" : result ? "landed" : "idle"} className={`${styles.die} ${rolling ? styles.tumbling : result ? styles.landed : ""}`} aria-hidden="true"><DieShape sides={sides} value={rolling ? preview : result ? result.sets[result.chosen][0] : 100} />{sides !== 100 && <span>{rolling ? preview : result ? result.sets[result.chosen][0] : sides}</span>}</div>
         <div role="status" className={styles.rollStatus}>{rolling ? "Rolling dice…" : result ? <><p className={styles.total}>{result.totals[result.chosen]}</p><p>{result.notation}</p></> : <><h2>{notation}</h2><p>Your next adventure starts with a roll.</p></>}</div>
         {result && <div className={styles.breakdown}>{result.sets.map((set, i) => <p className={i === result.chosen ? styles.kept : styles.discarded} key={i}>Roll {i + 1}: {set.join(" + ")} → {result.totals[i]}{i === result.chosen ? " (kept)" : " (discarded)"}</p>)}</div>}
