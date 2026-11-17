@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.475c5801.css",
-    "main.js": "/conmiamigozacharino/static/js/main.dc2fae4a.js",
+    "main.css": "/conmiamigozacharino/static/css/main.e5962756.css",
+    "main.js": "/conmiamigozacharino/static/js/main.d8651881.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
     "static/media/Calidris_Rooming_Roomba.webp": "/conmiamigozacharino/static/media/Calidris_Rooming_Roomba.75d0d3c40301ad7617aa.webp",
@@ -224,15 +224,15 @@
     "static/media/Evan's Enchanting Emporium.png": "/conmiamigozacharino/static/media/Evan's Enchanting Emporium.8fdec716b612f829e512.png",
     "static/media/H-Prince.webp": "/conmiamigozacharino/static/media/H-Prince.21f67b84bd759e3dba32.webp",
     "static/media/Objective survive.webp": "/conmiamigozacharino/static/media/Objective survive.6eb472af327f3b03c52d.webp",
-    "static/media/cah_family_cards.txt": "/conmiamigozacharino/static/media/cah_family_cards.6a8746b0211047f06d59.txt",
+    "static/media/cah_family_cards.txt": "/conmiamigozacharino/static/media/cah_family_cards.cc9cef21dad2bdaf5dbc.txt",
     "static/media/P-Alex.webp": "/conmiamigozacharino/static/media/P-Alex.806e2c7ef4358ef0d008.webp",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.475c5801.css.map": "/conmiamigozacharino/static/css/main.475c5801.css.map",
-    "main.dc2fae4a.js.map": "/conmiamigozacharino/static/js/main.dc2fae4a.js.map",
+    "main.e5962756.css.map": "/conmiamigozacharino/static/css/main.e5962756.css.map",
+    "main.d8651881.js.map": "/conmiamigozacharino/static/js/main.d8651881.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.475c5801.css",
-    "static/js/main.dc2fae4a.js"
+    "static/css/main.e5962756.css",
+    "static/js/main.d8651881.js"
   ]
 }
