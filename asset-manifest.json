@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/conmiamigozacharino/static/css/main.e5962756.css",
-    "main.js": "/conmiamigozacharino/static/js/main.d8651881.js",
+    "main.css": "/conmiamigozacharino/static/css/main.a2e353e8.css",
+    "main.js": "/conmiamigozacharino/static/js/main.dad54bb6.js",
     "static/js/453.865b790c.chunk.js": "/conmiamigozacharino/static/js/453.865b790c.chunk.js",
     "static/media/SandboxWorldMap.webp": "/conmiamigozacharino/static/media/SandboxWorldMap.6a946fa0c3794ec68631.webp",
     "static/media/Calidris_Rooming_Roomba.webp": "/conmiamigozacharino/static/media/Calidris_Rooming_Roomba.75d0d3c40301ad7617aa.webp",
@@ -21,6 +21,7 @@
     "static/media/U-Horse 8.png": "/conmiamigozacharino/static/media/U-Horse 8.6f0a1a18a859dfa8b796.png",
     "static/media/Valhalla Mart.png": "/conmiamigozacharino/static/media/Valhalla Mart.03c8d7df84e514921e12.png",
     "static/media/Bullets Buffs and Beyond.webp": "/conmiamigozacharino/static/media/Bullets Buffs and Beyond.39c7528c409b33ab6196.webp",
+    "static/media/Dungeon World.PNG": "/conmiamigozacharino/static/media/Dungeon World.983d3c1e6bbec35a8916.PNG",
     "static/media/P-VincentvanGogh.jpg": "/conmiamigozacharino/static/media/P-VincentvanGogh.7c761f177ac030cba9a6.jpg",
     "static/media/Liquidy.png": "/conmiamigozacharino/static/media/Liquidy.546e90870b5f72f0ac74.png",
     "static/media/H-Horse 1.webp": "/conmiamigozacharino/static/media/H-Horse 1.d1ce3cd72ff6ca09fbcd.webp",
@@ -40,6 +41,7 @@
     "static/media/Pentacles13.png": "/conmiamigozacharino/static/media/Pentacles13.165fdf97d697da439b65.png",
     "static/media/Pentacles10.png": "/conmiamigozacharino/static/media/Pentacles10.68d4140bd2f6bfc4e705.png",
     "static/media/Cups06.png": "/conmiamigozacharino/static/media/Cups06.4a76f90c151f997f1e66.png",
+    "static/media/Excape the pit.webp": "/conmiamigozacharino/static/media/Excape the pit.82f9ba0abe48c93d51b0.webp",
     "static/media/02-TheHighPriestess.png": "/conmiamigozacharino/static/media/02-TheHighPriestess.c2990a04ef728db91b83.png",
     "static/media/03-TheEmpress.png": "/conmiamigozacharino/static/media/03-TheEmpress.5d0d9b499c3fe78e7eb7.png",
     "static/media/Wands14.png": "/conmiamigozacharino/static/media/Wands14.c385c8c4ffe42230fcba.png",
@@ -88,6 +90,7 @@
     "static/media/N.M.E.png": "/conmiamigozacharino/static/media/N.M.E.98156d07a669e1c3863e.png",
     "static/media/ReadySetBetRaceTrack.jpg": "/conmiamigozacharino/static/media/ReadySetBetRaceTrack.f1b63c65b57639400c6a.jpg",
     "static/media/Wands10.png": "/conmiamigozacharino/static/media/Wands10.b857b5c69ea6f249683c.png",
+    "static/media/Onsluaght.jpg": "/conmiamigozacharino/static/media/Onsluaght.f1179dc17c9bac938889.jpg",
     "static/media/Pentacles03.png": "/conmiamigozacharino/static/media/Pentacles03.d88f02ec0d642d4b8ed6.png",
     "static/media/Cups04.png": "/conmiamigozacharino/static/media/Cups04.929bcc646c49a24575d2.png",
     "static/media/Cups01.png": "/conmiamigozacharino/static/media/Cups01.e5063b7551b3df39d1c6.png",
@@ -155,6 +158,7 @@
     "static/media/U-Rapidashgalar.webp": "/conmiamigozacharino/static/media/U-Rapidashgalar.614b0d67632ce5fc4095.webp",
     "static/media/H-Horse 6.png": "/conmiamigozacharino/static/media/H-Horse 6.68c2e04b6e563bd694ca.png",
     "static/media/Aunt Pattie Pie.png": "/conmiamigozacharino/static/media/Aunt Pattie Pie.5bcf5f8e1a040c3c6304.png",
+    "static/media/Off to Slay the Dragon.jpg": "/conmiamigozacharino/static/media/Off to Slay the Dragon.c3365f1222681a3d3988.jpg",
     "static/media/Cute_Bow.png": "/conmiamigozacharino/static/media/Cute_Bow.e2b756c1bd87bbe8aff5.png",
     "static/media/SandboxHebron.webp": "/conmiamigozacharino/static/media/SandboxHebron.2ad5a7e486ef39722652.webp",
     "static/media/D-Joshua.webp": "/conmiamigozacharino/static/media/D-Joshua.b75c6220b3fd1eb356a4.webp",
@@ -172,6 +176,7 @@
     "static/media/TAROTCAT.jpg": "/conmiamigozacharino/static/media/TAROTCAT.6cfbb027d7c9edc9914f.jpg",
     "static/media/Jumpy.png": "/conmiamigozacharino/static/media/Jumpy.c8f835239586d6f3b662.png",
     "static/media/Hardy.png": "/conmiamigozacharino/static/media/Hardy.b21c3e6dc69a2ec2b5f0.png",
+    "static/media/Reset.jpg": "/conmiamigozacharino/static/media/Reset.95807c656a9fca6a69c7.jpg",
     "static/media/H-Horse 3.png": "/conmiamigozacharino/static/media/H-Horse 3.8d9fd1c42bbf3368ab7a.png",
     "static/media/Provisions Paradise.png": "/conmiamigozacharino/static/media/Provisions Paradise.999b04267a4fde224d35.png",
     "static/media/D-Ethan.webp": "/conmiamigozacharino/static/media/D-Ethan.4d36b8f3654d7f248a54.webp",
@@ -192,6 +197,7 @@
     "static/media/P-Soldier.png": "/conmiamigozacharino/static/media/P-Soldier.10daf430c5d7a636685a.png",
     "static/media/U-Rapidash.webp": "/conmiamigozacharino/static/media/U-Rapidash.afcdc7dedb9512460917.webp",
     "static/media/Floral.webp": "/conmiamigozacharino/static/media/Floral.6b37133af83cfdd1e08c.webp",
+    "static/media/Rock n Roll Tomestone.jpg": "/conmiamigozacharino/static/media/Rock n Roll Tomestone.b66fc5aebe6ee6fe2ccc.jpg",
     "static/media/Supreme Smithy.png": "/conmiamigozacharino/static/media/Supreme Smithy.4f70a3fdfad904d2ddbd.png",
     "static/media/SandboxBallisticBellows.webp": "/conmiamigozacharino/static/media/SandboxBallisticBellows.9853d6acd9f77fd42053.webp",
     "static/media/Sleuth.webp": "/conmiamigozacharino/static/media/Sleuth.42ee35bce181a5d3649c.webp",
@@ -227,12 +233,12 @@
     "static/media/cah_family_cards.txt": "/conmiamigozacharino/static/media/cah_family_cards.cc9cef21dad2bdaf5dbc.txt",
     "static/media/P-Alex.webp": "/conmiamigozacharino/static/media/P-Alex.806e2c7ef4358ef0d008.webp",
     "index.html": "/conmiamigozacharino/index.html",
-    "main.e5962756.css.map": "/conmiamigozacharino/static/css/main.e5962756.css.map",
-    "main.d8651881.js.map": "/conmiamigozacharino/static/js/main.d8651881.js.map",
+    "main.a2e353e8.css.map": "/conmiamigozacharino/static/css/main.a2e353e8.css.map",
+    "main.dad54bb6.js.map": "/conmiamigozacharino/static/js/main.dad54bb6.js.map",
     "453.865b790c.chunk.js.map": "/conmiamigozacharino/static/js/453.865b790c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5962756.css",
-    "static/js/main.d8651881.js"
+    "static/css/main.a2e353e8.css",
+    "static/js/main.dad54bb6.js"
   ]
 }
